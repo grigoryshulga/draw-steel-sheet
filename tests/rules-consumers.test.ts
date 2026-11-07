@@ -513,7 +513,9 @@ describe("проекции канонических правил для потр
     expect(glossary.entries.map(glossaryId)).toEqual(
       preservedGlossary.map((entry) => entry.id),
     );
-    expect(stripIdentity(preservedGlossary)).toEqual(stripIdentity(glossary.entries));
+    // Humanoid now uses the complete Monsters definition; its stable ID is retained.
+    const unchanged = (entries: any[]) => entries.filter(entry => entry.english !== 'Humanoid');
+    expect(stripIdentity(unchanged(preservedGlossary))).toEqual(stripIdentity(unchanged(glossary.entries)));
   });
 
   it("собирается детерминированно и проверяется без записи", () => {

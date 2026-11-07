@@ -1,6 +1,12 @@
 import { headingId } from './common.mjs';
 import { decorateGlossary } from './originals.mjs';
 
+const fullRules = new Set(['Malice', 'Villain Actions', 'Creature Free Strikes', 'Attached Squad Captain']);
+export function directorGlossaryId(record) {
+  if (record.director?.recordType !== 'rule' || fullRules.has(record.originalName)) return undefined;
+  return decorateGlossary({ id: record.id, english: record.originalName }).id;
+}
+
 const leafAliases = {
   'characteristic': 'characteristics', recoveries: 'recovery', shifting: 'shift',
   'end-of-turn': 'eot', charge: 'charge main action', grab: 'grab maneuver',
@@ -11,8 +17,10 @@ const leafAliases = {
 /** Resolve source links at build time. No source corpus or English prose in the navigation bundle. */
 export function createDirectorLinkResolver(articles, entities) {
   const targets = new Map();
-  for (const article of articles) if (article.originalId) targets.set(article.originalId, `#/codex/${article.id}`);
-  for (const entity of entities) if (entity.originalId) targets.set(entity.originalId, `#/codex/${entity.source.articleId}`);
+  const href = article => directorGlossaryId(article) ? `#/catalog/glossary#term-${directorGlossaryId(article)}` : article.director && ["statblock", "dynamic-terrain"].includes(article.director.recordType) ? `#/catalog/${article.director.section}/${article.id}` : `#/codex/${article.id}`;
+  const byArticle = new Map(articles.map(article => [article.id, article]));
+  for (const article of articles) if (article.originalId) targets.set(article.originalId, href(article));
+  for (const entity of entities) if (entity.originalId) targets.set(entity.originalId, href(byArticle.get(entity.source.articleId)));
   const glossaryArticle = articles.find(article => article.id === '0102');
   const entityById = new Map(entities.map(entity => [entity.id, entity]));
   const glossary = glossaryArticle?.blocks.map(block => block.type === 'markdown' ? block.text : entityById.get(block.ref)?.markdown ?? '').join('') ?? '';
@@ -35,6 +43,18 @@ export function createDirectorLinkResolver(articles, entities) {
   });
 }
 
+/** Include lower-echelon rules too: higher-echelon Malice explicitly refers to them. */
+export function availableMaliceArticles(article, articles) {
+  const d = article.director;
+  if (d?.section !== 'monsters' || d.recordType !== 'statblock') return [];
+  return articles.filter(candidate => {
+    const other = candidate.director;
+    if (other?.groupSlug !== d.groupSlug || other.recordType !== 'featureblock' || !candidate.id.includes('malice')) return false;
+    if (d.groupSlug === 'dragon') return candidate.id === article.id.replace('.statblock.', '.') + '-malice';
+    return other.level === undefined || (d.level !== undefined && other.level <= d.level);
+  }).sort((a, b) => (a.director.level ?? 0) - (b.director.level ?? 0));
+}
+
 /** Delivery enrichments only: canonical translations and original fields remain untouched. */
 export function prepareDirectorContent(articles, entities) {
   const resolveLinks = createDirectorLinkResolver(articles, entities);
@@ -46,6 +66,10 @@ export function prepareDirectorContent(articles, entities) {
     article.blocks = article.blocks.map(block => block.type === 'markdown' ? { ...block, text: resolveLinks(block.text) } : block);
     const d = article.director;
     const related = new Set();
+    const malice = availableMaliceArticles(article, articles);
+    for (const rules of malice) {
+      article.blocks.push(...rules.blocks.filter(block => block.type === 'entity'));
+    }
     if (d.recordType === 'statblock' && d.section === 'retainers') {
       related.add(article.id.replace('.statblock.', '.advancement-features.'));
       const role = roleSlugs[d.role];
@@ -62,6 +86,7 @@ export function prepareDirectorContent(articles, entities) {
     else if (d.groupSlug && d.groupSlug !== 'retainer') {
       for (const sibling of articles) {
         if (sibling.director?.groupSlug !== d.groupSlug) continue;
+        if (d.recordType === 'statblock' && sibling.id.includes('malice') && !malice.includes(sibling)) continue;
         if (d.recordType === 'monster' || sibling.director.recordType !== 'statblock') related.add(sibling.id);
       }
       related.add('monsters.rule.monster.malice');
@@ -78,5 +103,5 @@ export function prepareDirectorContent(articles, entities) {
 /** Compact filter fields; source bookkeeping stays in the lazily loaded article. */
 export function directorIndexMetadata(article) {
   const { sourcePath, sourceRevision, ...fields } = article.director;
-  return { ...fields, originalName: article.originalName ?? '' };
+  return { ...fields, ...(directorGlossaryId(article) ? { glossaryId: directorGlossaryId(article) } : {}), originalName: article.originalName ?? '' };
 }

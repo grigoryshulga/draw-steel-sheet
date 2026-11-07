@@ -72,3 +72,9 @@ Browser layout, keyboard interaction and live Supabase policies require separate
 - Production builds create Brotli/gzip sidecars. The Node static handler negotiates them, streams files, revalidates HTML with ETags and caches hashed assets for one year. Other hosting providers must supply equivalent compression/cache headers themselves.
 - Several historical tests inspect source text. Prefer behavioral tests for future changes; do not count string assertions as browser coverage.
 - Preserve historical design/audit documents as context. Their test counts and file references describe prior iterations, not the current inventory.
+
+Book navigation uses `bookIndex`, excluding Monsters stat blocks. Canonical records remain available to Reference and source audits; old Codex stat-block addresses redirect via `codexArticleHref`. Build-time SCC links target Reference directly, and lore articles link to group-filtered catalog routes (`group:<slug>`).
+
+The 37 short Monsters definitions carry a generated `director.glossaryId`: their full text lives in the glossary UI, and book links/old article routes resolve there. Four extended rules (Malice, Villain Actions, Creature Free Strikes, Attached Squad Captain) remain book articles. The existing Humanoid glossary ID is preserved while its description is expanded to the full Monsters text.
+
+Creature article delivery includes its group Malice as full entity blocks. Level-gated groups include the current and lower tiers, preserving their activation text; dragons receive only their species-specific Malice. Retainers do not inherit enemy Malice. Canonical source records remain separate and unchanged.

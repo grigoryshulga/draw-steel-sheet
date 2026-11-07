@@ -31,6 +31,10 @@
         {
           "type": "entity",
           "ref": "monster.elf-shadow.statblock.shadow-elf-mournblade"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elf-shadow.shadow-elf-malice"
         }
       ],
       "related": [
@@ -78,6 +82,26 @@
         ],
         "role": "Засадник",
         "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.elf-shadow.shadow-elf-malice",
+      "kind": "monster-feature",
+      "name": "Раздор теневых эльфов",
+      "markdown": "В начале хода любого теневого эльфа вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Смотри, как я исчезаю (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый теневой эльф, действующий в этом ходу, может попытаться спрятаться свободным манёвром, если у него есть покров.\n\n> ⭐️ **Дополнительное измерение (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Когда любой теневой эльф, действующий в этом ходу, наносит удар по цели с И < 2, цель вдобавок к обычным эффектам удара получает [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.) или [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.).\n\n> 🌀 **Где боль — там и дом (10 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Теневые эльфы создают сжатое карманное измерение, напоминающее Эквинокс, и накладывают его на карту столкновения. До конца столкновения все существа видят теневых эльфов во всей цветовой гамме, а теневые эльфы больше не получают преимущество от своей черты «Сумрачная сущность». Кроме того, [Потенциал](#/catalog/glossary#term-glossary.potency) всех способностей теневых эльфов увеличивается на 2, а каждый враг, совершающий спасбросок против эффекта способности теневого эльфа, должен выбросить 8 или больше: он ощущает этот эффект сразу в двух мирах.\n",
+      "source": {
+        "articleId": "monsters.monster.elf-shadow.shadow-elf-malice",
+        "path": "Monsters/monster/elf-shadow/shadow-elf-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elf-shadow/shadow-elf-malice",
+      "originalName": "Shadow Elf Malice",
+      "originalDescription": "At the start of any shadow elf's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Watch Me Disappear (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each shadow elf acting this turn can attempt to hide as a free maneuver if they have concealment.\n\n> ⭐️ **Extra Dimension (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> When any shadow elf acting this turn makes a strike against a target who has I < 2 in addition to the strike's regular effects, the target is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends) or [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends).\n\n> 🌀 **Home Is Where the Hurt Is (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The shadow elves synthesize a concentrated pocket manifold reminiscent of Equinox and graft it onto the encounter map. Until the end of the encounter, all creatures can see shadow elves in full color, and shadow elves no longer benefit from their Of the Umbra trait. Additionally, the [potency](scc.v1:mcdm.heroes.v1/rule.character/potency) of all shadow elf abilities increases by 2, and any enemy making a saving throw against an effect imposed by a shadow elf ability must roll an 8 or higher as they feel the effect across two worlds.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elf-shadow/shadow-elf-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elf-shadow",
+        "recordType": "featureblock"
       }
     }
   ]

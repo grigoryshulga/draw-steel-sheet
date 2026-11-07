@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.human.statblock.human-knave"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.human.human-malice"
         }
       ],
       "related": [
@@ -76,6 +80,26 @@
         ],
         "role": "Защитник",
         "organization": "Взвод"
+      }
+    },
+    {
+      "id": "monster.human.human-malice",
+      "kind": "monster-feature",
+      "name": "Раздор людей",
+      "markdown": "В начале хода любого человека вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Алхимическое устройство (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Магия, Дальний** |                             **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-----------------------------|-----------------------------------------:|\n> | **📏 Куб 3 в пределах 10**  | **🎯 Каждый враг и объект в области** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона Порчей; Л < 0 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **12-16:** 6 урона Порчей; Л < 1 [Замедление](#/catalog/glossary#term-glossary.slowed) (до прох.)\n> - **17+:** 9 урона Порчей; Л < 2 [Опутанность](#/catalog/glossary#term-glossary.restrained) (до прох.)\n>\n> **Особое:** эту способность не может использовать [миньон](#/catalog/glossary#term-glossary.minion).\n\n> ⭐️ **Использовать слабину (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый человек, действующий в этот ход, получает преимущество на проверки способностей до конца своего хода; если же способность нацелена на врага, находящегося под действием состояния, он получает двойное преимущество.\n\n> ⭐️ **Стойкость (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый человек в столкновении, кроме [миньонов](#/catalog/glossary#term-glossary.minion), восстанавливает [Выносливость](#/catalog/glossary#term-glossary.stamina) в количестве, равном 5, умноженным на его уровень.\n",
+      "source": {
+        "articleId": "monsters.monster.human.human-malice",
+        "path": "Monsters/monster/human/human-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.human/human-malice",
+      "originalName": "Human Malice",
+      "originalDescription": "At the start of any human's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Alchemical Device (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Magic, Ranged** |                             **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|-----------------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy and object in the area** |\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 corruption damage; A < 0 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **12-16:** 6 corruption damage; A < 1 [slowed](scc.v1:mcdm.heroes.v1/condition/slowed) (save ends)\n> - **17+:** 9 corruption damage; A < 2 [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n>\n> **Special:** This ability can't be used by a [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion).\n\n> ⭐️ **Exploit Opening (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each human acting this turn gains an edge on abilities until the end of their turn, or has a double edge on any ability that targets an enemy affected by a condition.\n\n> ⭐️ **Staying Power (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each non-[minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) human in the encounter regains [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) equal to 5 times their level.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/human/human-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "human",
+        "recordType": "featureblock"
       }
     }
   ]

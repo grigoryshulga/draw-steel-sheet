@@ -51,7 +51,7 @@ import {
   writeJsonText,
 } from "./lib/common.mjs";
 import { compactId, decorateConsumerProjections, maps } from "./lib/originals.mjs";
-import { createDirectorLinkResolver } from './lib/director-content.mjs';
+import { createDirectorLinkResolver, directorGlossaryId } from './lib/director-content.mjs';
 
 const REPO_ROOT = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -1835,6 +1835,16 @@ export function buildConsumerData({
   const resolveDirectorLinks = createDirectorLinkResolver(articles, entities);
   const knownTerms = new Set(glossary.entries.map(entry => entry.english.toLowerCase()));
   for (const entity of entities.filter(entity => entity.kind === 'monster-rule')) {
+    const glossaryId = directorGlossaryId(entity);
+    if (glossaryId) {
+      const existing = libraryProjection.glossary.find(entry => entry.english.toLowerCase() === entity.originalName.toLowerCase());
+      const full = { id: glossaryId, name: entity.name, english: entity.originalName,
+        letter: entity.name[0].toLocaleUpperCase('ru'), markdown: resolveDirectorLinks(entity.markdown),
+        originalName: entity.originalName, originalDescription: entity.originalDescription };
+      if (existing) Object.assign(existing, full);
+      else libraryProjection.glossary.push(full);
+      continue;
+    }
     if (knownTerms.has(entity.originalName.toLowerCase())) continue;
     const introduction = entity.markdown.trim().split(/\n\s*\n/)[0];
     libraryProjection.glossary.push({

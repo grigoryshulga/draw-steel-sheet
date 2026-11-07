@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.xorannox-the-tyract.statblock.demolition"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.xorannox-the-tyract.xorannoxs-malice"
         }
       ],
       "related": [
@@ -76,6 +80,26 @@
           "Сверхразум"
         ],
         "role": "Артиллерист"
+      }
+    },
+    {
+      "id": "monster.xorannox-the-tyract.xorannoxs-malice",
+      "kind": "monster-feature",
+      "name": "Раздор Ксораннокса",
+      "markdown": "В начале хода Ксораннокса вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ❇️ **Газовая отрыжка (3 Раздора)**\n>\n> Ксораннокс издаёт зловонную отрыжку. Каждый враг в пределах 2 клеток от него с М < 3 [ослаблен](#/catalog/glossary#term-glossary.weakened) (до прох.).\n\n> ⭐️ **Слизистый след (5 Раздора)**\n>\n> До конца следующего хода Ксораннокса всякий раз, когда он или любая из его глазоножек покидает занимаемое пространство, там остаётся вязкая слизь. Любой враг, входящий в затронутую клетку, получает уязвимость 5 к молнии и уязвимость 5 к огню до конца столкновения.\n\n> ☠️ **Действие одиночки (5 Раздора)**\n>\n> Ксораннокс совершает дополнительное основное действие в свой ход. Он может использовать эту особенность, даже если он [оглушён](#/catalog/glossary#term-glossary.dazed).\n\n> 🌀 **Разум над материей (7 Раздора)**\n>\n> Ксораннокс наполняет карту столкновения мощным телекинетическим полем. Ведущий выбирает сторону света (север, юг, восток или запад). Когда существо на карте столкновения добровольно перемещается или его [принудительно перемещают](#/catalog/glossary#term-glossary.forced-movement), его [тянет](#/catalog/glossary#term-glossary.forced-movement) на 2 клетки в выбранном направлении, игнорируя устойчивость. При каждом использовании этой особенности её предыдущий эффект прекращается.\n",
+      "source": {
+        "articleId": "monsters.monster.xorannox-the-tyract.xorannoxs-malice",
+        "path": "Monsters/monster/xorannox-the-tyract/xorannoxs-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.xorannox-the-tyract/xorannoxs-malice",
+      "originalName": "Xorannox's Malice",
+      "originalDescription": "At the start of Xorannox's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one\nof the following features.\n\n> ❇️ **Gas Belch (3 Malice)**\n>\n> Xorannox lets out a noxious belch. Each enemy within 2 squares of him who has M < 3 is [weakened](scc.v1:mcdm.heroes.v1/condition/weakened) (save ends).\n\n> ⭐️ **Slime Trail (5 Malice)**\n>\n> Until the end of Xorannox's next turn, whenever he or any of his eyes leave their space, they secrete a viscous slime onto the ground in that area. Any enemy who enters an affected square has lightning weakness 5 and fire weakness 5 until the end of the encounter.\n\n> ☠️ **Solo Action (5 Malice)**\n>\n> Xorannox takes an additional main action on his turn. He can use this feature even if he is [dazed](scc.v1:mcdm.heroes.v1/condition/dazed).\n\n> 🌀 **Mind Over Matter (7 Malice)**\n>\n> Xorannox fills the encounter map with a powerful telekinetic field. The Director chooses a cardinal direction (north, south, east, or west). Whenever a creature in the encounter willingly moves or is [force moved](scc.v1:mcdm.heroes.v1/movement/forced-movement), they are [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) 2 squares in the chosen direction, ignoring stability. Each time this feature is used, its previous effect ends.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/xorannox-the-tyract/xorannoxs-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "xorannox-the-tyract",
+        "recordType": "featureblock"
       }
     }
   ]

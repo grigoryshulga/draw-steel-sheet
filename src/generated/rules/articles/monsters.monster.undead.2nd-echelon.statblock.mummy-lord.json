@@ -29,6 +29,14 @@
         {
           "type": "entity",
           "ref": "monster.undead.2nd-echelon.statblock.mummy-lord"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.undead.1st-echelon.undead-malice-level-1-malice-features"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.undead.2nd-echelon.undead-malice-level-4-malice-features"
         }
       ],
       "related": [
@@ -43,14 +51,6 @@
         {
           "id": "monsters.monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
           "title": "Нежить: черты Раздора (уровень 4+)"
-        },
-        {
-          "id": "monsters.monster.undead.3rd-echelon.undead-malice-level-7-malice-features",
-          "title": "Нежить (особенности Раздора 7-го уровня и выше)"
-        },
-        {
-          "id": "monsters.monster.undead.4th-echelon.undead-malice-level-10-malice-features",
-          "title": "Нежить (особенности Раздора 10-го уровня)"
         },
         {
           "id": "monsters.rule.monster.malice",
@@ -86,6 +86,48 @@
           "Нежить"
         ],
         "organization": "Лидер"
+      }
+    },
+    {
+      "id": "monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+      "kind": "monster-feature",
+      "name": "Нежить: черты Раздора (уровень 1+)",
+      "markdown": "В начале хода любой нежити вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих черт.\n\n> 🌀 **Прожорливая орда (2 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> В конце этого раунда на каждого героя, который еще не находится [рядом](#/catalog/glossary#term-glossary.adjacent) хотя бы с одним существом-нежитью, нападают два **разлагающихся зомби**: они вырываются из земли и появляются в свободных соседних пространствах. Каждый зомби [утомлен](#/catalog/glossary#term-glossary.winded). Эту черту нельзя использовать два раунда подряд.\n\n> 🌀 **Паранормальный бросок (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До трех бесхозных объектов на карте столкновения поднимаются в воздух и зависают на высоте 1 клетки над землей. Затем каждый объект [притягивается](#/catalog/glossary#term-glossary.forced-movement) на 5 клеток к ближайшему врагу в пределах 3 клеток от объекта.\n\n> 🔳 **Хватающие и голодные (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Ненасытные гниющие руки нежити вырываются из 9 смежных клеток вертикальной или горизонтальной поверхности. Любое существо, завершающее ход [рядом](#/catalog/glossary#term-glossary.adjacent) с затронутой клеткой, проходит **тест Ловкости**.\n>\n> - **≤11:** 5 урона; [опутано](#/catalog/glossary#term-glossary.restrained) (до прох.)\n> - **12-16:** 5 урона; [опутано](#/catalog/glossary#term-glossary.restrained) (КсХ)\n> - **17+:** 5 урона\n>\n> **Эффект:** Пока существо остается [опутанным](#/catalog/glossary#term-glossary.restrained) таким образом, в начале каждого своего хода оно получает 1d6 урона.\n\n> ⭐️ **Марш ужаса (7+ [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До четырех существ-нежити в столкновении перемещаются на расстояние до своей Скорости и могут совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike). За каждый дополнительный [Раздор](#/codex/monsters.rule.monster.malice), потраченный на эту черту, количество затронутых существ-нежити увеличивается на 1. Если во время этого марша [Выносливость](#/catalog/glossary#term-glossary.stamina) существа-нежити снижается до 0, оно не умирает, пока марш не завершится.\n",
+      "source": {
+        "articleId": "monsters.monster.undead.1st-echelon.undead-malice-level-1-malice-features",
+        "path": "Monsters/monster/undead/1st-echelon/undead-malice-level-1-malice-features.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.undead.1st-echelon/undead-malice-level-1-malice-features",
+      "originalName": "Undead Malice (Level 1+ Malice Features)",
+      "originalDescription": "At the start of any undead's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🌀 **Ravenous Horde (2 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> At the end of this round, each hero not already [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to one or more undead is beset by two **rotting zombies** who burst up from the ground to appear in adjacent unoccupied spaces. Each zombie is [winded](scc.v1:mcdm.heroes.v1/rule.health/winded). This feature can't be used two rounds in a row.\n\n> 🌀 **Paranormal Fling (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Up to three unattended objects on the encounter map rise to float 1 square off the ground. Each object is then [pulled](scc.v1:mcdm.heroes.v1/movement/forced-movement) 5 squares toward the nearest enemy within 3 squares of the object.\n\n> 🔳 **The Grasping, the Hungry (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Ravenous and rotting undead arms burst forth from 9 connected squares of a vertical or horizontal surface. Any creature who ends their turn [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to an affected square makes an **Agility test**.\n>\n> - **≤11:** 5 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (save ends)\n> - **12-16:** 5 damage; [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) (EoT)\n> - **17+:** 5 damage\n>\n> **Effect:** While [restrained](scc.v1:mcdm.heroes.v1/condition/restrained) this way, a creature takes 1d6 damage at the start of each of their turns.\n\n> ⭐️ **Dread March (7+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Up to four undead in the encounter move up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike). The number of undead affected increases by 1 for each additional [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent on this feature. If an undead is reduced to 0 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina) during this dread march, they don't die until the march is resolved.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/1st-echelon/undead-malice-level-1-malice-features.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "featureblock",
+        "level": 1
+      }
+    },
+    {
+      "id": "monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
+      "kind": "monster-feature",
+      "name": "Нежить: черты Раздора (уровень 4+)",
+      "markdown": "В начале хода любой нежити 4 уровня или выше вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих черт.\n\n> ⭐️ **Предыдущие черты Раздора (2-7+ [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Нежить активирует черту [Раздора](#/codex/monsters.rule.monster.malice), доступную нежити уровня 3 или ниже.\n\n> 🌀 **Жажда крови (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Одно существо-нежить, действующее в этот ход, применяет [знаковую способность](#/catalog/glossary#term-glossary.signature-ability) против существа, которое [истекает кровью](#/catalog/glossary#term-glossary.bleeding). Каждое существо-нежить в пределах 5 клеток от первого существа-нежити совершает свободный триггер: перемещается на расстояние до своей Скорости и может нанести [свободный удар](#/catalog/glossary#term-glossary.free-strike) по той же цели.\n",
+      "source": {
+        "articleId": "monsters.monster.undead.2nd-echelon.undead-malice-level-4-malice-features",
+        "path": "Monsters/monster/undead/2nd-echelon/undead-malice-level-4-malice-features.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.undead.2nd-echelon/undead-malice-level-4-malice-features",
+      "originalName": "Undead Malice (Level 4+ Malice Features)",
+      "originalDescription": "At the start of any level 4 or higher undead's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Prior Malice Features (2-7+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> The undead activates a [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) feature available to undead of level 3 or lower.\n\n> 🌀 **Blood Hunger (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One undead acting this turn uses a [signature ability](scc.v1:mcdm.heroes.v1/rule.combat/signature-ability) against a creature who is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding). As a free triggered action, each undead within 5 squares of the first undead moves up to their speed and can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against the same target.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/undead/2nd-echelon/undead-malice-level-4-malice-features.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "undead",
+        "recordType": "featureblock",
+        "level": 4
       }
     }
   ]

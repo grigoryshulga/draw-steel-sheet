@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.rival.3rd-echelon.statblock.rival-fury"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.rival.rival-malice-level-1-malice-features"
         }
       ],
       "related": [
@@ -76,6 +80,27 @@
         ],
         "role": "Громила",
         "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.rival.rival-malice-level-1-malice-features",
+      "kind": "monster-feature",
+      "name": "Раздор соперников (особенности Раздора 1-го уровня и выше)",
+      "markdown": "В начале хода любого соперника вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Действуем сообща (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда каждый соперник может наложить помеху на [удар](#/catalog/glossary#term-glossary.strike), направленный против [находящегося рядом](#/catalog/glossary#term-glossary.adjacent) соперника, в качестве свободного ответного действия.\n\n> ⭐️ **Мы просто делаем это лучше (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца раунда каждый раз, когда соперник совершает бросок силы против цели своей особенности «Соперничество», он бросает d3 и прибавляет результат к броску силы.\n\n> 🔳 **Полюбуйтесь добычей (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один соперник достаёт магический расходуемый предмет и бросает его, выбирая целью линию 5 x 1 в пределах 1 клетки от себя или куб 3 в пределах 10 клеток от себя. Каждый противник в области совершает проверку Ловкости. Соперник выбирает тип урона и состояние, соответствующие результату проверки, из одной из следующих пар: урон звуком и [Ошеломление](#/catalog/glossary#term-glossary.dazed), урон ядом и [Ослабление](#/catalog/glossary#term-glossary.weakened) или урон огнём и [Испуг](#/catalog/glossary#term-glossary.frightened).\n>\n> - **≤11:** 11 урона; цель подвергается состоянию (до прох.)\n> - **12-16:** 8 урона; цель подвергается состоянию (КсХ)\n> - **17+:** 5 урона\n\n> ⭐️ **Командуем ходом боя (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый соперник восстанавливает 10 [Выносливости](#/catalog/glossary#term-glossary.stamina). До конца раунда всякий раз, когда соперник использует способность против врага, каждый другой соперник, [находящийся рядом](#/catalog/glossary#term-glossary.adjacent) с этим врагом, может совершить по нему [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ⭐️ **Согласованный разгром (10 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый соперник перемещается на расстояние до своей Скорости и использует основное действие или манёвр, не требующие траты [Раздора](#/codex/monsters.rule.monster.malice).\n",
+      "source": {
+        "articleId": "monsters.monster.rival.rival-malice-level-1-malice-features",
+        "path": "Monsters/monster/rival/rival-malice-level-1-malice-features.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.rival/rival-malice-level-1-malice-features",
+      "originalName": "Rival Malice (Level 1+ Malice Features)",
+      "originalDescription": "At the start of any rival's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Work as One (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, each rival can impose a bane on a [strike](scc.v1:mcdm.heroes.v1/rule.combat/strike) made against an [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) rival as a free triggered action.\n\n> ⭐️ **We Just Do It Better (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the round, whenever any rival makes a power roll against the target of their Rivalry trait, they roll a d3 and add it to the power roll.\n\n> 🔳 **Check Out Our Loot (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One rival pulls out a magic consumable and hurls it, targeting a 5 x 1 line within 1 square of them or a 3 cube within 10 squares of them. Each enemy in the area makes an Agility test. The rival chooses a damage type and a condition for the outcome of the test from one of the following pairs: sonic damage and [dazed](scc.v1:mcdm.heroes.v1/condition/dazed), poison damage and [weakened](scc.v1:mcdm.heroes.v1/condition/weakened), or fire damage and [frightened](scc.v1:mcdm.heroes.v1/condition/frightened).\n>\n> - **≤11:** 11 damage; the condition affects the target (save ends)\n> - **12-16:** 8 damage; the condition affects the target (EoT)\n> - **17+:** 5 damage\n\n> ⭐️ **Calling the Shots (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each rival regains 10 [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina). Until the end of the round, whenever a rival uses an ability against an enemy, each other rival [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to that enemy can make a [free strike](scc.v1:mcdm.heroes.v1/feature.common.main-actions/free-strike) against them.\n\n> ⭐️ **Coordinated Takedown (10 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each rival moves up to their speed and uses a main action or maneuver that doesn't cost [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice).",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/rival/rival-malice-level-1-malice-features.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "rival",
+        "recordType": "featureblock",
+        "level": 1
       }
     }
   ]

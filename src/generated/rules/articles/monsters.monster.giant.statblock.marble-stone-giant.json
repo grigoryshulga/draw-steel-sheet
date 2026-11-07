@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.giant.statblock.marble-stone-giant"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.giant.giant-malice"
         }
       ],
       "related": [
@@ -76,6 +80,26 @@
         ],
         "role": "Проклинатель",
         "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.giant.giant-malice",
+      "kind": "monster-feature",
+      "name": "Раздор великанов",
+      "markdown": "В начале хода любого великана вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Швырнуть местность (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний бой, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 Куб 4 в пределах 10**  | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Великан вырывает из земли сооружение, опасность или часть карты столкновения и швыряет её так, чтобы она заполнила область. Каждая цель проходит **тест Ловкости**.\n>\n> - **≤11:** 18 урона; состояние [Лежащий](#/catalog/glossary#term-glossary.prone), цель не может встать (до прох.)\n> - **12-16:** 14 урона; состояние [Лежащий](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 9 урона\n\n> ❇️ **Рёв (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Каждый великан в столкновении глубоко вдыхает и кричит, [толкая](#/catalog/glossary#term-glossary.forced-movement) каждое существо в пределах 3 клеток от себя на расстояние до 10 клеток. Существо, которое могут толкнуть несколько великанов, толкает один великан по вашему выбору.\n\n> 🔳 **Титанический разлом (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Великан создаёт трещину в земле: либо линию 15 x 2 в пределах 1, либо линию 10 x 3 в пределах 2. Трещина раскрывается на глубину 6 клеток. Каждый великан в области может [смещением](#/catalog/glossary#term-glossary.shift) переместиться в ближайшее свободное пространство за пределами трещины. Каждое существо, не являющееся великаном, проходит **тест Ловкости**.\n>\n> - **≤11:** 10 урона; цель падает в трещину, получает состояние [Лежащий](#/catalog/glossary#term-glossary.prone) и не может встать (КсХ)\n> - **12-16:** 10 урона; цель получает состояние [Лежащий](#/catalog/glossary#term-glossary.prone) и цепляется за край трещины\n> - **17+:** Цель может [смещением](#/catalog/glossary#term-glossary.shift) переместиться в ближайшее свободное пространство за пределами трещины.\n",
+      "source": {
+        "articleId": "monsters.monster.giant.giant-malice",
+        "path": "Monsters/monster/giant/giant-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.giant/giant-malice",
+      "originalName": "Giant Malice",
+      "originalDescription": "At the start of any giant's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Hurl Landscape (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|------------------------------:|\n> | **📏 4 cube within 10**  | **🎯 Each enemy in the area** |\n>\n> **Effect:** A giant unearths a structure, hazard, or chunk of the encounter map and launches it to fill the area. Each target makes an **Agility test**.\n>\n> - **≤11:** 18 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n> - **12-16:** 14 damage; [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 9 damage\n\n> ❇️ **Bellow (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Each giant in the encounter takes a deep breath and yells, [pushing](scc.v1:mcdm.heroes.v1/movement/forced-movement) each creature within 3 squares of them up to 10 squares. A creature who can be pushed by more than one giant is pushed by one giant of your choice.\n\n> 🔳 **Titanic Tear (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A giant creates a fissure along the ground, either in a 15 x 2 line within 1 or a 10 x 3 line within 2, and that opens up to a depth of 6 squares. Each giant in the area can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure. Each non-giant in the area makes an **Agility test**.\n>\n> - **≤11:** 10 damage; the target falls into the fissure, and is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (EoT)\n> - **12-16:** 10 damage; the target is [prone](scc.v1:mcdm.heroes.v1/condition/prone) and hanging onto the edge of the fissure\n> - **17+:** The target can [shift](scc.v1:mcdm.heroes.v1/movement/shifting) into the nearest unoccupied space outside the fissure.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/giant/giant-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "giant",
+        "recordType": "featureblock"
       }
     }
   ]

@@ -63,6 +63,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.goblin-assassin"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -109,6 +113,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.goblin-cursespitter"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -154,6 +162,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.goblin-monarch"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -200,6 +212,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.goblin-runner"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -246,6 +262,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.goblin-sniper"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -292,6 +312,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.goblin-spinecleaver"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -338,6 +362,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.goblin-stinker"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -384,6 +412,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.goblin-underboss"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -430,6 +462,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.goblin-warrior"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -476,6 +512,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.skitterling"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -522,6 +562,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.war-spider"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -568,6 +612,10 @@
         {
           "type": "entity",
           "ref": "monster.goblin.statblock.worg"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.goblin.goblin-malice"
         }
       ],
       "related": [
@@ -750,7 +798,7 @@
       "id": "monster.goblin.statblock.goblin-monarch",
       "kind": "monster",
       "name": "Гоблин-монарх",
-      "markdown": "| Гоблин, Гуманоид | - | Уровень 1 | Лидер | Боевая ценность 12 |\n|:----------------:|:--:|:---------:|:-----:|:----------:|\n| **1S**<br>Размер | **6**<br>Скорость | **80**<br>Выносливость | **1**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+3**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **+3**<br>Присутствие |\n\n> ⚔️ **Топорик (Знаковая способность)**\n>\n> | **Ближний, Дальний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|-----------------------------------------------:|\n> | **📏 Ближний 1 или дальний 5**     | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12–16:** 10 урона\n> - **17+:** 13 урона\n>\n> **Эффект:** Один союзник в пределах 10 клеток от монарха может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> 🏹 **Живо сюда! (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|----------------------------------:|\n> | **📏 Дальний 20** | **🎯 Особое** |\n>\n> **Эффект:** Два гоблина-бегуна появляются в незанятых клетках в пределах дистанции.\n\n> ❗️ **Живой щит**\n>\n> | **Ближний** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Один союзник** |\n>\n> **Условие:** Существо выбирает монарха целью удара.\n>\n> **Эффект:** Вместо монарха целью этого удара становится союзник.\n\n> ⭐️ **Хитрость**\n>\n> Монарх не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack), когда перемещается.\n\n> ⭐️ **[Прекращение эффекта](#/codex/monsters.rule.monster.end-effect)**\n>\n> В конце каждого своего хода монарх может получить 5 урона, чтобы прекратить один эффект, который можно прекратить спасброском. Этот урон нельзя уменьшить никаким способом.\n\n> ☠️ **Чего вы ждёте? ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область** |                        **-** |\n> |-------------|---------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель может переместиться на расстояние до своей Скорости или совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **Сосредоточенный огонь ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Дальний** |                      **-** |\n> |-------------|---------------------------:|\n> | **📏 Дальний 10** | **🎯 Один враг или объект** |\n>\n> **Эффект:** Каждый союзник в пределах 10 клеток от цели может переместиться на расстояние до своей Скорости в её направлении.\n\n> ☠️ **Убей! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **-** |          **-** |\n> |-------|---------------:|\n> | **📏 Особое** | **🎯 Особое** |\n>\n> **Эффект:** Каждый враг в столкновении получает 2 урона за каждого гоблина, находящегося [смежно](#/catalog/glossary#term-glossary.adjacent) с ним.\n",
+      "markdown": "| Гоблин, Гуманоид | - | Уровень 1 | Лидер | Боевая ценность 12 |\n|:----------------:|:--:|:---------:|:-----:|:----------:|\n| **1S**<br>Размер | **6**<br>Скорость | **80**<br>Выносливость | **1**<br>Устойчивость | **4**<br>Свободный удар |\n| **-**<br>Иммунитет | **Лазание**<br>Движение | - | **-**<br>С капитаном | **-**<br>Уязвимость |\n| **0**<br>Мощь | **+3**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **+3**<br>Присутствие |\n\n> ⚔️ **Топорик (Знаковая способность)**\n>\n> | **Ближний, Дальний, Удар, Оружие** |                 **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |------------------------------------|-----------------------------------------------:|\n> | **📏 Ближний 1 или дальний 5**     | **🎯 Два существа или объекта** |\n>\n> **Бросок силы + 3:**\n>\n> - **≤11:** 7 урона\n> - **12–16:** 10 урона\n> - **17+:** 13 урона\n>\n> **Эффект:** Один союзник в пределах 10 клеток от монарха может совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> 🏹 **Живо сюда! (1 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Дальний** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------|----------------------------------:|\n> | **📏 Дальний 20** | **🎯 Особое** |\n>\n> **Эффект:** Два гоблина-бегуна появляются в незанятых клетках в пределах дистанции.\n\n> ❗️ **Живой щит**\n>\n> | **Ближний** | **[Триггер](#/catalog/glossary#term-glossary.triggered-action)** |\n> |-------------|---------------------------------------:|\n> | **📏 Ближний 1** | **🎯 Один союзник** |\n>\n> **Условие:** Существо выбирает монарха целью удара.\n>\n> **Эффект:** Вместо монарха целью этого удара становится союзник.\n\n> ⭐️ **Хитрость**\n>\n> Монарх не провоцирует [атаки по возможности](#/catalog/glossary#term-glossary.opportunity-attack), когда перемещается.\n\n> ⭐️ **[Прекращение эффекта](#/catalog/glossary#term-glossary.end-effect)**\n>\n> В конце каждого своего хода монарх может получить 5 урона, чтобы прекратить один эффект, который можно прекратить спасброском. Этот урон нельзя уменьшить никаким способом.\n\n> ☠️ **Чего вы ждёте? ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 1)**\n>\n> | **Область** |                        **-** |\n> |-------------|---------------------------:|\n> | **📏 Взрыв 10** | **🎯 Каждый союзник в области** |\n>\n> **Эффект:** Каждая цель может переместиться на расстояние до своей Скорости или совершить [свободный удар](#/catalog/glossary#term-glossary.free-strike).\n\n> ☠️ **Сосредоточенный огонь ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 2)**\n>\n> | **Дальний** |                      **-** |\n> |-------------|---------------------------:|\n> | **📏 Дальний 10** | **🎯 Один враг или объект** |\n>\n> **Эффект:** Каждый союзник в пределах 10 клеток от цели может переместиться на расстояние до своей Скорости в её направлении.\n\n> ☠️ **Убей! ([Действие злодея](#/codex/monsters.rule.monster.villain-action) 3)**\n>\n> | **-** |          **-** |\n> |-------|---------------:|\n> | **📏 Особое** | **🎯 Особое** |\n>\n> **Эффект:** Каждый враг в столкновении получает 2 урона за каждого гоблина, находящегося [смежно](#/catalog/glossary#term-glossary.adjacent) с ним.\n",
       "source": {
         "articleId": "monsters.monster.goblin.statblock.goblin-monarch",
         "path": "Monsters/monster/goblin/statblock/goblin-monarch.md"

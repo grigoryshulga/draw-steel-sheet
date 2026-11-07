@@ -31,6 +31,10 @@
         {
           "type": "entity",
           "ref": "monster.minotaur.statblock.minotaur-bully"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.minotaur.minotaur-malice"
         }
       ],
       "related": [
@@ -78,6 +82,26 @@
         ],
         "role": "Громила",
         "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.minotaur.minotaur-malice",
+      "kind": "monster-feature",
+      "name": "Раздор минотавров",
+      "markdown": "В начале хода любого минотавра вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> 👤 **Бычий натиск (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> За каждые потраченные 3 [Раздора](#/codex/monsters.rule.monster.malice) один минотавр, действующий в этот ход, получает бонус +4 к Скорости и игнорирует [труднопроходимую местность](#/catalog/glossary#term-glossary.difficult-terrain) до начала своего следующего хода.\n\n> 👤 **Хватит... глупостей! (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один минотавр, действующий в этот ход, получает половину любого урона и может совершать маневр отталкивания как свободный триггер всякий раз, когда враг оказывается [рядом с ним](#/catalog/glossary#term-glossary.adjacent). Оба эффекта действуют до начала его следующего хода.\n\n> ❇️ **В яблочко (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Все минотавры в столкновении наполняют пространство вокруг себя псионическими образами потерянности и одиночества. Каждый враг в пределах 5 клеток от минотавра [телепортируется](#/catalog/glossary#term-glossary.teleport) на расстояние до 5 клеток и проходит **тест Интуиции**.\n>\n> - **≤11:** цель видит линию воздействия только в пределах 3 клеток и испытывает [Испуг](#/catalog/glossary#term-glossary.frightened) перед всеми минотаврами (до прох.).\n> - **12-16:** цель видит линию воздействия только в пределах 3 клеток (КсХ).\n> - **17+:** Без эффекта.\n",
+      "source": {
+        "articleId": "monsters.monster.minotaur.minotaur-malice",
+        "path": "Monsters/monster/minotaur/minotaur-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.minotaur/minotaur-malice",
+      "originalName": "Minotaur Malice",
+      "originalDescription": "At the start of any minotaur's turn, you can spend Malice to activate one of the following features.\n\n> 👤 **Bull Rush (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> For each 3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) spent, one minotaur acting this turn gains a +4 bonus to speed and ignores [difficult terrain](scc.v1:mcdm.heroes.v1/movement/difficult-terrain) until the start of their next turn.\n\n> 👤 **Cut the... Nonsense! (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One minotaur acting this turn halves any damage they take, and can use the Knockback maneuver as a free triggered action whenever an enemy comes [adjacent](scc.v1:mcdm.heroes.v1/rule.combat/adjacent) to them, all until the start of their next turn.\n\n> ❇️ **Bullseye (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> All minotaurs in the encounter fill the area around them with psychic impressions of feeling lost and isolated. Each enemy within 5 squares of a minotaur is [teleported](scc.v1:mcdm.heroes.v1/movement/teleport) up to 5 squares and makes an **Intuition test**.\n>\n> - **≤11:** The target has line of effect only within 3 squares and is [frightened](scc.v1:mcdm.heroes.v1/condition/frightened) of all minotaurs (save ends).\n> - **12-16:** The target has line of effect only within 3 squares (EoT).\n> - **17+:** No effect.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/minotaur/minotaur-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "minotaur",
+        "recordType": "featureblock"
       }
     }
   ]

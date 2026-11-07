@@ -1,3 +1,4 @@
+import { isDirectorSection } from "../navigation";
 import { catalogAccent, catalogLevelSections, catalogTitleText } from "../lib/catalog-presentation";
 import { echelon as levelEchelon } from "../lib/progression";
 import { CatalogRank } from "../components/rules/CatalogRank";
@@ -50,13 +51,16 @@ const ART_KIND_BY_SECTION: Partial<Record<CatalogSectionId, ArtKind>> = {
 export function CatalogView() {
   const segments = useLibraryLocation();
   const { section, id } = resolveCatalogRoute(segments);
+  const director = isDirectorSection(section);
+  const sections = CATALOG_SECTIONS.filter(item => isDirectorSection(item.id) === director);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [echelon, setEchelon] = useState("");
   const [directorFilters, setDirectorFilters] = useState(emptyDirectorFilters);
   const app = useContext(AppContext);
 
-  const entries = catalogSectionEntries(section);
+  const groupSlug = id?.startsWith("group:") ? id.slice(6) : undefined;
+  const entries = catalogSectionEntries(section).filter(entry => !groupSlug || entry.director?.groupSlug === groupSlug);
   const categories = [...new Set(entries.map((entry) => entry.eyebrow))];
   const hasEchelon = entries.some((entry) => entry.echelon);
   const results = entries.filter(
@@ -66,7 +70,7 @@ export function CatalogView() {
       matchesDirectorFilters(entry, directorFilters) &&
       matchesLibraryQuery(query, entry.search),
   );
-  const selected = entries.find((entry) => entry.id === id) ?? (!id ? results[0] : undefined);
+  const selected = entries.find((entry) => entry.id === id) ?? (!id || groupSlug ? results[0] : undefined);
 
   useEffect(() => {
     setQuery("");
@@ -102,13 +106,13 @@ export function CatalogView() {
   const globalQuery = query.trim();
   const globalGroups = useMemo(() => {
     if (!globalQuery) return [];
-    return CATALOG_SECTIONS.map((catalogSection) => ({
+    return CATALOG_SECTIONS.filter(item => isDirectorSection(item.id) === director).map((catalogSection) => ({
       section: catalogSection,
       entries: catalogSectionEntries(catalogSection.id).filter((entry) =>
         matchesLibraryQuery(globalQuery, entry.search),
       ),
     })).filter((group) => group.entries.length > 0);
-  }, [globalQuery]);
+  }, [globalQuery, director]);
   const globalCount = globalGroups.reduce(
     (total, group) => total + group.entries.length,
     0,
@@ -127,14 +131,14 @@ export function CatalogView() {
       <div className="catalog-global-search">
         <TextInput
           type="search"
-          aria-label="Поиск по всему справочнику"
-          placeholder="Поиск по всему справочнику…"
+          aria-label={director ? "Поиск по материалам ведущего" : "Поиск по всему справочнику"}
+          placeholder={director ? "Поиск по материалам ведущего…" : "Поиск по всему справочнику…"}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
         />
       </div>
-      <nav className="catalog-tabs" aria-label="Раздел справочника">
-        {CATALOG_SECTIONS.map((item) => (
+      <nav className="catalog-tabs" aria-label={director ? "Разделы для ведущего" : "Раздел справочника"}>
+        {sections.map((item) => (
           <a
             key={item.id}
             href={catalogSectionHref(item.id)}
@@ -190,16 +194,21 @@ export function CatalogView() {
           ))}
         </div>
       ) : (
+        <>
+        {director && <section className="director-filter-panel" aria-label="Фильтры каталога">
+          <DirectorFilters entries={entries} value={directorFilters} onChange={setDirectorFilters} />
+          <p className="muted small" role="status">Найдено: {results.length} из {entries.length}</p>
+        </section>}
         <div
           className={`catalog-layout${
             section !== "glossary" && selected ? " has-detail" : ""
           }`}
         >
           <section className="catalog-browser" aria-label="Каталог">
-            {['monsters', 'retainers', 'terrain'].includes(section) && <>
-              <DirectorFilters entries={entries} value={directorFilters} onChange={setDirectorFilters} />
-              <p className="muted small" role="status">Найдено: {results.length} из {entries.length}</p>
-            </>}
+            {groupSlug && <div className="catalog-global-heading">
+              <h2>{entries[0]?.eyebrow ?? 'Группа существ'}</h2>
+              <a href={catalogSectionHref(section)}>Все существа →</a>
+            </div>}
             {(section === "glossary" ||
               categories.length > 1 ||
               hasEchelon) && (
@@ -316,6 +325,7 @@ export function CatalogView() {
               </p>
             ) : null)}
         </div>
+        </>
       )}
     </div>
   );
@@ -361,9 +371,9 @@ function CatalogDetail({
             key={entry.articleId}
             articleId={entry.articleId}
           />
-          <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
+          {!['statblock', 'dynamic-terrain'].includes(entry.director?.recordType ?? '') && <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
             Открыть в Кодексе →
-          </a>
+          </a>}
         </>
       ) : null}
     </article>

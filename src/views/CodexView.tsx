@@ -12,12 +12,13 @@ import {
   classLandingHref,
   codexArticleHref,
   readingParts,
+  bookIndex as ruleIndex,
 } from "../rules/codex-navigation";
 import {
   loadRuleArticle,
   loadRuleSearchIndex,
   resolveRuleIndexEntry,
-  ruleIndex,
+  ruleIndex as completeRuleIndex,
 } from "../rules/repository";
 import type { RuleArticle, RuleEntity, RuleIndexEntry, RuleSearchIndex } from "../rules/schema";
 import {
@@ -95,7 +96,7 @@ export function CodexView() {
     [searchCorpus],
   );
   const entry = useMemo(
-    () => resolveRuleIndexEntry(ruleIndex, location),
+    () => resolveRuleIndexEntry(completeRuleIndex, location),
     [location],
   );
   const entryId = entry?.id ?? "";
@@ -226,6 +227,9 @@ export function CodexView() {
   // Статьи-уровни классов живут на лендинге класса: старые адреса — редирект.
   useEffect(() => {
     if (!entryId) return;
+    const record = completeRuleIndex.find(item => item.id === entryId);
+    if (record?.director && ["statblock", "dynamic-terrain"].includes(record.director.recordType)) { window.location.replace(codexArticleHref(entryId)); return; }
+    if (record?.director?.glossaryId) { window.location.replace(codexArticleHref(entryId)); return; }
     const landing = classLandingForArticle(entryId);
     if (landing)
       window.location.replace(classLandingHref(landing.slug, landing.level));
@@ -315,7 +319,7 @@ export function CodexView() {
                             .filter((article) => article.chapter === c)
                             .map((article) => article.group),
                         ),
-                      ].map((g) => {
+                      ].map((g, _index, groups) => {
                         const entries = ruleIndex.filter(
                           (article) =>
                             article.chapter === c && article.group === g,
@@ -331,29 +335,18 @@ export function CodexView() {
                             {article.title}
                           </a>
                         ));
-                        return g ? (
+                        return g && groups.length > 1 ? (
                           <details
                             key={g}
                             open={(chapter === c && group === g) || undefined}
                           >
                             <summary>{g}</summary>
                             <div className="codex-tree-children">
-                              <a
-                                href={catalogLink(c, g)}
-                                onClick={() => browse(c, g)}
-                                className={
-                                  chapter === c && group === g && !entry
-                                    ? "is-active"
-                                    : ""
-                                }
-                              >
-                                Читать: {g}
-                              </a>
                               {links}
                             </div>
                           </details>
                         ) : (
-                          <div key="articles">{links}</div>
+                          links
                         );
                       })}
                     </div>

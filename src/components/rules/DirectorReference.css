@@ -1,7 +1,7 @@
 .director-filters {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-4);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5) var(--space-7);
   margin-bottom: var(--space-6);
 }
 .director-filters label, .director-filters fieldset {
@@ -15,7 +15,7 @@
   font-size: var(--text-sm);
   color: var(--muted);
 }
-.director-filters .director-query { grid-column: 1 / -1; }
+.director-filters .director-query { grid-column: span 2; }
 .director-filters legend { margin-bottom: var(--space-2); padding: 0; }
 .director-range { display: flex; gap: var(--space-2); }
 .director-range input { width: 100%; min-width: 0; }
@@ -23,3 +23,14 @@
 .director-related summary { cursor: pointer; color: var(--accent); font-weight: 600; }
 .director-related ul { display: grid; gap: var(--space-3); padding-inline-start: var(--space-6); }
 .director-original-name { color: var(--muted); font-size: var(--text-sm); }
+
+.director-filter-panel { margin-bottom: var(--space-8); padding-bottom: var(--space-6); border-bottom: 1px solid var(--line); }
+.director-filter-panel > p { margin: 0; }
+.director-filters > button { align-self: end; justify-self: start; }
+@media (max-width: 800px) {
+  .director-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) {
+  .director-filters { grid-template-columns: minmax(0, 1fr); }
+  .director-filters .director-query { grid-column: auto; }
+}

@@ -45,3 +45,8 @@ export function isHeroTab(tab: string): tab is HeroTab {
 export function isLibraryTab(tab: string): tab is LibraryTab {
   return LIBRARY_TABS.some((item) => item === tab);
 }
+
+/** Sections collected under the Director branch of the Codex. */
+export function isDirectorSection(section: string): boolean {
+  return ["monsters", "terrain", "retainers"].includes(section);
+}

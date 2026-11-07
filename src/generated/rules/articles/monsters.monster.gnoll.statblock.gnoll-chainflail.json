@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.gnoll.statblock.gnoll-chainflail"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.gnoll.gnoll-malice"
         }
       ],
       "related": [
@@ -53,7 +57,7 @@
       "id": "monster.gnoll.statblock.gnoll-chainflail",
       "kind": "monster",
       "name": "Гнолл-цепник",
-      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Миньон — Артиллерист | Боевая ценность 4 за четыре миньона |\n|:-------------:|:--:|:---------:|:--------------------:|:--------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **4**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+1 к урону ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🏹 **Цепной снаряд (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Дальний 8**          | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12–16:** 4 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **17+:** 6 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 3\n\n> ⭐️ **Круг смерти**\n>\n> Когда союзник, не являющийся [миньоном](#/codex/monsters.rule.organization.minion), в пределах 5 клеток от цепника падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), цепник может переместиться на расстояние до своей Скорости.\n",
+      "markdown": "| Бездны, Гнолл | - | Уровень 2 | Миньон — Артиллерист | Боевая ценность 4 за четыре миньона |\n|:-------------:|:--:|:---------:|:--------------------:|:--------------------------:|\n| **1M**<br>Размер | **5**<br>Скорость | **4**<br>Выносливость | **1**<br>Устойчивость | **3**<br>Свободный удар |\n| **-**<br>Иммунитет | **-**<br>Движение | - | **+1 к урону ударов**<br>С капитаном | **-**<br>Уязвимость |\n| **+2**<br>Мощь | **0**<br>Ловкость | **+1**<br>Разум | **0**<br>Интуиция | **-2**<br>Присутствие |\n\n> 🏹 **Цепной снаряд (Знаковая способность)**\n>\n> | **Дальний, Удар, Оружие** |                          **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------------|-----------------------------------------:|\n> | **📏 Дальний 8**          | **🎯 Одно существо или объект на миньона** |\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 3 урона\n> - **12–16:** 4 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 1\n> - **17+:** 6 урона; [отталкивание](#/catalog/glossary#term-glossary.forced-movement) 3\n\n> ⭐️ **Круг смерти**\n>\n> Когда союзник, не являющийся [миньоном](#/catalog/glossary#term-glossary.minion), в пределах 5 клеток от цепника падает до 0 [Выносливости](#/catalog/glossary#term-glossary.stamina), цепник может переместиться на расстояние до своей Скорости.\n",
       "source": {
         "articleId": "monsters.monster.gnoll.statblock.gnoll-chainflail",
         "path": "Monsters/monster/gnoll/statblock/gnoll-chainflail.md"
@@ -76,6 +80,26 @@
         ],
         "role": "Артиллерист",
         "organization": "Миньон"
+      }
+    },
+    {
+      "id": "monster.gnoll.gnoll-malice",
+      "kind": "monster-feature",
+      "name": "Раздор гноллов",
+      "markdown": "В начале хода любого гнолла вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> 🔳 **Железные челюсти (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Дальний, Оружие** |   **[Маневр](#/catalog/glossary#term-glossary.turn)** |\n> |-------------------------------|-------------------------------------:|\n> | **📏 1 куб в пределах 3**      | **🎯 Особое** |\n>\n> **Эффект:** Действующий в этот ход гнолл устанавливает в области капкан с железными челюстями. Первое существо, попавшее в область, — любой враг — проходит **тест Ловкости**. Если оно не знало о капкане, тест совершается с помехой.\n>\n> - **≤11:** 6 урона; [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (до прох.)\n> - **12–16:** 4 урона; [Кровотечение](#/catalog/glossary#term-glossary.bleeding) (КсХ)\n> - **17+:** Без эффекта.\n>\n> **Эффект:** Пока враг [истекает кровью](#/catalog/glossary#term-glossary.bleeding) из-за этого капкана, каждый гнолл в столкновении получает преимущество на удары по нему.\n\n> 👤 **Лужа крови (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Один гнолл, являющийся [миньоном](#/catalog/glossary#term-glossary.minion), внезапно взрывается и превращается в лужу крови, забрызгивая область в пределах 3 клеток от себя. Каждый гнолл, начинающий ход в этой области, наносит на 5 урона больше своим следующим ударом до конца хода. Один раз за раунд гиена Бездны, начинающая ход в этой области, превращается в гнолла-налётчика, сохраняя текущую [Выносливость](#/catalog/glossary#term-glossary.stamina).\n\n> 🌀 **Эхо хохота (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> До конца столкновения карту боя наполняют раскаты смеха и вой. Каждый враг получает помеху на первый бросок силы, который совершает в каждом раунде. Когда гнолла убивают, действие этого эффекта приостанавливается до начала следующего раунда.\n",
+      "source": {
+        "articleId": "monsters.monster.gnoll.gnoll-malice",
+        "path": "Monsters/monster/gnoll/gnoll-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.gnoll/gnoll-malice",
+      "originalName": "Gnoll Malice",
+      "originalDescription": "At the start of any gnoll's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> 🔳 **Iron Jaws (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Area, Ranged, Weapon** |   **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |--------------------------|---------------:|\n> | **📏 1 cube within 3**   | **🎯 Special** \n>\n> **Effect:** A gnoll acting this turn drops an iron-jawed snare into the area. The first time any enemy moves into the area, they make an **Agility test**. If they were unaware of the snare, the test takes a bane.\n>\n> - **≤11:** 6 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (save ends)\n> - **12-16:** 4 damage; [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) (EoT)\n> - **17+:** No effect.\n>\n> **Effect:** While an enemy is [bleeding](scc.v1:mcdm.heroes.v1/condition/bleeding) this way, each gnoll in the encounter gains an edge on strikes made against them.\n\n> 👤 **Bloodpool (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> One gnoll [minion](scc.v1:mcdm.monsters.v1/rule.organization/minion) suddenly explodes into a pool of blood, splattering the area within 3 squares of them. Any gnoll who starts their turn in this area deals an extra 5 damage on their next strike before the end of their turn. Once per round, an abyssal hyena who starts their turn in the area turns into a **gnoll marauder**, keeping their current [Stamina](scc.v1:mcdm.heroes.v1/rule.health/stamina).\n\n> 🌀 **Echoes of Laughter (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Until the end of the encounter, the encounter map is encased in a soundscape of laughter and howling. Each enemy takes a bane on the first power roll they make each round. Whenever a gnoll is killed, this effect is suppressed until the start of the next round.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/gnoll/gnoll-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "gnoll",
+        "recordType": "featureblock"
       }
     }
   ]

@@ -22,15 +22,22 @@ export function DirectorStatBlock({ children, heading, headingActions }: { child
   const organization = markdownSlot(children, 'organization');
   const unitType = !/^\s*[-—]?\s*$/.test(markdownText(organization))
     ? <span className="director-mini-type">{organization}</span> : null;
+  const rank = <div className="director-mini-unit">
+    <span className="director-mini-level">{markdownSlot(children, 'level')}</span>
+    {unitType}
+  </div>;
+  const keywords = <div className="director-mini-keywords">{markdownSlot(children, 'keywords')}</div>;
+  const ev = <span className="director-mini-ev">{markdownSlot(children, 'ev')}</span>;
   return <section className="director-mini-sheet" aria-label="Блок характеристик существа">
     <header className="director-mini-identity">
-      {heading && <div className="director-mini-heading">{heading}{unitType}{headingActions}</div>}
-      <div className="director-mini-rank">
-        <span className="director-mini-level">{markdownSlot(children, 'level')}</span>
-        {!heading && unitType}
-        <span className="director-mini-ev">{markdownSlot(children, 'ev')}</span>
-      </div>
-      <div className="director-mini-keywords">{markdownSlot(children, 'keywords')}</div>
+      {heading ? <div className="director-mini-heading">
+        <div className="director-mini-name-group">{heading}{keywords}</div>
+        <div className="director-mini-rank-group">{rank}{ev}</div>
+        {headingActions}
+      </div> : <>
+        <div className="director-mini-rank">{rank}{ev}</div>
+        {keywords}
+      </>}
     </header>
     <dl className="director-mini-combat" aria-label="Боевые показатели">
       {combat.map(name => {

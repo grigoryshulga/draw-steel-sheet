@@ -29,6 +29,10 @@
         {
           "type": "entity",
           "ref": "monster.elemental.statblock.essence-of-tides"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.elemental.elemental-malice"
         }
       ],
       "related": [
@@ -74,6 +78,26 @@
         ],
         "role": "Контроллер",
         "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.elemental.elemental-malice",
+      "kind": "monster-feature",
+      "name": "Раздор элементалей",
+      "markdown": "В начале хода любого элементаля вы можете потратить [Раздор](#/codex/monsters.rule.monster.malice), чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Обмен элементалей (3 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Два элементаля на карте столкновения [телепортируются](#/catalog/glossary#term-glossary.teleport), меняясь местами, и каждый получает иммунитет к урону 2 до конца раунда.\n\n> 👤 **Расщепление (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Действующий в этот ход элементаль раскалывается надвое, превращаясь в двух отдельных элементалей. Их характеристики совпадают с характеристиками исходного элементаля, за исключением того, что у каждого вдвое меньше текущей Выносливости и размер на одну категорию меньше. Затем оба элементаля могут [смещаться](#/catalog/glossary#term-glossary.shift) на расстояние до своей Скорости.\n\n> 🏹 **Созыв хаоса (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Магия, Дальний** | **[Манёвр](#/catalog/glossary#term-glossary.turn)** |\n> |--------------------|-----------------------:|\n> | **📏 Дальний 8** | **🎯 Себя или одного элементаля** |\n>\n> **Эффект:** До конца столкновения цель получает бонус +5 к Скорости и бонус +5 к урону от ударов. Кроме того, каждый раз, когда элементаль в пределах линии воздействия цели использует способность, в названии которой есть слово «Созыв», цель также получает эффекты этой способности.\n",
+      "source": {
+        "articleId": "monsters.monster.elemental.elemental-malice",
+        "path": "Monsters/monster/elemental/elemental-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.elemental/elemental-malice",
+      "originalName": "Elemental Malice",
+      "originalDescription": "At the start of any elemental's turn, you can spend [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to activate one of the following features.\n\n> ⭐️ **Elemental Swap (3 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> Two elementals on the encounter map [teleport](scc.v1:mcdm.heroes.v1/movement/teleport) to swap places, and each has damage immunity 2 until the end of the round.\n\n> 👤 **Split (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> An elemental acting this turn cleaves themself into two separate elementals. Each elemental has the same statistics as the original, except that each has half the original's current Stamina and is one size smaller. Both elementals can then [shift](scc.v1:mcdm.heroes.v1/movement/shifting) up to their speed.\n\n> 🏹 **Convocation of Chaos (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> | **Magic, Ranged** |                 **[Maneuver](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------|-----------------------------:|\n> | **📏 Ranged 8**   | **🎯 Self or one elemental** |\n>\n> **Effect:** Until the end of the encounter, the target has a +5 bonus to speed and a +5 damage bonus to strikes. Additionally, whenever an elemental within the target's line of effect uses an ability with \"Convocation\" in the name, the target also gains the effects of that ability.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/elemental/elemental-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "elemental",
+        "recordType": "featureblock"
       }
     }
   ]

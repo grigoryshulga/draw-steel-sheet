@@ -1,3 +1,4 @@
+import type { DirectorView } from "../../lib/remark-director-view";
 import type { ReactNode } from 'react';
 import { CharacteristicGlyphText } from "../CharacteristicGlyph";
 import type { RuleEntity } from "../../rules/schema";
@@ -74,6 +75,7 @@ export function RuleEntityView({
   withAnchor = true,
   headingLevel = 2,
   headingActions,
+  directorMode,
 }: {
   entity: RuleEntity;
   art?: ArtAsset;
@@ -84,6 +86,7 @@ export function RuleEntityView({
   /** Уровень заголовка имени сущности: на странице класса он ниже заголовка уровня. */
   headingLevel?: number;
   headingActions?: ReactNode;
+  directorMode?: DirectorView;
 }) {
   const anchor = withAnchor ? ruleEntityAnchor(entity) : undefined;
   const ability = entity.ability ? referenceAbilityView(entity.ability) : null;
@@ -93,7 +96,7 @@ export function RuleEntityView({
   const Heading = headingTag(headingLevel);
   const nestedHeadingOffset = headingLevel === 2 ? 0 : headingLevel - 1;
   const creatureSheet = Boolean(entity.director && (entity.kind === 'monster' || entity.kind === 'retainer'));
-  const directorHeading = creatureSheet ? <div className="director-mini-title" id={withAnchor ? content.headingId || undefined : undefined}>
+  const directorHeading = creatureSheet && (!directorMode || directorMode === 'stats') ? <div className="director-mini-title" id={withAnchor ? content.headingId || undefined : undefined}>
     <Heading className="rule-entity-name" id={anchor}>{entity.name}</Heading>
     {entity.originalName && <span className="director-mini-original" lang="en">{entity.originalName}</span>}
   </div> : undefined;
@@ -191,6 +194,7 @@ export function RuleEntityView({
           text={content.markdown}
           articleId={entity.source.articleId}
           headingOffset={nestedHeadingOffset}
+          directorMode={directorMode}
           directorHeading={directorHeading}
           directorHeadingActions={headingActions}
         />

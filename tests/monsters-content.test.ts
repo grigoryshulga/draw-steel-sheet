@@ -1,3 +1,4 @@
+import { bookIndex, codexArticleHref } from "../src/rules/codex-navigation";
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { createElement } from 'react';
@@ -22,6 +23,73 @@ const articleById = new Map(articles.map((article: any) => [article.id, article]
 const delivery = (id: string) => read(path.join('src/generated/rules/articles', `${id}.json`));
 
 describe('Monsters book delivery', () => {
+  it('shows creature tabs with one stat header and no repeated group Malice introduction', () => {
+    const pack = delivery('monsters.monster.angulotl.statblock.angulotl-slink');
+    const html = renderToStaticMarkup(createElement(RuleArticleContent, { article: pack.articles[0], entities: Object.fromEntries(pack.entities.map((entity: any) => [entity.id, entity])) }));
+    expect(html.match(/class="director-mini-sheet"/g)).toHaveLength(1);
+    expect(html.match(/role="tab"/g)).toHaveLength(2);
+    expect(html).toContain('aria-selected="true"');
+    expect(html).toContain('aria-selected="false"');
+    const panels = html.split('role="tabpanel"');
+    expect(panels).toHaveLength(3);
+    expect(panels[1]).toContain('Удар языком');
+    expect(panels[1]).not.toContain('Стоимость: 2 Раздора');
+    expect(panels[2]).toContain('hidden=""');
+    expect(panels[2]).toContain('Стоимость: 2 Раздора');
+    expect(panels[2]).not.toContain('Angulotl Malice');
+    expect(panels[2]).not.toContain('В начале хода любого ангулотла');
+  });
+
+  it('includes group Malice, eligible lower echelons and only the matching dragon rules', () => {
+    const maliceIds = (id: string) => delivery(id).entities.filter((entity: any) => entity.kind === 'monster-feature' && entity.id.includes('malice')).map((entity: any) => entity.id);
+    expect(maliceIds('monsters.monster.goblin.statblock.goblin-warrior')).toEqual(['monster.goblin.goblin-malice']);
+    for (const group of ['demon', 'undead', 'war-dog']) {
+      for (const level of [1, 4, 7, 10]) {
+        const creature = manifest.articles.find((entry: any) => entry.director?.groupSlug === group && entry.director.recordType === 'statblock' && entry.director.level === level);
+        expect(creature).toBeDefined();
+        const ids = maliceIds(creature.id);
+        expect(ids).toHaveLength([1, 4, 7, 10].filter(minimum => minimum <= level).length);
+        for (const minimum of [1, 4, 7, 10]) expect(ids.some((id: string) => id.includes(`level-${minimum}-`))).toBe(minimum <= level);
+      }
+    }
+    for (const dragon of ['thorn', 'gloom', 'crucible', 'omen', 'meteor']) {
+      expect(maliceIds(`monsters.monster.dragon.statblock.${dragon}-dragon`)).toEqual([`monster.dragon.${dragon}-dragon-malice`]);
+    }
+    expect(maliceIds('monsters.monster.retainer.statblock.goblin-guide')).toEqual([]);
+  });
+
+  it('publishes all 37 short definitions in the glossary with full text and working redirects', () => {
+    const definitions = manifest.articles.filter((entry: any) => entry.director?.glossaryId);
+    expect(definitions).toHaveLength(37);
+    const fullGlossary = read('src/generated/consumers/library.json').glossary;
+    for (const entry of definitions) {
+      const term = fullGlossary.find((term: any) => term.id === entry.director.glossaryId);
+      const pack = delivery(entry.id);
+      expect(term.markdown.trim(), entry.id).toBe(pack.entities[0].markdown.trim());
+      expect(term.markdown).not.toContain('Полные правила в Кодексе');
+      expect(bookIndex.some(item => item.id === entry.id)).toBe(false);
+      expect(codexArticleHref(entry.id)).toBe(`#/catalog/glossary#term-${term.id}`);
+    }
+    for (const name of ['malice', 'villain-action', 'creature-free-strike', 'captain']) {
+      expect(bookIndex.some(item => item.id === `monsters.rule.monster.${name}`)).toBe(true);
+    }
+  });
+
+  it('keeps rules and lore in the book and routes every stat block to Reference', () => {
+    const sheets = manifest.articles.filter((entry: any) => ['statblock', 'dynamic-terrain'].includes(entry.director?.recordType));
+    expect(sheets).toHaveLength(472);
+    for (const entry of sheets) {
+      expect(bookIndex.some(item => item.id === entry.id)).toBe(false);
+      expect(codexArticleHref(entry.id)).toBe(`#/catalog/${entry.director.section}/${entry.id}`);
+    }
+    const lore = delivery('monsters.monster.group.angulotl');
+    expect(bookIndex.some(item => item.id === lore.articles[0].id)).toBe(true);
+    const html = renderToStaticMarkup(createElement(RuleArticleContent, { article: lore.articles[0], entities: Object.fromEntries(lore.entities.map((item: any) => [item.id, item])) }));
+    expect(html).toContain('#/catalog/monsters/group:angulotl');
+    expect(html).toContain('#/catalog/monsters/monsters.monster.angulotl.statblock.angulotl-slink');
+    expect(html).not.toContain('#/codex/monsters.monster.angulotl.statblock.angulotl-slink');
+  });
+
   it('covers all 662 pinned records once with full Russian text, original identity and every numeric token', () => {
     expect(source.records).toHaveLength(662);
     expect(new Set(source.records.map((r: any) => r.originalId)).size).toBe(662);

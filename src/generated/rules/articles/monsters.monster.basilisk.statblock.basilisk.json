@@ -30,6 +30,10 @@
         {
           "type": "entity",
           "ref": "monster.basilisk.statblock.basilisk"
+        },
+        {
+          "type": "entity",
+          "ref": "monster.basilisk.basilisk-malice"
         }
       ],
       "related": [
@@ -76,6 +80,26 @@
         ],
         "role": "Громила",
         "organization": "Элита"
+      }
+    },
+    {
+      "id": "monster.basilisk.basilisk-malice",
+      "kind": "monster-feature",
+      "name": "Раздор василисков",
+      "markdown": "В начале хода любого василиска вы можете потратить Раздор, чтобы активировать одну из следующих особенностей.\n\n> ⭐️ **Каменное плавание (3+ [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Василиск, действующий в этот ход, может [закапываться](#/catalog/glossary#term-glossary.burrow) до начала своего следующего хода и перемещается на расстояние до своей Скорости. Под землёй у него иммунитет к урону 2. Василиск может прокладывать путь сквозь камень, но при этом не может утаскивать под землю других существ. В начале каждого хода василиска Ведущий может потратить 1 [Раздор](#/codex/monsters.rule.monster.malice), чтобы василиск продолжал закапываться.\n\n> 🔳 **Отрыгнуть камень (5 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> | **Область, Оружие** |               **[Основное действие](#/catalog/glossary#term-glossary.turn)** |\n> |---------------------|------------------------------:|\n> | **📏 Куб 3 в пределах 10** | **🎯 Каждый враг в области** |\n>\n> **Эффект:** Василиск выплёвывает кусок частично переваренного камня.\n>\n> **Бросок силы + 2:**\n>\n> - **≤11:** 4 урона\n> - **12-16:** 4 урона; при Л < 1 цель получает ещё 2 урона и оказывается [лёжа](#/catalog/glossary#term-glossary.prone)\n> - **17+:** 4 урона; при Л < 2 цель получает ещё 5 урона, оказывается [лёжа](#/catalog/glossary#term-glossary.prone) и не может встать (до прох.)\n\n> 🔳 **Косой взгляд (7 [Раздора](#/codex/monsters.rule.monster.malice))**\n>\n> Василиск разбрызгивает отражающую слюну по смежной вертикальной поверхности на участке 3 клетки на 3 клетки. Василиск может использовать способность «Окаменяющие лучи из глаз», чтобы выбрать клетку на этом участке; тогда область действия и дистанция этой способности превращаются в линию 20 x 3 в пределах 1 клетки от стены.\n",
+      "source": {
+        "articleId": "monsters.monster.basilisk.basilisk-malice",
+        "path": "Monsters/monster/basilisk/basilisk-malice.md"
+      },
+      "originalId": "mcdm.monsters.v1/monster.basilisk/basilisk-malice",
+      "originalName": "Basilisk Malice",
+      "originalDescription": "At the start of any basilisk's turn, you can spend Malice to activate one of the following features.\n\n> ⭐️ **Stone Swim (3+ [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A basilisk acting this turn can [burrow](scc.v1:mcdm.heroes.v1/movement/burrow) until the start of their next turn, and moves up to their speed. They have damage immunity 2 while underground. The basilisk can burrow through stone, but can't drag other creatures underground when they do so. At the start of each of the basilisk's turns, the Director can spend 1 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice) to let the basilisk continue burrowing.\n\n> 🔳 **Upchuck (5 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n>\n> | **Area, Weapon**        |               **[Main action](scc.v1:mcdm.heroes.v1/rule.combat/turn)** |\n> |-------------------------|------------------------------:|\n> | **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n>\n> **Effect:** The basilisk spits up a chunk of partly digested stone.\n>\n> **Power Roll + 2:**\n>\n> - **≤11:** 4 damage\n> - **12-16:** 4 damage; A < 1 2 damage, [prone](scc.v1:mcdm.heroes.v1/condition/prone)\n> - **17+:** 4 damage; A < 2 5 damage, [prone](scc.v1:mcdm.heroes.v1/condition/prone) and can't stand (save ends)\n\n> 🔳 **Walleye (7 [Malice](scc.v1:mcdm.monsters.v1/rule.monster/malice))**\n>\n> A basilisk spews reflective spittle across an adjacent vertical surface in a 3-square-by-3-square area. The basilisk can use their Petrifying Eye Beams ability to target a square in the area, causing the area and distance of that ability to become a 20 x 3 line within 1 square of the wall.",
+      "director": {
+        "section": "monsters",
+        "sourcePath": "monster/basilisk/basilisk-malice.json",
+        "sourceRevision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+        "groupSlug": "basilisk",
+        "recordType": "featureblock"
       }
     }
   ]
