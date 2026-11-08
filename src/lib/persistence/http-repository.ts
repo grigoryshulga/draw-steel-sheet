@@ -1,9 +1,9 @@
 import type { Character, CharacterAvatar, CharacterSummary } from "../../types";
-import type { CharacterRepository } from "./repository";
+import { CharacterConflictError, CharacterStorageError, type CharacterRepository } from "./repository";
 
-export class StorageRequestError extends Error {
+export class StorageRequestError extends CharacterStorageError {
   constructor(message: string, readonly status: number) {
-    super(message);
+    super(message, status);
     this.name = "StorageRequestError";
   }
 }
@@ -15,6 +15,14 @@ export function createHttpRepository({
   fetch: fetchRequest = globalThis.fetch,
   timeoutMs = 30_000,
 }: { fetch?: typeof fetch; timeoutMs?: number } = {}): CharacterRepository {
+  const revisions = new Map<string, string>();
+  function document(value: Character, id: string): Character {
+    if (!value || typeof value !== "object" || Array.isArray(value) || value.id !== id ||
+        typeof value.updatedAt !== "string" || !Number.isFinite(Date.parse(value.updatedAt))) {
+      throw new StorageRequestError("Сервер не подтвердил версию героя", 502);
+    }
+    return value;
+  }
   async function readJson<T>(response: Response): Promise<T> {
     try {
       return (await response.json()) as T;
@@ -39,14 +47,22 @@ export function createHttpRepository({
       });
       if (!response.ok) {
         let message = `Ошибка ${response.status}`;
+        let payload: unknown;
         try {
-          const payload: unknown = await response.json();
+          payload = await response.json();
           if (payload && typeof payload === "object" && "error" in payload &&
               typeof payload.error === "string" && payload.error.trim()) {
             message = payload.error;
           }
         } catch {
           // Proxies can return HTML instead of an API error document.
+        }
+        if (response.status === 409 && init?.method === "PUT" &&
+            payload && typeof payload === "object" && "server" in payload) {
+          throw new CharacterConflictError(JSON.parse(String(init.body)) as Character,
+            payload.server as Character | null,
+            headers.get("X-Character-Expected-Updated-At") === "new" ? null :
+              headers.get("X-Character-Expected-Updated-At"));
         }
         throw new StorageRequestError(message, response.status);
       }
@@ -71,12 +87,25 @@ export function createHttpRepository({
       }
       return payload.characters as CharacterSummary[];
     },
-    loadCharacter: (id) => request<Character>(path(id)),
-    saveCharacter: (character) => request<Character>(path(character.id), {
-      method: "PUT",
-      body: JSON.stringify(character),
-    }),
-    deleteCharacter: (id) => request<void>(path(id), { method: "DELETE" }),
+    async loadCharacter(id) {
+      const loaded = document(await request<Character>(path(id)), id);
+      revisions.set(id, loaded.updatedAt);
+      return loaded;
+    },
+    async saveCharacter(character, options) {
+      const expected = options ? options.expectedUpdatedAt : revisions.get(character.id) ?? null;
+      const saved = document(await request<Character>(path(character.id), {
+        method: "PUT",
+        headers: { "X-Character-Expected-Updated-At": expected ?? "new" },
+        body: JSON.stringify(character),
+      }), character.id);
+      revisions.set(character.id, saved.updatedAt);
+      return saved;
+    },
+    async deleteCharacter(id) {
+      await request<void>(path(id), { method: "DELETE" });
+      revisions.delete(id);
+    },
     uploadAvatar: (id, image) => request<CharacterAvatar>(`${path(id)}/avatar`, {
       method: "PUT",
       body: image,

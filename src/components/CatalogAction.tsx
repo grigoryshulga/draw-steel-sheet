@@ -1,3 +1,4 @@
+import { Icon } from "./Icons";
 import "./CatalogAction.css";
 import { useContext, useState } from "react";
 import { AppContext } from "../state/AppContext";
@@ -103,7 +104,7 @@ export function CatalogAction({ entry }: { entry: CatalogEntry }) {
         </Button>
         {owned && (
           <a href={entry.kind === "project" ? "#/sheet" : "#/inventory"}>
-            {entry.kind === "project" ? "К проектам в листе" : "В инвентарь"} →
+            {entry.kind === "project" ? "К проектам в листе" : "В инвентарь"} <Icon name="arrow-right" size={16} />
           </a>
         )}
       </div>

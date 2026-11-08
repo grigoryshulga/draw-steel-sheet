@@ -50,7 +50,7 @@ export function KitPicker({
       footer={
         <>
           <span className="grow" />
-          <Button variant="ghost" onClick={onClose}>
+          <Button iconOnly icon="close" variant="ghost" onClick={onClose}>
             Отмена
           </Button>
           <Button

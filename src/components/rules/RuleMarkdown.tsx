@@ -1,3 +1,4 @@
+import { Icon } from "../Icons";
 import { remarkDirectorView, type DirectorView } from "../../lib/remark-director-view";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -125,7 +126,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
                     className="rule-catalog-link"
                     href={catalogEntryLink(entry)}
                   >
-                    Карточка в каталоге · Добавить герою →
+                    Карточка в каталоге · Добавить герою <Icon name="arrow-right" size={16} />
                   </a>
                 )}
               </>

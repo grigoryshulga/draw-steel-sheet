@@ -23,13 +23,16 @@ export function Button({
   type = "button",
   ...props
 }: ButtonProps) {
+  const label = props["aria-label"] ?? (typeof children === "string" ? children : props.title);
   return (
     <button
       type={type}
       className={`btn btn-${variant} btn-${size} ${iconOnly ? "btn-icon" : ""} ${className}`.trim()}
       {...props}
+      aria-label={iconOnly ? label : props["aria-label"]}
+      title={props.title ?? (iconOnly ? label : undefined)}
     >
-      {icon && <Icon name={icon} size={size === "sm" ? 14 : 17} />}
+      {icon && <Icon name={icon} size={size === "sm" ? 16 : 18} />}
       {!iconOnly && children}
     </button>
   );

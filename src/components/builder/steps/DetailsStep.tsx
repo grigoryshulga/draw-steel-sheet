@@ -70,13 +70,13 @@ export function DetailsStep() {
           rows={3}
         />
       </Field>
-      <details className="builder-reference">
-        <summary>Заполнить лист вручную</summary>
+      <section className="builder-reference">
+        <h3>Заполнить лист вручную</h3>
         <p>Будет создан пустой лист с указанным именем.</p>
         <Button onClick={createBlankCharacter} disabled={busy}>
           Создать пустой лист
         </Button>
-      </details>
+      </section>
     </>
   );
 }

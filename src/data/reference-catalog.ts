@@ -109,7 +109,7 @@ function directorEntries(section: 'monsters' | 'retainers' | 'terrain'): Catalog
   return codexIndex.filter(article => ids.has(article.id)).map(article => {
     const d = article.director;
     const summary = [d?.level !== undefined ? `Уровень ${d.level}` : '', d?.organization, d?.role,
-      d?.ev ? `БЦ ${d.ev}` : '', d?.size ? `Размер ${d.size}` : ''].filter(Boolean).join(' · ');
+      d?.ev ? `БЦ ${d.ev.replace(/for (?:four|4) minions/gi, "за 4 миньонов")}` : '', d?.size ? `Размер ${d.size}` : ''].filter(Boolean).join(' · ');
     return { id: article.id, articleId: article.id, name: article.title, eyebrow: article.group,
       echelon: null, summary, search: [article.title, d?.originalName, article.group, summary, ...(d?.keywords ?? [])].join(' '), director: d };
   }).sort((a, b) => a.name.localeCompare(b.name, 'ru'));

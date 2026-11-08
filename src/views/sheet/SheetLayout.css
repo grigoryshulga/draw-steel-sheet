@@ -43,7 +43,7 @@
   order: 5;
 }
 .sheet-block[data-panel="abilities"] {
-  order: 10;
+  order: 5;
 }
 /* Особенности следуют за перками и предшествуют способностям. */
 .sheet-block[data-panel="features"] {
@@ -190,3 +190,6 @@
     border-top: 1px solid var(--sheet-warm-line);
   }
 }
+
+.sheet-jump-links { position: sticky; top: 78px; z-index: 20; padding-block: var(--space-3); background: var(--surface); border-bottom: 1px solid var(--line); display: flex; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-4); }
+.sheet-block { scroll-margin-top: 128px; }

@@ -199,8 +199,8 @@ function ResourceGains({
   const { performGameAction } = useApp();
   if (gains.length === 0) return null;
   return (
-    <details className="resource-gains" open>
-      <summary className="resource-gains-title">{title}</summary>
+    <section className="resource-gains">
+      <h3 className="resource-gains-title">{title}</h3>
       <ul className="resource-gains-list">
         {gains.map((gain) => {
           // «= Победы» уже равенство, плюс к нему не ставится.
@@ -238,7 +238,7 @@ function ResourceGains({
           );
         })}
       </ul>
-    </details>
+    </section>
   );
 }
 

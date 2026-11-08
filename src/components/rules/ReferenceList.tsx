@@ -86,7 +86,7 @@ export function ReferenceList<T extends ReferenceListEntry>({
                 <span className="catalog-creature-stats">
                   {[
                     ['Уровень', entry.director.level],
-                    ['БЦ', entry.director.ev],
+                    ['БЦ', entry.director.ev?.replace(/for (?:four|4) minions/gi, 'за 4 миньонов')],
                     ['Размер', entry.director.size],
                   ].filter(([, value]) => value !== undefined && value !== '').map(([label, value]) =>
                     <span className="catalog-creature-stat" key={label}>

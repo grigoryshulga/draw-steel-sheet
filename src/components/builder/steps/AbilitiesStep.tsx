@@ -10,24 +10,6 @@ export function AbilitiesStep({ part }: { part: string }) {
 
   return (
     <>
-      {grantedAbilities.length > 0 && (
-        <section className="builder-granted">
-          <div className="builder-section-head">
-            <h3>Уже добавлены</h3>
-            <span className="muted small">От класса и подкласса</span>
-          </div>
-          <div className="builder-ability-grid">
-            {grantedAbilities.map((a) => (
-              <AbilityCard
-                key={a.id}
-                ability={a}
-                character={hero}
-                onOpen={() => openAbility(a)}
-              />
-            ))}
-          </div>
-        </section>
-      )}
       {abilityGroups
         .filter((g) => !part || g.id === part)
         .map((group) => (
@@ -69,6 +51,22 @@ export function AbilitiesStep({ part }: { part: string }) {
             </div>
           </section>
         ))}
+
+      {grantedAbilities.length > 0 && (
+        <section className="builder-granted">
+          <h3>Уже получено от класса и подкласса: {grantedAbilities.length}</h3>
+          <div className="builder-ability-grid">
+            {grantedAbilities.map((a) => (
+              <AbilityCard
+                key={a.id}
+                ability={a}
+                character={hero}
+                onOpen={() => openAbility(a)}
+              />
+            ))}
+          </div>
+        </section>
+      )}
     </>
   );
 }

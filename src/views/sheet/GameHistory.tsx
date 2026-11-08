@@ -40,8 +40,11 @@ export function GameHistory({ turnControls = false }: { turnControls?: boolean }
           <Button
             size="sm"
             variant="soft"
+            icon="undo"
+            iconOnly
+            aria-label="Отменить последнее действие"
             disabled={Boolean(reason)}
-            title={reason}
+            title={reason || "Отменить последнее действие"}
             onClick={undoGameAction}
           >
             Отменить

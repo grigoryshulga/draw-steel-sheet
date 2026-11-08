@@ -1,4 +1,6 @@
 import { useMemo, useState, type KeyboardEvent } from "react";
+import { ItemEffectsEditor, ItemEffectsSummary } from "../components/ItemEffectsEditor";
+import { normalizeItemEffects } from "../lib/item-effects";
 import { Icon } from "../components/Icons";
 import {
   Button,
@@ -25,7 +27,7 @@ import { changeKit } from "../lib/equipment";
 import { FeatureEquipmentFields } from "../components/FeatureEquipmentFields";
 import { KitPicker } from "./sheet/KitPicker";
 import { useApp } from "../state/AppContext";
-import type { InventoryItem, ItemCategory } from "../types";
+import type { InventoryItem, ItemCategory, ItemEffect } from "../types";
 import "./InventoryView.css";
 import { Artwork } from "../components/Artwork";
 
@@ -46,6 +48,7 @@ interface ItemDraft {
   category: ItemCategory;
   qty: number;
   notes: string;
+  effects: ItemEffect[];
 }
 
 const EMPTY_DRAFT: ItemDraft = {
@@ -53,6 +56,7 @@ const EMPTY_DRAFT: ItemDraft = {
   category: "consumable",
   qty: 1,
   notes: "",
+  effects: [],
 };
 
 interface PresetItem {
@@ -159,6 +163,7 @@ function ItemCard({
       </header>
 
       {item.notes && <p className="inv-card-notes">{item.notes}</p>}
+      <ItemEffectsSummary effects={item.effects ?? []} />
 
       <footer className="inv-card-foot">
         <Stepper
@@ -173,7 +178,7 @@ function ItemCard({
               Правила ↗
             </a>
           )}
-          {item.category === "gear" && (
+          {(item.category === "gear" || (item.category === "treasure" && normalizeItemEffects(item.effects).length > 0)) && (
             <Chip
               tone={item.equipped ? "green" : "default"}
               active={item.equipped}
@@ -252,6 +257,7 @@ export function InventoryView() {
       category: item.category,
       qty: item.qty,
       notes: item.notes,
+      effects: normalizeItemEffects(item.effects),
     });
     setDialogOpen(true);
   };
@@ -273,7 +279,8 @@ export function InventoryView() {
         category: draft.category,
         qty,
         notes,
-        equipped: draft.category === "gear" ? editing.equipped : false,
+        effects: normalizeItemEffects(draft.effects),
+        equipped: draft.category === "gear" || (draft.category === "treasure" && draft.effects.length > 0) ? editing.equipped : false,
       });
       notify("Предмет обновлён", "success");
     } else {
@@ -284,6 +291,7 @@ export function InventoryView() {
         qty,
         notes,
         equipped: false,
+        effects: normalizeItemEffects(draft.effects),
       };
       update((c) => ({ ...c, inventory: [...c.inventory, item] }));
       notify("Предмет добавлен", "success");
@@ -330,6 +338,7 @@ export function InventoryView() {
       category: preset.category,
       qty: 1,
       notes: preset.notes ?? "",
+      effects: [],
     });
   };
 
@@ -343,6 +352,80 @@ export function InventoryView() {
   return (
     <div className="inv-view">
       <Panel
+        title="Инвентарь"
+        icon="inventory"
+        dense
+        actions={
+          <>
+            <a className="inv-catalog-link" href="#/catalog/treasure">
+              Каталог наград ↗
+            </a>
+            <Button size="sm" variant="soft" icon="plus" iconOnly aria-label="Добавить предмет" title="Добавить предмет" onClick={openCreate} />
+          </>
+        }
+      >
+        <p>Бонусы надетых предметов применяются при включённом автоматическом расчёте.</p>
+        {character.inventory.length === 0 ? (
+          <EmptyState
+            icon="inventory"
+            title="Сумка пуста"
+            text="Добавьте снаряжение, расходники или награды из каталога."
+            action={
+              <Button variant="primary" icon="plus" onClick={openCreate}>
+                Добавить предмет
+              </Button>
+            }
+          />
+        ) : (
+          <div className="inv-groups">
+            {grouped.map((group) => {
+              if (group.items.length === 0) return null;
+              return (
+                <section
+                  key={group.key}
+                  className="inv-group"
+                  data-category={group.key}
+                  aria-label={group.label}
+                >
+                  <header className="inv-group-head">
+                    <h3>{group.label}</h3>
+                    <span className="inv-group-count numeric">
+                      {group.items.length}
+                    </span>
+                    <span className="inv-group-rule" />
+                    {group.key === "treasure" && treasureCount > 3 && (
+                      <Chip
+                        tone="yellow"
+                        title="Правила советуют нести не больше трёх сокровищ"
+                      >
+                        <Icon name="warning" size={13} /> безопасно нести три
+                      </Chip>
+                    )}
+                  </header>
+                  <div className="inv-card-grid">
+                    {group.items.map((item) => (
+                      <ItemCard
+                        key={item.id}
+                        item={item}
+                        onEdit={() => openEdit(item)}
+                        onQty={(qty) => changeQty(item, qty)}
+                        onEquip={() =>
+                          patchItem(item.id, { equipped: !item.equipped })
+                        }
+                        onUse={() => useConsumable(item)}
+                      />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        )}
+      </Panel>
+
+      <section className="inv-configuration">
+        <h3>Комплект и настройки снаряжения{character.kit ? ` · ${character.kit}` : ""}</h3>
+      <Panel
         title="Комплект"
         icon="sword"
         actions={
@@ -350,10 +433,11 @@ export function InventoryView() {
             size="sm"
             variant="soft"
             icon="book"
+            iconOnly
+            aria-label={selectedKit ? "Сменить комплект" : "Выбрать комплект"}
+            title={selectedKit ? "Сменить комплект" : "Выбрать комплект"}
             onClick={() => setKitPickerOpen(true)}
-          >
-            {selectedKit ? "Сменить" : "Выбрать"}
-          </Button>
+          />
         }
       >
         <div className={`inv-kit-grid${isTactician ? " is-paired" : ""}`}>
@@ -512,78 +596,7 @@ export function InventoryView() {
         </div>
       </Panel>
 
-      <Panel
-        title="Инвентарь"
-        icon="inventory"
-        dense
-        actions={
-          <>
-            <a className="inv-catalog-link" href="#/catalog/treasure">
-              Каталог наград ↗
-            </a>
-            <Button size="sm" variant="soft" icon="plus" onClick={openCreate}>
-              Добавить
-            </Button>
-          </>
-        }
-      >
-        {character.inventory.length === 0 ? (
-          <EmptyState
-            icon="inventory"
-            title="Сумка пуста"
-            text="Добавьте снаряжение, расходники или награды из каталога."
-            action={
-              <Button variant="primary" icon="plus" onClick={openCreate}>
-                Добавить предмет
-              </Button>
-            }
-          />
-        ) : (
-          <div className="inv-groups">
-            {grouped.map((group) => {
-              if (group.items.length === 0) return null;
-              return (
-                <section
-                  key={group.key}
-                  className="inv-group"
-                  data-category={group.key}
-                  aria-label={group.label}
-                >
-                  <header className="inv-group-head">
-                    <h3>{group.label}</h3>
-                    <span className="inv-group-count numeric">
-                      {group.items.length}
-                    </span>
-                    <span className="inv-group-rule" />
-                    {group.key === "treasure" && treasureCount > 3 && (
-                      <Chip
-                        tone="yellow"
-                        title="Правила советуют нести не больше трёх сокровищ"
-                      >
-                        <Icon name="warning" size={13} /> безопасно нести три
-                      </Chip>
-                    )}
-                  </header>
-                  <div className="inv-card-grid">
-                    {group.items.map((item) => (
-                      <ItemCard
-                        key={item.id}
-                        item={item}
-                        onEdit={() => openEdit(item)}
-                        onQty={(qty) => changeQty(item, qty)}
-                        onEquip={() =>
-                          patchItem(item.id, { equipped: !item.equipped })
-                        }
-                        onUse={() => useConsumable(item)}
-                      />
-                    ))}
-                  </div>
-                </section>
-              );
-            })}
-          </div>
-        )}
-      </Panel>
+      </section>
 
       <Modal
         open={dialogOpen}
@@ -595,15 +608,14 @@ export function InventoryView() {
               <Button
                 variant="danger"
                 icon="trash"
+                iconOnly
+                aria-label={`Удалить предмет: ${editing.name || "без названия"}`}
+                title="Удалить предмет"
                 onClick={() => askDelete(editing)}
-              >
-                Удалить
-              </Button>
+              />
             )}
             <span className="grow" />
-            <Button variant="ghost" onClick={closeDialog}>
-              Отмена
-            </Button>
+            <Button variant="ghost" icon="close" iconOnly aria-label="Закрыть редактор предмета" title="Закрыть" onClick={closeDialog} />
             <Button
               variant="primary"
               icon={editing ? "check" : "plus"}
@@ -669,6 +681,10 @@ export function InventoryView() {
           </Field>
         </div>
 
+        <Field label="Бонусы предмета">
+          <ItemEffectsEditor effects={draft.effects} onChange={(effects) => setDraft((current) => ({ ...current, effects }))} />
+        </Field>
+
         {editing?.catalogId && (
           <a className="inv-item-rules" href={catalogHref(editing)}>
             Открыть описание в каталоге ↗
@@ -695,9 +711,7 @@ export function InventoryView() {
         title="Удалить предмет?"
         footer={
           <>
-            <Button variant="ghost" onClick={() => setPendingDelete(null)}>
-              Оставить
-            </Button>
+            <Button variant="ghost" icon="close" iconOnly aria-label="Отменить удаление предмета" title="Оставить предмет" onClick={() => setPendingDelete(null)} />
             <Button
               variant="danger"
               icon="trash"

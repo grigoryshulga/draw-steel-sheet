@@ -394,3 +394,19 @@
 .sheet-block .potency-strip-values {
   flex-wrap: wrap;
 }
+
+/* Compact identity keeps the current task above the fold. */
+.sheet-compact-identity { display: flex; align-items: center; gap: var(--space-6); }
+.sheet-compact-identity > div { min-width: 0; flex: 1; }
+.sheet-compact-identity .sheet-portrait { width: 48px; flex: 0 0 48px; border-radius: var(--radius-sm); }
+.sheet-compact-identity h1 { font: 500 var(--text-2xl)/var(--leading-tight) var(--font-display); overflow-wrap: anywhere; }
+.sheet-compact-identity p { margin: var(--space-2) 0 0; color: var(--muted); font-size: var(--text-body); }
+.sheet-compact-identity > .btn { flex-shrink: 0; min-height: 40px; }
+.sheet-header.is-compact #hero-identity-details { padding-top: var(--space-6); }
+.sheet-header.is-compact .sheet-identity-heading { flex-wrap: wrap; }
+.sheet-header.is-compact .sheet-header-progress { flex: 1 1 100%; }
+.sheet-header.is-compact .sheet-identity-summary { margin-top: 0; }
+
+.hero-profile-disclosure > summary, .inv-configuration > summary { cursor: pointer; padding: var(--space-6) var(--space-7); border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--fg); font-size: var(--text-md); }
+.hero-profile-disclosure[open] > summary, .inv-configuration[open] > summary { margin-bottom: var(--space-6); }
+@media (max-width: 700px) { .sheet-frame-actions .btn { min-height: 40px; } }

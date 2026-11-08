@@ -13,6 +13,7 @@ import type {
 import type { Ability, Character, CharacteristicKey } from "../types";
 import { activeClassFeatureEffects } from "./class-features";
 import { featureConditionMet } from "./feature-conditions";
+import { normalizeItemEffects } from "./item-effects";
 import { echelon } from "./progression";
 import { normalizeFeatureText as normalize } from "./utils";
 
@@ -99,6 +100,21 @@ function activeFeatureSources(
   // как и остальные источники; показ фич на листе от флага не зависит.
   if (!character.automation?.enabled && !includeClassFeatureEffects) {
     return sources;
+  }
+
+  if (character.automation?.enabled) {
+    const seenItems = new Set<string>();
+    for (const item of character.inventory ?? []) {
+      if (!item.equipped || !(item.qty > 0)) continue;
+      const effects = normalizeItemEffects(item.effects);
+      if (!effects.length) continue;
+      const identity = JSON.stringify([item.name, item.category, item.notes,
+        effects.map(({ field, value }) => [field, value]).sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)))]);
+      if (seenItems.has(identity)) continue;
+      seenItems.add(identity);
+      sources.push({ sourceId: `item:${item.id}`, sourceName: item.name,
+        effects: effects.map((effect) => ({ kind: "field", ...effect })) });
+    }
   }
 
   const seen = new Set(sources.map((source) => source.sourceId));

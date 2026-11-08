@@ -1,3 +1,4 @@
+import { Icon } from "../../components/Icons";
 import { useEffect, useState } from "react";
 import { Panel, TextInput } from "../../components/ui";
 import { clamp, vitalStatus } from "../../lib/rules";
@@ -136,7 +137,7 @@ export function VitalsPanel() {
               aria-label={`Временная выносливость ${stamina.temp}: сбросить`}
               onClick={() => patch({ stamina: { ...stamina, temp: 0 } })}
             >
-              +{stamina.temp} врем. ×
+              +{stamina.temp} врем. <Icon name="close" size={12} />
             </button>
           )}
         </div>

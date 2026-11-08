@@ -192,10 +192,10 @@ export function AbilityTags({ view }: { view: AbilitySheetView }) {
     <div className="sheet-ability-card-tags" ref={tagsRef}>
       <div className="sheet-ability-tags-measure" ref={measureRef} aria-hidden="true">{tags}</div>
       {collapsed ? (
-        <details className="sheet-ability-tags-more" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()}>
-          <summary aria-label="Показать метки способности" title="Метки способности">…</summary>
+        <section className="sheet-ability-tags-more" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()}>
+          <h3 aria-label="Показать метки способности" title="Метки способности">…</h3>
           <div className="sheet-ability-tags-popover">{tags}</div>
-        </details>
+        </section>
       ) : tags}
       {view.resourceCost > 0 && (
         <span className="sheet-ability-cost-stamp is-paid" role="img" aria-label={`Стоимость: ${view.resourceCost} ресурса`} title={`Стоимость: ${view.resourceCost} ресурса`}>

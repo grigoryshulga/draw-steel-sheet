@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { createHttpRepository, StorageRequestError } from "../src/lib/persistence/http-repository";
 import { createCharacter } from "../src/lib/defaults";
+import { CharacterConflictError } from "../src/lib/persistence/repository";
 
 afterEach(() => vi.useRealTimers());
 
@@ -26,6 +27,34 @@ describe("HTTP character repository", () => {
     expect(await repository.listCharacters()).toEqual([{ id: "one" }]);
     await expect(repository.deleteCharacter("one")).resolves.toBeUndefined();
   });
+
+  it("sends create-only or the actual loaded server revision, never an editor timestamp", async () => {
+    const original = createCharacter();
+    original.updatedAt = "2026-11-07T00:00:00.000Z";
+    const fetch = vi.fn<typeof globalThis.fetch>().mockImplementation(async () => Response.json(original));
+    const repository = createHttpRepository({ fetch });
+    await repository.saveCharacter(original);
+    expect(new Headers(fetch.mock.calls[0][1]?.headers).get("X-Character-Expected-Updated-At")).toBe("new");
+    await repository.loadCharacter(original.id);
+    await repository.saveCharacter({ ...original,updatedAt: "2099-01-01T00:00:00.000Z" });
+    expect(new Headers(fetch.mock.calls.at(-1)?.[1]?.headers).get("X-Character-Expected-Updated-At")).toBe(original.updatedAt);
+  });
+
+  it("exposes both full documents on a CAS conflict", async () => {
+    const local = createCharacter({ name: "Местная" }), server = { ...local,name: "Серверная" };
+    const fetch = vi.fn<typeof globalThis.fetch>().mockResolvedValue(Response.json({ error: "Конфликт",server },{ status: 409 }));
+    const failure = createHttpRepository({ fetch }).saveCharacter(local,{ expectedUpdatedAt: local.updatedAt });
+    await expect(failure).rejects.toBeInstanceOf(CharacterConflictError);
+    await expect(failure).rejects.toMatchObject({ local,server,expectedUpdatedAt: local.updatedAt });
+  });
+
+  it.each([{}, { id: "different",updatedAt: "2026-11-07T00:00:00Z" }, { id: "hero",updatedAt: "invalid" }])(
+    "does not acknowledge a malformed successful document (%j)", async (payload) => {
+      const fetch = vi.fn<typeof globalThis.fetch>().mockResolvedValue(Response.json(payload));
+      const character = { ...createCharacter(),id: "hero" };
+      await expect(createHttpRepository({ fetch }).saveCharacter(character)).rejects.toThrow("не подтвердил");
+    },
+  );
 
   it.each([
     [JSON.stringify({ error: "Нет доступа" }), "Нет доступа"],

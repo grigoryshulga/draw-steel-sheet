@@ -137,7 +137,7 @@ export function PerksPanel() {
         description={detailDescription}
         action={
           detail ? (
-            <Button
+            <Button iconOnly
               icon="edit"
               onClick={() => {
                 setPickerSlot(detail.slot);
@@ -192,7 +192,7 @@ function PerkPicker({
       footer={
         <>
           <span className="grow" />
-          <Button variant="ghost" onClick={onClose}>
+          <Button iconOnly icon="close" variant="ghost" onClick={onClose}>
             Отмена
           </Button>
           <Button

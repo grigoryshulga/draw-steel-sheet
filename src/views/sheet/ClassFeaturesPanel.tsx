@@ -127,20 +127,20 @@ export function FeatureRow({ item }: { item: FeatureSheetItem }) {
         </p>
       )}
       {item.notes && (
-        <details className="cf-item-notes">
-          <summary>Примечание</summary>
+        <section className="cf-item-notes">
+          <h3>Примечание</h3>
           <p>{item.notes}</p>
-        </details>
+        </section>
       )}
       {item.detail && (
-        <details className="cf-item-detail">
-          <summary>Текст особенности</summary>
+        <section className="cf-item-detail">
+          <h3>Текст особенности</h3>
           <div className="cf-item-markdown">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {item.detail}
             </ReactMarkdown>
           </div>
-        </details>
+        </section>
       )}
       <Badges item={item} />
       {trigger?.used && trigger.count > 1 && (

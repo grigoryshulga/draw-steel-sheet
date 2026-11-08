@@ -182,14 +182,9 @@ export function SheetPerksPanel() {
             {entries.map(({ selected, slot }) => {
               const perk = perkById(selected.perkId);
               const isCustom = selected.source === "custom";
-              const fullText = fullTexts[canonicalPerkId(selected.perkId)];
-              const customText = isCustom && selected.description && selected.description !== perk?.description
-                ? selected.description : undefined;
-              const preview = (customText || fullText || (isCustom
-                ? (selected.description || selected.summary || "Описание не заполнено.")
-                : (perk?.description || perk?.summary || selected.description || selected.summary || "Описание перка недоступно.")))
-                .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-                .replace(/[*_`#]/g, "");
+              const preview = isCustom
+                ? selected.summary || perk?.summary || "Откройте полное описание перка."
+                : perk?.summary || selected.summary || "Откройте полное описание перка.";
               return (
                 <PerkCard
                   key={slot?.key ?? `custom-${selected.perkId}`}
@@ -200,7 +195,7 @@ export function SheetPerksPanel() {
                   className={isCustom ? "is-custom" : undefined}
                   onOpen={() => setDetail({ selected, slot })}
                   footerAction={isCustom ? (
-                    <Button size="sm" variant="ghost" icon="edit" onClick={() => setEditing(selected)}>Изменить</Button>
+                    <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label={`Изменить перк: ${selected.name}`} title="Изменить перк" onClick={() => setEditing(selected)} />
                   ) : undefined}
                 />
               );
@@ -235,7 +230,7 @@ export function SheetPerksPanel() {
         action={
           detail?.selected.source === "custom" ? (
             <>
-              <Button
+              <Button iconOnly
                 variant="ghost"
                 icon="edit"
                 onClick={() => {
@@ -245,7 +240,7 @@ export function SheetPerksPanel() {
               >
                 Изменить
               </Button>
-              <Button
+              <Button iconOnly
                 variant="danger"
                 icon="trash"
                 onClick={() => removeCustom(detail.selected)}
@@ -313,10 +308,10 @@ function CustomPerkModal({
       footer={
         <>
           <span className="grow" />
-          <Button variant="ghost" onClick={onClose}>
+          <Button iconOnly icon="close" variant="ghost" onClick={onClose}>
             Отмена
           </Button>
-          <Button
+          <Button iconOnly
             variant="primary"
             icon="check"
             disabled={!valid}

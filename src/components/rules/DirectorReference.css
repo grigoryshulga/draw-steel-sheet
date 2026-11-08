@@ -34,3 +34,10 @@
   .director-filters { grid-template-columns: minmax(0, 1fr); }
   .director-filters .director-query { grid-column: auto; }
 }
+.director-filter-disclosure { grid-column: 1 / -1; }
+.director-filter-disclosure > summary { cursor: pointer; padding-block: var(--space-5); color: var(--fg); font-size: var(--text-md); }
+.director-filter-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); padding-bottom: var(--space-4); }
+.director-search-field { position: relative; display: block; }
+.director-search-field > input { width: 100%; padding-right: 40px; }
+.director-search-field:has(.director-filter-reset) > input::-webkit-search-cancel-button { display: none; }
+.director-search-field > .director-filter-reset { position: absolute; right: var(--space-2); top: 50%; transform: translateY(-50%); width: 32px; min-width: 32px; height: 32px; min-height: 32px; padding: var(--space-4); }

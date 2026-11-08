@@ -102,7 +102,7 @@ export function ProjectsPanel() {
                   <a
                     href={`#/catalog/project/${encodeURIComponent(project.catalogId)}`}
                   >
-                    Требования и описание проекта →
+                    Требования и описание проекта <Icon name="arrow-right" size={16} />
                   </a>
                 )}
                 <div className="project-meta">

@@ -152,7 +152,14 @@ export function createApi({ store }) {
         }
         if (req.method === "PUT") {
           const doc = await readBody(req);
-          sendJson(res, 200, await store.save(id, doc));
+          const expected = req.headers["x-character-expected-updated-at"];
+          if (expected !== undefined && (typeof expected !== "string" ||
+              expected !== "new" && !Number.isFinite(Date.parse(expected)))) {
+            sendJson(res, 400, { error: "Некорректная версия героя" });
+            return true;
+          }
+          sendJson(res, 200, await store.save(id, doc, expected === undefined ? undefined :
+            { expectedUpdatedAt: expected === "new" ? null : expected }));
           return true;
         }
         if (req.method === "DELETE") {
@@ -169,7 +176,8 @@ export function createApi({ store }) {
     } catch (error) {
       const status = error.status || 500;
       if (status >= 500) console.error(error);
-      sendJson(res, status, { error: status >= 500 ? "Внутренняя ошибка" : error.message });
+      sendJson(res, status, { error: status >= 500 ? "Внутренняя ошибка" : error.message,
+        ...(status === 409 && Object.hasOwn(error, "server") ? { server: error.server } : {}) });
       return true;
     }
   };

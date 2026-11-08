@@ -16,6 +16,7 @@ export const TABS = [
   "glossary",
   "settings",
   "create",
+  "tables",
 ] as const;
 
 export type Tab = (typeof TABS)[number];
@@ -33,6 +34,7 @@ export const TAB_LABELS: Record<Tab, string> = {
   glossary: "Глоссарий",
   settings: "Настройки",
   create: "Создание героя",
+  tables: "Мои столы",
 };
 
 export const LIBRARY_TABS = ["codex", "reference", "catalog", "glossary"] as const;

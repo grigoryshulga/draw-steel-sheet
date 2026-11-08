@@ -5,11 +5,14 @@ export function createAutosave<T>({
   save,
   onStatus,
   onSaved,
+  onEdit,
   delay = 650,
 }: {
   save: (document: T) => Promise<T>;
   onStatus: (status: SaveStatus, error?: string) => void;
-  onSaved?: (document: T) => void;
+  onSaved?: (document: T, submitted: T) => void;
+  /** Synchronous durable staging, before any debounce or remote write. */
+  onEdit?: (document: T) => void;
   delay?: number;
 }) {
   let current: T | null = null;
@@ -43,7 +46,7 @@ export function createAutosave<T>({
         try {
           const saved = await save(document);
           acknowledged = document;
-          onSaved?.(saved);
+          onSaved?.(saved, document);
         } catch (error) {
           cancelTimer();
           onStatus(
@@ -64,15 +67,17 @@ export function createAutosave<T>({
     isDirty,
     flush,
     /** Call only after flush; switching an unsaved document is a programming error. */
-    load(document: T | null) {
+    load(document: T | null, options?: { pending?: boolean }) {
       if (isDirty() || inFlight)
         throw new Error("Сначала сохраните текущего героя");
       cancelTimer();
-      current = acknowledged = document;
-      onStatus(document === null ? "idle" : "saved");
+      current = document;
+      acknowledged = options?.pending ? null : document;
+      onStatus(document === null ? "idle" : options?.pending ? "pending" : "saved");
     },
     edit(document: T) {
       if (document === current) return;
+      onEdit?.(document);
       current = document;
       cancelTimer();
       if (!hasChanges() && !inFlight) {
@@ -84,6 +89,14 @@ export function createAutosave<T>({
         void flush().catch(() => undefined);
       }, delay);
     },
+    /** Explicit conflict resolution; durable recovery remains owned by storage. */
+    resolve(document: T | null) {
+      if (inFlight) throw new Error("Дождитесь завершения сохранения");
+      cancelTimer();
+      current = acknowledged = document;
+      onStatus(document === null ? "idle" : "saved");
+    },
+    settled: () => inFlight ?? Promise.resolve(),
     // Do not start a competing request during unload. The caller guards navigation.
     dispose: cancelTimer,
   };

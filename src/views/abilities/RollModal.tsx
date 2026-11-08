@@ -296,8 +296,8 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
           </>
         )}
 
-        <details className="ability-use-notes">
-          <summary>Дополнительный расход</summary>
+        <section className="ability-use-notes">
+          <h3>Дополнительный расход</h3>
           <Field label={`Дополнительно потратить: ${resourceName}`}>
             <NumberInput value={additionalCost} onChange={setAdditionalCost} min={0} max={9999} label="Дополнительный расход ресурса" />
           </Field>
@@ -308,7 +308,7 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
               Без расхода ресурса (исключение)
             </label>
           )}
-        </details>
+        </section>
       </fieldset>
 
       {(result || !hasRoll) && (

@@ -1,8 +1,23 @@
 import { isDirectorSection } from "../navigation";
-import { catalogAccent, catalogLevelSections, catalogTitleText } from "../lib/catalog-presentation";
+import { useMediaQuery } from "../lib/hooks";
+import {
+  catalogAccent,
+  catalogLevelSections,
+  catalogTitleText,
+} from "../lib/catalog-presentation";
 import { echelon as levelEchelon } from "../lib/progression";
 import { CatalogRank } from "../components/rules/CatalogRank";
-import { Fragment, useContext, useEffect, useMemo, useState } from "react";
+import { Icon } from "../components/Icons";
+import {
+  Fragment,
+  lazy,
+  Suspense,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   catalogSectionCount,
   catalogSectionEntries,
@@ -28,12 +43,18 @@ import { Chip, Select, TextInput, Button } from "../components/ui";
 import { ReferenceList } from "../components/rules/ReferenceList";
 import { RuleArticleReader } from "../components/rules/RuleArticleReader";
 import { RuleMarkdown } from "../components/rules/RuleMarkdown";
-import { ClassLandingView } from "./ClassLandingView";
 import { DirectorFilters } from "../components/rules/DirectorFilters";
-import { emptyDirectorFilters, matchesDirectorFilters } from "../lib/director-catalog";
+import {
+  emptyDirectorFilters,
+  matchesDirectorFilters,
+} from "../lib/director-catalog";
 import "./CodexView.css";
 import "./LibraryView.css";
 import "./ReferenceView.css";
+
+const ClassLandingView = lazy(() =>
+  import("./ClassLandingView").then((module) => ({ default: module.ClassLandingView })),
+);
 
 /** Портреты для разделов, которые читаются как карточки-сущности. */
 const ART_KIND_BY_SECTION: Partial<Record<CatalogSectionId, ArtKind>> = {
@@ -52,15 +73,58 @@ export function CatalogView() {
   const segments = useLibraryLocation();
   const { section, id } = resolveCatalogRoute(segments);
   const director = isDirectorSection(section);
-  const sections = CATALOG_SECTIONS.filter(item => isDirectorSection(item.id) === director);
+  const sections = CATALOG_SECTIONS.filter(
+    (item) => isDirectorSection(item.id) === director,
+  );
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [echelon, setEchelon] = useState("");
   const [directorFilters, setDirectorFilters] = useState(emptyDirectorFilters);
   const app = useContext(AppContext);
+  const compact = useMediaQuery("(max-width: 850px)");
+  const groupSlug = id.startsWith("group:") ? id.slice(6) : undefined;
+  const isList = !id || !!groupSlug;
+  const detailOpen = compact && section !== "glossary" && !isList;
+  const browsing = useRef({
+    section,
+    query: "",
+    category: "",
+    echelon: "",
+    directorFilters: emptyDirectorFilters,
+    scrollY: 0,
+    selectedId: "",
+    listId: id,
+  });
+  const previousId = useRef(id);
+  const rememberList = (event: React.MouseEvent<HTMLElement>) => {
+    if (
+      !compact ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.button !== 0
+    )
+      return;
+    const anchor = (event.target as HTMLElement).closest<HTMLAnchorElement>(
+      "a[href^='#/catalog/']",
+    );
+    if (!anchor) return;
+    browsing.current = {
+      section,
+      query,
+      category,
+      echelon,
+      directorFilters,
+      listId: id,
+      scrollY: window.scrollY,
+      selectedId: anchor.hash.split("/").slice(3).join("/"),
+    };
+  };
 
-  const groupSlug = id?.startsWith("group:") ? id.slice(6) : undefined;
-  const entries = catalogSectionEntries(section).filter(entry => !groupSlug || entry.director?.groupSlug === groupSlug);
+  const entries = catalogSectionEntries(section).filter(
+    (entry) => !groupSlug || entry.director?.groupSlug === groupSlug,
+  );
   const categories = [...new Set(entries.map((entry) => entry.eyebrow))];
   const hasEchelon = entries.some((entry) => entry.echelon);
   const results = entries.filter(
@@ -70,20 +134,51 @@ export function CatalogView() {
       matchesDirectorFilters(entry, directorFilters) &&
       matchesLibraryQuery(query, entry.search),
   );
-  const selected = entries.find((entry) => entry.id === id) ?? (!id || groupSlug ? results[0] : undefined);
+  const selected =
+    entries.find((entry) => entry.id === id) ??
+    (isList && !compact ? results[0] : undefined);
 
   useEffect(() => {
+    const returning =
+      compact &&
+      isList &&
+      previousId.current &&
+      previousId.current !== id &&
+      browsing.current.section === section &&
+      browsing.current.listId === id;
+    previousId.current = id;
+    if (returning) {
+      const saved = browsing.current;
+      setQuery(saved.query);
+      setCategory(saved.category);
+      setEchelon(saved.echelon);
+      setDirectorFilters(saved.directorFilters);
+      const timer = window.setTimeout(() => {
+        const link = [
+          ...document.querySelectorAll<HTMLAnchorElement>(
+            ".catalog-browser a, .catalog-global-results a",
+          ),
+        ].find((a) => a.hash.endsWith(saved.selectedId));
+        link?.focus({ preventScroll: true });
+        window.scrollTo(0, saved.scrollY);
+      }, 0);
+      return () => window.clearTimeout(timer);
+    }
+    if (!isList) {
+      const target = document.getElementById(
+        compact ? "catalog-reading" : "catalog-detail",
+      );
+      target?.focus({ preventScroll: true });
+      target?.scrollIntoView({ block: "start" });
+    }
+  }, [id, section, compact]);
+  useEffect(() => {
+    if (compact && isList && browsing.current.section === section) return;
     setQuery("");
     setCategory("");
     setEchelon("");
     setDirectorFilters(emptyDirectorFilters);
   }, [section]);
-  useEffect(() => {
-    if (!id) return;
-    document
-      .getElementById("catalog-detail")
-      ?.scrollIntoView({ block: "start" });
-  }, [id]);
   const glossaryFragment = (segments[2] ?? "").split("#")[1] ?? "";
   useEffect(() => {
     if (section !== "glossary" || !glossaryFragment) return;
@@ -106,12 +201,16 @@ export function CatalogView() {
   const globalQuery = query.trim();
   const globalGroups = useMemo(() => {
     if (!globalQuery) return [];
-    return CATALOG_SECTIONS.filter(item => isDirectorSection(item.id) === director).map((catalogSection) => ({
-      section: catalogSection,
-      entries: catalogSectionEntries(catalogSection.id).filter((entry) =>
-        matchesLibraryQuery(globalQuery, entry.search),
-      ),
-    })).filter((group) => group.entries.length > 0);
+    return CATALOG_SECTIONS.filter(
+      (item) => isDirectorSection(item.id) === director,
+    )
+      .map((catalogSection) => ({
+        section: catalogSection,
+        entries: catalogSectionEntries(catalogSection.id).filter((entry) =>
+          matchesLibraryQuery(globalQuery, entry.search),
+        ),
+      }))
+      .filter((group) => group.entries.length > 0);
   }, [globalQuery, director]);
   const globalCount = globalGroups.reduce(
     (total, group) => total + group.entries.length,
@@ -128,29 +227,86 @@ export function CatalogView() {
 
   return (
     <div className="library-view">
-      <div className="catalog-global-search">
-        <TextInput
-          type="search"
-          aria-label={director ? "Поиск по материалам ведущего" : "Поиск по всему справочнику"}
-          placeholder={director ? "Поиск по материалам ведущего…" : "Поиск по всему справочнику…"}
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-        />
-      </div>
-      <nav className="catalog-tabs" aria-label={director ? "Разделы для ведущего" : "Раздел справочника"}>
-        {sections.map((item) => (
+      {detailOpen ? (
+        <div className="catalog-reading-bar">
           <a
-            key={item.id}
-            href={catalogSectionHref(item.id)}
-            aria-current={section === item.id ? "page" : undefined}
-            onClick={() => setQuery("")}
+            className="btn btn-icon"
+            aria-label="К списку"
+            title="К списку"
+            href={
+              browsing.current.selectedId
+                ? `${catalogSectionHref(browsing.current.section)}${browsing.current.listId ? `/${encodeURIComponent(browsing.current.listId)}` : ""}`
+                : catalogSectionHref(section)
+            }
           >
-            {item.title} <span>{catalogSectionCount(item.id)}</span>
+            <Icon name="arrow-left" />
           </a>
-        ))}
-      </nav>
-      {globalQuery ? (
-        <div className="catalog-global-results">
+          <span className="muted small">
+            {CATALOG_SECTIONS.find((item) => item.id === section)?.title}
+          </span>
+        </div>
+      ) : (
+        <>
+          <div className="catalog-global-search">
+            <TextInput
+              type="search"
+              aria-label={
+                director
+                  ? "Поиск по материалам ведущего"
+                  : "Поиск по всему справочнику"
+              }
+              placeholder={
+                director
+                  ? "Поиск по материалам ведущего…"
+                  : "Поиск по всему справочнику…"
+              }
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+            />
+          </div>
+          {compact && (
+            <Select
+              aria-label={
+                director ? "Разделы для ведущего" : "Раздел справочника"
+              }
+              value={section}
+              onChange={(event) => {
+                setQuery("");
+                window.location.hash = catalogSectionHref(
+                  event.target.value as CatalogSectionId,
+                );
+              }}
+            >
+              {sections.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.title} · {catalogSectionCount(item.id)}
+                </option>
+              ))}
+            </Select>
+          )}
+          {!compact && (
+            <nav
+              className="catalog-tabs section-tabs"
+              aria-label={
+                director ? "Разделы для ведущего" : "Раздел справочника"
+              }
+            >
+              {sections.map((item) => (
+                <a
+                  key={item.id}
+                  href={catalogSectionHref(item.id)}
+                  aria-current={section === item.id ? "page" : undefined}
+                  onClick={() => setQuery("")}
+                >
+                  {item.title} <span>{catalogSectionCount(item.id)}</span>
+                </a>
+              ))}
+            </nav>
+          )}
+        </>
+      )}
+      {globalQuery && !detailOpen ? (
+        <div className="catalog-global-results" onClickCapture={rememberList}>
           <div className="catalog-global-heading">
             <h2>Результаты поиска</h2>
             <p className="muted small">Найдено: {globalCount}</p>
@@ -174,7 +330,9 @@ export function CatalogView() {
                     key={`${group.section.id}-${entry.id}`}
                     className="catalog-global-row"
                     href={globalHref(group.section.id, entry)}
-                    onClick={() => setQuery("")}
+                    onClick={() => {
+                      if (!compact) setQuery("");
+                    }}
                   >
                     <span className="catalog-global-name">{entry.name}</span>
                     {entry.eyebrow && (
@@ -195,136 +353,189 @@ export function CatalogView() {
         </div>
       ) : (
         <>
-        {director && <section className="director-filter-panel" aria-label="Фильтры каталога">
-          <DirectorFilters entries={entries} value={directorFilters} onChange={setDirectorFilters} />
-          <p className="muted small" role="status">Найдено: {results.length} из {entries.length}</p>
-        </section>}
-        <div
-          className={`catalog-layout${
-            section !== "glossary" && selected ? " has-detail" : ""
-          }`}
-        >
-          <section className="catalog-browser" aria-label="Каталог">
-            {groupSlug && <div className="catalog-global-heading">
-              <h2>{entries[0]?.eyebrow ?? 'Группа существ'}</h2>
-              <a href={catalogSectionHref(section)}>Все существа →</a>
-            </div>}
-            {(section === "glossary" ||
-              categories.length > 1 ||
-              hasEchelon) && (
-              <div className="catalog-filters">
-                {section === "glossary" ? (
-                  <nav
-                    className="glossary-alphabet catalog-glossary-alphabet"
-                    aria-label="Алфавит"
-                  >
-                    <button
-                      type="button"
-                      aria-pressed={!category}
-                      onClick={() => setCategory("")}
-                    >
-                      Все
-                    </button>
-                    {categories.map((letter) => (
-                      <button
-                        key={letter}
-                        type="button"
-                        aria-pressed={category === letter}
-                        onClick={() => setCategory(letter)}
-                      >
-                        {letter}
-                      </button>
-                    ))}
-                  </nav>
-                ) : categories.length > 1 ? (
-                  <Select
-                    aria-label={categoryLabel}
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  >
-                    <option value="">{categoryLabel}</option>
-                    {categories.map((value) => (
-                      <option key={value}>{value}</option>
-                    ))}
-                  </Select>
-                ) : null}
-                {hasEchelon && (
-                  <div className="catalog-rank-filter" role="group" aria-label="Эшелон">
-                    <button type="button" aria-pressed={!echelon} onClick={() => setEchelon("")}>Все</button>
-                    {[1, 2, 3, 4].map((n) => <button key={n} type="button" data-rank={n} aria-label={`Эшелон ${n}`} aria-pressed={echelon === String(n)} onClick={() => setEchelon(String(n))}>{["", "I", "II", "III", "IV"][n]}</button>)}
+          {director && !detailOpen && (
+            <section
+              className="director-filter-panel"
+              aria-label="Фильтры каталога"
+            >
+              <DirectorFilters
+                compact={compact}
+                entries={entries}
+                value={directorFilters}
+                onChange={setDirectorFilters}
+              />
+              <p className="muted small" role="status">
+                Найдено: {results.length} из {entries.length}
+              </p>
+            </section>
+          )}
+          <div
+            className={`catalog-layout${
+              section !== "glossary" && selected ? " has-detail" : ""
+            }`}
+          >
+            {!detailOpen && (
+              <section
+                className="catalog-browser"
+                aria-label="Каталог"
+                onClickCapture={rememberList}
+              >
+                {groupSlug && (
+                  <div className="catalog-global-heading">
+                    <h2>{entries[0]?.eyebrow ?? "Группа существ"}</h2>
+                    <a href={catalogSectionHref(section)}>Все существа <Icon name="arrow-right" size={16} /></a>
                   </div>
                 )}
-              </div>
-            )}
-            {results.length === 0 && (
-              <div className="library-empty">
-                <h3>Ничего не найдено</h3>
-                <p>Измените запрос или сбросьте фильтры.</p>
-                <Button
-                  onClick={() => {
-                    setQuery("");
-                    setCategory("");
-                    setEchelon("");
-                    setDirectorFilters(emptyDirectorFilters);
-                  }}
-                >
-                  Сбросить
-                </Button>
-              </div>
-            )}
-            {section === "glossary" ? (
-              <div className="catalog-glossary">
-                {glossaryGroups.map(([letter, items]) => (
-                  <Fragment key={letter}>
-                    <h3 className="catalog-glossary-letter">{letter}</h3>
-                    {items.map((entry) => (
-                      <article
-                        className="catalog-glossary-entry"
-                        key={entry.id}
-                        id={`term-${entry.id}`}
+                {(section === "glossary" ||
+                  categories.length > 1 ||
+                  hasEchelon) && (
+                  <div className="catalog-filters">
+                    {section === "glossary" ? (
+                      <nav
+                        className="glossary-alphabet catalog-glossary-alphabet"
+                        aria-label="Алфавит"
                       >
-                        <h4 className="catalog-glossary-term">
-                          <span>{entry.name}</span>
-                          {entry.glossary?.english && (
-                            <em>{entry.glossary.english}</em>
-                          )}
-                        </h4>
-                        {entry.glossary && (
-                          <RuleMarkdown
-                            text={entry.glossary.markdown}
-                            className="rule-text catalog-glossary-def"
-                          />
-                        )}
-                      </article>
+                        <button
+                          type="button"
+                          aria-pressed={!category}
+                          onClick={() => setCategory("")}
+                        >
+                          Все
+                        </button>
+                        {categories.map((letter) => (
+                          <button
+                            key={letter}
+                            type="button"
+                            aria-pressed={category === letter}
+                            onClick={() => setCategory(letter)}
+                          >
+                            {letter}
+                          </button>
+                        ))}
+                      </nav>
+                    ) : categories.length > 1 ? (
+                      <Select
+                        aria-label={categoryLabel}
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                      >
+                        <option value="">{categoryLabel}</option>
+                        {categories.map((value) => (
+                          <option key={value}>{value}</option>
+                        ))}
+                      </Select>
+                    ) : null}
+                    {hasEchelon && (
+                      <div
+                        className="catalog-rank-filter"
+                        role="group"
+                        aria-label="Эшелон"
+                      >
+                        <button
+                          type="button"
+                          aria-pressed={!echelon}
+                          onClick={() => setEchelon("")}
+                        >
+                          Все
+                        </button>
+                        {[1, 2, 3, 4].map((n) => (
+                          <button
+                            key={n}
+                            type="button"
+                            data-rank={n}
+                            aria-label={`Эшелон ${n}`}
+                            aria-pressed={echelon === String(n)}
+                            onClick={() => setEchelon(String(n))}
+                          >
+                            {["", "I", "II", "III", "IV"][n]}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+                {results.length === 0 && (
+                  <div className="library-empty">
+                    <h3>Ничего не найдено</h3>
+                    <p>Измените запрос или сбросьте фильтры.</p>
+                    <Button
+                      onClick={() => {
+                        setQuery("");
+                        setCategory("");
+                        setEchelon("");
+                        setDirectorFilters(emptyDirectorFilters);
+                      }}
+                    >
+                      Сбросить
+                    </Button>
+                  </div>
+                )}
+                {section === "glossary" ? (
+                  <div className="catalog-glossary">
+                    {glossaryGroups.map(([letter, items]) => (
+                      <Fragment key={letter}>
+                        <h3 className="catalog-glossary-letter">{letter}</h3>
+                        {items.map((entry) => (
+                          <article
+                            className="catalog-glossary-entry"
+                            key={entry.id}
+                            id={`term-${entry.id}`}
+                          >
+                            <h4 className="catalog-glossary-term">
+                              <span>{entry.name}</span>
+                              {entry.glossary?.english && (
+                                <em>{entry.glossary.english}</em>
+                              )}
+                            </h4>
+                            {entry.glossary && (
+                              <RuleMarkdown
+                                text={entry.glossary.markdown}
+                                className="rule-text catalog-glossary-def"
+                              />
+                            )}
+                          </article>
+                        ))}
+                      </Fragment>
                     ))}
-                  </Fragment>
-                ))}
-              </div>
-            ) : (
-              <ReferenceList
-                entries={results}
-                selectedId={selected?.id}
-                artKind={artKind}
-                hrefFor={(entry) => catalogBrowserEntryHref(section, entry.id)}
-                metaFor={(entry) =>
-                  app &&
-                  entry.catalog &&
-                  ownsCatalogEntry(app.character, entry.catalog) ? (
-                    <Chip tone="accent">Уже у героя</Chip>
-                  ) : null
-                }
-              />
+                  </div>
+                ) : (
+                  <ReferenceList
+                    entries={results}
+                    selectedId={selected?.id}
+                    artKind={artKind}
+                    hrefFor={(entry) =>
+                      catalogBrowserEntryHref(section, entry.id)
+                    }
+                    metaFor={(entry) =>
+                      app &&
+                      entry.catalog &&
+                      ownsCatalogEntry(app.character, entry.catalog) ? (
+                        <Chip tone="accent">Уже у героя</Chip>
+                      ) : null
+                    }
+                  />
+                )}
+              </section>
             )}
-          </section>
-          {section !== "glossary" &&
-            (selected ? (
-              <CatalogDetail entry={selected} characterId={app?.character.id} />
-            ) : id ? (
-              <p className="library-empty">
-                Запись не найдена. Выберите другую в каталоге.
-              </p>
-            ) : null)}
-        </div>
+            {section !== "glossary" && (selected || !isList) && (
+              <div
+                id="catalog-reading"
+                className="catalog-reading"
+                tabIndex={-1}
+              >
+                {selected ? (
+                  <CatalogDetail
+                    entry={selected}
+                    characterId={app?.character.id}
+                  />
+                ) : id ? (
+                  <p className="library-empty">
+                    Запись не найдена. Выберите другую в каталоге.
+                  </p>
+                ) : null}
+              </div>
+            )}
+          </div>
         </>
       )}
     </div>
@@ -340,7 +551,11 @@ function CatalogDetail({
 }) {
   if (entry.catalog)
     return (
-      <CatalogEntryDetail key={entry.catalog.id} entry={entry.catalog} characterId={characterId} />
+      <CatalogEntryDetail
+        key={entry.catalog.id}
+        entry={entry.catalog}
+        characterId={characterId}
+      />
     );
   if (entry.classSlug)
     return (
@@ -348,20 +563,32 @@ function CatalogDetail({
         id="catalog-detail"
         className="catalog-detail catalog-detail-class"
       >
-        <ClassLandingView slug={entry.classSlug} embedded />
+        <Suspense fallback={<p className="muted" role="status">Загрузка класса…</p>}>
+          <ClassLandingView slug={entry.classSlug} embedded />
+        </Suspense>
       </article>
     );
   return (
-    <article id="catalog-detail" className={`catalog-detail${entry.perk ? " catalog-detail-perk sheet-perk-card" : ""}`} data-type={entry.perk?.type}>
+    <article
+      id="catalog-detail"
+      className={`catalog-detail${entry.perk ? " catalog-detail-perk sheet-perk-card" : ""}`}
+      data-type={entry.perk?.type}
+    >
       {entry.perk && <span className="eyebrow">{entry.eyebrow}</span>}
       {entry.perk ? (
         <>
           {entry.articleId ? (
-            <RuleArticleReader key={entry.perk.id} articleId={entry.articleId} entityName={entry.perk.name} />
-          ) : <RuleText text={entry.perk.summary} />}
+            <RuleArticleReader
+              key={entry.perk.id}
+              articleId={entry.articleId}
+              entityName={entry.perk.name}
+            />
+          ) : (
+            <RuleText text={entry.perk.summary} />
+          )}
           {entry.articleId && (
             <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
-              Открыть в Кодексе →
+              Открыть в Кодексе <Icon name="arrow-right" size={16} />
             </a>
           )}
         </>
@@ -371,9 +598,13 @@ function CatalogDetail({
             key={entry.articleId}
             articleId={entry.articleId}
           />
-          {!['statblock', 'dynamic-terrain'].includes(entry.director?.recordType ?? '') && <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
-            Открыть в Кодексе →
-          </a>}
+          {!["statblock", "dynamic-terrain"].includes(
+            entry.director?.recordType ?? "",
+          ) && (
+            <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
+              Открыть в Кодексе <Icon name="arrow-right" size={16} />
+            </a>
+          )}
         </>
       ) : null}
     </article>
@@ -387,44 +618,93 @@ function CatalogEntryDetail({
   entry: CatalogEntry;
   characterId?: string;
 }) {
-  const keywords = entry.keywords.split(/[;,]/).map((word) => word.trim()).filter(Boolean);
+  const keywords = entry.keywords
+    .split(/[;,]/)
+    .map((word) => word.trim())
+    .filter(Boolean);
   const { flavor, body } = catalogTitleText(entry);
-  const markdown = keywords.length ? body.replace(/^\*\*Ключевые слова:\*\*[^\n]*(?:\n|$)/gm, "") : body;
+  const markdown = keywords.length
+    ? body.replace(/^\*\*Ключевые слова:\*\*[^\n]*(?:\n|$)/gm, "")
+    : body;
   const progression = catalogLevelSections(markdown);
-  const levels = entry.category === "Сокровища с Уровнем" ? progression.levels : [];
+  const levels =
+    entry.category === "Сокровища с Уровнем" ? progression.levels : [];
   const [level, setLevel] = useState(levels[0]?.level ?? 1);
   const rank = catalogAccent(entry, levels.length ? level : undefined);
   return (
-    <article id="catalog-detail" className="catalog-detail" data-rank={rank} data-catalog-kind={entry.kind}>
-      <div className="catalog-detail-meta"><span className="eyebrow">
-        {entry.category}
-        {!rank && entry.echelon ? ` · Эшелон ${entry.echelon}` : ""}
-      </span><CatalogRank rank={rank} /></div>
+    <article
+      id="catalog-detail"
+      className="catalog-detail"
+      data-rank={rank}
+      data-catalog-kind={entry.kind}
+    >
+      <div className="catalog-detail-meta">
+        <span className="eyebrow">
+          {entry.category}
+          {!rank && entry.echelon ? ` · Эшелон ${entry.echelon}` : ""}
+        </span>
+        <CatalogRank rank={rank} />
+      </div>
       <h1>{entry.name}</h1>
-      {flavor && <div className="catalog-flavor"><RuleText text={flavor} /></div>}
-      {keywords.length > 0 && <div className="catalog-keywords" aria-label="Ключевые слова">
-        {keywords.map((keyword) => <Chip key={keyword}>{keyword}</Chip>)}
-      </div>}
+      {flavor && (
+        <div className="catalog-flavor">
+          <RuleText text={flavor} />
+        </div>
+      )}
+      {keywords.length > 0 && (
+        <div className="catalog-keywords" aria-label="Ключевые слова">
+          {keywords.map((keyword) => (
+            <Chip key={keyword}>{keyword}</Chip>
+          ))}
+        </div>
+      )}
       {entry.prerequisite && (
         <div className="catalog-prerequisite">
           <span className="eyebrow">Условие получения</span>
           <p>{entry.prerequisite}</p>
         </div>
       )}
-      {levels.length ? <>
-        <RuleText text={progression.introduction} />
-        <div className="catalog-level-tabs" role="group" aria-label="Уровень предмета">
-          {levels.map((stage) => <button key={stage.level} type="button" data-rank={levelEchelon(stage.level)} aria-pressed={level === stage.level} onClick={() => setLevel(stage.level)}>{stage.level}-й уровень</button>)}
-        </div>
-        {levels.filter((stage) => stage.level <= level).map((stage) => <section className="catalog-level-section" data-rank={levelEchelon(stage.level)} key={stage.level}>
-          <h2>{stage.level}-й уровень</h2><RuleText text={stage.text} />
-        </section>)}
-      </> : <RuleText text={markdown} />}
+      {levels.length ? (
+        <>
+          <RuleText text={progression.introduction} />
+          <div
+            className="catalog-level-tabs"
+            role="group"
+            aria-label="Уровень предмета"
+          >
+            {levels.map((stage) => (
+              <button
+                key={stage.level}
+                type="button"
+                data-rank={levelEchelon(stage.level)}
+                aria-pressed={level === stage.level}
+                onClick={() => setLevel(stage.level)}
+              >
+                {stage.level}-й уровень
+              </button>
+            ))}
+          </div>
+          {levels
+            .filter((stage) => stage.level <= level)
+            .map((stage) => (
+              <section
+                className="catalog-level-section"
+                data-rank={levelEchelon(stage.level)}
+                key={stage.level}
+              >
+                <h2>{stage.level}-й уровень</h2>
+                <RuleText text={stage.text} />
+              </section>
+            ))}
+        </>
+      ) : (
+        <RuleText text={markdown} />
+      )}
       <footer className="catalog-detail-footer">
-      <a className="catalog-source" href={sourceLink(entry)}>
-        Открыть в Кодексе →
-      </a>
-      <CatalogAction key={`${characterId}-${entry.id}`} entry={entry} />
+        <a className="catalog-source" href={sourceLink(entry)}>
+          Открыть в Кодексе <Icon name="arrow-right" size={16} />
+        </a>
+        <CatalogAction key={`${characterId}-${entry.id}`} entry={entry} />
       </footer>
     </article>
   );

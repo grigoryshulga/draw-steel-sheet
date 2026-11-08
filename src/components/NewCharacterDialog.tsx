@@ -238,6 +238,7 @@ export function NewCharacterDialog({
             <Button
               variant="ghost"
               icon="close"
+              iconOnly
               onClick={onClose}
               disabled={busy}
             >
@@ -268,7 +269,7 @@ export function NewCharacterDialog({
               </option>
             ))}
           </Select>
-          <Button variant="ghost" onClick={() => setPreviewOpen(true)}>
+          <Button variant="ghost" icon="hero" iconOnly aria-label="Предпросмотр героя" onClick={() => setPreviewOpen(true)}>
             Герой
           </Button>
         </div>
@@ -359,6 +360,9 @@ export function NewCharacterDialog({
             {position > 0 && (
               <Button
                 onClick={() => goToFlow(flow[position - 1].id)}
+                icon="arrow-left"
+                iconOnly
+                aria-label="Предыдущий шаг"
                 disabled={busy}
               >
                 Назад
@@ -366,14 +370,17 @@ export function NewCharacterDialog({
             )}
             <Button
               variant="primary"
+              icon={step === "summary" ? undefined : "chevron-right"}
+              iconOnly={step !== "summary"}
+              aria-label={step === "summary" ? undefined : "Следующий шаг"}
               disabled={busy}
               onClick={() => (step === "summary" ? void submit() : advance())}
             >
               {busy
                 ? "Создание…"
                 : step === "summary"
-                  ? "Создать героя"
-                  : "Далее →"}
+                  ? Object.values(issues).some(Boolean) ? "Завершить выборы" : "Создать героя"
+                  : "Далее"}
             </Button>
           </div>
         </footer>

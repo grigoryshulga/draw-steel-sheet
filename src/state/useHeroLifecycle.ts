@@ -1,12 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Character, CharacterSummary } from "../types";
 import { createAutosave, type SaveStatus } from "../lib/autosave";
-import {
-  deleteCharacter as deleteCharacterRequest,
-  listCharacters,
-  loadCharacter,
-  saveCharacter,
-} from "../lib/api";
+import { getCharacterRepository } from "../lib/api";
+import { useStorageScope } from "./StorageScope";
 import { parseCharacterImport } from "../lib/character-import";
 import { normalizeCharacter } from "../lib/defaults";
 import { makeId } from "../data/templates";
@@ -14,6 +10,13 @@ import { recalculateCharacter } from "../lib/character-calculations";
 import { downloadJson, safeFilename } from "../lib/utils";
 
 type Notify = (message: string, tone?: "info" | "success" | "error") => void;
+
+export class PendingHeroEditsError extends Error {
+  constructor(readonly pendingCount: number, readonly localError: string) {
+    super("Есть несинхронизированные правки. Можно остаться или выйти, сохранив правки для этого аккаунта на устройстве.");
+    this.name = "PendingHeroEditsError";
+  }
+}
 
 export interface UseHeroLifecycleOptions {
   notify: Notify;
@@ -49,6 +52,11 @@ export function useHeroLifecycle({
   onActivate,
   beforeSignOut,
 }: UseHeroLifecycleOptions) {
+  const scope = useStorageScope();
+  const repository = useMemo(() => getCharacterRepository(scope), [scope]);
+  const { listCharacters, loadCharacter, saveCharacter, deleteCharacter: deleteCharacterRequest } = repository;
+  const [persistence, setPersistence] = useState(() => repository.getState());
+  const allowPendingSignOut = useRef(false);
   const [characters, setCharacters] = useState<CharacterSummary[]>([]);
   const [character, setCharacter] = useState<Character | null>(null);
   const [booting, setBooting] = useState(true);
@@ -63,26 +71,36 @@ export function useHeroLifecycle({
     () =>
       createAutosave<Character>({
         save: saveCharacter,
+        onEdit: repository.stageCharacter,
         onStatus: (status, error = "") => {
           setSaveStatus(status);
           setSaveError(error);
         },
-        onSaved: (saved) =>
+        onSaved: (saved, submitted) => {
+          if (characterRef.current === submitted) {
+            const acknowledged = { ...submitted, updatedAt: saved.updatedAt };
+            characterRef.current = acknowledged;
+            setCharacter(acknowledged);
+          }
           setCharacters((previous) =>
             sortSummaries(
               previous.map((item) =>
                 item.id === saved.id ? toSummary(saved) : item,
               ),
             ),
-          ),
+          );
+        },
       }),
-    [],
+    [repository, saveCharacter],
   );
+
+  useEffect(() => repository.subscribe(setPersistence), [repository]);
 
   const update = useCallback(
     (recipe: (current: Character) => Character) => {
       const previous = characterRef.current;
       if (!previous || characterAction.current) return;
+      allowPendingSignOut.current = false;
       const next = {
         ...recalculateCharacter(previous, recipe(previous)),
         updatedAt: new Date().toISOString(),
@@ -104,12 +122,27 @@ export function useHeroLifecycle({
     beforeSignOut.current = async () => {
       if (characterAction.current)
         throw new Error("Дождитесь завершения операции с героем");
-      await autosave.flush();
+      if (allowPendingSignOut.current) {
+        allowPendingSignOut.current = false;
+        autosave.dispose();
+        await autosave.settled().catch(() => undefined);
+        return;
+      }
+      try {
+        await autosave.flush();
+        await repository.syncPending();
+      } catch (error) {
+        const state = repository.getState();
+        if (state.pendingCount || autosave.isDirty()) {
+          throw new PendingHeroEditsError(state.pendingCount, state.localError);
+        }
+        throw error;
+      }
     };
     return () => {
       beforeSignOut.current = async () => undefined;
     };
-  }, [autosave, beforeSignOut]);
+  }, [autosave, beforeSignOut, repository]);
 
   /* ---------- Первичная загрузка ---------- */
 
@@ -124,9 +157,14 @@ export function useHeroLifecycle({
           const doc = normalizeCharacter(await loadCharacter(list[0].id));
           if (disposed) return;
           characterRef.current = doc;
-          autosave.load(doc);
+          autosave.load(doc, { pending: repository.isPending(doc.id) });
           setCharacter(doc);
         }
+        // A restarted app retries its durable queue. A failed request leaves it
+        // pending, with both versions available if the server has moved on.
+        void autosave.flush().then(() => {
+          if (!disposed) return repository.syncPending();
+        }).catch(() => undefined);
       } catch (error) {
         if (!disposed) {
           setBootError(
@@ -140,7 +178,7 @@ export function useHeroLifecycle({
     return () => {
       disposed = true;
     };
-  }, [autosave]);
+  }, [autosave, repository, listCharacters, loadCharacter]);
 
   /* ---------- Автосохранение ---------- */
 
@@ -151,7 +189,7 @@ export function useHeroLifecycle({
       event.returnValue = "";
     };
     const flush = () => {
-      void autosave.flush().catch(() => undefined);
+      void autosave.flush().then(() => repository.syncPending()).catch(() => undefined);
     };
     const onVisibility = () => {
       if (document.visibilityState === "hidden") flush();
@@ -165,12 +203,12 @@ export function useHeroLifecycle({
       document.removeEventListener("visibilitychange", onVisibility);
       autosave.dispose();
     };
-  }, [autosave]);
+  }, [autosave, repository]);
 
   /* ---------- Действия с персонажами ---------- */
 
   const activateCharacter = (doc: Character | null) => {
-    autosave.load(doc);
+    autosave.load(doc, { pending: doc !== null && repository.isPending(doc.id) });
     characterRef.current = doc;
     setCharacter(doc);
     onActivate();
@@ -203,6 +241,20 @@ export function useHeroLifecycle({
         "error",
       );
     }
+  };
+
+  /** Use after an item transaction: install an acknowledged document while
+   * editing is guarded, rather than feeding a remote snapshot through update(). */
+  const refreshCharacter = async () => {
+    await changeCharacter(async () => {
+      const id = characterRef.current?.id;
+      if (!id) return;
+      const doc = normalizeCharacter(await loadCharacter(id));
+      autosave.load(doc, { pending: repository.isPending(id) });
+      characterRef.current = doc;
+      setCharacter(doc);
+      setCharacters(previous => sortSummaries(previous.map(item => item.id === id ? toSummary(doc) : item)));
+    });
   };
 
   const handleCreate = async (draft: Character) => {
@@ -311,6 +363,40 @@ export function useHeroLifecycle({
     [],
   );
 
+  const retryPersistence = async () => {
+    repository.retryLocalPersistence();
+    await autosave.flush();
+    await repository.syncPending();
+  };
+  const resolveConflict = async (recoveryId: string, choice: "keep-local" | "use-server") => {
+    if (characterAction.current) throw new Error("Дождитесь завершения операции с героем");
+    characterAction.current = true;
+    setChangingCharacter(true);
+    try {
+      autosave.dispose();
+      await autosave.settled().catch(() => undefined);
+      const recovery = repository.getState().recoveries.find(item => item.id === recoveryId);
+      const doc = await repository.resolveConflict(recoveryId, choice);
+      if (characterRef.current?.id === recovery?.document.id) {
+        const normalized = doc ? normalizeCharacter(doc) : null;
+        autosave.resolve(normalized);
+        characterRef.current = normalized;
+        setCharacter(normalized);
+      }
+      setCharacters(sortSummaries(await listCharacters()));
+      return doc;
+    } finally {
+      characterAction.current = false;
+      setChangingCharacter(false);
+    }
+  };
+  const downloadRecovery = (recoveryId: string, version: "local" | "server") => {
+    const recovery = repository.getState().recoveries.find(item => item.id === recoveryId);
+    const doc = version === "server" ? recovery?.conflict?.server : recovery?.document;
+    if (!doc) throw new Error("Эта версия героя отсутствует");
+    downloadJson(`${safeFilename(doc.name)}.${version}.draw-steel.json`, doc);
+  };
+
   return {
     characters,
     character,
@@ -325,10 +411,18 @@ export function useHeroLifecycle({
     patch,
     isTransitioning,
     handleSelectCharacter,
+    refreshCharacter,
     handleCreate,
     handleDuplicate,
     handleDelete,
     handleExport,
     handleImport,
+    persistence,
+    retryPersistence,
+    resolveConflict,
+    downloadRecovery,
+    /** UI calls this only after an explicit "leave with local edits" choice,
+     * then invokes the existing account signOut control again. */
+    allowSignOutWithPending: () => { allowPendingSignOut.current = true; },
   };
 }

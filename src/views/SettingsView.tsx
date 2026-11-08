@@ -77,7 +77,7 @@ export function SettingsView({
         title="Мои персонажи"
         icon="users"
         actions={
-          <Button icon="plus" size="sm" variant="soft" onClick={onNew}>
+          <Button icon="plus" iconOnly size="sm" variant="soft" onClick={onNew}>
             Новый герой
           </Button>
         }
@@ -120,6 +120,10 @@ export function SettingsView({
                   <Button
                     size="sm"
                     variant={item.id === currentId ? "soft" : "ghost"}
+                    icon={item.id === currentId ? "check" : "sheet"}
+                    iconOnly
+                    aria-label={`Открыть лист: ${item.name}`}
+                    aria-pressed={item.id === currentId}
                     onClick={() => onSelect(item.id)}
                   >
                     {item.id === currentId ? "Открыт" : "Открыть"}
@@ -173,6 +177,7 @@ export function SettingsView({
             <span className="muted">{account.email}</span>
             <Button
               icon="logout"
+              iconOnly
               variant="ghost"
               disabled={account.signingOut}
               onClick={account.signOut}
@@ -187,10 +192,10 @@ export function SettingsView({
         <div className="data-actions">
           <strong>Резервная копия</strong>
           <div className="hstack wrap">
-            <Button icon="download" onClick={() => void onExport(character.id)}>
+            <Button icon="download" iconOnly aria-label="Скачать JSON текущего героя" onClick={() => void onExport(character.id)}>
               Экспорт текущего
             </Button>
-            <Button icon="upload" onClick={() => fileRef.current?.click()}>
+            <Button icon="upload" iconOnly aria-label="Импортировать героя из JSON" onClick={() => fileRef.current?.click()}>
               Импорт JSON
             </Button>
             <input
@@ -208,13 +213,13 @@ export function SettingsView({
         </div>
       </Panel>
 
-      <details className="settings-theme-disclosure">
-        <summary>
+      <section className="settings-theme-disclosure">
+        <h3>
           <Icon name="palette" size={17} />
           <span>Внешний вид</span>
           <span className="settings-theme-current">{activeTheme}</span>
-          <Icon name="chevron-down" size={15} className="settings-theme-chevron" />
-        </summary>
+
+        </h3>
         <div className="settings-theme-content">
           <p className="settings-theme-description">
             Выберите цветовую схему. Все варианты подобраны с учётом контрастности текста.
@@ -249,7 +254,7 @@ export function SettingsView({
             })}
           </div>
         </div>
-      </details>
+      </section>
 
       <Panel title="О листе" icon="book">
         <div className="about-grid">
@@ -296,8 +301,8 @@ export function SettingsView({
               . Иллюстрации адаптированы с AI. Дополнительные арты созданы для
               листа с AI. Источник каждой иллюстрации указан в Кодексе.
             </p>
-            <details className="art-credits">
-              <summary>Источники иллюстраций ({ART_ASSETS.length})</summary>
+            <section className="art-credits">
+              <h3>Источники иллюстраций ({ART_ASSETS.length})</h3>
               <ul>
                 {ART_ASSETS.map((art) => (
                   <li key={`${art.kind}:${art.name}`}>
@@ -312,7 +317,7 @@ export function SettingsView({
                   </li>
                 ))}
               </ul>
-            </details>
+            </section>
           </div>
           <div>
             <span className="eyebrow">Версия</span>

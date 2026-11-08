@@ -6,6 +6,7 @@
   "description": "Интерактивный лист героя Draw Steel",
   "scripts": {
     "dev": "node server/index.mjs --dev",
+    "demo:table": "node scripts/seed-demo-table.mjs",
     "dev:demo": "DS_DATA_DIR=demo-data node server/index.mjs --dev",
     "build": "npm run content:build && tsc -b && vite build && node scripts/compress-assets.mjs",
     "start": "NODE_ENV=production node server/index.mjs",
@@ -28,6 +29,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
+    "lucide-react": "^1.70.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-markdown": "^10.1.0",

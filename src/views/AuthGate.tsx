@@ -3,9 +3,11 @@ import type { Session } from "@supabase/supabase-js";
 import { supabase, supabaseEnabled } from "../lib/supabase";
 import { AccountContext, StorageScope } from "../state/StorageScope";
 import { SiteLogo } from "../components/SiteLogo";
+import { Button } from "../components/ui";
 import { useHashTab } from "../lib/hooks";
 import { TABS } from "../navigation";
 import { GUEST_TABS, GuestApp } from "./GuestApp";
+import { readOfflineAccount, rememberOfflineAccount } from "../lib/offline-account";
 
 export function AuthGate({
   children,
@@ -21,13 +23,24 @@ export function AuthGate({
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [signingOut, setSigningOut] = useState(false);
+  const [pendingSignOut, setPendingSignOut] = useState<{ localError: string } | null>(null);
+  const [offlineAccount, setOfflineAccount] = useState(() => readOfflineAccount(navigator.onLine));
   const [tab, setTab] = useHashTab("sheet", TABS);
 
   useEffect(() => {
     if (!supabase) return;
     let active = true;
+    const connectivity = () => {
+      setOfflineAccount(readOfflineAccount(navigator.onLine));
+      if (navigator.onLine) void supabase!.auth.getSession().then(({ data }) => {
+        if (active) { setSession(data.session); setLoading(false); }
+      }).catch(() => { if (active) setLoading(false); });
+    };
+    window.addEventListener("online", connectivity);
+    window.addEventListener("offline", connectivity);
     void supabase.auth
       .getSession()
       .then(({ data, error: sessionError }) => {
@@ -41,13 +54,17 @@ export function AuthGate({
         setError("Не удалось проверить вход. Попробуйте войти снова.");
         setLoading(false);
       });
-    const { data } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+    const { data } = supabase.auth.onAuthStateChange((event, nextSession) => {
+      if (nextSession) rememberOfflineAccount({ id: nextSession.user.id, email: nextSession.user.email ?? "" });
+      else if (event === "SIGNED_OUT") { rememberOfflineAccount(null); setOfflineAccount(null); }
       setSession(nextSession);
       setLoading(false);
     });
     return () => {
       active = false;
       data.subscription.unsubscribe();
+      window.removeEventListener("online", connectivity);
+      window.removeEventListener("offline", connectivity);
     };
   }, []);
 
@@ -80,9 +97,16 @@ export function AuthGate({
     setError("");
     try {
       await beforeSignOut?.();
-      const result = await supabase!.auth.signOut();
+      const result = await supabase!.auth.signOut({ scope: "local" });
       if (result.error) throw result.error;
+      rememberOfflineAccount(null);
+      setOfflineAccount(null);
+      setPendingSignOut(null);
     } catch (cause) {
+      if (cause instanceof Error && cause.name === "PendingHeroEditsError") {
+        setPendingSignOut({ localError: "localError" in cause ? String(cause.localError) : "" });
+        return;
+      }
       setError(
         cause instanceof Error
           ? cause.message
@@ -95,22 +119,23 @@ export function AuthGate({
 
   // Public reading does not depend on the session request completing. Authenticated
   // character controls still wait for the normal session boundary below.
-  if (loading && GUEST_TABS.includes(tab)) {
+  const user = session?.user ?? offlineAccount;
+  if (loading && !user && GUEST_TABS.includes(tab)) {
     return <GuestApp tab={tab} onSignIn={() => setTab("sheet")} />;
   }
-  if (loading) return <div className="loading-screen">Проверяем вход…</div>;
+  if (loading && !user) return <div className="loading-screen">Проверяем вход…</div>;
 
-  if (!session && GUEST_TABS.includes(tab)) {
+  if (!user && GUEST_TABS.includes(tab)) {
     return <GuestApp tab={tab} onSignIn={() => setTab("sheet")} />;
   }
 
-  if (!session) {
+  if (!user) {
     return (
       <main className="auth-page">
         <form className="auth-card" onSubmit={submit}>
           <SiteLogo variant="mark" className="auth-logo" />
           <p className="auth-kicker">ДОСТАТЬ ЛИСТЫ!</p>
-          <h1>Добро пожаловать, герой!</h1>
+          <h1>{signUp ? "Создать аккаунт" : "Вход в Достать листы!"}</h1>
           <p className="auth-copy">
             Листы персонажей для Draw Steel на русском: бои, ресурсы,
             способности и правила под рукой.{" "}
@@ -128,15 +153,20 @@ export function AuthGate({
             onChange={(event) => setEmail(event.target.value)}
           />
           <label htmlFor="auth-password">Пароль</label>
+          <div className="auth-password-field">
           <input
             id="auth-password"
-            type="password"
+            type={showPassword ? "text" : "password"}
+            aria-describedby={signUp ? "auth-password-hint" : undefined}
             autoComplete={signUp ? "new-password" : "current-password"}
             minLength={signUp ? 8 : undefined}
             required
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
+          <Button className="auth-password-toggle" icon={showPassword ? "eye-off" : "eye"} iconOnly variant="ghost" aria-label={showPassword ? "Скрыть пароль" : "Показать пароль"} aria-pressed={showPassword} aria-controls="auth-password" onClick={() => setShowPassword(!showPassword)} />
+          </div>
+          {signUp && <p id="auth-password-hint" className="muted small">Не менее 8 символов</p>}
           {error && (
             <p className="auth-error" role="alert">
               {error}
@@ -159,6 +189,7 @@ export function AuthGate({
             type="button"
             onClick={() => {
               setSignUp((value) => !value);
+              setShowPassword(false);
               setError("");
               setMessage("");
             }}
@@ -179,12 +210,14 @@ export function AuthGate({
 
   return (
     <>
-      <StorageScope.Provider key={session.user.id} value={session.user.id}>
+      <StorageScope.Provider key={user.id} value={user.id}>
         <AccountContext.Provider
           value={{
-            email: session.user.email ?? "",
+            email: user.email ?? "",
             signingOut,
             signOut: () => void signOut(),
+            pendingSignOut,
+            cancelSignOut: () => setPendingSignOut(null),
           }}
         >
           {error && (

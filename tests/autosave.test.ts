@@ -4,6 +4,29 @@ import { createAutosave } from "../src/lib/autosave";
 afterEach(() => vi.useRealTimers());
 
 describe("autosave", () => {
+  it("durably stages the edit in the caller's stack before scheduling any write", () => {
+    vi.useFakeTimers();
+    const onEdit = vi.fn(),save = vi.fn(async (doc: string) => doc);
+    const autosave = createAutosave({ save,onEdit,onStatus: vi.fn() });
+    autosave.load("initial");
+    autosave.edit("latest");
+    expect(onEdit).toHaveBeenCalledExactlyOnceWith("latest");
+    expect(save).not.toHaveBeenCalled();
+    autosave.dispose();
+  });
+
+  it("restores an unacknowledged document as pending and only marks it saved after ack", async () => {
+    const ack = Promise.withResolvers<string>(),onStatus = vi.fn();
+    const autosave = createAutosave({ save: () => ack.promise,onStatus });
+    autosave.load("restored",{ pending: true });
+    expect(onStatus).toHaveBeenLastCalledWith("pending");
+    expect(autosave.isDirty()).toBe(true);
+    const saving = autosave.flush();
+    expect(onStatus).toHaveBeenLastCalledWith("saving");
+    ack.resolve("restored");
+    await saving;
+    expect(onStatus).toHaveBeenLastCalledWith("saved");
+  });
   it("marks changes pending immediately and coalesces typing", async () => {
     vi.useFakeTimers();
     const save = vi.fn(async (doc: string) => doc);

@@ -93,10 +93,10 @@ export function AbilityEditor({ initial, isNew, onClose, onSave }: AbilityEditor
         <div className="abil-editor-footer">
           {!nameValid && <span className="abil-editor-error">Введите название способности.</span>}
           <span className="grow" />
-          <Button variant="ghost" onClick={onClose}>
+          <Button iconOnly icon="close" variant="ghost" onClick={onClose}>
             Отмена
           </Button>
-          <Button variant="primary" icon="check" disabled={!nameValid} onClick={save}>
+          <Button iconOnly variant="primary" icon="check" disabled={!nameValid} onClick={save}>
             Сохранить
           </Button>
         </div>

@@ -10,10 +10,10 @@ export function BootError({ message }: { message: string }) {
       <Button onClick={() => window.location.reload()} variant="primary">
         Попробовать снова
       </Button>
-      <details className="boot-error-details">
-        <summary>Подробности ошибки</summary>
+      <section className="boot-error-details">
+        <h3>Подробности ошибки</h3>
         <p className="mono small">{message}</p>
-      </details>
+      </section>
     </main>
   );
 }

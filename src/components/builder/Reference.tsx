@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { RuleText } from "../RuleText";
 import { RuleArticleReader } from "../rules/RuleArticleReader";
 
@@ -11,15 +10,12 @@ export function Reference({
   text: string;
   label?: string;
 }) {
-  const [open, setOpen] = useState(false);
   return (
-    <details
+    <section
       className="builder-reference"
-      onToggle={(e) => setOpen(e.currentTarget.open)}
     >
-      <summary>{label}</summary>
-      {open &&
-        (id ? <RuleArticleReader articleId={id} /> : <RuleText text={text} />)}
-    </details>
+      <h3>{label}</h3>
+      {id ? <RuleArticleReader articleId={id} /> : <RuleText text={text} />}
+    </section>
   );
 }

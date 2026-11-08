@@ -75,8 +75,7 @@ export function DamageTraits() {
         aria-label="Добавить иммунитет или уязвимость"
         onClick={() => setOpen(true)}
       >
-        <Icon name="plus" size={12} />
-        <span>Добавить</span>
+        <Icon name="plus" size={16} />
       </button>
       <DamageTraitsDialog open={open} onClose={() => setOpen(false)} />
     </div>
@@ -212,7 +211,7 @@ function DamageTraitsDialog({
           />
         </Field>
         <div className="damage-trait-form-actions">
-          <Button type="submit" variant="primary" icon="plus" disabled={!canAdd}>
+          <Button iconOnly type="submit" variant="primary" icon="plus" disabled={!canAdd}>
             Добавить
           </Button>
         </div>

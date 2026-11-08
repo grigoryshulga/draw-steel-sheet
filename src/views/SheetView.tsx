@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType, ReactNode } from "react";
 import { lazy, useEffect, useState } from "react";
 import { Icon, type IconName } from "../components/Icons";
 import { Button } from "../components/ui";
@@ -23,16 +23,22 @@ import "./sheet/SheetFrame.css";
 import "./SheetAtmosphere.css";
 
 const DevelopmentPanel = lazy(() =>
-  import("./sheet/DevelopmentPanel").then((module) => ({ default: module.DevelopmentPanel })),
+  import("./sheet/DevelopmentPanel").then((module) => ({
+    default: module.DevelopmentPanel,
+  })),
 );
 const HeroView = lazy(() =>
   import("./HeroView").then((module) => ({ default: module.HeroView })),
 );
 const CompanionsView = lazy(() =>
-  import("./sheet/CompanionsView").then((module) => ({ default: module.CompanionsView })),
+  import("./sheet/CompanionsView").then((module) => ({
+    default: module.CompanionsView,
+  })),
 );
 const InventoryView = lazy(() =>
-  import("./InventoryView").then((module) => ({ default: module.InventoryView })),
+  import("./InventoryView").then((module) => ({
+    default: module.InventoryView,
+  })),
 );
 const NotesView = lazy(() =>
   import("./NotesView").then((module) => ({ default: module.NotesView })),
@@ -109,7 +115,13 @@ function Blocks({ ids }: { ids: PanelId[] }) {
       {ids.map((id) => {
         const Component = PANELS[id];
         return (
-          <section key={id} className="sheet-block" data-panel={id}>
+          <section
+            key={id}
+            id={`sheet-${id}`}
+            tabIndex={-1}
+            className="sheet-block"
+            data-panel={id}
+          >
             <Component />
           </section>
         );
@@ -129,7 +141,8 @@ function Column({ className, ids }: { className: string; ids: PanelId[] }) {
 /** Телефон: разделы листа переключаются вкладками, остальное скрыто. */
 function CompactSheet() {
   const [section, setSection] = useState<SheetSectionId>("main");
-  const active = SHEET_SECTIONS.find((item) => item.id === section) ?? SHEET_SECTIONS[0];
+  const active =
+    SHEET_SECTIONS.find((item) => item.id === section) ?? SHEET_SECTIONS[0];
 
   return (
     <div className="sheet-layout sheet-layout-compact">
@@ -144,6 +157,31 @@ function CompactSheet() {
             type="button"
             role="tab"
             className={`sheet-section-tab${active.id === item.id ? " is-active" : ""}`}
+            id={`sheet-tab-${item.id}`}
+            aria-controls="sheet-section-panel"
+            tabIndex={active.id === item.id ? 0 : -1}
+            onKeyDown={(event) => {
+              const index = SHEET_SECTIONS.findIndex(
+                (entry) => entry.id === item.id,
+              );
+              const next =
+                event.key === "ArrowRight"
+                  ? (index + 1) % SHEET_SECTIONS.length
+                  : event.key === "ArrowLeft"
+                    ? (index + SHEET_SECTIONS.length - 1) %
+                      SHEET_SECTIONS.length
+                    : event.key === "Home"
+                      ? 0
+                      : event.key === "End"
+                        ? SHEET_SECTIONS.length - 1
+                        : -1;
+              if (next < 0) return;
+              event.preventDefault();
+              setSection(SHEET_SECTIONS[next].id);
+              document
+                .getElementById(`sheet-tab-${SHEET_SECTIONS[next].id}`)
+                ?.focus();
+            }}
             aria-selected={active.id === item.id}
             onClick={() => setSection(item.id)}
           >
@@ -155,7 +193,9 @@ function CompactSheet() {
       <div
         className="sheet-section-body"
         role="tabpanel"
-        aria-label={active.label}
+        id="sheet-section-panel"
+        aria-labelledby={`sheet-tab-${active.id}`}
+        tabIndex={0}
       >
         <Blocks ids={active.panels} />
       </div>
@@ -163,7 +203,7 @@ function CompactSheet() {
   );
 }
 
-function SheetWorkspace({ tab }: { tab: HeroTab }) {
+function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
   const { character, performGameAction, goTo } = useApp();
   const [developmentDirty, setDevelopmentDirty] = useState(false);
   // Телефон получает разделы вместо длинной колонки; на десктопе остаются колонки.
@@ -193,17 +233,16 @@ function SheetWorkspace({ tab }: { tab: HeroTab }) {
 
   return (
     <div className="sheet-view sheet-workspace-view">
-      <HeaderPanel />
+      <HeaderPanel compact={compact || tab !== "sheet"} />
       <section className="sheet-frame">
         <div className="sheet-frame-head">
-          <div className="sheet-tablist" role="tablist" aria-label="Разделы героя">
+          <nav className="sheet-tablist" aria-label="Разделы героя">
             {SHEET_TABS.map((item) => (
               <button
                 key={item.id}
                 type="button"
-                role="tab"
                 className={`sheet-tab${tab === item.id ? " is-active" : ""}`}
-                aria-selected={tab === item.id}
+                aria-current={tab === item.id ? "page" : undefined}
                 onClick={() => switchTab(item.id)}
               >
                 <Icon name={item.icon} size={15} aria-hidden="true" />
@@ -216,35 +255,63 @@ function SheetWorkspace({ tab }: { tab: HeroTab }) {
                 )}
               </button>
             ))}
-          </div>
-          <div className="sheet-frame-actions">
-            <Button
-              size="sm"
-              variant={combatActive ? "ghost" : "soft"}
-              onClick={() => performGameAction({ kind: combatActive ? "combat-end" : "combat-start" })}
-            >
-              {combatActive ? "Конец битвы" : "Начало битвы"}
-            </Button>
-            <Button
-              size="sm"
-              variant="ghost"
-              onClick={() => performGameAction({ kind: "round" })}
-              title="Снять отметки триггеров раунда"
-              aria-label={`Новый раунд: сейчас ${runtime.round}`}
-            >
-              Новый раунд · {runtime.round}
-            </Button>
-          </div>
+          </nav>
+          {tab === "sheet" && (
+            <div className="sheet-frame-actions">
+              {tools}
+              <Button
+                size="sm"
+                variant={combatActive ? "ghost" : "soft"}
+                onClick={() =>
+                  performGameAction({
+                    kind: combatActive ? "combat-end" : "combat-start",
+                  })
+                }
+              >
+                {combatActive ? "Конец битвы" : "Начало битвы"}
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => performGameAction({ kind: "round" })}
+                title="Снять отметки триггеров раунда"
+                aria-label={`Новый раунд: сейчас ${runtime.round}`}
+              >
+                Новый раунд · {runtime.round}
+              </Button>
+            </div>
+          )}
         </div>
 
         <div
           className="sheet-frame-body"
           data-view={tab}
-          role="tabpanel"
           aria-label={SHEET_TABS.find((item) => item.id === tab)?.label}
         >
           {tab === "sheet" && (
             <div className="sheet-layout-host">
+              {!compact && (
+                <nav className="sheet-jump-links" aria-label="Блоки листа">
+                  {[
+                    ["vitals", "Показатели"],
+                    ["abilities", "Способности"],
+                    ["perks", "Особенности"],
+                  ].map(([id, label]) => (
+                    <Button
+                      key={id}
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => {
+                        const target = document.getElementById(`sheet-${id}`);
+                        target?.focus({ preventScroll: true });
+                        target?.scrollIntoView({ block: "start" });
+                      }}
+                    >
+                      {label}
+                    </Button>
+                  ))}
+                </nav>
+              )}
               {compact ? (
                 <CompactSheet />
               ) : (
@@ -253,18 +320,25 @@ function SheetWorkspace({ tab }: { tab: HeroTab }) {
                     <Column className="sheet-col-main" ids={UPPER_MAIN} />
                     <Column className="sheet-col-side" ids={UPPER_SIDE} />
                   </div>
+                  <Column className="sheet-col-full" ids={FULL_WIDTH} />
                   <div className="sheet-lower">
                     <Column className="sheet-col-main" ids={LOWER_MAIN} />
                     <Column className="sheet-col-side" ids={LOWER_SIDE} />
                   </div>
-                  <Column className="sheet-col-full" ids={FULL_WIDTH} />
                 </div>
               )}
             </div>
           )}
           {tab === "development" && (
             <div className="development-workspace">
-              <HeroView embedded />
+              <section className="hero-profile-disclosure">
+                <h3>Паспорт героя, навыки и языки</h3>
+                <p className="muted small">
+                  Изменения паспорта сохраняются сразу. Выборы уровней
+                  применяются отдельно кнопкой в разделе развития.
+                </p>
+                <HeroView embedded />
+              </section>
               <DevelopmentPanel onDirtyChange={setDevelopmentDirty} />
             </div>
           )}
@@ -277,7 +351,36 @@ function SheetWorkspace({ tab }: { tab: HeroTab }) {
   );
 }
 
-export function SheetView({ tab }: { tab: HeroTab }) {
+export function SheetView({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
   const { character } = useApp();
-  return <SheetWorkspace key={character.id} tab={tab} />;
+  return <SheetWorkspace key={character.id} tab={tab} tools={tools} />;
+}
+
+/** The ordinary sheet panels and column layout, isolated from editing and persistence. */
+export function SheetReadOnlyView({ sections }: { sections: readonly string[] }) {
+  const { character } = useApp();
+  const heroShared = sections.includes("hero");
+  const developmentShared = sections.includes("development");
+  const filter = (ids: PanelId[]) => ids.filter((id) =>
+    ["vitals", "resources", "conditions"].includes(id) ||
+    (["characteristics", "abilities", "features"].includes(id) && heroShared) ||
+    (["perks", "skills"].includes(id) && developmentShared),
+  );
+  return <div className="sheet-view sheet-workspace-view shared-sheet-preview" data-hero-shared={heroShared}>
+    <div className="shared-sheet-identity"><span>{character.ancestry} · {character.className} · {character.level}-й уровень</span><span className="chip">Только просмотр</span></div>
+    <fieldset disabled className="shared-sheet-readonly" onClickCapture={(event) => { if (!(event.target as HTMLElement).closest("a")) event.stopPropagation(); }} onKeyDownCapture={(event) => { if ((event.key === "Enter" || event.key === " ") && !(event.target as HTMLElement).closest("a")) event.stopPropagation(); }}>
+      <div className="sheet-layout-host"><div className="sheet-layout">
+        <div className="sheet-upper">
+          <Column className="sheet-col-main" ids={filter(UPPER_MAIN)} />
+          <Column className="sheet-col-side" ids={filter(UPPER_SIDE)} />
+        </div>
+        <Column className="sheet-col-full" ids={filter(FULL_WIDTH)} />
+        <div className="sheet-lower">
+          <Column className="sheet-col-main" ids={filter(LOWER_MAIN)} />
+          <Column className="sheet-col-side" ids={filter(LOWER_SIDE)} />
+        </div>
+      </div></div>
+    </fieldset>
+    {!heroShared && <p className="muted">Игрок открыл только основные показатели. Остальные разделы листа скрыты.</p>}
+  </div>;
 }

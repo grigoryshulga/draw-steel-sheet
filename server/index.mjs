@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { createStore } from "./store.mjs";
 import { createApi } from "./api.mjs";
 import { createStaticHandler } from "./static.mjs";
+import { createTablesApi } from "./tables-api.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PORT = Number(process.env.PORT || 8787);
@@ -13,11 +14,13 @@ const DATA_DIR = process.env.DS_DATA_DIR || path.join(ROOT, "data");
 
 const store = createStore(DATA_DIR);
 const handleApi = createApi({ store });
+const handleTablesApi = createTablesApi({ dataDir: DATA_DIR, charactersStore: store });
 const serveStatic = createStaticHandler(path.join(ROOT, "dist"));
 
 let vite;
 const server = http.createServer(async (req, res) => {
   try {
+    if (await handleTablesApi(req, res)) return;
     if (await handleApi(req, res)) return;
     if (DEV) {
       vite.middlewares(req, res);

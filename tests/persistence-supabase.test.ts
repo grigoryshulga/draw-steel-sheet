@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { createClient } from "@supabase/supabase-js";
 import { createSupabaseRepository } from "../src/lib/persistence/supabase-repository";
 import { createCharacter } from "../src/lib/defaults";
+import { CharacterConflictError } from "../src/lib/persistence/repository";
 
 function setup() {
   const fetch = vi.fn<typeof globalThis.fetch>();
@@ -35,17 +36,19 @@ describe("Supabase character repository", () => {
 
   it("saves a new timestamp without mutating the editor document", async () => {
     const { fetch, repository } = setup();
-    fetch.mockResolvedValueOnce(new Response(null, { status: 201 }));
     const character = createCharacter({ name: "Герой" });
     character.updatedAt = "2020-01-01T00:00:00Z";
     character.avatar = { url: "https://cdn.example.test/avatar.webp", updatedAt: "2026-01-01T00:00:00Z" };
+    const serverSaved = { ...character, updatedAt: "2026-11-07T12:00:00.123456+00:00" };
+    fetch.mockResolvedValueOnce(Response.json({ document: serverSaved, updatedAt: serverSaved.updatedAt }));
     const saved = await repository.saveCharacter(character);
     expect(saved.updatedAt).not.toBe(character.updatedAt);
     expect(character.updatedAt).toBe("2020-01-01T00:00:00Z");
     const body = JSON.parse(fetch.mock.calls[0][1]!.body as string);
-    expect(body.document).toEqual(saved);
-    expect(body.updated_at).toBe(saved.updatedAt);
-    expect(body.avatar_url).toBe(character.avatar.url);
+    expect(String(fetch.mock.calls[0][0])).toContain("/rest/v1/rpc/character_save");
+    expect(body.p_document).toEqual(character);
+    expect(body.p_expected_updated_at).toBeNull();
+    expect(body.p_document.avatar.url).toBe(character.avatar.url);
     expect(body).not.toHaveProperty("user_id");
   });
 
@@ -58,6 +61,33 @@ describe("Supabase character repository", () => {
     await repository.deleteCharacter(character.id);
     expect(fetch.mock.calls[1][1]!.method).toBe("DELETE");
     expect(new URL(String(fetch.mock.calls[1][0])).searchParams.get("id")).toBe(`eq.${character.id}`);
+  });
+
+  it("uses updated_at as the CAS base even when a transaction left an older document timestamp", async () => {
+    const { fetch, repository } = setup();
+    const character = createCharacter();
+    const revision = "2026-11-07T11:00:00.123456+00:00";
+    fetch.mockResolvedValueOnce(Response.json({ document: character,updated_at: revision }));
+    const loaded = await repository.loadCharacter(character.id);
+    expect(loaded.updatedAt).toBe(revision);
+    fetch.mockResolvedValueOnce(Response.json({ document: loaded,updatedAt: revision }));
+    await repository.saveCharacter({ ...loaded,name: "Правка",updatedAt: "2099-01-01T00:00:00Z" });
+    expect(JSON.parse(fetch.mock.calls[1][1]!.body as string).p_expected_updated_at).toBe(revision);
+  });
+
+  it("maps the RPC owner-only conflict detail into two recoverable documents", async () => {
+    const { fetch, repository } = setup();
+    const local = createCharacter({ name: "Местная" }), server = { ...local,name: "Серверная" };
+    fetch.mockResolvedValueOnce(Response.json({ code: "PT409",message: "Конфликт",details: JSON.stringify({ server }) },{ status: 409 }));
+    const failure = repository.saveCharacter(local,{ expectedUpdatedAt: local.updatedAt });
+    await expect(failure).rejects.toBeInstanceOf(CharacterConflictError);
+    await expect(failure).rejects.toMatchObject({ local,server,expectedUpdatedAt: local.updatedAt });
+  });
+
+  it("rejects an empty success response without manufacturing a saved revision", async () => {
+    const { fetch,repository } = setup();
+    fetch.mockResolvedValueOnce(new Response(null,{ status: 200 }));
+    await expect(repository.saveCharacter(createCharacter())).rejects.toThrow("не подтвердил");
   });
 
   it("uploads avatars to the user's folder and deletes them", async () => {

@@ -1,3 +1,4 @@
+import { Icon } from "../components/Icons";
 import { useEffect, useMemo, useState } from "react";
 import type { CSSProperties } from "react";
 import { CharacteristicGlyph } from "../components/CharacteristicGlyph";
@@ -574,6 +575,9 @@ export function ClassLandingView({
           {!embedded && (
             <Button
               className="class-hero-bookmark"
+              icon="bookmark"
+              iconOnly
+              aria-label={bookmarked ? "Удалить закладку" : "Добавить закладку"}
               size="sm"
               variant={bookmarked ? "soft" : "ghost"}
               aria-pressed={bookmarked}
@@ -685,8 +689,11 @@ export function ClassLandingView({
                 size="sm"
                 variant="ghost"
                 onClick={() => openClass(prev.slug)}
+                icon="arrow-left"
+                iconOnly
+                aria-label={`Предыдущий класс: ${prev.name}`}
               >
-                ← {prev.name}
+                <Icon name="arrow-left" size={16} /> {prev.name}
               </Button>
             )}
             {next && (
@@ -694,8 +701,11 @@ export function ClassLandingView({
                 size="sm"
                 variant="ghost"
                 onClick={() => openClass(next.slug)}
+                icon="chevron-right"
+                iconOnly
+                aria-label={`Следующий класс: ${next.name}`}
               >
-                {next.name} →
+                {next.name} <Icon name="arrow-right" size={16} />
               </Button>
             )}
           </footer>

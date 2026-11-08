@@ -26,18 +26,36 @@ import {
   writeThemeChoice,
   type ThemeChoice,
 } from "./lib/theme";
-import { HERO_TABS, TABS, TAB_LABELS, type HeroTab, type Tab } from "./navigation";
+import {
+  HERO_TABS,
+  TABS,
+  TAB_LABELS,
+  type HeroTab,
+  type Tab,
+} from "./navigation";
 import { makeId } from "./data/templates";
 import { AppContext } from "./state/AppContext";
 import type { AppTheme } from "./types";
 import { deriveStats } from "./lib/rules";
 import { createRollEntry, type RollConfig, type RollEntry } from "./lib/roll";
 import { RollDialog } from "./views/sheet/RollDialog";
-import "./views/sheet/SheetFabs.css";
 import "./components/BuilderPage.css";
 import { ViewErrorBoundary } from "./components/ViewErrorBoundary";
 import { useHeroLifecycle } from "./state/useHeroLifecycle";
 import "./styles/workspace.css";
+import { PersistenceStatus } from "./components/PersistenceStatus";
+import { supabaseEnabled } from "./lib/supabase";
+
+const TablesView = lazy(() =>
+  import("./views/TablesView").then((module) => ({
+    default: module.TablesView,
+  })),
+);
+const TableOfferInbox = lazy(() =>
+  import("./views/tables/TableOfferInbox").then((module) => ({
+    default: module.TableOfferInbox,
+  })),
+);
 
 const HistoryDialog = lazy(() =>
   import("./views/sheet/HistoryDialog").then((module) => ({
@@ -119,6 +137,12 @@ export default function WorkspaceApp({
     handleDelete,
     handleExport,
     handleImport,
+    refreshCharacter,
+    persistence,
+    retryPersistence,
+    resolveConflict,
+    downloadRecovery,
+    allowSignOutWithPending,
   } = useHeroLifecycle({
     notify,
     navigate: setTab,
@@ -130,13 +154,16 @@ export default function WorkspaceApp({
     beforeSignOut,
   });
 
-  const performRoll = useCallback((config: RollConfig) => {
-    const doc = characterRef.current;
-    if (!doc) return;
-    const entry = createRollEntry(doc, config, nextRollId.current++);
-    setLastRoll(entry);
-    setRollLog((prev) => [entry, ...prev].slice(0, 5));
-  }, [characterRef]);
+  const performRoll = useCallback(
+    (config: RollConfig) => {
+      const doc = characterRef.current;
+      if (!doc) return;
+      const entry = createRollEntry(doc, config, nextRollId.current++);
+      setLastRoll(entry);
+      setRollLog((prev) => [entry, ...prev].slice(0, 5));
+    },
+    [characterRef],
+  );
 
   const performGameAction = useCallback(
     (action: GameAction, operationId = makeId()) => {
@@ -199,14 +226,14 @@ export default function WorkspaceApp({
   };
 
   const derived = useMemo(
-    () => character ? deriveStats(character) : null,
+    () => (character ? deriveStats(character) : null),
     [character],
   );
   const isLibrary = ["codex", "reference", "catalog", "glossary"].includes(tab);
 
   /* ---------- Рендер ---------- */
 
-  if (bootError && !isLibrary) {
+  if (bootError && !isLibrary && tab !== "tables") {
     return <BootError message={bootError} />;
   }
 
@@ -248,21 +275,22 @@ export default function WorkspaceApp({
     );
   }
 
-  const contextValue = character && derived
-    ? {
-        character,
-        derived,
-        update,
-        patch,
-        performGameAction,
-        undoGameAction,
-        gameHistory,
-        saveStatus,
-        saveError,
-        notify,
-        goTo: (next: string) => setTab(next),
-      }
-    : null;
+  const contextValue =
+    character && derived
+      ? {
+          character,
+          derived,
+          update,
+          patch,
+          performGameAction,
+          undoGameAction,
+          gameHistory,
+          saveStatus,
+          saveError,
+          notify,
+          goTo: (next: string) => setTab(next),
+        }
+      : null;
 
   return (
     <>
@@ -294,31 +322,54 @@ export default function WorkspaceApp({
             </div>
           )}
           <div inert={changingCharacter}>
-            {character && saveStatus === "error" && (
-              <section className="save-error-banner" role="alert">
-                <div>
-                  <strong>Изменения не сохранены</strong>
-                  <p>
-                    Они остаются в открытом листе. Повторите сохранение или
-                    скачайте копию перед закрытием страницы.
-                  </p>
-                  {saveError && <p className="small muted">{saveError}</p>}
-                </div>
-                <div className="hstack wrap">
-                  <Button
-                    onClick={() => void autosave.flush().catch(() => undefined)}
-                  >
-                    Повторить сохранение
-                  </Button>
-                  <Button
-                    icon="download"
-                    onClick={() => void handleExport(character.id)}
-                  >
-                    Скачать копию
-                  </Button>
-                </div>
-              </section>
+            {supabaseEnabled && (
+              <Suspense fallback={null}>
+                <TableOfferInbox
+                  beforeAnswer={() => autosave.flush()}
+                  afterAnswer={refreshCharacter}
+                />
+              </Suspense>
             )}
+            <PersistenceStatus
+              state={persistence}
+              retry={retryPersistence}
+              resolve={resolveConflict}
+              download={downloadRecovery}
+              allowSignOut={allowSignOutWithPending}
+            />
+            {character &&
+              saveStatus === "error" &&
+              !persistence.pendingCount &&
+              !persistence.localError && (
+                <section className="save-error-banner" role="alert">
+                  <div>
+                    <strong>Изменения не сохранены</strong>
+                    <p>
+                      Они остаются в открытом листе. Повторите сохранение или
+                      скачайте копию перед закрытием страницы.
+                    </p>
+                    {saveError && <p className="small muted">{saveError}</p>}
+                  </div>
+                  <div className="hstack wrap">
+                    <Button
+                      icon="refresh"
+                      iconOnly
+                      onClick={() =>
+                        void autosave.flush().catch(() => undefined)
+                      }
+                    >
+                      Повторить сохранение
+                    </Button>
+                    <Button
+                      icon="download"
+                      iconOnly
+                      onClick={() => void handleExport(character.id)}
+                    >
+                      Скачать копию
+                    </Button>
+                  </div>
+                </section>
+              )}
             <main className="content" id="main-content" tabIndex={-1}>
               <ViewErrorBoundary
                 key={`${character?.id ?? "empty"}:${tab}`}
@@ -326,18 +377,29 @@ export default function WorkspaceApp({
                   character ? () => void handleExport(character.id) : undefined
                 }
               >
-                {booting && !isLibrary ? (
+                {tab === "tables" ? (
+                  <Suspense
+                    fallback={<LoadingScreen label="Загрузка столов" />}
+                  >
+                    <TablesView
+                      characters={characters}
+                      beforeCommand={() => autosave.flush()}
+                      openHero={(id) => {
+                        void handleSelectCharacter(id).then(() =>
+                          setTab("sheet"),
+                        );
+                      }}
+                      refreshHero={refreshCharacter}
+                    />
+                  </Suspense>
+                ) : booting && !isLibrary ? (
                   <LoadingScreen label="Загрузка листа" />
                 ) : isLibrary ? (
                   <Suspense
                     fallback={<LoadingScreen label="Загрузка библиотеки" />}
                   >
                     <AppContext.Provider value={contextValue}>
-                      {tab === "codex" ? (
-                        <CodexView />
-                      ) : (
-                        <ReferenceView />
-                      )}
+                      {tab === "codex" ? <CodexView /> : <ReferenceView />}
                     </AppContext.Provider>
                   </Suspense>
                 ) : !character || !contextValue ? (
@@ -353,7 +415,28 @@ export default function WorkspaceApp({
                       fallback={<LoadingScreen label="Загрузка раздела" />}
                     >
                       {HERO_TABS.includes(tab as HeroTab) && (
-                        <SheetView tab={tab as HeroTab} />
+                        <SheetView
+                          tab={tab as HeroTab}
+                          tools={
+                            tab === "sheet" ? (
+                              <Suspense fallback={null}>
+                                <>
+                                  <HistoryDialog />
+                                  <RollDialog
+                                    open={rollOpen}
+                                    onToggle={() =>
+                                      setRollOpen((open) => !open)
+                                    }
+                                    onClose={() => setRollOpen(false)}
+                                    onRoll={performRoll}
+                                    lastRoll={lastRoll}
+                                    log={rollLog}
+                                  />
+                                </>
+                              </Suspense>
+                            ) : null
+                          }
+                        />
                       )}
                       {tab === "settings" && (
                         <SettingsView
@@ -370,19 +453,6 @@ export default function WorkspaceApp({
                           onImport={handleImport}
                         />
                       )}
-                    </Suspense>
-                    <Suspense fallback={null}>
-                      <div className="sheet-fab-stack">
-                        <HistoryDialog />
-                        <RollDialog
-                          open={rollOpen}
-                          onToggle={() => setRollOpen((open) => !open)}
-                          onClose={() => setRollOpen(false)}
-                          onRoll={performRoll}
-                          lastRoll={lastRoll}
-                          log={rollLog}
-                        />
-                      </div>
                     </Suspense>
                   </AppContext.Provider>
                 )}

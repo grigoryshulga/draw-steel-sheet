@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { CharacterMenu } from "./CharacterMenu";
 import { Icon } from "./Icons";
 import { SaveIndicator } from "./SaveIndicator";
-import { SiteLogo } from "./SiteLogo";
 import { Button } from "./ui";
 import type { SaveStatus } from "../state/AppContext";
 import type { Character, CharacterSummary } from "../types";
@@ -14,15 +13,14 @@ import { useAccount } from "../state/StorageScope";
 import "./FloatingHeader.css";
 
 const LIBRARY_OPTIONS = [
-  { id: "codex", label: "Книга", icon: "book" },
+  { id: "codex", label: "Книга правил", icon: "book" },
   { id: "reference", label: "Справочник", icon: "library" },
   { id: "director", label: "Ведущему", icon: "book" },
 ] as const;
 
-
 /**
  * Плавающая панель-таблетка по центру сверху: герой и его переключатель,
- * две основные вкладки и иконка сайта. Инвентарь, журнал и спутники живут
+ * основные разделы. Инвентарь, журнал и спутники живут
  * во вкладках листа.
  */
 export function FloatingHeader({
@@ -77,19 +75,16 @@ export function FloatingHeader({
   return (
     <header className="floating-header">
       <div className="floating-header-inner">
-        <div className="floating-header-left">
+        <nav className="floating-header-nav" aria-label="Основные разделы">
           <button
             type="button"
-            className="floating-header-logo"
-            aria-label="Достать листы! На главную"
-            title="На главную"
-            onClick={() => onNavigate("sheet")}
+            className={tab === "tables" ? "is-active" : ""}
+            aria-current={tab === "tables" ? "page" : undefined}
+            onClick={() => onNavigate("tables")}
           >
-            <SiteLogo variant="mark" />
+            <Icon name="tables" size={15} aria-hidden="true" />
+            Столы
           </button>
-        </div>
-
-        <nav className="floating-header-nav" aria-label="Основные разделы">
           <button
             type="button"
             className={heroActive ? "is-active" : ""}
@@ -111,7 +106,11 @@ export function FloatingHeader({
               if (!skipNextFocus.current) setLibraryMenuOpen(true);
             }}
             onBlurCapture={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget as Node | null))
+              if (
+                !event.currentTarget.contains(
+                  event.relatedTarget as Node | null,
+                )
+              )
                 setLibraryMenuOpen(false);
             }}
             onKeyDown={(event) => {
@@ -144,7 +143,11 @@ export function FloatingHeader({
               ref={libraryMenu}
               className={`floating-header-library-menu${libraryMenuOpen ? " is-open" : ""}`}
             >
-              <ul id="floating-library-menu" role="listbox" aria-label="Разделы Кодекса">
+              <ul
+                id="floating-library-menu"
+                role="listbox"
+                aria-label="Разделы Кодекса"
+              >
                 {LIBRARY_OPTIONS.map((option) => {
                   const selected = librarySection === option.id;
                   return (
@@ -194,9 +197,13 @@ export function FloatingHeader({
               variant="soft"
               icon="plus"
               disabled={busy}
+              className="floating-header-create"
+              iconOnly
+              aria-label="Новый герой"
+              title="Новый герой"
               onClick={onNewCharacter}
             >
-              Новый герой
+              <span>Новый герой</span>
             </Button>
           )}
           {character ? (

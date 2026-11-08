@@ -14,3 +14,10 @@ createRoot(root).render(
     <App />
   </StrictMode>,
 );
+
+if (import.meta.env.PROD && "serviceWorker" in navigator) {
+  void navigator.serviceWorker.register("./offline-worker.js").then(async () => {
+    const registration = await navigator.serviceWorker.ready;
+    registration.active?.postMessage({ type: "CACHE_ASSETS", urls: performance.getEntriesByType("resource").map(entry => entry.name) });
+  }).catch(() => { /* Hero persistence reports unavailable local storage independently. */ });
+}

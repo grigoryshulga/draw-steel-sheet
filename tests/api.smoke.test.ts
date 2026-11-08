@@ -161,6 +161,23 @@ describe("API smoke (node server/index.mjs, production, temp data dir)", () => {
     expect(body.level).toBe(3);
   });
 
+  it("conditional browser saves reject stale and create-only replacements with the server document", async () => {
+    const { body: original } = await getJson("/api/characters/test-hero");
+    const write = (expected: string,doc: object) => fetch(`${BASE}/api/characters/test-hero`,{
+      method: "PUT",headers: { "Content-Type": "application/json","X-Character-Expected-Updated-At": expected },
+      body: JSON.stringify(doc),
+    });
+    const accepted = await write(String(original.updatedAt),{ ...original,inventory: [{ id: "traded",qty: 1 }] });
+    expect(accepted.status).toBe(200);
+    const latest = await accepted.json();
+    const stale = await write(String(original.updatedAt),{ ...original,name: "Устаревшая правка" });
+    expect(stale.status).toBe(409);
+    expect(await stale.json()).toMatchObject({ server: latest });
+    expect((await write("new",original)).status).toBe(409);
+    expect((await write("invalid revision",original)).status).toBe(400);
+    expect((await getJson("/api/characters/test-hero")).body.inventory).toEqual([{ id: "traded",qty: 1 }]);
+  });
+
   it("GET /api/characters содержит ровно одного персонажа", async () => {
     const { body } = await getJson("/api/characters");
     const characters = body.characters as Array<Record<string, unknown>>;

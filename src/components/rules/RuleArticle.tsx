@@ -1,3 +1,4 @@
+import { Icon } from "../Icons";
 import { CreatureTabs } from "./CreatureTabs";
 import { codexArticleHref } from "../../rules/codex-navigation";
 import type { ReactNode } from 'react';
@@ -100,11 +101,11 @@ export function RuleArticleContent({
           />
         );
       })}
-      {article.director?.recordType === 'monster' && <a className="catalog-source" href={`#/catalog/monsters/group:${article.director.groupSlug}`}>Все существа группы «{article.title}» →</a>}
-      {!!article.related?.length && <details className="director-related" open={article.director?.recordType === 'statblock'}>
-        <summary>Связанные правила и существа · {article.related.length}</summary>
+      {article.director?.recordType === 'monster' && <a className="catalog-source" href={`#/catalog/monsters/group:${article.director.groupSlug}`}>Все существа группы «{article.title}» <Icon name="arrow-right" size={16} /></a>}
+      {!!article.related?.length && <section className="director-related">
+        <h3>Связанные правила и существа · {article.related.length}</h3>
         <ul>{article.related.map(item => <li key={item.id}><a href={codexArticleHref(item.id)}>{item.title}</a></li>)}</ul>
-      </details>}
+      </section>}
       {article.director && article.originalId && <a className="catalog-source"
         href={`https://github.com/SteelCompendium/data-unified/blob/${article.director.sourceRevision}/en/books/monsters/md/${article.director.sourcePath.replace(/\.json$/, '.md')}`}
         target="_blank" rel="noreferrer">Источник · Draw Steel: Monsters (EN) ↗</a>}

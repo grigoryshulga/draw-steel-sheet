@@ -9,6 +9,8 @@ const MAX_AVATAR_BYTES = 512 * 1024;
 // Enough parallel reads to keep large team directories fast without exhausting
 // the descriptor pool on modest servers.
 const LIST_CONCURRENCY = 16;
+// Separate store instances in this process must participate in the same CAS queue.
+const mutations = new Map();
 
 function isDocument(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
@@ -23,13 +25,13 @@ export function createStore(dataDir) {
   const avatarsDir = path.join(dataDir, "avatars");
 
   // Serialize mutations per character; unrelated characters remain independent.
-  const mutations = new Map();
   function mutate(id, operation) {
-    const previous = mutations.get(id) || Promise.resolve();
+    const key = path.resolve(charactersDir, `${id}.json`);
+    const previous = mutations.get(key) || Promise.resolve();
     const pending = previous.catch(() => {}).then(operation);
-    mutations.set(id, pending);
+    mutations.set(key, pending);
     const cleanup = () => {
-      if (mutations.get(id) === pending) mutations.delete(id);
+      if (mutations.get(key) === pending) mutations.delete(key);
     };
     pending.then(cleanup, cleanup);
     return pending;
@@ -125,11 +127,11 @@ export function createStore(dataDir) {
     return doc;
   }
 
-  function save(id, doc) {
-    return mutate(id, () => saveDocument(id, doc));
+  function save(id, doc, options) {
+    return mutate(id, () => saveDocument(id, doc, options));
   }
 
-  async function saveDocument(id, doc) {
+  async function saveDocument(id, doc, options) {
     await ensureDir();
     if (!doc || typeof doc !== "object" || Array.isArray(doc)) {
       throw Object.assign(new Error("Ожидается объект персонажа"), { status: 400 });
@@ -140,10 +142,19 @@ export function createStore(dataDir) {
       });
     }
     const target = fileFor(id);
+    let previous = null;
+    try { previous = await get(id); }
+    catch (error) { if (error.status !== 404) throw error; }
+    if (options && Object.hasOwn(options, "expectedUpdatedAt") &&
+        (options.expectedUpdatedAt === null ? previous !== null : options.expectedUpdatedAt !== previous?.updatedAt)) {
+      throw Object.assign(new Error("Герой уже изменён на сервере"), {
+        status: 409, server: previous,
+      });
+    }
     const payload = {
       ...doc,
       id,
-      updatedAt: new Date().toISOString(),
+      updatedAt: new Date(Math.max(Date.now(), (Date.parse(previous?.updatedAt) || 0) + 1)).toISOString(),
     };
     const json = JSON.stringify(payload, null, 2);
     if (Buffer.byteLength(json, "utf8") > MAX_BYTES) {
@@ -151,8 +162,12 @@ export function createStore(dataDir) {
     }
     const temp = `${target}.${randomUUID()}.tmp`;
     try {
-      await fs.writeFile(temp, json, { encoding: "utf8", flag: "wx" });
+      const handle = await fs.open(temp, "wx", 0o600);
+      try { await handle.writeFile(json, "utf8"); await handle.sync(); }
+      finally { await handle.close(); }
       await fs.rename(temp, target);
+      const directory = await fs.open(charactersDir, "r");
+      try { await directory.sync(); } finally { await directory.close(); }
     } finally {
       // Never let cleanup errors mask the original write failure.
       await fs.rm(temp, { force: true }).catch(() => {});

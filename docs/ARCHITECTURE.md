@@ -17,6 +17,9 @@
 | `src/components/ui` | Generic controls and dialogs | No game data or context dependencies; `components/ui.tsx` is the stable public entry point |
 | `server/api.mjs` | HTTP API | Existing character routes and response shapes |
 | `server/store.mjs` | Filesystem persistence | Atomic replacement and ordered mutations per character |
+| `src/lib/tables`, `src/views/tables` | Table contracts, scene counters, Director/player workflows | Private fields are removed by server projections, never merely hidden by UI |
+| `server/tables-*.mjs`, `supabase/migrations/202611070001_create_tables.sql` | Local Director storage and authenticated cooperative tables | Revision checks, operation receipts, atomic offers/trades; see `docs/tables-backend.md` |
+| `src/lib/persistence/offline-*.ts` | Account-scoped private hero cache and durable edit queue | Stage before debounce, acknowledge only remote saves, preserve both conflict versions |
 | `server/static.mjs` | Production files and SPA fallback | Constrain paths to dist; missing assets must return 404 |
 
 The existing rule modules in `data` and `lib` refer to one another. They are one domain layer, not a claim of a strict two-layer dependency hierarchy. `check:architecture` guards the higher-level boundaries for relative static imports and literal dynamic imports; it does not detect every possible dependency or cycle.
@@ -63,7 +66,9 @@ Browser layout, keyboard interaction and live Supabase policies require separate
 
 ## Remaining architectural work
 
-- The filesystem store serializes mutations within one server process. Multiple processes or simultaneous editors still use last-write-wins semantics; distributed deployment needs revision checks or transactional storage.
+- Filesystem writes are serialized within one Node process and clients use compare-and-swap revisions. Multiple Node processes sharing one data directory remain unsupported. Cloud hero writes use `character_save` and the same timestamp contract; table item transactions also change that revision, so a stale whole-document save cannot silently erase received inventory.
+
+- Cooperative tables use Supabase Auth and server-side projections. The Node mode is explicitly a single Director workspace. Only `{id, revision}` table signals are published through Realtime; clients reread authorized snapshots and use repair polling. Player snapshots exclude hidden creatures, exact enemy stamina, Director notes, private counters and private hero sections. Public table snapshots are never stored in the offline cache. Production offline assets are cached by `public/offline-worker.js`; only the authenticated owner's hero documents and their pending decisions have account-scoped local persistence.
 
 - `NewCharacterDialog.tsx` orchestrates the seven-stage creation flow from `lib/builder-flow.ts`. Individual decisions keep the legacy draft and step contracts; the v3 position key restores older v1/v2 positions. `BuilderSelection` stages list choices for the current decision; `advanceBuilderFlow` applies and validates them on Next before resolving the next dynamic step. Back and sidebar navigation discard uncommitted choices. `ReferenceList` and its card styles are shared with `CatalogView`; canonical entries are passed through without creating builder entities. The desktop builder keeps stages on the left and the character summary on the right. `RuleArticleReader` is shared by the catalog and builder; class previews reuse `ClassLandingView` with all levels available. `WorkspaceApp.tsx` still owns hero lifecycle transitions.
 - Codex fetches one self-contained article JSON at a time (including every referenced entity, even from another chapter); chapter/class packs remain available for direct entity lookup. Its full-text corpus loads only on first search. Content migration is complete: every runtime consumer reads canonical projections (see `content/rules/migration-report.json`); legacy snapshots are parity fixtures only. Transliterated historical paths/IDs are deliberately preserved until the deferred rename.

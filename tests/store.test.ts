@@ -18,7 +18,7 @@ interface CharacterSummaryLike {
 interface CharacterStore {
   list(): Promise<CharacterSummaryLike[]>;
   get(id: string): Promise<Record<string, unknown>>;
-  save(id: string, doc: object): Promise<CharacterSummaryLike & Record<string, unknown>>;
+  save(id: string, doc: object, options?: { expectedUpdatedAt: string | null }): Promise<CharacterSummaryLike & Record<string, unknown>>;
   remove(id: string): Promise<void>;
   saveAvatar(id: string, image: Buffer): Promise<void>;
   readAvatar(id: string): Promise<Buffer | null>;
@@ -135,6 +135,28 @@ describe("createStore", () => {
     await Promise.all(saves);
     expect((await store.get("concurrent")).name).toBe("Revision 29");
     expect((await fs.readdir(store.charactersDir)).filter((name) => name.endsWith(".tmp"))).toEqual([]);
+  });
+
+  it("CAS serializes across store instances and rejects a stale inventory replacement", async () => {
+    const first = await store.save("cas-inventory",{ ...sampleDoc("До обмена"),inventory: [] },{ expectedUpdatedAt: null });
+    const other = createStore(dataDir) as unknown as CharacterStore;
+    const trading = other.save(first.id,{ ...first,inventory: [{ id: "gift",qty: 1 }] },{ expectedUpdatedAt: first.updatedAt });
+    const stale = store.save(first.id,{ ...first,name: "Старый лист" },{ expectedUpdatedAt: first.updatedAt });
+    const traded = await trading;
+    await expect(stale).rejects.toMatchObject({ status: 409,server: traded });
+    expect((await store.get(first.id)).inventory).toEqual([{ id: "gift",qty: 1 }]);
+    await expect(store.save(first.id,first,{ expectedUpdatedAt: null })).rejects.toMatchObject({ status: 409 });
+    expect(traded.updatedAt > first.updatedAt).toBe(true);
+  });
+
+  it("failed CAS and reads leave existing JSON bytes untouched", async () => {
+    const bytes = '{"id":"legacy-cas", "name":"Старый герой", "updatedAt":"2020-01-01T00:00:00Z", "custom":[1,2]}\n';
+    const file = path.join(store.charactersDir,"legacy-cas.json");
+    await fs.writeFile(file,bytes);
+    await store.get("legacy-cas");
+    await store.list();
+    await expect(store.save("legacy-cas",sampleDoc("Заменить"),{ expectedUpdatedAt: null })).rejects.toMatchObject({ status: 409 });
+    expect(await fs.readFile(file,"utf8")).toBe(bytes);
   });
 
   it("delete waits for already queued saves and does not resurrect a character", async () => {

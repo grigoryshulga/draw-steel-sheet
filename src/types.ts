@@ -118,6 +118,11 @@ export interface ConditionState {
   ends: ConditionEnd;
 }
 
+export interface ItemEffect {
+  field: "stamina" | "recoveries" | "speed" | "stability" | "disengage" | "save" | "rolledDamage" | "freeStrikeDamage";
+  value: number;
+}
+
 export interface InventoryItem {
   catalogId?: string;
   id: string;
@@ -126,6 +131,8 @@ export interface InventoryItem {
   qty: number;
   notes: string;
   equipped: boolean;
+  /** Declarative bonuses apply while equipped, once per item row, never per quantity. */
+  effects?: ItemEffect[];
 }
 
 export interface ProjectRow {

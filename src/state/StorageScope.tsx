@@ -10,6 +10,8 @@ export interface AccountControls {
   email: string;
   signingOut: boolean;
   signOut: () => void;
+  pendingSignOut?: { localError: string } | null;
+  cancelSignOut?: () => void;
 }
 
 /** Выход из аккаунта; null, когда вход не используется (локальный режим). */

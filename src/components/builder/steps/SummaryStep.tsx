@@ -1,3 +1,4 @@
+import { Icon } from "../../Icons";
 import { perkById } from "../../../data/perks";
 import { CHARACTERISTICS, deriveStats } from "../../../lib/rules";
 import { useBuilderStep } from "../BuilderStepContext";
@@ -84,7 +85,7 @@ export function SummaryStep() {
               key={item.id}
               onClick={() => goToFlow(item.id)}
             >
-              {item.label}: {item.issue} →
+              {item.label}: {item.issue} <Icon name="arrow-right" size={16} />
             </button>
           ))}
         </div>
@@ -107,7 +108,7 @@ export function SummaryStep() {
                   {row.value || "Не выбрано"}
                 </span>
               </span>
-              <span className="muted small">Изменить →</span>
+              <span className="muted small">Изменить <Icon name="arrow-right" size={16} /></span>
             </button>
           );
         })}
@@ -117,13 +118,13 @@ export function SummaryStep() {
         {hero.stability} · Восстановления {hero.recoveries.max} ×{" "}
         {derived.recoveryValue}
       </p>
-      <details className="builder-reference">
-        <summary>Особые условия и эффекты</summary>
+      <section className="builder-reference">
+        <h3>Особые условия и эффекты</h3>
         <p>
           Условные эффекты и особенности без авторасчёта остаются в тексте
           правил. Их можно уточнить и дополнить в листе.
         </p>
-      </details>
+      </section>
     </>
   );
 }

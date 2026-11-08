@@ -6,6 +6,7 @@ import { CodexView } from "../src/views/CodexView";
 const renderCodex = (hash: string) => {
   vi.stubGlobal("window", {
     location: { hash, replace() {} },
+    matchMedia: () => ({ matches: false }),
     addEventListener() {},
     removeEventListener() {},
   });

@@ -24,6 +24,7 @@ export function NotesView() {
           <Icon name="book" size={24} />
           Журнал
         </h1>
+        <p className="muted small">Личные заметки и проекты</p>
       </header>
 
       <div className="notes-grid">
@@ -38,7 +39,7 @@ export function NotesView() {
             >
               <TextArea
                 className="note-section-textarea"
-                rows={isMisc ? 6 : 9}
+                rows={character.notes[section.key] ? 7 : 3}
                 value={character.notes[section.key]}
                 placeholder={section.placeholder}
                 aria-label={`Журнал: ${section.label}`}

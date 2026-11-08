@@ -30,6 +30,11 @@
 .save-error-banner .hstack {
   flex-shrink: 0;
 }
+.persistence-status {
+  border-color: var(--line);
+  background: var(--surface-2);
+  flex-wrap: wrap;
+}
 .workspace-progress {
   position: fixed;
   top: max(78px, calc(env(safe-area-inset-top) + 66px));
