@@ -62,93 +62,6 @@
   }
 }
 
-/* Телефон: блоки разложены по вкладкам «Основное / Особенности / Способности». */
-.sheet-layout-compact {
-  display: flex;
-  flex-direction: column;
-}
-
-.sheet-section-tabs {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-4) var(--space-5);
-  border-bottom: 1px solid var(--sheet-warm-line);
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.sheet-section-tabs::-webkit-scrollbar {
-  display: none;
-}
-
-.sheet-section-tab {
-  display: inline-flex;
-  flex: 1 1 0;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  min-width: max-content;
-  min-height: 40px;
-  padding: var(--space-3) var(--space-4);
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  background: transparent;
-  color: var(--muted);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
-  transition:
-    color 140ms var(--ease),
-    border-color 140ms var(--ease),
-    background 140ms var(--ease);
-}
-
-.sheet-section-tab:hover {
-  border-color: var(--line);
-  color: var(--fg);
-}
-
-.sheet-section-tab.is-active {
-  border-color: var(--accent-line);
-  background: var(--accent-soft);
-  color: var(--accent);
-}
-
-.sheet-section-tab:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-.sheet-section-tab svg {
-  flex: none;
-  opacity: 0.85;
-}
-
-@media (max-width: 360px) {
-  .sheet-section-tab svg {
-    display: none;
-  }
-}
-
-.sheet-section-body {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-/* Порядок задают сами разделы: общий мобильный `order` блоков не нужен. */
-.sheet-section-body > .sheet-block {
-  order: 0;
-  border-top: 1px solid var(--sheet-warm-line);
-}
-
-.sheet-section-body > .sheet-block:first-child {
-  border-top: 0;
-}
-
 /* От 760 px: верхние блоки выровнены, нижние колонки независимы. */
 @container sheet (min-width: 760px) {
   .sheet-upper,
@@ -190,6 +103,3 @@
     border-top: 1px solid var(--sheet-warm-line);
   }
 }
-
-.sheet-jump-links { position: sticky; top: 78px; z-index: 20; padding-block: var(--space-3); background: var(--surface); border-bottom: 1px solid var(--line); display: flex; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-4); }
-.sheet-block { scroll-margin-top: 128px; }

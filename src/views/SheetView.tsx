@@ -80,35 +80,6 @@ const SHEET_TABS: { id: HeroTab; label: string; icon: IconName }[] = [
   { id: "companions", label: "Спутники", icon: "users" },
 ];
 
-/** Блоки листа на телефоне: три раздела вместо длинной колонки. */
-type SheetSectionId = "main" | "features" | "abilities";
-
-const SHEET_SECTIONS: {
-  id: SheetSectionId;
-  label: string;
-  icon: IconName;
-  panels: PanelId[];
-}[] = [
-  {
-    id: "main",
-    label: "Основное",
-    icon: "heart",
-    panels: ["vitals", "resources", "conditions", "characteristics"],
-  },
-  {
-    id: "features",
-    label: "Особенности",
-    icon: "spark",
-    panels: ["perks", "features", "skills"],
-  },
-  {
-    id: "abilities",
-    label: "Способности",
-    icon: "abilities",
-    panels: ["abilities"],
-  },
-];
-
 function Blocks({ ids }: { ids: PanelId[] }) {
   return (
     <>
@@ -138,75 +109,9 @@ function Column({ className, ids }: { className: string; ids: PanelId[] }) {
   );
 }
 
-/** Телефон: разделы листа переключаются вкладками, остальное скрыто. */
-function CompactSheet() {
-  const [section, setSection] = useState<SheetSectionId>("main");
-  const active =
-    SHEET_SECTIONS.find((item) => item.id === section) ?? SHEET_SECTIONS[0];
-
-  return (
-    <div className="sheet-layout sheet-layout-compact">
-      <nav
-        className="sheet-section-tabs"
-        role="tablist"
-        aria-label="Блоки листа"
-      >
-        {SHEET_SECTIONS.map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            role="tab"
-            className={`sheet-section-tab${active.id === item.id ? " is-active" : ""}`}
-            id={`sheet-tab-${item.id}`}
-            aria-controls="sheet-section-panel"
-            tabIndex={active.id === item.id ? 0 : -1}
-            onKeyDown={(event) => {
-              const index = SHEET_SECTIONS.findIndex(
-                (entry) => entry.id === item.id,
-              );
-              const next =
-                event.key === "ArrowRight"
-                  ? (index + 1) % SHEET_SECTIONS.length
-                  : event.key === "ArrowLeft"
-                    ? (index + SHEET_SECTIONS.length - 1) %
-                      SHEET_SECTIONS.length
-                    : event.key === "Home"
-                      ? 0
-                      : event.key === "End"
-                        ? SHEET_SECTIONS.length - 1
-                        : -1;
-              if (next < 0) return;
-              event.preventDefault();
-              setSection(SHEET_SECTIONS[next].id);
-              document
-                .getElementById(`sheet-tab-${SHEET_SECTIONS[next].id}`)
-                ?.focus();
-            }}
-            aria-selected={active.id === item.id}
-            onClick={() => setSection(item.id)}
-          >
-            <Icon name={item.icon} size={15} aria-hidden="true" />
-            {item.label}
-          </button>
-        ))}
-      </nav>
-      <div
-        className="sheet-section-body"
-        role="tabpanel"
-        id="sheet-section-panel"
-        aria-labelledby={`sheet-tab-${active.id}`}
-        tabIndex={0}
-      >
-        <Blocks ids={active.panels} />
-      </div>
-    </div>
-  );
-}
-
 function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
   const { character, performGameAction, goTo } = useApp();
   const [developmentDirty, setDevelopmentDirty] = useState(false);
-  // Телефон получает разделы вместо длинной колонки; на десктопе остаются колонки.
   const compact = useMediaQuery("(max-width: 700px)");
 
   const switchTab = (next: HeroTab) => {
@@ -290,43 +195,17 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
         >
           {tab === "sheet" && (
             <div className="sheet-layout-host">
-              {!compact && (
-                <nav className="sheet-jump-links" aria-label="Блоки листа">
-                  {[
-                    ["vitals", "Показатели"],
-                    ["abilities", "Способности"],
-                    ["perks", "Особенности"],
-                  ].map(([id, label]) => (
-                    <Button
-                      key={id}
-                      size="sm"
-                      variant="ghost"
-                      onClick={() => {
-                        const target = document.getElementById(`sheet-${id}`);
-                        target?.focus({ preventScroll: true });
-                        target?.scrollIntoView({ block: "start" });
-                      }}
-                    >
-                      {label}
-                    </Button>
-                  ))}
-                </nav>
-              )}
-              {compact ? (
-                <CompactSheet />
-              ) : (
-                <div className="sheet-layout">
-                  <div className="sheet-upper">
-                    <Column className="sheet-col-main" ids={UPPER_MAIN} />
-                    <Column className="sheet-col-side" ids={UPPER_SIDE} />
-                  </div>
-                  <Column className="sheet-col-full" ids={FULL_WIDTH} />
-                  <div className="sheet-lower">
-                    <Column className="sheet-col-main" ids={LOWER_MAIN} />
-                    <Column className="sheet-col-side" ids={LOWER_SIDE} />
-                  </div>
+              <div className="sheet-layout">
+                <div className="sheet-upper">
+                  <Column className="sheet-col-main" ids={UPPER_MAIN} />
+                  <Column className="sheet-col-side" ids={UPPER_SIDE} />
                 </div>
-              )}
+                <Column className="sheet-col-full" ids={FULL_WIDTH} />
+                <div className="sheet-lower">
+                  <Column className="sheet-col-main" ids={LOWER_MAIN} />
+                  <Column className="sheet-col-side" ids={LOWER_SIDE} />
+                </div>
+              </div>
             </div>
           )}
           {tab === "development" && (
