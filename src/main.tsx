@@ -3,8 +3,12 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./styles/base.css";
 import "./styles/components.css";
+import { applyTheme, readThemeChoice, resolveTheme, THEMES } from "./lib/theme";
 // Общая карточка используется в нескольких лениво загружаемых разделах.
 import "./components/AbilityCard.css";
+
+// Apply all theme tokens before the first React render, including the auth page.
+applyTheme(resolveTheme(THEMES, readThemeChoice()));
 
 const root = document.getElementById("root");
 if (!root) throw new Error("Не найден корневой элемент #root");

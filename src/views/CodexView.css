@@ -732,3 +732,81 @@
 }
 
 .codex-nav nav[hidden] { display: none; }
+.codex-recent {
+  margin-bottom: var(--space-9);
+  padding: var(--space-7);
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--accent-soft), transparent 70%);
+}
+
+.codex-recent > header,
+.codex-recent h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.codex-recent > header {
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.codex-recent h3 {
+  margin: 0;
+  color: var(--fg-bright);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.codex-recent h3 > svg {
+  flex: none;
+  color: var(--accent);
+}
+
+.codex-recent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: var(--space-4);
+}
+
+.codex-recent-grid > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  color: var(--fg);
+  background: var(--surface-2);
+  text-decoration: none;
+}
+
+.codex-recent-grid > a:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.codex-recent-grid strong,
+.codex-recent-grid small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.codex-recent-grid strong {
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+}
+
+.codex-recent-grid small {
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: var(--text-body);
+}
+
+.codex-recent-grid > a > svg {
+  flex: none;
+  color: var(--accent);
+}

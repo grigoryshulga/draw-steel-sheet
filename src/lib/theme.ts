@@ -1,8 +1,8 @@
-import type { AppTheme } from "../types";
+import type { AppTheme } from "../types.ts";
 
 export type ThemeChoice = { name: string };
 
-const STORAGE_KEY = "draw-steel-sheet.theme";
+export const THEME_STORAGE_KEY = "draw-steel-sheet.theme";
 
 /** Встроенные палитры подобраны для читаемости текста и элементов интерфейса. */
 export const THEMES: AppTheme[] = [
@@ -226,7 +226,7 @@ export const THEMES: AppTheme[] = [
 
 export function readThemeChoice(): ThemeChoice {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(THEME_STORAGE_KEY);
     if (raw) {
       const parsed: unknown = JSON.parse(raw);
       if (typeof parsed === "object" && parsed !== null) {
@@ -244,7 +244,7 @@ export function readThemeChoice(): ThemeChoice {
 
 export function writeThemeChoice(choice: ThemeChoice): void {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(choice));
+    localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(choice));
   } catch {
     // The selected theme still applies when browser storage is unavailable.
   }
@@ -296,6 +296,7 @@ export function applyTheme(theme: AppTheme): void {
   }
   root.dataset.mode = theme.mode;
   root.dataset.theme = theme.name;
+  root.style.colorScheme = theme.mode;
 }
 
 export function resolveTheme(themes: AppTheme[], choice: ThemeChoice): AppTheme {

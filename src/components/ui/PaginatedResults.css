@@ -1,0 +1,26 @@
+.paginated-results-page {
+  min-width: 0;
+  scroll-margin-top: calc(80px + var(--rail-h));
+}
+
+.paginated-results-page:focus {
+  outline: none;
+}
+
+.results-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-7);
+  margin-top: var(--space-8);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--line);
+}
+
+.results-pagination > span {
+  min-width: 7ch;
+  color: var(--muted);
+  font-size: var(--text-md);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}

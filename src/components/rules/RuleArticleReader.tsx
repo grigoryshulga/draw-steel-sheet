@@ -7,6 +7,8 @@ import { artForArticle } from "../../lib/art";
 import { Button } from "../ui";
 import { RuleEntityView } from "./RuleEntity";
 import { RuleArticleContent } from "./RuleArticle";
+import { ReadingSkeleton } from "./ReadingSkeleton";
+import { useReadingHistory } from "./useReadingHistory";
 
 /** Общий ленивый просмотр статьи для справочника и создания героя. */
 export function RuleArticleReader({
@@ -22,6 +24,7 @@ export function RuleArticleReader({
     error?: string;
   }>();
   const [attempt, setAttempt] = useState(0);
+  useReadingHistory(result?.id === articleId && result.data ? articleId : undefined);
   useEffect(() => {
     let active = true;
     setResult(undefined);
@@ -45,7 +48,7 @@ export function RuleArticleReader({
     };
   }, [articleId, attempt]);
   if (!result || result.id !== articleId)
-    return <p role="status">Загружаем правила…</p>;
+    return <ReadingSkeleton />;
   if (result.error)
     return (
       <div role="alert">

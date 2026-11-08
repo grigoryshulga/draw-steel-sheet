@@ -31,4 +31,15 @@ describe("оглавление Кодекса", () => {
     expect(html).toContain("Оглавление");
     expect(html).toContain("codex-collections");
   });
+
+  it("показывает недавние статьи и скрывает устаревшие идентификаторы", () => {
+    vi.stubGlobal("localStorage", {
+      getItem: (key: string) => key === "ds-reading-history-v1" ? '["0201","deleted-article"]' : null,
+    });
+    const html = renderCodex("#/codex/");
+    expect(html).toContain("Недавно открытые");
+    expect(html).toContain('href="#/codex/0201"');
+    expect(html).toContain("Очистить историю чтения");
+    expect(html).not.toContain("deleted-article");
+  });
 });

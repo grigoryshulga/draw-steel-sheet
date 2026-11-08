@@ -3,6 +3,7 @@ import type { Session } from "@supabase/supabase-js";
 import { supabase, supabaseEnabled } from "../lib/supabase";
 import { AccountContext, StorageScope } from "../state/StorageScope";
 import { SiteLogo } from "../components/SiteLogo";
+import { LoadingScreen } from "../components/Topbar";
 import { Button } from "../components/ui";
 import { useHashTab } from "../lib/hooks";
 import { TABS } from "../navigation";
@@ -123,7 +124,7 @@ export function AuthGate({
   if (loading && !user && GUEST_TABS.includes(tab)) {
     return <GuestApp tab={tab} onSignIn={() => setTab("sheet")} />;
   }
-  if (loading && !user) return <div className="loading-screen">Проверяем вход…</div>;
+  if (loading && !user) return <LoadingScreen label="Проверяем вход…" hint="Подключаемся к вашим героям" />;
 
   if (!user && GUEST_TABS.includes(tab)) {
     return <GuestApp tab={tab} onSignIn={() => setTab("sheet")} />;

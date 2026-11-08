@@ -1217,26 +1217,6 @@ button.chip:hover {
   padding: 0 var(--space-1);
 }
 
-.loading-screen {
-  display: grid;
-  place-items: center;
-  min-height: 60vh;
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-body);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.loading-screen::after {
-  content: "";
-  width: 150px;
-  height: 1px;
-  margin-top: var(--space-7);
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  animation: load-slide 1.2s infinite var(--ease);
-}
-
 .boot-error {
   max-width: 640px;
   margin: 12vh auto;
@@ -1332,20 +1312,6 @@ button.chip:hover {
   from {
     opacity: 0;
     transform: translateY(8px);
-  }
-}
-
-@keyframes load-slide {
-  0% {
-    transform: translateX(-40px);
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(40px);
-    opacity: 0.2;
   }
 }
 

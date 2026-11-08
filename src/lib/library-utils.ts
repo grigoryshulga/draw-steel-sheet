@@ -23,7 +23,15 @@ export function glossaryLink(id = "") {
 }
 
 export function matchesLibraryQuery(query: string, ...fields: string[]) {
+  return createLibraryMatcher(query)(...fields);
+}
+
+/** Normalize the query once for a whole result set, skip empty searches. */
+export function createLibraryMatcher(query: string) {
   const words = searchText(query).trim().split(/\s+/).filter(Boolean);
-  const haystack = searchText(fields.join(" "));
-  return words.every((word) => haystack.includes(word));
+  return (...fields: string[]) => {
+    if (words.length === 0) return true;
+    const haystack = searchText(fields.join(" "));
+    return words.every((word) => haystack.includes(word));
+  };
 }

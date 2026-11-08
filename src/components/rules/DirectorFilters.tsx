@@ -3,7 +3,8 @@ import {
   emptyDirectorFilters,
   type DirectorFilters as Filters,
 } from "../../lib/director-catalog";
-import { Button, Select, TextInput } from "../ui";
+import { Select, TextInput } from "../ui";
+import { SearchInput } from "../ui/SearchInput";
 import "./DirectorReference.css";
 
 export function DirectorFilters({
@@ -11,9 +12,11 @@ export function DirectorFilters({
   value,
   onChange,
   compact = false,
+  searchShortcut = false,
 }: {
   entries: readonly CatalogBrowserEntry[];
   compact?: boolean;
+  searchShortcut?: boolean;
   value: Filters;
   onChange: (value: Filters) => void;
 }) {
@@ -112,22 +115,19 @@ export function DirectorFilters({
   );
   return (
     <div className="director-filters">
-      <label className="director-query">
-        Название или ключевое слово
-        <span className="director-search-field">
-        <TextInput
-          type="search"
+      <div className="director-query">
+        <span>Название или ключевое слово</span>
+        <SearchInput
+          aria-label="Название или ключевое слово"
           value={value.query}
           placeholder="По-русски или по-английски…"
-          onChange={(event) => set("query", event.target.value)}
+          onValueChange={(query) => set("query", query)}
+          shortcut={searchShortcut}
+          canClear={Object.values(value).some(Boolean)}
+          clearLabel="Сбросить фильтры"
+          onClear={() => onChange(emptyDirectorFilters)}
         />
-      {Object.values(value).some(Boolean) && (
-        <Button variant="ghost" className="director-filter-reset" icon="close" iconOnly onClick={() => onChange(emptyDirectorFilters)}>
-          Сбросить фильтры
-        </Button>
-      )}
-        </span>
-      </label>
+      </div>
       {compact ? (
         <section className="director-filter-disclosure">
           <h3>

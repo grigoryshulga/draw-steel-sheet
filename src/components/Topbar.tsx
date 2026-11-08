@@ -1,4 +1,5 @@
 import { Button } from "./ui";
+import "./Topbar.css";
 
 export function BootError({ message }: { message: string }) {
   return (

@@ -5,7 +5,11 @@ import { LibraryHeader } from "../components/LibraryHeader";
 import { READING_CATALOG } from "../rules/consumer-reading";
 import { catalogLink, readCodexLocation } from "../lib/codex";
 import { useCodexBookmarks } from "../lib/codex-bookmarks";
-import { Button, TextInput } from "../components/ui";
+import { Button, EmptyState } from "../components/ui";
+import { SearchInput } from "../components/ui/SearchInput";
+import { PaginatedResults } from "../components/ui/PaginatedResults";
+import { ReadingSkeleton } from "../components/rules/ReadingSkeleton";
+import { useReadingHistory } from "../components/rules/useReadingHistory";
 import "./CodexView.css";
 import { artForArticle } from "../lib/art";
 import {
@@ -125,6 +129,11 @@ export function CodexView() {
       ? content
       : undefined;
   const loading = Boolean(entry) && !loaded && !failure;
+  const { recentIds, clearHistory } = useReadingHistory(loaded ? entryId : undefined);
+  const recentEntries = recentIds.flatMap((id) => {
+    const article = ruleIndex.find((item) => item.id === id);
+    return article ? [article] : [];
+  });
 
   const browse = (c = "", g = "") => {
     setQuery("");
@@ -270,13 +279,13 @@ export function CodexView() {
       <LibraryHeader title="Книга правил" />
       <div className="codex-layout">
         <aside className="codex-nav" aria-label="Разделы Кодекса">
-          <TextInput
-            type="search"
+          <SearchInput
             aria-label="Поиск по всему Кодексу"
             placeholder="Найти правило…"
             value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
+            shortcut
+            onValueChange={(value) => {
+              setQuery(value);
               if (entry) window.location.hash = catalogLink();
             }}
           />
@@ -465,10 +474,7 @@ export function CodexView() {
                   </Suspense>
                 )}
                 {loading && (
-                  <div className="codex-state" role="status" aria-live="polite">
-                    <span className="codex-state-spinner" aria-hidden="true" />
-                    <p>Загружаем статью…</p>
-                  </div>
+                  <ReadingSkeleton label="Загружаем статью…" />
                 )}
                 {failure && (
                   <div className="codex-state codex-state-error" role="alert">
@@ -485,7 +491,7 @@ export function CodexView() {
                 )}
                 {loaded &&
                   (isEmptyArticle(loaded.article) ? (
-                    <p className="muted">
+                    <p className="muted" role="status">
                       Эта статья пока не заполнена в исходном переводе.
                     </p>
                   ) : (
@@ -592,7 +598,7 @@ export function CodexView() {
                           "Оглавление"}
                   </h2>
                   {(needle || onlyBookmarks) && (
-                    <p className="muted">
+                    <p className="muted" role="status">
                       {searchPending
                         ? "Ищем по всему Кодексу…"
                         : `Найдено статей: ${resultEntries.length}`}
@@ -609,10 +615,7 @@ export function CodexView() {
                 )}
               </div>
               {searchPending && (
-                <div className="codex-state" role="status" aria-live="polite">
-                  <span className="codex-state-spinner" aria-hidden="true" />
-                  <p>Загружаем полный текст правил для поиска…</p>
-                </div>
+                <ReadingSkeleton label="Загружаем полный текст правил для поиска…" />
               )}
               {searchFailed && (
                 <div
@@ -634,22 +637,44 @@ export function CodexView() {
                 </div>
               )}
               {showEmptyState && (
-                <div className="codex-empty">
-                  <h3>
-                    {onlyBookmarks
-                      ? "Здесь будут ваши закладки"
-                      : "Ничего не найдено"}
-                  </h3>
-                  <p>
-                    {" "}
-                    {onlyBookmarks
-                      ? "Откройте статью и нажмите «В закладки»."
-                      : "Попробуйте другое название или более короткий запрос."}
-                  </p>
-                </div>
+                <EmptyState
+                  icon={onlyBookmarks && !needle ? "bookmark" : "search"}
+                  title={onlyBookmarks && !needle ? "Здесь будут ваши закладки" : "Ничего не найдено"}
+                  text={onlyBookmarks && !needle ? "Откройте статью и нажмите «В закладки»." : "Попробуйте другое название или более короткий запрос."}
+                  action={needle ? <Button onClick={() => setQuery("")}>Сбросить поиск</Button> : undefined}
+                />
               )}
               {!needle && !onlyBookmarks && (
                 <>
+                  {!chapter && recentEntries.length > 0 && (
+                    <section className="codex-recent" aria-labelledby="codex-recent-title">
+                      <header>
+                        <h3 id="codex-recent-title">
+                          <Icon name="history" size={18} aria-hidden="true" /> Недавно открытые
+                        </h3>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          icon="close"
+                          iconOnly
+                          aria-label="Очистить историю чтения"
+                          title="Очистить историю чтения"
+                          onClick={clearHistory}
+                        />
+                      </header>
+                      <div className="codex-recent-grid">
+                        {recentEntries.map((article) => (
+                          <a key={article.id} href={codexArticleHref(article.id)}>
+                            <span>
+                              <strong>{article.title}</strong>
+                              <small>{article.chapter.replace(/^\d+\.\s*/, "")}</small>
+                            </span>
+                            <Icon name="arrow-right" size={16} aria-hidden="true" />
+                          </a>
+                        ))}
+                      </div>
+                    </section>
+                  )}
                   <a className="codex-reference-banner" href="#/reference/">
                     <span>
                       <strong>Справочник</strong> — классы, происхождения,
@@ -742,27 +767,35 @@ export function CodexView() {
                   ))}
                 </>
               )}
-              <div className="codex-results">
-                {(needle || onlyBookmarks ? resultEntries : []).map(
-                  (article) => {
-                    const excerpt = excerptById.get(article.id) ?? "";
-                    return (
-                      <a
-                        className="codex-result"
-                        key={article.id}
-                        href={codexArticleHref(article.id)}
-                      >
-                        <span className="eyebrow">
-                          {article.chapter}
-                          {article.group && ` / ${article.group}`}
-                        </span>
-                        <h3>{article.title}</h3>
-                        {needle && <p>{excerpt}…</p>}
-                      </a>
-                    );
-                  },
-                )}
-              </div>
+              {(needle || onlyBookmarks) && resultEntries.length > 0 && !searchPending && (
+                <PaginatedResults
+                  key={JSON.stringify([needle, onlyBookmarks, chapter, group, bookmarks])}
+                  items={resultEntries}
+                  label="Статьи"
+                >
+                  {(pageItems) => (
+                    <div className="codex-results">
+                      {pageItems.map((article) => {
+                        const excerpt = excerptById.get(article.id) ?? "";
+                        return (
+                          <a
+                            className="codex-result"
+                            key={article.id}
+                            href={codexArticleHref(article.id)}
+                          >
+                            <span className="eyebrow">
+                              {article.chapter}
+                              {article.group && ` / ${article.group}`}
+                            </span>
+                            <h3>{article.title}</h3>
+                            {needle && <p>{excerpt}…</p>}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+                </PaginatedResults>
+              )}
             </>
           )}
         </div>

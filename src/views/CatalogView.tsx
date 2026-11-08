@@ -13,6 +13,7 @@ import {
   lazy,
   Suspense,
   useContext,
+  useDeferredValue,
   useEffect,
   useMemo,
   useRef,
@@ -29,7 +30,6 @@ import {
   type CatalogSectionId,
 } from "../data/reference-catalog";
 import {
-  matchesLibraryQuery,
   sourceLink,
   type CatalogEntry,
 } from "../data/library";
@@ -37,9 +37,11 @@ import { type ArtKind } from "../lib/art";
 import { AppContext } from "../state/AppContext";
 import { ownsCatalogEntry } from "../lib/catalog-character";
 import { useLibraryLocation } from "../lib/library-location";
-import { CatalogAction } from "../components/CatalogAction";
 import { RuleText } from "../components/RuleText";
-import { Chip, Select, TextInput, Button } from "../components/ui";
+import { Chip, Select, Button, EmptyState } from "../components/ui";
+import { SearchInput } from "../components/ui/SearchInput";
+import { PaginatedResults } from "../components/ui/PaginatedResults";
+import { createLibraryMatcher } from "../lib/library-utils";
 import { ReferenceList } from "../components/rules/ReferenceList";
 import { RuleArticleReader } from "../components/rules/RuleArticleReader";
 import { RuleMarkdown } from "../components/rules/RuleMarkdown";
@@ -54,6 +56,9 @@ import "./ReferenceView.css";
 
 const ClassLandingView = lazy(() =>
   import("./ClassLandingView").then((module) => ({ default: module.ClassLandingView })),
+);
+const CatalogAction = lazy(() =>
+  import("../components/CatalogAction").then((module) => ({ default: module.CatalogAction })),
 );
 
 /** Портреты для разделов, которые читаются как карточки-сущности. */
@@ -80,6 +85,8 @@ export function CatalogView() {
   const [category, setCategory] = useState("");
   const [echelon, setEchelon] = useState("");
   const [directorFilters, setDirectorFilters] = useState(emptyDirectorFilters);
+  const deferredQuery = useDeferredValue(query);
+  const deferredDirectorFilters = useDeferredValue(directorFilters);
   const app = useContext(AppContext);
   const compact = useMediaQuery("(max-width: 850px)");
   const groupSlug = id.startsWith("group:") ? id.slice(6) : undefined;
@@ -122,18 +129,24 @@ export function CatalogView() {
     };
   };
 
-  const entries = catalogSectionEntries(section).filter(
-    (entry) => !groupSlug || entry.director?.groupSlug === groupSlug,
+  const entries = useMemo(
+    () => catalogSectionEntries(section).filter(
+      (entry) => !groupSlug || entry.director?.groupSlug === groupSlug,
+    ),
+    [section, groupSlug],
   );
-  const categories = [...new Set(entries.map((entry) => entry.eyebrow))];
+  const categories = useMemo(() => [...new Set(entries.map((entry) => entry.eyebrow))], [entries]);
   const hasEchelon = entries.some((entry) => entry.echelon);
-  const results = entries.filter(
-    (entry) =>
+  const results = useMemo(() => {
+    const matchesQuery = createLibraryMatcher(deferredQuery);
+    return entries.filter((entry) =>
       (!category || entry.eyebrow === category) &&
       (!echelon || String(entry.echelon) === echelon) &&
-      matchesDirectorFilters(entry, directorFilters) &&
-      matchesLibraryQuery(query, entry.search),
-  );
+      matchesDirectorFilters(entry, deferredDirectorFilters) &&
+      matchesQuery(entry.search),
+    );
+  }, [entries, category, echelon, deferredDirectorFilters, deferredQuery]);
+  const resultsKey = JSON.stringify([section, groupSlug, category, echelon, deferredDirectorFilters, deferredQuery]);
   const selected =
     entries.find((entry) => entry.id === id) ??
     (isList && !compact ? results[0] : undefined);
@@ -198,16 +211,17 @@ export function CatalogView() {
     }
     return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0], "ru"));
   }, [section, results]);
-  const globalQuery = query.trim();
+  const globalQuery = director ? "" : deferredQuery.trim();
   const globalGroups = useMemo(() => {
     if (!globalQuery) return [];
+    const matchesQuery = createLibraryMatcher(globalQuery);
     return CATALOG_SECTIONS.filter(
       (item) => isDirectorSection(item.id) === director,
     )
       .map((catalogSection) => ({
         section: catalogSection,
         entries: catalogSectionEntries(catalogSection.id).filter((entry) =>
-          matchesLibraryQuery(globalQuery, entry.search),
+          matchesQuery(entry.search),
         ),
       }))
       .filter((group) => group.entries.length > 0);
@@ -216,6 +230,9 @@ export function CatalogView() {
     (total, group) => total + group.entries.length,
     0,
   );
+  const globalResults = useMemo(() => globalGroups.flatMap((group) =>
+    group.entries.map((entry) => ({ section: group.section.id, entry })),
+  ), [globalGroups]);
 
   const globalHref = (
     catalogSection: CatalogSectionId,
@@ -247,23 +264,15 @@ export function CatalogView() {
         </div>
       ) : (
         <>
-          <div className="catalog-global-search">
-            <TextInput
-              type="search"
-              aria-label={
-                director
-                  ? "Поиск по материалам ведущего"
-                  : "Поиск по всему справочнику"
-              }
-              placeholder={
-                director
-                  ? "Поиск по материалам ведущего…"
-                  : "Поиск по всему справочнику…"
-              }
+          {!director && <div className="catalog-global-search">
+            <SearchInput
+              aria-label="Поиск по всему справочнику"
+              placeholder="Поиск по всему справочнику…"
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onValueChange={setQuery}
+              shortcut
             />
-          </div>
+          </div>}
           {compact && (
             <Select
               aria-label={
@@ -306,50 +315,63 @@ export function CatalogView() {
         </>
       )}
       {globalQuery && !detailOpen ? (
-        <div className="catalog-global-results" onClickCapture={rememberList}>
+        <div className="catalog-global-results" onClickCapture={rememberList} aria-busy={query !== deferredQuery}>
           <div className="catalog-global-heading">
             <h2>Результаты поиска</h2>
-            <p className="muted small">Найдено: {globalCount}</p>
+            <p className="muted small" role="status">Найдено: {globalCount}</p>
           </div>
           {globalCount === 0 && (
-            <div className="library-empty">
-              <h3>Ничего не найдено</h3>
-              <p>Попробуйте другой термин или более короткий запрос.</p>
-              <Button onClick={() => setQuery("")}>Сбросить</Button>
-            </div>
+            <EmptyState
+              icon="search"
+              title="Ничего не найдено"
+              text="Попробуйте другой термин или более короткий запрос."
+              action={<Button onClick={() => setQuery("")}>Сбросить поиск</Button>}
+            />
           )}
-          {globalGroups.map((group) => (
-            <section className="catalog-global-group" key={group.section.id}>
-              <h3>
-                {group.section.title}
-                <span>{group.entries.length}</span>
-              </h3>
-              <div className="catalog-global-rows">
-                {group.entries.map((entry) => (
-                  <a
-                    key={`${group.section.id}-${entry.id}`}
-                    className="catalog-global-row"
-                    href={globalHref(group.section.id, entry)}
-                    onClick={() => {
-                      if (!compact) setQuery("");
-                    }}
-                  >
-                    <span className="catalog-global-name">{entry.name}</span>
-                    {entry.eyebrow && (
-                      <span className="catalog-global-eyebrow">
-                        {entry.eyebrow}
-                      </span>
-                    )}
-                    {entry.summary && (
-                      <span className="catalog-global-excerpt">
-                        {entry.summary}
-                      </span>
-                    )}
-                  </a>
-                ))}
-              </div>
-            </section>
-          ))}
+          {globalCount > 0 && (
+            <PaginatedResults
+              key={globalQuery}
+              items={globalResults}
+              label="Результаты поиска"
+              initialIndex={globalResults.findIndex(({ entry }) => entry.id === browsing.current.selectedId)}
+            >
+              {(pageItems) => globalGroups.map((group) => {
+                const pageEntries = pageItems.filter((item) => item.section === group.section.id);
+                return pageEntries.length > 0 ? (
+                  <section className="catalog-global-group" key={group.section.id}>
+                    <h3>
+                      {group.section.title}
+                      <span>{group.entries.length}</span>
+                    </h3>
+                    <div className="catalog-global-rows">
+                      {pageEntries.map(({ entry }) => (
+                        <a
+                          key={`${group.section.id}-${entry.id}`}
+                          className="catalog-global-row"
+                          href={globalHref(group.section.id, entry)}
+                          onClick={() => {
+                            if (!compact) setQuery("");
+                          }}
+                        >
+                          <span className="catalog-global-name">{entry.name}</span>
+                          {entry.eyebrow && (
+                            <span className="catalog-global-eyebrow">
+                              {entry.eyebrow}
+                            </span>
+                          )}
+                          {entry.summary && (
+                            <span className="catalog-global-excerpt">
+                              {entry.summary}
+                            </span>
+                          )}
+                        </a>
+                      ))}
+                    </div>
+                  </section>
+                ) : null;
+              })}
+            </PaginatedResults>
+          )}
         </div>
       ) : (
         <>
@@ -360,6 +382,7 @@ export function CatalogView() {
             >
               <DirectorFilters
                 compact={compact}
+                searchShortcut
                 entries={entries}
                 value={directorFilters}
                 onChange={setDirectorFilters}
@@ -377,6 +400,7 @@ export function CatalogView() {
             {!detailOpen && (
               <section
                 className="catalog-browser"
+                aria-busy={directorFilters !== deferredDirectorFilters}
                 aria-label="Каталог"
                 onClickCapture={rememberList}
               >
@@ -455,20 +479,23 @@ export function CatalogView() {
                   </div>
                 )}
                 {results.length === 0 && (
-                  <div className="library-empty">
-                    <h3>Ничего не найдено</h3>
-                    <p>Измените запрос или сбросьте фильтры.</p>
-                    <Button
-                      onClick={() => {
-                        setQuery("");
-                        setCategory("");
-                        setEchelon("");
-                        setDirectorFilters(emptyDirectorFilters);
-                      }}
-                    >
-                      Сбросить
-                    </Button>
-                  </div>
+                  <EmptyState
+                    icon="search"
+                    title="Ничего не найдено"
+                    text="Измените запрос или сбросьте фильтры."
+                    action={
+                      <Button
+                        onClick={() => {
+                          setQuery("");
+                          setCategory("");
+                          setEchelon("");
+                          setDirectorFilters(emptyDirectorFilters);
+                        }}
+                      >
+                        Сбросить фильтры
+                      </Button>
+                    }
+                  />
                 )}
                 {section === "glossary" ? (
                   <div className="catalog-glossary">
@@ -499,21 +526,26 @@ export function CatalogView() {
                     ))}
                   </div>
                 ) : (
-                  <ReferenceList
-                    entries={results}
-                    selectedId={selected?.id}
-                    artKind={artKind}
-                    hrefFor={(entry) =>
-                      catalogBrowserEntryHref(section, entry.id)
-                    }
-                    metaFor={(entry) =>
-                      app &&
-                      entry.catalog &&
-                      ownsCatalogEntry(app.character, entry.catalog) ? (
-                        <Chip tone="accent">Уже у героя</Chip>
-                      ) : null
-                    }
-                  />
+                  <PaginatedResults
+                    key={resultsKey}
+                    items={results}
+                    label="Каталог"
+                    initialIndex={results.findIndex((entry) => entry.id === (id || browsing.current.selectedId))}
+                  >
+                    {(pageItems) => (
+                      <ReferenceList
+                        entries={pageItems}
+                        selectedId={selected?.id}
+                        artKind={artKind}
+                        hrefFor={(entry) => catalogBrowserEntryHref(section, entry.id)}
+                        metaFor={(entry) =>
+                          app && entry.catalog && ownsCatalogEntry(app.character, entry.catalog)
+                            ? <Chip tone="accent">Уже у героя</Chip>
+                            : null
+                        }
+                      />
+                    )}
+                  </PaginatedResults>
                 )}
               </section>
             )}
@@ -704,7 +736,9 @@ function CatalogEntryDetail({
         <a className="catalog-source" href={sourceLink(entry)}>
           Открыть в Кодексе <Icon name="arrow-right" size={16} />
         </a>
-        <CatalogAction key={`${characterId}-${entry.id}`} entry={entry} />
+        <Suspense fallback={null}>
+          <CatalogAction key={`${characterId}-${entry.id}`} entry={entry} />
+        </Suspense>
       </footer>
     </article>
   );

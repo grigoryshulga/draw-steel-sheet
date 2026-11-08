@@ -1,5 +1,6 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
+import { themeBootstrapScript } from "./scripts/theme-bootstrap.ts";
 
 /**
  * Конфиг исполняется в Node, но `@types/node` в проекте нет: объявляем только
@@ -8,7 +9,10 @@ import react from "@vitejs/plugin-react";
 declare const process: { env: Record<string, string | undefined> };
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), {
+    name: "initial-theme",
+    transformIndexHtml: () => [{ tag: "script", children: themeBootstrapScript(), injectTo: "head" }],
+  }],
   server: {
     port: 8787,
     watch: { ignored: ["**/.scratch/**", "**/demo-data/**"] },
