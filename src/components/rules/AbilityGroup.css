@@ -10,11 +10,14 @@
   gap: var(--space-4);
   margin-bottom: var(--space-8);
 }
+@media (pointer: coarse), (max-width: 760px) {
+  .sheet-ability-section-toggle { min-height: var(--touch-target-size); }
+}
 
 .sheet-ability-section .sheet-ability-section-head h3 {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;

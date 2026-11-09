@@ -13,6 +13,8 @@
 .skill-picker__title {
   font-size: var(--text-lg);
 }
+.skill-picker__summary { display: grid; gap: var(--space-3); font-size: var(--text-md); line-height: var(--leading-normal); }
+.skill-picker__summary p { color: var(--muted); }
 
 .skill-picker__automatic-summary,
 .skill-picker__message,
@@ -207,6 +209,13 @@
   border-radius: var(--radius-sm);
   color: var(--fg-bright);
   background: color-mix(in srgb, var(--red) 12%, var(--surface));
+}
+
+@media (pointer: coarse), (max-width: 760px) {
+  .skill-picker__chip label {
+    min-height: var(--touch-target-size);
+    min-width: var(--touch-target-size);
+  }
 }
 
 @media (max-width: 430px) {

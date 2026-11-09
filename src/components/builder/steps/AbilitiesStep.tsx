@@ -1,21 +1,26 @@
 import { grantedClassAbilities } from "../../../lib/character-builder";
 import { builderAbilityGroups } from "../../../lib/builder-flow";
 import { AbilityCard } from "../../AbilityCard";
+import { Button } from "../../ui";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function AbilitiesStep({ part }: { part: string }) {
-  const { draft, patch, hero, openAbility } = useBuilderStep();
+  const { draft, patch, hero, openAbility, go } = useBuilderStep();
   const grantedAbilities = grantedClassAbilities(draft);
   const abilityGroups = builderAbilityGroups(draft);
+
+  if (!draft.className) {
+    return <section className="builder-section"><h3>Сначала выберите класс</h3><p className="muted">От класса зависят доступные способности и их количество.</p><Button onClick={() => go("class")}>Выбрать класс</Button></section>;
+  }
 
   return (
     <>
       {abilityGroups
         .filter((g) => !part || g.id === part)
         .map((group) => (
-          <section className="builder-section" key={group.label}>
+          <section className="builder-section" key={group.label} aria-label={group.label}>
             <div className="builder-section-head">
-              <h3>{group.label}</h3>
+              {!part && <h3>{group.label}</h3>}
               <span className="muted small">
                 {group.count === null
                   ? "По особенностям класса и подкласса"

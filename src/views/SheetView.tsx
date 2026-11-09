@@ -137,7 +137,20 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
   const combatActive = !!runtime.combatActive;
 
   return (
-    <div className="sheet-view sheet-workspace-view">
+    <div className="sheet-view sheet-workspace-view" onFocusCapture={(event) => {
+      if (!compact || !event.currentTarget.contains(event.target) || event.target.closest(".sheet-tablist")) return;
+      const target = event.target;
+      requestAnimationFrame(() => {
+        if (!target.isConnected || document.activeElement !== target) return;
+        const header = document.querySelector(".floating-header")?.getBoundingClientRect();
+        const tabs = document.querySelector(".sheet-tablist")?.getBoundingClientRect();
+        const rect = target.getBoundingClientRect();
+        const top = (header?.bottom ?? 0) + 12;
+        const bottom = (tabs?.top ?? window.innerHeight) - 12;
+        const delta = rect.top < top ? rect.top - top : rect.bottom > bottom ? rect.bottom - bottom : 0;
+        if (delta) window.scrollBy({ top: delta, behavior: "instant" });
+      });
+    }}>
       <HeaderPanel compact={compact || tab !== "sheet"} />
       <section className="sheet-frame">
         <div className="sheet-frame-head">

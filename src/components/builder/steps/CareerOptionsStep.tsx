@@ -31,6 +31,7 @@ export function CareerOptionsStep({ part }: { part: string }) {
           </div>
           {part === "skills" && (
             <SkillPicker
+              hideTitle
               label="Навыки карьеры"
               slots={skillSlots.career}
               values={draft.careerSkills}

@@ -89,7 +89,7 @@
   overflow: hidden;
 }
 
-.settings-theme-disclosure > summary {
+.settings-theme-disclosure > h3 {
   display: flex;
   align-items: center;
   gap: var(--space-5);
@@ -97,15 +97,11 @@
   padding: var(--space-6) var(--space-7);
   color: var(--fg);
   font-weight: 600;
-  cursor: pointer;
-  list-style: none;
+  margin: 0;
+  flex-wrap: wrap;
 }
 
-.settings-theme-disclosure > summary::-webkit-details-marker { display: none; }
-.settings-theme-disclosure > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
 .settings-theme-current { margin-left: auto; color: var(--muted); font-size: var(--text-md); font-weight: 400; }
-.settings-theme-chevron { color: var(--muted); transition: transform 150ms var(--ease); }
-.settings-theme-disclosure[open] .settings-theme-chevron { transform: rotate(180deg); }
 .settings-theme-content { padding: 0 var(--space-7) var(--space-7); }
 .settings-theme-description { margin: 0 0 var(--space-6); color: var(--muted); font-size: var(--text-base); }
 

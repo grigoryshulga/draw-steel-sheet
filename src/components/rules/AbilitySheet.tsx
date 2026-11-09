@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useId, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useOutsideClick } from "../../lib/hooks";
 import type {
   Ability,
   AbilityKind,
@@ -9,7 +10,7 @@ import type { DamageType } from "../../lib/damageType";
 import { BASIC_ABILITY_SOURCE, TIER_ROLL_RANGES, characteristicShort, type Tier } from "../../lib/rule-display";
 import { inferDamageType } from "../../lib/damageType";
 import { ABILITY_KINDS, actionLabel, kindLabel } from "../../data/actions";
-import { Chip } from "../ui";
+import { Button, Chip } from "../ui";
 import { CharacteristicGlyph, CharacteristicGlyphText } from "../CharacteristicGlyph";
 import { Icon } from "../Icons";
 import { DamageChip } from "../DamageChip";
@@ -150,7 +151,10 @@ export function referenceAbilityView(ability: Ability): AbilitySheetView {
 
 export function AbilityTags({ view }: { view: AbilitySheetView }) {
   const [collapsed, setCollapsed] = useState(false);
+  const [open, setOpen] = useState(false);
+  const popoverId = useId();
   const tagsRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(tagsRef, () => setOpen(false), open);
   const measureRef = useRef<HTMLDivElement>(null);
   const tags = (
     <>
@@ -192,13 +196,13 @@ export function AbilityTags({ view }: { view: AbilitySheetView }) {
     <div className="sheet-ability-card-tags" ref={tagsRef}>
       <div className="sheet-ability-tags-measure" ref={measureRef} aria-hidden="true">{tags}</div>
       {collapsed ? (
-        <section className="sheet-ability-tags-more" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()}>
-          <h3 aria-label="Показать метки способности" title="Метки способности">…</h3>
-          <div className="sheet-ability-tags-popover">{tags}</div>
-        </section>
+        <div className="sheet-ability-tags-more" onClick={(event) => event.stopPropagation()} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }} onKeyDown={(event) => { event.stopPropagation(); if (event.key === "Escape" && open) { event.preventDefault(); setOpen(false); } }}>
+          <Button size="sm" variant="ghost" icon="more" iconOnly aria-label={open ? "Скрыть метки способности" : "Показать метки способности"} title="Метки способности" aria-expanded={open} aria-controls={open ? popoverId : undefined} onClick={() => setOpen((current) => !current)}>Метки способности</Button>
+          {open && <div id={popoverId} className="sheet-ability-tags-popover">{tags}</div>}
+        </div>
       ) : tags}
       {view.resourceCost > 0 && (
-        <span className="sheet-ability-cost-stamp is-paid" role="img" aria-label={`Стоимость: ${view.resourceCost} ресурса`} title={`Стоимость: ${view.resourceCost} ресурса`}>
+        <span className="sheet-ability-cost-stamp is-paid" role="img" aria-label={`Стоимость: ${view.resourceCost} ед. ресурса`} title={`Стоимость: ${view.resourceCost} ед. ресурса`}>
           {view.resourceCost}
         </span>
       )}

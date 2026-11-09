@@ -5,6 +5,14 @@
 }
 .sheet-roll-glyph { font-family: "Draw Steel Glyphs"; font-size: 1.3em; }
 
+:is(.sheet-ability-card, .ability-card-content) {
+  --text-body: var(--text-reading);
+  --text-md: var(--text-reading);
+  --text-xs: var(--text-reading-meta);
+  --text-2xs: var(--text-reading-meta);
+  --text-sm: var(--text-reading-meta);
+}
+
 .ability-card-content {
   --card-color: var(--muted);
   display: flex;
@@ -155,11 +163,11 @@
   width: max-content;
 }
 .sheet-ability-tags-more { position: relative; flex: none; }
-.sheet-ability-tags-more summary {
+.sheet-ability-tags-more > .btn {
   display: grid;
   place-items: center;
-  width: 26px;
-  height: 26px;
+  min-width: 32px;
+  min-height: 32px;
   border: 1px solid var(--line);
   border-radius: var(--radius-xs);
   color: var(--fg);
@@ -167,7 +175,6 @@
   cursor: pointer;
   list-style: none;
 }
-.sheet-ability-tags-more summary::-webkit-details-marker { display: none; }
 .sheet-ability-tags-popover {
   position: absolute;
   z-index: 5;
@@ -209,7 +216,7 @@
 
 .sheet-ability-cost-stamp.is-paid {
   border-color: color-mix(in srgb, var(--yellow) 48%, transparent);
-  background: color-mix(in srgb, var(--yellow) 13%, transparent);
+  background: color-mix(in srgb, var(--yellow) 8%, var(--surface));
   color: var(--yellow);
 }
 
@@ -249,9 +256,9 @@
 .sheet-ability-fact-mark {
   display: grid;
   place-items: center;
-  flex: 0 0 22px;
-  width: 22px;
-  min-height: 22px;
+  flex: 0 0 max(22px, 1.6em);
+  width: max(22px, 1.6em);
+  min-height: max(22px, 1.6em);
   border-right: 1px solid var(--line);
   color: var(--accent);
   background: var(--accent-soft);
@@ -414,4 +421,13 @@
 
 .sheet-ability-card.is-flat .sheet-ability-card-head h4 {
   font-size: var(--text-2xl);
+}
+
+@media (max-width: 600px) {
+  .sheet-ability-card :is(.sheet-ability-card-head h4, .rule-entity-head h2),
+  .sheet-ability-card .card-title-button {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+  }
 }

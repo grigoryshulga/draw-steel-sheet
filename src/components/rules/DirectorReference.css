@@ -35,5 +35,8 @@
   .director-filters .director-query { grid-column: auto; }
 }
 .director-filter-disclosure { grid-column: 1 / -1; }
-.director-filter-disclosure > summary { cursor: pointer; padding-block: var(--space-5); color: var(--fg); font-size: var(--text-md); }
+.director-filter-disclosure > .btn { width: 100%; justify-content: space-between; }
 .director-filter-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); padding-bottom: var(--space-4); }
+
+.director-filter-fields[hidden] { display: none; }
+.director-filter-disclosure .director-filter-fields { padding-top: var(--space-6); }

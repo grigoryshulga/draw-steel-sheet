@@ -14,6 +14,7 @@ export interface SkillPickerProps {
   prior?: string[];
   onChange: (values: string[]) => void;
   label?: string;
+  hideTitle?: boolean;
 }
 
 const EMPTY_SKILLS: string[] = [];
@@ -28,6 +29,7 @@ export function SkillPicker({
   prior = EMPTY_SKILLS,
   onChange,
   label = "Выбор навыков",
+  hideTitle = false,
 }: SkillPickerProps) {
   const id = useId();
   const state = useMemo(
@@ -41,7 +43,11 @@ export function SkillPicker({
   const selectable = useMemo(() => new Set(state.selectable.map(skillKey)), [state.selectable]);
   return (
     <section className="skill-picker" aria-labelledby={`${id}-title`}>
-      <h3 className="skill-picker__title" id={`${id}-title`}>{label}</h3>
+      <h3 className={hideTitle ? "sr-only" : "skill-picker__title"} id={`${id}-title`}>{label}</h3>
+      {state.required > 0 && <div className="skill-picker__summary">
+        <strong role="status">Выбрано {state.selected.length} из {state.required}</strong>
+        <p>Доступный выбор: {state.requirements.map((item) => `${item.label} — ${item.required}`).join("; ")}.</p>
+      </div>}
 
       {state.automatic.length > 0 ? (
         <p className="skill-picker__automatic-summary">

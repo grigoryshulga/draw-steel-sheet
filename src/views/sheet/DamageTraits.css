@@ -106,6 +106,9 @@
 .damage-trait-add svg {
   flex: none;
 }
+@media (pointer: coarse), (max-width: 760px) {
+  :is(button.damage-trait, .damage-trait-add, .damage-trait-more) { min-height: var(--touch-target-size); min-width: var(--touch-target-size); }
+}
 
 /* ---------- Диалог ---------- */
 

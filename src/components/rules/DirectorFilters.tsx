@@ -1,9 +1,10 @@
+import { useId, useState } from "react";
 import type { CatalogBrowserEntry } from "../../data/reference-catalog";
 import {
   emptyDirectorFilters,
   type DirectorFilters as Filters,
 } from "../../lib/director-catalog";
-import { Select, TextInput } from "../ui";
+import { Button, Select, TextInput } from "../ui";
 import { SearchInput } from "../ui/SearchInput";
 import "./DirectorReference.css";
 
@@ -20,6 +21,8 @@ export function DirectorFilters({
   value: Filters;
   onChange: (value: Filters) => void;
 }) {
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const fieldsId = useId();
   const set = (field: keyof Filters, next: string) =>
     onChange({ ...value, [field]: next });
   const choices = (field: "role" | "organization" | "size" | "keywords") =>
@@ -130,10 +133,10 @@ export function DirectorFilters({
       </div>
       {compact ? (
         <section className="director-filter-disclosure">
-          <h3>
+          <Button icon="filter" aria-expanded={filtersOpen} aria-controls={fieldsId} onClick={() => setFiltersOpen((current) => !current)}>
             Фильтры{activeFilters ? ` · ${activeFilters} активно` : ""}
-          </h3>
-          <div className="director-filter-fields">{fields}</div>
+          </Button>
+          <div id={fieldsId} className="director-filter-fields" hidden={!filtersOpen}>{fields}</div>
         </section>
       ) : (
         fields

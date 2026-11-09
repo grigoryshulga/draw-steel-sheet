@@ -119,6 +119,10 @@
   outline: none;
 }
 
+.sheet-ability-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
 .sheet-ability-search input::placeholder {
   color: var(--muted);
 }
@@ -368,3 +372,31 @@
 .sheet-passive-full .sheet-passive-summary {
   margin-bottom: var(--space-4);
 }
+
+@media (max-width: 600px) {
+  .sheet-ability-toolbar { flex-direction: column; }
+  .sheet-ability-toolbar .sheet-ability-filter { flex: auto; width: 100%; }
+}
+
+@media (pointer: coarse), (max-width: 600px) {
+  .sheet-ability-search-clear {
+    flex-shrink: 0;
+    width: var(--touch-target-size);
+    min-width: var(--touch-target-size);
+    height: var(--touch-target-size);
+  }
+}
+
+@media (pointer: coarse), (max-width: 600px) {
+  .sheet-ability-summary-toggle {
+    width: var(--touch-target-size);
+    height: var(--touch-target-size);
+    flex-shrink: 0;
+  }
+}
+
+@media (pointer: coarse), (max-width: 600px) {
+  .sheet-ability-search { min-height: calc(var(--touch-target-size) + 2px); padding-block: 0; }
+}
+
+.sheet-ability-remainder-title { margin: var(--space-7) 0 0; color: var(--muted); font-size: var(--text-lg); }

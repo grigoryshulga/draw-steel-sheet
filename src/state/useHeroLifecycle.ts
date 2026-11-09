@@ -229,12 +229,16 @@ export function useHeroLifecycle({
     }
   };
 
-  const handleSelectCharacter = async (id: string) => {
-    if (characterRef.current?.id === id) return;
+  const handleSelectCharacter = async (id: string, options: { openSheet?: boolean } = {}) => {
+    if (characterRef.current?.id === id) {
+      if (options.openSheet) navigate("sheet");
+      return;
+    }
     try {
       await changeCharacter(async () => {
         activateCharacter(normalizeCharacter(await loadCharacter(id)));
       });
+      if (options.openSheet) navigate("sheet");
     } catch (error) {
       notify(
         error instanceof Error ? error.message : "Не удалось загрузить героя",

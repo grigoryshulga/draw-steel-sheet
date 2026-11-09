@@ -3,6 +3,10 @@
   overflow-wrap: anywhere;
   font-size: var(--text-body);
 }
+.director-mini-sheet {
+  --text-body: var(--text-reading);
+  --text-sm: var(--text-reading-meta);
+}
 .director-mini-identity { padding-top: var(--space-6); }
 .director-mini-heading { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-4) var(--space-6); margin-bottom: var(--space-5); }
 .director-mini-title { flex: 1 1 200px; min-width: 0; }
@@ -60,7 +64,13 @@
 .director-mini-details dd { flex: 1 1 auto; }
 .director-mini-sheet strong { font-weight: inherit; }
 @container director-mini (max-width: 460px) {
-  .director-mini-combat { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .director-mini-identity { padding-top: var(--space-2); }
+  .director-mini-heading { margin-bottom: var(--space-3); }
+  .director-mini-combat { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: var(--space-3); }
+  .director-mini-stat { padding-block: var(--space-3); }
+  .director-mini-characteristics { padding: var(--space-4); }
+  .director-mini-characteristics > div { padding-block: var(--space-2); }
+  .director-mini-details { padding-block: var(--space-4); gap: var(--space-3); }
   .director-mini-stat.is-primary { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; padding-inline: var(--space-6); }
   .rule-text .director-mini-stat.is-primary dd { margin-top: 0; }
 }
@@ -68,4 +78,8 @@
   .director-mini-characteristic-label {
     position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
   }
+}
+@container director-mini (min-width: 300px) and (max-width: 460px) {
+  .director-mini-combat { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .director-mini-stat.is-primary { grid-column: span 2; }
 }

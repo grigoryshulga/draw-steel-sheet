@@ -1,4 +1,4 @@
-import { lazy, Suspense, useMemo, useState } from "react";
+import { lazy, Suspense, useMemo, useRef, useState } from "react";
 import { Icon } from "../../components/Icons";
 import { AbilityCard } from "../../components/AbilityCard";
 import { AbilityFacts } from "../../components/rules/AbilitySheet";
@@ -124,6 +124,7 @@ export function SheetAbilitiesPanel() {
   const [compactSections, setCompactSections] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<AbilitySheetFilter>("all");
   const [query, setQuery] = useState("");
+  const searchInput = useRef<HTMLInputElement>(null);
   const [editing, setEditing] = useState<{
     ability: Ability;
     isNew: boolean;
@@ -282,6 +283,7 @@ export function SheetAbilitiesPanel() {
                 <div className="sheet-ability-search">
                   <Icon name="search" size={15} />
                   <input
+                    ref={searchInput}
                     type="search"
                     value={query}
                     autoComplete="off"
@@ -291,7 +293,7 @@ export function SheetAbilitiesPanel() {
                   />
                   {hasQuery && (
                     <>
-                      <span className="sheet-ability-search-count mono">
+                      <span className="sheet-ability-search-count mono" aria-label={`Совпадений: ${totalMatches} из ${totalVisible}`}>
                         {totalMatches} из {totalVisible}
                       </span>
                       <button
@@ -299,7 +301,7 @@ export function SheetAbilitiesPanel() {
                         className="sheet-ability-search-clear"
                         aria-label="Очистить поиск"
                         title="Очистить поиск"
-                        onClick={() => setQuery("")}
+                        onClick={() => { setQuery(""); searchInput.current?.focus(); }}
                       >
                         <Icon name="close" size={13} />
                       </button>
@@ -327,7 +329,7 @@ export function SheetAbilitiesPanel() {
             )}
             {hasQuery && totalMatches === 0 && (
               <p className="sheet-ability-search-empty" role="status">
-                Ничего не найдено. Попробуйте другое слово — поиск смотрит
+                Совпадений нет. Ниже — остальные способности. Попробуйте другое слово — поиск смотрит
                 в название, эффект, триггер, тиры и заметки.
               </p>
             )}
@@ -353,6 +355,7 @@ export function SheetAbilitiesPanel() {
                 </div>
               </section>
             )}
+            {hasQuery && groups.length > 0 && <h3 className="sheet-ability-remainder-title">Остальные способности</h3>}
             {groups.map(group => <AbilityGroup key={group.key}
               action={group.key} label={group.label} count={group.items.length}
               collapsed={collapsed.has(group.key)} onToggle={() => toggleGroup(group.key)}

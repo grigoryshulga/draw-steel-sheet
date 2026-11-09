@@ -8,6 +8,7 @@ export function CultureStep({ part }: { part: string }) {
   if (part === "skills")
     return (
       <SkillPicker
+        hideTitle
         label="Навыки культуры"
         slots={skillSlots.culture}
         values={draft.cultureSkills}

@@ -208,12 +208,24 @@
   font-size: var(--text-md);
   overflow-wrap: anywhere;
 }
+.builder-review-overview { padding: var(--space-6); border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: var(--space-7); }
+.builder-review-overview h3 { margin: 0 0 var(--space-4); font-size: var(--text-base); }
+.builder-review-overview dl { display: grid; gap: var(--space-3); margin: 0; font-size: var(--text-md); }
+.builder-review-overview dl > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: var(--space-4); }
+.builder-review-overview dt { color: var(--muted); }
+.builder-review-overview dd { margin: 0; overflow-wrap: anywhere; }
+.builder-review-group { border-top: 1px solid var(--line); margin-top: var(--space-6); padding-top: var(--space-6); }
+.builder-review-group h4 { display: flex; justify-content: space-between; gap: var(--space-4); margin: 0 0 var(--space-2); font-size: var(--text-md); }
 .builder-review > button > span:first-child {
   min-width: 0;
   flex: 1;
 }
 .builder-review-issue {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  width: 100%;
   padding: var(--space-4) 0;
   border: 0;
   background: none;
@@ -222,6 +234,7 @@
   text-align: left;
   cursor: pointer;
 }
+.builder-review-issue svg { flex: none; align-self: center; }
 .builder-mobile-controls {
   display: none;
 }

@@ -372,13 +372,17 @@
   .sheet-layout .stat-card .stat-name {
     font-size: var(--text-xs);
   }
+}
+@media (pointer: coarse), (max-width: 760px) {
   .sheet-layout .stat-card > .stepper .stepper-btn {
-    flex-basis: 20px;
-    width: 20px;
+    flex-basis: var(--touch-target-size);
+    width: var(--touch-target-size);
+    min-width: var(--touch-target-size);
+    height: var(--touch-target-size);
   }
 }
 .sheet-layout .char-grid {
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr));
 }
 
 .sheet-block .sheet-ability-grid {
@@ -387,7 +391,11 @@
 .sheet-block .vitals-resource-grid {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
 }
-.sheet-block .movement-grid,
+.sheet-block .movement-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 136px), 1fr)); }
+@media (pointer: coarse), (max-width: 760px) {
+  .stat-label-with-help { gap: var(--space-2); }
+  :is(.sheet-perks-title-toggle, .sheet-features-title-toggle, .sheet-portrait-upload) { min-width: var(--touch-target-size); min-height: var(--touch-target-size); }
+}
 .sheet-block .progress-grid {
   grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 }
@@ -407,6 +415,9 @@
 .sheet-header.is-compact .sheet-header-progress { flex: 1 1 100%; }
 .sheet-header.is-compact .sheet-identity-summary { margin-top: 0; }
 
-.hero-profile-disclosure > summary, .inv-configuration > summary { cursor: pointer; padding: var(--space-6) var(--space-7); border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--fg); font-size: var(--text-md); }
-.hero-profile-disclosure[open] > summary, .inv-configuration[open] > summary { margin-bottom: var(--space-6); }
+.hero-profile-disclosure > :is(h3, p) { margin-inline: calc(var(--space-8) + var(--space-7)); }
+.hero-profile-disclosure > h3 { margin-top: var(--space-7); }
+@media (max-width: 900px) {
+  .hero-profile-disclosure > :is(h3, p) { margin-inline: calc(var(--space-6) + var(--space-7)); }
+}
 @media (max-width: 700px) { .sheet-frame-actions .btn { min-height: 40px; } }

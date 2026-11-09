@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Button, Card } from "../components/ui";
+import { Button, Card, Select } from "../components/ui";
 import { CardDetailModal } from "../components/CardDetailModal";
 import { Toasts } from "../components/Toasts";
 import { SaveIndicator } from "../components/SaveIndicator";
@@ -149,6 +149,7 @@ export function TablesView({
       return;
     }
     if (await command("save-scene", { scene: next })) {
+      setSceneDirty(false);
       setScene(null);
       setSelectedScene(next.status === "prepared" ? "" : next.id);
     }
@@ -377,6 +378,9 @@ export function TablesView({
       ) : (
         <>
           {!scene && <div className="table-navigation">
+            <Select className="table-mobile-navigation" aria-label="Раздел стола" value={panel} onChange={(event) => setPanel(event.target.value as Panel)}>
+              {Object.entries(PANELS).map(([key, label]) => <option key={key} value={key}>{label}{key === "items" && table.offers.some((offer) => offer.toUserId === table.actorId && offer.status === "pending") ? " · Новое" : ""}</option>)}
+            </Select>
             <nav className="table-tabs section-tabs" aria-label="Разделы стола">
               {Object.entries(PANELS).map(([key, label]) => (
                 <button
@@ -448,7 +452,7 @@ export function TablesView({
                   </div>
                 )}
                 {!scene && selectedScene && (
-                  <div className="table-section-heading">
+                  <div className="table-section-heading scene-tracker-navigation">
                     <Button iconOnly icon="arrow-left"
                       size="sm"
                       variant="ghost"
@@ -466,6 +470,7 @@ export function TablesView({
                     >
                       Список сцен
                     </Button>
+                    <SaveIndicator status={state.stale ? "error" : busy ? "saving" : "saved"} error={state.stale ? "Нет связи" : ""} />
                     {!scene && director && (
                       <Button
                         size="sm"
@@ -492,8 +497,10 @@ export function TablesView({
                       scene={scene}
                       onSave={(s) => void saveScene(s)}
                       onCancel={() => {
-                        if (!sceneDirty || confirm("Отменить изменения сцены?"))
+                        if (!sceneDirty || confirm("Отменить изменения сцены?")) {
+                          setSceneDirty(false);
                           setScene(null);
+                        }
                       }}
                       onDirtyChange={setSceneDirty}
                       busy={busy || table.archived}

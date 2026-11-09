@@ -58,3 +58,9 @@
 .search-field:focus-within .search-field-icon {
   color: var(--accent);
 }
+
+@media (pointer: coarse), (max-width: 600px) {
+  .search-field-clear { width: var(--touch-target-size); height: var(--touch-target-size); }
+  .search-field .search-field-input { min-height: var(--touch-target-size); }
+  .search-field:has(.search-field-clear) .search-field-input { padding-inline-end: calc(var(--touch-target-size) + var(--space-4)); }
+}

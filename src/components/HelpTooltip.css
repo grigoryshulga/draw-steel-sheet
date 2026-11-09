@@ -20,6 +20,11 @@
   line-height: 1;
   cursor: help;
 }
+@media (pointer: coarse), (max-width: 760px) {
+  .help-tooltip { flex: none; }
+  .help-tooltip-trigger { position: relative; isolation: isolate; width: var(--touch-target-size); height: var(--touch-target-size); min-width: var(--touch-target-size); min-height: var(--touch-target-size); border-width: 0; background: transparent; }
+  .help-tooltip-trigger::before { content: ""; position: absolute; z-index: -1; width: 16px; height: 16px; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px solid; border-color: inherit; border-radius: 50%; background: var(--surface-2); }
+}
 
 .help-tooltip-trigger:hover,
 .help-tooltip-trigger:focus-visible {

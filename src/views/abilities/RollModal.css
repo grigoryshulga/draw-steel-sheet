@@ -97,6 +97,10 @@
   height: 100%;
 }
 
+@media (pointer: coarse), (max-width: 760px) {
+  .ability-roll-numbers .stepper { min-height: calc(var(--touch-target-size) + 2px); }
+}
+
 .ability-roll-numbers .stepper-btn svg {
   width: 12px;
   height: 12px;

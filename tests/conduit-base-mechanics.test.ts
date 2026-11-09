@@ -186,8 +186,8 @@ describe("механики Проводника 1-го уровня", () => {
     };
     expect(builderIssues(draft)[6]).toBe("");
     expect(builderIssues({ ...draft, abilityIds: [signatures[0].id, cost3.id, cost5.id, trigger.id] })[6]).toContain("Выберите знаковые способности класса: 2");
-    expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, secondCost3.id, cost5.id, trigger.id] })[6]).toContain("по одной героической способности за 3 и за 5");
-    expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, trigger.id] })[6]).toContain("по одной героической способности за 3 и за 5");
+    expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, secondCost3.id, cost5.id, trigger.id] })[6]).toContain("по одной героической способности стоимостью 3 и 5 ед. ресурса");
+    expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, trigger.id] })[6]).toContain("по одной героической способности стоимостью 3 и 5 ед. ресурса");
     expect(builderIssues({ ...draft, abilityIds: [...signatures.slice(0, 2).map(({ id }) => id), cost3.id, cost5.id, trigger.id, judgment.id] })[6]).toContain("Выберите один триггер проводника");
     expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.signature-abilities"].notes).toContain("ровно две");
     expect(CONDUIT_BASE_MECHANICS["feature.conduit.level-1.3-piety-ability"].notes).toContain("стоимостью 3");

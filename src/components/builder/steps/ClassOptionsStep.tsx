@@ -126,6 +126,7 @@ export function ClassOptionsStep({ part }: { part: string }) {
   if (part === "skills")
     return (
       <SkillPicker
+        hideTitle
         label="Навыки класса"
         slots={skillSlots.class}
         values={draft.classSkills}

@@ -9,6 +9,7 @@ import { RuleEntityView } from "./RuleEntity";
 import { RuleArticleContent } from "./RuleArticle";
 import { ReadingSkeleton } from "./ReadingSkeleton";
 import { useReadingHistory } from "./useReadingHistory";
+import { codexIndex } from "../../rules/codex-navigation";
 
 /** Общий ленивый просмотр статьи для справочника и создания героя. */
 export function RuleArticleReader({
@@ -33,14 +34,14 @@ export function RuleArticleReader({
         if (active) setResult({ id: articleId, data });
       },
       (error: unknown) => {
-        if (active)
+        if (active) {
+          console.error("Не удалось загрузить правила", { articleId, error });
+          const title = codexIndex.find((entry) => entry.id === articleId)?.title;
           setResult({
             id: articleId,
-            error:
-              error instanceof Error
-                ? error.message
-                : "Не удалось загрузить правила.",
+            error: `Не удалось загрузить ${title ? `«${title}»` : "правила"}. Проверьте соединение и повторите попытку.`,
           });
+        }
       },
     );
     return () => {

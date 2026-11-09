@@ -1,4 +1,5 @@
 import { lazy, Suspense, useState } from "react";
+import { useMediaQuery } from "../../lib/hooks";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { Button, Card } from "../../components/ui";
 import { healthLabel, normalizeScene, sceneId } from "../../lib/tables/scenes";
@@ -28,6 +29,8 @@ export function SceneTracker({
 }) {
   const [editingCombatant, setEditingCombatant] = useState<string | null>(null);
   const [editingNotes, setEditingNotes] = useState(false);
+  const [managementOpen, setManagementOpen] = useState(false);
+  const narrow = useMediaQuery("(max-width: 700px)");
   const [source, setSource] = useState<{
     id: string;
     name: string;
@@ -52,6 +55,60 @@ export function SceneTracker({
       turn: "ready" as const,
       reactionUsed: false,
     }));
+  const managementControls = (
+            <div className="scene-actions">
+              {scene.status === "active" && (
+                <Button iconOnly={!narrow} icon="pause"
+                  size="sm"
+                  disabled={busy}
+                  onClick={() => change({ status: "prepared" })}
+                >
+                  Приостановить
+                </Button>
+              )}
+              <Button
+                size="sm"
+                icon="refresh"
+                iconOnly={!narrow}
+                disabled={busy}
+                onClick={() => change({ combatants: resetTurns() })}
+              >
+                Сбросить ходы и реакции
+              </Button>
+              {scene.status !== "finished" && (
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  disabled={busy}
+                  onClick={() => {
+                    if (
+                      confirm(
+                        "Завершить сцену? Её можно будет продолжить позднее.",
+                      )
+                    )
+                      change({ status: "finished" });
+                  }}
+                >
+                  Завершить сцену
+                </Button>
+              )}
+              {scene.kind === "encounter" && (
+                <Button iconOnly={!narrow}
+                  size="sm"
+                  variant="ghost"
+                  icon="book"
+                  onClick={() =>
+                    setSource({
+                      id: "monsters.rule.monster.malice",
+                      name: "Раздор",
+                    })
+                  }
+                >
+                  Правила Раздора
+                </Button>
+              )}
+            </div>
+  );
   return (
     <section
       className={`scene-ui scene-tracker scene-kind-${scene.kind}`}
@@ -87,7 +144,8 @@ export function SceneTracker({
         </div>
         {director && (
           <div className="scene-actions">
-            <Button icon="edit" iconOnly size="sm" variant="ghost" onClick={() => setEditingNotes(true)}>Заметки ведущего</Button>
+            <Button icon="sheet" iconOnly size="sm" variant="ghost" onClick={() => setEditingNotes(true)}>Заметки ведущего</Button>
+            {narrow && <Button icon="more" iconOnly size="sm" variant="ghost" onClick={() => setManagementOpen(true)}>Управление сценой</Button>}
             <span className="scene-visibility-status">
               {scene.published ? "Видна игрокам" : "Скрыта от игроков"}
             </span>
@@ -190,7 +248,7 @@ export function SceneTracker({
         )}
       </div>
       {director && (
-        <div className="table-stack">
+        <>
           <CardDetailModal open={editingNotes} onClose={() => setEditingNotes(false)} title="Заметки ведущего" className="table-dialog">
             {error && <p role="alert">{error}</p>}
             <label>
@@ -204,59 +262,12 @@ export function SceneTracker({
               />
             </label>
           </CardDetailModal>
-            <div className="scene-actions">
-              {scene.status === "active" && (
-                <Button iconOnly icon="pause"
-                  size="sm"
-                  disabled={busy}
-                  onClick={() => change({ status: "prepared" })}
-                >
-                  Приостановить
-                </Button>
-              )}
-              <Button
-                size="sm"
-                icon="refresh"
-                iconOnly
-                disabled={busy}
-                onClick={() => change({ combatants: resetTurns() })}
-              >
-                Сбросить ходы и реакции
-              </Button>
-              {scene.status !== "finished" && (
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  disabled={busy}
-                  onClick={() => {
-                    if (
-                      confirm(
-                        "Завершить сцену? Её можно будет продолжить позднее.",
-                      )
-                    )
-                      change({ status: "finished" });
-                  }}
-                >
-                  Завершить сцену
-                </Button>
-              )}
-              {scene.kind === "encounter" && (
-                <Button iconOnly
-                  size="sm"
-                  variant="ghost"
-                  icon="book"
-                  onClick={() =>
-                    setSource({
-                      id: "monsters.rule.monster.malice",
-                      name: "Раздор",
-                    })
-                  }
-                >
-                  Правила Раздора
-                </Button>
-              )}
-            </div>
-        </div>
+            {!narrow && managementControls}
+            <CardDetailModal open={narrow && managementOpen} onClose={() => setManagementOpen(false)} title="Управление сценой" className="table-dialog scene-management-modal">
+              {error && <p role="alert">{error}</p>}
+              {managementControls}
+            </CardDetailModal>
+        </>
       )}
       {counters.length > 0 && (
         <div className="scene-counters" aria-label="Счётчики сцены">
@@ -341,6 +352,7 @@ export function SceneTracker({
         {visible.map((c) => (
           <Card
             key={c.id}
+            aria-label={`Участник: ${c.name}`}
             className={`scene-combatant is-${c.turn}${director && !c.revealed ? " is-hidden" : ""}`}
           >
             <div className="scene-combatant-heading">
@@ -360,18 +372,12 @@ export function SceneTracker({
                       .join(" · ")}
                   </span>
                 )}
+                {director && <span className="scene-visibility-status">{scene.published && c.revealed ? "Виден игрокам" : c.revealed ? "Раскрыт · сцена скрыта" : "Скрыт от игроков"}</span>}
               </div>
               <div className="scene-actions">
                 {director ? (
                   <>
                     <Button icon="settings" iconOnly size="sm" variant="ghost" onClick={() => setEditingCombatant(c.id)} aria-label={`Настройки: ${c.name}`} title={`Настройки: ${c.name}`}>Настройки участника</Button>
-                    <span className="scene-visibility-status">
-                      {scene.published && c.revealed
-                        ? "Виден игрокам"
-                        : c.revealed
-                          ? "Раскрыт · сцена скрыта"
-                          : "Скрыт от игроков"}
-                    </span>
                     <Button
                       size="sm"
                       variant="ghost"
@@ -436,8 +442,9 @@ export function SceneTracker({
                 <Button
                   size="sm"
                   variant="ghost"
-                  disabled={busy}
+                  aria-disabled={busy}
                   aria-pressed={c.reactionUsed}
+                  aria-label={`${c.reactionUsed ? "Вернуть реакцию" : "Отметить реакцию"}: ${c.name}`}
                   onClick={() =>
                     combatant(c.id, { reactionUsed: !c.reactionUsed })
                   }
@@ -449,6 +456,8 @@ export function SceneTracker({
                     size="sm"
                     variant="ghost"
                     icon="book"
+                    aria-label={`Открыть статблок: ${c.name}`}
+                    title={`Открыть статблок: ${c.name}`}
                     onClick={() =>
                       setSource({
                         id: c.sourceId!,

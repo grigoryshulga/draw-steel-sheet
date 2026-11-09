@@ -445,7 +445,7 @@ export default function WorkspaceApp({
                           themes={THEMES}
                           themeChoice={themeChoice}
                           onThemeChoice={handleThemeChoice}
-                          onSelect={(id) => void handleSelectCharacter(id)}
+                          onSelect={(id) => void handleSelectCharacter(id, { openSheet: true })}
                           onNew={() => setTab("create")}
                           onDelete={handleDelete}
                           onDuplicate={handleDuplicate}

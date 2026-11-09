@@ -215,7 +215,7 @@ export function SceneEditor({
                 </fieldset>
               </CardDetailModal>
                 <div className="scene-actions">
-                  <Button size="sm" variant="ghost" icon="edit" iconOnly onClick={() => setEditingParticipant(c.id)}>Изменить участника</Button>
+                  <Button size="sm" variant="ghost" icon="edit" iconOnly onClick={() => setEditingParticipant(c.id)}>{`Изменить участника ${index + 1}: ${c.name}`}</Button>
                   <Button
                     size="sm"
                     variant="ghost"
@@ -235,7 +235,7 @@ export function SceneEditor({
                     }
                     iconOnly
                   >
-                    Добавить копию
+                    {`Добавить копию участника ${index + 1}: ${c.name}`}
                   </Button>
                   <Button
                     size="sm"
@@ -254,7 +254,7 @@ export function SceneEditor({
                     }
                     iconOnly
                   >
-                    Удалить
+                    {`Удалить участника ${index + 1}: ${c.name}`}
                   </Button>
                 </div>
             </section>
@@ -262,7 +262,20 @@ export function SceneEditor({
         ))}
   </>);
   return (
-    <section className="scene-ui scene-editor">
+    <section className="scene-ui scene-editor" onFocusCapture={(event) => {
+      const target = event.target;
+      const scroller = event.currentTarget.querySelector<HTMLElement>(":scope > fieldset");
+      if (!window.matchMedia("(max-width: 700px)").matches || !scroller?.contains(target)) return;
+      requestAnimationFrame(() => {
+        if (!target.isConnected || document.activeElement !== target) return;
+        const bounds = scroller.getBoundingClientRect();
+        const focusArea = target.closest("label") ?? target;
+        const rect = focusArea.getBoundingClientRect();
+        const margin = 8;
+        if (rect.top < bounds.top + margin) scroller.scrollBy({ top: rect.top - bounds.top - margin, behavior: "instant" });
+        else if (rect.bottom > bounds.bottom - margin) scroller.scrollBy({ top: rect.bottom - bounds.bottom + margin, behavior: "instant" });
+      });
+    }}>
       <SceneEditorHeader onBack={onCancel}>
           <Button disabled={busy} iconOnly icon="close" onClick={onCancel}>Отмена</Button>
           {onSaveTemplate && (
@@ -341,11 +354,12 @@ export function SceneEditor({
           <section className="scene-editor-section scene-budget-section" aria-labelledby="scene-budget-title">
             <header><h3 id="scene-budget-title">Сложность и бюджет</h3></header>
             <div className="table-stack">
-              <div className="scene-grid">
+              <div className="scene-grid scene-party-inputs">
                 <label>
-                  Число героев и союзных помощников
+                  Герои и помощники
                   <input
                     className="input"
+                    aria-label="Число героев и союзных помощников"
                     type="number"
                     min={1}
                     max={20}
@@ -538,7 +552,7 @@ export function SceneEditor({
       </fieldset>
       <CardDetailModal open={catalogTab !== null} onClose={() => setCatalogTab(null)} title={catalogTab === "terrain" ? "Добавить местность" : "Добавить участников"} headerActions={draft.kind === "encounter" && budget ? <SceneBudgetBar cost={budget.cost} standardMax={budget.standardMax} hardMax={budget.hardMax} floatingEnabled={false} /> : undefined} className="scene-ui scene-catalog-modal" wide footer={<div className="scene-catalog-footer">{catalogTab === "monster" && <div className="scene-actions scene-add-actions"><Button icon="plus" onClick={() => { const c = combatantFromSeed(); setDraft((old) => ({ ...old, combatants: [...old.combatants, c] })); setCatalogTab(null); setEditingParticipant(c.id); }}>Добавить вручную</Button></div>}<div ref={setCatalogActionHost} /></div>}>
         <fieldset disabled={busy}>
-          {catalogTab && <SceneCatalog key={catalogTab} kind={catalogTab} onAdd={add} actionHost={catalogActionHost} />}
+          {catalogTab && <SceneCatalog key={catalogTab} kind={catalogTab} onAdd={add} actionHost={catalogActionHost} forecast={draft.kind === "encounter" ? (seed) => encounterBudget({ ...draft, combatants: [...draft.combatants, combatantFromSeed({ ...seed, maxStamina: 0 })] }, levels, victories) : undefined} />}
 
         </fieldset>
       </CardDetailModal>

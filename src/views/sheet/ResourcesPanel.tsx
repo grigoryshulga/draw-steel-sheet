@@ -1,4 +1,5 @@
-import { useId, useRef, useState } from "react";
+import type { ReactNode } from "react";
+import { HelpTooltip } from "../../components/HelpTooltip";
 import { Button, NumberInput, Panel } from "../../components/ui";
 import { heroicResourceName } from "../../data/classes";
 import {
@@ -17,61 +18,8 @@ import { clamp, surgeDamageTotal } from "../../lib/rules";
 import { useApp } from "../../state/AppContext";
 import "./ResourcesPanel.css";
 
-/** Тултип-памятка: по наведению/фокусу, на касании — по нажатию. Fixed, чтобы не обрезался рамкой блока. */
 function HelpTip({ label, lines }: { label: string; lines: string[] }) {
-  const id = useId();
-  const button = useRef<HTMLButtonElement>(null);
-  const [open, setOpen] = useState(false);
-  const [pinned, setPinned] = useState(false);
-  const [pos, setPos] = useState({ left: 0, top: 0, above: false });
-  const show = () => {
-    const rect = button.current?.getBoundingClientRect();
-    if (!rect) return;
-    const width = Math.min(300, window.innerWidth - 16);
-    const above = rect.bottom + 200 > window.innerHeight && rect.top > 200;
-    setPos({
-      left: Math.max(8, Math.min(rect.left, window.innerWidth - width - 8)),
-      top: above ? rect.top - 6 : rect.bottom + 6,
-      above,
-    });
-    setOpen(true);
-  };
-  const hide = () => {
-    setOpen(false);
-    setPinned(false);
-  };
-  return (
-    <span className="resource-help-wrap">
-      <button
-        ref={button}
-        type="button"
-        className="resource-help-toggle"
-        aria-label={`${label}: памятка`}
-        aria-describedby={open ? id : undefined}
-        aria-expanded={open}
-        onMouseEnter={show}
-        onMouseLeave={() => !pinned && setOpen(false)}
-        onFocus={show}
-        onBlur={hide}
-        onClick={() => (pinned ? hide() : (show(), setPinned(true)))}
-        onKeyDown={(event) => event.key === "Escape" && hide()}
-      >
-        ?
-      </button>
-      {open && (
-        <ul
-          id={id}
-          role="tooltip"
-          className={`resource-help${pos.above ? " is-above" : ""}`}
-          style={{ left: pos.left, top: pos.top }}
-        >
-          {lines.map((line) => (
-            <li key={line}>{line}</li>
-          ))}
-        </ul>
-      )}
-    </span>
-  );
+  return <HelpTooltip label={`${label}: памятка`}><ul className="resource-help-lines">{lines.map((line) => <li key={line}>{line}</li>)}</ul></HelpTooltip>;
 }
 
 /** Строка ресурса: число правится по месту, ±1 — кнопками, максимум — рядом. */
@@ -93,7 +41,7 @@ function ResourceRow({
   limit?: number;
   onValue: (value: number) => void;
   onMax?: (value: number) => void;
-  extra?: React.ReactNode;
+  extra?: ReactNode;
   /** Памятка, скрытая под «?» */
   help?: string[];
 }) {

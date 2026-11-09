@@ -290,7 +290,7 @@ export function NewCharacterDialog({
                     <span>{stage + 1}</span>
                     {label}
                   </button>
-                  {active.stage === stage && (
+                  {active.stage === stage && entries.length > 1 && (
                     <nav
                       className="builder-substeps"
                       aria-label="Решения текущего этапа"

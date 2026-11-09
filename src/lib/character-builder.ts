@@ -631,7 +631,7 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
                 selectedAbilities.filter((a) => a.resourceCost === cost)
                   .length !== 1,
             )
-          ? "Выберите по одной героической способности за 3 и за 5 ресурса."
+          ? "Выберите по одной героической способности стоимостью 3 и 5 ед. ресурса."
           : draft.className === "Проводник" &&
               selectedAbilities.filter((a) =>
                 ["Слово Наставления", "Слово Суда"].includes(a.name),

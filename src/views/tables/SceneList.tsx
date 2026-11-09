@@ -92,7 +92,7 @@ export function SceneList({
                   iconOnly
                   onClick={() => onStart(s)}
                 >
-                  Запустить сцену
+                  {`Запустить сцену «${s.name}»`}
                 </Button>
               )}
               {director && (
@@ -105,7 +105,7 @@ export function SceneList({
                       icon="edit"
                       iconOnly
                     >
-                      Изменить
+                      {`Изменить сцену «${s.name}»`}
                     </Button>
                     {s.status === "finished" && (
                       <Button
@@ -116,10 +116,10 @@ export function SceneList({
                         iconOnly
                         onClick={() => onStart(s)}
                       >
-                        Запустить сцену
+                        {`Запустить сцену «${s.name}»`}
                       </Button>
                     )}
-                    <Button size="sm" variant="ghost" icon="copy" iconOnly disabled={disabled} onClick={() => onCopy(s)}>Копировать сцену</Button>
+                    <Button size="sm" variant="ghost" icon="copy" iconOnly disabled={disabled} onClick={() => onCopy(s)}>{`Копировать сцену «${s.name}»`}</Button>
                     <Button
                       size="sm"
                       variant="ghost"
@@ -127,7 +127,7 @@ export function SceneList({
                       icon="bookmark"
                       iconOnly
                     >
-                      В библиотеку
+                      {`Сохранить в библиотеку сцену «${s.name}»`}
                     </Button>
                     <Button
                       size="sm"
@@ -137,7 +137,7 @@ export function SceneList({
                       icon="trash"
                       iconOnly
                     >
-                      Удалить сцену
+                      {`Удалить сцену «${s.name}»`}
                     </Button>
                 </>
               )}

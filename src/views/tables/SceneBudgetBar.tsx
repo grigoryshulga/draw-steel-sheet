@@ -12,17 +12,22 @@ export function SceneBudgetBar({ cost, standardMax, hardMax, floatingEnabled = t
     let frame = 0;
     const measure = () => {
       const rect = header.getBoundingClientRect();
-      setFloating(target.getBoundingClientRect().bottom < rect.bottom + 8
-        ? { top: rect.bottom + 8, left: rect.left + 16, width: Math.max(0, rect.width - 32) }
+      const editorHeading = window.matchMedia("(max-width: 700px)").matches
+        ? target.closest(".scene-editor")?.querySelector(".scene-editor-header")?.getBoundingClientRect()
+        : undefined;
+      const boundary = editorHeading ?? rect;
+      const gap = editorHeading ? 4 : 8;
+      setFloating(target.getBoundingClientRect().bottom < boundary.bottom + gap
+        ? { top: boundary.bottom + gap, left: boundary.left + 16, width: Math.max(0, boundary.width - 32) }
         : null);
     };
     const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(measure); };
     const resize = new ResizeObserver(schedule);
     resize.observe(header);
-    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("scroll", schedule, { passive: true, capture: true });
     window.addEventListener("resize", schedule);
     measure();
-    return () => { cancelAnimationFrame(frame); resize.disconnect(); window.removeEventListener("scroll", schedule); window.removeEventListener("resize", schedule); };
+    return () => { cancelAnimationFrame(frame); resize.disconnect(); window.removeEventListener("scroll", schedule, true); window.removeEventListener("resize", schedule); };
   }, [floatingEnabled]);
   const label = `Потрачено: ${cost} БЦ. ${cost > hardMax ? `Лимит превышен на ${cost - hardMax} БЦ` : standardMax >= cost ? `Осталось до стандартного боя: ${standardMax - cost} БЦ` : `Выше стандартного бюджета на ${cost - standardMax} БЦ`}`;
   const limit = Math.max(1, hardMax);

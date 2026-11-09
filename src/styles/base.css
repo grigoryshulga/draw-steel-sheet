@@ -897,6 +897,10 @@ svg {
   padding: 0 var(--space-1);
 }
 
+@media (pointer: coarse), (max-width: 760px) {
+  .stepper-btn { min-width: var(--touch-target-size); min-height: var(--touch-target-size); }
+}
+
 /* ---------- Чипы ---------- */
 
 .chip {
@@ -1399,4 +1403,16 @@ button.chip:hover {
 /* Предыдущее уведомление в стопке приглушено, чтобы взгляд шёл к новому */
 .toast.is-previous {
   opacity: 0.5;
+}
+
+/* Keep compact glyphs inside comfortable touch targets. */
+@media (pointer: coarse), (max-width: 600px) {
+  :root .btn { min-height: var(--touch-target-size); }
+  :root .btn.btn-icon {
+    width: var(--touch-target-size);
+    height: var(--touch-target-size);
+    min-width: var(--touch-target-size);
+    min-height: var(--touch-target-size);
+  }
+  .toast-close { min-width: var(--touch-target-size); min-height: var(--touch-target-size); display: grid; place-items: center; }
 }

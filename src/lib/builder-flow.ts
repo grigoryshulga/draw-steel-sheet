@@ -42,7 +42,7 @@ export function builderAbilityGroups(draft: BuilderDraft) {
     },
     ...[3, 5].map((cost) => ({
       id: String(cost),
-      label: `Способность за ${cost} ресурса`,
+      label: `Способность стоимостью ${cost} ед. ресурса`,
       count: 1,
       entries: entries.filter((a) => a.resourceCost === cost),
     })),
@@ -61,6 +61,11 @@ export function builderAbilityGroups(draft: BuilderDraft) {
 export function builderFlow(draft: BuilderDraft): BuilderFlowStep[] {
   const issues = builderStepIssues(draft);
   const skills = builderSkillSelections(draft);
+  const classSkills = resolveSkillSelection(skills.slots.class, draft.classSkills, [
+    ...skills.ancestry,
+    ...skills.culture,
+    ...skills.career,
+  ]);
   const classData = BUILDER_DATA.classes.find(
     (c) => c.name === draft.className,
   );
@@ -191,13 +196,9 @@ export function builderFlow(draft: BuilderDraft): BuilderFlowStep[] {
     2,
     "class-options",
     "Навыки класса",
-    resolveSkillSelection(skills.slots.class, draft.classSkills, [
-      ...skills.ancestry,
-      ...skills.culture,
-      ...skills.career,
-    ]).complete
+    classSkills.complete
       ? ""
-      : "Заполните навыки класса; повторяющиеся навыки замените.",
+      : `Выбрано ${classSkills.selected.length} из ${classSkills.required}. ${classSkills.invalid.length > 0 ? "Замените недопустимые и повторяющиеся навыки." : "Завершите выбор навыков класса."}`,
     "skills",
   );
   classData?.featureChoices.forEach((group) =>
