@@ -62,7 +62,7 @@ describe('Monsters abilities use shared cards', () => {
     expect(missing).toEqual([]);
     expect(cards).toBe(expected);
     expect(cards).toBeGreaterThan(2200);
-  });
+  }, 20_000); // Full-book integrity audit; allow slower CI runners, as in codex-abilities.test.ts.
 
   it('shows signature and triggered actions, cost, fixed damage and linked effects with shared components', () => {
     const pack = read('src/generated/rules/articles/monsters.monster.goblin.statblock.goblin-warrior.json');
