@@ -75,10 +75,8 @@ const PANELS: Record<PanelId, ComponentType> = {
 };
 
 /** Порядок блоков в колонках; на узком экране их переупорядочивает CSS. */
-const UPPER_MAIN: PanelId[] = ["vitals", "characteristics"];
-const UPPER_SIDE: PanelId[] = ["resources", "classMechanics"];
-const LOWER_MAIN: PanelId[] = ["perks", "features"];
-const LOWER_SIDE: PanelId[] = ["ferocity", "stormwight-form", "conditions", "skills"];
+const MAIN: PanelId[] = ["vitals", "characteristics", "perks", "features"];
+const SIDE: PanelId[] = ["resources", "classMechanics", "ferocity", "stormwight-form", "conditions", "skills"];
 const FULL_WIDTH: PanelId[] = ["abilities"];
 
 const SHEET_TABS: { id: HeroTab; label: string; icon: IconName }[] = [
@@ -223,13 +221,9 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
           {tab === "sheet" && (
             <div className="sheet-layout-host">
               <div className="sheet-layout">
-                <div className="sheet-upper">
-                  <Column className="sheet-col-main" ids={UPPER_MAIN} />
-                  <Column className="sheet-col-side" ids={UPPER_SIDE} />
-                </div>
-                <div className="sheet-lower">
-                  <Column className="sheet-col-main" ids={LOWER_MAIN} />
-                  <Column className="sheet-col-side" ids={LOWER_SIDE} />
+                <div className="sheet-columns">
+                  <Column className="sheet-col-main" ids={MAIN} />
+                  <Column className="sheet-col-side" ids={SIDE} />
                 </div>
                 <Column className="sheet-col-full" ids={FULL_WIDTH} />
               </div>
@@ -276,15 +270,11 @@ export function SheetReadOnlyView({ sections }: { sections: readonly string[] })
     <div className="shared-sheet-identity"><span>{character.ancestry} · {character.className} · {character.level}-й уровень</span><span className="chip">Только просмотр</span></div>
     <fieldset disabled className="shared-sheet-readonly" onClickCapture={(event) => { if (!(event.target as HTMLElement).closest("a")) event.stopPropagation(); }} onKeyDownCapture={(event) => { if ((event.key === "Enter" || event.key === " ") && !(event.target as HTMLElement).closest("a")) event.stopPropagation(); }}>
       <div className="sheet-layout-host"><div className="sheet-layout">
-        <div className="sheet-upper">
-          <Column className="sheet-col-main" ids={filter(UPPER_MAIN)} />
-          <Column className="sheet-col-side" ids={filter(UPPER_SIDE)} />
+        <div className="sheet-columns">
+          <Column className="sheet-col-main" ids={filter(MAIN)} />
+          <Column className="sheet-col-side" ids={filter(SIDE)} />
         </div>
         <Column className="sheet-col-full" ids={filter(FULL_WIDTH)} />
-        <div className="sheet-lower">
-          <Column className="sheet-col-main" ids={filter(LOWER_MAIN)} />
-          <Column className="sheet-col-side" ids={filter(LOWER_SIDE)} />
-        </div>
       </div></div>
     </fieldset>
     {!heroShared && <p className="muted">Игрок открыл только основные показатели. Остальные разделы листа скрыты.</p>}

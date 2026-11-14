@@ -12,8 +12,7 @@
   background: color-mix(in srgb, var(--sheet-warm-soft) 42%, var(--surface));
   overflow: clip;
 }
-.sheet-upper,
-.sheet-lower,
+.sheet-columns,
 .sheet-col {
   display: contents;
 }
@@ -68,10 +67,9 @@
   }
 }
 
-/* От 760 px: верхние блоки выровнены, нижние колонки независимы. */
+/* От 760 px: колонки независимы, каждый блок занимает высоту своего содержимого. */
 @container sheet (min-width: 760px) {
-  .sheet-upper,
-  .sheet-lower {
+  .sheet-columns {
     display: grid;
     grid-template-columns: minmax(0, 1fr) clamp(300px, 36cqw, 460px);
   }
@@ -100,12 +98,5 @@
   }
   .sheet-col-side > .sheet-block:first-child {
     border-top: 0;
-  }
-  .sheet-upper .sheet-col-side > .sheet-block,
-  .sheet-upper .sheet-col-main > .sheet-block:last-child {
-    flex: 1 0 auto;
-  }
-  .sheet-lower .sheet-col > .sheet-block:first-child {
-    border-top: 1px solid var(--sheet-warm-line);
   }
 }
