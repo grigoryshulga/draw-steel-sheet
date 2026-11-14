@@ -194,7 +194,9 @@ function ResourceGains({
 export function ResourcesPanel() {
   const { character, performGameAction } = useApp();
   const resourceName = heroicResourceName(character.className);
-  const gains = resourceGainLabels(character);
+  const gains = resourceGainLabels(character).filter((gain) =>
+    !(gain.tag === "start-of-turn" && ["Проводник", "Элементалист"].includes(character.className)),
+  );
   // Эпический пул открывается на своём уровне: своё число и свои прибавки.
   const epicName = epicResourceName(character);
   const epicGains = epicResourceGainLabels(character);

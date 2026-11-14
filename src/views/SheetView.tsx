@@ -15,6 +15,7 @@ import { SheetFeaturesPanel } from "./sheet/SheetFeaturesPanel";
 import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
 import { SkillsPanel } from "./sheet/SkillsPanel";
 import { VitalsPanel } from "./sheet/VitalsPanel";
+import { ClassMechanicsPanel } from "./sheet/ClassMechanicsPanel";
 import { ResourcesPanel } from "./sheet/ResourcesPanel";
 import { FuryFerocityTracker } from "./sheet/FuryFerocityTracker";
 import { StormwightFormPanel } from "./sheet/StormwightFormPanel";
@@ -56,7 +57,8 @@ type PanelId =
   | "vitals"
   | "resources"
   | "ferocity"
-  | "stormwight-form";
+  | "stormwight-form"
+  | "classMechanics";
 
 const PANELS: Record<PanelId, ComponentType> = {
   characteristics: CharacteristicsPanel,
@@ -69,11 +71,12 @@ const PANELS: Record<PanelId, ComponentType> = {
   resources: ResourcesPanel,
   ferocity: FuryFerocityTracker,
   "stormwight-form": StormwightFormPanel,
+  classMechanics: ClassMechanicsPanel,
 };
 
 /** Порядок блоков в колонках; на узком экране их переупорядочивает CSS. */
 const UPPER_MAIN: PanelId[] = ["vitals", "characteristics"];
-const UPPER_SIDE: PanelId[] = ["resources"];
+const UPPER_SIDE: PanelId[] = ["resources", "classMechanics"];
 const LOWER_MAIN: PanelId[] = ["perks", "features"];
 const LOWER_SIDE: PanelId[] = ["ferocity", "stormwight-form", "conditions", "skills"];
 const FULL_WIDTH: PanelId[] = ["abilities"];
@@ -194,6 +197,11 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
               >
                 {combatActive ? "Конец битвы" : "Начало битвы"}
               </Button>
+              {combatActive && character.className !== "Неистовый" && (
+                <Button size="sm" variant="soft" onClick={() => performGameAction({ kind: runtime.turnActive ? "turn-end" : "turn-start" })}>
+                  {runtime.turnActive ? "Завершить ход" : "Начать свой ход"}
+                </Button>
+              )}
               <Button
                 size="sm"
                 variant="ghost"

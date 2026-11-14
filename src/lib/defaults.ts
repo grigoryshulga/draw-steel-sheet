@@ -1,3 +1,4 @@
+import { normalizeClassMechanics } from "./class-mechanics";
 import { normalizeItemEffects } from "./item-effects";
 import { normalizeItemAbilityIds } from "./item-ability-ids";
 import { CONDITIONS, CONDITION_END_VALUES } from "../data/conditions";
@@ -248,10 +249,12 @@ function normalizeRuntimeMarks(raw: unknown): CharacterRuntime["triggers"] {
       continue;
     }
     const source = mark as Record<string, unknown>;
-    const normalized: { round?: number; encounter?: number; count?: number } = {};
+    const normalized: { round?: number; encounter?: number; turn?: number; count?: number } = {};
     const round = positiveInt(source.round);
     const encounter = positiveInt(source.encounter);
     const count = positiveInt(source.count);
+    const turn = positiveInt(source.turn);
+    if (turn !== undefined) normalized.turn = turn;
     if (round !== undefined) normalized.round = round;
     if (encounter !== undefined) normalized.encounter = encounter;
     if (count !== undefined) normalized.count = count;
@@ -306,6 +309,8 @@ function normalizeRuntime(raw: unknown): CharacterRuntime | undefined {
     ...(typeof source.combatActive === "boolean" ? { combatActive: source.combatActive } : {}),
     ...(furyTurn ? { furyTurn } : {}),
     ...(stormwight ? { stormwight } : {}),
+    ...(positiveInt(source.turn) !== undefined ? { turn: positiveInt(source.turn) } : {}),
+    ...(typeof source.turnActive === "boolean" ? { turnActive: source.turnActive } : {}),
     triggers: normalizeRuntimeMarks(source.triggers),
     forms: Array.isArray(source.forms)
       ? source.forms.filter(
@@ -340,6 +345,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     xpThreshold: rawXpThreshold,
     avatar: rawAvatar,
     damageTraits: rawDamageTraits,
+    classMechanics: rawClassMechanics,
     ...inputWithoutAdvancements
   } = input as Partial<Character> & {
     advancements?: unknown;
@@ -478,6 +484,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
       ? { damageTraits: normalizedDamageTraits }
       : {}),
     ...(normalizedRuntime ? { runtime: normalizedRuntime } : {}),
+    ...(rawClassMechanics !== undefined ? { classMechanics: normalizeClassMechanics(rawClassMechanics) } : {}),
     ...(rawAutomation
       ? {
           automation: {

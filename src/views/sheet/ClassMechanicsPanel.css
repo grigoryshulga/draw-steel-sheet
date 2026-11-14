@@ -1,0 +1,161 @@
+.class-mechanics-panel + .class-mechanics-panel {
+  border-top: 1px solid var(--sheet-warm-line);
+}
+.class-mechanics-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+  font-size: var(--text-reading);
+  line-height: var(--leading-relaxed);
+}
+.class-mechanics-stack p {
+  margin: 0;
+}
+.class-mechanics-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+.class-mechanics-row > input:not([type="checkbox"]),
+.class-mechanics-row > select,
+.class-mechanics-row > .field {
+  flex: 1;
+  min-width: 0;
+}
+.class-mechanics-note,
+.class-mechanics-empty {
+  color: var(--muted);
+  font-size: var(--text-reading-meta);
+}
+.class-mechanics-warning {
+  color: var(--yellow);
+}
+.class-mechanics-list {
+  margin: 0;
+  padding-left: var(--space-8);
+}
+.class-mechanics-list > li + li {
+  margin-top: var(--space-4);
+}
+.class-mechanics-stack input,
+.class-mechanics-stack select {
+  max-width: 100%;
+}
+.class-mechanics-stack .rich-text {
+  overflow-wrap: anywhere;
+}
+.class-mechanics-thresholds {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+.class-mechanics-threshold {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4) var(--space-2);
+  text-align: center;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.class-mechanics-threshold strong {
+  display: block;
+  font-size: var(--text-xl);
+}
+.class-mechanics-threshold small {
+  display: block;
+  font-size: var(--text-xs);
+}
+.class-mechanics-threshold.is-active {
+  border-color: var(--yellow);
+  color: var(--yellow);
+  background: color-mix(in srgb, var(--yellow) 10%, transparent);
+}
+.class-mechanics-threshold.is-locked {
+  border-style: dashed;
+}
+
+.class-mechanics-stack .btn {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.class-mechanics-stack .rich-text p + p {
+  margin-top: var(--space-4);
+}
+
+/* Полные тексты и формы открываются отдельно; на листе — состояние и действия. */
+.class-mechanics-panel .panel-head {
+  padding-bottom: var(--space-4);
+}
+.class-mechanics-panel .class-mechanics-stack {
+  gap: var(--space-4);
+}
+.class-mechanics-link {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.class-mechanics-link:hover {
+  color: var(--accent);
+}
+.class-mechanics-link:focus-visible,
+button.class-mechanics-threshold:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.class-mechanics-panel .panel-actions .class-mechanics-link {
+  color: var(--muted);
+  font-size: var(--text-reading-meta);
+}
+.class-mechanics-summary,
+.class-mechanics-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.class-mechanics-summary {
+  flex-wrap: wrap;
+}
+.class-mechanics-item > div {
+  min-width: 0;
+}
+.class-mechanics-item small {
+  display: block;
+  color: var(--muted);
+  font-size: var(--text-reading-meta);
+}
+.class-mechanics-item > .class-mechanics-link {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.class-mechanics-item > .btn {
+  flex: none;
+}
+button.class-mechanics-threshold {
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+button.class-mechanics-threshold.is-active {
+  background: color-mix(in srgb, var(--yellow) 10%, transparent);
+}
+@media (pointer: coarse), (max-width: 700px) {
+  .class-mechanics-link {
+    min-height: var(--touch-target-size);
+    display: inline-flex;
+    align-items: center;
+  }
+}

@@ -1,3 +1,4 @@
+import { transitionClassMechanics } from "../lib/class-mechanics";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Character, CharacterSummary } from "../types";
 import { createAutosave, type SaveStatus } from "../lib/autosave";
@@ -101,8 +102,14 @@ export function useHeroLifecycle({
       const previous = characterRef.current;
       if (!previous || characterAction.current) return;
       allowPendingSignOut.current = false;
+      const edited = recipe(previous);
+      // Game actions and undo already carry an atomic class-state change.
+      // Direct edits to conditions/abilities must also end invalid effects.
+      const synchronized = edited.classMechanics === previous.classMechanics &&
+        (edited.conditions !== previous.conditions || edited.abilities !== previous.abilities || edited.stamina !== previous.stamina)
+        ? transitionClassMechanics(edited, "resource-change") : edited;
       const next = {
-        ...recalculateCharacter(previous, recipe(previous)),
+        ...recalculateCharacter(previous, synchronized),
         updatedAt: new Date().toISOString(),
       };
       characterRef.current = next;

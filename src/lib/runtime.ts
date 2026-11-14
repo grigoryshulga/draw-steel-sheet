@@ -25,6 +25,8 @@ export function currentRuntime(character: Character): CharacterRuntime {
     ...(typeof runtime.combatActive === "boolean" ? { combatActive: runtime.combatActive } : {}),
     ...(runtime.furyTurn ? { furyTurn: runtime.furyTurn } : {}),
     ...(runtime.stormwight ? { stormwight: runtime.stormwight } : {}),
+    ...(runtime.turn !== undefined ? { turn: runtime.turn } : {}),
+    ...(runtime.turnActive !== undefined ? { turnActive: runtime.turnActive } : {}),
     triggers: runtime.triggers,
     forms: runtime.forms,
     resources: runtime.resources,
@@ -52,7 +54,9 @@ export function triggerMark(
   const mark = runtime.triggers[markKey];
   if (!mark) return { used: false, count: 0 };
   const used =
-    frequency === "encounter"
+    frequency === "turn" && runtime.turn !== undefined
+      ? mark.turn === runtime.turn
+      : frequency === "encounter"
       ? mark.encounter === runtime.encounter
       : mark.round === runtime.round;
   return { used, count: used ? (mark.count ?? 1) : 0 };
@@ -71,7 +75,7 @@ export function beginRound(character: Character): Character {
   const runtime = currentRuntime(character);
   const triggers = Object.fromEntries(
     Object.entries(runtime.triggers).filter(
-      ([, mark]) => mark?.round === undefined,
+      ([, mark]) => mark?.turn !== undefined || mark?.round === undefined,
     ),
   );
   return withRuntime(character, {
@@ -116,6 +120,9 @@ export function markTrigger(
       encounter: runtime.encounter,
       count: sameEncounter ? (previous?.count ?? 0) + 1 : 1,
     };
+  } else if (frequency === "turn" && runtime.turn !== undefined) {
+    const previous = triggers[featureId];
+    triggers[featureId] = { turn: runtime.turn, count: previous?.turn === runtime.turn ? (previous.count ?? 0) + 1 : 1 };
   } else {
     const previous = triggers[featureId];
     const sameRound = previous?.round === runtime.round;

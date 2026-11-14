@@ -1,3 +1,4 @@
+import { heldDiscipline } from "./class-mechanics/discipline";
 import {
   CLASS_FEATURE_GROUPS,
 } from "../data/class-feature-rules";
@@ -97,6 +98,7 @@ function currentResourceValue(character: Character, name: string): number {
     typeof sheetResource.name === "string" &&
     normalize(sheetResource.name) === wanted
   ) {
+    if (character.className === "Нуль" && wanted === normalize("Дисциплина")) return heldDiscipline(character);
     return typeof sheetResource.current === "number" ? sheetResource.current : 0;
   }
   const resources = currentRuntime(character).resources;

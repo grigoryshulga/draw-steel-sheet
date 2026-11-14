@@ -1,3 +1,4 @@
+import type { ClassMechanicsState } from "./lib/class-mechanics";
 export const CHARACTERISTIC_KEYS = [
   "might",
   "agility",
@@ -178,8 +179,11 @@ export interface CharacterRuntime {
   /** Собственный ход Неистового и максимум свирепости, достигнутый до его окончания. */
   furyTurn?: { active: boolean; peak: number };
   stormwight?: StormwightFormRuntime;
+  /** Собственные ходы независимы от раунда. */
+  turn?: number;
+  turnActive?: boolean;
   /** Отметки триггеров и прибавок ресурса: ключ — id фичи или тег прибавки; round/encounter — номер, в котором отмечено; count — сколько раз. */
-  triggers: Record<string, { round?: number; encounter?: number; count?: number }>;
+  triggers: Record<string, { round?: number; encounter?: number; turn?: number; count?: number }>;
   /**
    * Активные формы (например, «Теневая форма» Неистового). Заполняет UI
    * классов с формами (Тень, Элементалист) — в следующем заходе.
@@ -255,6 +259,8 @@ export interface Character {
    * его заводит первое действие (`src/lib/runtime.ts`).
    */
   runtime?: CharacterRuntime;
+  /** Сохраняемое состояние уникальных классовых механик. */
+  classMechanics?: ClassMechanicsState;
 
   skills: string[];
   languages: string[];

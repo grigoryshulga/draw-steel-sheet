@@ -35,6 +35,10 @@
 .sheet-block[data-panel="stormwight-form"] {
   order: 2;
 }
+/* Классовое состояние всегда следует непосредственно за ресурсами. */
+.sheet-block[data-panel="classMechanics"] {
+  order: 2;
+}
 .sheet-block[data-panel="conditions"] {
   order: 3;
 }
