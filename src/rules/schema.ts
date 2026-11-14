@@ -21,6 +21,9 @@ export interface RuleEntity extends OriginalFields {
   markdown: string; // complete original rule block; never the lossy ability summary
   source: { articleId: string; path: string };
   ability?: CompendiumAbility; // structured projection when reliably mapped
+  /** Составной комплект: полный текст остаётся в markdown, идентичность вариантов закреплена явно. */
+  kitVariants?: { id: string; name: string; signatureAbilityId: string; damageType: string }[];
+  grantedAbilityIds?: string[];
   director?: DirectorMetadata;
 }
 export type RuleBlock = { type: 'markdown'; text: string } | { type: 'entity'; ref: string };

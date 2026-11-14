@@ -9,5 +9,34 @@
   },
   "originalId": "mcdm.heroes.v1/feature.fury.stormwight-kits/kit-features",
   "originalName": "Stormwight Kits",
-  "originalDescription": ""
+  "originalDescription": "",
+  "kitVariants": [
+    {
+      "id": "kit.boren",
+      "name": "Борен",
+      "signatureAbilityId": "feature.ability.boren.bear-claws",
+      "damageType": "холод"
+    },
+    {
+      "id": "kit.corven",
+      "name": "Корвен",
+      "signatureAbilityId": "feature.ability.corven.wing-buffet",
+      "damageType": "огонь"
+    },
+    {
+      "id": "kit.raden",
+      "name": "Раден",
+      "signatureAbilityId": "feature.ability.raden.driving-pounce",
+      "damageType": "порча"
+    },
+    {
+      "id": "kit.vuken",
+      "name": "Вукен",
+      "signatureAbilityId": "feature.ability.vuken.unbalancing-attack",
+      "damageType": "молния"
+    }
+  ],
+  "grantedAbilityIds": [
+    "feature.ability.fury.level-1.beast-shape"
+  ]
 }

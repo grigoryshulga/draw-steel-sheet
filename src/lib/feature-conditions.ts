@@ -6,6 +6,7 @@ import type { FeatureCondition, FeatureKeyGroup } from "../data/class-features/t
 import type { Character } from "../types";
 import { normalizeFeatureText as normalize } from "./utils";
 import { currentRuntime } from "./runtime";
+import { growingFerocityValue } from "./fury-turn";
 
 /**
  * Условия, при которых действует эффект или триггер классовой особенности.
@@ -346,8 +347,11 @@ export function featureConditionMet(
     }
   }
   if (condition.resourceAtLeast) {
-    const { name, value } = condition.resourceAtLeast;
-    if (currentResourceValue(character, name) < value) return false;
+    const { name, value, useTurnPeak } = condition.resourceAtLeast;
+    const amount = useTurnPeak && character.className === "Неистовый" && normalize(name) === "свирепость"
+      ? growingFerocityValue(character)
+      : currentResourceValue(character, name);
+    if (amount < value) return false;
   }
   if (condition.formActive) {
     const wanted = normalize(condition.formActive);

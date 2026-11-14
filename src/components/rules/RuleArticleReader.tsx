@@ -9,6 +9,7 @@ import { RuleArticleContent } from "./RuleArticle";
 import { ReadingSkeleton } from "./ReadingSkeleton";
 import { useReadingHistory } from "./useReadingHistory";
 import { codexIndex } from "../../rules/codex-navigation";
+import { kitVariantEntity } from "../../rules/kit-variants";
 
 /** Общий ленивый просмотр статьи для справочника и создания героя. */
 export function RuleArticleReader({
@@ -58,9 +59,8 @@ export function RuleArticleReader({
     );
   const entity =
     entityName && result.data
-      ? Object.values(result.data.entities).find(
-          (entry) => entry.name === entityName,
-        )
+      ? Object.values(result.data.entities).find((entry) => entry.name === entityName)
+        ?? Object.values(result.data.entities).flatMap((entry) => kitVariantEntity(entry, entityName) ?? [])[0]
       : undefined;
   if (entity) return <RuleEntityView entity={entity} withAnchor={false} />;
   return result.data ? (

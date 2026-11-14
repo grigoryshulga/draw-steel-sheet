@@ -16,6 +16,8 @@ import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
 import { SkillsPanel } from "./sheet/SkillsPanel";
 import { VitalsPanel } from "./sheet/VitalsPanel";
 import { ResourcesPanel } from "./sheet/ResourcesPanel";
+import { FuryFerocityTracker } from "./sheet/FuryFerocityTracker";
+import { StormwightFormPanel } from "./sheet/StormwightFormPanel";
 import "./SheetView.css";
 import "./sheet/Workspace.css";
 import "./sheet/SheetLayout.css";
@@ -52,7 +54,9 @@ type PanelId =
   | "perks"
   | "skills"
   | "vitals"
-  | "resources";
+  | "resources"
+  | "ferocity"
+  | "stormwight-form";
 
 const PANELS: Record<PanelId, ComponentType> = {
   characteristics: CharacteristicsPanel,
@@ -63,13 +67,15 @@ const PANELS: Record<PanelId, ComponentType> = {
   skills: SkillsPanel,
   vitals: VitalsPanel,
   resources: ResourcesPanel,
+  ferocity: FuryFerocityTracker,
+  "stormwight-form": StormwightFormPanel,
 };
 
 /** Порядок блоков в колонках; на узком экране их переупорядочивает CSS. */
 const UPPER_MAIN: PanelId[] = ["vitals", "characteristics"];
 const UPPER_SIDE: PanelId[] = ["resources"];
 const LOWER_MAIN: PanelId[] = ["perks", "features"];
-const LOWER_SIDE: PanelId[] = ["conditions", "skills"];
+const LOWER_SIDE: PanelId[] = ["ferocity", "stormwight-form", "conditions", "skills"];
 const FULL_WIDTH: PanelId[] = ["abilities"];
 
 const SHEET_TABS: { id: HeroTab; label: string; icon: IconName }[] = [

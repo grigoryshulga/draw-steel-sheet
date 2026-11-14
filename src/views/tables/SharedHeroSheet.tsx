@@ -9,6 +9,7 @@ const ignore = () => {};
 export function SharedHeroSheet({ hero }: { hero: SharedHero }) {
   const character = useMemo(() => sharedSheetCharacter(hero), [hero]);
   const value = useMemo<AppContextValue>(() => ({
+    readOnly: true,
     character, derived: deriveStats(character), update: ignore, patch: ignore,
     performGameAction: () => false, undoGameAction: ignore, gameHistory: [],
     saveStatus: "saved", saveError: "", notify: ignore, goTo: ignore,

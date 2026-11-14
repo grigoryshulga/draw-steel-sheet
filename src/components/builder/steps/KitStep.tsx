@@ -1,4 +1,4 @@
-import { KIT_COMPENDIUM } from "../../../data/kits";
+import { availableKits } from "../../../data/kits";
 import { BuilderSelection } from "../BuilderSelection";
 import { Field, Select } from "../../ui";
 import { useBuilderStep } from "../BuilderStepContext";
@@ -33,7 +33,7 @@ export function KitStep({ part }: { part: string }) {
         key={part}
         label={secondary ? "Второй комплект" : "Комплект"}
         kind="kit"
-        options={KIT_COMPENDIUM.map((kit) => ({
+        options={availableKits(draft.className, draft.subclass).map((kit) => ({
           name: kit.name,
           description: [kit.summary, kit.equipment].join("\n\n"),
           disabled: kit.name === (secondary ? draft.kit : draft.secondaryKit),

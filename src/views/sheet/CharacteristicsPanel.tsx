@@ -4,6 +4,7 @@ import { HelpTooltip } from "../../components/HelpTooltip";
 import { CHARACTERISTICS } from "../../lib/rules";
 import { characterStatBreakdown } from "../../lib/character-calculations";
 import { effectiveCharacteristics } from "../../lib/feature-modifiers";
+import { stormwightFormState } from "../../lib/stormwight-forms";
 import { useApp } from "../../state/AppContext";
 import { StatBreakdown } from "./StatBreakdown";
 import "./CharacteristicsPanel.css";
@@ -14,6 +15,8 @@ export function CharacteristicsPanel() {
   // Эффективные значения считает движок (сохранённое + бонусы особенностей,
   // с теми же ограничениями); правится по-прежнему сохранённое значение.
   const effective = effectiveCharacteristics(character);
+  const form = stormwightFormState(character);
+  const sizeFromForm = !!character.automation?.enabled && !!form && form.form !== "true";
 
   return (
     <Panel
@@ -92,7 +95,8 @@ export function CharacteristicsPanel() {
             value={character.size}
             placeholder="1"
             aria-label="Размер"
-            title="Размер существа: 1T, 1S, 1M, 1L и так далее"
+            readOnly={sizeFromForm}
+            title={sizeFromForm ? "Размер задан текущей формой. Размер гибрида выбирается в панели форм." : "Размер существа: 1T, 1S, 1M, 1L и так далее"}
             onChange={(event) => patch({ size: event.target.value })}
           />
         </Field>

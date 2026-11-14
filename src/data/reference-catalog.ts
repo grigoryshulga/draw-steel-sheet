@@ -8,7 +8,6 @@ import {
 import type { Perk, PerkType } from "../types";
 import type { RuleIndexEntry } from "../rules/schema";
 import { CATALOG, GLOSSARY, plainSummary } from "./library";
-import { KIT_COMPENDIUM } from "./kits";
 import { PERK_COMPENDIUM, PERK_TYPE_META } from "./perks";
 
 /**
@@ -96,6 +95,8 @@ export interface CatalogBrowserEntry {
   search: string;
   /** Каноническая статья, если полный текст открывается из неё. */
   articleId?: string;
+  /** Одна сущность или вариант составного комплекта внутри общей статьи. */
+  entityName?: string;
   catalog?: CatalogEntry;
   perk?: Perk;
   glossary?: GlossaryEntry;
@@ -196,7 +197,7 @@ function careerEntries(): CatalogBrowserEntry[] {
 function kitEntries(): CatalogBrowserEntry[] {
   return articleIds("kits").flatMap((articleId) => {
     const name = articleTitle(articleId);
-    const kit = KIT_COMPENDIUM.find(
+    const kit = REFERENCE_PREVIEW.kits.find(
       (candidate) => candidate.name.trim() === name.trim(),
     );
     return [
@@ -209,6 +210,17 @@ function kitEntries(): CatalogBrowserEntry[] {
         search: [name, kit?.summary ?? "", kit?.equipment ?? ""].join(" "),
         articleId,
       },
+      ...REFERENCE_PREVIEW.kits.filter((variant) => variant.familyId === kit?.id).map((variant) => ({
+        id: variant.id,
+        name: variant.name,
+        eyebrow: `${name} · ${variant.animalForm}`,
+        echelon: null,
+        summary: variant.summary,
+        search: [variant.name, variant.originalName, name, variant.animalForm, variant.storm, variant.damageType,
+          variant.summary, variant.equipment, variant.signatureAbility].join(" "),
+        articleId,
+        entityName: variant.name,
+      })),
     ];
   });
 }

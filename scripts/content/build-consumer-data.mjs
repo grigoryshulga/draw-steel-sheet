@@ -574,6 +574,61 @@ function kitSections(markdown) {
   return result;
 }
 
+function kitBonuses(markdown) {
+  return markdown.split("\n").flatMap((line) => {
+    const match = line.match(/^(?:[-*] )?\*\*Бонус к (.+?):\*\*\s*(.+?)\s*$/);
+    if (!match) return [];
+    const label = match[1].replace(/^урону в ближнем бою$/i, "урону (Ближний)");
+    return [{ label, value: match[2] }];
+  });
+}
+
+/** Варианты составного комплекта имеют собственную идентичность, бонусы и способность. */
+function projectKitVariants(entity, entityById) {
+  if (!entity.kitVariants) return undefined;
+  assertUniqueIds(entity.kitVariants.map((variant) => variant.id), `${entity.id}: варианты комплектов`);
+  assertUniqueIds(entity.kitVariants.map((variant) => variant.name), `${entity.id}: названия вариантов`);
+  const headings = [...entity.markdown.matchAll(/^## (.+)$/gm)];
+  if (headings.length !== entity.kitVariants.length) fail(`${entity.id}: число вариантов не совпадает с текстом`);
+  return entity.kitVariants.map((variant) => {
+    const index = headings.findIndex((heading) => heading[1].trim() === variant.name);
+    if (index < 0) fail(`${variant.id}: раздел «${variant.name}» не найден`);
+    const markdown = entity.markdown.slice(headings[index].index + headings[index][0].length, headings[index + 1]?.index);
+    const parts = kitSections(markdown);
+    const ability = entityById.get(variant.signatureAbilityId)?.ability;
+    if (!ability) fail(`${variant.id}: знаковая способность не найдена`);
+    for (const id of entity.grantedAbilityIds ?? []) {
+      if (!entityById.get(id)?.ability) fail(`${variant.id}: общая способность ${id} не найдена`);
+    }
+    const growingFerocity = [...markdown.matchAll(/^\|\s*(\d+)(?:\s*\((\d+)-й уровень\))?\s*\|\s*(.+?)\s*\|\s*$/gm)]
+      .map(([, threshold, level, description]) => ({ threshold: Number(threshold), level: Number(level ?? 1), description }));
+    if (growingFerocity.length !== 6) fail(`${variant.id}: ожидалось шесть порогов Растущей свирепости`);
+    const animalHeading = [...parts.keys()].find((key) => key.startsWith("Форма животного:"));
+    const hybridHeading = [...parts.keys()].find((key) => key.startsWith("Форма гибрида:"));
+    if (!animalHeading || !hybridHeading) fail(`${variant.id}: не найдены правила форм`);
+    return {
+      id: variant.id,
+      name: variant.name,
+      familyId: entity.id,
+      articleId: entity.source.articleId,
+      summary: cleanKitText(markdown.split(/^#####/m)[0]),
+      equipment: cleanKitText(kitSections(entity.markdown).get(KIT_EQUIPMENT) ?? ""),
+      bonuses: kitBonuses(parts.get(KIT_BONUSES) ?? ""),
+      signatureAbility: ability.name,
+      grantedAbilityIds: [variant.signatureAbilityId, ...(entity.grantedAbilityIds ?? [])],
+      damageType: variant.damageType,
+      animalForm: animalHeading.split(": ")[1],
+      formRules: {
+        aspect: (parts.get("Преимущества аспекта") ?? "").trim(),
+        animal: parts.get(animalHeading).trim(),
+        hybrid: parts.get(hybridHeading).trim(),
+      },
+      storm: [...parts.keys()].find((key) => key.startsWith("Первозданный шторм:"))?.split(": ")[1] ?? "",
+      growingFerocity,
+    };
+  });
+}
+
 function stripLeadingHeading(markdown) {
   return markdown.replace(/^#{1,6}[ \t]+.*(?:\n|$)/, "").trim();
 }
@@ -666,23 +721,13 @@ export function projectKits({
     if (entity.kind !== "kit") continue;
     const id = entity.id;
     const parts = kitSections(entity.markdown);
-    const bonuses = [];
-    for (const line of (parts.get(KIT_BONUSES) ?? "").split("\n")) {
-      const match = line.match(/^\*\*(.+?):\*\*\s*(.+?)\s*$/);
-      if (!match) continue;
-      bonuses.push({
-        label: match[1].replace(/^Бонус к\s+/i, "").trim(),
-        value: match[2].trim(),
-      });
-    }
+    const variants = projectKitVariants(entity, entityById);
+    const bonuses = variants ? [] : kitBonuses(parts.get(KIT_BONUSES) ?? "");
     const signatureSection = parts.get(KIT_SIGNATURE) ?? "";
     const signatureCallout = signatureSection.match(/\[!example\]\s*(.+)/);
     let signatureAbility = signatureCallout ? signatureCallout[1].trim() : "";
     if (!signatureAbility) {
-      // Составной комплект 0924 хранит карточки способностей прямо в Markdown
-      // (без отдельных сущностей `ability`): имя берётся из заголовка
-      // цитатного блока. Последний вариант комплекта побеждает — так же, как
-      // legacy-разбор секций `#####`.
+      // В некоторых источниках способность хранится прямо в Markdown.
       const card = signatureSection.match(/^>\s*\*\*(.+?)\*\*\s*$/m);
       if (card) signatureAbility = card[1].trim();
     }
@@ -697,13 +742,14 @@ export function projectKits({
     kits.push({
       id,
       name: entity.name,
-      summary: cleanKitText(entity.markdown.split(/^#####/m)[0] ?? ""),
+      summary: cleanKitText(entity.markdown.split(variants ? /^####/m : /^#####/m)[0] ?? ""),
       equipment: cleanKitText(parts.get(KIT_EQUIPMENT) ?? "").replace(
         /\n+/g,
         " ",
       ),
       bonuses,
-      signatureAbility,
+      signatureAbility: variants ? "" : signatureAbility,
+      ...(variants ? { variants } : {}),
       ...(entity.originalId ? { originalId: entity.originalId } : {}),
       ...(entity.originalName ? { originalName: entity.originalName } : {}),
       ...(entity.originalDescription
@@ -1950,6 +1996,12 @@ export function buildConsumerData({
   }));
   expected.set(path.join(outDir, "reference-preview.json"), jsonText({
     schemaVersion: CONSUMER_SCHEMA_VERSION,
+    kits: kitProjection.kits.flatMap((kit) => [kit, ...(kit.variants ?? [])]).map((kit) => ({
+      id: kit.id, name: kit.name, summary: kit.summary, equipment: kit.equipment,
+      signatureAbility: kit.signatureAbility, familyId: kit.familyId ?? "",
+      animalForm: kit.animalForm ?? "", storm: kit.storm ?? "", damageType: kit.damageType ?? "",
+      originalName: kit.originalName ?? "",
+    })),
     ancestries: builderProjection.ancestries.map(({ articleId, name, summary, signature }) =>
       ({ articleId, name, summary, signature })),
     careers: builderProjection.careers.map(({ articleId, name, benefits }) =>

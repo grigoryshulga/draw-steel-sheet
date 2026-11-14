@@ -1,21 +1,25 @@
 import { CANONICAL_KITS } from "../rules/consumer-kits";
-import type { OriginalFields } from "../types";
+import type { ConsumerKit, ConsumerKitBonus } from "../rules/consumer-data";
+import type { Ability } from "../types";
+import { canUseKit } from "./creation-rules";
 
-export interface KitBonus {
-  label: string;
-  value: string;
-}
-
-export interface Kit extends OriginalFields {
-  id: string;
-  name: string;
-  summary: string;
-  equipment: string;
-  bonuses: KitBonus[];
-  signatureAbility: string;
-}
+export type KitBonus = ConsumerKitBonus;
+export type Kit = ConsumerKit;
 
 export const KIT_COMPENDIUM: Kit[] = CANONICAL_KITS;
+export const SELECTABLE_KITS: Kit[] = KIT_COMPENDIUM.flatMap((kit) => kit.variants ?? [kit]);
+
+/** Буревестник выбирает один из четырёх своих комплектов; остальные классы — обычные. */
+export function availableKits(className: string, subclass: string): Kit[] {
+  if (!canUseKit(className, subclass)) return [];
+  const stormwight = className === "Неистовый" && ["буревестник", "fury.aspect.stormbringer"].includes(normalizeKitName(subclass));
+  return SELECTABLE_KITS.filter((kit) => Boolean(kit.familyId) === stormwight);
+}
+
+export function selectableKitByName(name: string, className: string, subclass: string): Kit | undefined {
+  const kit = kitByName(name);
+  return kit && availableKits(className, subclass).includes(kit) ? kit : undefined;
+}
 
 function normalizeKitName(name: string): string {
   return name.trim().toLowerCase().replace(/ё/g, "е").replace(/\s+/g, " ");
@@ -24,21 +28,16 @@ function normalizeKitName(name: string): string {
 export function kitByName(name: string): Kit | undefined {
   const needle = normalizeKitName(name);
   if (!needle) return undefined;
-  return KIT_COMPENDIUM.find((kit) => normalizeKitName(kit.name) === needle);
+  return [...KIT_COMPENDIUM, ...SELECTABLE_KITS].find((kit) => normalizeKitName(kit.name) === needle);
 }
 
-const BONUS_LABELS: Record<string, string> = {
-  "выносливости": "Выносливость",
-  "скорости": "Скорость",
-  "устойчивости": "Устойчивость",
-  "отходу": "Отход",
-  "урону (Ближний)": "Урон (Ближний)",
-  "урону (Дальний)": "Урон (Дальний)",
-  "расстоянию (Ближний)": "Дистанция (Ближний)",
-  "расстоянию (Дальний)": "Дистанция (Дальний)",
-};
-
-export function kitBonusLabel(label: string): string {
-  const cleaned = label.trim();
-  return BONUS_LABELS[cleaned] ?? cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+/** У старых карточек всех четырёх комплектов общий источник «Буревестник». */
+export function abilitySourceKit(ability: Pick<Ability, "source" | "name">): Kit | undefined {
+  if (!ability.source.startsWith("Комплект: ")) return undefined;
+  const kit = kitByName(ability.source.slice(10));
+  return kit?.variants
+    ? kit.variants.find((variant) => variant.signatureAbility === ability.name)
+    : kit;
 }
+
+export { kitBonusLabel } from "./kit-bonuses";

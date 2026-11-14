@@ -1,7 +1,7 @@
 import type { Ability, Character } from "../types";
 import type { FeatureStat } from "../data/feature-effects";
 import { classPreset, heroicResourceName } from "../data/classes";
-import { kitByName } from "../data/kits";
+import { abilitySourceKit, kitByName } from "../data/kits";
 import {
   effectiveCharacteristics,
   featureAbilityDistanceBonus,
@@ -11,6 +11,8 @@ import {
   type FeatureContribution,
 } from "./feature-modifiers";
 import { echelon } from "./progression";
+import { trackFuryTurn } from "./fury-turn";
+import { stormwightFormState, synchronizeStormwightForm } from "./stormwight-forms";
 
 export { echelon };
 /** Реэкспорт для UI: эффективные характеристики без прямого импорта движка. */
@@ -92,6 +94,8 @@ export function recalculateCharacter(
   previous: Character,
   next: Character,
 ): Character {
+  next = trackFuryTurn(previous, next);
+  next = synchronizeStormwightForm(previous, next);
   const resourceName = heroicResourceName(next.className);
   if (next.heroicResource.name !== resourceName) {
     next = {
@@ -207,12 +211,15 @@ export function abilityKitDamageBonus(
     chosen && [character.kit, character.secondaryKit].includes(chosen)
       ? chosen
       : character.kit;
-  const bonus = kitByName(name)?.bonuses.find(
+  const selectedKit = kitByName(name);
+  const bonus = selectedKit?.bonuses.find(
     (b) => b.label === `урону (${kind})`,
   );
-  const embeddedKit = ability.source.startsWith("Комплект: ")
-    ? kitByName(ability.source.slice(10))
-    : undefined;
+  const embeddedKit = abilitySourceKit(ability);
+  // До уточнения старой общей записи сохраняем напечатанный урон каждой
+  // способности: неизвестно, какой из четырёх комплектов имелся в виду.
+  if (selectedKit?.variants?.some((variant) => variant.id === embeddedKit?.id)) return 0;
+  if (!selectedKit && embeddedKit?.familyId && ability.source !== `Комплект: ${embeddedKit.name}`) return 0;
   const embedded = embeddedKit?.bonuses.find(
     (b) => b.label === `урону (${kind})`,
   );
@@ -228,12 +235,11 @@ export function abilityDistance(
 ): string {
   if (!character.automation?.enabled) return ability.distance;
   const weapon = ability.keywords.includes("Оружие");
+  const formDistance = weapon ? stormwightFormState(character)?.meleeDistanceBonus ?? 0 : 0;
   // Ranged class features never extend a selected melee mode (see feature-modifiers).
   const featureDistance = featureAbilityDistanceBonus(ability, character);
   if (!weapon && !featureDistance) return ability.distance;
-  const embeddedKit = ability.source.startsWith("Комплект: ")
-    ? kitByName(ability.source.slice(10))
-    : undefined;
+  const embeddedKit = abilitySourceKit(ability);
   const distance = ability.distance.replace(
     /(ближний|дальний)\s+(\d+)/gi,
     (_match, kind: string, amount: string) => {
@@ -248,7 +254,8 @@ export function abilityDistance(
           ) || 0)
         : 0;
       const feature = label === "Дальний" ? featureDistance : 0;
-      return `${kind} ${Number(amount) + kit + feature}`;
+      const form = label === "Ближний" ? formDistance : 0;
+      return `${kind} ${Number(amount) + kit + feature + form}`;
     },
   );
   // An area prints its size and its placement range as one line (`Куб 3 в пределах 10`).

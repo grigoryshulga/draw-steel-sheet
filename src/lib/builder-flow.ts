@@ -7,6 +7,7 @@ import {
   type BuilderDraft,
 } from "./character-builder";
 import { canUseKit, CLASS_SIGNATURE_COUNTS } from "../data/creation-rules";
+import { selectableKitByName } from "../data/kits";
 import { careerPerkType, perkById } from "../data/perks";
 import { resolveSkillSelection } from "./skill-selection";
 import { restoreBuilderStep, type BuilderStepId } from "./builder-steps";
@@ -217,7 +218,7 @@ export function builderFlow(draft: BuilderDraft): BuilderFlowStep[] {
       3,
       "kit",
       "Выберите комплект",
-      draft.kit ? "" : "Выберите комплект.",
+      selectableKitByName(draft.kit, draft.className, draft.subclass) ? "" : "Выберите комплект.",
       "primary",
     );
     if (draft.className === "Тактик") {
@@ -225,7 +226,7 @@ export function builderFlow(draft: BuilderDraft): BuilderFlowStep[] {
         3,
         "kit",
         "Второй комплект",
-        draft.secondaryKit && draft.secondaryKit !== draft.kit
+        selectableKitByName(draft.secondaryKit, draft.className, draft.subclass) && draft.secondaryKit !== draft.kit
           ? ""
           : "Выберите второй, отличный комплект.",
         "secondary",

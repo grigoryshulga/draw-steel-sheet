@@ -1,3 +1,23 @@
+.kit-rule-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-bottom: var(--space-7);
+}
+
+.kit-rule-variants a {
+  padding: var(--space-4) var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  background: var(--surface-2);
+}
+
+.kit-rule-variants a:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
 .kit-rule-bonuses {
   clear: both;
   display: grid;

@@ -218,9 +218,6 @@ export const DOMAIN_GRANTED_ABILITIES: Record<string, string[]> = {
   Смерть: ["Могильная Речь"],
   Природа: ["Верный Друг"],
 };
-export function canUseKit(className: string, subclass: string): boolean {
-  return (
-    KIT_CLASSES.includes(className) &&
-    !(className === "Неистовый" && subclass === "Буревестник")
-  );
+export function canUseKit(className: string, _subclass: string): boolean {
+  return KIT_CLASSES.includes(className);
 }

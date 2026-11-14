@@ -198,6 +198,9 @@ export function decorateKit(record) {
       reference["mcdm.heroes.v1/feature.fury.stormwight-kits/kit-features"]
         ?.description ?? "",
     );
+    for (const variant of record.variants ?? []) {
+      decorateWithScc(variant, `mcdm.heroes.v1/${variant.id.replace(".", "/")}`, { kind: "kit" });
+    }
     return record;
   }
   return decorateByMap(record, maps.kits, { kind: "kit" });

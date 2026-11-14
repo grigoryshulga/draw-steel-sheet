@@ -11,7 +11,7 @@ import {
   perkSlots,
   selectedPerkForSlot,
 } from "../src/data/perks";
-import { KIT_COMPENDIUM, kitBonusLabel, kitByName } from "../src/data/kits";
+import { KIT_COMPENDIUM, SELECTABLE_KITS, kitBonusLabel, kitByName } from "../src/data/kits";
 import type { Character, SelectedPerk } from "../src/types";
 
 function hero(overrides: Partial<Character> = {}): Character {
@@ -118,7 +118,7 @@ describe("perkSlots", () => {
 describe("kits data", () => {
   it("содержит комплекты с бонусами и знаковыми способностями", () => {
     expect(KIT_COMPENDIUM.length).toBeGreaterThanOrEqual(22);
-    for (const kit of KIT_COMPENDIUM) {
+    for (const kit of SELECTABLE_KITS) {
       expect(kit.name.length).toBeGreaterThan(0);
       expect(kit.equipment.length).toBeGreaterThan(0);
       expect(kit.signatureAbility.length).toBeGreaterThan(0);

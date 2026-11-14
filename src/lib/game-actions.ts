@@ -1,4 +1,4 @@
-import type { Character, CharacterRuntime } from "../types";
+import type { Character, CharacterRuntime, StormwightForm } from "../types";
 import type { TriggerFrequency } from "../data/class-features/types";
 import { applyDamage, deriveStats } from "./rules";
 import { heroicResourceName } from "../data/classes";
@@ -8,7 +8,9 @@ import {
 } from "./class-features";
 import { ancestryAbilityEntries } from "./ancestry-features";
 import { epicResourceName, resourceGainByTag } from "./resources";
-import { beginEncounter, beginRound, currentRuntime, markTrigger } from "./runtime";
+import { beginEncounter, beginRound, currentRuntime, markTrigger, withoutFuryTurn } from "./runtime";
+import { currentFerocity, trackFuryTurn } from "./fury-turn";
+import { STORMWIGHT_HYBRID_STAMINA, stormwightAbilityRestriction, stormwightFormState, withStormwightForm } from "./stormwight-forms";
 
 export type HealthOperation =
   "damage" | "heal" | "temporary" | "recovery" | "rest" | "adjust";
@@ -25,6 +27,9 @@ export type GameAction =
   | { kind: "encounter" }
   | { kind: "combat-start" }
   | { kind: "combat-end" }
+  | { kind: "fury-turn-start" }
+  | { kind: "fury-turn-end" }
+  | { kind: "stormwight-form"; form: StormwightForm; hybridSize?: "1S" | "1M"; freeManeuver?: boolean }
   | { kind: "trigger"; featureId: string; used: boolean }
   | {
       kind: "ability";
@@ -101,7 +106,7 @@ export function previewGameAction(
     ok: true,
     label,
     detail,
-    next: { ...character, ...patch },
+    next: trackFuryTurn(character, { ...character, ...patch }),
   });
   switch (action.kind) {
     case "damage": {
@@ -180,6 +185,7 @@ export function previewGameAction(
           surges: 0,
           xp: character.xp + character.victories,
           victories: 0,
+          ...(character.runtime?.furyTurn ? { runtime: withoutFuryTurn(currentRuntime(character)) } : {}),
         },
       );
     case "resource": {
@@ -232,7 +238,55 @@ export function previewGameAction(
     case "combat-end": {
       const runtime = currentRuntime(character);
       if (!runtime.combatActive) return invalid("Битва ещё не началась");
-      return finish("Конец битвы", "Битва завершена.", { runtime: { ...runtime, combatActive: false } });
+      return finish("Конец битвы", character.className === "Неистовый"
+        ? `Битва завершена. Свирепость: ${heroicResource.current} → 0; удержанные пороги сняты.`
+        : "Битва завершена.", {
+        runtime: { ...withoutFuryTurn(runtime), combatActive: false },
+        ...(character.className === "Неистовый" ? { heroicResource: { ...heroicResource, current: 0 } } : {}),
+      });
+    }
+    case "fury-turn-start": {
+      if (character.className !== "Неистовый") return invalid("Растущая свирепость доступна Неистовому");
+      const runtime = currentRuntime(character);
+      if (runtime.furyTurn?.active) return invalid("Ваш ход уже начался");
+      const triggers = Object.fromEntries(Object.entries(runtime.triggers).filter(
+        ([id]) => triggerFrequency(character, id) !== "turn",
+      ));
+      return finish("Начало своего хода", "Достигнутые пороги свирепости сохраняются до конца этого хода.", {
+        runtime: { ...runtime, triggers, furyTurn: { active: true, peak: currentFerocity(character) } },
+      });
+    }
+    case "fury-turn-end": {
+      const runtime = currentRuntime(character);
+      if (character.className !== "Неистовый" || !runtime.furyTurn?.active) return invalid("Ваш ход ещё не начался");
+      return finish("Конец своего хода", "Удержанные пороги сняты. Преимущества определяются текущей свирепостью.", {
+        runtime: withoutFuryTurn(runtime),
+      });
+    }
+    case "stormwight-form": {
+      const state = stormwightFormState(character);
+      if (!state) return invalid("Сначала выберите комплект буревестника");
+      if (!["true", "animal", "hybrid"].includes(action.form)
+        || action.hybridSize !== undefined && !["1S", "1M"].includes(action.hybridSize)) return invalid("Неизвестная форма");
+      const sameSize = action.form !== "hybrid" || !state.chooseHybridSize || !action.hybridSize || action.hybridSize === state.hybridSize;
+      if (state.form === action.form && sameSize) return invalid("Эта форма уже принята");
+      const cost = action.freeManeuver ? 1 : 0;
+      if (heroicResource.current < cost) return invalid("Для свободного превращения нужна 1 свирепость");
+      let next = withStormwightForm(character, action.form, state.chooseHybridSize ? action.hybridSize : undefined);
+      const runtime = currentRuntime(next);
+      const firstHybrid = action.form === "hybrid" && state.form !== "hybrid" && state.hybridStamina
+        && runtime.combatActive && runtime.triggers[STORMWIGHT_HYBRID_STAMINA]?.encounter !== runtime.encounter;
+      if (firstHybrid) next = markTrigger(next, STORMWIGHT_HYBRID_STAMINA, true, "encounter");
+      const temporary = firstHybrid && character.automation?.enabled ? 10 : 0;
+      const name = action.form === "true" ? "Истинная форма" : `${action.form === "animal" ? "Форма животного" : "Форма гибрида"}: ${state.kit.animalForm}`;
+      return finish(name, [
+        action.freeManeuver ? "Свободный манёвр: −1 свирепость." : "Превращение: манёвр.",
+        temporary ? "Первое превращение в гибрида в этой битве: 10 временной выносливости (запасы не складываются)." : "",
+      ].filter(Boolean).join(" "), {
+        runtime: currentRuntime(next),
+        heroicResource: { ...heroicResource, current: heroicResource.current - cost },
+        ...(temporary ? { stamina: { ...stamina, temp: Math.max(stamina.temp, temporary) } } : {}),
+      });
     }
     case "round": {
       const runtime = currentRuntime(beginRound(character));
@@ -280,6 +334,8 @@ export function previewGameAction(
           (entry) => entry.ability.id === action.abilityId,
         )?.ability;
       if (!ability) return invalid("Этой способности больше нет у героя");
+      const formRestriction = stormwightAbilityRestriction(character, ability);
+      if (formRestriction) return invalid(formRestriction);
       if (
         !Number.isSafeInteger(action.surges) ||
         action.surges < 0 ||
@@ -344,6 +400,8 @@ function runtimeKey(runtime: CharacterRuntime | undefined): string {
     runtime.round,
     runtime.encounter,
     !!runtime.combatActive,
+    runtime.furyTurn ? [runtime.furyTurn.active, runtime.furyTurn.peak] : null,
+    runtime.stormwight ? [runtime.stormwight.kitId, runtime.stormwight.form, runtime.stormwight.trueSize, runtime.stormwight.hybridSize] : null,
     Object.keys(runtime.triggers)
       .sort()
       .map((id) => [id, runtime.triggers[id]]),

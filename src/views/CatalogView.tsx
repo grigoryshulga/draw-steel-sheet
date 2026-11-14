@@ -628,8 +628,9 @@ function CatalogDetail({
       ) : entry.articleId ? (
         <>
           <RuleArticleReader
-            key={entry.articleId}
+            key={entry.id}
             articleId={entry.articleId}
+            entityName={entry.entityName}
           />
           {!["statblock", "dynamic-terrain"].includes(
             entry.director?.recordType ?? "",

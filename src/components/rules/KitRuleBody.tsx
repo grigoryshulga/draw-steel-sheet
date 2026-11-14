@@ -1,4 +1,4 @@
-import { kitBonusLabel } from "../../data/kits";
+import { kitBonusLabel } from "../../data/kit-bonuses";
 import { RuleMarkdown } from "./RuleMarkdown";
 import "./KitRuleBody.css";
 
@@ -14,7 +14,7 @@ export function KitRuleBody({ text, articleId, headingOffset }: {
   const groups = normalized.split(/((?:\*\*Бонус к [^\n]+\*\*[^\n]*(?:\n\s*)?)+)/g);
   return <>{groups.map((part, index) => {
     const bonuses = [...part.matchAll(/^\*\*Бонус к (.+?):\*\*\s*(.+)$/gm)];
-    if (!bonuses.length) return <RuleMarkdown key={index} text={part} articleId={articleId} headingOffset={headingOffset} />;
+    if (!bonuses.length) return <RuleMarkdown key={index} text={part} articleId={articleId} headingOffset={headingOffset} sharedAbilityCards />;
     return <dl className="kit-rule-bonuses" key={index}>
       {bonuses.map(([, label, value]) => {
         const tiers = /^([+]\d+)\/([+]\d+)\/([+]\d+)$/.exec(value.trim());

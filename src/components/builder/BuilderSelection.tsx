@@ -119,7 +119,7 @@ export function BuilderSelection({
                 <RuleArticleReader
                   key={articleId}
                   articleId={articleId}
-                  entityName={kind ? undefined : viewed.name}
+                  entityName={entry?.entityName ?? (kind ? undefined : viewed.name)}
                 />
               ) : (
                 <>

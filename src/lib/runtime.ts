@@ -23,10 +23,19 @@ export function currentRuntime(character: Character): CharacterRuntime {
     round: runtime.round,
     encounter: runtime.encounter,
     ...(typeof runtime.combatActive === "boolean" ? { combatActive: runtime.combatActive } : {}),
+    ...(runtime.furyTurn ? { furyTurn: runtime.furyTurn } : {}),
+    ...(runtime.stormwight ? { stormwight: runtime.stormwight } : {}),
     triggers: runtime.triggers,
     forms: runtime.forms,
     resources: runtime.resources,
   };
+}
+
+/** Граница хода/боя снимает только удержанные пороги, сохраняя остальные пулы и отметки. */
+export function withoutFuryTurn(runtime: CharacterRuntime): CharacterRuntime {
+  const next = { ...runtime };
+  delete next.furyTurn;
+  return next;
 }
 
 /**
@@ -66,7 +75,7 @@ export function beginRound(character: Character): Character {
     ),
   );
   return withRuntime(character, {
-    ...runtime,
+    ...withoutFuryTurn(runtime),
     round: runtime.round + 1,
     triggers,
   });
@@ -76,7 +85,7 @@ export function beginRound(character: Character): Character {
 export function beginEncounter(character: Character): Character {
   const runtime = currentRuntime(character);
   return withRuntime(character, {
-    ...runtime,
+    ...withoutFuryTurn(runtime),
     encounter: runtime.encounter + 1,
     triggers: {},
   });

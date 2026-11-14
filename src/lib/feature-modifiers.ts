@@ -16,6 +16,7 @@ import { featureConditionMet } from "./feature-conditions";
 import { normalizeItemEffects } from "./item-effects";
 import { echelon } from "./progression";
 import { normalizeFeatureText as normalize } from "./utils";
+import { kitByName } from "../data/kits";
 
 /** Условия фич живут в `feature-conditions`; реэкспорт — для существующих потребителей. */
 export { featureConditionMet };
@@ -237,6 +238,7 @@ function matchesAllKeywords(ability: Ability, required: string[]): boolean {
 /** Фильтр способности; без способности проходят только пустые фильтры. */
 function matchesFilter(ability: Ability | undefined, filter?: FeatureFilter): boolean {
   if (!filter) return true;
+  if (filter.powerRoll && (!ability || !hasRollCharacteristics(ability))) return false;
   if (filter.keywords?.length) {
     if (!ability || !matchesAllKeywords(ability, filter.keywords)) return false;
   }
@@ -459,7 +461,10 @@ export function featureDamageImmunities(
       if (!featureConditionMet(character, effect.when)) continue;
       const value =
         resolveFeatureValue(character, effect) * (effect.multiplier ?? 1);
-      for (const type of effect.types) {
+      for (const printedType of effect.types) {
+        const type = printedType === "Первозданный шторм"
+          ? kitByName(character.kit)?.damageType ?? printedType
+          : printedType;
         const key = normalize(type);
         const current = best.get(key);
         // Равные значения оставляют первый источник: порядок детерминирован.

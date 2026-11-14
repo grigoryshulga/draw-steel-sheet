@@ -7,6 +7,7 @@ import { RuleEntityView } from "../src/components/rules/RuleEntity";
 import { RuleArticleContent } from "../src/components/rules/RuleArticle";
 import { readingParts } from "../src/rules/codex-navigation";
 import type { RuleEntity, RuleArticle } from "../src/rules/schema";
+import { kitVariantEntity } from "../src/rules/kit-variants";
 
 function entity(path: string): RuleEntity { return JSON.parse(readFileSync(path, "utf8")); }
 describe("reader feedback", () => {
@@ -16,6 +17,25 @@ describe("reader feedback", () => {
     expect(html.match(/class="kit-rule-bonuses"/g)).toHaveLength(4);
     expect(html.match(/class="kit-rule-bonus"/g)).toHaveLength(15);
     expect(html).toContain("+9 за ");
+    expect(html.match(/class="sheet-ability-card/g)).toHaveLength(5);
+  });
+  it.each(["Борен", "Корвен", "Раден", "Вукен"])("показывает только правила %s вместе с общим превращением", (name) => {
+    const kit = entity("content/rules/entities/kit/kits/kit.kit-5b78887af5df.json");
+    const variant = kitVariantEntity(kit, name)!;
+    const html = renderToStaticMarkup(createElement(RuleEntityView, { entity: variant }));
+    expect(html).toContain(`>${name}</h2>`);
+    expect(html.match(/class="kit-rule-bonuses"/g)).toHaveLength(1);
+    expect(html.match(/class="sheet-ability-card/g)).toHaveLength(2);
+    expect(html).toContain("Аспект Дикой Природы");
+    expect(html).toContain("Форма животного");
+    expect(html).toContain("Форма гибрида");
+    expect(html).toContain("Первозданный шторм");
+    expect(html).toContain(`Таблица Растущей свирепости ${name === "Борен" ? "Борена" : name === "Корвен" ? "Корвена" : name === "Раден" ? "Радена" : "Вукена"}`);
+    for (const other of kit.kitVariants!.filter((item) => item.name !== name)) {
+      expect(html).not.toContain(`Таблица Растущей свирепости ${other.name.slice(0, -2)}`);
+      expect(html).not.toContain(`>${other.name}</h2>`);
+    }
+    expect(html).toContain("Потратить 1 Свирепости");
   });
   it("shows an ancestry signature heading once, with its trait label", () => {
     const feature = entity("content/rules/entities/feature/ancestry-dyavol/feature.ancestry.devil.signature.serebryanyy-yazyk.json");

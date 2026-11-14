@@ -190,6 +190,10 @@ export function RuleEntityView({
         />
       )}
 
+      {!!entity.kitVariants?.length && <nav className="kit-rule-variants" aria-label="Комплекты буревестника">
+        {entity.kitVariants.map((variant) => <a key={variant.id} href={`#/catalog/kits/${encodeURIComponent(variant.id)}`}>{variant.name}</a>)}
+      </nav>}
+
       {hasMarkdown && entity.kind === "kit" ? (
         <KitRuleBody text={content.markdown} articleId={entity.source.articleId} headingOffset={nestedHeadingOffset} />
       ) : hasMarkdown ? (

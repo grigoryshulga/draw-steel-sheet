@@ -28,7 +28,7 @@ describe("Единый каталог Справочника", () => {
     expect(catalogSectionCount("classes")).toBe(10);
     expect(catalogSectionCount("ancestries")).toBe(14);
     expect(catalogSectionCount("careers")).toBe(18);
-    expect(catalogSectionCount("kits")).toBe(22);
+    expect(catalogSectionCount("kits")).toBe(26);
     expect(catalogSectionCount("perks")).toBe(47);
     expect(catalogSectionCount("treasure")).toBe(100);
     expect(catalogSectionCount("title")).toBe(59);

@@ -1,43 +1,37 @@
 import { useState } from "react";
-import {
-  Button,
-  Chip,
-  EmptyState,
-  Modal,
-  TextInput,
-} from "../../components/ui";
-import {
-  KIT_COMPENDIUM,
-  kitBonusLabel,
-  kitByName,
-  type Kit,
-} from "../../data/kits";
+import { Button, Chip, EmptyState, Modal } from "../../components/ui";
+import { SearchInput } from "../../components/ui/SearchInput";
+import { useScrollFade } from "../../components/useScrollFade";
+import { ReferenceList } from "../../components/rules/ReferenceList";
+import { RuleArticleReader } from "../../components/rules/RuleArticleReader";
+import { catalogSectionEntries } from "../../data/reference-catalog";
+import { availableKits, kitByName, type Kit } from "../../data/kits";
+import { searchText } from "../../lib/codex";
+import { selectedGroupValue } from "../../lib/feature-conditions";
+import type { Character } from "../../types";
 import "./KitPicker.css";
 
 export function KitPicker({
   open,
-  current,
+  character,
   onClose,
   onSelect,
 }: {
   open: boolean;
-  current: string;
+  character: Character;
   onClose: () => void;
   onSelect: (kit: Kit) => void;
 }) {
-  const currentKit = kitByName(current);
+  const currentKit = kitByName(character.kit);
   const [query, setQuery] = useState("");
   const [previewId, setPreviewId] = useState(currentKit?.id ?? "");
-
-  const needle = query.trim().toLowerCase();
-  const filtered = KIT_COMPENDIUM.filter((kit) =>
-    needle
-      ? `${kit.name} ${kit.summary} ${kit.equipment}`
-          .toLowerCase()
-          .includes(needle)
-      : true,
-  );
-  const preview = filtered.find((kit) => kit.id === previewId) ?? filtered[0];
+  const listFade = useScrollFade();
+  const kits = availableKits(character.className, selectedGroupValue(character, "fury.aspect") ?? character.subclass);
+  const entries = catalogSectionEntries("kits").filter((entry) => kits.some((kit) => kit.name === entry.name));
+  const needle = searchText(query.trim());
+  const filtered = entries.filter((entry) => !needle || searchText(entry.search).includes(needle));
+  const preview = filtered.find((entry) => entry.id === previewId) ?? filtered.find((entry) => entry.name === currentKit?.name) ?? filtered[0];
+  const selected = kits.find((kit) => kit.name === preview?.name);
 
   return (
     <Modal
@@ -48,91 +42,32 @@ export function KitPicker({
       footer={
         <>
           <span className="grow" />
-          <Button iconOnly icon="close" variant="ghost" onClick={onClose}>
-            Отмена
-          </Button>
-          <Button
-            variant="primary"
-            disabled={!preview}
-            onClick={() => preview && onSelect(preview)}
-          >
+          <Button variant="primary" disabled={!selected} onClick={() => selected && onSelect(selected)}>
             Выбрать комплект
           </Button>
         </>
       }
     >
       <div className="kit-picker-search">
-        <TextInput
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Поиск комплекта…"
-          aria-label="Поиск комплекта"
-        />
+        <SearchInput value={query} onValueChange={setQuery} placeholder="Поиск комплекта…" aria-label="Поиск комплекта" />
       </div>
-
       {filtered.length === 0 ? (
-        <EmptyState
-          icon="search"
-          title="Комплект не найден"
-          text="Попробуйте другой запрос."
-        />
+        <EmptyState icon="search" title={kits.length ? "Комплект не найден" : "Комплекты недоступны"}
+          text={kits.length ? "Попробуйте другой запрос." : "Этот класс не использует комплекты."} />
       ) : (
         <div className="kit-picker-body">
-          <div className="kit-picker-list">
-            {filtered.map((kit) => (
-              <button
-                key={kit.id}
-                type="button"
-                className={`kit-option ${preview?.id === kit.id ? "is-active" : ""}`.trim()}
-                onClick={() => setPreviewId(kit.id)}
-              >
-                <span className="kit-option-name">{kit.name}</span>
-                <span className="kit-option-equipment">{kit.equipment}</span>
-                {kit.id === currentKit?.id && (
-                  <span className="kit-option-current">текущий</span>
-                )}
-              </button>
-            ))}
-          </div>
-
-          <aside className="kit-picker-preview">
-            {preview ? (
-              <>
-                <h3>{preview.name}</h3>
-                <p className="kit-preview-summary">{preview.summary}</p>
-
-                <div className="kit-preview-block">
-                  <span className="eyebrow">Снаряжение</span>
-                  <p>{preview.equipment}</p>
-                </div>
-
-                {preview.bonuses.length > 0 && (
-                  <div className="kit-preview-block">
-                    <span className="eyebrow">Бонусы комплекта</span>
-                    <div className="kit-bonuses">
-                      {preview.bonuses.map((bonus) => (
-                        <Chip
-                          key={`${bonus.label}-${bonus.value}`}
-                          tone="accent"
-                        >
-                          {kitBonusLabel(bonus.label)} {bonus.value}
-                        </Chip>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {preview.signatureAbility && (
-                  <div className="kit-preview-block">
-                    <span className="eyebrow">Знаковая способность</span>
-                    <p className="kit-signature">{preview.signatureAbility}</p>
-                  </div>
-                )}
-              </>
-            ) : (
-              <EmptyState icon="sword" title="Выберите комплект" />
-            )}
-          </aside>
+          <nav ref={listFade.ref} className={`kit-picker-list scroll-fade${listFade.more ? " has-more" : ""}`} tabIndex={0} aria-label="Доступные комплекты">
+            <ReferenceList
+              entries={filtered}
+              label="Комплекты"
+              selectedId={preview?.id}
+              onSelect={(entry) => setPreviewId(entry.id)}
+              metaFor={(entry) => entry.name === currentKit?.name ? <Chip tone="accent">Текущий</Chip> : null}
+            />
+          </nav>
+          <section className="kit-picker-preview" aria-label={`Описание: ${preview.name}`}>
+            {preview.articleId && <RuleArticleReader key={preview.id} articleId={preview.articleId} entityName={preview.entityName} />}
+          </section>
         </div>
       )}
     </Modal>

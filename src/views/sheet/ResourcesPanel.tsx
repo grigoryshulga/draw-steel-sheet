@@ -211,7 +211,6 @@ export function ResourcesPanel() {
           value={character.heroicResource.current}
           onValue={(value) => set("heroicResource", value)}
         />
-
         <ResourceGains gains={gains} />
 
         {epicName && (

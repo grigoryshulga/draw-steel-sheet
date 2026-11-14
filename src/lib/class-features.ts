@@ -18,6 +18,7 @@ import {
 } from "./feature-conditions";
 import { normalizeFeatureText } from "./utils";
 import { canonicalClassFeatureId } from "../data/originals";
+import { stormwightFeatures } from "./stormwight-features";
 
 /** Активная особенность класса: то, что лист показывает герою прямо сейчас. */
 export interface ActiveClassFeature {
@@ -374,6 +375,7 @@ export function activeClassFeatures(character: Character): ActiveClassFeature[] 
         mechanics,
       });
     }
+    active.push(...stormwightFeatures(character));
     return active.sort(
       (a, b) => a.level - b.level || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
     );

@@ -1,0 +1,59 @@
+.fury-ferocity-body {
+  min-width: 0;
+  display: grid;
+  gap: var(--space-6);
+}
+.fury-ferocity-source {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-body);
+}
+.fury-ferocity-thresholds {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.fury-ferocity-thresholds li {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  background: var(--surface-2);
+}
+.fury-ferocity-thresholds strong { font-size: var(--text-xl); line-height: var(--leading-tight); }
+.fury-ferocity-thresholds span { font-size: var(--text-xs); white-space: nowrap; }
+.fury-ferocity-thresholds [data-state="active"] {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+.fury-ferocity-thresholds [data-state="retained"] {
+  color: var(--yellow);
+  border-color: color-mix(in srgb, var(--yellow) 55%, var(--line));
+  background: color-mix(in srgb, var(--yellow) 8%, var(--surface-2));
+}
+.fury-ferocity-thresholds [data-state="locked"] { border-style: dashed; }
+.fury-ferocity-thresholds [data-state="replaced"] strong { font-size: var(--text-lg); }
+.fury-ferocity-turn, .fury-ferocity-empty, .fury-ferocity-manual, .fury-ferocity-missing p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+}
+.fury-ferocity-turn.is-retained { color: var(--yellow); }
+.fury-ferocity-active { display: grid; gap: var(--space-6); list-style: none; margin: 0; padding: 0; }
+.fury-ferocity-active > li { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: var(--space-4); }
+.fury-ferocity-bonus-threshold { color: var(--accent); font-size: var(--text-body); font-weight: 600; padding-top: var(--space-1); }
+.fury-ferocity-active [data-retained] > .fury-ferocity-bonus-threshold { color: var(--yellow); }
+.fury-ferocity .rule-text { font-size: var(--text-md); line-height: var(--leading-relaxed); }
+.fury-ferocity .rule-text > :first-child { margin-top: 0; }
+.fury-ferocity .rule-text > :last-child { margin-bottom: 0; }
+.fury-ferocity-next { border-top: 1px solid var(--line); padding-top: var(--space-6); color: var(--muted); }
+.fury-ferocity-next h4 { margin: 0 0 var(--space-3); font-size: var(--text-body); font-weight: 500; }
+.fury-ferocity-missing { display: grid; justify-items: start; gap: var(--space-4); }

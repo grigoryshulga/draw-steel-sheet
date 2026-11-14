@@ -160,12 +160,24 @@ export interface DamageTrait {
   note?: string;
 }
 
+export type StormwightForm = "true" | "animal" | "hybrid";
+export interface StormwightFormRuntime {
+  kitId: string;
+  form: StormwightForm;
+  /** Исходный размер хранится отдельно от размера текущей формы. */
+  trueSize: string;
+  hybridSize: "1S" | "1M";
+}
+
 /** Состояние схватки: раунд, схватка, отметки триггеров, формы и пулы ресурсов. */
 export interface CharacterRuntime {
   round: number;
   encounter: number;
   /** Текущая битва начата и ещё не завершена. Старые листы считаются вне битвы. */
   combatActive?: boolean;
+  /** Собственный ход Неистового и максимум свирепости, достигнутый до его окончания. */
+  furyTurn?: { active: boolean; peak: number };
+  stormwight?: StormwightFormRuntime;
   /** Отметки триггеров и прибавок ресурса: ключ — id фичи или тег прибавки; round/encounter — номер, в котором отмечено; count — сколько раз. */
   triggers: Record<string, { round?: number; encounter?: number; count?: number }>;
   /**

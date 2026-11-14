@@ -2,6 +2,9 @@ import { lazy, Suspense, useMemo, useState, type KeyboardEvent } from "react";
 import { addCatalogEntry } from "../lib/catalog-character";
 import { ItemAbilitiesEditor } from "../components/ItemAbilitiesEditor";
 import { MarkdownPreview } from "../components/MarkdownPreview";
+import { CardDetailModal } from "../components/CardDetailModal";
+import { RuleArticleReader } from "../components/rules/RuleArticleReader";
+import { catalogSectionEntries } from "../data/reference-catalog";
 import { ItemEffectsEditor, ItemEffectsSummary } from "../components/ItemEffectsEditor";
 import { normalizeItemEffects } from "../lib/item-effects";
 import { Icon } from "../components/Icons";
@@ -20,7 +23,7 @@ import {
 } from "../components/ui";
 import { makeId } from "../data/templates";
 import {
-  KIT_COMPENDIUM,
+  availableKits,
   kitBonusLabel,
   kitByName,
   type Kit,
@@ -105,13 +108,20 @@ function catalogHref(item: InventoryItem) {
 }
 
 function KitFeature({ kit, eyebrow }: { kit: Kit; eyebrow: string }) {
+  const [rulesOpen, setRulesOpen] = useState(false);
+  const entry = catalogSectionEntries("kits").find((item) => item.name === kit.name);
   return (
     <article className="inv-kit-feature">
       <div className="inv-kit-feature-body">
         <header className="inv-kit-feature-head">
           <div className="inv-kit-feature-name">
             <span className="eyebrow">{eyebrow}</span>
-            <h3>{kit.name}</h3>
+            <div className="inv-kit-feature-title">
+              <h3>{kit.name}</h3>
+              {entry && <Button size="sm" variant="ghost" icon="book" iconOnly
+                aria-label={`Правила комплекта «${kit.name}»`} title={`Правила комплекта «${kit.name}»`}
+                onClick={() => setRulesOpen(true)} />}
+            </div>
           </div>
           <div className="inv-kit-bonuses">
             {kit.bonuses.map((bonus) => (
@@ -122,7 +132,10 @@ function KitFeature({ kit, eyebrow }: { kit: Kit; eyebrow: string }) {
           </div>
         </header>
         <p className="inv-kit-summary">{kit.summary}</p>
+        {!!kit.variants?.length && <p className="inv-kit-hint">Выберите конкретный комплект: {kit.variants.map((variant) => variant.name).join(", ")}. Бонусы зависят от этого выбора.</p>}
         <div className="inv-kit-facts">
+          {kit.animalForm && <div><span className="eyebrow">Форма животного</span><p>{kit.animalForm}</p></div>}
+          {kit.storm && <div><span className="eyebrow">Первозданный шторм</span><p>{kit.storm} · {kit.damageType}</p></div>}
           <div>
             <span className="eyebrow">Снаряжение</span>
             <p>{kit.equipment}</p>
@@ -135,6 +148,9 @@ function KitFeature({ kit, eyebrow }: { kit: Kit; eyebrow: string }) {
           )}
         </div>
       </div>
+      {rulesOpen && entry?.articleId && <CardDetailModal open onClose={() => setRulesOpen(false)} title={kit.name} wide>
+        <RuleArticleReader articleId={entry.articleId} entityName={entry.entityName} />
+      </CardDetailModal>}
     </article>
   );
 }
@@ -458,7 +474,7 @@ export function InventoryView() {
                 value={character.kit}
                 placeholder="Напр.: Клинок и щит"
                 aria-label="Комплект"
-                onChange={(e) => patch({ kit: e.target.value })}
+                onChange={(e) => update((current) => changeKit(current, e.target.value))}
               />
             </Field>
 
@@ -491,7 +507,7 @@ export function InventoryView() {
                   }
                 >
                   <option value="">Без второго комплекта</option>
-                  {KIT_COMPENDIUM.filter((k) => k.name !== character.kit).map(
+                  {availableKits(character.className, character.subclass).filter((k) => k.name !== character.kit).map(
                     (k) => (
                       <option key={k.id}>{k.name}</option>
                     ),
@@ -750,16 +766,16 @@ export function InventoryView() {
         notify(`Добавлено: ${entry.name}`, "success");
       }} /></Suspense>}
 
-      <KitPicker
-        open={kitPickerOpen}
-        current={character.kit}
+      {kitPickerOpen && <KitPicker
+        open
+        character={character}
         onClose={() => setKitPickerOpen(false)}
         onSelect={(kit) => {
           update((c) => changeKit(c, kit.name));
           setKitPickerOpen(false);
           notify(`Комплект «${kit.name}» выбран`, "success");
         }}
-      />
+      />}
     </div>
   );
 }

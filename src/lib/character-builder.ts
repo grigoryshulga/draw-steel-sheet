@@ -10,7 +10,8 @@ import { ancestryTraitIdsFromNames } from "../data/ancestry-feature-rules";
 import { ancestryFeatureChoiceDefinitions } from "./ancestry-features";
 import { ancestrySkillSlots } from "../data/ancestry-skill-rules";
 import { careerPerkType, perkById } from "../data/perks";
-import { kitByName } from "../data/kits";
+import { selectableKitByName } from "../data/kits";
+import { kitGrantedAbilities } from "./equipment";
 import {
   CHARACTERISTIC_KEYS,
   type Character,
@@ -298,9 +299,7 @@ export function buildCharacter(
   }
   const career = BUILDER_DATA.careers.find((c) => c.name === draft.career);
   const perk = perkById(draft.perkId);
-  const kit = canUseKit(draft.className, draft.subclass)
-    ? kitByName(draft.kit)
-    : undefined;
+  const kit = selectableKitByName(draft.kit, draft.className, draft.subclass);
   const complication = BUILDER_DATA.complications.find(
     (c) => c.name === draft.complication,
   );
@@ -351,16 +350,13 @@ export function buildCharacter(
   );
   const kitAbilities = [
     kit,
-    draft.className === "Тактик" ? kitByName(draft.secondaryKit) : undefined,
+    draft.className === "Тактик"
+      ? selectableKitByName(draft.secondaryKit, draft.className, draft.subclass)
+      : undefined,
   ]
     .filter(Boolean)
     .flatMap((kit) => {
-      const ability = ABILITY_COMPENDIUM.find(
-        (a) =>
-          a.source === `Комплект: ${kit!.name}` &&
-          a.name === kit!.signatureAbility,
-      );
-      return ability ? [ability] : [];
+      return kitGrantedAbilities(kit!);
     });
   const doc: Character = {
     ...seed,
@@ -614,10 +610,11 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
                 ? ""
                 : "Заполните навыки класса; повторяющиеся навыки замените.",
     kit:
-      canUseKit(draft.className, draft.subclass) && !draft.kit
+      canUseKit(draft.className, draft.subclass) &&
+        !selectableKitByName(draft.kit, draft.className, draft.subclass)
         ? "Выберите комплект."
         : draft.className === "Тактик" &&
-            (!draft.secondaryKit || draft.secondaryKit === draft.kit)
+            (!selectableKitByName(draft.secondaryKit, draft.className, draft.subclass) || draft.secondaryKit === draft.kit)
           ? "Выберите второй, отличный комплект тактика."
           : "",
     abilities: forbiddenDomainCardSelected

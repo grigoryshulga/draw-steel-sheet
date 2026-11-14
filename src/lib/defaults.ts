@@ -281,10 +281,31 @@ function normalizeRuntime(raw: unknown): CharacterRuntime | undefined {
     return defaultRuntime();
   }
   const source = raw as Record<string, unknown>;
+  const turn = source.furyTurn;
+  let furyTurn: CharacterRuntime["furyTurn"];
+  if (turn && typeof turn === "object" && !Array.isArray(turn)) {
+    const { active, peak } = turn as Record<string, unknown>;
+    if (typeof active === "boolean" && typeof peak === "number" && Number.isSafeInteger(peak) && peak >= 0 && peak <= 99) {
+      furyTurn = { active, peak };
+    }
+  }
+  const shape = source.stormwight;
+  let stormwight: CharacterRuntime["stormwight"];
+  if (shape && typeof shape === "object" && !Array.isArray(shape)) {
+    const { kitId, form, trueSize, hybridSize } = shape as Record<string, unknown>;
+    if (typeof kitId === "string" && ["kit.boren", "kit.corven", "kit.raden", "kit.vuken"].includes(kitId)
+      && (form === "true" || form === "animal" || form === "hybrid")
+      && typeof trueSize === "string" && trueSize.length <= 80
+      && (hybridSize === "1S" || hybridSize === "1M")) {
+      stormwight = { kitId, form, trueSize, hybridSize };
+    }
+  }
   return {
     round: positiveInt(source.round) ?? 1,
     encounter: positiveInt(source.encounter) ?? 1,
     ...(typeof source.combatActive === "boolean" ? { combatActive: source.combatActive } : {}),
+    ...(furyTurn ? { furyTurn } : {}),
+    ...(stormwight ? { stormwight } : {}),
     triggers: normalizeRuntimeMarks(source.triggers),
     forms: Array.isArray(source.forms)
       ? source.forms.filter(

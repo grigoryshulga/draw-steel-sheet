@@ -36,6 +36,7 @@ export type FeatureAmount =
 export interface FeatureFilter {
   keywords?: string[];
   mode?: "melee" | "ranged";
+  powerRoll?: true;
 }
 
 /** Когда эффект действует на героя. */
@@ -48,7 +49,7 @@ export interface FeatureCondition {
   keyValue?: string[];
   /** Все перечисленные значения должны быть выбраны (например, амплуа и её особенность). */
   keyValueAll?: string[];
-  resourceAtLeast?: { name: string; value: number };
+  resourceAtLeast?: { name: string; value: number; useTurnPeak?: true };
   formActive?: string;
 }
 

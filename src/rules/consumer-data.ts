@@ -75,6 +75,15 @@ export interface ConsumerKit extends OriginalFields {
   equipment: string;
   bonuses: ConsumerKitBonus[];
   signatureAbility: string;
+  variants?: ConsumerKit[];
+  familyId?: string;
+  articleId?: string;
+  grantedAbilityIds?: string[];
+  damageType?: string;
+  animalForm?: string;
+  formRules?: { aspect: string; animal: string; hybrid: string };
+  storm?: string;
+  growingFerocity?: { threshold: number; level: number; description: string }[];
 }
 
 export interface ConsumerKitProjection {

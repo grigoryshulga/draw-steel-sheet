@@ -714,23 +714,26 @@ describe("проекции канонических правил для потр
 
 describe("проекции комплектов, перков, особенностей и повышения уровня", () => {
   it("проецирует все комплекты с английскими ID, полями и порядком", () => {
-    // Включая составной 0924 «Буревестник»: его карточки хранятся прямо в
-    // Markdown сущности, а не отдельными сущностями `ability`.
+    // Общая запись 0924 сохраняет идентичность; четыре выбираемых комплекта
+    // проецируются из её полного текста с отдельными бонусами и способностями.
     expect(kitsProjection.kits).toHaveLength(22);
     expectProjectionIdentity(
       kitsProjection.kits,
       legacyKits.map((kit) => legacyIdMap.kits[kit.id]),
     );
-    expect(stripIdentity(kitsProjection.kits)).toEqual(
-      stripIdentity(legacyKits),
+    expect(stripIdentity(kitsProjection.kits.filter((kit: any) => kit.name !== "Буревестник"))).toEqual(
+      stripIdentity(legacyKits.filter((kit: any) => kit.name !== "Буревестник")),
     );
     expect(
       kitsProjection.kits.find((kit) => kit.id === "kit.stormwight"),
     ).toMatchObject({
       name: "Буревестник",
-      signatureAbility: "Сносящая Атака",
+      signatureAbility: "",
+      bonuses: [],
     });
-    for (const kit of kitsProjection.kits) {
+    const stormwight = kitsProjection.kits.find((kit: any) => kit.id === "kit.stormwight");
+    expect(stormwight.variants.map((kit: any) => kit.id)).toEqual(["kit.boren", "kit.corven", "kit.raden", "kit.vuken"]);
+    for (const kit of kitsProjection.kits.flatMap((kit: any) => kit.variants ?? [kit])) {
       expect(kit.signatureAbility).not.toBe("");
     }
   });

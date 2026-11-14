@@ -38,7 +38,7 @@ describe("guided creation flow", () => {
       builderFlow(draftFor("Неистовый", "Буревестник")).some(
         (s) => s.step === "kit",
       ),
-    ).toBe(false);
+    ).toBe(true);
     expect(
       builderFlow(draftFor("Тактик", "Авангард"))
         .filter((s) => s.step === "kit")

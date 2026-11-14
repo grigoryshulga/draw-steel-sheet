@@ -6,6 +6,8 @@ import type { GameAction, GameHistoryEntry } from "../lib/game-actions";
 export type { SaveStatus } from "../lib/autosave";
 
 export interface AppContextValue {
+  /** Общий лист строится из публичной проекции, без личного состояния собственного хода. */
+  readOnly?: boolean;
   character: Character;
   derived: DerivedStats;
   update: (recipe: (character: Character) => Character) => void;
