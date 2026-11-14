@@ -1,3 +1,5 @@
+import { recordElementalistDamage } from "./class-mechanics/routines-magic";
+import { previewClassMechanic, transitionClassMechanics, type ClassMechanicAction } from "./class-mechanics";
 import type { Character, CharacterRuntime, StormwightForm } from "../types";
 import type { TriggerFrequency } from "../data/class-features/types";
 import { applyDamage, deriveStats } from "./rules";
@@ -24,6 +26,8 @@ export type GameAction =
   | { kind: HealthOperation; amount?: number }
   | { kind: "resource"; resource: ResourceName; value: number }
   | { kind: "round" }
+  | { kind: "turn-start" | "turn-end" }
+  | { kind: "class-mechanic"; action: ClassMechanicAction }
   | { kind: "encounter" }
   | { kind: "combat-start" }
   | { kind: "combat-end" }
@@ -92,7 +96,7 @@ const validAmount = (amount: number | undefined) =>
   amount <= 9999;
 
 /** One preview is used by the UI and re-evaluated against the latest hero at commit. */
-export function previewGameAction(
+function previewBaseGameAction(
   character: Character,
   action: GameAction,
 ): ActionPreview {
@@ -109,6 +113,20 @@ export function previewGameAction(
     next: trackFuryTurn(character, { ...character, ...patch }),
   });
   switch (action.kind) {
+    case "class-mechanic": return previewClassMechanic(character, action.action);
+    case "turn-start": {
+      const runtime = currentRuntime(character);
+      if (!runtime.combatActive) return invalid("Сначала начните битву");
+      if (runtime.turnActive) return invalid("Ход уже начался");
+      const next = transitionClassMechanics({ ...character, runtime: { ...runtime, turn: (runtime.turn ?? 0) + 1, turnActive: true } }, "turn-start");
+      return { ok: true, next, label: "Начало своего хода", detail: "Начался новый ход героя; эффекты начала хода обновлены." };
+    }
+    case "turn-end": {
+      const runtime = currentRuntime(character);
+      if (!runtime.turnActive) return invalid("Свой ход ещё не начат");
+      const next = transitionClassMechanics(character, "turn-end");
+      return { ok: true, next: { ...next, runtime: { ...currentRuntime(next), turnActive: false } }, label: "Конец своего хода", detail: "Применены последствия конца хода героя." };
+    }
     case "damage": {
       if (!validAmount(action.amount) || !action.amount)
         return invalid("Введите количество урона больше нуля");
@@ -232,7 +250,7 @@ export function previewGameAction(
     }
     case "combat-start": {
       if (currentRuntime(character).combatActive) return invalid("Битва уже началась");
-      const runtime = { ...currentRuntime(beginEncounter(character)), round: 1, combatActive: true };
+      const runtime = { ...currentRuntime(beginEncounter(character)), round: 1, combatActive: true, turnActive: false };
       return finish("Начало битвы", "Началась новая битва, отметки триггеров сняты.", { runtime });
     }
     case "combat-end": {
@@ -241,8 +259,8 @@ export function previewGameAction(
       return finish("Конец битвы", character.className === "Неистовый"
         ? `Битва завершена. Свирепость: ${heroicResource.current} → 0; удержанные пороги сняты.`
         : "Битва завершена.", {
-        runtime: { ...withoutFuryTurn(runtime), combatActive: false },
-        ...(character.className === "Неистовый" ? { heroicResource: { ...heroicResource, current: 0 } } : {}),
+        runtime: { ...withoutFuryTurn(runtime), combatActive: false, turnActive: false },
+        heroicResource: { ...heroicResource, current: 0 },
       });
     }
     case "fury-turn-start": {
@@ -378,6 +396,23 @@ export function previewGameAction(
   }
 }
 
+/** One transaction keeps state, resource changes and undo in sync. */
+export function previewGameAction(character: Character, action: GameAction): ActionPreview {
+  // Capture an attained threshold before spending the resource.
+  const before = action.kind === "turn-start" || action.kind === "turn-end"
+    ? character : transitionClassMechanics(character, "resource-change");
+  const result = previewBaseGameAction(before, action);
+  if (!result.ok) return result;
+  let next = result.next;
+  if (action.kind === "damage") next = recordElementalistDamage(next, action.amount ?? 0);
+  if (action.kind === "combat-start" || action.kind === "combat-end" || action.kind === "rest") {
+    next = transitionClassMechanics(next, action.kind);
+    if (action.kind === "rest") next = { ...next, runtime: { ...currentRuntime(next), turnActive: false } };
+  }
+  if (action.kind !== "turn-end") next = transitionClassMechanics(next, "resource-change");
+  return { ...result, next };
+}
+
 const values = (c: Character) => ({
   stamina: c.stamina.current,
   temp: c.stamina.temp,
@@ -394,6 +429,12 @@ type ValueKey = keyof ReturnType<typeof values>;
  * Состояние схватки в виде строки: по полям и с сортировкой ключей, чтобы
  * пересборка объекта (импорт, нормализация) не мешала отмене.
  */
+function stateKey(value: unknown): string {
+  if (Array.isArray(value)) return `[${value.map(stateKey).join(",")}]`;
+  if (value && typeof value === "object") return JSON.stringify(Object.entries(value).filter(([, v]) => v !== undefined).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => [k, stateKey(v)]));
+  return JSON.stringify(value) ?? "undefined";
+}
+
 function runtimeKey(runtime: CharacterRuntime | undefined): string {
   if (!runtime) return "нет";
   return JSON.stringify([
@@ -402,6 +443,8 @@ function runtimeKey(runtime: CharacterRuntime | undefined): string {
     !!runtime.combatActive,
     runtime.furyTurn ? [runtime.furyTurn.active, runtime.furyTurn.peak] : null,
     runtime.stormwight ? [runtime.stormwight.kitId, runtime.stormwight.form, runtime.stormwight.trueSize, runtime.stormwight.hybridSize] : null,
+    runtime.turn,
+    runtime.turnActive,
     Object.keys(runtime.triggers)
       .sort()
       .map((id) => [id, runtime.triggers[id]]),
@@ -423,6 +466,7 @@ export interface GameHistoryEntry {
   limits: { stamina: number; recoveries: number; resource: number };
   /** Состояние схватки до и после действия, если действие его меняло; поля не было — `undefined`. */
   runtime?: { before?: CharacterRuntime; after?: CharacterRuntime };
+  classMechanics?: { before?: Character["classMechanics"]; after?: Character["classMechanics"] };
 }
 
 /** Герой без поля `runtime`: отмена действия, которое его и завело. */
@@ -443,6 +487,8 @@ export function undoReason(
     runtimeKey(character.runtime) !== runtimeKey(entry.runtime.after)
   )
     return "Состояние схватки уже изменилось. Сначала отмените более позднее действие или исправьте его вручную.";
+  if (entry.classMechanics && stateKey(character.classMechanics) !== stateKey(entry.classMechanics.after))
+    return "Классовое состояние уже изменилось. Сначала отмените более позднее действие.";
   const current = values(character);
   if (entry.changes.some((change) => current[change.key] !== change.after))
     return "Затронутые значения уже изменены. Сначала отмените более позднее действие или исправьте их вручную.";
@@ -501,6 +547,8 @@ export function createGameSession() {
             recoveries: character.recoveries.max,
             resource: MAX_HEROIC_RESOURCE,
           },
+          ...(stateKey(character.classMechanics) !== stateKey(result.next.classMechanics)
+            ? { classMechanics: { before: character.classMechanics, after: result.next.classMechanics } } : {}),
           ...(runtimeChanged
             ? { runtime: { before: character.runtime, after: result.next.runtime } }
             : {}),
@@ -534,6 +582,10 @@ export function createGameSession() {
         xp: restored.xp,
         victories: restored.victories,
       };
+      if (entry.classMechanics) {
+        if (entry.classMechanics.before === undefined) delete next.classMechanics;
+        else next.classMechanics = entry.classMechanics.before;
+      }
       const reverted = entry.runtime
         ? entry.runtime.before
           ? { ...next, runtime: entry.runtime.before }
