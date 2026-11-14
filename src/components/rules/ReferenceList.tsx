@@ -2,10 +2,11 @@ import { catalogAccent } from "../../lib/catalog-presentation";
 import type { CatalogEntry } from "../../rules/consumer-data";
 import type { RuleIndexEntry } from "../../rules/schema";
 import { CatalogRank } from "./CatalogRank";
+import { TreasureKind } from "./TreasureKind";
 import { PerkCard } from "../PerkCard";
 import type { PerkType } from "../../types";
 import type { ReactNode } from "react";
-import { artFor, type ArtKind } from "../../lib/art";
+import { type ArtKind } from "../../lib/art";
 import "./ReferenceList.css";
 
 type ReferenceListEntry = {
@@ -23,7 +24,6 @@ type ReferenceListEntry = {
 export function ReferenceList<T extends ReferenceListEntry>({
   entries,
   selectedId,
-  artKind,
   hrefFor,
   onSelect,
   metaFor,
@@ -51,22 +51,9 @@ export function ReferenceList<T extends ReferenceListEntry>({
           </a>
         );
         const rank = catalogAccent(entry.catalog);
-        const art = artKind ? artFor(artKind, entry.name) : undefined;
-        const className = `catalog-card${art ? " has-art" : ""}${entry.director ? " catalog-creature-card" : ""}`;
+        const className = `catalog-card${entry.director ? " catalog-creature-card" : ""}`;
         const content = (
           <>
-            {art && (
-              <span className="catalog-card-art" aria-hidden="true">
-                <img
-                  src={art.thumbnailSrc ?? art.src}
-                  alt=""
-                  width={art.width}
-                  height={art.height}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-            )}
             <span className="catalog-card-body">
               <span className="catalog-card-meta">
               {(entry.eyebrow || entry.echelon) && (
@@ -80,6 +67,7 @@ export function ReferenceList<T extends ReferenceListEntry>({
                 {[entry.director.organization, entry.director.role].filter(Boolean).join(' · ')}
               </span>}
               <CatalogRank rank={rank} />
+              <TreasureKind entry={entry.catalog} />
               </span>
               <span className="catalog-card-title">{entry.name}</span>
               {entry.director ? <>

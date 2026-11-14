@@ -7,6 +7,7 @@ import {
 } from "../lib/catalog-presentation";
 import { echelon as levelEchelon } from "../lib/progression";
 import { CatalogRank } from "../components/rules/CatalogRank";
+import { TreasureKind } from "../components/rules/TreasureKind";
 import { Icon } from "../components/Icons";
 import {
   Fragment,
@@ -676,6 +677,7 @@ function CatalogEntryDetail({
           {!rank && entry.echelon ? ` · Эшелон ${entry.echelon}` : ""}
         </span>
         <CatalogRank rank={rank} />
+        <TreasureKind entry={entry} />
       </div>
       <h1>{entry.name}</h1>
       {flavor && (

@@ -160,18 +160,18 @@ export function CharacteristicsPanel() {
               <p>Эффект применяется, если характеристика цели строго ниже порога.</p>
             </HelpTooltip>
           </span>
-          <div className="potency-group-values">
+          <output className="input numeric potency-group-values" aria-label={`Потенциал: слабый ${derived.potency.weak}, средний ${derived.potency.average}, сильный ${derived.potency.strong}`}>
             {([
               ["Слабый", derived.potency.weak],
               ["Средний", derived.potency.average],
               ["Сильный", derived.potency.strong],
             ] as const).map(([label, value]) => (
-              <output className="input numeric potency-compact" key={label} aria-label={`${label} потенциал: ${value}`}>
+              <span className="potency-compact" key={label}>
                 <span className="potency-compact-label" aria-hidden="true">{label}</span>
                 <span aria-hidden="true">{value}</span>
-              </output>
+              </span>
             ))}
-          </div>
+          </output>
         </div>
       </div>
     </Panel>

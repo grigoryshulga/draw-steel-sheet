@@ -25,6 +25,7 @@ SQL
 psql_local < "$root_dir/supabase/migrations/202610230001_create_characters.sql"
 psql_local < "$root_dir/supabase/migrations/202611070001_create_tables.sql"
 psql_local < "$root_dir/supabase/migrations/202611070003_start_scene_in_place.sql"
+psql_local < "$root_dir/supabase/migrations/202611140001_item_abilities.sql"
 psql_local < "$root_dir/tests/sql/tables-fixture.sql"
 has_revision_rpc=0
 if [[ -f "$root_dir/supabase/migrations/202611070002_character_revisions.sql" ]]; then

@@ -1,8 +1,14 @@
 import type { SVGProps } from "react";
+import { LockKeyhole } from "lucide-react";
+import { Bold, Italic, Strikethrough, Code, SquareCode, Quote, ListOrdered, ListChecks, Link, Image, Table, SeparatorHorizontal, Maximize2, Minimize2, Redo2 } from "lucide-react";
 import { Armchair, FileText, Sparkles, Backpack, UserRound, Settings, LogIn, LogOut, Dices, History, Plus, Minus, Trash2, X, ChevronLeft, ChevronDown, ChevronRight, ArrowUp, Cloud, Download, Upload, Copy, Check, Search, Pencil, Sword, Heart, Shield, Zap, Sun, Palette, TriangleAlert, BookText, Library, Users, Tag, RefreshCw, ArrowLeft, ArrowRight, Eye, EyeOff, Save, Play, Pause, Undo2, Archive, Bookmark, ListFilter, List, Ellipsis } from "lucide-react";
 
 export type IconName =
   | "tables"
+  | "lock"
+  | "bold" | "italic" | "strikethrough" | "code" | "code-block" | "quote"
+  | "list-ordered" | "list-check" | "link" | "image" | "table" | "separator"
+  | "expand" | "collapse" | "redo"
   | "sheet"
   | "abilities"
   | "inventory"
@@ -54,6 +60,12 @@ export type IconName =
   | "more";
 
 const icons = {
+  "bold": Bold, "italic": Italic, "strikethrough": Strikethrough,
+  "code": Code, "code-block": SquareCode, "quote": Quote,
+  "list-ordered": ListOrdered, "list-check": ListChecks, "link": Link,
+  "image": Image, "table": Table, "separator": SeparatorHorizontal,
+  "expand": Maximize2, "collapse": Minimize2, "redo": Redo2,
+  "lock": LockKeyhole,
   "tables": Armchair,
   "sheet": FileText,
   "abilities": Sparkles,

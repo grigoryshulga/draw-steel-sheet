@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
-import { Artwork } from "./Artwork";
 import { RuleText } from "./RuleText";
 import { Card } from "./ui";
-import { artFor, type ArtKind } from "../lib/art";
+import { type ArtKind } from "../lib/art";
 import "./BuilderOptionCard.css";
 
 export interface BuilderOptionCardProps {
@@ -26,7 +25,6 @@ export interface BuilderOptionCardProps {
  * текст и подсвечивается акцентом.
  */
 export function BuilderOptionCard({
-  kind,
   name,
   summary,
   snippet,
@@ -36,17 +34,15 @@ export function BuilderOptionCard({
   children,
   className = "",
 }: BuilderOptionCardProps) {
-  const hasArt = Boolean(artFor(kind, name));
 
   return (
     <Card
-      className={`builder-option-card${hasArt ? " with-art" : ""}${className ? ` ${className}` : ""}`}
+      className={`builder-option-card${className ? ` ${className}` : ""}`}
       selected={selected}
       disabled={disabled}
       onSelect={onSelect}
       alwaysFocusable
     >
-      {hasArt && <Artwork kind={kind} name={name} className="builder-option-art" />}
       <div className="builder-option-body">
         <h3 className="builder-option-name">{name}</h3>
         {selected && summary ? (

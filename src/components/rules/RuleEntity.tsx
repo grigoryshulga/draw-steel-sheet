@@ -40,7 +40,7 @@ function headingText(value: string): string {
 export function stripRepeatedEntityHeading(
   markdown: string,
   name: string,
-): { markdown: string; headingId: string } {
+): { markdown: string; headingId: string; label?: string } {
   const lines = markdown.split("\n");
   let index = 0;
   while (index < lines.length && !lines[index].trim()) index += 1;
@@ -49,11 +49,13 @@ export function stripRepeatedEntityHeading(
   if (!match) return { markdown, headingId: "" };
 
   const title = headingText(match[2]);
-  if (!title || title !== headingText(name)) return { markdown, headingId: "" };
+  const signature = /^Знаковая черта:\s*/i.test(title);
+  const comparable = title.replace(/^Знаковая черта:\s*/i, "");
+  if (!title || comparable.toLocaleLowerCase("ru") !== headingText(name).toLocaleLowerCase("ru")) return { markdown, headingId: "" };
 
   const rest = lines.slice(index + 1);
   while (rest.length > 0 && !rest[0].trim()) rest.shift();
-  return { markdown: rest.join("\n"), headingId: headingId(title) };
+  return { markdown: rest.join("\n"), headingId: headingId(title), ...(signature ? { label: "Знаковая черта" } : {}) };
 }
 
 /**
@@ -176,6 +178,7 @@ export function RuleEntityView({
           <Heading className="rule-entity-name" id={anchor}>
             {entity.name}
           </Heading>
+          {content.label && <span className="rule-entity-type">{content.label}</span>}
           {entity.director && entity.originalName && <span className="director-original-name" lang="en">{entity.originalName}</span>}
         </div>
       </header>}
@@ -197,6 +200,7 @@ export function RuleEntityView({
           directorMode={directorMode}
           directorHeading={directorHeading}
           directorHeadingActions={headingActions}
+          sharedAbilityCards={entity.kind === "perk"}
         />
       ) : (
         <p className="rule-entity-empty">

@@ -57,7 +57,7 @@ select public.test_assert(public.table_list()='[]','nonmember list empty');
 select public.test_denied(format('select public.table_read(%L)',:'tid'),'PT404');
 select public.test_denied(format('select public.test_command(null,''join'',%L)',jsonb_build_object('inviteCode',:'invite','memberName','A')),'PT404');
 select public.test_command(null,'join',jsonb_build_object('inviteCode',:'invite_new','memberName','A'));
-insert into public.characters(user_id,id,document) values(auth.uid(),'a','{"id":"a","name":"Alice","notes":{"secrets":"SECRET-HERO","story":"Story"},"inventory":[{"id":"potion","name":"Potion","category":"consumable","qty":5,"notes":"Potion description","equipped":true,"effects":[{"field":"save","value":1}]}],"stamina":{"current":20,"max":30,"temp":0,"notes":"SECRET-NESTED"},"conditions":{"slowed":{"active":true,"ends":"save","notes":"SECRET-CONDITION-NOTE"}},"runtime":{"resources":{"drama":2,"secret":{"notes":"SECRET-RESOURCE"}}},"updatedAt":"before archive"}');
+insert into public.characters(user_id,id,document) values(auth.uid(),'a','{"id":"a","name":"Alice","notes":{"secrets":"SECRET-HERO","story":"Story"},"inventory":[{"id":"potion","name":"Potion","category":"consumable","qty":5,"notes":"Potion description","equipped":true,"effects":[{"field":"save","value":1}],"abilityIds":["potion-power"]}],"stamina":{"current":20,"max":30,"temp":0,"notes":"SECRET-NESTED"},"conditions":{"slowed":{"active":true,"ends":"save","notes":"SECRET-CONDITION-NOTE"}},"runtime":{"resources":{"drama":2,"secret":{"notes":"SECRET-RESOURCE"}}},"updatedAt":"before archive"}');
 insert into public.characters(user_id,id,document) values(auth.uid(),'a2','{"id":"a2","name":"Other Alice","inventory":[]}');
 select public.test_command(:'tid','attach-hero','{"heroId":"a"}');
 select public.test_command(:'tid','attach-hero','{"heroId":"a2","visibility":{"sections":[],"notes":[]}}');
@@ -86,7 +86,7 @@ select public.test_denied(format('select public.test_command(%L,''visibility'','
 select public.test_denied(format('select public.table_command(%L,''{"type":"rename","payload":{"name":"Stale"},"operationId":"stale","expectedRevision":1}'')',:'tid'),'PT409');
 
 set request.jwt.claim.sub='00000000-0000-0000-0000-000000000001';
-select public.test_command(:'tid','offer-item','{"heroId":"a","toUserId":"00000000-0000-0000-0000-000000000002","item":{"id":"new-sword","name":"Sword","category":"gear","qty":1,"notes":"","equipped":true},"templateId":"gift-template"}') as with_offer \gset
+select public.test_command(:'tid','offer-item','{"heroId":"a","toUserId":"00000000-0000-0000-0000-000000000002","item":{"id":"new-sword","name":"Sword","category":"gear","qty":1,"notes":"","equipped":true,"abilityIds":["item-power"]},"templateId":"gift-template"}') as with_offer \gset
 select :'with_offer'::jsonb#>>'{offers,0,id}' as offer_id \gset
 select public.test_command(:'tid','archive','{"archived":true}');
 select public.table_template_save('{"id":"gift-template","name":"Renamed template","kind":"item","version":1,"item":{"id":"gift","name":"Renamed item","category":"treasure","qty":9,"notes":"CHANGED-PROSE","equipped":true,"effects":[{"field":"speed","value":2}]}}');
@@ -107,6 +107,7 @@ set request.jwt.claim.sub='00000000-0000-0000-0000-000000000002';
 select public.test_denied(format('select public.test_command(%L,''answer-offer'',%L)',:'tid',jsonb_build_object('offerId',:'offer_id','accept',true,'version',1)),'PT409');
 select public.test_command(:'tid','answer-offer',jsonb_build_object('offerId',:'offer_id','accept',true,'version',2),'accept-gift') as accepted \gset
 select public.test_assert((select jsonb_array_length(document->'inventory')=2 and document#>'{inventory,1,equipped}'='false' from public.characters where id='a'),'accepted gift unequipped');
+select public.test_assert((select document#>'{inventory,1,abilityIds}'='["item-power"]' from public.characters where id='a'),'accepted item retains ability references');
 set request.jwt.claim.sub='00000000-0000-0000-0000-000000000001';
 select public.table_template_save('{"id":"gift-template","name":"Renamed template","kind":"item","version":2,"item":{"id":"gift","name":"Renamed item","category":"treasure","qty":9,"notes":"CHANGED-PROSE","equipped":false,"effects":[{"field":"stamina","value":8}]}}');
 set request.jwt.claim.sub='00000000-0000-0000-0000-000000000002';
@@ -131,6 +132,7 @@ select jsonb_build_object('type','confirm-trade','operationId','complete-trade',
 select public.table_command(:'tid',:'confirm_command') as completed \gset
 select public.test_assert(:'completed'::jsonb#>>'{trades,0,status}'='accepted','both confirmations commit');
 select public.test_assert((select document#>>'{inventory,0,qty}'='2' and document#>>'{inventory,1,qty}'='2' and document#>'{inventory,1,equipped}'='false' from public.characters where id='b'),'recipient quantity and unequipped');
+select public.test_assert((select document#>'{inventory,1,abilityIds}'='["potion-power"]' from public.characters where id='b'),'traded partial stack retains ability references');
 select public.table_command(:'tid',:'confirm_command');
 select public.test_assert((select jsonb_array_length(document->'inventory')=2 from public.characters where id='b'),'idempotent trade replay');
 set request.jwt.claim.sub='00000000-0000-0000-0000-000000000002';

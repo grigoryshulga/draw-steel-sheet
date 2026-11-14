@@ -21,6 +21,7 @@ import {
 } from "../../lib/rules";
 import { inferDamageType } from "../../lib/damageType";
 import { useApp } from "../../state/AppContext";
+import { itemAbilityEntries } from "../../lib/item-abilities";
 import type { Ability } from "../../types";
 import {
   blankAbility,
@@ -120,7 +121,8 @@ export function SheetAbilitiesPanel() {
   const { character, update, notify } = useApp();
   const [selected, setSelected] = useState<Ability | null>(null);
   const [addMode, setAddMode] = useState<AddMode>(null);
-  const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
+  // Store explicitly opened groups: new action groups also start collapsed.
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [compactSections, setCompactSections] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<AbilitySheetFilter>("all");
   const [query, setQuery] = useState("");
@@ -130,6 +132,11 @@ export function SheetAbilitiesPanel() {
     isNew: boolean;
   } | null>(null);
   const abilities = character.abilities;
+  const itemEntries = useMemo(() => itemAbilityEntries(character), [character]);
+  const itemSource = (ability: Ability) => {
+    const entry = itemEntries.find(entry => entry.ability.id === ability.id);
+    return entry ? { label: "Предмет", value: entry.itemName, text: `Предмет · ${entry.itemName}` } : undefined;
+  };
   // Способности происхождения не хранятся в `character.abilities`: их выдаёт
   // выбранная черта или знаковая черта. Для листа это такие же карточки,
   // поэтому они вливаются в общий список до фильтра и поиска.
@@ -145,8 +152,9 @@ export function SheetAbilitiesPanel() {
     () => [
       ...abilities,
       ...ancestryEntries.map((entry) => entry.ability),
+      ...itemEntries.map((entry) => entry.ability),
     ],
-    [abilities, ancestryEntries],
+    [abilities, ancestryEntries, itemEntries],
   );
   // Карта «способность → подкласс» не зависит от поиска и фильтра, поэтому
   // считается один раз на героя.
@@ -180,22 +188,25 @@ export function SheetAbilitiesPanel() {
   const totalMatches = topMatches.length;
   const totalVisible = visible;
 
-  const renderAbilityCard = (ability: Ability) => (
-    <AbilityCard
+  const renderAbilityCard = (ability: Ability) => {
+    const source = itemSource(ability);
+    return <AbilityCard
       key={ability.id}
       ability={ability}
       character={character}
       origin={
+        source ??
         subclassAbilitySource(subclassSources, ability) ??
         ancestryAbilitySource(ancestrySources, ability)
       }
+      details={source && <p className="small muted">{source.text}</p>}
       onOpen={() => openAbility(ability)}
       openOnCardClick
     />
-  );
+  };
 
   const toggleGroup = (key: string) =>
-    setCollapsed((current) => {
+    setExpanded((current) => {
       const next = new Set(current);
       if (!next.delete(key)) next.add(key);
       return next;
@@ -358,7 +369,7 @@ export function SheetAbilitiesPanel() {
             {hasQuery && groups.length > 0 && <h3 className="sheet-ability-remainder-title">Остальные способности</h3>}
             {groups.map(group => <AbilityGroup key={group.key}
               action={group.key} label={group.label} count={group.items.length}
-              collapsed={collapsed.has(group.key)} onToggle={() => toggleGroup(group.key)}
+              collapsed={!expanded.has(group.key)} onToggle={() => toggleGroup(group.key)}
               compact={compactSections.has(group.key)}
               headerActions={<CardSummaryToggle label={group.label} compact={compactSections.has(group.key)} onToggle={() => toggleCardSummary(group.key)} />}>
               {group.items.map(renderAbilityCard)}
@@ -370,7 +381,8 @@ export function SheetAbilitiesPanel() {
       {selected && (
         <AbilityDetailModal
           ability={selected}
-          derived={ancestryAbilitySource(ancestrySources, selected) !== undefined}
+          derived={ancestryAbilitySource(ancestrySources, selected) !== undefined || itemSource(selected) !== undefined}
+          itemOrigin={itemSource(selected)}
           onClose={() => setSelected(null)}
           onEdit={() => {
             setEditing({ ability: selected, isNew: false });
@@ -426,6 +438,7 @@ export function SheetAbilitiesPanel() {
 
 function AbilityDetailModal({
   ability,
+  itemOrigin,
   derived = false,
   onClose,
   onEdit,
@@ -433,6 +446,7 @@ function AbilityDetailModal({
   onDelete,
 }: {
   ability: Ability;
+  itemOrigin?: { label: string; value: string; text: string };
   /** Карточка выдана происхождением: её нельзя править или удалить на листе. */
   derived?: boolean;
   onClose: () => void;
@@ -451,6 +465,7 @@ function AbilityDetailModal({
     [character],
   );
   const origin =
+    itemOrigin ??
     subclassAbilitySource(subclassSources, ability) ??
     ancestryAbilitySource(ancestrySources, ability);
   const tiers = ability.tiers
@@ -506,7 +521,7 @@ function AbilityDetailModal({
           )}
           {derived && (
             <span className="sheet-ability-derived-note">
-              Выдана происхождением
+              {itemOrigin ? "Доступна, пока предмет экипирован" : "Выдана происхождением"}
             </span>
           )}
         </>

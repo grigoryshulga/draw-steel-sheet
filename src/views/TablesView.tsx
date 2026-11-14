@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
+import { MarkdownEditor } from "../components/MarkdownEditor";
+import { MarkdownPreview } from "../components/MarkdownPreview";
 import { Button, Card, Select } from "../components/ui";
 import { CardDetailModal } from "../components/CardDetailModal";
 import { Toasts } from "../components/Toasts";
@@ -628,6 +630,7 @@ export function TablesView({
                     onClose={() => setMaterialEditing(false)}
                     title={material.id ? "Изменить материал" : "Новый материал"}
                     className="table-dialog"
+                    wide
                   >
                     {state.error && <p role="alert">{state.error}</p>}
                     <form
@@ -663,18 +666,18 @@ export function TablesView({
                           }
                         />
                       </label>
-                      <label>
-                        Текст
-                        <textarea
-                          className="textarea"
+                      <div className="field">
+                        <span className="field-label">Текст</span>
+                        <MarkdownEditor
+                          disabled={busy || table.archived}
+                          aria-label="Текст материала"
                           required
-                          rows={6}
                           value={material.text}
-                          onChange={(e) =>
-                            setMaterial({ ...material, text: e.target.value })
+                          onChange={(text) =>
+                            setMaterial({ ...material, text })
                           }
                         />
-                      </label>
+                      </div>
                       <label className="table-check">
                         <input
                           type="checkbox"
@@ -705,7 +708,7 @@ export function TablesView({
                 {table.materials.map((m) => (
                   <Card key={m.id} className="table-material-card">
                     <div className="table-section-heading"><h3>{m.title}</h3><span className="table-badge">{m.public ? "Виден игрокам" : "Только ведущему"}</span></div>
-                    <p className="table-prose table-material-excerpt">{m.text}</p>
+                    <div className="table-material-excerpt"><MarkdownPreview text={m.text} /></div>
                     <div className="table-actions"><Button icon="eye" iconOnly size="sm" variant="ghost" onClick={() => setViewingMaterial(m)}>Прочитать материал</Button>
                     {director && !table.archived && (
                       <>
@@ -755,7 +758,7 @@ export function TablesView({
                   </Card>
                 ))}
                 <CardDetailModal open={!!viewingMaterial} onClose={() => setViewingMaterial(null)} title={viewingMaterial?.title ?? "Материал"} className="table-dialog" wide>
-                  <p className="table-prose">{viewingMaterial?.text}</p>
+                  <MarkdownPreview text={viewingMaterial?.text ?? ""} />
                 </CardDetailModal>
               </section>
             )}

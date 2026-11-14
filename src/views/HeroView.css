@@ -155,3 +155,6 @@
   border-color: color-mix(in srgb, var(--skill-tone, var(--accent)) 42%, transparent);
   background: color-mix(in srgb, var(--skill-tone, var(--accent)) 14%, transparent);
 }
+.hero-locked-choice { position: relative; display: flex; align-items: center; }
+.hero-locked-choice > svg { position: absolute; left: var(--space-6); color: var(--muted); pointer-events: none; }
+.hero-locked-choice .input { padding-left: calc(var(--space-6) * 2 + 14px); color: var(--muted); }

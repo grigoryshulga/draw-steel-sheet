@@ -1,4 +1,5 @@
 import { normalizeItemEffects } from "./item-effects";
+import { normalizeItemAbilityIds } from "./item-ability-ids";
 import { CONDITIONS, CONDITION_END_VALUES } from "../data/conditions";
 import { emptyNotes } from "../data/notes";
 import { classPreset, heroicResourceName } from "../data/classes";
@@ -437,6 +438,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
         ...item,
         ...(item.catalogId ? { catalogId: canonicalCatalogId(item.catalogId) } : {}),
         ...(item.effects !== undefined ? { effects: normalizeItemEffects(item.effects) } : {}),
+        ...(item.abilityIds !== undefined ? { abilityIds: normalizeItemAbilityIds(item.abilityIds) } : {}),
       }),
     ),
     projects: (Array.isArray(input.projects) ? input.projects : []).map(

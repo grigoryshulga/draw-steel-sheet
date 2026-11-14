@@ -6,7 +6,9 @@ import {
   ItemEffectsEditor,
   ItemEffectsSummary,
 } from "../../components/ItemEffectsEditor";
-import { RuleText } from "../../components/RuleText";
+import { MarkdownPreview } from "../../components/MarkdownPreview";
+import { MarkdownEditor } from "../../components/MarkdownEditor";
+import { ItemAbilitiesEditor } from "../../components/ItemAbilitiesEditor";
 import { CATALOG } from "../../data/library";
 import { loadCharacter } from "../../lib/api";
 import type { Character, InventoryItem } from "../../types";
@@ -178,7 +180,7 @@ export function TableItems({
                             ...emptyItem(),
                             name: entry.name,
                             catalogId: entry.id,
-                            category: "treasure",
+                            category: entry.category === "Расходуемые" ? "consumable" : entry.category === "Безделушки" ? "trinket" : "treasure",
                             notes: entry.markdown,
                           });
                           setCatalogQuery("");
@@ -234,14 +236,16 @@ export function TableItems({
                   />
                 </label>
               </div>
-              <label>
-                Описание
-                <textarea
-                  className="textarea"
+              <div className="field">
+                <span className="field-label">Описание</span>
+                <MarkdownEditor
+                  disabled={busy || table.archived}
+                  aria-label="Описание предмета"
                   value={item.notes}
-                  onChange={(e) => setItem({ ...item, notes: e.target.value })}
+                  onChange={(notes) => setItem({ ...item, notes })}
                 />
-              </label>
+              </div>
+              <ItemAbilitiesEditor value={item.abilityIds} onChange={(abilityIds) => setItem({ ...item, abilityIds })} disabled={busy} />
               <section className="table-disclosure">
                 <h3>
                   Бонусы при экипировке{" "}
@@ -594,10 +598,10 @@ export function TableItems({
       }} />}
       </div>
       <CardDetailModal open={!!tradeDetails} onClose={() => setTradeDetails(null)} title="Состав и эффекты предметов" className="table-dialog" wide>
-        {tradeDetails && [...tradeDetails.offered, ...tradeDetails.requested].map((row, index) => row.item && <section key={`${row.itemId}-${index}`} className="table-disclosure"><h3>{row.item.name} × {row.qty}</h3><RuleText text={row.item.notes} /><ItemEffectsSummary effects={row.item.effects ?? []} /></section>)}
+        {tradeDetails && [...tradeDetails.offered, ...tradeDetails.requested].map((row, index) => row.item && <section key={`${row.itemId}-${index}`} className="table-disclosure"><h3>{row.item.name} × {row.qty}</h3><MarkdownPreview text={row.item.notes} /><ItemEffectsSummary effects={row.item.effects ?? []} /></section>)}
       </CardDetailModal>
       <CardDetailModal open={!!details} onClose={() => setDetails(null)} title={details?.name ?? "Предмет"} className="table-dialog" wide>
-        {details && <><RuleText text={details.notes} /><ItemEffectsSummary effects={details.effects ?? []} /></>}
+        {details && <><MarkdownPreview text={details.notes} /><ItemEffectsSummary effects={details.effects ?? []} /></>}
       </CardDetailModal>
     </section>
   );

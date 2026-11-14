@@ -42,4 +42,21 @@ describe("оглавление Кодекса", () => {
     expect(html).toContain("Очистить историю чтения");
     expect(html).not.toContain("deleted-article");
   });
+
+  it("начинает с закрытых глав и нумерует их в порядке чтения", () => {
+    const html = renderCodex("#/codex/");
+    expect(html).toContain('<details class="codex-tree-chapter">');
+    expect(html).not.toContain('<details open=""');
+    expect(html).toContain("3. Тесты");
+    expect(html).toContain("Глава 03");
+    expect(html).not.toContain("Часть V");
+  });
+
+  it("открывает начало выбранной главы по прежней ссылке", () => {
+    const html = renderCodex("#/codex/?chapter=" + encodeURIComponent("12. Тесты"));
+    const main = html.slice(html.indexOf('class="codex-main"'));
+    expect(main).toContain("<h1>О Тестах</h1>");
+    expect(main).not.toContain("codex-collections");
+    expect(html).toContain('<details open="" class="codex-tree-chapter">');
+  });
 });

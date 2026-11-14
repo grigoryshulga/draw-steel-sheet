@@ -213,11 +213,11 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
                   <Column className="sheet-col-main" ids={UPPER_MAIN} />
                   <Column className="sheet-col-side" ids={UPPER_SIDE} />
                 </div>
-                <Column className="sheet-col-full" ids={FULL_WIDTH} />
                 <div className="sheet-lower">
                   <Column className="sheet-col-main" ids={LOWER_MAIN} />
                   <Column className="sheet-col-side" ids={LOWER_SIDE} />
                 </div>
+                <Column className="sheet-col-full" ids={FULL_WIDTH} />
               </div>
             </div>
           )}

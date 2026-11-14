@@ -10,9 +10,11 @@ import { RuleMarkdown } from "./rules/RuleMarkdown";
 export function RuleText({
   text,
   articleId,
+  sharedAbilityCards = false,
 }: {
   text: string;
   articleId?: string;
+  sharedAbilityCards?: boolean;
 }) {
-  return <RuleMarkdown text={text} articleId={articleId} />;
+  return <RuleMarkdown text={text} articleId={articleId} sharedAbilityCards={sharedAbilityCards} />;
 }

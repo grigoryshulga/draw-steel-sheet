@@ -155,12 +155,12 @@ const READING_PARTS = [
   {
     id: "how-to-play",
     title: "Как играть",
-    chapters: ["01", "02", "12", "13", "14", "11"],
+    chapters: ["01", "02", "12", "13", "14"],
   },
   {
     id: "creating-hero",
     title: "Создание героя",
-    chapters: ["03", "04", "05", "07"],
+    chapters: ["03", "04", "05", "07", "11"],
     extras: [
       { id: "classes", title: "Классы", articleIds: ["0701"] },
       { id: "kits", title: "Комплекты", articleIds: ["0901", "0902"] },
@@ -252,7 +252,7 @@ export function buildReadingStructure({ articles, articleById, entities, entityB
     }),
   }));
   const directorChapters = ['22', '23', '24', '25'].flatMap(number => chapterByNumber.has(number) ? [chapterByNumber.get(number)] : []);
-  if (directorChapters.length) parts.push({ id: 'monsters', title: 'Монстры и помощники', chapters: directorChapters, extras: [] });
+  parts.find(part => part.id === 'for-director').chapters.push(...directorChapters);
 
   // Лендинги классов: статьи главы 08 по группе = русскому имени класса.
   const classChapterPrefix = "08.";

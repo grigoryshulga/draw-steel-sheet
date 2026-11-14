@@ -8,29 +8,27 @@
 .stat-name-with-glyph .characteristic-glyph { font-size: 14px; color: var(--fg-bright); }
 
 .movement-grid .potency-group {
-  grid-column: span 3;
-  margin-left: var(--space-4);
+  min-width: 0;
 }
 
 .potency-group-values {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-5);
+  gap: var(--space-4);
+  padding-inline: var(--space-4);
 }
 
-.movement-grid .potency-compact.input.numeric {
+.movement-grid .potency-compact {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  padding: 0 var(--space-2);
   white-space: nowrap;
 }
 
 .potency-compact-label {
   color: var(--muted);
   font-size: var(--text-xs);
-  opacity: 0.7;
 }
 
 @container sheet (max-width: 399px) {
@@ -38,4 +36,11 @@
     grid-column: 1 / -1;
     margin-left: 0;
   }
+}
+.char-panel { container: characteristics / inline-size; }
+.sheet-block .char-panel .movement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sheet-block .char-panel .potency-group { grid-column: 1 / -1; }
+@container characteristics (min-width: 560px) {
+  .sheet-block .char-panel .movement-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(220px, 2fr); }
+  .sheet-block .char-panel .potency-group { grid-column: auto; }
 }

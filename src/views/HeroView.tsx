@@ -10,7 +10,8 @@ import {
   TextArea,
   TextInput,
 } from "../components/ui";
-import { ANCESTRIES, CAREERS, CLASS_PRESETS } from "../data/classes";
+import { ANCESTRIES, CAREERS } from "../data/classes";
+import { HelpTooltip } from "../components/HelpTooltip";
 import { SKILL_GROUPS, SKILL_GROUP_TONES } from "../data/skills";
 import { PerksPanel } from "./hero/PerksPanel";
 import { ClassFeaturesPanel } from "./hero/ClassFeaturesPanel";
@@ -97,18 +98,14 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
               ))}
             </Select>
           </Field>
-          <Field label="Класс">
-            <Select
+          <Field label={<span className="hstack">Класс <HelpTooltip label="Почему нельзя сменить класс"><p>Для другого класса создайте нового героя. Смена класса в готовом листе не пересобирает его способности и особенности.</p></HelpTooltip></span>}>
+            <span className="hero-locked-choice">
+            <Icon name="lock" size={14} />
+            <TextInput
               value={character.className}
-              onChange={(e) => patch({ className: e.target.value })}
-            >
-              <option value="">—</option>
-              {CLASS_PRESETS.map((preset) => (
-                <option key={preset.name} value={preset.name}>
-                  {preset.name}
-                </option>
-              ))}
-            </Select>
+              readOnly aria-label="Класс" placeholder="Не выбран"
+            />
+            </span>
           </Field>
           <Field label="Карьера">
             <Select
@@ -123,12 +120,14 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
               ))}
             </Select>
           </Field>
-          <Field label="Подкласс">
+          <Field label={<span className="hstack">Подкласс <HelpTooltip label="Почему нельзя сменить подкласс"><p>Для другого подкласса создайте нового героя. Так сохранятся согласованные способности и особенности.</p></HelpTooltip></span>}>
+            <span className="hero-locked-choice">
+            <Icon name="lock" size={14} />
             <TextInput
               value={character.subclass}
-              placeholder="Напр.: Церемониями́ст"
-              onChange={(e) => patch({ subclass: e.target.value })}
+              readOnly aria-label="Подкласс" placeholder="Не выбран"
             />
+            </span>
           </Field>
           <Field label="Уровень" className="hero-identity-level">
             <NumberInput

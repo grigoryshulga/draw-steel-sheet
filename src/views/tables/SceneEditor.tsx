@@ -440,7 +440,7 @@ export function SceneEditor({
           </h3>
           <div className="table-stack">
             {draft.counters.map((c) => (
-              <Card key={c.id}>
+              <Card key={c.id} className="scene-counter-editor">
                 <div className="scene-grid">
                   <label>
                     Название
@@ -515,6 +515,7 @@ export function SceneEditor({
                     Открытый
                   </label>
                 </div>
+                <div className="scene-actions">
                 <Button
                   onClick={() =>
                     update({
@@ -526,6 +527,7 @@ export function SceneEditor({
                 >
                   Удалить
                 </Button>
+                </div>
               </Card>
             ))}
             <Button

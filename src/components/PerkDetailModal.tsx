@@ -44,7 +44,7 @@ export function PerkDetailModal({
       autoHeight
     >
       {description || summary ? (
-        <RuleText text={description || summary || ""} />
+        <RuleText text={description || summary || ""} sharedAbilityCards />
       ) : (
         <p className="muted">Полное описание этого перка недоступно.</p>
       )}

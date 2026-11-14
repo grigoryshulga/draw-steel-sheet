@@ -810,3 +810,9 @@
   flex: none;
   color: var(--accent);
 }
+.codex-chapters summary,
+.codex-nav summary { cursor: pointer; }
+#codex-chapter-tree summary { cursor: pointer; padding: var(--space-5) var(--space-2); color: var(--fg-bright); font-size: var(--text-md); font-weight: 600; border-radius: var(--radius-xs); }
+#codex-chapter-tree summary:hover { color: var(--accent); background: var(--accent-soft); }
+#codex-chapter-tree summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+#codex-chapter-tree details[open] > summary { color: var(--accent); }

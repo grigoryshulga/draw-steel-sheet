@@ -4,12 +4,52 @@
   gap: var(--space-7);
 }
 
+.notes-editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  min-width: 0;
+}
+
+.notes-toolbar {
+  position: sticky;
+  top: max(var(--workspace-header-offset, 78px), calc(env(safe-area-inset-top) + 66px));
+  z-index: 20;
+  padding: var(--space-3) 0;
+  border-block: 1px solid var(--line);
+  background: var(--bg);
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .notes-toolbar .markdown-editor-toolbar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+    padding-bottom: var(--space-2);
+  }
+  .notes-toolbar .markdown-editor-heading { flex-shrink: 0; }
+  .notes-toolbar .markdown-editor-table-tools { flex-wrap: nowrap; flex-shrink: 0; }
+}
+
 .notes-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-7);
-  align-items: start;
+  align-items: stretch;
 }
+
+.note-section-story { grid-column: 1; grid-row: span 3; }
+.note-section-contacts,
+.note-section-debts,
+.note-section-secrets { grid-column: 2; }
+.note-section-card { display: flex; flex-direction: column; min-width: 0; scroll-margin-top: 160px; }
+.note-section-card .panel-head { align-items: center; }
+.note-section-card .panel-body { display: flex; flex: 1; }
+.note-section-editor { display: flex; flex: 1; min-width: 0; }
+.note-section-editor > .markdown-editor { flex: 1; }
 
 .note-section-wide {
   grid-column: 1 / -1;
@@ -19,14 +59,12 @@
   padding-top: var(--space-2);
 }
 
-.note-section-textarea {
-  min-height: 90px;
-  resize: vertical;
-  line-height: var(--leading-relaxed);
-}
-
-.note-section-wide .note-section-textarea {
-  min-height: 90px;
+.notes-grid.is-expanded { grid-template-columns: minmax(0, 1fr); }
+.notes-grid.is-expanded > .note-section-card:not(.is-expanded) { display: none; }
+.notes-grid.is-expanded > .note-section-card.is-expanded { grid-column: 1 / -1; grid-row: auto; }
+.note-section-card.is-expanded {
+  --markdown-editor-height: max(420px, calc(100dvh - 390px));
+  --markdown-editor-max-height: max(600px, calc(100dvh - 260px));
 }
 
 @media (max-width: 900px) {
@@ -37,4 +75,8 @@
   .note-section-wide {
     grid-column: auto;
   }
+  .note-section-story,
+  .note-section-contacts,
+  .note-section-debts,
+  .note-section-secrets { grid-column: auto; grid-row: auto; }
 }

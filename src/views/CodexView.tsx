@@ -11,13 +11,13 @@ import { PaginatedResults } from "../components/ui/PaginatedResults";
 import { ReadingSkeleton } from "../components/rules/ReadingSkeleton";
 import { useReadingHistory } from "../components/rules/useReadingHistory";
 import "./CodexView.css";
-import { artForArticle } from "../lib/art";
 import {
   classLandings,
   classLandingForArticle,
   classLandingHref,
   codexArticleHref,
   readingParts,
+  bookChapterNumber,
   bookIndex as ruleIndex,
 } from "../rules/codex-navigation";
 import {
@@ -331,8 +331,8 @@ export function CodexView() {
                   {part.title}
                 </p>
                 {part.chapters.map((c) => (
-                  <section key={c}>
-                    <h3>{c.replace(/^\d+\.\s*/, "")}</h3>
+                  <details key={c} open={chapter === c} className="codex-tree-chapter">
+                    <summary>{bookChapterNumber(c)}. {c.replace(/^\d+\.\s*/, "")}</summary>
                     <div className="codex-tree-children">
                       {[
                         ...new Set(
@@ -357,26 +357,28 @@ export function CodexView() {
                           </a>
                         ));
                         return g && groups.length > 1 ? (
-                          <section
+                          <details
                             key={g}
+                            open={chapter === c && group === g}
                           >
-                            <h3>{g}</h3>
+                            <summary>{g}</summary>
                             <div className="codex-tree-children">
                               {links}
                             </div>
-                          </section>
+                          </details>
                         ) : (
                           links
                         );
                       })}
                     </div>
-                  </section>
+                  </details>
                 ))}
                 {part.extras.map((extra) => (
-                  <section
+                  <details
                     key={extra.id}
+                    open={extra.articleIds.includes(entryId)}
                   >
-                    <h3>{extra.title}</h3>
+                    <summary>{extra.title}</summary>
                     <div className="codex-tree-children">
                       {extra.articleIds.map((id) => (
                         <a
@@ -388,7 +390,7 @@ export function CodexView() {
                         </a>
                       ))}
                     </div>
-                  </section>
+                  </details>
                 ))}
               </div>
             ))}
@@ -498,7 +500,6 @@ export function CodexView() {
                     <RuleArticleContent
                       article={loaded.article}
                       entities={loaded.entities}
-                      art={artForArticle(entry.id)}
                       headingOffset={creatureSheet ? -1 : 0}
                       headingActions={creatureSheet ? bookmarkAction : undefined}
                     />
@@ -708,7 +709,7 @@ export function CodexView() {
                           return (
                             <section className="codex-collection" key={name}>
                               <span className="eyebrow">
-                                Глава {name.slice(0, 2)}
+                                Глава {String(bookChapterNumber(name)).padStart(2, "0")}
                               </span>
                               <h3>
                                 <a href={catalogLink(name)}>
@@ -720,7 +721,7 @@ export function CodexView() {
                                   className="codex-section-links"
                                   aria-label={name}
                                 >
-                                  {sections.map((section) => (
+                                  {sections.slice(0, 3).map((section) => (
                                     <a
                                       key={section}
                                       href={catalogLink(name, section)}
@@ -737,6 +738,10 @@ export function CodexView() {
                                     .join(" · ")}
                                 </p>
                               )}
+                              <a className="codex-collection-footer" href={catalogLink(name)}>
+                                Открыть главу · {entries.length}
+                                <Icon name="arrow-right" size={16} />
+                              </a>
                             </section>
                           );
                         })}

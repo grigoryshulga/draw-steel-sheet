@@ -75,7 +75,8 @@ export function DamageTraits() {
         aria-label="Добавить иммунитет или уязвимость"
         onClick={() => setOpen(true)}
       >
-        <Icon name="plus" size={16} />
+        <Icon name="shield" size={14} />
+        <span>Иммунитеты и уязвимости</span>
       </button>
       <DamageTraitsDialog open={open} onClose={() => setOpen(false)} />
     </div>

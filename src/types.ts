@@ -133,6 +133,8 @@ export interface InventoryItem {
   equipped: boolean;
   /** Declarative bonuses apply while equipped, once per item row, never per quantity. */
   effects?: ItemEffect[];
+  /** Catalog abilities available while this item is equipped. */
+  abilityIds?: string[];
 }
 
 export interface ProjectRow {

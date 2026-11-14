@@ -124,6 +124,16 @@ describe('local Director tables', () => {
     }
     expect((await store.templates())[0]).toEqual(template);
   });
+  it('preserves ability references in item templates and rejects malformed grants', async () => {
+    const { dataDir, store } = await setup();
+    const item = { id: 'ability-item', name: 'Амулет', category: 'trinket', qty: 1, notes: '', equipped: false, abilityIds: ['fury-ability', 'kit-ability'] };
+    const template = await store.saveTemplate({ id: 'abilities', name: 'Амулет', kind: 'item', version: 0, item });
+    expect((await createTablesStore({ dataDir }).templates())[0].item.abilityIds).toEqual(item.abilityIds);
+    for (const abilityIds of [null, [7], [''], ['x'.repeat(201)], ['same', 'same'], Array.from({ length: 17 }, (_, i) => `ability-${i}`)]) {
+      await expect(store.saveTemplate({ ...template, item: { ...item, abilityIds } })).rejects.toMatchObject({ status: 400 });
+    }
+    expect((await store.templates())[0]).toEqual(template);
+  });
   it('uses the existing character store without inventing a second character document', async () => {
     const { dataDir } = await setup(); const charactersStore = createStore(dataDir);
     const store = createTablesStore({ dataDir, charactersStore });

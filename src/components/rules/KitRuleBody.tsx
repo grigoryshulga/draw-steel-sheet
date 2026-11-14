@@ -8,7 +8,10 @@ export function KitRuleBody({ text, articleId, headingOffset }: {
   articleId: string;
   headingOffset: number;
 }) {
-  const groups = text.split(/((?:\*\*Бонус к [^\n]+\*\*[^\n]*(?:\n\s*)?)+)/g);
+  // Stormwight uses list items; standard kits use plain paragraphs. Normalize
+  // just these labels so every adjacent bonus shares the same compact grid.
+  const normalized = text.replace(/^[ \t]*[-*] (?=\*\*Бонус к )/gm, "");
+  const groups = normalized.split(/((?:\*\*Бонус к [^\n]+\*\*[^\n]*(?:\n\s*)?)+)/g);
   return <>{groups.map((part, index) => {
     const bonuses = [...part.matchAll(/^\*\*Бонус к (.+?):\*\*\s*(.+)$/gm)];
     if (!bonuses.length) return <RuleMarkdown key={index} text={part} articleId={articleId} headingOffset={headingOffset} />;

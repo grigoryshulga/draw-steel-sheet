@@ -23,6 +23,14 @@ export function catalogAccent(entry?: Pick<CatalogEntry, "kind" | "category" | "
   return entry.echelon ? String(entry.echelon) : undefined;
 }
 
+export function treasureEquipmentKind(entry?: Pick<CatalogEntry, "kind" | "category" | "keywords">): "armor" | "weapon" | "implement" | "other" | undefined {
+  if (entry?.kind !== "treasure" || entry.category !== "Сокровища с Уровнем") return undefined;
+  if (/броня|щит/i.test(entry.keywords)) return "armor";
+  if (/оружие/i.test(entry.keywords)) return "weapon";
+  if (/катализатор/i.test(entry.keywords)) return "implement";
+  return "other";
+}
+
 export function catalogLevelSections(markdown: string) {
   const matches = [...markdown.matchAll(/^\*\*(\d+)-й уровень:\*\*/gm)];
   return {

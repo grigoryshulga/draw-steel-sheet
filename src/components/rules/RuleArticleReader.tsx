@@ -3,7 +3,6 @@ import {
   loadRuleArticle,
   type LoadedRuleArticle,
 } from "../../rules/repository";
-import { artForArticle } from "../../lib/art";
 import { Button } from "../ui";
 import { RuleEntityView } from "./RuleEntity";
 import { RuleArticleContent } from "./RuleArticle";
@@ -68,7 +67,6 @@ export function RuleArticleReader({
     <RuleArticleContent
       article={result.data.article}
       entities={result.data.entities}
-      art={artForArticle(articleId)}
     />
   ) : null;
 }

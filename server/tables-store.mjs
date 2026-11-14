@@ -80,7 +80,10 @@ function validateItem(item) {
     requireValid(Array.isArray(item.effects) && item.effects.length <= 16);
     for (const effect of item.effects) requireValid(object(effect) && Object.keys(effect).every(key => ['field', 'value'].includes(key)) && ['stamina', 'recoveries', 'speed', 'stability', 'disengage', 'save', 'rolledDamage', 'freeStrikeDamage'].includes(effect.field) && Number.isInteger(effect.value) && effect.value >= -100 && effect.value <= 100);
   }
-  return pick(item, ['id', 'name', 'category', 'qty', 'notes', 'equipped', 'catalogId', 'effects']);
+  if (item.abilityIds !== undefined) {
+    requireValid(Array.isArray(item.abilityIds) && item.abilityIds.length <= 16 && item.abilityIds.every(value => text(value, 200)) && new Set(item.abilityIds).size === item.abilityIds.length);
+  }
+  return pick(item, ['id', 'name', 'category', 'qty', 'notes', 'equipped', 'catalogId', 'effects', 'abilityIds']);
 }
 function summary(t) { return { ...pick(t, ['id', 'name', 'ownerId', 'archived', 'revision', 'updatedAt']), memberCount: t.members.length }; }
 export function projectTable(t, actorId) {

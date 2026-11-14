@@ -96,7 +96,7 @@ export function RuleArticleContent({
             entity={entity}
             art={isLead ? art : undefined}
             onOpen={onOpenEntity ? () => onOpenEntity(entity) : undefined}
-            headingLevel={2 + headingOffset}
+            headingLevel={2 + headingOffset + (article.chapter.startsWith("04.") && entity.kind === "feature" ? 1 : 0)}
             headingActions={isLead ? headingActions : undefined}
           />
         );

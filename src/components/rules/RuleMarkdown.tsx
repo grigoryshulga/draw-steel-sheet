@@ -43,6 +43,8 @@ export interface RuleMarkdownProps {
   directorHeading?: ReactNode;
   directorMode?: DirectorView;
   directorHeadingActions?: ReactNode;
+  /** Embedded hero abilities use the same frame and facts as entity cards. */
+  sharedAbilityCards?: boolean;
   /**
    * Текст уже показан полной карточкой способности: из источника берём только
    * «допблоки» (Поддержание, Потратить, Особое, списки и прозу), а не дубль
@@ -78,6 +80,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
   directorMode,
   directorHeadingActions,
   abilityCardRemainder = false,
+  sharedAbilityCards = false,
 }: RuleMarkdownProps) {
   const remainder =
     typeof abilityCardRemainder === "object"
@@ -90,7 +93,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
         remarkRuleFields,
         remarkRuleLinks,
       ]
-    : [remarkGfm, remarkDirectorBlocks, articleId?.startsWith('monsters.') ? remarkDirectorAbilities : remarkAbilityBlocks, [remarkDirectorView, { mode: directorMode }], remarkRuleFields, remarkRuleLinks];
+    : [remarkGfm, remarkDirectorBlocks, articleId?.startsWith('monsters.') || sharedAbilityCards ? remarkDirectorAbilities : remarkAbilityBlocks, [remarkDirectorView, { mode: directorMode }], remarkRuleFields, remarkRuleLinks];
   return (
     <div className={className}>
       <Markdown

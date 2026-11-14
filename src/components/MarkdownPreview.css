@@ -1,0 +1,28 @@
+.markdown-preview {
+  min-width: 0;
+  color: var(--fg);
+  font: var(--text-reading)/var(--leading-relaxed) var(--font-ui);
+  overflow-wrap: anywhere;
+}
+.markdown-preview > :first-child { margin-top: 0; }
+.markdown-preview > :last-child { margin-bottom: 0; }
+.markdown-preview :is(p, ul, ol, blockquote, pre, table) { margin: 0 0 var(--space-7); }
+.markdown-preview :is(h1, h2, h3, h4, h5, h6) { color: var(--fg-bright); line-height: var(--leading-snug); margin: var(--space-8) 0 var(--space-6); }
+.markdown-preview h1 { font-size: var(--text-2xl); }
+.markdown-preview h2 { font-size: var(--text-xl); }
+.markdown-preview h3 { font-size: var(--text-lg); }
+.markdown-preview :is(h4, h5, h6) { font-size: var(--text-base); }
+.markdown-preview :is(ul, ol) { padding-left: var(--space-9); }
+.markdown-preview li > :is(ul, ol) { margin-bottom: 0; }
+.markdown-preview li + li { margin-top: var(--space-2); }
+.markdown-preview .contains-task-list { list-style: none; padding-left: var(--space-2); }
+.markdown-preview .task-list-item input { margin-right: var(--space-4); accent-color: var(--accent); }
+.markdown-preview blockquote { margin-left: 0; padding-left: var(--space-7); border-left: 3px solid var(--line-strong); color: var(--muted); }
+.markdown-preview code { padding: var(--space-1) var(--space-2); border-radius: var(--radius-xs); background: var(--surface-2); font: var(--text-md)/var(--leading-normal) var(--font-code); }
+.markdown-preview pre { overflow: auto; padding: var(--space-7); border: 1px solid var(--line); border-radius: var(--radius-xs); background: var(--surface-2); }
+.markdown-preview pre code { padding: 0; background: transparent; }
+.markdown-preview table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+.markdown-preview :is(th, td) { padding: var(--space-4) var(--space-6); border: 1px solid var(--line-strong); text-align: left; }
+.markdown-preview th { background: var(--surface-2); font-weight: 600; }
+.markdown-preview img { max-width: 100%; height: auto; border-radius: var(--radius-xs); }
+.markdown-preview hr { margin: var(--space-8) 0; border: 0; border-top: 1px solid var(--line-strong); }

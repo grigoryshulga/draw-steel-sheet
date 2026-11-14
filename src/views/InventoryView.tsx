@@ -1,4 +1,7 @@
-import { useMemo, useState, type KeyboardEvent } from "react";
+import { lazy, Suspense, useMemo, useState, type KeyboardEvent } from "react";
+import { addCatalogEntry } from "../lib/catalog-character";
+import { ItemAbilitiesEditor } from "../components/ItemAbilitiesEditor";
+import { MarkdownPreview } from "../components/MarkdownPreview";
 import { ItemEffectsEditor, ItemEffectsSummary } from "../components/ItemEffectsEditor";
 import { normalizeItemEffects } from "../lib/item-effects";
 import { Icon } from "../components/Icons";
@@ -29,7 +32,8 @@ import { KitPicker } from "./sheet/KitPicker";
 import { useApp } from "../state/AppContext";
 import type { InventoryItem, ItemCategory, ItemEffect } from "../types";
 import "./InventoryView.css";
-import { Artwork } from "../components/Artwork";
+
+const InventoryCatalogPicker = lazy(() => import("./InventoryCatalogPicker").then(module => ({ default: module.InventoryCatalogPicker })));
 
 const CATEGORY_META: { key: ItemCategory; label: string }[] = [
   { key: "gear", label: "Снаряжение" },
@@ -49,6 +53,7 @@ interface ItemDraft {
   qty: number;
   notes: string;
   effects: ItemEffect[];
+  abilityIds: string[];
 }
 
 const EMPTY_DRAFT: ItemDraft = {
@@ -57,6 +62,7 @@ const EMPTY_DRAFT: ItemDraft = {
   qty: 1,
   notes: "",
   effects: [],
+  abilityIds: [],
 };
 
 interface PresetItem {
@@ -101,7 +107,6 @@ function catalogHref(item: InventoryItem) {
 function KitFeature({ kit, eyebrow }: { kit: Kit; eyebrow: string }) {
   return (
     <article className="inv-kit-feature">
-      <Artwork kind="kit" name={kit.name} className="inv-kit-feature-art" />
       <div className="inv-kit-feature-body">
         <header className="inv-kit-feature-head">
           <div className="inv-kit-feature-name">
@@ -162,7 +167,8 @@ function ItemCard({
         />
       </header>
 
-      {item.notes && <p className="inv-card-notes">{item.notes}</p>}
+      {item.notes && <div className="inv-card-notes"><MarkdownPreview text={item.notes} /></div>}
+      {!!item.abilityIds?.length && <p className="small muted">Способностей от предмета: {item.abilityIds.length}</p>}
       <ItemEffectsSummary effects={item.effects ?? []} />
 
       <footer className="inv-card-foot">
@@ -178,7 +184,7 @@ function ItemCard({
               Правила ↗
             </a>
           )}
-          {(item.category === "gear" || (item.category === "treasure" && normalizeItemEffects(item.effects).length > 0)) && (
+          {(item.category === "gear" || !!item.abilityIds?.length || (item.category === "treasure" && normalizeItemEffects(item.effects).length > 0)) && (
             <Chip
               tone={item.equipped ? "green" : "default"}
               active={item.equipped}
@@ -210,6 +216,7 @@ export function InventoryView() {
 
   const [draft, setDraft] = useState<ItemDraft>(EMPTY_DRAFT);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [catalogOpen, setCatalogOpen] = useState(false);
   const [editing, setEditing] = useState<InventoryItem | null>(null);
   const [pendingDelete, setPendingDelete] = useState<PendingDelete | null>(
     null,
@@ -258,6 +265,7 @@ export function InventoryView() {
       qty: item.qty,
       notes: item.notes,
       effects: normalizeItemEffects(item.effects),
+      abilityIds: item.abilityIds ?? [],
     });
     setDialogOpen(true);
   };
@@ -280,7 +288,8 @@ export function InventoryView() {
         qty,
         notes,
         effects: normalizeItemEffects(draft.effects),
-        equipped: draft.category === "gear" || (draft.category === "treasure" && draft.effects.length > 0) ? editing.equipped : false,
+        abilityIds: draft.abilityIds,
+        equipped: draft.category === "gear" || draft.abilityIds.length > 0 || (draft.category === "treasure" && draft.effects.length > 0) ? editing.equipped : false,
       });
       notify("Предмет обновлён", "success");
     } else {
@@ -292,6 +301,7 @@ export function InventoryView() {
         notes,
         equipped: false,
         effects: normalizeItemEffects(draft.effects),
+        abilityIds: draft.abilityIds,
       };
       update((c) => ({ ...c, inventory: [...c.inventory, item] }));
       notify("Предмет добавлен", "success");
@@ -339,6 +349,7 @@ export function InventoryView() {
       qty: 1,
       notes: preset.notes ?? "",
       effects: [],
+      abilityIds: [],
     });
   };
 
@@ -360,7 +371,7 @@ export function InventoryView() {
             <a className="inv-catalog-link" href="#/catalog/treasure">
               Каталог наград ↗
             </a>
-            <Button size="sm" variant="soft" icon="plus" iconOnly aria-label="Добавить предмет" title="Добавить предмет" onClick={openCreate} />
+            <Button size="sm" variant="soft" icon="plus" onClick={() => setCatalogOpen(true)}>Добавить предмет</Button>
           </>
         }
       >
@@ -371,7 +382,7 @@ export function InventoryView() {
             title="Сумка пуста"
             text="Добавьте снаряжение, расходники или награды из каталога."
             action={
-              <Button variant="primary" icon="plus" onClick={openCreate}>
+              <Button variant="primary" icon="plus" onClick={() => setCatalogOpen(true)}>
                 Добавить предмет
               </Button>
             }
@@ -600,6 +611,7 @@ export function InventoryView() {
 
       <Modal
         open={dialogOpen}
+        wide
         onClose={closeDialog}
         title={editing ? "Изменить предмет" : "Новый предмет"}
         footer={
@@ -671,7 +683,7 @@ export function InventoryView() {
           <Field label="Заметка" className="inv-field-wide">
             <TextArea
               value={draft.notes}
-              rows={3}
+              rows={10}
               placeholder="Свойства, стоимость или напоминание"
               aria-label="Заметка о предмете"
               onChange={(e) =>
@@ -684,6 +696,7 @@ export function InventoryView() {
         <Field label="Бонусы предмета">
           <ItemEffectsEditor effects={draft.effects} onChange={(effects) => setDraft((current) => ({ ...current, effects }))} />
         </Field>
+        <ItemAbilitiesEditor value={draft.abilityIds} onChange={(abilityIds) => setDraft(current => ({ ...current, abilityIds }))} />
 
         {editing?.catalogId && (
           <a className="inv-item-rules" href={catalogHref(editing)}>
@@ -731,6 +744,11 @@ export function InventoryView() {
           {pendingDelete && DELETE_MESSAGES[pendingDelete.reason]}
         </p>
       </Modal>
+
+      {catalogOpen && <Suspense fallback={null}><InventoryCatalogPicker onClose={() => setCatalogOpen(false)} onCreate={() => { setCatalogOpen(false); openCreate(); }} onAdd={(entry) => {
+        update(current => addCatalogEntry(current, entry, makeId()));
+        notify(`Добавлено: ${entry.name}`, "success");
+      }} /></Suspense>}
 
       <KitPicker
         open={kitPickerOpen}

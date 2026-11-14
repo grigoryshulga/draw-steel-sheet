@@ -18,6 +18,12 @@ export const bookIndex: readonly CodexArticle[] = ruleIndex.filter(entry => !ent
 /** Части чтения «Читать» из манифеста. */
 export const readingParts: readonly RuleReadingPart[] = ruleReading.parts;
 
+/** Display order is editorial; stored chapter names and article URLs stay stable. */
+export function bookChapterNumber(chapter: string): number | undefined {
+  const index = readingParts.flatMap(part => part.chapters).indexOf(chapter);
+  return index >= 0 ? index + 1 : undefined;
+}
+
 /** Секции Справочника из манифеста. */
 export const referenceSections: readonly RuleReferenceSection[] =
   ruleReading.reference;

@@ -13,8 +13,6 @@ import {
   type Kit,
 } from "../../data/kits";
 import "./KitPicker.css";
-import { Artwork, ArtworkFigure } from "../../components/Artwork";
-import { artFor } from "../../lib/art";
 
 export function KitPicker({
   open,
@@ -85,10 +83,9 @@ export function KitPicker({
               <button
                 key={kit.id}
                 type="button"
-                className={`kit-option ${artFor("kit", kit.name) ? "with-art" : ""} ${preview?.id === kit.id ? "is-active" : ""}`.trim()}
+                className={`kit-option ${preview?.id === kit.id ? "is-active" : ""}`.trim()}
                 onClick={() => setPreviewId(kit.id)}
               >
-                <Artwork kind="kit" name={kit.name} />
                 <span className="kit-option-name">{kit.name}</span>
                 <span className="kit-option-equipment">{kit.equipment}</span>
                 {kit.id === currentKit?.id && (
@@ -101,10 +98,6 @@ export function KitPicker({
           <aside className="kit-picker-preview">
             {preview ? (
               <>
-                <ArtworkFigure
-                  art={artFor("kit", preview.name)}
-                  className="kit-preview-art"
-                />
                 <h3>{preview.name}</h3>
                 <p className="kit-preview-summary">{preview.summary}</p>
 
