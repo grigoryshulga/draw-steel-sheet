@@ -1,3 +1,4 @@
+import { equippedKits, validKitBonusPreferences } from "./kit-bonuses";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { KIT_COMPENDIUM, kitByName, type Kit } from "../data/kits";
 import type { Character, CompendiumAbility } from "../types";
@@ -15,18 +16,27 @@ export function kitGrantedAbilities(kit: Kit): CompendiumAbility[] {
   return abilities.map((ability) => ({ ...ability, source: `Комплект: ${kit.name}` }));
 }
 
+export function kitSignatureAbility(kit: Kit) {
+  return kitGrantedAbilities(kit).find((ability) => ability.name === kit.signatureAbility);
+}
+
 /** Switching kits replaces their granted signatures without duplicating them or touching class abilities. */
 export function changeKit(
   character: Character,
   name: string,
   secondary = false,
 ): Character {
-  const next = {
+  const next: Character = {
     ...character,
-    ...(secondary ? { secondaryKit: name } : { kit: name }),
+    ...(secondary
+      ? { secondaryKit: kitByName(name)?.name ?? name.trim() }
+      : { kit: kitByName(name)?.name ?? name.trim() }),
   };
+  if (next.automation) {
+    next.automation = { ...next.automation, ...validKitBonusPreferences(next) };
+  }
   if (!character.automation?.enabled) return next;
-  const oldKits = [character.kit, character.secondaryKit].filter(Boolean);
+  const oldKits = [character.kit, character.secondaryKit, ...equippedKits(character).map((kit) => kit.name)].filter(Boolean);
   const oldSources = new Set(oldKits.map((name) => `Комплект: ${name}`));
   for (const name of [...oldKits, next.kit, next.secondaryKit]) {
     const familyId = kitByName(name ?? "")?.familyId;
@@ -37,8 +47,9 @@ export function changeKit(
   const kits = [
     ...new Set([next.kit, next.secondaryKit].filter((s): s is string => !!s)),
   ];
+  const remaining = new Set(equippedKits(next).map((kit) => `Комплект: ${kit.name}`));
   const abilities = character.abilities.filter(
-    (a) => !oldSources.has(a.source),
+    (a) => !oldSources.has(a.source) || remaining.has(a.source),
   );
   for (const kitName of kits) {
     const kit = kitByName(kitName);

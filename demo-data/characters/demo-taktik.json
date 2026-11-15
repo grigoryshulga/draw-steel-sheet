@@ -21,7 +21,7 @@
   },
   "stamina": {
     "current": 63,
-    "max": 63,
+    "max": 75,
     "temp": 0
   },
   "recoveries": {
@@ -37,9 +37,9 @@
   "heroTokens": 3,
   "size": "1L",
   "speed": "7",
-  "stability": "1",
+  "stability": "2",
   "disengage": "2",
-  "kit": "Беглый Огонь",
+  "kit": "Гора",
   "weapon": "",
   "armor": "",
   "equipmentEffects": "",
@@ -364,99 +364,6 @@
       "originalDescription": "*Under your direction, an ally waits for just the right moment to strike.*\n\n| **Ranged**       |       **Triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target moves.\n\n**Effect:** At any time during the target's movement, one ally can make a free strike against them.\n\n**Spend 1 Focus:** If the target has R < AVERAGE, they are slowed (EoT)."
     },
     {
-      "id": "feature.ability.rapid-fire.two-shot",
-      "name": "Двойной Выстрел",
-      "flavor": "Когда вы выпускаете две стрелы подряд, обе попадают в цель.",
-      "actionType": "main",
-      "kind": "signature",
-      "keywords": [
-        "Дальний",
-        "Удар",
-        "Оружие"
-      ],
-      "distance": "Дальний 12",
-      "target": "Два существа или объекта",
-      "rollCharacteristics": [
-        "might",
-        "agility"
-      ],
-      "rollBonus": 0,
-      "resourceCost": 0,
-      "trigger": "",
-      "tiers": [
-        {
-          "damage": "4",
-          "effect": ""
-        },
-        {
-          "damage": "6",
-          "effect": ""
-        },
-        {
-          "damage": "8",
-          "effect": ""
-        }
-      ],
-      "effect": "",
-      "source": "Комплект: Беглый Огонь",
-      "notes": "",
-      "className": "Комплект: Беглый Огонь",
-      "level": 1,
-      "sourceKind": "kit",
-      "preferredCharacteristic": "might",
-      "originalId": "mcdm.heroes.v1/feature.ability.rapid-fire/two-shot",
-      "originalName": "Two Shot",
-      "originalDescription": "*When you fire two arrows back-to-back, both hit their mark.*\n\n| **Ranged, Strike, Weapon** |                 **Main action** |\n|----------------------------|--------------------------------:|\n| **📏 Ranged 12**           | **🎯 Two creatures or objects** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 6 damage\n- **17+:** 8 damage"
-    },
-    {
-      "id": "feature.ability.battlemind.unmooring",
-      "name": "Отвязывание",
-      "flavor": "Ваше оружие высвобождает псионическую энергию, которая уменьшает вес вашей цели.",
-      "actionType": "main",
-      "kind": "signature",
-      "keywords": [
-        "Ближний",
-        "Псионика",
-        "Удар",
-        "Оружие"
-      ],
-      "distance": "Ближний 1",
-      "target": "Одно существо",
-      "rollCharacteristics": [
-        "might",
-        "reason",
-        "intuition",
-        "presence"
-      ],
-      "rollBonus": 0,
-      "resourceCost": 0,
-      "trigger": "",
-      "tiers": [
-        {
-          "damage": "5 + M, R, I или P",
-          "effect": ""
-        },
-        {
-          "damage": "8 + M, R, I или P",
-          "effect": ""
-        },
-        {
-          "damage": "11 + M, R, I или P",
-          "effect": ""
-        }
-      ],
-      "effect": "До конца следующего хода цели любое принудительное движение, воздействующее на цель, имеет свое расстояние увеличенным на 2.",
-      "source": "Комплект: Боевой Разум",
-      "notes": "",
-      "className": "Комплект: Боевой Разум",
-      "level": 1,
-      "sourceKind": "kit",
-      "preferredCharacteristic": "might",
-      "originalId": "mcdm.heroes.v1/feature.ability.battlemind/unmooring",
-      "originalName": "Unmooring",
-      "originalDescription": "*Your weapon unleashes psionic energy that reduces your target's weight.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P damage\n- **12-16:** 8 + M, R, I, or P damage\n- **17+:** 11 + M, R, I, or P damage\n\n**Effect:** Until the end of the target's next turn, any forced movement that affects the target has its distance increased by 2."
-    },
-    {
       "id": "feature.ability.tactician.level-2.targets-of-opportunity",
       "name": "Цели по Возможности",
       "flavor": "Вы указываете друзьям на легкие мишени, позволяя им включать в свои атаки больше врагов.",
@@ -555,6 +462,97 @@
       "effect": "Цель использует героическую способность с ключевым словом Удар как свободный триггер, и наносит дополнительный урон этой способностью, равный вашему показателю Разума. Стоимость этой способности в героическом ресурсе снижается на 1 + ваш показатель Разума (минимальная стоимость 0).",
       "source": "Тактик",
       "notes": ""
+    },
+    {
+      "id": "feature.ability.mountain.pain-for-pain",
+      "name": "Боль за Боль",
+      "flavor": "Враг, который задел вас, заплатит за это.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Ближний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "3 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "5 + M или A",
+          "effect": ""
+        },
+        {
+          "damage": "13 + M или A",
+          "effect": ""
+        }
+      ],
+      "effect": "Если цель нанесла вам урон с конца вашего последнего хода, этот удар наносит дополнительный урон, равный вашему счету Мощи или Ловкости (по вашему выбору).",
+      "source": "Комплект: Гора",
+      "notes": "",
+      "className": "Комплект: Гора",
+      "level": 1,
+      "sourceKind": "kit",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.mountain/pain-for-pain",
+      "originalName": "Pain for Pain",
+      "originalDescription": "*An enemy who tagged you will pay for that.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 5 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** If the target dealt damage to you since the end of your last turn, this strike deals additional damage equal to your Might or Agility score (your choice)."
+    },
+    {
+      "id": "feature.ability.cloak-and-dagger.fade",
+      "name": "Растворение",
+      "flavor": "Удар и несколько быстрых, осторожных шагов назад.",
+      "actionType": "main",
+      "kind": "signature",
+      "keywords": [
+        "Ближний",
+        "Дальний",
+        "Удар",
+        "Оружие"
+      ],
+      "distance": "Ближний 1 или дальний 10",
+      "target": "Одно существо",
+      "rollCharacteristics": [
+        "might",
+        "agility"
+      ],
+      "rollBonus": 0,
+      "resourceCost": 0,
+      "trigger": "",
+      "tiers": [
+        {
+          "damage": "3 + M или A",
+          "effect": "Вы можете сместиться на 1 клетку"
+        },
+        {
+          "damage": "6 + M или A",
+          "effect": "Вы можете сместиться вплоть до 2 клеток"
+        },
+        {
+          "damage": "8 + M или A",
+          "effect": "Вы можете сместиться вплоть до 3 клеток"
+        }
+      ],
+      "effect": "",
+      "source": "Комплект: Плащ и Кинжал",
+      "notes": "",
+      "className": "Комплект: Плащ и Кинжал",
+      "level": 1,
+      "sourceKind": "kit",
+      "preferredCharacteristic": "might",
+      "originalId": "mcdm.heroes.v1/feature.ability.cloak-and-dagger/fade",
+      "originalName": "Fade",
+      "originalDescription": "*A stab, and a few quick, careful steps back.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 10**       | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage; you can shift 1 square\n- **12-16:** 6 + M or A damage; you can shift up to 2 squares\n- **17+:** 8 + M or A damage; you can shift up to 3 squares"
     }
   ],
   "perks": [
@@ -617,8 +615,8 @@
   "inventory": [],
   "projects": [],
   "createdAt": "2026-11-01T10:04:27.925Z",
-  "updatedAt": "2026-11-01T10:04:27.925Z",
-  "secondaryKit": "Боевой Разум",
+  "updatedAt": "2026-11-07T07:53:11.845Z",
+  "secondaryKit": "Плащ и Кинжал",
   "automation": {
     "enabled": true,
     "adjustments": {},
@@ -626,6 +624,9 @@
       "Все как перышко",
       "Видение Рока"
     ],
+    "meleeDamageKit": "",
+    "rangedDamageKit": "",
+    "classFeatureSelections": {},
     "ancestryTraitIds": [
       "feature.trait.hakaan.all-is-a-feather",
       "feature.trait.hakaan.doomsight"
@@ -633,10 +634,7 @@
     "equipment": {
       "lightArmor": false,
       "lightWeapon": false
-    },
-    "meleeDamageKit": "",
-    "rangedDamageKit": "",
-    "classFeatureSelections": {}
+    }
   },
   "advancements": [
     {

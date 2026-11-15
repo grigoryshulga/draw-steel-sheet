@@ -3,7 +3,7 @@ import type { Character } from "../../types";
 import type { SharedHero, TableSection } from "./types";
 
 const fields: Record<TableSection, readonly (keyof Character)[]> = {
-  hero: ["career", "subclass", "characteristics", "size", "speed", "stability", "disengage", "kit", "secondaryKit", "weapon", "armor", "equipmentEffects", "abilities", "damageTraits", "ancestryTraits", "classFeatures"],
+  hero: ["career", "subclass", "characteristics", "size", "speed", "stability", "disengage", "kit", "secondaryKit", "weapon", "armor", "equipmentEffects", "abilities", "damageModifier", "damageTraits", "ancestryTraits", "classFeatures"],
   development: ["xp", "xpThreshold", "epic", "victories", "perks", "skills", "languages", "culture", "careerInfo", "advancements", "automation"],
   inventory: ["inventory", "wealth", "renown"],
   journal: ["projects"],

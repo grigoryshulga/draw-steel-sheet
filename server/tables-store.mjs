@@ -21,7 +21,7 @@ export function normalizeVisibility(value) {
   return { sections: [...value.sections], notes: [...value.notes] };
 }
 const fields = {
-  hero: ['career', 'subclass', 'characteristics', 'size', 'speed', 'stability', 'disengage', 'kit', 'secondaryKit', 'weapon', 'armor', 'equipmentEffects', 'abilities', 'damageTraits', 'ancestryTraits', 'classFeatures'],
+  hero: ['career', 'subclass', 'characteristics', 'size', 'speed', 'stability', 'disengage', 'kit', 'secondaryKit', 'weapon', 'armor', 'equipmentEffects', 'abilities', 'damageModifier', 'damageTraits', 'ancestryTraits', 'classFeatures'],
   development: ['xp', 'xpThreshold', 'epic', 'victories', 'perks', 'skills', 'languages', 'culture', 'careerInfo', 'advancements', 'automation'],
   inventory: ['inventory', 'wealth', 'renown'], journal: ['projects'], companions: ['companions'],
 };

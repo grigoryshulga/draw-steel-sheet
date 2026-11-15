@@ -14,6 +14,8 @@ import { Button, Chip } from "../ui";
 import { CharacteristicGlyph, CharacteristicGlyphText } from "../CharacteristicGlyph";
 import { Icon } from "../Icons";
 import { DamageChip } from "../DamageChip";
+import type { CalculationBreakdown } from "../../lib/calculation-breakdown";
+import { CalculationInline } from "./CalculationInline";
 import "../AbilityCard.css";
 
 /**
@@ -43,7 +45,7 @@ export interface AbilityTierView {
   tier: Tier;
   range: string;
   rangeTitle: string;
-  damage?: { value: string; type?: DamageType; label?: ReactNode };
+  damage?: { value: string; type?: DamageType; label?: ReactNode; calculations?: CalculationBreakdown[] };
   effect?: string;
   effectContent?: ReactNode;
 }
@@ -60,6 +62,7 @@ export interface AbilitySheetView {
   effect: string;
   forcedMovement: string;
   roll?: { characteristic: CharacteristicKey; bonus: number } | null;
+  rollCalculations?: CalculationBreakdown[];
   /** Флейвор источника: показывается только в полной карточке Кодекса. */
   flavor?: string;
   /** Напечатанный триггер источника: только для способностей-триггеров. */
@@ -211,8 +214,9 @@ export function AbilityTags({ view }: { view: AbilitySheetView }) {
 }
 
 /** Общая строка параметров карточки и окна способности. */
-export function AbilityFacts({ view }: { view: Pick<AbilitySheetView, 'facts' | 'roll' | 'keywords'> }) {
+export function AbilityFacts({ view, showCalculations = false }: { view: Pick<AbilitySheetView, "facts" | "roll" | "keywords" | "rollCalculations">; showCalculations?: boolean }) {
   return (
+    <>
     <div className="sheet-ability-meta">
       {view.facts.map((fact) => (
         <span className="sheet-ability-fact" key={fact.label} title={fact.title || fact.label}>
@@ -229,7 +233,7 @@ export function AbilityFacts({ view }: { view: Pick<AbilitySheetView, 'facts' | 
           </span>
           <span className="sheet-ability-fact-value">
             <span className="sr-only">{fact.title || fact.label}: </span>
-            {fact.content ?? <CharacteristicGlyphText text={fact.value || "—"} />}
+            {fact.content ?? <CharacteristicGlyphText text={fact.label === "Бросок" ? view.rollCalculations?.[0]?.total ?? fact.value ?? "—" : fact.value || "—"} />}
           </span>
         </span>
       ))}
@@ -247,6 +251,8 @@ export function AbilityFacts({ view }: { view: Pick<AbilitySheetView, 'facts' | 
         </span>
       )}
     </div>
+    {showCalculations && <CalculationInline calculations={view.rollCalculations ?? []} base="2d10" />}
+    </>
   );
 }
 
@@ -258,17 +264,19 @@ export function AbilityFacts({ view }: { view: Pick<AbilitySheetView, 'facts' | 
 export function AbilityBody({
   view,
   full = false,
+  showCalculations = false,
 }: {
   view: AbilitySheetView;
   full?: boolean;
+  showCalculations?: boolean;
 }) {
   const tiers = view.tiers;
 
   return (
     <>
-      <AbilityFacts view={view} />
+      <AbilityFacts view={view} showCalculations={showCalculations} />
 
-      <AbilityTiers tiers={tiers} />
+      <AbilityTiers tiers={tiers} showCalculations={showCalculations} />
 
       {view.effect && (
         <p className={`sheet-ability-body${full ? " is-full-body" : ""}`}>
@@ -289,7 +297,7 @@ export function AbilityBody({
 }
 
 /** Shared tier rows; rich source effects are rendered without losing links. */
-export function AbilityTiers({ tiers }: { tiers: AbilityTierView[] }) {
+export function AbilityTiers({ tiers, showCalculations = false }: { tiers: AbilityTierView[]; showCalculations?: boolean }) {
   return tiers.length > 0 ? (
         <div className="sheet-ability-tiers">
           {tiers.map((tier) => (
@@ -308,6 +316,7 @@ export function AbilityTiers({ tiers }: { tiers: AbilityTierView[] }) {
               {(tier.effectContent || tier.effect) && (
                 <div className="sheet-ability-effect">{tier.effectContent ?? <CharacteristicGlyphText text={tier.effect ?? ''} />}</div>
               )}
+              {showCalculations && <CalculationInline calculations={tier.damage?.calculations ?? []} />}
             </div>
           ))}
         </div>

@@ -226,7 +226,7 @@ export function builderFlow(draft: BuilderDraft): BuilderFlowStep[] {
         3,
         "kit",
         "Второй комплект",
-        selectableKitByName(draft.secondaryKit, draft.className, draft.subclass) && draft.secondaryKit !== draft.kit
+        selectableKitByName(draft.secondaryKit, draft.className, draft.subclass) && selectableKitByName(draft.secondaryKit, draft.className, draft.subclass)?.id !== selectableKitByName(draft.kit, draft.className, draft.subclass)?.id
           ? ""
           : "Выберите второй, отличный комплект.",
         "secondary",

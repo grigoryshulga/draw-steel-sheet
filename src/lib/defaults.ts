@@ -346,12 +346,14 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     avatar: rawAvatar,
     damageTraits: rawDamageTraits,
     classMechanics: rawClassMechanics,
+    damageModifier: rawDamageModifier,
     ...inputWithoutAdvancements
   } = input as Partial<Character> & {
     advancements?: unknown;
     xpThreshold?: unknown;
     avatar?: unknown;
     damageTraits?: unknown;
+    damageModifier?: unknown;
   };
   const normalizedAvatar = normalizeAvatar(rawAvatar);
   const normalizedDamageTraits = normalizeDamageTraits(rawDamageTraits);
@@ -375,8 +377,16 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     ancestryFeatureSelections: _rawAncestrySelections,
     ancestryTraitIds: _rawAncestryTraitIds,
     equipment: _rawEquipment,
+    kitBonusSelections: _rawKitBonusSelections,
     ...automationWithoutSelections
   } = rawAutomation ?? {};
+  const normalizedKitBonusSelections =
+    rawAutomation?.kitBonusSelections &&
+    typeof rawAutomation.kitBonusSelections === "object" &&
+    !Array.isArray(rawAutomation.kitBonusSelections) &&
+    Object.values(rawAutomation.kitBonusSelections).every((value) => typeof value === "string")
+      ? { ...rawAutomation.kitBonusSelections }
+      : undefined;
   const hasFeatureSelections =
     rawAutomation !== undefined &&
     Object.prototype.hasOwnProperty.call(
@@ -436,6 +446,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
   return {
     ...base,
     ...inputWithoutAdvancements,
+    ...(Number.isSafeInteger(rawDamageModifier) ? { damageModifier: rawDamageModifier as number } : {}),
     ...(normalizedAvatar ? { avatar: normalizedAvatar } : {}),
     ...(normalizedThreshold ? { xpThreshold: normalizedThreshold } : {}),
     schemaVersion: 1,
@@ -489,6 +500,9 @@ export function normalizeCharacter(input: Partial<Character>): Character {
       ? {
           automation: {
             ...automationWithoutSelections,
+            ...(normalizedKitBonusSelections
+              ? { kitBonusSelections: normalizedKitBonusSelections }
+              : {}),
             ...(hasFeatureSelections && normalizedSelections
               ? { classFeatureSelections: normalizedSelections }
               : {}),

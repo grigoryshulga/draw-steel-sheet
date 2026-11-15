@@ -70,6 +70,7 @@ export interface BuilderDraft {
   secondaryKit: string;
   meleeDamageKit: string;
   rangedDamageKit: string;
+  kitBonusSelections?: Record<string, string>;
   complication: string;
   languages: string;
   details: string;
@@ -453,6 +454,9 @@ export function buildCharacter(
       },
       meleeDamageKit: draft.meleeDamageKit,
       rangedDamageKit: draft.rangedDamageKit,
+      ...(draft.kitBonusSelections
+        ? { kitBonusSelections: { ...draft.kitBonusSelections } }
+        : {}),
       classFeatureSelections,
     },
   };
@@ -614,7 +618,7 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
         !selectableKitByName(draft.kit, draft.className, draft.subclass)
         ? "Выберите комплект."
         : draft.className === "Тактик" &&
-            (!selectableKitByName(draft.secondaryKit, draft.className, draft.subclass) || draft.secondaryKit === draft.kit)
+            (!selectableKitByName(draft.secondaryKit, draft.className, draft.subclass) || selectableKitByName(draft.secondaryKit, draft.className, draft.subclass)?.id === selectableKitByName(draft.kit, draft.className, draft.subclass)?.id)
           ? "Выберите второй, отличный комплект тактика."
           : "",
     abilities: forbiddenDomainCardSelected

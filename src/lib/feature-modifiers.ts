@@ -170,6 +170,18 @@ export function featureCharacteristicBonus(
   )[key];
 }
 
+/** Named characteristic effects use the same active sources as effectiveCharacteristics. */
+export function featureCharacteristicContributions(
+  character: Character,
+  key: CharacteristicKey,
+): FeatureContribution[] {
+  return activeFeatureSources(character).flatMap((source) => {
+    const value = source.effects.reduce((total, effect) =>
+      total + (effect.kind === "characteristic" && effect.key === key && Number.isFinite(effect.value) ? effect.value : 0), 0);
+    return value ? [{ sourceId: source.sourceId, sourceName: source.sourceName, value }] : [];
+  });
+}
+
 /**
  * Характеристики, по которым считаются пороги тиров, потенциал и формулы урона:
  * сохранённые значения плюс бонусы активных фич (только при `automation.enabled`).

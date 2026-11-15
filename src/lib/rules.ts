@@ -6,7 +6,9 @@ import {
   type CharacteristicKey,
   type DerivedStats,
 } from "../types";
-import { abilityKitDamageBonus } from "./character-calculations";
+import { abilityKitDamageContributions } from "./character-calculations";
+import { characteristicTerms, type CalculationBreakdown, type CalculationTerm } from "./calculation-breakdown";
+import { powerRollModifiers } from "./power-roll-modifiers";
 import {
   effectiveCharacteristics,
   featureAbilityDamageContributions,
@@ -111,28 +113,9 @@ export function rollPowerRoll(options: PowerRollOptions): PowerRollResult {
     throw new Error("Каждый d10 должен иметь значение от 1 до 10");
   }
   const natural = die1 + die2;
-  const edges = Math.max(0, options.edges ?? 0);
-  const banes = Math.max(0, options.banes ?? 0);
-  const net = edges - banes;
+  const { net, edgeBonus, tierShift, note: modifierNote } = powerRollModifiers(options.edges, options.banes);
   const numericBonus = options.bonus ?? 0;
-
-  let edgeBonus = 0;
-  let tierShift = 0;
-  let note = "";
-
-  if (net === 1) {
-    edgeBonus = 2;
-    note = "Преимущество: +2";
-  } else if (net >= 2) {
-    tierShift = 1;
-    note = "Двойное преимущество: +1 тир";
-  } else if (net === -1) {
-    edgeBonus = -2;
-    note = "Помеха: −2";
-  } else if (net <= -2) {
-    tierShift = -1;
-    note = "Двойная помеха: −1 тир";
-  }
+  let note = modifierNote;
 
   const total = natural + options.characteristic + numericBonus + edgeBonus;
   const baseTier = tierForTotal(total);
@@ -186,6 +169,8 @@ export interface EvaluatedDamage {
   display: string;
   /** Развёрнутая формула с подставленными характеристиками: "3 + 2". */
   breakdown: string;
+  /** Именованные слагаемые для карточки и окна броска, включая оба способа атаки. */
+  calculations?: CalculationBreakdown[];
 }
 
 /**
@@ -217,6 +202,7 @@ export function evaluateDamage(
     let flat = 0;
     const dice: string[] = [];
     const substituted: string[] = [];
+    const terms: CalculationTerm[] = [];
     let hasCharacteristic = false;
 
     for (const token of tokens) {
@@ -226,15 +212,21 @@ export function evaluateDamage(
         const die = sign < 0 ? `−${body}` : body;
         dice.push(die);
         substituted.push(die);
+        terms.push({ label: "Кубики урона", value: die });
         continue;
       }
       if (/^\d+$/.test(body)) {
         const number = sign * Number(body);
         flat += number;
         substituted.push(String(number));
+        const constant = terms.find((term) => term.kind === "base");
+        if (constant && typeof constant.value === "number") constant.value += number;
+        else terms.push({ kind: "base", label: "Базовый урон", value: number });
         continue;
       }
       const value = characteristicValue(body, characteristics);
+      const key = CHARACTERISTIC_BY_SHORT[body.toUpperCase()];
+      if (key) terms.push(...characteristicTerms(character, key, sign));
       hasCharacteristic = true;
       flat += sign * value;
       substituted.push(String(sign * value));
@@ -242,13 +234,15 @@ export function evaluateDamage(
 
     const flatPart =
       flat === 0 ? "" : ` ${flat > 0 ? "+" : "−"} ${Math.abs(flat)}`;
+    const display = dice.length ? `${dice.join(" + ")}${flatPart}` : String(flat);
     const candidate: EvaluatedDamage = {
       values: [flat],
       dice,
-      display: dice.length ? `${dice.join(" + ")}${flatPart}` : String(flat),
+      display,
       breakdown: hasCharacteristic
         ? substituted.join(" + ").replace(/\+ -/g, "− ")
         : variant,
+      calculations: [{ label: "Урон", formula: trimmed, total: display, terms }],
     };
     if (!best || candidate.values[0] > best.values[0]) best = candidate;
   }
@@ -311,6 +305,7 @@ export function evaluateAbilityDamage(
   ability: Ability,
   tier: number,
   character: Character,
+  surges = 0,
 ): EvaluatedDamage {
   if (
     !ability.weaponMode &&
@@ -322,48 +317,73 @@ export function evaluateAbilityDamage(
       { ...ability, weaponMode: "melee" },
       tier,
       character,
+      surges,
     );
     const ranged = evaluateAbilityDamage(
       { ...ability, weaponMode: "ranged" },
       tier,
       character,
+      surges,
     );
-    if (melee.display === ranged.display) return melee;
+    const calculations = [
+      ...(melee.calculations ?? []).map((calculation) => ({ ...calculation, label: "Ближний бой" })),
+      ...(ranged.calculations ?? []).map((calculation) => ({ ...calculation, label: "Дальний бой" })),
+    ];
+    if (melee.display === ranged.display) return { ...melee, calculations };
     return {
       values: [...melee.values, ...ranged.values],
       dice: [...melee.dice, ...ranged.dice],
       display: `${melee.display} (бл.) · ${ranged.display} (дал.)`,
       breakdown: `Ближний: ${melee.breakdown}; дальний: ${ranged.breakdown}`,
+      calculations,
     };
   }
   const formula = ability.tiers[tier - 1]?.damage ?? "";
   const base = evaluateDamage(formula, character);
   // No formula means no damage tier: bonuses must not invent damage there.
   if (!formula.trim()) return base;
-  const kit = abilityKitDamageBonus(ability, character, tier);
+  const kit = abilityKitDamageContributions(ability, character, tier);
+  const embedded = kit.find((source) => source.includedInFormula);
   const features = featureAbilityDamageContributions(ability, character);
-  const bonus = features.reduce(
-    (total, contribution) => total + contribution.value,
-    kit,
-  );
-  if (!bonus) return base;
+  const manual = character.damageModifier ?? 0;
+  const surge = surgeDamageTotal(character, surges);
   const sources = [
-    ...(kit
-      ? [`${kit < 0 ? "−" : "+"} ${Math.abs(kit)} (комплект)`]
-      : []),
-    ...features.map(
-      (contribution) =>
-        `${contribution.value < 0 ? "−" : "+"} ${Math.abs(contribution.value)} (${contribution.sourceName})`,
-    ),
-  ].join(" ");
+    ...kit,
+    ...features,
+    ...(manual ? [{ sourceName: "Общий модификатор урона", value: manual }] : []),
+    ...(surge ? [{ sourceName: `Всплески: ${clamp(surges, 0, 3)} × ${surgeDamage(character)}`, value: surge }] : []),
+  ];
+  if (!sources.length) return base;
+  const bonus = sources.reduce((total, source) => total + source.value, 0);
   const values = base.values.map((value) => value + bonus);
+  const display = base.dice.length
+    ? bonus ? `${base.display} ${bonus < 0 ? "−" : "+"} ${Math.abs(bonus)}` : base.display
+    : [...new Set(values)].join(" / ");
   return {
     ...base,
     values,
-    display: base.dice.length
-      ? `${base.display} ${bonus < 0 ? "−" : "+"} ${Math.abs(bonus)}`
-      : [...new Set(values)].join(" / "),
-    breakdown: `${base.breakdown} ${sources}`,
+    display,
+    breakdown: `${base.breakdown} ${sources.map((source) =>
+      `${source.value < 0 ? "−" : "+"} ${Math.abs(source.value)} (${source.sourceName})`,
+    ).join(" ")}`,
+    calculations: base.calculations?.map((calculation) => {
+      const baseTerm = calculation.terms.find((term) => term.kind === "base" && typeof term.value === "number");
+      const unembed = embedded && baseTerm;
+      return {
+        ...calculation,
+        total: display,
+        terms: [
+          ...calculation.terms.map((term) => unembed && term === baseTerm ? {
+            ...term, label: "Базовый урон без комплекта", value: Number(term.value) + embedded.value,
+          } : term),
+          ...sources.filter((source) => !unembed || source !== embedded)
+            .map((source) => ({ label: source.sourceName, value: source.value })),
+        ],
+        ...(embedded ? {
+          note: "Печатная формула уже включает бонус исходного комплекта. Он вычтен из базы, чтобы применить выбранный профиль один раз.",
+        } : {}),
+      };
+    }),
   };
 }
 

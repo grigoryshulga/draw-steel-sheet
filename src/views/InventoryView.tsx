@@ -1,12 +1,13 @@
-import { lazy, Suspense, useMemo, useState, type KeyboardEvent } from "react";
+import { lazy, Suspense, useMemo, useState, type KeyboardEvent, type ReactNode } from "react";
 import { addCatalogEntry } from "../lib/catalog-character";
 import { ItemAbilitiesEditor } from "../components/ItemAbilitiesEditor";
 import { MarkdownPreview } from "../components/MarkdownPreview";
-import { CardDetailModal } from "../components/CardDetailModal";
 import { RuleArticleReader } from "../components/rules/RuleArticleReader";
 import { catalogSectionEntries } from "../data/reference-catalog";
 import { ItemEffectsEditor, ItemEffectsSummary } from "../components/ItemEffectsEditor";
 import { normalizeItemEffects } from "../lib/item-effects";
+import { selectedGroupValue } from "../lib/feature-conditions";
+import { Artwork } from "../components/Artwork";
 import { Icon } from "../components/Icons";
 import {
   Button,
@@ -23,17 +24,21 @@ import {
 } from "../components/ui";
 import { makeId } from "../data/templates";
 import {
-  availableKits,
   kitBonusLabel,
   kitByName,
+  selectableKitByName,
   type Kit,
 } from "../data/kits";
 import { featureEquipmentRequirements } from "../lib/feature-equipment-requirements";
-import { changeKit } from "../lib/equipment";
+import { changeKit, kitSignatureAbility } from "../lib/equipment";
+import { KitBonuses } from "../components/KitBonuses";
+import { AbilityCardContent } from "../components/AbilityCard";
+import { CalculationToggle } from "../components/rules/CalculationInline";
+import { CardDetailModal } from "../components/CardDetailModal";
 import { FeatureEquipmentFields } from "../components/FeatureEquipmentFields";
 import { KitPicker } from "./sheet/KitPicker";
 import { useApp } from "../state/AppContext";
-import type { InventoryItem, ItemCategory, ItemEffect } from "../types";
+import type { Ability, InventoryItem, ItemCategory, ItemEffect } from "../types";
 import "./InventoryView.css";
 
 const InventoryCatalogPicker = lazy(() => import("./InventoryCatalogPicker").then(module => ({ default: module.InventoryCatalogPicker })));
@@ -107,51 +112,48 @@ function catalogHref(item: InventoryItem) {
   return `#/catalog/${kind}/${encodeURIComponent(item.catalogId ?? "")}`;
 }
 
-function KitFeature({ kit, eyebrow }: { kit: Kit; eyebrow: string }) {
+function KitFeature({ kit, showBonuses, onOpenSignature, children }: {
+  kit: Kit;
+  showBonuses: boolean;
+  onOpenSignature: () => void;
+  children: ReactNode;
+}) {
   const [rulesOpen, setRulesOpen] = useState(false);
   const entry = catalogSectionEntries("kits").find((item) => item.name === kit.name);
   return (
-    <article className="inv-kit-feature">
-      <div className="inv-kit-feature-body">
-        <header className="inv-kit-feature-head">
-          <div className="inv-kit-feature-name">
-            <span className="eyebrow">{eyebrow}</span>
-            <div className="inv-kit-feature-title">
-              <h3>{kit.name}</h3>
-              {entry && <Button size="sm" variant="ghost" icon="book" iconOnly
-                aria-label={`Правила комплекта «${kit.name}»`} title={`Правила комплекта «${kit.name}»`}
-                onClick={() => setRulesOpen(true)} />}
-            </div>
-          </div>
-          <div className="inv-kit-bonuses">
-            {kit.bonuses.map((bonus) => (
-              <Chip key={`${bonus.label}-${bonus.value}`} tone="accent">
-                {kitBonusLabel(bonus.label)} {bonus.value}
-              </Chip>
-            ))}
-          </div>
-        </header>
-        <p className="inv-kit-summary">{kit.summary}</p>
-        {!!kit.variants?.length && <p className="inv-kit-hint">Выберите конкретный комплект: {kit.variants.map((variant) => variant.name).join(", ")}. Бонусы зависят от этого выбора.</p>}
-        <div className="inv-kit-facts">
-          {kit.animalForm && <div><span className="eyebrow">Форма животного</span><p>{kit.animalForm}</p></div>}
-          {kit.storm && <div><span className="eyebrow">Первозданный шторм</span><p>{kit.storm} · {kit.damageType}</p></div>}
-          <div>
-            <span className="eyebrow">Снаряжение</span>
-            <p>{kit.equipment}</p>
-          </div>
-          {kit.signatureAbility && (
-            <div>
-              <span className="eyebrow">Знаковая способность</span>
-              <p>{kit.signatureAbility}</p>
-            </div>
-          )}
-        </div>
+    <>
+      {!!kit.variants?.length && <p className="inv-kit-hint">Выберите конкретный комплект: {kit.variants.map((variant) => variant.name).join(", ")}. Бонусы зависят от этого выбора.</p>}
+      {kit.animalForm && <p>Форма животного: {kit.animalForm}</p>}
+      {kit.storm && <p>Первозданный шторм: {kit.storm} · {kit.damageType}</p>}
+      <p className="inv-kit-equipment">{kit.equipment}</p>
+      {showBonuses && <div className="inv-kit-bonuses">
+        {kit.bonuses.map((bonus) => (
+          <Chip key={`${bonus.label}-${bonus.value}`} tone="accent">
+            {kitBonusLabel(bonus.label)} {bonus.value}
+          </Chip>
+        ))}
+      </div>}
+      <div className="inv-kit-card-footer">
+        {kit.signatureAbility && (
+          <Button
+            variant="ghost"
+            size="sm"
+            icon="sword"
+            className="inv-kit-signature"
+            aria-label={`Открыть знаковую способность: ${kit.signatureAbility}`}
+            onClick={onOpenSignature}
+          >
+            {kit.signatureAbility}
+          </Button>
+        )}
+        {entry && <Button size="sm" variant="ghost" icon="book" iconOnly aria-label={`Правила комплекта «${kit.name}»`}
+          title={`Правила комплекта «${kit.name}»`} onClick={() => setRulesOpen(true)} />}
+        {children}
       </div>
       {rulesOpen && entry?.articleId && <CardDetailModal open onClose={() => setRulesOpen(false)} title={kit.name} wide>
         <RuleArticleReader articleId={entry.articleId} entityName={entry.entityName} />
       </CardDetailModal>}
-    </article>
+    </>
   );
 }
 
@@ -237,10 +239,37 @@ export function InventoryView() {
   const [pendingDelete, setPendingDelete] = useState<PendingDelete | null>(
     null,
   );
-  const [kitPickerOpen, setKitPickerOpen] = useState(false);
+  const [kitPickerTarget, setKitPickerTarget] = useState<"primary" | "secondary" | null>(null);
+  const [manualKit, setManualKit] = useState<{ name: string; secondary: boolean } | null>(null);
+  const [kitAbility, setKitAbility] = useState<Ability | null>(null);
+  const [showKitCalculations, setShowKitCalculations] = useState(false);
   const selectedKit = kitByName(character.kit);
   const secondaryKit = kitByName(character.secondaryKit ?? "");
   const isTactician = character.className === "Тактик";
+  const kitSlots = [
+    { secondary: false, name: character.kit, kit: selectedKit, label: isTactician ? "Первый комплект" : "Комплект" },
+    ...(isTactician ? [{ secondary: true, name: character.secondaryKit ?? "", kit: secondaryKit, label: "Второй комплект" }] : []),
+  ];
+  const openKitAbility = (kit: Kit) => {
+    setShowKitCalculations(false);
+    setKitAbility(character.abilities.find((ability) =>
+      ability.source === `Комплект: ${kit.name}` && ability.name === kit.signatureAbility,
+    ) ?? kitSignatureAbility(kit) ?? null);
+  };
+  const applyKit = (name: string, secondary: boolean) => {
+    const other = kitByName(secondary ? character.kit : character.secondaryKit ?? "");
+    const kit = kitByName(name);
+    if (kit && !selectableKitByName(name, character.className, selectedGroupValue(character, "fury.aspect") ?? character.subclass)) {
+      notify("Этот комплект недоступен выбранному классу или аспекту.", "error");
+      return false;
+    }
+    if (isTactician && kit && kit.id === other?.id) {
+      notify("Этот комплект уже выбран. Выберите два разных комплекта.", "error");
+      return false;
+    }
+    update((current) => changeKit(current, name, secondary));
+    return true;
+  };
   const hasConditionalEquipmentOption = Boolean(
     featureEquipmentRequirements(
       character.className,
@@ -453,121 +482,61 @@ export function InventoryView() {
       <section className="inv-configuration">
         <h3>Комплект и настройки снаряжения{character.kit ? ` · ${character.kit}` : ""}</h3>
       <Panel
-        title="Комплект"
+        title={isTactician ? "Полевой арсенал" : "Комплект"}
         icon="sword"
-        actions={
-          <Button
-            size="sm"
-            variant="soft"
-            icon="book"
-            iconOnly
-            aria-label={selectedKit ? "Сменить комплект" : "Выбрать комплект"}
-            title={selectedKit ? "Сменить комплект" : "Выбрать комплект"}
-            onClick={() => setKitPickerOpen(true)}
-          />
-        }
+        bodyClassName={`inv-loadout${isTactician ? " is-paired" : ""}`}
+        actions={isTactician && !character.automation?.enabled ? <Chip>Авторасчёт выключен</Chip> : undefined}
       >
-        <div className={`inv-kit-grid${isTactician ? " is-paired" : ""}`}>
-          <div className="inv-kit-column">
-            <Field label="Название комплекта">
-              <TextInput
-                value={character.kit}
-                placeholder="Напр.: Клинок и щит"
-                aria-label="Комплект"
-                onChange={(e) => update((current) => changeKit(current, e.target.value))}
-              />
-            </Field>
-
-            {selectedKit ? (
-              <KitFeature kit={selectedKit} eyebrow="Текущий комплект" />
-            ) : character.kit.trim() ? (
-              <div className="inv-kit-custom">
-                <span className="eyebrow">Свой комплект</span>
-                <h3>{character.kit}</h3>
-                <p>
-                  Этого комплекта нет в справочнике. Снаряжение и бонусы можно
-                  записать в «Эффектах снаряжения».
-                </p>
-              </div>
-            ) : (
-              <p className="inv-kit-hint">
-                Комплект задаёт снаряжение и бонусы героя. Выберите готовый
-                комплект из справочника или впишите свой.
-              </p>
-            )}
-          </div>
-
-          {isTactician && (
-            <div className="inv-kit-column">
-              <Field label="Второй комплект · Полевой арсенал">
-                <Select
-                  value={character.secondaryKit ?? ""}
-                  onChange={(e) =>
-                    update((c) => changeKit(c, e.target.value, true))
-                  }
-                >
-                  <option value="">Без второго комплекта</option>
-                  {availableKits(character.className, character.subclass).filter((k) => k.name !== character.kit).map(
-                    (k) => (
-                      <option key={k.id}>{k.name}</option>
-                    ),
-                  )}
-                </Select>
-              </Field>
-
-              {secondaryKit ? (
-                <KitFeature kit={secondaryKit} eyebrow="Второй комплект" />
-              ) : character.secondaryKit?.trim() ? (
-                <div className="inv-kit-custom">
-                  <span className="eyebrow">Второй комплект</span>
-                  <h3>{character.secondaryKit}</h3>
-                  <p>
-                    Этого комплекта нет в справочнике. Выберите другой комплект
-                    или оставьте только основной.
-                  </p>
+        <div className="inv-kit-grid">
+          {kitSlots.map((slot) => {
+            const kit = slot.kit;
+            const manualControl = (
+              <Button variant="ghost" size="sm" icon="edit" aria-label={`Свой комплект: ${slot.label.toLowerCase()}`}
+                onClick={() => setManualKit({ name: slot.name, secondary: slot.secondary })}>Свой комплект</Button>
+            );
+            return (
+            <article className="inv-kit-column" key={slot.label}>
+              <header className="inv-kit-slot-head">
+                <Artwork kind="kit" name={slot.name} className="inv-kit-feature-art" />
+                <div className="inv-kit-feature-name">
+                  <span className="eyebrow">{slot.label}</span>
+                  <h3>{kit?.name || slot.name.trim() || "Не выбран"}</h3>
                 </div>
+                <Button
+                  size="sm"
+                  variant="soft"
+                  icon="book"
+                  aria-label={`${slot.name ? "Сменить" : "Выбрать"}: ${slot.label.toLowerCase()}`}
+                  onClick={() => setKitPickerTarget(slot.secondary ? "secondary" : "primary")}
+                >
+                  {slot.name ? "Сменить" : "Выбрать"}
+                </Button>
+              </header>
+              {kit ? (
+                <KitFeature kit={kit} showBonuses={!isTactician} onOpenSignature={() => openKitAbility(kit)}>
+                  {manualControl}
+                </KitFeature>
               ) : (
-                <p className="inv-kit-hint">
-                  Второй комплект даёт Тактику запасной набор снаряжения и
-                  профилей урона. Выберите его из справочника.
-                </p>
+                manualControl
               )}
-
-              {character.secondaryKit &&
-                (["meleeDamageKit", "rangedDamageKit"] as const).map(
-                  (key, i) => (
-                    <Field
-                      key={key}
-                      label={`Профиль урона ${i === 0 ? "ближнего" : "дальнего"} боя`}
-                    >
-                      <Select
-                        value={character.automation?.[key] || character.kit}
-                        onChange={(e) =>
-                          patch({
-                            automation: {
-                              enabled: character.automation?.enabled ?? false,
-                              adjustments:
-                                character.automation?.adjustments ?? {},
-                              ancestryTraits:
-                                character.automation?.ancestryTraits ?? [],
-                              ...character.automation,
-                              [key]: e.target.value,
-                            },
-                          })
-                        }
-                      >
-                        {[character.kit, character.secondaryKit]
-                          .filter(Boolean)
-                          .map((name) => (
-                            <option key={name}>{name}</option>
-                          ))}
-                      </Select>
-                    </Field>
-                  ),
-                )}
-            </div>
-          )}
+            </article>
+            );
+          })}
         </div>
+        {isTactician && (
+          <KitBonuses
+            loadout={character}
+            level={character.level}
+            onChange={(preferences) => update((current) => ({
+              ...current,
+              automation: {
+                enabled: false, adjustments: {}, ancestryTraits: [],
+                ...current.automation,
+                ...preferences,
+              },
+            }))}
+          />
+        )}
       </Panel>
 
       <Panel title="Снаряжение" icon="sword">
@@ -766,16 +735,40 @@ export function InventoryView() {
         notify(`Добавлено: ${entry.name}`, "success");
       }} /></Suspense>}
 
-      {kitPickerOpen && <KitPicker
-        open
-        character={character}
-        onClose={() => setKitPickerOpen(false)}
-        onSelect={(kit) => {
-          update((c) => changeKit(c, kit.name));
-          setKitPickerOpen(false);
-          notify(`Комплект «${kit.name}» выбран`, "success");
-        }}
-      />}
+      {kitPickerTarget && (
+        <KitPicker
+          open
+          character={character}
+          secondary={kitPickerTarget === "secondary"}
+          title={isTactician ? kitPickerTarget === "secondary" ? "Второй комплект" : "Первый комплект" : "Комплекты"}
+          onClose={() => setKitPickerTarget(null)}
+          onSelect={(kit) => {
+            if (applyKit(kit.name, kitPickerTarget === "secondary")) {
+              setKitPickerTarget(null);
+              notify(`Комплект «${kit.name}» выбран`, "success");
+            }
+          }}
+        />
+      )}
+      {manualKit && <CardDetailModal open title="Свой комплект" onClose={() => setManualKit(null)} footer={<>
+        <Button variant="ghost" onClick={() => setManualKit(null)}>Отмена</Button>
+        <Button variant="primary" onClick={() => { if (applyKit(manualKit.name, manualKit.secondary)) setManualKit(null); }}>Сохранить</Button>
+      </>}>
+        <Field label="Название комплекта"><TextInput value={manualKit.name} aria-label="Название своего комплекта"
+          onChange={(event) => setManualKit({ ...manualKit, name: event.target.value })} /></Field>
+      </CardDetailModal>}
+      <CardDetailModal
+        open={kitAbility !== null}
+        onClose={() => setKitAbility(null)}
+        title={kitAbility?.name ?? "Знаковая способность"}
+        source={kitAbility?.source}
+        footer={kitAbility ? <>
+          <CalculationToggle checked={showKitCalculations} onChange={setShowKitCalculations} />
+          <span className="grow" />
+        </> : undefined}
+      >
+        {kitAbility && <AbilityCardContent ability={kitAbility} character={character} showCalculations={showKitCalculations} />}
+      </CardDetailModal>
     </div>
   );
 }

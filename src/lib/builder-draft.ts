@@ -19,6 +19,13 @@ export function readBuilderDraft(key: string): BuilderDraft {
       return {
         ...base,
         ...stored,
+        kitBonusSelections:
+          stored.kitBonusSelections &&
+          typeof stored.kitBonusSelections === "object" &&
+          !Array.isArray(stored.kitBonusSelections) &&
+          Object.values(stored.kitBonusSelections).every((value) => typeof value === "string")
+            ? { ...stored.kitBonusSelections }
+            : undefined,
         ancestryChoices:
           stored.ancestryChoices &&
           typeof stored.ancestryChoices === "object" &&

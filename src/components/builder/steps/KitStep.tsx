@@ -1,32 +1,18 @@
-import { availableKits } from "../../../data/kits";
+import { availableKits, kitByName } from "../../../data/kits";
 import { BuilderSelection } from "../BuilderSelection";
-import { Field, Select } from "../../ui";
+import { KitBonuses } from "../../KitBonuses";
+import { validKitBonusPreferences } from "../../../lib/kit-bonuses";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function KitStep({ part }: { part: string }) {
   const { draft, patch } = useBuilderStep();
   if (part === "bonuses")
     return (
-      <>
-        {(["meleeDamageKit", "rangedDamageKit"] as const).map((key, i) => (
-          <Field
-            key={key}
-            label={`Бонус к урону ${i === 0 ? "ближнего" : "дальнего"} боя`}
-          >
-            <Select
-              value={draft[key] || draft.kit}
-              onChange={(e) => patch({ [key]: e.target.value })}
-            >
-              {[draft.kit, draft.secondaryKit].filter(Boolean).map((name) => (
-                <option key={name}>{name}</option>
-              ))}
-            </Select>
-          </Field>
-        ))}
-      </>
+      <KitBonuses loadout={{ ...draft, automation: draft }} level={1} onChange={patch} />
     );
   const secondary = part === "secondary";
   const selected = secondary ? draft.secondaryKit : draft.kit;
+  const otherKit = kitByName(secondary ? draft.kit : draft.secondaryKit);
   return (
     <>
       <BuilderSelection
@@ -36,18 +22,20 @@ export function KitStep({ part }: { part: string }) {
         options={availableKits(draft.className, draft.subclass).map((kit) => ({
           name: kit.name,
           description: [kit.summary, kit.equipment].join("\n\n"),
-          disabled: kit.name === (secondary ? draft.kit : draft.secondaryKit),
+          disabled: kit.id === otherKit?.id,
           note:
-            kit.name === (secondary ? draft.kit : draft.secondaryKit)
+            kit.id === otherKit?.id
               ? "Уже выбран"
               : undefined,
         }))}
         selected={selected ? { name: selected } : null}
-        changesFor={(name) => ({
-          ...(secondary ? { secondaryKit: name } : { kit: name }),
-          meleeDamageKit: "",
-          rangedDamageKit: "",
-        })}
+        changesFor={(name) => {
+          const changes = secondary ? { secondaryKit: name } : { kit: name };
+          return {
+            ...changes,
+            ...validKitBonusPreferences({ ...draft, ...changes, automation: draft }),
+          };
+        }}
       />
     </>
   );

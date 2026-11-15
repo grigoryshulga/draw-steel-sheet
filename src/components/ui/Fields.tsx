@@ -50,6 +50,7 @@ export interface NumberInputProps {
   min?: number;
   max?: number;
   step?: number;
+  integer?: boolean;
   label?: string;
   className?: string;
   showButtons?: boolean;
@@ -66,6 +67,7 @@ export function NumberInput({
   min,
   max,
   step = 1,
+  integer = false,
   label,
   className = "",
   showButtons = true,
@@ -100,6 +102,7 @@ export function NumberInput({
       value,
       min,
       max,
+      integer,
     );
     setDraft(String(normalized));
     emit(normalized);
@@ -118,7 +121,7 @@ export function NumberInput({
           className="number-counter-btn"
           aria-label={`${label ?? "Значение"}: уменьшить`}
           onClick={() => {
-            const next = normalizeNumberInput(value - step, value, min, max);
+            const next = normalizeNumberInput(value - step, value, min, max, integer);
             setDraft(String(next));
             emit(next);
             onCommit?.(next);
@@ -148,7 +151,7 @@ export function NumberInput({
           if (!/^-?(?:\d*\.?\d*)?$/.test(nextDraft)) return;
           setDraft(nextDraft);
           const next = parseNumberInputDraft(nextDraft);
-          if (next !== null) emit(normalizeNumberInput(next, value, min, max));
+          if (next !== null) emit(normalizeNumberInput(next, value, min, max, integer));
         }}
       />
       {showButtons && (
@@ -157,7 +160,7 @@ export function NumberInput({
           className="number-counter-btn"
           aria-label={`${label ?? "Значение"}: увеличить`}
           onClick={() => {
-            const next = normalizeNumberInput(value + step, value, min, max);
+            const next = normalizeNumberInput(value + step, value, min, max, integer);
             setDraft(String(next));
             emit(next);
             onCommit?.(next);

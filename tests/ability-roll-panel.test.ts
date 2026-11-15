@@ -7,7 +7,7 @@ import { abilityFromTemplate, BASIC_ABILITIES } from "../src/data/templates";
 import { createCharacter } from "../src/lib/defaults";
 import { deriveStats } from "../src/lib/rules";
 
-function renderPanel(hasRoll: boolean, singleCharacteristic = false) {
+function renderPanel(hasRoll: boolean, singleCharacteristic = false, showCalculations = false) {
   const ability = abilityFromTemplate(BASIC_ABILITIES[0]);
   if (!hasRoll) ability.rollCharacteristics = [];
   else if (singleCharacteristic) ability.rollCharacteristics = ["might"];
@@ -29,7 +29,7 @@ function renderPanel(hasRoll: boolean, singleCharacteristic = false) {
     goTo: vi.fn(),
   };
   const html = renderToStaticMarkup(createElement(AppContext.Provider, { value: context },
-    createElement(AbilityRollPanel, { ability, character }),
+    createElement(AbilityRollPanel, { ability, character, showCalculations }),
   ));
   expect(perform).not.toHaveBeenCalled();
   expect(character).toEqual(before);
@@ -37,6 +37,19 @@ function renderPanel(hasRoll: boolean, singleCharacteristic = false) {
 }
 
 describe("подготовка применения способности", () => {
+  it("сохраняет итог броска и включает короткую формулу только по переключателю поп-апа", () => {
+    const hidden = renderPanel(true);
+    const shown = renderPanel(true, false, true);
+    for (const html of [hidden, shown]) {
+      expect(html).toContain("2d10 +0");
+      expect(html).not.toContain("<details class=\"ability-calculation\"");
+      expect(html).not.toContain("Как считается");
+    }
+    expect(hidden).not.toContain("calculation-inline");
+    expect(shown).toContain("calculation-inline");
+    expect(shown).toContain("= 2d10 +0");
+  });
+
   it("показывает подготовленный бросок без применения и расхода", () => {
     const html = renderPanel(true);
     expect(html).toContain('aria-label="Бросок силы"');

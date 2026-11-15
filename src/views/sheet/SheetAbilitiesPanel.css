@@ -2,6 +2,20 @@
   grid-column: 1 / -1;
 }
 
+.sheet-ability-damage-modifier {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+.sheet-ability-damage-modifier .field { flex: 0 1 240px; min-width: 0; }
+.sheet-ability-damage-modifier p { flex: 1 1 220px; margin: 0; font-size: var(--text-body); line-height: var(--leading-relaxed); color: var(--muted); }
+
 /* Выбор способности, которую выдаёт черта происхождения. */
 .sheet-ability-ancestry-choices {
   display: flex;

@@ -18,9 +18,11 @@ export function normalizeNumberInput(
   current: number,
   min?: number,
   max?: number,
+  integer = false,
 ): number {
   let next = value ?? current;
   if (!Number.isFinite(next)) next = current;
+  if (integer) next = Math.trunc(next);
   if (min !== undefined) next = Math.max(min, next);
   if (max !== undefined) next = Math.min(max, next);
   return next;

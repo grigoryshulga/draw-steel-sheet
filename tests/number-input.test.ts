@@ -5,6 +5,12 @@ import {
 } from "../src/lib/number-input";
 
 describe("number input draft helpers", () => {
+  it("commits integer modifiers without leaving a fractional value different from the saved number", () => {
+    expect(normalizeNumberInput(1.9, 0, -9999, 9999, true)).toBe(1);
+    expect(normalizeNumberInput(-1.9, 0, -9999, 9999, true)).toBe(-1);
+    expect(normalizeNumberInput(1.9, 0)).toBe(1.9);
+  });
+
   it("accepts intermediate and signed decimal drafts without coercing them", () => {
     expect(parseNumberInputDraft("")).toBeNull();
     expect(parseNumberInputDraft("-")).toBeNull();

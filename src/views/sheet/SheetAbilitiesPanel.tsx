@@ -3,6 +3,7 @@ import { Icon } from "../../components/Icons";
 import { AbilityCard } from "../../components/AbilityCard";
 import { AbilityFacts } from "../../components/rules/AbilitySheet";
 import { AbilityGroup } from '../../components/rules/AbilityGroup';
+import { CalculationInline, CalculationToggle } from "../../components/rules/CalculationInline";
 import { abilityCardView } from "../../components/rules/abilityCardView";
 import { CharacteristicGlyphText } from "../../components/CharacteristicGlyph";
 import { DamageChip } from "../../components/DamageChip";
@@ -10,7 +11,7 @@ import { AbilityRollPanel } from "../abilities/RollModal";
 import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
-import { Button, Chip, EmptyState, Panel, Select } from "../../components/ui";
+import { Button, Chip, EmptyState, Field, NumberInput, Panel, Select } from "../../components/ui";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { RichText } from "../../components/RichText";
 import { kindLabel } from "../../data/actions";
@@ -275,6 +276,26 @@ export function SheetAbilitiesPanel() {
           />
         }
       >
+        <div className="sheet-ability-damage-modifier">
+          <Field label="Общий модификатор урона">
+            <NumberInput
+              integer
+              value={character.damageModifier ?? 0}
+              min={-9999}
+              max={9999}
+              label="Общий модификатор урона"
+              onChange={(value) => update((current) => ({ ...current, damageModifier: value }))}
+            />
+          </Field>
+          <p>Для эффектов, которые лист не считает сам. Добавляется один раз к каждому тиру с уроном, в том числе при выключенном авторасчёте.</p>
+          <Button
+            size="sm"
+            variant="ghost"
+            disabled={!character.damageModifier}
+            aria-label="Сбросить общий модификатор урона"
+            onClick={() => update((current) => ({ ...current, damageModifier: 0 }))}
+          >Сбросить</Button>
+        </div>
         {sheetAbilities.length === 0 && ancestryChoices.length === 0 ? (
           <EmptyState
             icon="abilities"
@@ -456,6 +477,7 @@ function AbilityDetailModal({
 }) {
   const { character } = useApp();
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const [showCalculations, setShowCalculations] = useState(false);
   const subclassSources = useMemo(
     () => subclassAbilitySources(character),
     [character],
@@ -471,13 +493,14 @@ function AbilityDetailModal({
   const tiers = ability.tiers
     .map((tier, index) => ({ ...tier, tier: (index + 1) as Tier }))
     .filter((tier) => tier.damage || tier.effect);
+  const view = abilityCardView(ability, character);
 
   return (
     <CardDetailModal
       open
       onClose={onClose}
       className={`sheet-ability-modal${ability.source === BASIC_ABILITY_SOURCE ? " is-basic" : ""}`}
-      sidecar={<AbilityRollPanel key={ability.id} ability={ability} character={character} />}
+      sidecar={<AbilityRollPanel key={ability.id} ability={ability} character={character} showCalculations={showCalculations} />}
       headerActions={
         derived ? undefined : (
           <>
@@ -508,6 +531,10 @@ function AbilityDetailModal({
       }
       footer={
         <>
+          {(view.rollCalculations?.length || view.tiers.some((tier) => tier.damage?.calculations?.length)) ? (
+            <CalculationToggle checked={showCalculations} onChange={setShowCalculations} />
+          ) : null}
+          <span className="grow" />
           {!derived && (
             <Button
               variant="ghost"
@@ -540,7 +567,7 @@ function AbilityDetailModal({
           <p className="sheet-ability-detail-flavor"><CharacteristicGlyphText text={ability.flavor} /></p>
         )}
 
-        <AbilityFacts view={abilityCardView(ability, character)} />
+        <AbilityFacts view={view} showCalculations={showCalculations} />
 
         {ability.trigger && (
           <div className="sheet-ability-detail-block sheet-ability-detail-trigger">
@@ -575,6 +602,7 @@ function AbilityDetailModal({
                         />
                       )}
                     </div>
+                    {showCalculations && <CalculationInline calculations={damage.calculations ?? []} />}
                     {tier.effect && <RichText characteristicGlyphs text={tier.effect} />}
                   </div>
                 );

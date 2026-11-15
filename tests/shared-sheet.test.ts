@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import { abilityFromTemplate, BASIC_ABILITIES } from '../src/data/templates';
+import { evaluateAbilityDamage } from '../src/lib/rules';
 import { createCharacter } from '../src/lib/defaults';
 import { sharedSheetCharacter } from '../src/lib/tables/shared-sheet';
 import { projectHero } from '../server/tables-store.mjs';
@@ -32,6 +34,20 @@ describe('read-only shared sheet model', () => {
     result.characteristics.might = -1;
     result.stamina.current = 999;
     expect(shared).toEqual(before);
+  });
+  it('shares the manual damage modifier only with the hero section and uses it in ability totals', () => {
+    const source = createCharacter();
+    source.damageModifier = -2;
+    const ability = { ...abilityFromTemplate(BASIC_ABILITIES[0]), tiers: [
+      { damage: '5', effect: '' }, { damage: '7', effect: '' }, { damage: '9', effect: '' },
+    ] };
+    source.abilities = [ability];
+    const shared = sharedSheetCharacter(projectHero(source, { sections: ['hero'], notes: [] }) as SharedHero);
+    expect(shared.damageModifier).toBe(-2);
+    expect(evaluateAbilityDamage(shared.abilities[0], 1, shared).values).toEqual([3]);
+    const closed = projectHero(source, { sections: ['development'], notes: [] }) as SharedHero;
+    expect(JSON.stringify(closed)).not.toContain('damageModifier');
+    expect(sharedSheetCharacter(closed).damageModifier).toBeUndefined();
   });
   it('rejects unrelated fields inside section records', () => {
     const source = createCharacter({ name: 'Бран' });

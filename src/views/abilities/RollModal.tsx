@@ -15,7 +15,9 @@ import {
   Stepper,
   Toggle,
 } from "../../components/ui";
-import { preferredCharacteristic } from "../../lib/abilities";
+import { abilityRollBreakdown, preferredCharacteristic } from "../../lib/abilities";
+import { effectiveCharacteristics } from "../../lib/feature-modifiers";
+import { CalculationInline } from "../../components/rules/CalculationInline";
 import {
   previewGameAction,
   undoReason,
@@ -33,6 +35,7 @@ import "./RollModal.css";
 export interface AbilityRollPanelProps {
   ability: Ability;
   character: Character;
+  showCalculations?: boolean;
 }
 
 function RollMarks({
@@ -71,7 +74,7 @@ function RollMarks({
 }
 
 /** Rolls are previews. Only applying the action changes resources, once per operation. */
-export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) {
+export function AbilityRollPanel({ ability, character, showCalculations = false }: AbilityRollPanelProps) {
   const { performGameAction, undoGameAction, gameHistory } = useApp();
   const characteristics = ability.rollCharacteristics;
   const hasRoll = characteristics.length > 0;
@@ -83,7 +86,7 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
   );
   const [edges, setEdges] = useState(0);
   const [banes, setBanes] = useState(0);
-  const [bonus, setBonus] = useState(ability.rollBonus);
+  const [bonus, setBonus] = useState(0);
   const [surges, setSurges] = useState(0);
   const [additionalCost, setAdditionalCost] = useState(0);
   const [waiveCost, setWaiveCost] = useState(false);
@@ -106,27 +109,35 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
     !isUndone &&
     gameHistory.find((entry) => !entry.undone)?.id === appliedEntry.id &&
     !undoReason(character, appliedEntry);
+  const effective = effectiveCharacteristics(character);
+  const rollCalculation = abilityRollBreakdown(ability, character, {
+    characteristic: charKey,
+    additionalBonus: bonus,
+    edges,
+    banes,
+  });
+  const characteristicBonus = rollCalculation?.characteristicBonus ?? effective[charKey];
 
   const result = useMemo(
     () =>
       dice
         ? rollPowerRoll({
             dice,
-            characteristic: character.characteristics[charKey],
+            characteristic: characteristicBonus,
             edges,
             banes,
-            bonus,
+            bonus: ability.rollBonus + bonus,
             isMainAction: ability.actionType === "main",
           })
         : null,
     [
       dice,
-      character.characteristics,
-      charKey,
+      characteristicBonus,
       edges,
       banes,
       bonus,
       ability.actionType,
+      ability.rollBonus,
     ],
   );
   const tier = result ? ability.tiers[result.tier - 1] : null;
@@ -136,17 +147,11 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
           { ...ability, weaponMode },
           result.tier,
           character,
+          surges,
         )
       : null;
   const surgeBonus = surgeDamageTotal(character, surges);
-  const surgeFinal =
-    damage && surges > 0
-      ? damage.dice.length > 0
-        ? damage.display + " + " + surgeBonus
-        : [...new Set(damage.values.map((value) => value + surgeBonus))].join(
-            " / ",
-          )
-      : damage?.display;
+  const surgeFinal = damage?.display;
   const canUseSurges = Boolean(damage);
   const canDealDamage = hasRoll && ability.tiers.some((item) => item.damage.trim() !== "");
   const action: GameAction = {
@@ -203,10 +208,13 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
     <section className="ability-roll-panel" aria-label={hasRoll ? "Бросок силы" : "Применение способности"}>
       <header className="ability-roll-header">
         <h3 className="ability-roll-heading">{hasRoll ? "Бросок силы" : "Применение"}</h3>
+        {rollCalculation && <strong className="ability-roll-bonus">{rollCalculation.total}</strong>}
         <span className="ability-roll-resource">
           {resourceName}: {character.heroicResource.current} · расход {waiveCost ? 0 : ability.resourceCost + additionalCost}
         </span>
       </header>
+
+      {showCalculations && rollCalculation && <CalculationInline calculations={[rollCalculation]} base="2d10" />}
 
       <fieldset className="ability-use-settings" disabled={applied}>
         <legend className="sr-only">Параметры применения способности</legend>
@@ -239,7 +247,7 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
                         title={CHARACTERISTICS.find((item) => item.key === key)?.label}
                       >
                         <CharacteristicGlyph characteristic={key} />
-                        {character.characteristics[key]}
+                        {effective[key]}
                       </Chip>
                     ))}
                   </div>
@@ -273,7 +281,8 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
 
             <div className="ability-roll-numbers">
               <Field label="Бонус к броску">
-                <NumberInput value={bonus} onChange={setBonus} min={-10} max={20} label="Бонус броска" />
+                <NumberInput value={bonus} onChange={setBonus} min={-10} max={20} label="Дополнительный бонус броска" />
+                <span className="small muted">Дополнительно к характеристике и бонусу способности.</span>
               </Field>
               {canDealDamage && (
                 <fieldset className="ability-roll-surge" disabled={!canUseSurges} title={!canUseSurges ? "Всплески доступны после результата с уроном" : undefined}>
@@ -342,6 +351,7 @@ export function AbilityRollPanel({ ability, character }: AbilityRollPanelProps) 
                     {surges > 0 && (
                       <p className="small muted">Включено {surges} × {surgeDamage(character)} = +{surgeBonus} от всплесков.</p>
                     )}
+                    {showCalculations && <CalculationInline calculations={damage.calculations ?? []} />}
                   </div>
                 )}
                 {tier?.effect && <RichText characteristicGlyphs text={tier.effect} className="abil-tier-effect" />}

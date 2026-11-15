@@ -40,3 +40,12 @@
     max-height: none;
   }
 }
+
+.kit-picker-pair {
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--line);
+}
+.kit-picker-pair .kit-loadout-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.kit-picker-pair .kit-loadout-source { grid-column: 1 / -1; }
+.kit-picker-pair .kit-loadout-head { display: none; }

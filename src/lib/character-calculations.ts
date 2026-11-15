@@ -13,20 +13,13 @@ import {
 import { echelon } from "./progression";
 import { trackFuryTurn } from "./fury-turn";
 import { stormwightFormState, synchronizeStormwightForm } from "./stormwight-forms";
+import { resolvedKitBonus } from "./kit-bonuses";
 
 export { echelon };
 /** Реэкспорт для UI: эффективные характеристики без прямого импорта движка. */
 export { effectiveCharacteristics };
 export function kitBonus(character: Character, label: string): number {
-  return Math.max(
-    0,
-    ...[character.kit, character.secondaryKit ?? ""].map(
-      (name) =>
-        parseFloat(
-          kitByName(name)?.bonuses.find((b) => b.label === label)?.value ?? "",
-        ) || 0,
-    ),
-  );
+  return parseFloat(resolvedKitBonus(character, label)?.value ?? "") || 0;
 }
 /** Saved numeric stats; saving throws are not stored and use `featureStatBonus` directly. */
 export type CalculatedStat = Exclude<FeatureStat, "save">;
@@ -192,8 +185,21 @@ export function abilityKitDamageBonus(
   character: Character,
   tier: number,
 ): number {
-  if (!character.automation?.enabled) return 0;
-  if (!ability.keywords.some((k) => k.toLowerCase() === "оружие")) return 0;
+  return abilityKitDamageContributions(ability, character, tier).reduce((total, source) => total + source.value, 0);
+}
+
+/** Printed kit damage is removed before applying the currently selected profile. */
+export interface KitDamageContribution extends FeatureContribution {
+  includedInFormula?: boolean;
+}
+
+export function abilityKitDamageContributions(
+  ability: Ability,
+  character: Character,
+  tier: number,
+): KitDamageContribution[] {
+  if (!character.automation?.enabled) return [];
+  if (!ability.keywords.some((k) => k.toLowerCase() === "оружие")) return [];
   const kind =
     ability.weaponMode === "ranged" && ability.keywords.includes("Дальний")
       ? "Дальний"
@@ -202,31 +208,30 @@ export function abilityKitDamageBonus(
         : ability.keywords.some((k) => k.toLowerCase() === "дальний")
           ? "Дальний"
           : null;
-  if (!kind) return 0;
-  const chosen =
-    kind === "Ближний"
-      ? character.automation.meleeDamageKit
-      : character.automation.rangedDamageKit;
-  const name =
-    chosen && [character.kit, character.secondaryKit].includes(chosen)
-      ? chosen
-      : character.kit;
-  const selectedKit = kitByName(name);
-  const bonus = selectedKit?.bonuses.find(
-    (b) => b.label === `урону (${kind})`,
-  );
+  if (!kind) return [];
+  const bonus = resolvedKitBonus(character, `урону (${kind})`);
   const embeddedKit = abilitySourceKit(ability);
-  // До уточнения старой общей записи сохраняем напечатанный урон каждой
-  // способности: неизвестно, какой из четырёх комплектов имелся в виду.
-  if (selectedKit?.variants?.some((variant) => variant.id === embeddedKit?.id)) return 0;
-  if (!selectedKit && embeddedKit?.familyId && ability.source !== `Комплект: ${embeddedKit.name}`) return 0;
+  const selectedKit = kitByName(character.kit);
+  // Preserve printed damage until a legacy Stormwight family is resolved.
+  if (selectedKit?.variants?.some((variant) => variant.id === embeddedKit?.id)) return [];
+  if (!selectedKit && embeddedKit?.familyId && ability.source !== `Комплект: ${embeddedKit.name}`) return [];
   const embedded = embeddedKit?.bonuses.find(
     (b) => b.label === `урону (${kind})`,
   );
-  return (
-    (Number(bonus?.value.split("/")[tier - 1]?.replace("+", "")) || 0) -
-    (Number(embedded?.value.split("/")[tier - 1]?.replace("+", "")) || 0)
-  );
+  const embeddedValue = Number(embedded?.value.split("/")[tier - 1]?.replace("+", "")) || 0;
+  return [
+    ...(embeddedKit && embeddedValue ? [{
+      sourceId: embeddedKit.id,
+      sourceName: `Встроенный бонус: ${embeddedKit.name}`,
+      value: -embeddedValue,
+      includedInFormula: true,
+    }] : []),
+    ...(bonus ? [{
+      sourceId: bonus.kit.id,
+      sourceName: `Комплект: ${bonus.kit.name}`,
+      value: Number(bonus.value.split("/")[tier - 1]?.replace("+", "")) || 0,
+    }] : []),
+  ];
 }
 
 export function abilityDistance(

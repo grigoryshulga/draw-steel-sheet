@@ -8,6 +8,7 @@ import { actionLabel, actionShort } from "../../data/actions";
 import { inferDamageType } from "../../lib/damageType";
 import {
   abilityTierRequirements,
+  abilityRollBreakdown,
 } from "../../lib/abilities";
 import {
   abilitySheetBase,
@@ -37,11 +38,22 @@ export function abilityCardView(
   const rollTitle = requirements
     ? `Бросок силы: ${characteristicShort(requirements.characteristic)} ${bonus}${alternatives.length ? `; также ${alternatives.join(" или ")}` : ""}`
     : "Бросок силы";
+  const rollCalculations = requirements
+    ? [requirements.characteristic, ...ability.rollCharacteristics.filter((key) => key !== requirements.characteristic)]
+      .flatMap((key) => {
+        const calculation = abilityRollBreakdown(ability, character, { characteristic: key });
+        return calculation ? [{
+          ...calculation,
+          note: "Преимущества, помехи и поправки к отдельному броску задаются в окне броска.",
+        }] : [];
+      })
+    : [];
   return {
     ...abilitySheetBase(ability),
     origin,
     trigger: ability.trigger,
     roll: requirements ? { characteristic: requirements.characteristic, bonus: requirements.totalBonus } : null,
+    rollCalculations,
     facts: [
       { label: "Действие", value: actionShort(ability.actionType), title: `Тип действия: ${actionLabel(ability.actionType)}` },
       {
@@ -52,18 +64,22 @@ export function abilityCardView(
       { label: "Цель", value: ability.target, title: "Цель" },
       { label: "Бросок", value: rollValue, title: rollTitle },
     ],
-    tiers: visibleAbilityTiers(ability).map((tier) => ({
-      tier: tier.tier,
-      range: TIER_ROLL_RANGES[tier.tier],
-      rangeTitle: "Диапазон суммы броска силы",
-      damage: tier.damage
-        ? {
-            value: evaluateAbilityDamage(ability, tier.tier, character).display,
-            type: inferDamageType(ability, tier.effect),
-          }
-        : undefined,
-      effect: tier.effect,
-    })),
+    tiers: visibleAbilityTiers(ability).map((tier) => {
+      const damage = tier.damage ? evaluateAbilityDamage(ability, tier.tier, character) : undefined;
+      return {
+        tier: tier.tier,
+        range: TIER_ROLL_RANGES[tier.tier],
+        rangeTitle: "Диапазон суммы броска силы",
+        damage: damage
+          ? {
+              value: damage.display,
+              type: inferDamageType(ability, tier.effect),
+              calculations: damage.calculations,
+            }
+          : undefined,
+        effect: tier.effect,
+      };
+    }),
     forcedMovement: abilityForcedMovementLine(ability, character),
   };
 }

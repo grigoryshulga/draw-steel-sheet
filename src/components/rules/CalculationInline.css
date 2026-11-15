@@ -1,0 +1,24 @@
+.calculation-inline {
+  display: block;
+  flex-basis: 100%;
+  min-width: 0;
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  overflow-wrap: anywhere;
+}
+
+.calculation-inline-line { display: block; }
+.calculation-inline-term strong { font-weight: 500; font-variant-numeric: tabular-nums; }
+.calculation-inline-label { color: var(--fg); }
+.calculation-inline-total { color: var(--fg-bright); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.calculation-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--muted);
+  font-size: var(--text-body);
+}
+
+.calculation-toggle .toggle { flex: none; }

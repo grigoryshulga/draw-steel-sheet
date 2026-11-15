@@ -243,6 +243,8 @@ export interface Character {
 
   conditions: Record<string, ConditionState>;
   abilities: Ability[];
+  /** Общая ручная прибавка/штраф к урону способностей; действует независимо от авторасчёта. */
+  damageModifier?: number;
   perks: SelectedPerk[];
 
   /**
@@ -295,6 +297,8 @@ export interface Character {
     equipment?: FeatureEquipmentFlags;
     meleeDamageKit?: string;
     rangedDamageKit?: string;
+    /** Источник совпадающих бонусов комплектов; урон хранится в прежних полях выше. */
+    kitBonusSelections?: Record<string, string>;
     classFeatureSelections?: Record<string, string>;
     /** Выборы способностей происхождения: ключ — группа черты, значение — id варианта. */
     ancestryFeatureSelections?: Record<string, string>;

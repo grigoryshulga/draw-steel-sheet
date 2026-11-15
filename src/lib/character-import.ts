@@ -155,6 +155,7 @@ function validateCharacterShape(value: JsonObject): void {
   const numbers = ["level", "xp", "epic", "victories", "surges", "heroTokens"];
   for (const key of strings) optionalString(value, key);
   for (const key of numbers) optionalNumber(value, key);
+  if ("damageModifier" in value && !Number.isSafeInteger(value.damageModifier)) fail("damageModifier");
   if ("xpThreshold" in value) {
     const threshold = value.xpThreshold;
     if (!isObject(threshold)) fail("xpThreshold");
@@ -349,6 +350,13 @@ function validateCharacterShape(value: JsonObject): void {
     if ("equipment" in automation) validateFeatureEquipment(automation.equipment);
     for (const key of ["meleeDamageKit", "rangedDamageKit"])
       optionalString(automation, key, `automation.${key}`);
+    if ("kitBonusSelections" in automation) {
+      const selections = automation.kitBonusSelections;
+      if (!isObject(selections)) fail("automation.kitBonusSelections");
+      for (const [label, kit] of Object.entries(selections)) {
+        if (typeof kit !== "string") fail(`automation.kitBonusSelections.${label}`);
+      }
+    }
     if ("adjustments" in automation) {
       const adjustments = automation.adjustments;
       if (!isObject(adjustments)) fail("automation.adjustments");

@@ -10,31 +10,34 @@ import {
 import { abilityCardView } from "./rules/abilityCardView";
 import "./AbilityCard.css";
 
-function AbilityContent({ ability, view, full }: {
+function AbilityContent({ ability, view, full, showCalculations = false }: {
   ability: Ability;
   view: AbilitySheetView;
   full: boolean;
+  showCalculations?: boolean;
 }) {
   return <>
     {ability.trigger && (
       <p className="sheet-ability-trigger-text"><strong>Триггер:</strong> <CharacteristicGlyphText text={ability.trigger} /></p>
     )}
-    <AbilityBody view={view} full={full} />
+    <AbilityBody view={view} full={full} showCalculations={showCalculations} />
   </>;
 }
 
 /** Содержимое способности внутри карточки выбора: без второй оболочки и шапки. */
-export function AbilityCardContent({ ability, character, showName = false }: {
+export function AbilityCardContent({ ability, character, showName = false, showCalculations = false }: {
   ability: Ability;
   character: Character;
   showName?: boolean;
+  /** Показом формул управляет поп-ап; встроенные карточки показывают только итоги. */
+  showCalculations?: boolean;
 }) {
   const view = abilityCardView(ability, character);
   return (
     <div className="ability-card-content">
       {showName && <strong className="ability-card-content-name">{ability.name}</strong>}
       <AbilityTags view={view} />
-      <AbilityContent ability={ability} view={view} full />
+      <AbilityContent ability={ability} view={view} full showCalculations={showCalculations} />
     </div>
   );
 }

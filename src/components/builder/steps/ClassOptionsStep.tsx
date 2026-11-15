@@ -86,6 +86,7 @@ export function ClassOptionsStep({ part }: { part: string }) {
           secondaryKit: "",
           meleeDamageKit: "",
           rangedDamageKit: "",
+          kitBonusSelections: {},
         })}
       />
     );
