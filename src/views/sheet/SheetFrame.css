@@ -238,18 +238,20 @@
   border-top: 0;
 }
 
+.hero-view.is-embedded :is(.hero-background-panel, .hero-cols > .panel) {
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+}
+
 .hero-view.is-embedded .hero-cols {
-  gap: 0;
+  margin-top: var(--space-7);
 }
 
-.hero-view.is-embedded .hero-cols > .panel {
-  border-top: 1px solid var(--sheet-warm-line);
-}
-
-@media (min-width: 720px) {
-  .hero-view.is-embedded .hero-cols > .panel + .panel {
-    border-left: 1px solid var(--sheet-warm-line);
-  }
+.development-workspace :is(.perks-panel, .dev-perk-group) .perk-card-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+  gap: var(--space-5);
+  border-bottom: 0;
 }
 
 .hero-view.is-embedded .panel-head {

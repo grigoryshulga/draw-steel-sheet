@@ -38,10 +38,9 @@
   }
 }
 
-.sheet-block .sheet-ability-card,
-.sheet-block .sheet-perk-card {
-  border-color: color-mix(in srgb, var(--sheet-warm-line) 80%, var(--line));
-  background: color-mix(in srgb, var(--sheet-warm-soft) 34%, var(--surface));
+:is(.sheet-block, .development-workspace) :is(.sheet-ability-card, .sheet-perk-card) {
+  border-color: var(--card-border);
+  background: var(--card-bg);
 }
 
 .sheet-toolbar > a {

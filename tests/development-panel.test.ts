@@ -89,28 +89,20 @@ describe("вкладка «Развитие»", () => {
     expect(html).toContain("sheet-ability-card");
     expect(html).toContain("sheet-perk-card");
     expect(html).toContain('data-type="');
-    expect(html).toContain("Сохранить");
+    expect(html).toContain("Повысить уровень");
   });
 
-  it("показывает сводку повышения до секций уровней", () => {
+  it("показывает автоматические награды внутри следующего уровня перед выборами", () => {
     const html = render(hero());
-    expect(html).toContain("Сводка повышения");
-    expect(html).toContain("Выдаётся автоматически");
-    expect(html).toContain("3-й уровень");
-    // В сводке нет выбранных вариантов, пока черновик пуст.
-    expect(html).toContain("не выбрано");
-    // Сводка стоит выше первой секции уровня.
-    expect(html.indexOf("Сводка повышения")).toBeLessThan(
-      html.indexOf("dev-levels"),
-    );
-    // Подтверждения и способа повышения больше нет.
-    expect(html).not.toContain("Способ повышения");
-    expect(html).not.toContain("прочитал");
-  });
-
-  it("рисует особенности класса внутри секции уровня", () => {
-    const html = render(hero());
-    expect(html).toContain("cf-item");
+    const next = html.indexOf('data-status="next"');
+    const applied = html.indexOf('data-status="applied"');
+    expect(next).toBeGreaterThanOrEqual(0);
+    expect(applied).toBeGreaterThan(next);
+    const nextSection = html.slice(next, applied);
+    expect(nextSection).toContain("3-й уровень");
+    expect(nextSection).toMatch(/Получите автоматически.*sheet-passive-card.*Выбор способности/s);
+    expect(html).not.toContain("Сводка повышения");
+    expect(html).not.toContain("Текст особенности");
   });
 
   it("показывает сохранённые выборы полученных уровней и раскрывает последний", () => {

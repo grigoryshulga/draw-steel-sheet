@@ -905,12 +905,6 @@ function buildContext(character: Character): LevelUpContext {
     }
   }
 
-  if (rule.features.length > 0) {
-    warnings.push(
-      "Тексты новых особенностей доступны в правилах; автоматически применяются только характеристики, навыки, перки и способности.",
-    );
-  }
-
   return {
     plan: {
       available: true,

@@ -2,7 +2,7 @@ import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { LEGACY_ABILITY_IDS } from "../data/originals";
 import { kindLabel } from "../data/actions";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
-import { CONDUIT_DOMAINS } from "./class-features";
+import { activeClassFeatures, CONDUIT_DOMAINS } from "./class-features";
 import {
   ALL_CREATION_SKILLS,
   DOMAIN_SKILL_SLOTS,
@@ -107,14 +107,6 @@ export interface DevelopmentStep {
   note?: string;
 }
 
-/** Способность, которую уровень выдаёт сам, без выбора. */
-export interface DevelopmentGrant {
-  id: string;
-  name: string;
-  summary?: string;
-  ability?: Ability;
-}
-
 /** Строка сводки уровня 1: то, что задано созданием героя. */
 export interface DevelopmentFixedRow {
   label: string;
@@ -126,13 +118,11 @@ export interface DevelopmentLevel {
   status: DevelopmentLevelStatus;
   title: string;
   echelonLabel: string;
-  ruleTitle?: string;
   steps: DevelopmentStep[];
   /** Особенности класса этого уровня: карточки из реестра механик. */
   features: FeatureSheetItem[];
-  /** Особенности, которые появятся на следующем уровне. */
-  upcoming: { id: string; name: string; summary?: string; detail?: string }[];
-  granted: DevelopmentGrant[];
+  /** Способности, которые уровень выдаёт без выбора. */
+  granted: Ability[];
   fixed: DevelopmentFixedRow[];
   note?: string;
 }
@@ -661,33 +651,53 @@ function grantedForRule(
   character: Character,
   rule: LevelUpRule,
   level: number,
-): DevelopmentGrant[] {
+): Ability[] {
   const tokens = subclassTokens(character.subclass);
-  const grants: DevelopmentGrant[] = [];
+  const grants: Ability[] = [];
   for (const grant of rule.grantedAbilities) {
     if (!appliesToSubclass(grant.subclasses, tokens)) continue;
     for (const id of grant.abilityIds ?? []) {
       const entry = classAbilityOf(id, character.className, [level]);
       if (!entry) continue;
       if (grants.some((item) => item.id === entry.id)) continue;
-      grants.push({
-        id: entry.id,
-        name: entry.name,
-        summary: entry.effect.split(/\n{2,}/)[0],
-        ability: entry,
-      });
+      grants.push(entry);
     }
   }
   return grants;
 }
 
 function featuresAtLevel(
-  groups: { level: number; features: FeatureSheetItem[] }[],
+  character: Character,
   level: number,
+  steps: DevelopmentStep[],
+  grants: Ability[],
 ): FeatureSheetItem[] {
-  return (groups.find((group) => group.level === level)?.features ?? []).filter(
-    (item) => !item.passive,
-  );
+  const group = classFeatureGroupsForSheet(character).find((entry) => entry.level === level);
+  if (!group) return [];
+
+  const stepKinds = new Set(steps.map((step) => step.kind));
+  const abilityNames = new Set([
+    ...grants.map((grant) => normalizeToken(grant.name)),
+    ...steps.filter((step) => step.kind === "ability")
+      .flatMap((step) => step.options.map((option) => normalizeToken(option.label))),
+  ]);
+  const mechanics = new Map(activeClassFeatures(character).map((feature) => [feature.id, feature.mechanics]));
+
+  return group.features.filter((item) => {
+    const name = normalizeToken(item.name);
+    const spec = mechanics.get(item.id);
+    if (abilityNames.has(name)) return false;
+    if (stepKinds.has("perk") && name === "перк") return false;
+    if (stepKinds.has("skill") && name === "навык") return false;
+    if (stepKinds.has("characteristic") && name === "увеличение характеристик") return false;
+    // В реестре главы также хранятся прозаические обёртки выбора способности.
+    // Их варианты уже показаны карточками в интерактивном шаге.
+    if (stepKinds.has("ability") && spec?.kinds.includes("choice")) {
+      if (spec.choice?.options.every((option) => option.id.startsWith("feature.ability."))) return false;
+      if (!spec.choice && /^(новая |героическая )?способност[ьи] /.test(name)) return false;
+    }
+    return true;
+  });
 }
 
 function fixedRowsForLevelOne(
@@ -809,7 +819,6 @@ export function buildDevelopmentPlan(character: Character): DevelopmentPlan {
   );
   const issues: string[] = [];
   const picks = recordPickSets(character);
-  const groups = classFeatureGroupsForSheet(character);
   const levels: DevelopmentLevel[] = [];
 
   levels.push({
@@ -818,8 +827,7 @@ export function buildDevelopmentPlan(character: Character): DevelopmentPlan {
     title: levelTitle(1),
     echelonLabel: `${echelon(1)}-й эшелон`,
     steps: [],
-    features: featuresAtLevel(groups, 1),
-    upcoming: [],
+    features: featuresAtLevel(character, 1, [], []).filter((item) => !item.passive),
     granted: [],
     fixed: fixedRowsForLevelOne(character, picks),
     note: "Создание героя: эти выборы заданы при первом заполнении листа.",
@@ -831,16 +839,15 @@ export function buildDevelopmentPlan(character: Character): DevelopmentPlan {
     const steps = rule
       ? appliedLevelSteps(character, current, rule, record)
       : [];
+    const granted = rule ? grantedForRule(character, rule, current) : [];
     levels.push({
       level: current,
       status: "applied",
       title: levelTitle(current),
       echelonLabel: `${echelon(current)}-й эшелон`,
-      ...(rule ? { ruleTitle: rule.title } : {}),
       steps,
-      features: featuresAtLevel(groups, current),
-      upcoming: [],
-      granted: rule ? grantedForRule(character, rule, current) : [],
+      features: featuresAtLevel(character, current, steps, granted),
+      granted,
       fixed: [],
       ...(rule
         ? record
@@ -861,41 +868,17 @@ export function buildDevelopmentPlan(character: Character): DevelopmentPlan {
     const nextNumber = plan.toLevel;
     if (plan.available) {
       const steps = nextLevelSteps(character, nextNumber, plan);
-      const covered = new Set(plan.classFeatures.map((feature) => feature.name));
-      const upcoming = plan.rule
-        ? plan.rule.features
-            .filter((feature) => !covered.has(feature.name))
-            .map((feature) => ({
-              id: feature.id,
-              name: feature.name,
-              detail: feature.description,
-            }))
-        : [];
+      const granted = plan.grantedAbilityIds
+        .map((id) => COMPENDIUM_BY_ID.get(id))
+        .filter((entry): entry is CompendiumAbility => !!entry);
       levels.push({
         level: nextNumber,
         status: "next",
         title: levelTitle(nextNumber),
         echelonLabel: `${echelon(nextNumber)}-й эшелон`,
-        ...(plan.rule ? { ruleTitle: plan.rule.title } : {}),
         steps,
-        features: [],
-        upcoming: [
-          ...plan.classFeatures.map((feature) => ({
-            id: feature.id,
-            name: feature.name,
-            summary: feature.summary,
-          })),
-          ...upcoming,
-        ],
-        granted: plan.grantedAbilityIds
-          .map((id) => COMPENDIUM_BY_ID.get(id))
-          .filter((entry): entry is CompendiumAbility => !!entry)
-          .map((entry) => ({
-            id: entry.id,
-            name: entry.name,
-            summary: entry.effect.split(/\n{2,}/)[0],
-            ability: entry,
-          })),
+        features: featuresAtLevel({ ...character, level: nextNumber }, nextNumber, steps, granted),
+        granted,
         fixed: [],
         ...(plan.warnings.length > 0 ? { note: plan.warnings.join(" ") } : {}),
       });
@@ -909,7 +892,6 @@ export function buildDevelopmentPlan(character: Character): DevelopmentPlan {
         echelonLabel: `${echelon(nextNumber)}-й эшелон`,
         steps: [],
         features: [],
-        upcoming: [],
         granted: [],
         fixed: [],
         note: plan.reason ?? "Повышение уровня недоступно.",

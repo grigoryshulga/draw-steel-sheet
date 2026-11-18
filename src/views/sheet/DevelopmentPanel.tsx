@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "./DevelopmentPanel.css";
-import { AbilityCard } from "../../components/AbilityCard";
+import { AbilityCard, AbilityCardContent } from "../../components/AbilityCard";
 import { PerkCard } from "../../components/PerkCard";
 import { Icon } from "../../components/Icons";
 import { PerkDetailModal } from "../../components/PerkDetailModal";
 import { Button, Chip } from "../../components/ui";
 import { CardDetailModal } from "../../components/CardDetailModal";
+import { kindLabel } from "../../data/actions";
+import { kindTone } from "../abilities/shared";
 import { ALL_PERK_TYPES, PERK_TYPE_META } from "../../data/perks";
 import type { PerkType } from "../../types";
 import {
@@ -23,14 +25,13 @@ import {
   type DevelopmentStep,
 } from "../../lib/development";
 import { useApp } from "../../state/AppContext";
-import {
-  ClassFeatureChoices,
-  FeatureRow,
-} from "./ClassFeaturesPanel";
+import { ClassFeatureChoices, FeatureTriggerButton } from "./ClassFeaturesPanel";
+import { PassiveFeatureCard } from "./PassiveFeatureCard";
 
 interface DetailState {
   option: DevelopmentOption;
-  step: DevelopmentStep;
+  step?: DevelopmentStep;
+  source?: string;
 }
 
 interface DevelopmentPanelProps {
@@ -186,43 +187,25 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
     });
   };
 
-  const nextLevelEntry = plan.levels.find((level) => level.status === "next");
-  const nextSteps = (nextLevelEntry?.steps ?? [])
-    .map((step) => ({
-      step,
-      selected: stepSelection(step, draft).length,
-    }))
-    .filter(({ step, selected }) => selected < step.count);
+  const renderDetailAction = (step: DevelopmentStep, optionId: string) => (
+    <Button
+      className="dev-detail-action"
+      variant="primary"
+      onClick={() => {
+        toggle(step, optionId);
+        setDetail(undefined);
+      }}
+    >
+      {stepSelection(step, draft).includes(optionId) ? "Снять выбор" : "Выбрать"}
+    </Button>
+  );
 
-  // Сводка собирает всё, что уровень даст при сохранении: автоматические
-  // награды и уже сделанные выборы — чтобы не выискивать их по секции.
-  const summaryGrants = nextLevelEntry
-    ? [
-        ...nextLevelEntry.upcoming.map((feature) => ({
-          id: `feature:${feature.id}`,
-          name: feature.name,
-          summary: feature.summary,
-        })),
-        ...nextLevelEntry.granted.map((grant) => ({
-          id: `grant:${grant.id}`,
-          name: grant.name,
-          summary: grant.summary,
-        })),
-      ]
-    : [];
-  const summaryPicks = (nextLevelEntry?.steps ?? []).map((step) => ({
-    step,
-    labels: stepSelection(step, draft)
-      .map((id) => step.options.find((option) => option.id === id)?.label)
-      .filter((label): label is string => !!label),
-  }));
+  const levels = [...plan.levels].reverse();
 
   return (
     <div className="dev-panel">
       <header className="dev-head">
-        <div className="dev-head-text">
-          <h2 className="dev-title">Развитие</h2>
-        </div>
+        <h2 className="dev-title">Развитие</h2>
         <div className="dev-head-actions">
           <Button
             size="sm"
@@ -233,7 +216,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
             Сбросить
           </Button>
           <Button size="sm" variant="primary" onClick={save} disabled={!canSave}>
-            Сохранить
+            {engaged || (!dirty && plan.nextLevel) ? "Повысить уровень" : "Сохранить"}
           </Button>
         </div>
       </header>
@@ -260,90 +243,12 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
         </div>
       )}
 
-      {nextLevelEntry &&
-        (summaryGrants.length > 0 ||
-          summaryPicks.length > 0 ||
-          nextSteps.length > 0) && (
-        <section
-          className="dev-summary"
-          aria-label={`Что даст ${nextLevelEntry.title}`}
-        >
-          <div className="dev-summary-head">
-            <span className="eyebrow">Сводка повышения</span>
-            <span className="dev-summary-title">{nextLevelEntry.title}</span>
-            <span className="dev-summary-echelon mono">
-              {nextLevelEntry.echelonLabel}
-            </span>
-            {nextLevelEntry.ruleTitle && (
-              <span className="dev-summary-rule">{nextLevelEntry.ruleTitle}</span>
-            )}
-          </div>
-
-          {summaryGrants.length > 0 && (
-            <div className="dev-summary-block">
-              <span className="dev-block-title">Выдаётся автоматически</span>
-              <ul className="dev-list">
-                {summaryGrants.map((item) => (
-                  <li key={item.id}>
-                    <strong>{item.name}</strong>
-                    {item.summary && <span> — {item.summary}</span>}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {summaryPicks.length > 0 && (
-            <div className="dev-summary-block">
-              <span className="dev-block-title">Ваши выборы</span>
-              <ul className="dev-list dev-summary-picks">
-                {summaryPicks.map(({ step, labels }) => (
-                  <li key={step.id}>
-                    <strong>{step.title}:</strong>{" "}
-                    {labels.length > 0 ? (
-                      labels.join(", ")
-                    ) : (
-                      <span className="dev-summary-empty">не выбрано</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {nextSteps.length > 0 && (
-            <div className="dev-summary-block">
-              <span className="dev-block-title">Осталось выбрать</span>
-              <div className="dev-todo-list">
-                {nextSteps.map(({ step, selected }) => (
-                  <button
-                    type="button"
-                    key={step.id}
-                    className="dev-todo-item"
-                    onClick={() =>
-                      document
-                        .getElementById(`dev-step-${step.id}`)
-                        ?.scrollIntoView({ behavior: "smooth", block: "start" })
-                    }
-                  >
-                    <span>{step.title}</span>
-                    <span className="mono">
-                      {selected}/{step.count}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </section>
-      )}
-
       <div className="dev-class-choices">
         <ClassFeatureChoices />
       </div>
 
       <div className="dev-levels">
-        {plan.levels.map((level) => {
+        {levels.map((level) => {
           const isClosed = closed.has(level.level);
           // Считаем и подсказку следующего уровня: игрок видит, сколько шагов
           // ещё не заполнено, даже пока сохранение ничего не блокирует.
@@ -363,7 +268,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                 aria-expanded={!isClosed}
               >
                 <Icon name={isClosed ? "chevron-right" : "chevron-down"} size={18} />
-                <span className="dev-level-number mono">{level.level}</span>
                 <span className="dev-level-title">{level.title}</span>
                 <span className="dev-level-echelon mono">{level.echelonLabel}</span>
                 <span className="dev-level-status">{STATUS_LABEL[level.status]}</span>
@@ -376,9 +280,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
 
               {!isClosed && (
                 <div className="dev-level-body">
-                  {level.ruleTitle && (
-                    <p className="dev-level-rule">{level.ruleTitle}</p>
-                  )}
                   {level.note && <p className="dev-note">{level.note}</p>}
 
                   {level.fixed.length > 0 && (
@@ -392,24 +293,54 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                     </div>
                   )}
 
+                  {(level.granted.length > 0 || level.features.length > 0) && (
+                    <section className="dev-rewards">
+                      <h3 className="dev-rewards-title">
+                        {level.status === "next" ? "Получите автоматически" :
+                          level.status === "sealed" ? "Особенности при создании" : "Получено автоматически"}
+                      </h3>
+                      <div className="sheet-ability-grid dev-cards">
+                        {level.granted.map((ability) => (
+                          <AbilityCard
+                            key={ability.id}
+                            ability={ability}
+                            character={character}
+                            onOpen={() => setDetail({
+                              option: { id: ability.id, label: ability.name, ability },
+                              source: level.status === "next" ? "Получите автоматически" : "Получено автоматически",
+                            })}
+                          />
+                        ))}
+                        {level.features.map((feature) => (
+                          <PassiveFeatureCard
+                            key={feature.id}
+                            item={feature}
+                            action={level.status !== "next" && feature.trigger
+                              ? <FeatureTriggerButton item={feature} />
+                              : undefined}
+                          />
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
                   {level.steps.map((step) => {
                     const selected = stepSelection(step, draft);
                     const complete = selected.length === step.count;
                     return (
                       <div
                         key={step.id}
-                        id={`dev-step-${step.id}`}
                         className={`dev-step${complete ? " is-complete" : ""}`}
                       >
                         <div className="dev-step-head">
-                          <span className="dev-step-title">{step.title}</span>
+                          <h3 className="dev-step-title">{step.title}</h3>
                           {step.hint && <span className="dev-step-hint">{step.hint}</span>}
                           <span className="dev-step-count mono">
                             {stepProgress(step, selected)}
                           </span>
                         </div>
                         {step.kind === "ability" ? (
-                          <div className="dev-cards">
+                          <div className="sheet-ability-grid dev-cards">
                             {step.options.map((option) => {
                               const isSelected = selected.includes(option.id);
                               if (!option.ability) return null;
@@ -472,7 +403,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                                       />
                                     </button>
                                     {!collapsed && (
-                                      <div className="dev-perk-group-grid">
+                                      <div className="perk-card-grid dev-perk-group-grid">
                                         {options.map((option) => {
                                           const isSelected = selected.includes(
                                             option.id,
@@ -480,7 +411,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                                           return (
                                             <PerkCard
                                               key={option.id}
-                                              eyebrow={step.hint ?? "Перк"}
                                               name={option.label}
                                               type={option.perkType}
                                               summary={option.summary}
@@ -526,49 +456,6 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                       </div>
                     );
                   })}
-
-                  {level.status !== "next" && level.granted.length > 0 && (
-                    <div className="dev-block">
-                      <span className="dev-block-title">Выдаётся автоматически</span>
-                      <ul className="dev-list">
-                        {level.granted.map((grant) => (
-                          <li key={grant.id}>
-                            <strong>{grant.name}</strong>
-                            {grant.summary && <span> — {grant.summary}</span>}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {level.status !== "next" && level.upcoming.length > 0 && (
-                    <div className="dev-block">
-                      <span className="dev-block-title">Появятся особенности</span>
-                      <ul className="dev-list">
-                        {level.upcoming.map((feature) => (
-                          <li key={feature.id}>
-                            <strong>{feature.name}</strong>
-                            {feature.summary && <span> — {feature.summary}</span>}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {level.features.length > 0 && (
-                    <div className="dev-block">
-                      <span className="dev-block-title">Особенности класса</span>
-                      <div className="cf-items dev-features">
-                        {level.features.map((feature) => (
-                          <FeatureRow key={feature.id} item={feature} />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {level.status === "next" && level.steps.length === 0 && level.note && (
-                    <p className="dev-note is-error">{level.note}</p>
-                  )}
                 </div>
               )}
             </section>
@@ -580,40 +467,25 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
         <CardDetailModal
           open
           onClose={() => setDetail(undefined)}
-          title="Способность"
-          wide
-          footer={
-            <div className="dev-detail-footer">
-              <Button
-                variant="primary"
-                onClick={() => {
-                  toggle(detail.step, detail.option.id);
-                  setDetail(undefined);
-                }}
-              >
-                {stepSelection(detail.step, draft).includes(detail.option.id)
-                  ? "Снять выбор"
-                  : "Выбрать"}
-              </Button>
-            </div>
-          }
+          title={detail.option.label}
+          source={detail.step?.hint ?? detail.source}
+          meta={<Chip tone={kindTone(detail.option.ability.kind)}>{kindLabel(detail.option.ability.kind)}</Chip>}
+          autoHeight
+          footer={detail.step && renderDetailAction(detail.step, detail.option.id)}
         >
-          <AbilityCard
-            ability={detail.option.ability}
-            character={character}
-            full
-            flat
-          />
+          <AbilityCardContent ability={detail.option.ability} character={character} />
         </CardDetailModal>
-      ) : detail ? (
+      ) : detail?.step ? (
         <PerkDetailModal
           open
           onClose={() => setDetail(undefined)}
           name={detail.option.label}
+          perkId={detail.option.id}
           type={detail.option.perkType}
           eyebrow={detail.step.hint}
           summary={detail.option.summary}
           description={detail.option.detail}
+          action={renderDetailAction(detail.step, detail.option.id)}
         />
       ) : null}
     </div>

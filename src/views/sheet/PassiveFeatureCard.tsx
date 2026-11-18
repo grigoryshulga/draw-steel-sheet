@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Card, CardHeader, CardTitle, Chip } from "../../components/ui";
@@ -10,9 +10,9 @@ import {
 } from "../../lib/class-feature-view";
 
 /** Пассивная особенность с кратким текстом и полным описанием по заголовку. */
-export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
+export function PassiveFeatureCard({ item, action }: { item: FeatureSheetItem; action?: ReactNode }) {
   const [open, setOpen] = useState(false);
-  const description = item.detail || item.summary;
+  const description = item.detail || item.trigger?.detail || item.summary;
   const showSummary = Boolean(
     item.detail && item.summary && !item.summaryFromDescription && item.summary !== item.detail,
   );
@@ -59,6 +59,7 @@ export function PassiveFeatureCard({ item }: { item: FeatureSheetItem }) {
           </Chip>
         }
         autoHeight
+        footer={action}
       >
         <div className="sheet-passive-full">
           {showSummary && <div className="sheet-passive-summary sheet-passive-markdown"><ReactMarkdown remarkPlugins={[remarkGfm]}>{item.summary}</ReactMarkdown></div>}

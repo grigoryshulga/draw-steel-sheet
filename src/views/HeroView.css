@@ -6,7 +6,7 @@
 
 .hero-cols {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: var(--space-7);
   align-items: start;
 }
@@ -66,8 +66,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-  margin-bottom: var(--space-5);
-  min-height: 26px;
+}
+
+.hero-langs:empty {
+  display: none;
 }
 
 .hero-langs .chip svg {
@@ -80,7 +82,18 @@
 
 /* --- Culture / career --- */
 
-.hero-culture,
+.hero-background {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: var(--space-7);
+}
+
+.hero-culture {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 132px), 1fr));
+  gap: var(--space-5);
+}
+
 .hero-stack {
   display: flex;
   flex-direction: column;
@@ -111,7 +124,7 @@
 /* Навыки в редакторе: компактная сетка и цвета групп как на листе. */
 .hero-view.is-embedded .hero-skill-groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   align-items: start;
   gap: var(--space-5) var(--space-7);
 }

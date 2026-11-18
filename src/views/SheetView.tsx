@@ -231,14 +231,7 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
           )}
           {tab === "development" && (
             <div className="development-workspace">
-              <section className="hero-profile-disclosure">
-                <h3>Паспорт героя, навыки и языки</h3>
-                <p className="muted small">
-                  Изменения паспорта сохраняются сразу. Выборы уровней
-                  применяются отдельно кнопкой в разделе развития.
-                </p>
-                <HeroView embedded />
-              </section>
+              <HeroView embedded />
               <DevelopmentPanel onDirtyChange={setDevelopmentDirty} />
             </div>
           )}
