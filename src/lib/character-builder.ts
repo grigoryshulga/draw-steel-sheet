@@ -10,7 +10,7 @@ import { ancestryTraitIdsFromNames } from "../data/ancestry-feature-rules";
 import { ancestryFeatureChoiceDefinitions } from "./ancestry-features";
 import { ancestrySkillSlots } from "../data/ancestry-skill-rules";
 import { careerPerkType, perkById } from "../data/perks";
-import { selectableKitByName } from "../data/kits";
+import { kitByName, kitSlotSelection, selectableKitByName } from "../data/kits";
 import { kitGrantedAbilities } from "./equipment";
 import {
   CHARACTERISTIC_KEYS,
@@ -81,6 +81,15 @@ export interface BuilderDraft {
   /** Проводник отдельно выбирает домен для особенности 1-го уровня. */
   conduitDomainFeature: string;
 }
+
+/** При проверке готовой пары повтор относится ко второму слоту. */
+export function builderKits(draft: BuilderDraft) {
+  const kit = selectableKitByName(draft.kit, draft.className, draft.subclass);
+  const secondary = draft.className === "Тактик" ? kitByName(draft.secondaryKit ?? "") : undefined;
+  const secondaryKit = secondary && !kitSlotSelection(draft, true).issue(secondary) ? secondary : undefined;
+  return { kit, secondaryKit };
+}
+
 export function emptyBuilderDraft(): BuilderDraft {
   return {
     version: 1,
@@ -300,7 +309,7 @@ export function buildCharacter(
   }
   const career = BUILDER_DATA.careers.find((c) => c.name === draft.career);
   const perk = perkById(draft.perkId);
-  const kit = selectableKitByName(draft.kit, draft.className, draft.subclass);
+  const { kit, secondaryKit } = builderKits(draft);
   const complication = BUILDER_DATA.complications.find(
     (c) => c.name === draft.complication,
   );
@@ -349,16 +358,9 @@ export function buildCharacter(
       (draft.abilityIds.includes(a.id) && isManualClassAbility(draft, a)) ||
       granted.some((g) => g.id === a.id),
   );
-  const kitAbilities = [
-    kit,
-    draft.className === "Тактик"
-      ? selectableKitByName(draft.secondaryKit, draft.className, draft.subclass)
-      : undefined,
-  ]
-    .filter(Boolean)
-    .flatMap((kit) => {
-      return kitGrantedAbilities(kit!);
-    });
+  const kitAbilities = [kit, secondaryKit].flatMap((selected) =>
+    selected ? kitGrantedAbilities(selected) : [],
+  );
   const doc: Character = {
     ...seed,
     name: draft.name.trim() || "Новый герой",
@@ -409,7 +411,7 @@ export function buildCharacter(
         : "",
     },
     kit: kit?.name ?? "",
-    secondaryKit: draft.className === "Тактик" ? draft.secondaryKit : "",
+    secondaryKit: secondaryKit?.name ?? "",
     equipmentEffects: "",
     skills: [...new Set(skillChoices)],
     languages: [
@@ -553,6 +555,7 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
       DOMAIN_CARD_NAMES.has(normalizeAbilityName(ability.name))
     );
   });
+  const { kit, secondaryKit } = builderKits(draft);
   return {
     name: draft.name.trim() ? "" : "Дайте герою имя.",
     ancestry: ancestry ? "" : "Выберите происхождение.",
@@ -615,10 +618,10 @@ function builderIssueParts(draft: BuilderDraft): BuilderIssueParts {
                 : "Заполните навыки класса; повторяющиеся навыки замените.",
     kit:
       canUseKit(draft.className, draft.subclass) &&
-        !selectableKitByName(draft.kit, draft.className, draft.subclass)
+        !kit
         ? "Выберите комплект."
         : draft.className === "Тактик" &&
-            (!selectableKitByName(draft.secondaryKit, draft.className, draft.subclass) || selectableKitByName(draft.secondaryKit, draft.className, draft.subclass)?.id === selectableKitByName(draft.kit, draft.className, draft.subclass)?.id)
+            !secondaryKit
           ? "Выберите второй, отличный комплект тактика."
           : "",
     abilities: forbiddenDomainCardSelected

@@ -1,6 +1,7 @@
+import { selectedGroupValue } from "./feature-conditions";
 import { equippedKits, validKitBonusPreferences } from "./kit-bonuses";
 import { ABILITY_COMPENDIUM } from "../data/compendium";
-import { KIT_COMPENDIUM, kitByName, type Kit } from "../data/kits";
+import { KIT_COMPENDIUM, kitByName, kitSlotSelection, type Kit } from "../data/kits";
 import type { Character, CompendiumAbility } from "../types";
 
 /** Все способности комплекта, включая общее превращение буревестника. */
@@ -20,17 +21,26 @@ export function kitSignatureAbility(kit: Kit) {
   return kitGrantedAbilities(kit).find((ability) => ability.name === kit.signatureAbility);
 }
 
+export function characterKitSlot(character: Character, secondary: boolean) {
+  const subclass = selectedGroupValue(character, "fury.aspect") ?? character.subclass;
+  const { className, kit, secondaryKit } = character;
+  return kitSlotSelection({ className, subclass, kit, secondaryKit }, secondary);
+}
+
 /** Switching kits replaces their granted signatures without duplicating them or touching class abilities. */
 export function changeKit(
   character: Character,
   name: string,
   secondary = false,
 ): Character {
+  const kit = kitByName(name);
+  if (characterKitSlot(character, secondary).issue(kit)) return character;
+  const selectedName = kit?.name ?? name.trim();
   const next: Character = {
     ...character,
     ...(secondary
-      ? { secondaryKit: kitByName(name)?.name ?? name.trim() }
-      : { kit: kitByName(name)?.name ?? name.trim() }),
+      ? { secondaryKit: selectedName }
+      : { kit: selectedName }),
   };
   if (next.automation) {
     next.automation = { ...next.automation, ...validKitBonusPreferences(next) };

@@ -13,7 +13,7 @@ import { useReadingHistory } from "../components/rules/useReadingHistory";
 import "./CodexView.css";
 import {
   classLandings,
-  classLandingForArticle,
+  codexArticleRedirect,
   classLandingHref,
   codexArticleHref,
   readingParts,
@@ -108,6 +108,7 @@ export function CodexView() {
     [location],
   );
   const entryId = entry?.id ?? "";
+  const redirect = entry && codexArticleRedirect(entry);
   const missingArticle = Boolean(location.articleId) && !entry;
   const chapter = entry?.chapter || location.chapter;
   const group = entry?.group || location.group;
@@ -212,6 +213,10 @@ export function CodexView() {
     resultEntries.length === 0;
 
   useEffect(() => {
+    if (redirect) {
+      window.location.replace(redirect);
+      return;
+    }
     if (!entryId) {
       setContent({ status: "idle" });
       return;
@@ -235,18 +240,7 @@ export function CodexView() {
       // Поздний ответ для покинутой статьи не должен перезаписать новую.
       active = false;
     };
-  }, [entryId, attempt]);
-
-  // Статьи-уровни классов живут на лендинге класса: старые адреса — редирект.
-  useEffect(() => {
-    if (!entryId) return;
-    const record = completeRuleIndex.find(item => item.id === entryId);
-    if (record?.director && ["statblock", "dynamic-terrain"].includes(record.director.recordType)) { window.location.replace(codexArticleHref(entryId)); return; }
-    if (record?.director?.glossaryId) { window.location.replace(codexArticleHref(entryId)); return; }
-    const landing = classLandingForArticle(entryId);
-    if (landing)
-      window.location.replace(classLandingHref(landing.slug, landing.level));
-  }, [entryId]);
+  }, [entryId, redirect, attempt]);
   useEffect(() => {
     const change = () => setLocation(readCodexLocation());
     window.addEventListener("hashchange", change);

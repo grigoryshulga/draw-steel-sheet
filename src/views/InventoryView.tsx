@@ -6,7 +6,6 @@ import { RuleArticleReader } from "../components/rules/RuleArticleReader";
 import { catalogSectionEntries } from "../data/reference-catalog";
 import { ItemEffectsEditor, ItemEffectsSummary } from "../components/ItemEffectsEditor";
 import { normalizeItemEffects } from "../lib/item-effects";
-import { selectedGroupValue } from "../lib/feature-conditions";
 import { Artwork } from "../components/Artwork";
 import { Icon } from "../components/Icons";
 import {
@@ -26,11 +25,10 @@ import { makeId } from "../data/templates";
 import {
   kitBonusLabel,
   kitByName,
-  selectableKitByName,
   type Kit,
 } from "../data/kits";
 import { featureEquipmentRequirements } from "../lib/feature-equipment-requirements";
-import { changeKit, kitSignatureAbility } from "../lib/equipment";
+import { changeKit, characterKitSlot, kitSignatureAbility } from "../lib/equipment";
 import { KitBonuses } from "../components/KitBonuses";
 import { AbilityCardContent } from "../components/AbilityCard";
 import { CalculationToggle } from "../components/rules/CalculationInline";
@@ -257,14 +255,9 @@ export function InventoryView() {
     ) ?? kitSignatureAbility(kit) ?? null);
   };
   const applyKit = (name: string, secondary: boolean) => {
-    const other = kitByName(secondary ? character.kit : character.secondaryKit ?? "");
-    const kit = kitByName(name);
-    if (kit && !selectableKitByName(name, character.className, selectedGroupValue(character, "fury.aspect") ?? character.subclass)) {
-      notify("Этот комплект недоступен выбранному классу или аспекту.", "error");
-      return false;
-    }
-    if (isTactician && kit && kit.id === other?.id) {
-      notify("Этот комплект уже выбран. Выберите два разных комплекта.", "error");
+    const issue = characterKitSlot(character, secondary).issue(kitByName(name));
+    if (issue) {
+      notify(issue, "error");
       return false;
     }
     update((current) => changeKit(current, name, secondary));

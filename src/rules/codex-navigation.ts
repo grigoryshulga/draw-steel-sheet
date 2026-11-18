@@ -64,17 +64,20 @@ export function classLandingHref(slug: string, level?: number): string {
   return `#/reference/class/${slug}${level ? `#level-${level}` : ""}`;
 }
 
-/**
- * Каноническая ссылка на материал правил: статья или якорь лендинга класса.
- * Все точки входа (поиск, закладки, списки) ходят через этот помощник, чтобы
- * ссылки на классы не расходились с редиректами старых адресов.
- */
+/** Адрес материала, который открывается вне читалки Кодекса. */
+export function codexArticleRedirect(entry: CodexArticle): string | undefined {
+  const { director, id } = entry;
+  if (director && ["statblock", "dynamic-terrain"].includes(director.recordType)) {
+    return `#/catalog/${director.section}/${id}`;
+  }
+  if (director?.glossaryId) return `#/catalog/glossary#term-${director.glossaryId}`;
+  const landing = classLandingForArticle(id);
+  if (landing) return classLandingHref(landing.slug, landing.level);
+}
+
 export function codexArticleHref(articleId: string): string {
-  const record = ruleIndex.find(entry => entry.id === articleId);
-  if (record?.director && ["statblock", "dynamic-terrain"].includes(record.director.recordType)) return `#/catalog/${record.director.section}/${articleId}`;
-  if (record?.director?.glossaryId) return `#/catalog/glossary#term-${record.director.glossaryId}`;
-  const landing = classLandingForArticle(articleId);
-  return landing ? classLandingHref(landing.slug, landing.level) : `#/codex/${articleId}`;
+  const entry = ruleIndex.find(item => item.id === articleId);
+  return (entry && codexArticleRedirect(entry)) ?? `#/codex/${articleId}`;
 }
 
 /** Ссылка на статью по её точному названию; иначе — общий каталог Кодекса. */
