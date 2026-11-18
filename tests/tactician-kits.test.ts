@@ -34,6 +34,25 @@ describe("Полевой арсенал: расчёты и смена компл
     expect(steps("Гора", "Снайпер").find((step) => step.id === "kit/secondary")?.issue).toBe("");
   });
 
+  it("отклоняет дубликат из справочника и недоступный комплект до изменения героя", () => {
+    const hero = tactician("Гора", "Снайпер");
+    hero.automation!.meleeDamageKit = "Гора";
+    const signature = hero.abilities.find((ability) => ability.source === "Комплект: Снайпер")!;
+    signature.notes = "Заметка игрока";
+    const before = structuredClone(hero);
+    expect(changeKit(hero, " гора ", true)).toBe(hero);
+    expect(changeKit(hero, "СНАЙПЕР")).toBe(hero);
+    expect(changeKit(hero, "Борен")).toBe(hero);
+    expect(hero).toEqual(before);
+  });
+
+  it("разрешает два своих комплекта с одинаковым названием", () => {
+    const hero = changeKit(tactician(), " Походный ");
+    const pair = changeKit(hero, "Походный", true);
+    expect([pair.kit, pair.secondaryKit]).toEqual(["Походный", "Походный"]);
+    expect(pair.abilities.filter((ability) => ability.source.startsWith("Комплект: "))).toEqual([]);
+  });
+
   it("показывает все итоговые бонусы быстрого билда без сложения", () => {
     const hero = tactician();
     expect(Object.fromEntries(resolvedKitBonuses(hero).map((bonus) => [bonus.label, bonus.value]))).toEqual({

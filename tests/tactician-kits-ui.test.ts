@@ -6,6 +6,8 @@ import { kitByName } from "../src/data/kits";
 import { BuilderStepProvider, type BuilderStepContextValue } from "../src/components/builder/BuilderStepContext";
 import { KitStep } from "../src/components/builder/steps/KitStep";
 import { buildCharacter, emptyBuilderDraft } from "../src/lib/character-builder";
+import { builderFlow } from "../src/lib/builder-flow";
+import { readBuilderDraft } from "../src/lib/builder-draft";
 import { AppContext, type AppContextValue } from "../src/state/AppContext";
 import { KitPicker } from "../src/views/sheet/KitPicker";
 import { InventoryView } from "../src/views/InventoryView";
@@ -50,6 +52,25 @@ describe("Комплекты тактика в интерфейсе", () => {
     expect(html).toContain("Бонусы двух комплектов");
     expect(html).toContain("Выносливость: источник бонуса");
     expect(html).toContain('aria-label="По тирам: +0, +0, +4"');
+  });
+
+  it("при восстановлении черновика цензора старый второй слот не блокирует первый", () => {
+    const stored = { ...draft, className: "Цензор", kit: "Гора", secondaryKit: " гора " };
+    vi.stubGlobal("localStorage", { getItem: () => JSON.stringify(stored) });
+    try {
+      const restored = readBuilderDraft("test");
+      const html = renderToStaticMarkup(createElement(BuilderStepProvider, {
+        value: { draft: restored, patch() {} } as BuilderStepContextValue,
+        children: createElement(KitStep, { part: "primary" }),
+      }));
+      expect(html).toContain("Гора");
+      expect(html).not.toContain("Уже выбран");
+      expect(builderFlow(restored).find((step) => step.id === "kit/primary")?.issue).toBe("");
+      expect(buildCharacter(restored)).toMatchObject({ kit: "Гора", secondaryKit: "" });
+      expect(restored.secondaryKit).toBe(" гора ");
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 
   it("даёт равноправные точки выбора двух комплектов и открытие обеих способностей", () => {

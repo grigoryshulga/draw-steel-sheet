@@ -1,4 +1,4 @@
-import { availableKits, kitByName } from "../../../data/kits";
+import { kitSlotSelection } from "../../../data/kits";
 import { BuilderSelection } from "../BuilderSelection";
 import { KitBonuses } from "../../KitBonuses";
 import { validKitBonusPreferences } from "../../../lib/kit-bonuses";
@@ -12,22 +12,22 @@ export function KitStep({ part }: { part: string }) {
     );
   const secondary = part === "secondary";
   const selected = secondary ? draft.secondaryKit : draft.kit;
-  const otherKit = kitByName(secondary ? draft.kit : draft.secondaryKit);
+  const { kits, issue } = kitSlotSelection(draft, secondary);
   return (
     <>
       <BuilderSelection
         key={part}
         label={secondary ? "Второй комплект" : "Комплект"}
         kind="kit"
-        options={availableKits(draft.className, draft.subclass).map((kit) => ({
-          name: kit.name,
-          description: [kit.summary, kit.equipment].join("\n\n"),
-          disabled: kit.id === otherKit?.id,
-          note:
-            kit.id === otherKit?.id
-              ? "Уже выбран"
-              : undefined,
-        }))}
+        options={kits.map((kit) => {
+          const disabled = Boolean(issue(kit));
+          return {
+            name: kit.name,
+            description: [kit.summary, kit.equipment].join("\n\n"),
+            disabled,
+            note: disabled ? "Уже выбран" : undefined,
+          };
+        })}
         selected={selected ? { name: selected } : null}
         changesFor={(name) => {
           const changes = secondary ? { secondaryKit: name } : { kit: name };

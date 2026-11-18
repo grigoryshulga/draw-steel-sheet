@@ -1,6 +1,6 @@
 import { CANONICAL_KITS } from "../rules/consumer-kits";
 import type { ConsumerKit, ConsumerKitBonus } from "../rules/consumer-data";
-import type { Ability } from "../types";
+import type { Ability, Character } from "../types";
 import { canUseKit } from "./creation-rules";
 
 export type KitBonus = ConsumerKitBonus;
@@ -19,6 +19,23 @@ export function availableKits(className: string, subclass: string): Kit[] {
 export function selectableKitByName(name: string, className: string, subclass: string): Kit | undefined {
   const kit = kitByName(name);
   return kit && availableKits(className, subclass).includes(kit) ? kit : undefined;
+}
+
+type KitSelection = Pick<Character, "className" | "subclass" | "kit" | "secondaryKit">;
+
+export function kitSlotSelection(loadout: KitSelection, secondary: boolean) {
+  const paired = loadout.className === "Тактик";
+  const otherKit = paired ? kitByName(secondary ? loadout.kit : loadout.secondaryKit ?? "") : undefined;
+  const kits = availableKits(loadout.className, loadout.subclass);
+
+  function issue(kit: Kit | undefined) {
+    if (secondary && !paired) return "Второй комплект доступен только тактику.";
+    if (!kit) return; // Название своего комплекта или очистка слота в инвентаре.
+    if (!kits.includes(kit)) return "Этот комплект недоступен выбранному классу или аспекту.";
+    if (kit.id === otherKit?.id) return "Этот комплект уже выбран. Выберите два разных комплекта.";
+  }
+
+  return { kits, otherKit, issue };
 }
 
 function normalizeKitName(name: string): string {

@@ -548,8 +548,9 @@ describe("Тактик: создание героя с двумя комплек
     );
     expect(switched.subclass).toBe("Авангард");
     expect(keyedDoctrineIds(switched)).toEqual(doctrineIds);
-    const doubled = changeKit(switched, switched.kit, true);
-    expect(doubled.secondaryKit).toBe(doubled.kit);
+    expect(changeKit(switched, switched.kit, true)).toBe(switched);
+    // В старых сохранениях мог остаться один комплект в обоих слотах.
+    const doubled = { ...switched, secondaryKit: switched.kit };
     const stamina = calculatedValues(doubled).stamina;
     const once =
       calculatedValues({ ...doubled, secondaryKit: "" }).stamina;
