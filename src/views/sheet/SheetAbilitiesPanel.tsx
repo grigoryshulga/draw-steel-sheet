@@ -15,12 +15,6 @@ import { Button, Chip, EmptyState, Field, NumberInput, Panel, Select } from "../
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { RichText } from "../../components/RichText";
 import { kindLabel } from "../../data/actions";
-import {
-  evaluateAbilityDamage,
-  TIER_ROLL_RANGES,
-  type Tier,
-} from "../../lib/rules";
-import { inferDamageType } from "../../lib/damageType";
 import { useApp } from "../../state/AppContext";
 import { itemAbilityEntries } from "../../lib/item-abilities";
 import type { Ability } from "../../types";
@@ -490,10 +484,7 @@ function AbilityDetailModal({
     itemOrigin ??
     subclassAbilitySource(subclassSources, ability) ??
     ancestryAbilitySource(ancestrySources, ability);
-  const tiers = ability.tiers
-    .map((tier, index) => ({ ...tier, tier: (index + 1) as Tier }))
-    .filter((tier) => tier.damage || tier.effect);
-  const view = abilityCardView(ability, character);
+  const view = useMemo(() => abilityCardView(ability, character), [ability, character]);
 
   return (
     <CardDetailModal
@@ -576,39 +567,23 @@ function AbilityDetailModal({
           </div>
         )}
 
-        {tiers.length > 0 && (
-          <>
-            <div className="sheet-ability-detail-tiers">
-              {tiers.map((tier) => {
-                const damage = evaluateAbilityDamage(
-                  ability,
-                  tier.tier,
-                  character,
-                );
-                return (
-                  <div
-                    className="sheet-ability-detail-tier"
-                    data-tier={tier.tier}
-                    key={tier.tier}
-                  >
-                    <div className="sheet-ability-detail-tier-head">
-                      <span className="sheet-ability-detail-range" title="Диапазон суммы броска силы" aria-label={TIER_ROLL_RANGES[tier.tier]}>
-                        <span className={`sheet-ability-tier-glyph tier-${tier.tier}`} aria-hidden="true" />
-                      </span>
-                      {tier.damage && (
-                        <DamageChip
-                          value={damage.display}
-                          type={inferDamageType(ability, tier.effect)}
-                        />
-                      )}
-                    </div>
-                    {showCalculations && <CalculationInline calculations={damage.calculations ?? []} />}
-                    {tier.effect && <RichText characteristicGlyphs text={tier.effect} />}
-                  </div>
-                );
-              })}
-            </div>
-          </>
+        {view.tiers.length > 0 && (
+          <div className="sheet-ability-detail-tiers">
+            {view.tiers.map((tier) => (
+              <div className="sheet-ability-detail-tier" data-tier={tier.tier} key={tier.tier}>
+                <div className="sheet-ability-detail-tier-head">
+                  <span className="sheet-ability-detail-range" title={tier.rangeTitle} aria-label={tier.range}>
+                    <span className={`sheet-ability-tier-glyph tier-${tier.tier}`} aria-hidden="true" />
+                  </span>
+                  {tier.damage && <DamageChip value={tier.damage.value} type={tier.damage.type} />}
+                </div>
+                {showCalculations && tier.damage?.calculations && (
+                  <CalculationInline calculations={tier.damage.calculations} />
+                )}
+                {tier.effect && <RichText characteristicGlyphs text={tier.effect} />}
+              </div>
+            ))}
+          </div>
         )}
 
         {ability.effect && (
