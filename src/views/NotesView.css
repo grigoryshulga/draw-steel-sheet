@@ -80,3 +80,110 @@
   .note-section-debts,
   .note-section-secrets { grid-column: auto; grid-row: auto; }
 }
+
+.notes-background {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  align-items: start;
+  gap: var(--space-7);
+}
+
+.notes-background-section {
+  min-width: 0;
+}
+
+.notes-background-section > h3 {
+  margin: 0 0 var(--space-3);
+  font: 600 var(--text-lg)/var(--leading-tight) var(--font-display);
+  color: var(--fg-bright);
+}
+
+.notes-culture,
+.notes-career {
+  display: grid;
+  gap: var(--space-7);
+  min-width: 0;
+}
+
+.notes-culture {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 132px), 1fr));
+}
+
+.notes-career {
+  max-width: 76ch;
+}
+
+.notes-career > .hero-profile-block + .hero-profile-block {
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 760px) {
+  .notes-background {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.hero-profile-block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-2);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.hero-profile-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.hero-profile-heading h4 {
+  margin: 0;
+  color: var(--fg-bright);
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.hero-profile-edit {
+  opacity: 0;
+}
+
+.hero-profile-block:is(:hover, :focus-within, .is-editing) .hero-profile-edit {
+  opacity: 1;
+}
+
+@media (any-pointer: coarse) {
+  .hero-profile-edit {
+    opacity: 1;
+  }
+}
+
+.hero-profile-block > .rule-text,
+.hero-profile-value {
+  font-size: var(--text-reading);
+  line-height: var(--leading-relaxed);
+}
+
+.hero-profile-value,
+.hero-profile-block > .rule-text > :first-child {
+  margin-top: 0;
+}
+
+.hero-profile-value,
+.hero-profile-block > .rule-text > :last-child {
+  margin-bottom: 0;
+}
+
+.hero-profile-block > .rule-text > :is(h2, h3, h4) {
+  font-size: var(--text-lg);
+}
+
+.hero-profile-block > .rule-text pre {
+  overflow-x: auto;
+}
+
+.hero-profile-block .textarea {
+  field-sizing: content;
+}

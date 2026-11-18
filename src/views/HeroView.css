@@ -4,13 +4,6 @@
   gap: var(--space-7);
 }
 
-.hero-cols {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-  gap: var(--space-7);
-  align-items: start;
-}
-
 /* --- Identity --- */
 
 .hero-identity {
@@ -54,7 +47,8 @@
   color: var(--fg-bright);
 }
 
-.hero-skill-grid {
+.hero-skill-grid,
+.hero-language-list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
@@ -62,42 +56,59 @@
 
 /* --- Languages --- */
 
-.hero-langs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-}
-
-.hero-langs:empty {
-  display: none;
-}
-
-.hero-langs .chip svg {
-  opacity: 0.65;
-}
-
-.hero-lang-input {
-  width: 100%;
-}
-
-/* --- Culture / career --- */
-
-.hero-background {
+.hero-skills-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 22%);
   gap: var(--space-7);
+  align-items: start;
 }
 
-.hero-culture {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 132px), 1fr));
-  gap: var(--space-5);
+.hero-language-column {
+  min-width: 0;
+  padding-inline-start: var(--space-7);
+  border-inline-start: 1px solid var(--line);
 }
 
-.hero-stack {
+.hero-language-column .hero-skill-head {
+  /* Та же высота, что у заголовков групп со счётчиком-чипом. */
+  min-height: 27px;
+}
+
+.hero-language-list .chip {
+  padding-inline: var(--space-3);
+  height: auto;
+  min-height: 24px;
+  max-width: 100%;
+  font-size: var(--text-sm);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.hero-language-column .chip svg {
+  flex: none;
+}
+
+.hero-lang-editor {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.hero-language-list + .hero-lang-editor {
+  margin-top: var(--space-5);
+}
+
+@media (max-width: 760px) {
+  .hero-skills-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-language-column {
+    padding-inline-start: 0;
+    padding-top: var(--space-7);
+    border-inline-start: 0;
+    border-top: 1px solid var(--line);
+  }
 }
 
 /* --- Adaptive --- */

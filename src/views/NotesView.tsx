@@ -3,6 +3,7 @@ import { Button, Panel } from "../components/ui";
 import { MarkdownEditor } from "../components/MarkdownEditor";
 import { Icon } from "../components/Icons";
 import { NOTE_SECTIONS } from "../data/notes";
+import { HeroProfileText } from "./hero/HeroProfileBlock";
 import { ProjectsPanel } from "./sheet/ProjectsPanel";
 import { useApp } from "../state/AppContext";
 import type { NoteSectionKey } from "../types";
@@ -43,6 +44,8 @@ export function NotesView() {
         <p className="muted small">Личные заметки и проекты</p>
       </header>
 
+      <ProjectsPanel />
+
       <div className="notes-editor">
         <div ref={setToolbarContainer} className="notes-toolbar" />
         <div ref={grid} className={`notes-grid${expanded ? " is-expanded" : ""}`}>
@@ -77,7 +80,46 @@ export function NotesView() {
         </div>
       </div>
 
-      <ProjectsPanel />
+      <HeroBackground />
     </div>
+  );
+}
+
+function HeroBackground() {
+  const { character, update } = useApp();
+
+  const patchCulture = (key: keyof typeof character.culture, value: string) => {
+    update((current) => ({ ...current, culture: { ...current.culture, [key]: value } }));
+  };
+
+  const patchCareerInfo = (key: keyof typeof character.careerInfo, value: string) => {
+    update((current) => ({ ...current, careerInfo: { ...current.careerInfo, [key]: value } }));
+  };
+
+  return (
+    <Panel title="Предыстория" icon="hero" dense bodyClassName="notes-background">
+      <section className="notes-background-section">
+        <h3>Культура</h3>
+        <div className="notes-culture">
+          <HeroProfileText title="Среда" value={character.culture.environment}
+            placeholder="Напр.: город" onChange={(value) => patchCulture("environment", value)} />
+          <HeroProfileText title="Организация" value={character.culture.organization}
+            placeholder="Напр.: гильдия" onChange={(value) => patchCulture("organization", value)} />
+          <HeroProfileText title="Воспитание" value={character.culture.upbringing}
+            placeholder="Напр.: море" onChange={(value) => patchCulture("upbringing", value)} />
+        </div>
+      </section>
+      <section className="notes-background-section">
+        <h3>Карьера</h3>
+        <div className="notes-career">
+          <HeroProfileText title="Преимущества" value={character.careerInfo.benefits}
+            placeholder="Что даёт карьера" onChange={(value) => patchCareerInfo("benefits", value)} multiline />
+          <HeroProfileText title="Детали" value={character.careerInfo.details}
+            placeholder="Как герой жил до приключений" onChange={(value) => patchCareerInfo("details", value)} multiline />
+          <HeroProfileText title="Побуждающий инцидент" value={character.careerInfo.incitingIncident}
+            placeholder="Почему герой отправился в путь" onChange={(value) => patchCareerInfo("incitingIncident", value)} multiline />
+        </div>
+      </section>
+    </Panel>
   );
 }

@@ -238,16 +238,6 @@
   border-top: 0;
 }
 
-.hero-view.is-embedded :is(.hero-background-panel, .hero-cols > .panel) {
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  background: var(--card-bg);
-}
-
-.hero-view.is-embedded .hero-cols {
-  margin-top: var(--space-7);
-}
-
 .development-workspace :is(.perks-panel, .dev-perk-group) .perk-card-grid {
   grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
   gap: var(--space-5);

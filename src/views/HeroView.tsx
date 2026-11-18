@@ -1,4 +1,3 @@
-import { useState, type KeyboardEvent } from "react";
 import { Icon } from "../components/Icons";
 import {
   Button,
@@ -7,7 +6,6 @@ import {
   NumberInput,
   Panel,
   Select,
-  TextArea,
   TextInput,
 } from "../components/ui";
 import { ANCESTRIES, CAREERS } from "../data/classes";
@@ -20,8 +18,6 @@ import "./HeroView.css";
 
 export function HeroView({ embedded = false }: { embedded?: boolean }) {
   const { character, update, patch, goTo } = useApp();
-  const [languageDraft, setLanguageDraft] = useState("");
-
   const skills = character.skills;
 
   const toggleSkill = (skill: string) => {
@@ -31,33 +27,6 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
         ? c.skills.filter((s) => s !== skill)
         : [...c.skills, skill],
     }));
-  };
-
-  const addLanguage = () => {
-    const value = languageDraft.trim();
-    if (!value) return;
-    if (!character.languages.includes(value)) {
-      update((c) => ({ ...c, languages: [...c.languages, value] }));
-    }
-    setLanguageDraft("");
-  };
-
-  const onLanguageEnter = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      addLanguage();
-    }
-  };
-
-  const patchCulture = (key: keyof typeof character.culture, value: string) => {
-    patch({ culture: { ...character.culture, [key]: value } });
-  };
-
-  const patchCareerInfo = (
-    key: keyof typeof character.careerInfo,
-    value: string,
-  ) => {
-    patch({ careerInfo: { ...character.careerInfo, [key]: value } });
   };
 
   return (
@@ -151,162 +120,103 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
             disabled={skills.length === 0}
             onClick={() => patch({ skills: [] })}
           >
-            Снять все
+            Снять все навыки
           </Button>
         }
       >
-        <div className="hero-skill-groups">
-          {SKILL_GROUPS.map((group) => {
-            const selected = group.skills.filter((skill) =>
-              skills.includes(skill),
-            ).length;
-            return (
-              <section
-                key={group.key}
-                className="hero-skill-group"
-                data-tone={SKILL_GROUP_TONES[group.key]}
-              >
-                <header className="hero-skill-head">
-                  <h3>{group.label}</h3>
-                  <Chip
-                    active={selected > 0}
-                    tone={selected > 0 ? "accent" : "default"}
-                  >
-                    {selected}/{group.skills.length}
-                  </Chip>
-                </header>
-                <div className="hero-skill-grid">
-                  {group.skills.map((skill) => (
+        <div className="hero-skills-layout">
+          <div className="hero-skill-groups">
+            {SKILL_GROUPS.map((group) => {
+              const selected = group.skills.filter((skill) =>
+                skills.includes(skill),
+              ).length;
+              return (
+                <section
+                  key={group.key}
+                  className="hero-skill-group"
+                  data-tone={SKILL_GROUP_TONES[group.key]}
+                >
+                  <header className="hero-skill-head">
+                    <h3>{group.label}</h3>
                     <Chip
-                      key={skill}
-                      tone={SKILL_GROUP_TONES[group.key]}
-                      active={skills.includes(skill)}
-                      onClick={() => toggleSkill(skill)}
+                      active={selected > 0}
+                      tone={selected > 0 ? "accent" : "default"}
                     >
-                      {skill}
+                      {selected}/{group.skills.length}
                     </Chip>
-                  ))}
-                </div>
-              </section>
-            );
-          })}
+                  </header>
+                  <div className="hero-skill-grid">
+                    {group.skills.map((skill) => (
+                      <Chip
+                        key={skill}
+                        tone={SKILL_GROUP_TONES[group.key]}
+                        active={skills.includes(skill)}
+                        onClick={() => toggleSkill(skill)}
+                      >
+                        {skill}
+                      </Chip>
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+          <HeroLanguages />
         </div>
       </Panel>
 
       <PerksPanel />
       {!embedded && <ClassFeaturesPanel />}
-
-      <Panel title="Культура и языки" icon="users" dense className="hero-background-panel">
-        <div className="hero-background">
-          <div className="hero-culture">
-            <Field label="Среда">
-              <TextInput
-                value={character.culture.environment}
-                placeholder="Напр.: город"
-                onChange={(e) => patchCulture("environment", e.target.value)}
-              />
-            </Field>
-            <Field label="Организация">
-              <TextInput
-                value={character.culture.organization}
-                placeholder="Напр.: гильдия"
-                onChange={(e) => patchCulture("organization", e.target.value)}
-              />
-            </Field>
-            <Field label="Воспитание">
-              <TextInput
-                value={character.culture.upbringing}
-                placeholder="Напр.: море"
-                onChange={(e) => patchCulture("upbringing", e.target.value)}
-              />
-            </Field>
-          </div>
-          <div className="field">
-            <div className="field-label">Языки</div>
-            <div className="hero-langs">
-              {character.languages.map((language) => (
-                <Chip
-                  key={language}
-                  active
-                  tone="blue"
-                  title={`Убрать: ${language}`}
-                  onClick={() =>
-                    update((c) => ({
-                      ...c,
-                      languages: c.languages.filter((item) => item !== language),
-                    }))
-                  }
-                >
-                  {language}
-                  <Icon name="close" size={11} />
-                </Chip>
-              ))}
-            </div>
-            <TextInput
-              className="hero-lang-input"
-              value={languageDraft}
-              placeholder="Добавить язык и нажать Enter"
-              aria-label="Новый язык"
-              onChange={(e) => setLanguageDraft(e.target.value)}
-              onKeyDown={onLanguageEnter}
-            />
-          </div>
-        </div>
-      </Panel>
-
-      <div className="hero-cols">
-        <Panel title="Карьера" icon="sheet" dense>
-          <div className="hero-stack">
-            <Field label="Преимущества">
-              <TextArea
-                rows={3}
-                value={character.careerInfo.benefits}
-                placeholder="Что даёт карьера"
-                onChange={(e) => patchCareerInfo("benefits", e.target.value)}
-              />
-            </Field>
-            <Field label="Детали">
-              <TextArea
-                rows={3}
-                value={character.careerInfo.details}
-                placeholder="Как герой жил до приключений"
-                onChange={(e) => patchCareerInfo("details", e.target.value)}
-              />
-            </Field>
-            <Field label="Побуждающий инцидент">
-              <TextArea
-                rows={2}
-                value={character.careerInfo.incitingIncident}
-                placeholder="Почему герой отправился в путь"
-                onChange={(e) =>
-                  patchCareerInfo("incitingIncident", e.target.value)
-                }
-              />
-            </Field>
-          </div>
-        </Panel>
-
-        <Panel title="Особенности" icon="spark" dense>
-          <div className="hero-stack">
-            <Field label="Особенности происхождения">
-              <TextArea
-                rows={4}
-                value={character.ancestryTraits}
-                placeholder="Полное описание черт происхождения"
-                onChange={(e) => patch({ ancestryTraits: e.target.value })}
-              />
-            </Field>
-            <Field label="Заметки об особенностях класса">
-              <TextArea
-                rows={4}
-                value={character.classFeatures}
-                placeholder="Полное описание умений класса"
-                onChange={(e) => patch({ classFeatures: e.target.value })}
-              />
-            </Field>
-          </div>
-        </Panel>
-      </div>
     </div>
+  );
+}
+
+function HeroLanguages() {
+  const { character, update } = useApp();
+  const languages = character.languages;
+
+  return (
+    <section className="hero-language-column">
+      <header className="hero-skill-head">
+        <h3>Языки</h3>
+      </header>
+      {languages.length > 0 && (
+        <div className="hero-language-list">
+          {languages.map((language) => (
+            <Chip
+              key={language}
+              active
+              tone="blue"
+              title={`Убрать язык: ${language}`}
+              onClick={() => update((current) => ({
+                ...current,
+                languages: current.languages.filter((item) => item !== language),
+              }))}
+            >
+              <span className="sr-only">Убрать язык: </span>
+              {language}
+              <Icon name="close" size={11} aria-hidden="true" />
+            </Chip>
+          ))}
+        </div>
+      )}
+      <form
+        className="hero-lang-editor"
+        onSubmit={(event) => {
+          event.preventDefault();
+          const form = event.currentTarget;
+          const language = String(new FormData(form).get("language") ?? "").trim();
+          if (language && !languages.includes(language)) {
+            update((current) => current.languages.includes(language)
+              ? current
+              : { ...current, languages: [...current.languages, language] });
+          }
+          form.reset();
+        }}
+      >
+        <TextInput name="language" placeholder="Новый язык" aria-label="Новый язык" />
+        <Button type="submit" icon="plus" iconOnly>Добавить язык</Button>
+      </form>
+    </section>
   );
 }
