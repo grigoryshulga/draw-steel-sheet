@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { MarkdownEditor } from "../components/MarkdownEditor";
 import { MarkdownPreview } from "../components/MarkdownPreview";
 import { Button, Card, Select } from "../components/ui";
@@ -35,6 +35,7 @@ const PANELS = {
   settings: "Управление",
 };
 type Panel = keyof typeof PANELS;
+const DEFAULT_PANEL: Panel = supabaseEnabled ? "group" : "scenes";
 const SCENE_NAMES: Record<TableScene["kind"], string> = {
   encounter: "Бой",
   negotiation: "Переговоры",
@@ -43,28 +44,42 @@ const SCENE_NAMES: Record<TableScene["kind"], string> = {
 
 export function TablesView({
   characters,
+  inviteCode,
   beforeCommand,
   openHero,
   refreshHero,
 }: {
   characters: CharacterSummary[];
+  inviteCode?: string;
   beforeCommand: () => Promise<void>;
   openHero: (id: string) => void;
   refreshHero: () => Promise<void>;
 }) {
   const state = useTables();
   const actorId = useStorageScope();
-  const { table, busy, command: send } = state;
-  const [lobbyAction, setLobbyAction] = useState<"create" | "join" | null>(
-    () => (location.hash.includes("/join/") ? "join" : null),
-  );
-  const [panel, setPanel] = useState<Panel>("group");
+  const { table, busy, select, command: send } = state;
+  const tableScrollY = useRef(0);
+  // Activity reconnects layout effects when the player returns to the table.
+  useLayoutEffect(() => {
+    window.scrollTo({ top: tableScrollY.current, behavior: "instant" });
+    return () => {
+      tableScrollY.current = window.scrollY;
+    };
+  }, []);
+  const [lobbyAction, setLobbyAction] = useState<"create" | "join" | null>(null);
+  const [panel, setPanel] = useState<Panel>(DEFAULT_PANEL);
   const [tableName, setTableName] = useState("");
   const [memberName, setMemberName] = useState("");
-  const [invite, setInvite] = useState(() => {
-    const match = location.hash.match(/^#\/tables\/join\/(.+)$/);
-    return match ? decodeURIComponent(match[1]) : "";
-  });
+  const [invite, setInvite] = useState("");
+  const handledInvite = useRef<string | undefined>(undefined);
+  useEffect(() => {
+    if (handledInvite.current === inviteCode) return;
+    handledInvite.current = inviteCode;
+    if (!supabaseEnabled || !inviteCode) return;
+    select(null);
+    setInvite(inviteCode);
+    setLobbyAction("join");
+  }, [inviteCode, select]);
   const [templates, setTemplates] = useState<DirectorTemplate[]>([]);
   const [scene, setScene] = useState<TableScene | null>(null);
   const [sceneBase, setSceneBase] = useState("");
@@ -87,6 +102,7 @@ export function TablesView({
     return () => window.clearTimeout(timer);
   }, [message]);
   const director = table?.ownerId === table?.actorId;
+  const previousTableId = useRef(table?.id);
   useEffect(() => {
     void tableRepository
       .templates()
@@ -94,11 +110,13 @@ export function TablesView({
       .catch((e) => state.setError(e.message));
   }, []);
   useEffect(() => {
+    if (previousTableId.current === table?.id) return;
+    previousTableId.current = table?.id;
     setScene(null);
     setSelectedScene("");
     setMaterial({ id: "", title: "", text: "", public: false });
     setMaterialEditing(false);
-    setPanel(supabaseEnabled ? "group" : "scenes");
+    setPanel(DEFAULT_PANEL);
     if (table?.id) setLobbyAction(null);
   }, [table?.id]);
 

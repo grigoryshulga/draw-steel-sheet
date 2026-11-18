@@ -28,6 +28,17 @@ export function useTables() {
   selectedRef.current = selected;
   tableRef.current = table;
 
+  const select = useCallback((id: string | null) => {
+    if (selectedRef.current === id) return;
+    selectedRef.current = id;
+    ++readEpoch.current;
+    setSelected(id);
+    setTable(null);
+    setError("");
+    setStale(false);
+    setLastRead("");
+  }, []);
+
   const refreshList = useCallback(async () => {
     const list = await tableRepository.list();
     setTables(list);
@@ -74,12 +85,17 @@ export function useTables() {
   }, []);
 
   useEffect(() => {
-    setTable(null);
-    setError("");
-    setLastRead("");
     if (!selected) return;
+    let active = true;
     void refresh(selected);
-    return tableRepository.subscribe(selected, () => void refresh(selected));
+    const unsubscribe = tableRepository.subscribe(selected, () => {
+      if (active) void refresh(selected);
+    });
+    return () => {
+      active = false;
+      ++readEpoch.current;
+      unsubscribe();
+    };
   }, [selected, refresh]);
 
   const command = useCallback(
@@ -119,8 +135,7 @@ export function useTables() {
           setStale(false);
           setLastRead(new Date().toISOString());
         } else if (tableId === selectedRef.current) {
-          setSelected(null);
-          setTable(null);
+          select(null);
         }
         await refreshList().catch((e) => setError(e.message));
         return result;
@@ -142,7 +157,7 @@ export function useTables() {
         setBusy(false);
       }
     },
-    [refresh, refreshList],
+    [refresh, refreshList, select],
   );
 
   const retryCommand = () => {
@@ -155,7 +170,7 @@ export function useTables() {
     tables,
     table,
     selected,
-    select: setSelected,
+    select,
     busy,
     loading,
     error,
