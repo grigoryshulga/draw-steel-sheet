@@ -1,4 +1,5 @@
 import {
+  Activity,
   lazy,
   Suspense,
   useCallback,
@@ -18,6 +19,7 @@ import {
   type GameHistoryEntry,
 } from "./lib/game-actions";
 import { useHashTab } from "./lib/hooks";
+import { useLibraryLocation } from "./lib/library-location";
 import {
   applyTheme,
   THEMES,
@@ -93,6 +95,12 @@ export default function WorkspaceApp({
   const [themeChoice, setThemeChoiceState] =
     useState<ThemeChoice>(readThemeChoice);
   const [tab, setTab] = useHashTab("sheet", TABS);
+  const [hasOpenedTables, setHasOpenedTables] = useState(tab === "tables");
+  const [hashRoot, hashSection, tableAction, tableCode] = useLibraryLocation();
+  const tableInvite =
+    hashRoot === "#" && hashSection === "tables" && tableAction === "join"
+      ? tableCode
+      : undefined;
   const lastNonCreateTab = useRef<Tab>("sheet");
   const [rollOpen, setRollOpen] = useState(false);
   const [lastRoll, setLastRoll] = useState<RollEntry | null>(null);
@@ -201,11 +209,12 @@ export default function WorkspaceApp({
       tab === "create"
         ? "Создание героя — Достать листы!"
         : `${character ? `${character.name} · ` : ""}${label} — Достать листы!`;
-    if (tab !== "codex") window.scrollTo({ top: 0 });
+    if (tab !== "codex" && tab !== "tables") window.scrollTo({ top: 0 });
   }, [tab, character?.id, character?.name]);
 
   useEffect(() => {
     if (tab !== "create") lastNonCreateTab.current = tab as Tab;
+    if (tab === "tables") setHasOpenedTables(true);
   }, [tab]);
 
   /* ---------- Тема оформления ---------- */
@@ -230,6 +239,9 @@ export default function WorkspaceApp({
     [character],
   );
   const isLibrary = ["codex", "reference", "catalog", "glossary"].includes(tab);
+  const exportActiveHero = character
+    ? () => void handleExport(character.id)
+    : undefined;
 
   /* ---------- Рендер ---------- */
 
@@ -371,28 +383,30 @@ export default function WorkspaceApp({
                 </section>
               )}
             <main className="content" id="main-content" tabIndex={-1}>
+              {(tab === "tables" || hasOpenedTables) && (
+                <Activity mode={tab === "tables" ? "visible" : "hidden"}>
+                  <ViewErrorBoundary onExport={exportActiveHero}>
+                    <Suspense
+                      fallback={<LoadingScreen label="Загрузка столов" />}
+                    >
+                      <TablesView
+                        characters={characters}
+                        inviteCode={tableInvite}
+                        beforeCommand={() => autosave.flush()}
+                        openHero={(id) =>
+                          void handleSelectCharacter(id, { openSheet: true })
+                        }
+                        refreshHero={refreshCharacter}
+                      />
+                    </Suspense>
+                  </ViewErrorBoundary>
+                </Activity>
+              )}
               <ViewErrorBoundary
                 key={`${character?.id ?? "empty"}:${tab}`}
-                onExport={
-                  character ? () => void handleExport(character.id) : undefined
-                }
+                onExport={exportActiveHero}
               >
-                {tab === "tables" ? (
-                  <Suspense
-                    fallback={<LoadingScreen label="Загрузка столов" />}
-                  >
-                    <TablesView
-                      characters={characters}
-                      beforeCommand={() => autosave.flush()}
-                      openHero={(id) => {
-                        void handleSelectCharacter(id).then(() =>
-                          setTab("sheet"),
-                        );
-                      }}
-                      refreshHero={refreshCharacter}
-                    />
-                  </Suspense>
-                ) : booting && !isLibrary ? (
+                {tab === "tables" ? null : booting && !isLibrary ? (
                   <LoadingScreen label="Загрузка листа" />
                 ) : isLibrary ? (
                   <Suspense
