@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Icon } from "../../components/Icons";
-import { RichText } from "../../components/RichText";
 import { Button, Chip, EmptyState, Field, Modal, Panel, Select, TextInput } from "../../components/ui";
 import { PerkCard } from "../../components/PerkCard";
-import { PerkDetailModal } from "../../components/PerkDetailModal";
+import { PerkDetailModal, PerkRulesText } from "../../components/PerkDetailModal";
 import {
   PERK_COMPENDIUM,
   PERK_TYPE_META,
@@ -51,8 +50,8 @@ export function PerksPanel() {
     notify(`Перк «${perk.name}» выбран`, "success");
   };
 
-  const detailDescription = detail
-    ? perkById(detail.selected.perkId)?.description
+  const detailPerk = detail
+    ? perkById(detail.selected.perkId)
     : undefined;
 
   return (
@@ -131,10 +130,11 @@ export function PerksPanel() {
         open={detail !== null}
         onClose={() => setDetail(null)}
         name={detail?.selected.name ?? ""}
+        perkId={detail?.selected.perkId}
         type={detail?.selected.type}
         eyebrow={detail?.slot.title}
-        summary={detail?.selected.summary}
-        description={detailDescription}
+        summary={detail?.selected.summary ?? detailPerk?.summary}
+        description={detail?.selected.description}
         action={
           detail ? (
             <Button iconOnly
@@ -266,7 +266,7 @@ function PerkPicker({
                   </Chip>
                   {previewUsed && <Chip tone="yellow">Уже выбран в другом слоте</Chip>}
                 </div>
-                <RichText text={preview.description} />
+                <PerkRulesText perkId={preview.id} fallback={preview.summary} />
               </>
             ) : (
               <EmptyState icon="book" title="Выберите перк" />

@@ -18,10 +18,6 @@
   flex-wrap: wrap;
 }
 
-.dev-head-text {
-  min-width: 0;
-}
-
 .dev-title {
   margin: 0;
   font-family: var(--font-display);
@@ -122,24 +118,6 @@
   background: var(--surface-hover);
 }
 
-.dev-level-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 26px;
-  height: 26px;
-  padding: 0 var(--space-3);
-  border-radius: var(--radius-sm);
-  background: var(--surface-3);
-  color: var(--fg-bright);
-  font-size: var(--text-md);
-}
-
-.dev-level[data-status="next"] .dev-level-number {
-  background: var(--accent);
-  color: var(--accent-ink);
-}
-
 .dev-level-title {
   font-size: var(--text-base);
   font-weight: 600;
@@ -180,13 +158,6 @@
   padding: 0 var(--space-7) var(--space-7);
 }
 
-.dev-level-rule {
-  margin: 0;
-  color: var(--muted);
-  font-size: var(--text-body);
-  font-style: italic;
-}
-
 /* ---------- Строки уровня 1 ---------- */
 
 .dev-fixed {
@@ -221,15 +192,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  padding: var(--space-6);
-  border: 1px solid var(--line);
-  border-left: 2px solid var(--line-strong);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
-.dev-step.is-complete {
-  border-left-color: var(--accent);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--line);
 }
 
 .dev-step-head {
@@ -240,9 +204,9 @@
 }
 
 .dev-step-title {
-  font-size: var(--text-md);
+  margin: 0;
+  font-size: var(--text-lg);
   font-weight: 600;
-  letter-spacing: 0.03em;
   color: var(--fg-bright);
 }
 
@@ -266,29 +230,30 @@
 /* Сетка переиспользует карточки листа, поэтому задаёт только раскладку. */
 .dev-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
   align-items: stretch;
   gap: var(--space-5);
 }
 
-/* Выбранная способность: общее состояние выбора из AbilityCard, но с
-   заметной рамкой — плоский вид вкладки иначе гасит акцент. */
-.dev-cards > .sheet-ability-card.is-selected {
-  border: 1px solid var(--accent);
-  border-top-color: var(--accent);
+.development-workspace .dev-cards > .sheet-ability-card.is-selected {
+  border-color: var(--accent);
   background: color-mix(in srgb, var(--accent) 7%, var(--surface-2));
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent),
-    0 0 24px -10px color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
-.dev-perk-cards {
-  gap: 0 var(--space-8);
-  border-bottom: 1px solid var(--line);
+.dev-rewards {
+  display: grid;
+  gap: var(--space-6);
 }
 
-.dev-perk-cards .sheet-perk-card {
-  padding: var(--space-5) 0;
+.dev-rewards-title {
+  margin: 0;
+  color: var(--fg-bright);
+  font: 600 var(--text-xl)/var(--leading-tight) var(--font-display);
+}
+
+.dev-detail-action {
+  margin-left: auto;
 }
 
 /* ---------- Чипы навыков и характеристик ---------- */
@@ -303,148 +268,13 @@
   cursor: pointer;
 }
 
-/* ---------- Списки уровня ---------- */
-
-.dev-block {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.dev-block-title {
-  color: var(--muted);
-  font-size: var(--text-xs);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.dev-list {
-  margin: 0;
-  padding-left: var(--space-8);
-  font-size: var(--text-body);
-  line-height: var(--leading-relaxed);
-  color: var(--muted);
-}
-
-.dev-list strong {
-  color: var(--fg);
-  font-weight: 600;
-}
-
-.dev-features {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-/* ---------- Поп-ап выбора ---------- */
-
-.dev-detail {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-  font-size: var(--text-md);
-  line-height: var(--leading-relaxed);
-}
-
-.dev-detail-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: var(--space-4);
-}
-
 @media (max-width: 720px) {
   .dev-panel {
     padding: var(--space-7) var(--space-6) var(--space-8);
   }
-  .dev-cards {
-    grid-template-columns: minmax(0, 1fr);
-  }
   .dev-level-head {
     padding: var(--space-5) var(--space-6);
   }
-}
-
-/* ---------- Сводка повышения ---------- */
-
-.dev-summary {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-  padding: var(--space-6) var(--space-7);
-  border: 1px solid var(--accent-line);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--accent-soft) 35%, var(--surface-2));
-}
-
-.dev-summary-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2) var(--space-5);
-}
-
-.dev-summary-title {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  color: var(--fg-bright);
-}
-
-.dev-summary-echelon {
-  color: var(--muted);
-  font-size: var(--text-sm);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.dev-summary-rule {
-  color: var(--muted);
-  font-size: var(--text-sm);
-  font-style: italic;
-}
-
-.dev-summary-block {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.dev-summary-empty {
-  color: var(--muted);
-  font-style: italic;
-}
-
-.dev-todo-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.dev-todo-item {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-1) var(--space-4);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  background: transparent;
-  color: var(--fg);
-  font: inherit;
-  font-size: var(--text-sm);
-  cursor: pointer;
-}
-
-.dev-todo-item:hover,
-.dev-todo-item:focus-visible {
-  border-color: var(--accent-line);
-  color: var(--accent);
-  outline: none;
-}
-
-.dev-todo-item .mono {
-  color: var(--muted);
 }
 
 /* ---------- Перки по типам ---------- */
@@ -515,37 +345,13 @@
   background: var(--accent);
 }
 
+/* Перки в группах используют ту же геометрию карточек, что и редактор героя. */
 .dev-perk-group-grid {
   margin-top: var(--space-3);
-  border-bottom: 0;
-  row-gap: var(--space-6);
-}
-
-/* Перки в группах — обычная flex-сетка с зазорами по всем сторонам. */
-.dev-perk-group .dev-perk-group-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
-  gap: var(--space-4);
-  margin-top: var(--space-3);
-  border-bottom: 0;
-}
-
-.dev-perk-group .dev-perk-group-grid > .sheet-perk-card {
-  min-width: 0;
-  max-width: 100%;
-  padding: var(--space-5) var(--space-6);
-  border: 1px solid color-mix(in srgb, var(--perk-tone, var(--line)) 45%, var(--line));
-  border-radius: var(--radius-sm);
-  background: var(--surface-2);
-}
-
-.dev-perk-group .dev-perk-group-grid > .sheet-perk-card[data-type] {
-  border-color: color-mix(in srgb, var(--perk-tone) 45%, var(--line));
-  border-top-color: color-mix(in srgb, var(--perk-tone) 72%, var(--line));
 }
 
 /* Выбранный перк в группе: фон всей карточки в тон типа. */
-.dev-perk-group .dev-perk-group-grid > .sheet-perk-card.is-selected {
+.development-workspace .dev-perk-group-grid > .sheet-perk-card.is-selected {
   background: color-mix(
     in srgb,
     var(--perk-tone, var(--accent)) 12%,

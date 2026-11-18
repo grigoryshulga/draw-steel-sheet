@@ -273,13 +273,13 @@
   font-size: var(--text-xs);
   opacity: 0.85;
 }
-.sheet-block .sheet-ability-card {
-  border-radius: var(--radius-sm);
+:is(.sheet-block, .development-workspace) .sheet-ability-card {
+  border-radius: var(--card-radius);
   border: 1px solid var(--line);
   border-top: 1px solid var(--line);
 }
-.sheet-block .sheet-perk-card {
-  border-radius: var(--radius-sm);
+:is(.sheet-block, .development-workspace) .sheet-perk-card {
+  border-radius: var(--card-radius);
   border: 1px solid var(--line);
 }
 .sheet-block .conditions-empty {
@@ -415,9 +415,4 @@
 .sheet-header.is-compact .sheet-header-progress { flex: 1 1 100%; }
 .sheet-header.is-compact .sheet-identity-summary { margin-top: 0; }
 
-.hero-profile-disclosure > :is(h3, p) { margin-inline: calc(var(--space-8) + var(--space-7)); }
-.hero-profile-disclosure > h3 { margin-top: var(--space-7); }
-@media (max-width: 900px) {
-  .hero-profile-disclosure > :is(h3, p) { margin-inline: calc(var(--space-6) + var(--space-7)); }
-}
 @media (max-width: 700px) { .sheet-frame-actions .btn { min-height: 40px; } }

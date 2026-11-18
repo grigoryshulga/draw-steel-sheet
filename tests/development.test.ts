@@ -31,6 +31,7 @@ function buildCharacterClass(className: string): string {
   const subclass = {
     Талант: "Хронопатия",
     Проводник: "Смерть, Жизнь",
+    Цензор: "Идеал",
   }[className];
   if (!subclass) throw new Error(`No subclass fixture for ${className}`);
   return subclass;
@@ -149,6 +150,24 @@ describe("development plan structure", () => {
     expect(step.options.map((option) => option.id)).toContain(step.current[0]);
     // Выбранная способность уже есть у героя — она не должна исчезнуть из шага.
     expect(step.options.length).toBeGreaterThan(1);
+  });
+
+  it("показывает реальные награды Цензора отдельно от интерактивных выборов", () => {
+    const hero = bareHero("Цензор", 5);
+    const plan = buildDevelopmentPlan(hero);
+    const upcoming = nextSection(plan);
+    expect(upcoming.steps.map((step) => step.kind)).toEqual(expect.arrayContaining(["ability", "perk"]));
+    expect(upcoming.features.map((feature) => feature.name)).toEqual(["Орудие гнева"]);
+
+    const applied = plan.levels.find((level) => level.level === 2)!;
+    expect(applied.steps.map((step) => step.kind)).toEqual(expect.arrayContaining(["ability", "perk"]));
+    expect(applied.features.map((feature) => feature.name)).toEqual(
+      expect.arrayContaining(["Вести за собой", "Непоколебимый символ"]),
+    );
+    expect(applied.features.map((feature) => feature.name)).not.toEqual(
+      expect.arrayContaining(["Перк"]),
+    );
+    expect(applied.features.some((feature) => feature.name.startsWith("Способности Идеала"))).toBe(false);
   });
 
   it("marks the next level as engaged only after the first pick", () => {
@@ -437,7 +456,6 @@ describe("конфликты выбора", () => {
         },
       ],
       features: [],
-      upcoming: [],
       granted: [],
       fixed: [],
     };

@@ -86,10 +86,32 @@ function Badges({ item }: { item: FeatureSheetItem }) {
   );
 }
 
-/** Одна особенность: название, числа механики, бейджи и отметка триггера. */
-/** Карточка особенности класса: переиспользуется во вкладке «Развитие». */
-export function FeatureRow({ item }: { item: FeatureSheetItem }) {
+export function FeatureTriggerButton({ item }: { item: FeatureSheetItem }) {
   const { performGameAction } = useApp();
+  const trigger = item.trigger;
+  if (!trigger) return null;
+  return (
+    <Button
+      size="sm"
+      variant={trigger.used ? "ghost" : "soft"}
+      aria-pressed={trigger.used}
+      aria-label={`${trigger.used ? "Снять отметку" : "Отметить срабатывание"}: ${trigger.label}`}
+      onClick={() =>
+        performGameAction({
+          kind: "trigger",
+          featureId: item.id,
+          used: !trigger.used,
+        })
+      }
+      title={trigger.label}
+    >
+      {markLabel(item)}
+    </Button>
+  );
+}
+
+/** Одна особенность: название, числа механики, бейджи и отметка триггера. */
+function FeatureRow({ item }: { item: FeatureSheetItem }) {
   const trigger = item.trigger;
   return (
     <article
@@ -101,24 +123,7 @@ export function FeatureRow({ item }: { item: FeatureSheetItem }) {
           <strong className="cf-item-name">{item.name}</strong>
           <span className="cf-item-level mono">{item.level} ур.</span>
         </div>
-        {trigger && (
-          <Button
-            size="sm"
-            variant={trigger.used ? "ghost" : "soft"}
-            aria-pressed={trigger.used}
-            aria-label={`${trigger.used ? "Снять отметку" : "Отметить срабатывание"}: ${trigger.label}`}
-            onClick={() =>
-              performGameAction({
-                kind: "trigger",
-                featureId: item.id,
-                used: !trigger.used,
-              })
-            }
-            title={trigger.label}
-          >
-            {markLabel(item)}
-          </Button>
-        )}
+        {trigger && <FeatureTriggerButton item={item} />}
       </div>
       {item.summary && !item.summaryFromDescription && <p className="cf-item-summary">{item.summary}</p>}
       {trigger && (

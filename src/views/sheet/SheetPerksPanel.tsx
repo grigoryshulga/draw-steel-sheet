@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PerkCard } from "../../components/PerkCard";
-import { PerkDetailModal } from "../../components/PerkDetailModal";
-import { RichText } from "../../components/RichText";
+import { PerkDetailModal, PerkRulesText } from "../../components/PerkDetailModal";
 import {
   Button,
   Chip,
@@ -22,8 +21,6 @@ import {
   type PerkSlot,
 } from "../../data/perks";
 import { makeId } from "../../data/templates";
-import { canonicalPerkId } from "../../data/originals";
-import { loadRuleEntity } from "../../rules/repository";
 import { useApp } from "../../state/AppContext";
 import type { Perk, PerkType, SelectedPerk } from "../../types";
 import "./SheetPerksPanel.css";
@@ -47,7 +44,6 @@ export function SheetPerksPanel() {
   const [pickingFree, setPickingFree] = useState(false);
   const [panelCollapsed, setPanelCollapsed] = useState(false);
   const [compact, setCompact] = useState(false);
-  const [fullTexts, setFullTexts] = useState<Record<string, string>>({});
 
   const slots = perkSlots(character);
   const customPerks = character.perks.filter((perk) => perk.source === "custom");
@@ -57,29 +53,6 @@ export function SheetPerksPanel() {
     ...slotEntries.flatMap(({ slot, selected }) => selected ? [{ selected, slot }] : []),
     ...customPerks.map((selected) => ({ selected, slot: undefined })),
   ];
-  const catalogIds = [...new Set(entries
-    .filter(({ selected }) => perkById(selected.perkId))
-    .map(({ selected }) => canonicalPerkId(selected.perkId)))].sort().join("|");
-
-  useEffect(() => {
-    let active = true;
-    if (!catalogIds) return;
-    void Promise.allSettled(catalogIds.split("|").map(async (id) => {
-      const entity = await loadRuleEntity(id);
-      const text = entity.markdown.replace(/^\s*#{1,6}\s+[^\n]*\n+/, "").trim();
-      return [id, text] as const;
-    })).then((results) => {
-      if (!active) return;
-      setFullTexts((current) => {
-        const next = { ...current };
-        for (const result of results) {
-          if (result.status === "fulfilled") next[result.value[0]] = result.value[1];
-        }
-        return next;
-      });
-    });
-    return () => { active = false; };
-  }, [catalogIds]);
 
   const saveCustom = (draft: CustomPerkDraft, initial?: SelectedPerk) => {
     const next: SelectedPerk = {
@@ -145,17 +118,8 @@ export function SheetPerksPanel() {
   };
 
   const detailPerk = detail ? perkById(detail.selected.perkId) : undefined;
-  const detailFullText = detail ? fullTexts[canonicalPerkId(detail.selected.perkId)] : undefined;
   const detailCustomText = detail?.selected.source === "custom" && detail.selected.description &&
     detail.selected.description !== detailPerk?.description ? detail.selected.description : undefined;
-  const detailText = detail
-    ? detail.selected.source === "custom"
-      ? detailCustomText || detailFullText || detail.selected.description ||
-        detail.selected.summary ||
-        detailPerk?.description ||
-        ""
-      : (detailFullText || detailPerk?.description || detail.selected.description || detail.selected.summary || "")
-    : "";
 
   return (
     <>
@@ -217,6 +181,7 @@ export function SheetPerksPanel() {
         open={detail !== null}
         onClose={() => setDetail(null)}
         name={detail?.selected.name ?? ""}
+        perkId={detailCustomText ? undefined : detail?.selected.perkId}
         type={detail?.selected.type}
         eyebrow={detail?.slot?.title}
         summary={
@@ -226,7 +191,7 @@ export function SheetPerksPanel() {
               "Описание перка недоступно.")
             : undefined
         }
-        description={detailText}
+        description={detail?.selected.description}
         action={
           detail?.selected.source === "custom" ? (
             <>
@@ -477,8 +442,7 @@ function PerkCatalogModal({
                 {used && <Chip tone="accent">Уже на листе</Chip>}
               </div>
               <h3>{selected.name}</h3>
-              <p className="muted small">{selected.summary}</p>
-              <RichText text={selected.description} />
+              <PerkRulesText perkId={selected.id} fallback={selected.summary} />
             </>
           ) : null}
         </aside>

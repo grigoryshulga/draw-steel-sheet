@@ -406,6 +406,7 @@ export function NewCharacterDialog({
         open={Boolean(perkDetail)}
         onClose={() => setPerkDetail(null)}
         name={perkDetail?.name ?? ""}
+        perkId={perkDetail?.id}
         type={perkDetail?.type}
         summary={perkDetail?.summary}
         description={perkDetail?.description}

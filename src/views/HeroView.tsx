@@ -196,38 +196,8 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
       <PerksPanel />
       {!embedded && <ClassFeaturesPanel />}
 
-      <div className="hero-cols">
-        <Panel title="Языки" icon="book" dense>
-          <div className="hero-langs">
-            {character.languages.map((language) => (
-              <Chip
-                key={language}
-                active
-                tone="blue"
-                title={`Убрать: ${language}`}
-                onClick={() =>
-                  update((c) => ({
-                    ...c,
-                    languages: c.languages.filter((item) => item !== language),
-                  }))
-                }
-              >
-                {language}
-                <Icon name="close" size={11} />
-              </Chip>
-            ))}
-          </div>
-          <TextInput
-            className="hero-lang-input"
-            value={languageDraft}
-            placeholder="Добавить язык и нажать Enter…"
-            aria-label="Новый язык"
-            onChange={(e) => setLanguageDraft(e.target.value)}
-            onKeyDown={onLanguageEnter}
-          />
-        </Panel>
-
-        <Panel title="Культура" icon="users" dense>
+      <Panel title="Культура и языки" icon="users" dense className="hero-background-panel">
+        <div className="hero-background">
           <div className="hero-culture">
             <Field label="Среда">
               <TextInput
@@ -251,8 +221,38 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
               />
             </Field>
           </div>
-        </Panel>
-      </div>
+          <div className="field">
+            <div className="field-label">Языки</div>
+            <div className="hero-langs">
+              {character.languages.map((language) => (
+                <Chip
+                  key={language}
+                  active
+                  tone="blue"
+                  title={`Убрать: ${language}`}
+                  onClick={() =>
+                    update((c) => ({
+                      ...c,
+                      languages: c.languages.filter((item) => item !== language),
+                    }))
+                  }
+                >
+                  {language}
+                  <Icon name="close" size={11} />
+                </Chip>
+              ))}
+            </div>
+            <TextInput
+              className="hero-lang-input"
+              value={languageDraft}
+              placeholder="Добавить язык и нажать Enter"
+              aria-label="Новый язык"
+              onChange={(e) => setLanguageDraft(e.target.value)}
+              onKeyDown={onLanguageEnter}
+            />
+          </div>
+        </div>
+      </Panel>
 
       <div className="hero-cols">
         <Panel title="Карьера" icon="sheet" dense>
@@ -303,9 +303,6 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
                 placeholder="Полное описание умений класса"
                 onChange={(e) => patch({ classFeatures: e.target.value })}
               />
-              <span className="muted small">
-                Заметки редактируются вручную и не обновляются при выборе особенностей выше.
-              </span>
             </Field>
           </div>
         </Panel>
