@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import { MemberActions } from "./MemberActions";
 import { CardDetailModal } from "../../components/CardDetailModal";
+import { CharacterAvatar } from "../../components/CharacterAvatar";
 import { Button, Card } from "../../components/ui";
 import { NOTE_SECTIONS } from "../../data/notes";
 import { CONDITIONS } from "../../data/conditions";
@@ -14,12 +15,17 @@ import type {
 
 const SharedHeroSheet = lazy(() => import("./SharedHeroSheet").then((module) => ({ default: module.SharedHeroSheet })));
 
-export function SharedHeroDetails({ hero, onClose, combat }: {
+export function SharedHeroDetails({ hero, portraitUrl, onClose, combat }: {
   hero?: SharedHero | null;
+  portraitUrl?: string;
   onClose: () => void;
   combat?: { round: number; phase: "ready" | "active" | "done" };
 }) {
-  return <CardDetailModal open={!!hero} onClose={onClose} title={hero?.name ?? "Герой"} className="table-dialog shared-hero-modal" wide>
+  return <CardDetailModal open={!!hero} onClose={onClose} className="table-dialog shared-hero-modal" wide
+    title={hero && <span className="shared-hero-title">
+      <CharacterAvatar name={hero.name} url={portraitUrl} showInitials={false} />
+      <span>{hero.name}</span>
+    </span>}>
     {hero && <Suspense fallback={<p role="status">Загрузка листа…</p>}><SharedHeroSheet hero={hero} combat={combat} /></Suspense>}
   </CardDetailModal>;
 }

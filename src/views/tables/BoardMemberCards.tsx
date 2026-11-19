@@ -5,7 +5,7 @@ import { Icon, type IconName } from "../../components/Icons";
 import { Button } from "../../components/ui";
 import { artFor } from "../../lib/art";
 import { heroTurnPhase } from "../../lib/tables/combat";
-import type { TableMember, TableSnapshot } from "../../lib/tables/types";
+import type { SharedHero, TableMember, TableSnapshot } from "../../lib/tables/types";
 import { SharedHeroCard, SharedHeroDetails, SharedHeroStaminaBar, type SendTableCommand } from "./TableMembers";
 
 type ResourceGlyph = [label: string, value: string | number, icon: IconName, tone: string];
@@ -23,6 +23,8 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
   const playerSeats = useRef<HTMLDivElement>(null);
   const members = table.members;
   const isDemo = table.id === "demo-old-road";
+  const portraitUrlFor = (hero: SharedHero) =>
+    hero.avatarUrl || (isDemo ? artFor("ancestry", hero.ancestry)?.thumbnailSrc : undefined);
   const open = pinned ?? focused ?? hovered;
   const openPlayer = members.find(member => member.role === "player" && member.userId === open);
   const currentMember = members.find(member => member.userId === viewing?.userId && member.hero?.id === viewing.heroId);
@@ -61,9 +63,6 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
   };
   const details = (member: TableMember, mobile = false) => {
     const hero = member.hero;
-    const demoPortrait = isDemo && hero && !hero.avatarUrl
-      ? artFor("ancestry", hero.ancestry)?.thumbnailSrc
-      : undefined;
     if (member.role === "player") {
       const resources = hero?.resources;
       const counters: ResourceGlyph[] = resources ? [
@@ -80,7 +79,7 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
           if (event.target instanceof Element && !event.target.closest("button, .help-tooltip-popup")) activatePlayer(member);
         }}
         onPointerLeave={mobile ? () => setHovered(current => current === member.userId ? null : current) : undefined}>
-        {hero && <CharacterAvatar name={hero.name} url={hero.avatarUrl || demoPortrait} showInitials={false}
+        {hero && <CharacterAvatar name={hero.name} url={portraitUrlFor(hero)} showInitials={false}
           className="board-player-portrait" />}
         <button className="board-player-action" type="button" onClick={() => activatePlayer(member)}
           aria-label={pinned === member.userId
@@ -106,8 +105,8 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
     }
     return <div className={`board-seat-details${mobile ? " board-seat-details-mobile" : ""}`}>
       <div className="board-seat-details-header">
-        {hero && <CharacterAvatar name={hero.name} url={hero.avatarUrl || demoPortrait} showInitials={false}
-          className={demoPortrait ? "board-seat-avatar is-demo-portrait" : "board-seat-avatar"} />}
+        {hero && <CharacterAvatar name={hero.name} url={portraitUrlFor(hero)} showInitials={false}
+          className="board-seat-avatar" />}
         <strong>{member.name}{member.userId === table.actorId && " · вы"}</strong>
       </div>
       {member.role === "director" && <span className="muted">Ведущий</span>}
@@ -120,8 +119,9 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
 
   const card = (member: TableMember) => {
     const expanded = open === member.userId;
-    const label = member.hero?.name || member.name;
-    const stamina = member.role === "player" ? member.hero?.stamina : undefined;
+    const hero = member.hero;
+    const label = hero?.name || member.name;
+    const stamina = member.role === "player" ? hero?.stamina : undefined;
     const phase = phaseFor(member);
     const mayAct = combat && member.hero && (table.actorId === "local" || table.actorId === member.userId) &&
       (phase === "active" || phase === "ready" && combat.side === "heroes" && !combat.active);
@@ -166,6 +166,8 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
           }}
           title={member.role === "director" ? `${label} · Ведущий` : label}
         >
+          {hero && <CharacterAvatar name={hero.name} url={portraitUrlFor(hero)} showInitials={false}
+            className="board-seat-thumbnail" />}
           <span className="board-seat-summary">
             <span className="board-seat-name">{label}{phase === "done" &&
               <Icon name="check" size={14} className="board-turn-check" aria-hidden="true" />}</span>
@@ -192,7 +194,8 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
       <div className="board-seats-scroll">{members.filter(member => member.role === "player").map(card)}</div>
       {openPlayer && details(openPlayer, true)}
     </div>
-    <SharedHeroDetails hero={currentHero} onClose={() => setViewing(null)}
+    <SharedHeroDetails hero={currentHero} portraitUrl={currentHero ? portraitUrlFor(currentHero) : undefined}
+      onClose={() => setViewing(null)}
       combat={combat && viewedPhase ? { round: combat.round, phase: viewedPhase } : undefined} />
   </>;
 }

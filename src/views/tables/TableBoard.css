@@ -236,6 +236,7 @@
   min-height: var(--touch-target-size);
   align-items: center;
   justify-content: center;
+  gap: var(--space-3);
   padding: var(--space-2) var(--space-4);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
@@ -248,6 +249,7 @@
 .board-seat-tab:hover, .board-seat.is-open .board-seat-tab { border-color: var(--accent); }
 .board-seats-players .board-seat-tab { transition: opacity 140ms ease-out; }
 .board-seats-players .board-seat.is-open > .board-seat-tab { opacity: 0; transition-duration: 0s; }
+.board-seat-tab .board-seat-thumbnail { flex: none; width: 32px; height: 32px; }
 .board-seat-summary { min-width: 0; }
 .board-seat-summary:has(.board-seat-stamina) { flex: 1; }
 .board-seat-name { display: block; padding-block: var(--space-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; font-size: var(--text-md); }
@@ -289,8 +291,6 @@
 }
 .board-seat-details-header { display: flex; align-items: center; gap: var(--space-4); overflow-wrap: anywhere; }
 .board-seat-details .board-seat-avatar { flex: none; width: 64px; height: 64px; }
-.board-seat-avatar.is-demo-portrait img { object-position: center 25%; }
-
 .board-seats-director .board-seat-details { top: 100%; animation: board-seat-top 140ms ease-out; }
 .board-player-card {
   bottom: 0;

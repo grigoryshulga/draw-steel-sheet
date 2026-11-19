@@ -1053,6 +1053,8 @@ body:has(.is-board-focused) .floating-header { display: none; }
 .shared-hero-hp > .is-winded { background: var(--yellow); }
 .shared-hero-hp > .is-defeated { background: var(--red); }
 .modal.shared-hero-modal { width: min(1320px, calc(100vw - 32px)); max-width: calc(100vw - 32px); }
+.shared-hero-title { display: flex; align-items: center; gap: var(--space-4); }
+.shared-hero-title .char-avatar { flex: none; }
 .shared-sheet-identity { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-6); color: var(--muted); font-size: var(--text-base); }
 .shared-sheet-preview .stat-card > .stepper { min-height: 42px; }
 .shared-sheet-preview .resource-row-value { min-inline-size: 4ch; justify-content: center; padding-inline: var(--space-4); }
