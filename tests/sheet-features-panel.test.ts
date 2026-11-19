@@ -23,6 +23,20 @@ describe("особенности на листе", () => {
     expect(html).toContain('data-category="ancestry"');
   });
 
+  it.each([
+    [2, "Идеал", false, false],
+    [3, "Идеал", true, false],
+    [4, "Идеал", true, false],
+    [5, "Идеал", true, true],
+    [5, "Оракул", true, false],
+  ] as const)("показывает полученные триггеры Цензора: уровень %i, орден %s", (level, subclass, judgment, standFast) => {
+    const character = { ...createCharacter({ className: "Цензор", level }), subclass };
+    const html = renderToStaticMarkup(createElement(AppContext.Provider,
+      { value: { character } as AppContextValue }, createElement(SheetFeaturesPanel)));
+    expect(html.includes("Открыть особенность: Узрите мои дела и отчайтесь")).toBe(judgment);
+    expect(html.includes("Открыть особенность: Стой твердо!")).toBe(standFast);
+  });
+
   it("показывает пассивные особенности отдельно от способностей", () => {
     const character = createCharacter({ className: "Цензор", level: 3 });
     character.subclass = "Идеал";

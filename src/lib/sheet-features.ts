@@ -1,6 +1,6 @@
 import { ancestrySignatureFeatures } from "../data/ancestry-features/skeleton";
 import type { Character } from "../types";
-import { passiveClassFeatures, type FeatureSheetItem } from "./class-feature-view";
+import { classFeatureGroupsForSheet, type FeatureSheetItem } from "./class-feature-view";
 
 /** Знаковые черты выдаются происхождением, независимо от сохранённых выборов. */
 export function sheetFeatures(character: Character): FeatureSheetItem[] {
@@ -17,5 +17,8 @@ export function sheetFeatures(character: Character): FeatureSheetItem[] {
       badges: [],
     }),
   );
-  return [...signatures, ...passiveClassFeatures(character)];
+  const classFeatures = classFeatureGroupsForSheet(character).flatMap((group) =>
+    group.features.filter((item) => item.passive || item.trigger),
+  );
+  return [...signatures, ...classFeatures];
 }

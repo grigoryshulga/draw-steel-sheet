@@ -30,7 +30,7 @@ describe("знаковые черты в особенностях листа", (
     const ids = features.map((item) => item.id);
     for (const old of ancestrySignatureFeatures("Ящер")) expect(ids).not.toContain(old.id);
     for (const current of ancestrySignatureFeatures("Дварф")) expect(ids).toContain(current.id);
-    expect(features.filter((item) => item.category !== "ancestry")).toEqual(passiveClassFeatures(changed));
+    expect(features.filter((item) => item.category !== "ancestry" && item.passive)).toEqual(passiveClassFeatures(changed));
   });
 
   it("не добавляет купленные черты и не придумывает знаковую черту неизвестному происхождению", () => {

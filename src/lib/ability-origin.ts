@@ -2,6 +2,7 @@ import { ABILITY_COMPENDIUM } from "../data/compendium";
 import { canonicalAbilityId } from "../data/originals";
 import { censorDomainAbilities } from "../data/class-features/censor-abilities";
 import { conduitAbilities } from "../data/class-features/conduit-abilities";
+import { classFeatureAbilityEntries } from "./class-feature-abilities";
 import { DOMAIN_GRANTED_ABILITIES } from "../data/creation-rules";
 import { LEVEL_UP_GRANTS } from "../rules/consumer-level-up-grants";
 import { FEATURE_MECHANICS } from "../data/class-features/mechanics";
@@ -148,6 +149,11 @@ export function subclassAbilitySources(
         );
       }
     }
+  }
+
+  for (const { ability, feature } of classFeatureAbilityEntries(character)) {
+    const domain = feature.keyedBy === "domain";
+    add(ability, domain ? DOMAIN_KIND : kind, feature.keyValue ?? subclass);
   }
 
   const domains = selectedDomains(character);

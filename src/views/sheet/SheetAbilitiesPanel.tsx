@@ -7,7 +7,6 @@ import { CalculationInline, CalculationToggle } from "../../components/rules/Cal
 import { abilityCardView } from "../../components/rules/abilityCardView";
 import { CharacteristicGlyphText } from "../../components/CharacteristicGlyph";
 import { DamageChip } from "../../components/DamageChip";
-import { AbilityRollPanel } from "../abilities/RollModal";
 import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
@@ -16,6 +15,7 @@ import { CardDetailModal } from "../../components/CardDetailModal";
 import { RichText } from "../../components/RichText";
 import { kindLabel } from "../../data/actions";
 import { useApp } from "../../state/AppContext";
+import { missingClassFeatureAbilities } from "../../lib/class-feature-abilities";
 import { itemAbilityEntries } from "../../lib/item-abilities";
 import type { Ability } from "../../types";
 import {
@@ -40,6 +40,10 @@ import {
   withAncestryFeatureSelection,
 } from "../../lib/ancestry-features";
 import "./SheetAbilitiesPanel.css";
+
+const AbilityRollPanel = lazy(() =>
+  import("../abilities/RollModal").then((module) => ({ default: module.AbilityRollPanel })),
+);
 
 const AbilityPicker = lazy(() =>
   import("../abilities/AbilityPicker").then((module) => ({
@@ -143,13 +147,15 @@ export function SheetAbilitiesPanel() {
     () => ancestryAbilitySourcesFrom(ancestryEntries),
     [ancestryEntries],
   );
+  const classGrants = useMemo(() => missingClassFeatureAbilities(character), [character]);
   const sheetAbilities = useMemo(
     () => [
       ...abilities,
+      ...classGrants,
       ...ancestryEntries.map((entry) => entry.ability),
       ...itemEntries.map((entry) => entry.ability),
     ],
-    [abilities, ancestryEntries, itemEntries],
+    [abilities, classGrants, ancestryEntries, itemEntries],
   );
   // Карта «способность → подкласс» не зависит от поиска и фильтра, поэтому
   // считается один раз на героя.
@@ -182,6 +188,12 @@ export function SheetAbilitiesPanel() {
   const hasQuery = query.trim().length > 0;
   const totalMatches = topMatches.length;
   const totalVisible = visible;
+
+  function derivedNote(ability: Ability) {
+    if (classGrants.some((grant) => grant.id === ability.id)) return "Выдана особенностью класса";
+    if (itemSource(ability)) return "Доступна, пока предмет экипирован";
+    if (ancestryAbilitySource(ancestrySources, ability)) return "Выдана происхождением";
+  }
 
   const renderAbilityCard = (ability: Ability) => {
     const source = itemSource(ability);
@@ -402,7 +414,7 @@ export function SheetAbilitiesPanel() {
       {selected && (
         <AbilityDetailModal
           ability={selected}
-          derived={ancestryAbilitySource(ancestrySources, selected) !== undefined || itemSource(selected) !== undefined}
+          derivedNote={derivedNote(selected)}
           itemOrigin={itemSource(selected)}
           onClose={() => setSelected(null)}
           onEdit={() => {
@@ -422,7 +434,7 @@ export function SheetAbilitiesPanel() {
       {addMode === "catalog" && (
         <Suspense fallback={null}>
           <AbilityPicker
-            existing={abilities}
+            existing={sheetAbilities}
             character={character}
             onClose={() => setAddMode(null)}
             onAdd={(ability) =>
@@ -438,7 +450,7 @@ export function SheetAbilitiesPanel() {
       )}
       {addMode === "templates" && (
         <TemplatesModal
-          existing={abilities}
+          existing={sheetAbilities}
           onClose={() => setAddMode(null)}
           onAdd={(ability) => addAbility(ability, "Базовое действие добавлено")}
         />
@@ -460,7 +472,7 @@ export function SheetAbilitiesPanel() {
 function AbilityDetailModal({
   ability,
   itemOrigin,
-  derived = false,
+  derivedNote,
   onClose,
   onEdit,
   onDuplicate,
@@ -468,8 +480,7 @@ function AbilityDetailModal({
 }: {
   ability: Ability;
   itemOrigin?: { label: string; value: string; text: string };
-  /** Карточка выдана происхождением: её нельзя править или удалить на листе. */
-  derived?: boolean;
+  derivedNote?: string;
   onClose: () => void;
   onEdit: () => void;
   onDuplicate: () => void;
@@ -491,7 +502,7 @@ function AbilityDetailModal({
     subclassAbilitySource(subclassSources, ability) ??
     ancestryAbilitySource(ancestrySources, ability);
   const view = useMemo(() => abilityCardView(ability, character), [ability, character]);
-  const canEdit = !readOnly && !derived;
+  const canEdit = !readOnly && !derivedNote;
   const hasCalculations = Boolean(view.rollCalculations?.length || view.tiers.some((tier) => tier.damage?.calculations?.length));
 
   return (
@@ -499,7 +510,11 @@ function AbilityDetailModal({
       open
       onClose={onClose}
       className={`sheet-ability-modal${ability.source === BASIC_ABILITY_SOURCE ? " is-basic" : ""}`}
-      sidecar={!readOnly && <AbilityRollPanel key={ability.id} ability={ability} character={character} showCalculations={showCalculations} />}
+      sidecar={!readOnly && (
+        <Suspense fallback={null}>
+          <AbilityRollPanel key={ability.id} ability={ability} character={character} showCalculations={showCalculations} />
+        </Suspense>
+      )}
       headerActions={
         canEdit && (
           <>
@@ -528,7 +543,7 @@ function AbilityDetailModal({
           {kindLabel(ability.kind)}
         </Chip>
       }
-      footer={(hasCalculations || canEdit || derived) && (
+      footer={(hasCalculations || canEdit || derivedNote) && (
         <>
           {hasCalculations && (
             <CalculationToggle checked={showCalculations} onChange={setShowCalculations} />
@@ -545,9 +560,9 @@ function AbilityDetailModal({
               {confirmDelete ? "Точно удалить?" : "Удалить"}
             </Button>
           )}
-          {derived && (
+          {derivedNote && (
             <span className="sheet-ability-derived-note">
-              {itemOrigin ? "Доступна, пока предмет экипирован" : "Выдана происхождением"}
+              {derivedNote}
             </span>
           )}
         </>

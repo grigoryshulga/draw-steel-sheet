@@ -1945,6 +1945,18 @@ export function buildConsumerData({
     builder: builderProjection,
   });
 
+  // Include feature-granted cards in the feature pack so resolving a game
+  // action does not pull the entire ability catalog into the workspace.
+  for (const feature of featureProjection.features) {
+    const id = entityById.get(feature.id)?.grantedAbilityId;
+    if (!id) continue;
+    const card = abilityProjection.abilities.find((ability) => ability.id === id);
+    if (!card || card.className !== feature.className || card.level !== feature.level) {
+      fail(`Некорректная способность ${id} для особенности ${feature.id}`);
+    }
+    feature.grantedAbility = card;
+  }
+
   const nextIdentity = {
     schemaVersion: CONSUMER_SCHEMA_VERSION,
     note: IDENTITY_NOTE,

@@ -110,6 +110,7 @@ export type AncestryFeatureKind = "signature" | "trait";
 export interface ConsumerFeature extends OriginalFields {
   id: string;
   kind: "ancestry" | "class";
+  grantedAbility?: ConsumerAbilityRecord;
   /** Для происхождений: знаковая черта или купленная за очки. */
   ancestryKind?: AncestryFeatureKind;
   /** Цена купленной черты, вычисленная при сборке проекции. */

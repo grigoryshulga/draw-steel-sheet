@@ -79,7 +79,7 @@ describe("способности происхождений", () => {
       }
     }
 
-    expect(abilityCount).toBe(21);
+    expect(abilityCount).toBe(22);
   });
 
   it("выдаёт каждую механику через её настоящую черту", () => {
@@ -112,6 +112,8 @@ describe("способности происхождений", () => {
     expect(names(hero("Полдер"))).toEqual(["Слияние С Тенью"]);
     expect(names(hero("Человек"))).toEqual(["Видение Сверхъестественного"]);
     expect(names(hero("Дварф"))).toEqual([]);
+    expect(ancestryAbilityEntries(hero("Ящер")).map((entry) => entry.ability))
+      .toMatchObject([{ name: "Проворность Как Инстинкт", actionType: "trigger" }]);
 
     const sources = ancestryAbilitySources(hero("Полдер"));
     const ability = ancestryAbilityEntries(hero("Полдер"))[0].ability;

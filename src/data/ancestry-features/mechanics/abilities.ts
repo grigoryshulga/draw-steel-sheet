@@ -518,6 +518,21 @@ export const ANCESTRY_ABILITY_MECHANICS: Record<
   },
 
   // ------------------------------------------------------------------ Ящер
+  "ancestry.lizardfolk.signature.instinctive-agility": {
+    abilities: [
+      ability(LIZARD, {
+        id: "ancestry.lizardfolk.signature.instinctive-agility",
+        name: "Проворность Как Инстинкт",
+        actionType: "trigger",
+        keywords: [],
+        distance: "На себя",
+        target: "На себя",
+        trigger: "Существо собирается нанести вам удар.",
+        effect: "Вы можете сместиться на расстояние до 2 клеток.",
+      }),
+    ],
+  },
+
   "ancestry.lizardfolk.dragon-heritage": {
     abilities: [
       ability(LIZARD, {

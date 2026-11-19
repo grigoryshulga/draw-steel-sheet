@@ -6,7 +6,7 @@ import { PassiveFeatureCard } from "./PassiveFeatureCard";
 import "./SheetAbilitiesPanel.css";
 import "./SheetFeaturesPanel.css";
 
-/** Знаковые черты происхождения и пассивные особенности класса на листе героя. */
+/** Знаковые черты происхождения и полученные особенности класса на листе героя. */
 export function SheetFeaturesPanel() {
   const { character } = useApp();
   const features = useMemo(() => sheetFeatures(character), [character]);

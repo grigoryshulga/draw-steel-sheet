@@ -8,6 +8,7 @@ import {
   activeClassFeatures,
   classFeatureTriggers,
 } from "./class-features";
+import { missingClassFeatureAbilities } from "./class-feature-abilities";
 import { ancestryAbilityEntries } from "./ancestry-features";
 import { epicResourceName, resourceGainByTag } from "./resources";
 import { beginEncounter, beginRound, currentRuntime, markTrigger, withoutFuryTurn } from "./runtime";
@@ -350,7 +351,8 @@ function previewBaseGameAction(
         character.abilities.find((item) => item.id === action.abilityId) ??
         ancestryAbilityEntries(character).find(
           (entry) => entry.ability.id === action.abilityId,
-        )?.ability;
+        )?.ability ??
+        missingClassFeatureAbilities(character).find((item) => item.id === action.abilityId);
       if (!ability) return invalid("Этой способности больше нет у героя");
       const formRestriction = stormwightAbilityRestriction(character, ability);
       if (formRestriction) return invalid(formRestriction);

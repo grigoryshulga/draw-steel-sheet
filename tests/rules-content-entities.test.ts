@@ -78,6 +78,13 @@ function contentHash(contentDir: string) {
         delete kit.kitVariants;
         delete kit.grantedAbilityIds;
         hash.set(`${part}/${file}`, createHash("sha256").update(`${JSON.stringify(kit, null, 2)}\n`).digest("hex"));
+      } else if (part === "entities" && file.startsWith("feature/class-")) {
+        // Старый набор содержит текст правила, но не связь с выдаваемой карточкой.
+        const feature = readJson(path.join(contentDir, part, file));
+        if (feature.grantedAbilityId) {
+          delete feature.grantedAbilityId;
+          hash.set(`${part}/${file}`, createHash("sha256").update(`${JSON.stringify(feature, null, 2)}\n`).digest("hex"));
+        } else hash.set(`${part}/${file}`, digest);
       } else hash.set(`${part}/${file}`, digest);
     }
   }
