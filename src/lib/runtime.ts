@@ -22,6 +22,7 @@ export function currentRuntime(character: Character): CharacterRuntime {
   return {
     round: runtime.round,
     encounter: runtime.encounter,
+    ...(runtime.tableCombat ? { tableCombat: runtime.tableCombat } : {}),
     ...(typeof runtime.combatActive === "boolean" ? { combatActive: runtime.combatActive } : {}),
     ...(runtime.furyTurn ? { furyTurn: runtime.furyTurn } : {}),
     ...(runtime.stormwight ? { stormwight: runtime.stormwight } : {}),

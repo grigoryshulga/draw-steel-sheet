@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { TableLibrary } from "./TableLibrary";
-import { Button, Card } from "../../components/ui";
+import { Button, Card, Select } from "../../components/ui";
 import {
   ItemEffectsEditor,
   ItemEffectsSummary,
@@ -41,6 +41,47 @@ function inventoryFrom(value: unknown): InventoryItem[] {
     return value.inventory as InventoryItem[];
   return [];
 }
+
+function TradeItemPicker({ label, placeholder, inventory, quantities, onChange }: {
+  label: string;
+  placeholder: string;
+  inventory: InventoryItem[];
+  quantities: Record<string, number>;
+  onChange: (quantities: Record<string, number>) => void;
+}) {
+  const choices = inventory.filter(item => item.qty > 0 && !Object.hasOwn(quantities, item.id));
+  const selected = inventory.filter(item => item.qty > 0 && Object.hasOwn(quantities, item.id));
+  return <div className="table-trade-picker">
+    <label>
+      {label}
+      <Select value="" disabled={!choices.length || selected.length >= 100} onChange={event => {
+        const id = event.currentTarget.value;
+        if (id) onChange({ ...quantities, [id]: 1 });
+      }}>
+        <option value="">{selected.length ? "Добавить предмет" : placeholder}</option>
+        {choices.map(item => <option key={item.id} value={item.id}>{item.name} · {item.qty} шт.</option>)}
+      </Select>
+    </label>
+    {selected.length > 0 && <ul className="table-trade-picks">
+      {selected.map(item => <li key={item.id} className="table-trade-pick">
+        <span>{item.name}</span>
+        <input className="input" type="number" min={1} max={item.qty} step={1} required
+          value={quantities[item.id] || ""} aria-label={`Количество: ${item.name}`}
+          onChange={event => onChange({ ...quantities, [item.id]: event.currentTarget.valueAsNumber || 0 })} />
+        <Button size="sm" icon="close" iconOnly variant="ghost" onClick={() => {
+          const remaining = { ...quantities };
+          delete remaining[item.id];
+          onChange(remaining);
+        }}>{`Убрать из предложения: ${item.name}`}</Button>
+      </li>)}
+    </ul>}
+  </div>;
+}
+
+const tradeSelection = (inventory: InventoryItem[], quantities: Record<string, number>) =>
+  inventory.filter(item => item.qty > 0 && quantities[item.id] > 0)
+    .map(item => ({ itemId: item.id, qty: quantities[item.id] }));
+
 export function TableItems({
   table,
   templates,
@@ -60,21 +101,26 @@ export function TableItems({
 }) {
   const director = table.actorId === table.ownerId;
   const [composing, setComposing] = useState(false);
-  const [trading, setTrading] = useState(false);
+  const [tradingHeroId, setTradingHeroId] = useState<string | null>(null);
   const [tradeDetails, setTradeDetails] = useState<TableSnapshot["trades"][number] | null>(null);
   const [details, setDetails] = useState<InventoryItem | null>(null);
   const [item, setItem] = useState(emptyItem);
   const [templateId, setTemplateId] = useState("");
   const [recipient, setRecipient] = useState("");
-  const [own, setOwn] = useState<Character | null>(null);
-  const [target, setTarget] = useState("");
+  const [loadedHero, setOwn] = useState<Character | null>(null);
+  const [target, setTarget] = useState<{ userId: string; heroId: string } | null>(null);
   const [offered, setOffered] = useState<Record<string, number>>({});
   const [requested, setRequested] = useState<Record<string, number>>({});
   const [error, setError] = useState("");
   const [catalogQuery, setCatalogQuery] = useState("");
   const me = table.members.find((m) => m.userId === table.actorId);
-  const targetMember = table.members.find((m) => m.userId === target);
+  const own = loadedHero?.id === me?.hero?.id ? loadedHero : null;
+  const trading = tradingHeroId !== null && tradingHeroId === own?.id;
+  const recipients = table.members.filter(member => member.role === "player" && member.userId !== table.actorId && member.hero);
+  const targetMember = recipients.find(member => member.userId === target?.userId && member.hero?.id === target.heroId);
   const targetItems = inventoryFrom(targetMember?.hero?.sections.inventory);
+  const offeredItems = tradeSelection(own?.inventory ?? [], offered);
+  const requestedItems = tradeSelection(targetItems, requested);
   const templateEffectsChanged =
     Boolean(templateId) &&
     JSON.stringify(item.effects ?? []) !==
@@ -83,7 +129,6 @@ export function TableItems({
       );
   useEffect(() => {
     let active = true;
-    setOwn(null);
     if (me?.hero)
       void loadCharacter(me.hero.id)
         .then((c) => {
@@ -102,17 +147,18 @@ export function TableItems({
     if (result) await refreshHero().catch((e) => setError(e.message));
     return result;
   }
-  const selection = (values: Record<string, number>) =>
-    Object.entries(values)
-      .filter(([, qty]) => qty > 0)
-      .map(([itemId, qty]) => ({ itemId, qty }));
   return (
     <section className="table-stack">
       <div className="table-section-heading">
         <h2>Предметы и обмен</h2>
         <div className="table-actions">
           {director && <Button icon="plus" variant="primary" disabled={busy || table.archived} onClick={() => { setTemplateId(""); setItem(emptyItem()); setComposing(true); }}>{table.members.some((m) => m.hero) ? "Предложить предмет" : "Создать предмет"}</Button>}
-          {!director && own && <Button icon="plus" disabled={busy || table.archived} onClick={() => setTrading(true)}>Подарить или обменять</Button>}
+          {!director && own && <Button icon="plus" disabled={busy || table.archived} onClick={() => {
+            setTarget(null);
+            setOffered({});
+            setRequested({});
+            setTradingHeroId(own.id);
+          }}>Подарить или обменять</Button>}
         </div>
       </div>
       <div className={`table-items-layout${director ? " has-library" : ""}`}>
@@ -410,116 +456,51 @@ export function TableItems({
           ))}
       </div>
       {!director && own && (
-        <CardDetailModal open={trading} onClose={() => setTrading(false)} title="Подарить или обменять" className="table-dialog" wide>
+        <CardDetailModal open={trading} onClose={() => setTradingHeroId(null)} title="Подарить или обменять" className="table-dialog" wide>
           {(error || commandError) && <p role="alert">{error || commandError}</p>}
-          <p>
-            Если выбранный предмет изменится, подтверждения сбросятся. Оба
-            игрока подтверждают условия. Предметы переходят одновременно;
-            полученное не экипируется.
-          </p>
-          <fieldset disabled={busy || table.archived}>
-            <label>
-              С кем
-              <select
-                className="select"
-                value={target}
-                onChange={(e) => {
-                  setTarget(e.target.value);
+          <form className="table-stack" onSubmit={async event => {
+            event.preventDefault();
+            if (busy || table.archived || !targetMember?.hero || (!offeredItems.length && !requestedItems.length)) return;
+            if (await command("create-trade", {
+              toUserId: targetMember.userId,
+              fromHeroId: own.id,
+              toHeroId: targetMember.hero.id,
+              offered: offeredItems,
+              requested: requestedItems,
+            })) {
+              setOffered({});
+              setRequested({});
+              setTradingHeroId(null);
+            }
+          }}>
+            <fieldset disabled={busy || table.archived}>
+              <label>
+                Получатель
+                <Select value={targetMember?.userId ?? ""} required onChange={event => {
+                  const member = recipients.find(candidate => candidate.userId === event.currentTarget.value);
+                  setTarget(member?.hero ? { userId: member.userId, heroId: member.hero.id } : null);
                   setRequested({});
-                  setTrading(false);
-                }}
-              >
-                <option value="">Выберите игрока</option>
-                {table.members
-                  .filter((m) => m.hero && m.userId !== table.actorId)
-                  .map((m) => (
-                    <option key={m.userId} value={m.userId}>
-                      {m.hero!.name} · {m.name}
-                    </option>
-                  ))}
-              </select>
-            </label>
-            <div className="table-form-grid">
-              <div>
-                <h4>Передаю</h4>
-                {own.inventory.map((i) => (
-                  <label key={i.id}>
-                    {i.name} · есть {i.qty}
-                    <input
-                      className="input"
-                      type="number"
-                      min={0}
-                      max={i.qty}
-                      value={offered[i.id] ?? 0}
-                      onChange={(e) =>
-                        setOffered({
-                          ...offered,
-                          [i.id]: Math.max(
-                            0,
-                            Math.min(i.qty, Math.floor(Number(e.target.value))),
-                          ),
-                        })
-                      }
-                    />
-                  </label>
-                ))}
+                }}>
+                  <option value="">Выберите персонажа</option>
+                  {recipients.map(member => <option key={member.userId} value={member.userId}>
+                    {member.hero?.name} · {member.name}
+                  </option>)}
+                </Select>
+              </label>
+              <div className="table-form-grid">
+                <TradeItemPicker label="Передаю" placeholder="Выберите предмет"
+                  inventory={own.inventory} quantities={offered} onChange={setOffered} />
+                <TradeItemPicker label="Прошу взамен"
+                  placeholder={targetMember?.hero?.sections.inventory === undefined && targetMember ? "Инвентарь закрыт" : "Без ответного предмета"}
+                  inventory={targetItems} quantities={requested} onChange={setRequested} />
               </div>
-              <div>
-                <h4>Прошу взамен</h4>
-                {targetItems.length === 0 && (
-                  <p className="muted">
-                    Можно отправить подарок без ответного предмета. Для выбора
-                    ответного предмета игрок открывает свой инвентарь.
-                  </p>
-                )}
-                {targetItems.map((i) => (
-                  <label key={i.id}>
-                    {i.name} · есть {i.qty}
-                    <input
-                      className="input"
-                      type="number"
-                      min={0}
-                      max={i.qty}
-                      value={requested[i.id] ?? 0}
-                      onChange={(e) =>
-                        setRequested({
-                          ...requested,
-                          [i.id]: Math.max(
-                            0,
-                            Math.min(i.qty, Math.floor(Number(e.target.value))),
-                          ),
-                        })
-                      }
-                    />
-                  </label>
-                ))}
-              </div>
-            </div>
-            <Button
-              disabled={
-                !targetMember?.hero ||
-                (selection(offered).length === 0 &&
-                  selection(requested).length === 0)
-              }
-              onClick={async () => {
-                if (
-                  await command("create-trade", {
-                    toUserId: target,
-                    fromHeroId: own.id,
-                    toHeroId: targetMember!.hero!.id,
-                    offered: selection(offered),
-                    requested: selection(requested),
-                  })
-                ) {
-                  setOffered({});
-                  setRequested({});
-                  setTrading(false);
-                }
-              }}
-            >
-              Предложить условия
-            </Button>
-          </fieldset>
+              <p className="muted small">Предметы перейдут после подтверждения обоими игроками.</p>
+              <Button type="submit" variant="primary"
+                disabled={!targetMember?.hero || (!offeredItems.length && !requestedItems.length)}>
+                {requestedItems.length ? "Предложить обмен" : "Предложить подарок"}
+              </Button>
+            </fieldset>
+          </form>
         </CardDetailModal>
       )}
       {table.trades.map((trade) => (

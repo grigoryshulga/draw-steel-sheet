@@ -32,11 +32,13 @@ const VISIBLE_TRAITS = 3;
  * записи хранятся в персонаже. Оба вида — напоминания, расчёт урона не меняют.
  */
 export function DamageTraits() {
-  const { character } = useApp();
+  const { character, readOnly } = useApp();
   const [open, setOpen] = useState(false);
   const traits = damageTraitsForSheet(character);
   const visible = traits.slice(0, VISIBLE_TRAITS);
   const hidden = traits.length - visible.length;
+
+  if (readOnly && traits.length === 0) return null;
 
   return (
     <div className="damage-traits" role="group" aria-label="Иммунитеты и уязвимости">
@@ -68,7 +70,7 @@ export function DamageTraits() {
           +{hidden}
         </button>
       )}
-      <button
+      {!readOnly && <button
         type="button"
         className="damage-trait-add"
         title="Добавить иммунитет или уязвимость"
@@ -77,7 +79,7 @@ export function DamageTraits() {
       >
         <Icon name="shield" size={14} />
         <span>Иммунитеты и уязвимости</span>
-      </button>
+      </button>}
       <DamageTraitsDialog open={open} onClose={() => setOpen(false)} />
     </div>
   );
@@ -124,7 +126,7 @@ function DamageTraitsDialog({
   open: boolean;
   onClose: () => void;
 }) {
-  const { character, update } = useApp();
+  const { character, update, readOnly } = useApp();
   const traits = damageTraitsForSheet(character);
   const automatic = traits.filter((trait) => trait.automatic);
   const manual = traits.filter((trait) => !trait.automatic);
@@ -157,7 +159,7 @@ function DamageTraitsDialog({
         Записи показываются как напоминание и не меняют расчёт урона.
       </p>
 
-      <form className="damage-trait-form" onSubmit={add}>
+      {!readOnly && <form className="damage-trait-form" onSubmit={add}>
         <h3 className="eyebrow">Новая запись</h3>
         <div className="damage-trait-kinds" role="group" aria-label="Вид записи">
           <Chip
@@ -216,7 +218,7 @@ function DamageTraitsDialog({
             Добавить
           </Button>
         </div>
-      </form>
+      </form>}
 
       {automatic.length > 0 && (
         <section className="damage-traits-section">
@@ -229,12 +231,12 @@ function DamageTraitsDialog({
         </section>
       )}
 
-      <section className="damage-traits-section">
+      {(!readOnly || manual.length > 0) && <section className="damage-traits-section">
         <h3 className="eyebrow">Добавлено вручную</h3>
         {manual.length > 0 ? (
           <ul className="damage-traits-list">
             {manual.map((trait) => (
-              <TraitRow key={trait.id} trait={trait} onRemove={remove} />
+              <TraitRow key={trait.id} trait={trait} onRemove={readOnly ? undefined : remove} />
             ))}
           </ul>
         ) : (
@@ -242,7 +244,7 @@ function DamageTraitsDialog({
             Пока ничего не добавлено.
           </p>
         )}
-      </section>
+      </section>}
     </Modal>
   );
 }

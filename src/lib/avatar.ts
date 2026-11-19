@@ -97,9 +97,13 @@ export async function prepareAvatar(file: File): Promise<Blob> {
   const invalid = validateAvatarFile(file);
   if (invalid) throw new Error(invalid);
 
+  return prepareWebp(file, AVATAR_MAX_WIDTH, AVATAR_MAX_HEIGHT, AVATAR_MAX_SOURCE_BYTES);
+}
+
+export async function prepareWebp(file: File, maxWidth: number, maxHeight: number, targetBytes: number): Promise<Blob> {
   const image = await loadImage(file);
   try {
-    const { width, height } = fitAvatarDimensions(image.width, image.height);
+    const { width, height } = fitAvatarDimensions(image.width, image.height, maxWidth, maxHeight);
     const canvas = document.createElement("canvas");
     canvas.width = width;
     canvas.height = height;
@@ -117,7 +121,7 @@ export async function prepareAvatar(file: File): Promise<Blob> {
         throw new Error("Браузер не поддерживает WebP. Обновите его и попробуйте снова.");
       }
       fallback = blob;
-      if (blob.size <= AVATAR_MAX_SOURCE_BYTES) return blob;
+      if (blob.size <= targetBytes) return blob;
     }
     if (fallback) return fallback;
     throw new Error("Не удалось сохранить изображение. Попробуйте другой файл.");

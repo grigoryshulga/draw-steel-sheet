@@ -440,6 +440,7 @@ function runtimeKey(runtime: CharacterRuntime | undefined): string {
   return JSON.stringify([
     runtime.round,
     runtime.encounter,
+    runtime.tableCombat && [runtime.tableCombat.tableId, runtime.tableCombat.combatId, runtime.tableCombat.round, runtime.tableCombat.phase],
     !!runtime.combatActive,
     runtime.furyTurn ? [runtime.furyTurn.active, runtime.furyTurn.peak] : null,
     runtime.stormwight ? [runtime.stormwight.kitId, runtime.stormwight.form, runtime.stormwight.trueSize, runtime.stormwight.hybridSize] : null,

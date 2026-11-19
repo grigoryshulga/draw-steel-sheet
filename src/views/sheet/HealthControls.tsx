@@ -89,7 +89,7 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
         >
           Передышка +{derived.recoveryValue}
         </Button>
-        <Button
+        {!character.runtime?.tableCombat && <Button
           variant="ghost"
           icon="sun"
           className="health-rest"
@@ -97,7 +97,7 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
           title="Полный отдых: выносливость и восстановления до максимума, ресурс и всплески — в 0"
         >
           Отдых
-        </Button>
+        </Button>}
       </div>
       {hint && (
         <p className="health-hint small muted" aria-live="polite">
@@ -110,64 +110,70 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
 
 /** Восстановления: тот же вид, что у здоровья, но мельче. */
 export function RecoveriesReadout() {
-  const { character, patch, performGameAction } = useApp();
+  const { character, patch, performGameAction, readOnly } = useApp();
   const { recoveries } = character;
   return (
     <div className="vitals-current health-recoveries-readout">
       <span className="eyebrow">Восстановления</span>
-      <input
-        className="vital-big vital-current-input is-small numeric"
-        inputMode="numeric"
-        aria-label="Текущие восстановления"
-        key={recoveries.current}
-        defaultValue={recoveries.current}
-        onFocus={(event) => event.currentTarget.select()}
-        onBlur={(event) => {
-          const next = Number(event.currentTarget.value);
-          const valid =
-            event.currentTarget.value.trim() !== "" &&
-            Number.isInteger(next) &&
-            next >= 0 &&
-            next <= recoveries.max;
-          if (
-            !valid ||
-            next === recoveries.current ||
-            !performGameAction({
-              kind: "resource",
-              resource: "recoveries",
-              value: next,
-            })
-          )
-            event.currentTarget.value = String(recoveries.current);
-        }}
-        onKeyDown={(event) => {
-          if (event.key === "Enter") event.currentTarget.blur();
-          if (event.key === "Escape") {
-            event.currentTarget.value = String(recoveries.current);
-            event.currentTarget.blur();
-          }
-        }}
-      />
-      <span className="vital-max-edit">
-        <span className="vital-max-slash numeric">/</span>
-        <NumberInput
-          value={recoveries.max}
-          min={0}
-          max={99}
-          label="Максимум восстановлений"
-          className="vital-max-input"
-          showButtons={false}
-          onChange={(max) =>
-            patch({
-              recoveries: {
-                ...recoveries,
-                max,
-                current: Math.min(recoveries.current, max),
-              },
-            })
-          }
-        />
-      </span>
+      {readOnly ? (
+        <span className="numeric">{recoveries.current}/{recoveries.max}</span>
+      ) : (
+        <>
+          <input
+            className="vital-big vital-current-input is-small numeric"
+            inputMode="numeric"
+            aria-label="Текущие восстановления"
+            key={recoveries.current}
+            defaultValue={recoveries.current}
+            onFocus={(event) => event.currentTarget.select()}
+            onBlur={(event) => {
+              const next = Number(event.currentTarget.value);
+              const valid =
+                event.currentTarget.value.trim() !== "" &&
+                Number.isInteger(next) &&
+                next >= 0 &&
+                next <= recoveries.max;
+              if (
+                !valid ||
+                next === recoveries.current ||
+                !performGameAction({
+                  kind: "resource",
+                  resource: "recoveries",
+                  value: next,
+                })
+              )
+                event.currentTarget.value = String(recoveries.current);
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") event.currentTarget.blur();
+              if (event.key === "Escape") {
+                event.currentTarget.value = String(recoveries.current);
+                event.currentTarget.blur();
+              }
+            }}
+          />
+          <span className="vital-max-edit">
+            <span className="vital-max-slash numeric">/</span>
+            <NumberInput
+              value={recoveries.max}
+              min={0}
+              max={99}
+              label="Максимум восстановлений"
+              className="vital-max-input"
+              showButtons={false}
+              onChange={(max) =>
+                patch({
+                  recoveries: {
+                    ...recoveries,
+                    max,
+                    current: Math.min(recoveries.current, max),
+                  },
+                })
+              }
+            />
+          </span>
+        </>
+      )}
       {character.automation?.enabled && (
         <StatBreakdown
           label="восстановлений"

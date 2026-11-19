@@ -21,12 +21,29 @@ create function auth.uid() returns uuid language sql stable as $$ select nullif(
 grant usage on schema auth to authenticated, anon;
 grant execute on function auth.uid() to authenticated, anon;
 create publication supabase_realtime;
+create schema storage;
+create table storage.buckets(id text primary key, name text not null, public boolean, file_size_limit bigint, allowed_mime_types text[]);
+create table storage.objects(bucket_id text references storage.buckets(id), name text, created_at timestamptz not null default now(), metadata jsonb not null default '{"mimetype":"image/webp"}', primary key(bucket_id,name));
+alter table storage.objects enable row level security;
+grant usage on schema storage to authenticated;
+grant select, insert, delete on storage.objects to authenticated;
 SQL
 psql_local < "$root_dir/supabase/migrations/202610230001_create_characters.sql"
 psql_local < "$root_dir/supabase/migrations/202611070001_create_tables.sql"
 psql_local < "$root_dir/supabase/migrations/202611070003_start_scene_in_place.sql"
 psql_local < "$root_dir/supabase/migrations/202611140001_item_abilities.sql"
+psql_local < "$root_dir/supabase/migrations/202611180001_table_board.sql"
+psql_local < "$root_dir/supabase/migrations/202611180002_scene_workspace.sql"
+psql_local < "$root_dir/supabase/migrations/202611180003_share_hero_portrait.sql"
+psql_local < "$root_dir/supabase/migrations/202611180004_board_item_placement.sql"
+psql_local < "$root_dir/supabase/migrations/202611180005_board_drawing.sql"
+psql_local < "$root_dir/supabase/migrations/202611190001_main_scene.sql"
+psql_local < "$root_dir/supabase/migrations/202611190002_table_combat.sql"
+psql_local < "$root_dir/supabase/migrations/202611190003_scene_challenges.sql"
 psql_local < "$root_dir/tests/sql/tables-fixture.sql"
+psql_local < "$root_dir/tests/sql/table-board-fixture.sql"
+psql_local < "$root_dir/tests/sql/table-combat-fixture.sql"
+psql_local < "$root_dir/tests/sql/table-scene-challenges-fixture.sql"
 has_revision_rpc=0
 if [[ -f "$root_dir/supabase/migrations/202611070002_character_revisions.sql" ]]; then
   has_revision_rpc=1

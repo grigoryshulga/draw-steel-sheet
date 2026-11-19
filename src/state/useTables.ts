@@ -6,7 +6,7 @@ import type {
   TableSummary,
 } from "../lib/tables/types";
 
-export function useTables() {
+export function useTables(lobbyVisible: boolean) {
   const [tables, setTables] = useState<TableSummary[]>([]);
   const [table, setTable] = useState<TableSnapshot | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
@@ -45,6 +45,7 @@ export function useTables() {
     return list;
   }, []);
   useEffect(() => {
+    if (!lobbyVisible) return;
     let alive = true;
     void refreshList()
       .catch((e) => {
@@ -56,7 +57,7 @@ export function useTables() {
     return () => {
       alive = false;
     };
-  }, [refreshList]);
+  }, [lobbyVisible, refreshList]);
 
   const refresh = useCallback(async (id: string) => {
     const epoch = ++readEpoch.current;
@@ -128,8 +129,8 @@ export function useTables() {
         const result = await tableRepository.command(tableId, request);
         uncertain.current = null;
         setNeedsRetry(false);
-        ++readEpoch.current;
-        if (result) {
+        if (tableId === selectedRef.current) ++readEpoch.current;
+        if (result && (tableId === null || tableId === selectedRef.current)) {
           setSelected(result.id);
           setTable(result);
           setStale(false);

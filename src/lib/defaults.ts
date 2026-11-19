@@ -303,9 +303,17 @@ function normalizeRuntime(raw: unknown): CharacterRuntime | undefined {
       stormwight = { kitId, form, trueSize, hybridSize };
     }
   }
+  const combat = source.tableCombat as Partial<NonNullable<CharacterRuntime["tableCombat"]>> | undefined;
+  const combatRound = positiveInt(combat?.round);
+  const tableCombat = combat && typeof combat.tableId === "string" && combat.tableId &&
+    typeof combat.combatId === "string" && combat.combatId && combatRound !== undefined &&
+    (combat.phase === "ready" || combat.phase === "active" || combat.phase === "done")
+    ? { tableId: combat.tableId, combatId: combat.combatId, round: combatRound, phase: combat.phase }
+    : undefined;
   return {
     round: positiveInt(source.round) ?? 1,
     encounter: positiveInt(source.encounter) ?? 1,
+    ...(tableCombat ? { tableCombat } : {}),
     ...(typeof source.combatActive === "boolean" ? { combatActive: source.combatActive } : {}),
     ...(furyTurn ? { furyTurn } : {}),
     ...(stormwight ? { stormwight } : {}),

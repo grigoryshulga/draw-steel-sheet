@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { MarkdownEditor } from "../components/MarkdownEditor";
 import { MarkdownPreview } from "../components/MarkdownPreview";
-import { Button, Card, Select } from "../components/ui";
+import { Button, Card } from "../components/ui";
+import type { IconName } from "../components/Icons";
 import { CardDetailModal } from "../components/CardDetailModal";
 import { Toasts } from "../components/Toasts";
 import { SaveIndicator } from "../components/SaveIndicator";
@@ -12,6 +14,8 @@ import type { CharacterSummary } from "../types";
 import { supabaseEnabled } from "../lib/supabase";
 import { tableRepository } from "../lib/tables/repository";
 import { createScene, duplicateScene } from "../lib/tables/scenes";
+import { hasSceneDrag, readSceneDrop, type SceneDrop } from "../lib/tables/board";
+import { copySceneLayout } from "../lib/tables/scene-layout";
 import type {
   DirectorTemplate,
   TableMaterial,
@@ -19,67 +23,82 @@ import type {
   TableSnapshot,
 } from "../lib/tables/types";
 import { useStorageScope } from "../state/StorageScope";
-import { useTables } from "../state/useTables";
-import { TableMembers } from "./tables/TableMembers";
+import type { useTables } from "../state/useTables";
+import { TableMemberSettings } from "./tables/TableMembers";
 import { TableItems } from "./tables/TableItems";
 import { SceneEditor } from "./tables/SceneEditor";
 import { SceneTracker } from "./tables/SceneTracker";
+import { BoardMonsterCards } from "./tables/BoardMonsterCards";
 import "./tables/Tables.css";
 
 const PANELS = {
-  group: "Группа",
-  scenes: "Сцены",
-  materials: "Материалы",
-  items: "Предметы",
-  journal: "Журнал",
-  settings: "Управление",
-};
+  reference: { label: "Справочник", icon: "library" },
+  scenes: { label: "Сцены", icon: "sword" },
+  materials: { label: "Материалы", icon: "sheet" },
+  items: { label: "Предметы", icon: "inventory" },
+  journal: { label: "Журнал", icon: "book" },
+  settings: { label: "Управление", icon: "settings" },
+} satisfies Record<string, { label: string; icon: IconName }>;
+const TableBoard = lazy(() => import("./tables/TableBoard").then(module => ({ default: module.TableBoard })));
+const SceneLayoutEditor = lazy(() => import("./tables/SceneLayoutEditor").then(module => ({ default: module.SceneLayoutEditor })));
+const TableReference = lazy(() => import("./tables/TableReference").then(module => ({ default: module.TableReference })));
 type Panel = keyof typeof PANELS;
-const DEFAULT_PANEL: Panel = supabaseEnabled ? "group" : "scenes";
 const SCENE_NAMES: Record<TableScene["kind"], string> = {
   encounter: "Бой",
   negotiation: "Переговоры",
   montage: "Монтаж",
 };
 
+function invitationFromHash(hash: string) {
+  const code = /^#\/tables\/join\/([^/]+)$/.exec(hash)?.[1];
+  if (!code) return "";
+  try {
+    return decodeURIComponent(code).trim();
+  } catch {
+    return "";
+  }
+}
+
 export function TablesView({
+  state,
   characters,
-  inviteCode,
   beforeCommand,
   openHero,
   refreshHero,
 }: {
+  state: ReturnType<typeof useTables>;
   characters: CharacterSummary[];
-  inviteCode?: string;
   beforeCommand: () => Promise<void>;
   openHero: (id: string) => void;
   refreshHero: () => Promise<void>;
 }) {
-  const state = useTables();
   const actorId = useStorageScope();
-  const { table, busy, select, command: send } = state;
+  const { table, busy, command: send, setError } = state;
+  const previousTableId = useRef(table?.id);
   const tableScrollY = useRef(0);
-  // Activity reconnects layout effects when the player returns to the table.
   useLayoutEffect(() => {
     window.scrollTo({ top: tableScrollY.current, behavior: "instant" });
     return () => {
       tableScrollY.current = window.scrollY;
     };
   }, []);
-  const [lobbyAction, setLobbyAction] = useState<"create" | "join" | null>(null);
-  const [panel, setPanel] = useState<Panel>(DEFAULT_PANEL);
+  const director = table?.ownerId === table?.actorId;
+  const [lobbyAction, setLobbyAction] = useState<"create" | "join" | "invite" | null>(null);
+  const [drawer, setDrawer] = useState<{ panel: Panel; open: boolean } | null>(null);
+  const drawerId = useId();
+  const rail = useRef<HTMLElement>(null);
+  const drawerContent = useRef<HTMLDivElement>(null);
+  const panel = drawer?.panel === "scenes" && !director ? undefined : drawer?.panel;
+  const drawerOpen = !!panel && drawer?.open === true;
+  const [exitOpen, setExitOpen] = useState(false);
+  const [drawerWidth, setDrawerWidth] = useState(560);
+  const [layoutHost, setLayoutHost] = useState<HTMLDivElement | null>(null);
+  const [draftGridHost, setDraftGridHost] = useState<HTMLDivElement | null>(null);
+  const [preparingDrop, setPreparingDrop] = useState(false);
+  const [sceneDropTarget, setSceneDropTarget] = useState(false);
   const [tableName, setTableName] = useState("");
   const [memberName, setMemberName] = useState("");
   const [invite, setInvite] = useState("");
-  const handledInvite = useRef<string | undefined>(undefined);
-  useEffect(() => {
-    if (handledInvite.current === inviteCode) return;
-    handledInvite.current = inviteCode;
-    if (!supabaseEnabled || !inviteCode) return;
-    select(null);
-    setInvite(inviteCode);
-    setLobbyAction("join");
-  }, [inviteCode, select]);
   const [templates, setTemplates] = useState<DirectorTemplate[]>([]);
   const [scene, setScene] = useState<TableScene | null>(null);
   const [sceneBase, setSceneBase] = useState("");
@@ -101,8 +120,35 @@ export function TablesView({
     const timer = window.setTimeout(() => setMessage(""), 4000);
     return () => window.clearTimeout(timer);
   }, [message]);
-  const director = table?.ownerId === table?.actorId;
-  const previousTableId = useRef(table?.id);
+  const activeScene = table?.scenes.find(s => s.id === table.board?.sceneId && s.status === "active");
+  const canReplaceScene = !!table && director && !table.archived && !busy && !preparingDrop && !scene && !state.stale && !state.needsRetry;
+  useEffect(() => {
+    if (!supabaseEnabled) return;
+    const syncInvitation = () => {
+      const code = invitationFromHash(window.location.hash);
+      if (!code) {
+        setLobbyAction((action) => action === "invite" ? null : action);
+        return;
+      }
+      setInvite(code);
+      setError("");
+      setLobbyAction("invite");
+    };
+    syncInvitation();
+    window.addEventListener("hashchange", syncInvitation);
+    return () => window.removeEventListener("hashchange", syncInvitation);
+  }, [setError]);
+
+  const closeLobbyAction = () => {
+    if (lobbyAction === "invite") {
+      if (invitationFromHash(window.location.hash)) {
+        window.history.replaceState(window.history.state, "", "#/tables");
+      }
+      setInvite("");
+    }
+    setLobbyAction(null);
+  };
+
   useEffect(() => {
     void tableRepository
       .templates()
@@ -113,11 +159,13 @@ export function TablesView({
     if (previousTableId.current === table?.id) return;
     previousTableId.current = table?.id;
     setScene(null);
+    setSceneDirty(false);
     setSelectedScene("");
     setMaterial({ id: "", title: "", text: "", public: false });
     setMaterialEditing(false);
-    setPanel(DEFAULT_PANEL);
-    if (table?.id) setLobbyAction(null);
+    setDrawer(null);
+    setExitOpen(false);
+    setSceneDropTarget(false);
   }, [table?.id]);
 
   const command = useCallback(
@@ -175,17 +223,75 @@ export function TablesView({
     }
   };
 
+  const collapseDrawer = (restoreFocus = false) => {
+    setDrawer(current => current && { ...current, open: false });
+    if (restoreFocus && panel) rail.current?.querySelector<HTMLButtonElement>(`[data-table-panel="${panel}"]`)?.focus();
+  };
+  const switchPanel = (next: Panel) => {
+    if (drawerOpen && panel === next) {
+      collapseDrawer();
+      return;
+    }
+    if (next !== "scenes" && scene) {
+      if (sceneDirty && !confirm("Закрыть подготовку без сохранения?")) return;
+      setScene(null);
+      setSceneDirty(false);
+    }
+    setDrawer({ panel: next, open: true });
+  };
+  const launchScene = async (target: SceneDrop, fromDrop = false) => {
+    if (!table || !canReplaceScene) return;
+    const current = table.board?.sceneId ?? null;
+    if (target.kind === "main" && current === null) {
+      if (!fromDrop) collapseDrawer();
+      return;
+    }
+    if (fromDrop && target.kind === "scene" && target.id === current) return;
+    setPreparingDrop(true);
+    try {
+      let payload: { sceneId: string | null } | { scene: TableScene };
+      if (target.kind === "template") {
+        const source = templates.find(item => item.id === target.id)?.scene;
+        if (!source) return;
+        payload = { scene: { ...duplicateScene(source), name: source.name, layout: await copySceneLayout(source.layout, table.id) } };
+      } else {
+        payload = { sceneId: target.kind === "main" ? null : target.id };
+      }
+      if (await command("board-start-scene", payload, table.id)) {
+        setSelectedScene("");
+        if (!fromDrop) collapseDrawer();
+      }
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Не удалось запустить сцену");
+    } finally {
+      setPreparingDrop(false);
+    }
+  };
+  const openTemplate = async (template: DirectorTemplate) => {
+    if (!table || !template.scene) return;
+    setPreparingDrop(true);
+    try {
+      editScene({
+        ...duplicateScene(template.scene), name: template.scene.name,
+        layout: await copySceneLayout(template.scene.layout, table.id),
+      });
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Не удалось открыть заготовку");
+    } finally {
+      setPreparingDrop(false);
+    }
+  };
+  const resizeDrawer = (width: number) => {
+    const max = rail.current?.getBoundingClientRect().left ?? window.innerWidth;
+    setDrawerWidth(Math.min(max, Math.max(280, width)));
+  };
+
   return (
     <div
-      className={`tables-page${panel === "scenes" && (scene || selectedScene) ? " is-scene-focused" : ""}`}
+      className={`tables-page${table ? " is-board-focused" : ""}`}
     >
-      {!scene && <header className="table-page-header">
-        <div>
-          <h1>{table?.name ?? "Мои столы"}</h1>
-          {table?.archived && (
-            <p className="muted">Архив · совместные действия приостановлены</p>
-          )}
-        </div>
+      {!table && <header className="table-page-header">
+        <h1>Мои столы</h1>
         {state.selected && (
           <Button iconOnly icon="arrow-left" size="sm" variant="ghost" onClick={() => state.select(null)}>
             Все столы
@@ -212,6 +318,7 @@ export function TablesView({
           </div>
         )}
       </header>}
+      {table?.archived && <p className="table-archive-state">Стол в архиве</p>}
       {state.error && (
         <div className="table-notice table-error" role="alert">
           {state.error}
@@ -260,8 +367,8 @@ export function TablesView({
             </div>
           )}
           {([
-            { title: "Я ведущий", tables: state.tables.filter((row) => row.ownerId === actorId) },
-            { title: "Я игрок", tables: state.tables.filter((row) => row.ownerId !== actorId) },
+            { title: "Я ведущий", tables: state.tables.filter((row) => row.ownerId === (row.actorId ?? actorId)) },
+            { title: "Я игрок", tables: state.tables.filter((row) => row.ownerId !== (row.actorId ?? actorId)) },
           ]).filter((group) => group.tables.length > 0).map((group) => (
             <section className="table-lobby-section" key={group.title} aria-label={group.title}>
               <h2>{group.title}</h2>
@@ -284,110 +391,6 @@ export function TablesView({
               </div>
             </section>
           ))}
-          <CardDetailModal
-            open={!!lobbyAction}
-            onClose={() => setLobbyAction(null)}
-            title={
-              lobbyAction === "join" ? "Присоединиться к столу" : "Новый стол"
-            }
-            className="table-dialog"
-          >
-            {state.error && (
-              <p className="table-error" role="alert">
-                {state.error}
-              </p>
-            )}
-            {lobbyAction === "create" && (
-              <>
-                <form
-                  onSubmit={async (e) => {
-                    e.preventDefault();
-                    await command(
-                      "create",
-                      {
-                        name: tableName.trim(),
-                        memberName: memberName.trim() || "Ведущий",
-                      },
-                      null,
-                    );
-                  }}
-                >
-                  <label>
-                    Название стола
-                    <input
-                      className="input"
-                      required
-                      maxLength={120}
-                      value={tableName}
-                      onChange={(e) => setTableName(e.target.value)}
-                      placeholder="Хроники Железной долины"
-                    />
-                  </label>
-                  <label>
-                    Ваше имя за столом
-                    <input
-                      className="input"
-                      maxLength={80}
-                      value={memberName}
-                      onChange={(e) => setMemberName(e.target.value)}
-                      placeholder="Как вас знают игроки"
-                    />
-                  </label>
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    disabled={busy || !tableName.trim()}
-                  >
-                    Создать
-                  </Button>
-                </form>
-              </>
-            )}
-            {lobbyAction === "join" && supabaseEnabled && (
-              <>
-                <form
-                  onSubmit={async (e) => {
-                    e.preventDefault();
-                    const code = invite.trim().split("/join/").pop() ?? "";
-                    await command(
-                      "join",
-                      {
-                        inviteCode: code,
-                        memberName: memberName.trim() || "Игрок",
-                      },
-                      null,
-                    );
-                  }}
-                >
-                  <label>
-                    Ссылка или код приглашения
-                    <input
-                      className="input"
-                      required
-                      value={invite}
-                      onChange={(e) => setInvite(e.target.value)}
-                    />
-                  </label>
-                  <label>
-                    Ваше имя
-                    <input
-                      className="input"
-                      required
-                      maxLength={80}
-                      value={memberName}
-                      onChange={(e) => setMemberName(e.target.value)}
-                    />
-                  </label>
-                  <p className="muted">
-                    Героя можно выбрать или создать после вступления.
-                  </p>
-                  <Button type="submit" disabled={busy || !invite.trim()}>
-                    Вступить
-                  </Button>
-                </form>
-              </>
-            )}
-          </CardDetailModal>
         </>
       ) : !table ? (
         <p className="muted">
@@ -397,41 +400,54 @@ export function TablesView({
         </p>
       ) : (
         <>
-          {!scene && <div className="table-navigation">
-            <Select className="table-mobile-navigation" aria-label="Раздел стола" value={panel} onChange={(event) => setPanel(event.target.value as Panel)}>
-              {Object.entries(PANELS).map(([key, label]) => <option key={key} value={key}>{label}{key === "items" && table.offers.some((offer) => offer.toUserId === table.actorId && offer.status === "pending") ? " · Новое" : ""}</option>)}
-            </Select>
-            <nav className="table-tabs section-tabs" aria-label="Разделы стола">
-              {Object.entries(PANELS).map(([key, label]) => (
-                <button
-                  key={key}
-                  className={panel === key ? "is-active" : ""}
-                  aria-current={panel === key ? "page" : undefined}
-                  onClick={() => setPanel(key as Panel)}
-                >
-                  {label}
-                  {key === "items" &&
-                  table.offers.some(
-                    (o) =>
-                      o.toUserId === table.actorId && o.status === "pending",
-                  )
-                    ? " •"
-                    : ""}
-                </button>
-              ))}
-            </nav>
-            <SaveIndicator status={state.stale ? "error" : busy ? "saving" : "saved"} error={state.stale ? "Нет связи" : ""} />
-          </div>}
-          <div className="table-panel" inert={state.stale}>
-            {panel === "group" && (
-              <TableMembers
-                table={table}
-                characters={characters}
-                busy={busy}
-                command={command}
-                openHero={openHero}
-                error={state.error}
-              />
+          <div className={`table-sidebar${drawerOpen ? " is-open" : ""}`} style={{ width: `calc(${drawerWidth}px + var(--table-rail-width))` }}
+            onKeyDown={(event) => {
+              if (drawerOpen && event.key === "Escape" && !event.defaultPrevented && event.currentTarget.contains(event.target as Node)) {
+                event.preventDefault();
+                collapseDrawer(true);
+              }
+            }}>
+          <nav className="table-rail" ref={rail} aria-label="Разделы стола">
+            {(Object.keys(PANELS) as Panel[]).filter(key => director || key !== "scenes").map(key => {
+              const { label, icon } = PANELS[key];
+              const active = drawerOpen && panel === key;
+              const pending = key === "items" && table.offers.some(offer => offer.toUserId === table.actorId && offer.status === "pending");
+              return <Button key={key} iconOnly icon={icon} variant={active ? "soft" : "ghost"}
+                aria-label={pending ? `${label} · Новое предложение` : label} aria-expanded={active} aria-controls={drawerId}
+                data-table-panel={key} data-notification={pending || undefined}
+                onClick={() => switchPanel(key)}>{label}</Button>;
+            })}
+            <div className="table-rail-footer">
+              <SaveIndicator status={state.stale ? "error" : busy ? "saving" : "saved"} error={state.stale ? "Нет связи" : ""} />
+              <Button icon="logout" iconOnly variant="ghost" onClick={() => setExitOpen(true)}>Выйти из стола</Button>
+            </div>
+          </nav>
+          <div id={drawerId} className="table-panel table-drawer" inert={!drawerOpen || state.stale}>
+            <div className="table-drawer-resize" role="separator" aria-label="Ширина панели" aria-orientation="vertical" tabIndex={0}
+              onPointerDown={(event) => {
+                if (event.button === 0) event.currentTarget.setPointerCapture(event.pointerId);
+              }}
+              onPointerMove={(event) => {
+                if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+                  const edge = rail.current?.getBoundingClientRect().left ?? window.innerWidth;
+                  resizeDrawer(edge - event.clientX);
+                }
+              }}
+              onKeyDown={(event) => {
+                if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+                event.preventDefault();
+                const width = event.currentTarget.parentElement?.getBoundingClientRect().width ?? drawerWidth;
+                resizeDrawer(width + (event.key === "ArrowLeft" ? 32 : -32));
+              }} />
+            <div className="table-drawer-actions">
+              {scene && <div className="table-drawer-grid-host" ref={setDraftGridHost} />}
+              <Button size="sm" iconOnly icon="chevron-right" variant="ghost" onClick={() => collapseDrawer(true)}>Свернуть панель</Button>
+            </div>
+            <div ref={drawerContent} className="table-drawer-content" tabIndex={0} role="region" aria-label={panel ? PANELS[panel].label : "Содержимое панели"}>
+            {panel === "reference" && (
+              <Suspense fallback={<p role="status">Загрузка справочника…</p>}>
+                <TableReference scrollRoot={drawerContent} />
+              </Suspense>
             )}
             {panel === "items" && (
               <TableItems
@@ -460,6 +476,7 @@ export function TablesView({
                                 createScene(
                                   kind as TableScene["kind"],
                                   `Новая сцена: ${label.toLowerCase()}`,
+                                  table.members.filter(m => m.role === "player" && m.hero).length || 5,
                                 ),
                               )
                             }
@@ -523,6 +540,11 @@ export function TablesView({
                         }
                       }}
                       onDirtyChange={setSceneDirty}
+                      renderLayout={(draft, update) => layoutHost && createPortal(
+                        <Suspense fallback={null}>
+                          <SceneLayoutEditor table={table} layout={draft.layout} busy={busy || table.archived} gridHost={draftGridHost}
+                            onChange={(layout) => update({ layout })} />
+                        </Suspense>, layoutHost)}
                       busy={busy || table.archived}
                       partyLevels={table.members.flatMap((m) =>
                         m.hero ? [m.hero.level] : [],
@@ -543,20 +565,18 @@ export function TablesView({
                     {!selectedScene && (
                       <SceneList
                         scenes={table.scenes}
+                        currentSceneId={table.board?.sceneId ?? null}
                         director={director}
-                        disabled={busy || table.archived}
+                        disabled={busy || preparingDrop || table.archived || state.needsRetry}
                         onOpen={(s) =>
                           s.status === "prepared" && director && !table.archived
                             ? editScene(s)
                             : setSelectedScene(s.id)
                         }
                         onEdit={editScene}
-                        onStart={async (s) => {
-                          const result = await command("start-scene", {
-                            sceneId: s.id,
-                          });
-                          if (result) setSelectedScene(s.id);
-                        }}
+                        onStart={(s) => void launchScene({ kind: "scene", id: s.id })}
+                        onStartMain={() => void launchScene({ kind: "main" })}
+                        onDropScene={(target) => void launchScene(target, true)}
                         onCopy={async (s) => {
                           const copy = duplicateScene(s);
                           if (await command("save-scene", { scene: copy })) setMessage("Сцена скопирована");
@@ -582,7 +602,11 @@ export function TablesView({
                           (s) => s.id === selectedScene,
                         )!}
                         director={director}
-                        busy={busy || table.archived}
+                        showRoster={activeScene?.id !== selectedScene || activeScene.kind !== "encounter"}
+                        busy={busy || table.archived || state.needsRetry}
+                        combat={table.combat?.sceneId === selectedScene ? table.combat : undefined}
+                        table={activeScene?.id === selectedScene ? table : undefined}
+                        onCombat={activeScene?.id === selectedScene ? (type, payload) => void command(type, payload) : undefined}
                         error={state.error}
                         onChange={(s) =>
                           void command("save-scene", { scene: s })
@@ -595,8 +619,9 @@ export function TablesView({
                 {director && !scene && !selectedScene && (
                   <TableLibrary
                     templates={templates}
-                    disabled={table.archived || busy}
-                    onAdd={(t) => editScene({ ...structuredClone(t.scene!), id: crypto.randomUUID(), status: "prepared", published: false })}
+                    disabled={table.archived || busy || preparingDrop}
+                    onAdd={(t) => void openTemplate(t)}
+                    onStart={(t) => void launchScene({ kind: "template", id: t.id })}
                     onDelete={async (t) => {
                       if (!confirm("Удалить заготовку из личной библиотеки?")) return;
                       try {
@@ -858,6 +883,15 @@ export function TablesView({
             {panel === "settings" && (
               <section className="table-stack table-settings">
                 <h2>Управление столом</h2>
+                <TableMemberSettings
+                  key={table.id}
+                  table={table}
+                  characters={characters}
+                  busy={busy}
+                  command={command}
+                  openHero={openHero}
+                  error={state.error}
+                />
                 {director ? (
                   <>
                     <Card>
@@ -1005,9 +1039,161 @@ export function TablesView({
                 )}
               </section>
             )}
+            </div>
           </div>
+          </div>
+          <div className={`table-live-board${canReplaceScene && sceneDropTarget ? " is-scene-drop-target" : ""}`}
+            hidden={!!scene} inert={state.stale}
+            onDragOver={(event) => {
+              if (!canReplaceScene || !hasSceneDrag(event.dataTransfer)) return;
+              event.preventDefault();
+              event.dataTransfer.dropEffect = "copy";
+              setSceneDropTarget(true);
+            }}
+            onDragLeave={(event) => {
+              if (!(event.relatedTarget instanceof Node) || !event.currentTarget.contains(event.relatedTarget)) setSceneDropTarget(false);
+            }}
+            onDrop={(event) => {
+              setSceneDropTarget(false);
+              if (!canReplaceScene || !hasSceneDrag(event.dataTransfer)) return;
+              event.preventDefault();
+              const target = readSceneDrop(event.dataTransfer);
+              if (target) void launchScene(target, true);
+            }}>
+            <Suspense fallback={<p role="status">Загрузка полотна…</p>}>
+              <TableBoard key={table.id} table={table} busy={busy || preparingDrop} needsRetry={state.needsRetry}
+                gridObscured={drawerOpen} openHero={openHero}
+                sceneHud={activeScene && <SceneTracker key={activeScene.id} scene={activeScene}
+                  director={director} live showRoster={false} error={state.error}
+                  table={table} onCombat={(type, payload) => void command(type, payload)}
+                  busy={busy || table.archived || state.needsRetry} onChange={(s) => void command("save-scene", { scene: s })} />}
+                command={(type, payload) => command(type, payload, table.id)} />
+            </Suspense>
+            {activeScene && (
+              <BoardMonsterCards key={`roster-${activeScene.id}`} scene={activeScene} combat={table.combat}
+                director={director} busy={busy || table.archived || state.needsRetry} error={state.error}
+                command={(type, payload) => command(type, payload, table.id)} />
+            )}
+          </div>
+          {scene && <div className="table-draft-board" ref={setLayoutHost} />}
         </>
       )}
+      <CardDetailModal open={!!table && exitOpen} onClose={() => setExitOpen(false)} title="Выйти из стола?"
+        className="table-dialog" footer={<>
+          <Button onClick={() => setExitOpen(false)}>Отмена</Button>
+          <Button variant="primary" onClick={() => {
+            setExitOpen(false);
+            state.select(null);
+          }}>Выйти</Button>
+        </>}>
+        <p>{sceneDirty ? "Вы вернётесь к списку столов. Несохранённые изменения сцены будут сброшены." : "Вы вернётесь к списку столов."}</p>
+      </CardDetailModal>
+      <CardDetailModal
+        open={!state.loading && !!lobbyAction}
+        onClose={closeLobbyAction}
+        title={
+          lobbyAction === "create" ? "Новый стол" : "Присоединиться к столу"
+        }
+        className="table-dialog"
+      >
+        {state.error && (
+          <p className="table-error" role="alert">
+            {state.error}
+          </p>
+        )}
+        {lobbyAction === "create" && (
+          <>
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const result = await command(
+                  "create",
+                  {
+                    name: tableName.trim(),
+                    memberName: memberName.trim() || "Ведущий",
+                  },
+                  null,
+                );
+                if (result) closeLobbyAction();
+              }}
+            >
+              <label>
+                Название стола
+                <input
+                  className="input"
+                  required
+                  maxLength={120}
+                  value={tableName}
+                  onChange={(e) => setTableName(e.target.value)}
+                  placeholder="Хроники Железной долины"
+                />
+              </label>
+              <label>
+                Ваше имя за столом
+                <input
+                  className="input"
+                  maxLength={80}
+                  value={memberName}
+                  onChange={(e) => setMemberName(e.target.value)}
+                  placeholder="Как вас знают игроки"
+                />
+              </label>
+              <Button
+                type="submit"
+                variant="primary"
+                disabled={busy || !tableName.trim()}
+              >
+                Создать
+              </Button>
+            </form>
+          </>
+        )}
+        {(lobbyAction === "join" || lobbyAction === "invite") && supabaseEnabled && (
+          <>
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const code = invite.trim().split("/join/").pop() ?? "";
+                const result = await command(
+                  "join",
+                  {
+                    inviteCode: code,
+                    memberName: memberName.trim() || "Игрок",
+                  },
+                  null,
+                );
+                if (result) closeLobbyAction();
+              }}
+            >
+              <label>
+                Ссылка или код приглашения
+                <input
+                  className="input"
+                  required
+                  value={invite}
+                  onChange={(e) => setInvite(e.target.value)}
+                />
+              </label>
+              <label>
+                Ваше имя
+                <input
+                  className="input"
+                  required
+                  maxLength={80}
+                  value={memberName}
+                  onChange={(e) => setMemberName(e.target.value)}
+                />
+              </label>
+              <p className="muted">
+                Героя можно выбрать или создать после вступления.
+              </p>
+              <Button type="submit" disabled={busy || !invite.trim()}>
+                Вступить
+              </Button>
+            </form>
+          </>
+        )}
+      </CardDetailModal>
     </div>
   );
 }

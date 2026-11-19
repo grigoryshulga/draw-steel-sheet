@@ -11,7 +11,7 @@ import "./CharacteristicsPanel.css";
 
 /** Пять характеристик с тестами и порогами тиров. */
 export function CharacteristicsPanel() {
-  const { character, derived, patch } = useApp();
+  const { character, derived, patch, readOnly } = useApp();
   // Эффективные значения считает движок (сохранённое + бонусы особенностей,
   // с теми же ограничениями); правится по-прежнему сохранённое значение.
   const effective = effectiveCharacteristics(character);
@@ -75,7 +75,7 @@ export function CharacteristicsPanel() {
                 min={-5}
                 max={5}
                 label={`Характеристика: ${meta.label}`}
-                onChange={(next) =>
+                onChange={readOnly ? undefined : (next) =>
                   patch({
                     characteristics: {
                       ...character.characteristics,
@@ -95,7 +95,7 @@ export function CharacteristicsPanel() {
             value={character.size}
             placeholder="1"
             aria-label="Размер"
-            readOnly={sizeFromForm}
+            readOnly={readOnly || sizeFromForm}
             title={sizeFromForm ? "Размер задан текущей формой. Размер гибрида выбирается в панели форм." : "Размер существа: 1T, 1S, 1M, 1L и так далее"}
             onChange={(event) => patch({ size: event.target.value })}
           />
@@ -113,6 +113,7 @@ export function CharacteristicsPanel() {
               value={character.speed}
               placeholder="5"
               aria-label="Скорость"
+              readOnly={readOnly}
               title="Скорость в клетках"
               onChange={(event) => patch({ speed: event.target.value })}
             />
@@ -131,6 +132,7 @@ export function CharacteristicsPanel() {
               value={character.disengage}
               placeholder="1"
               aria-label="Отход"
+              readOnly={readOnly}
               title="Сколько клеток можно сместиться при отходе"
               onChange={(event) => patch({ disengage: event.target.value })}
             />
@@ -149,6 +151,7 @@ export function CharacteristicsPanel() {
               value={character.stability}
               placeholder="0"
               aria-label="Устойчивость"
+              readOnly={readOnly}
               title="Сопротивление принудительному движению"
               onChange={(event) => patch({ stability: event.target.value })}
             />

@@ -170,10 +170,19 @@ export interface StormwightFormRuntime {
   hybridSize: "1S" | "1M";
 }
 
+/** Последнее состояние общего боя, применённое к личному листу. */
+export interface TableCombatLink {
+  tableId: string;
+  combatId: string;
+  round: number;
+  phase: "ready" | "active" | "done";
+}
+
 /** Состояние схватки: раунд, схватка, отметки триггеров, формы и пулы ресурсов. */
 export interface CharacterRuntime {
   round: number;
   encounter: number;
+  tableCombat?: TableCombatLink;
   /** Текущая битва начата и ещё не завершена. Старые листы считаются вне битвы. */
   combatActive?: boolean;
   /** Собственный ход Неистового и максимум свирепости, достигнутый до его окончания. */

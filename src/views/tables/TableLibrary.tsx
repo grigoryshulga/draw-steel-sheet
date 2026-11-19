@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Button, Card, TextInput } from "../../components/ui";
 import { Icon } from "../../components/Icons";
 import type { DirectorTemplate } from "../../lib/tables/types";
+import { SCENE_TEMPLATE_DROP } from "../../lib/tables/board";
 
-export function TableLibrary({ templates, disabled, onAdd, onDelete, kind = "scene" }: {
+export function TableLibrary({ templates, disabled, onAdd, onDelete, onStart, kind = "scene" }: {
   templates: DirectorTemplate[];
   disabled: boolean;
   onAdd: (template: DirectorTemplate) => void;
   onDelete?: (template: DirectorTemplate) => void;
+  onStart?: (template: DirectorTemplate) => void;
   kind?: "scene" | "item";
 }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -27,9 +29,14 @@ export function TableLibrary({ templates, disabled, onAdd, onDelete, kind = "sce
         <TextInput type="search" aria-label="Поиск в библиотеке" placeholder={kind === "scene" ? "Найти сцену" : "Найти предмет"} value={query} onChange={(e) => { setQuery(e.target.value); setPage(0); }} />
       </label>
       <div className="scene-library-results">
-        {matches.slice(current * 6, (current + 1) * 6).map((t) => <Card key={t.id}>
+        {matches.slice(current * 6, (current + 1) * 6).map((t) => <Card key={t.id}
+          draggable={!!onStart && !disabled} onDragStart={(event) => {
+            event.dataTransfer.setData(SCENE_TEMPLATE_DROP, t.id);
+            event.dataTransfer.effectAllowed = "copy";
+          }}>
           <h3>{t.name}</h3>
           <div className="table-actions">
+            {onStart && <Button size="sm" iconOnly icon="play" disabled={disabled} onClick={() => onStart(t)}>{`Запустить: ${t.name}`}</Button>}
             <Button size="sm" icon="plus" disabled={disabled} onClick={() => onAdd(t)}>{kind === "scene" ? "К столу" : "Использовать"}</Button>
             {onDelete && <Button size="sm" variant="ghost" icon="trash" iconOnly onClick={() => onDelete(t)} aria-label={`Удалить заготовку: ${t.name}`}>Удалить заготовку</Button>}
           </div>

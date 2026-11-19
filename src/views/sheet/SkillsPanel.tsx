@@ -6,7 +6,7 @@ import "./SkillsPanel.css";
 
 /** Навыки героя рядом с характеристиками. */
 export function SkillsPanel() {
-  const { character, goTo } = useApp();
+  const { character, goTo, readOnly } = useApp();
   const selected = new Set(character.skills);
   const groups = SKILL_GROUPS.map((group) => ({
     ...group,
@@ -19,16 +19,18 @@ export function SkillsPanel() {
       title="Навыки"
       icon="check"
       className="skills-panel"
-      actions={
+      actions={!readOnly && (
         <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label="Изменить навыки" title="Изменить навыки" onClick={() => goTo("development")} />
-      }
+      )}
     >
       {character.skills.length === 0 ? (
         <div className="skills-empty">
           <Icon name="check" size={20} />
-          <Button size="sm" variant="soft" onClick={() => goTo("development")}>
-            Выбрать навыки
-          </Button>
+          {readOnly ? <span className="muted">Нет выбранных навыков.</span> : (
+            <Button size="sm" variant="soft" onClick={() => goTo("development")}>
+              Выбрать навыки
+            </Button>
+          )}
         </div>
       ) : (
         <div className="sheet-skills">

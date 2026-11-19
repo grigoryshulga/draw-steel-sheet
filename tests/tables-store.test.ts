@@ -5,6 +5,7 @@ import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { createTablesStore, normalizeVisibility, projectHero, projectScene, projectTable } from '../server/tables-store.mjs';
 import { createStore } from '../server/store.mjs';
+import { DEMO_TABLE_ID, seedDemoTable } from '../scripts/seed-demo-table.mjs';
 import { duplicateScene } from '../src/lib/tables/scenes';
 import type { TableScene } from '../src/lib/tables/types';
 
@@ -24,6 +25,45 @@ function scene(): TableScene {
 }
 
 describe('local Director tables', () => {
+  it('claims one turn atomically, alternates, and resets the same encounter', async () => {
+    const { store, dataDir } = await setup();
+    await seedDemoTable(dataDir);
+    const initial = await store.read(DEMO_TABLE_ID);
+    const fight = scene();
+    let t = await store.command(initial.id, command('board-start-scene', { scene: fight }, initial.revision));
+    const send = async (type: string, payload: object) => {
+      t = await store.command(t.id, command(type, payload, t.revision));
+      return t;
+    };
+    await send('combat-start', { sceneId: fight.id, initiative: 'heroes' });
+    expect(t.combat).toMatchObject({ initiative: 'heroes', round: 1, side: 'heroes', active: null });
+    const battle = { sceneId: fight.id, combatId: t.combat.id };
+    const first = { ...battle, side: 'heroes', id: 'demo-anna', heroId: 'demo-elementalist' };
+    const second = { ...battle, side: 'heroes', id: 'demo-boris', heroId: 'demo-nul' };
+    const claim = command('combat-start-turn', first, t.revision);
+    const competitors = await Promise.allSettled([
+      store.command(t.id, claim),
+      createTablesStore({ dataDir }).command(t.id, command('combat-start-turn', second, t.revision)),
+    ]);
+    expect(competitors.map(result => result.status)).toEqual(['fulfilled', 'rejected']);
+    t = await store.command(t.id, claim);
+    expect(t.combat.heroTurns).toHaveLength(1);
+    await send('combat-end-turn', first);
+    expect(t.combat).toMatchObject({ side: 'enemies', active: null });
+    const enemy = { ...battle, side: 'enemies', id: 'ambush' };
+    await send('combat-start-turn', enemy);
+    expect(t.combat.active.id).toBe('ambush');
+    await send('combat-end-turn', enemy);
+    expect(t.combat.side).toBe('heroes');
+    await expect(send('combat-start-turn', first)).rejects.toMatchObject({ status: 409 });
+    await send('combat-start-turn', second);
+    await send('combat-next-round', battle);
+    expect(t.combat).toMatchObject({ round: 2, side: 'heroes', active: null, enemyTurns: [] });
+    await send('combat-start-turn', first);
+    expect(t.combat.active.id).toBe('demo-anna');
+    await send('board-start-scene', { sceneId: null });
+    expect(t.combat).toBeUndefined();
+  });
   it('persists quarter-point minion encounter values without rounding', async () => {
     const { store } = await setup();
     const t = await create(store), s = scene();
@@ -145,6 +185,15 @@ describe('local Director tables', () => {
 });
 
 describe('server projections with distinct actors', () => {
+  it('shares the portrait URL of an attached hero without exposing avatar metadata', () => {
+    const avatarUrl = '/api/characters/hero/avatar?v=1';
+    const visibility = normalizeVisibility({ sections: [], notes: [] });
+    const doc = { id: 'hero', avatar: { url: avatarUrl, internal: 'SECRET-AVATAR' } };
+    const shared = projectHero(doc, visibility);
+    expect(shared.avatarUrl).toBe(avatarUrl);
+    expect(JSON.stringify(shared)).not.toContain('SECRET-AVATAR');
+    expect(projectHero({ id: 'old' }, visibility)).not.toHaveProperty('avatarUrl');
+  });
   it('defaults gameplay sections open, personal notes closed and strips unselected sections', () => {
     const doc = { id: 'hero', name: 'Герой', stamina: { current: 10, max: 20, temp: 0, notes: 'SECRET-NESTED' }, conditions: { slowed: { active: true, ends: 'save', notes: 'SECRET-CONDITION' } }, runtime: { resources: { drama: 2, secret: { notes: 'SECRET-RESOURCE' } } }, notes: { story: 'Сюжет', secrets: 'SECRET-NOTE' }, inventory: [{ id: 'item' }], projects: [], unknownSecret: 'SECRET-FIELD' };
     const shared = projectHero(doc);

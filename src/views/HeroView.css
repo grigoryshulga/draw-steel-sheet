@@ -94,8 +94,13 @@
   gap: var(--space-4);
 }
 
-.hero-language-list + .hero-lang-editor {
+.hero-language-list + :is(.hero-lang-editor, .hero-lang-add) {
   margin-top: var(--space-5);
+}
+
+.hero-lang-add .btn {
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-pill);
 }
 
 @media (max-width: 760px) {

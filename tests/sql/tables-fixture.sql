@@ -59,6 +59,7 @@ select public.test_denied(format('select public.test_command(null,''join'',%L)',
 select public.test_command(null,'join',jsonb_build_object('inviteCode',:'invite_new','memberName','A'));
 insert into public.characters(user_id,id,document) values(auth.uid(),'a','{"id":"a","name":"Alice","notes":{"secrets":"SECRET-HERO","story":"Story"},"inventory":[{"id":"potion","name":"Potion","category":"consumable","qty":5,"notes":"Potion description","equipped":true,"effects":[{"field":"save","value":1}],"abilityIds":["potion-power"]}],"stamina":{"current":20,"max":30,"temp":0,"notes":"SECRET-NESTED"},"conditions":{"slowed":{"active":true,"ends":"save","notes":"SECRET-CONDITION-NOTE"}},"runtime":{"resources":{"drama":2,"secret":{"notes":"SECRET-RESOURCE"}}},"updatedAt":"before archive"}');
 insert into public.characters(user_id,id,document) values(auth.uid(),'a2','{"id":"a2","name":"Other Alice","inventory":[]}');
+update public.characters set document = document || '{"avatar":{"url":"https://example.test/storage/v1/object/public/avatars/player/a.webp?v=1","internal":"SECRET-AVATAR"}}' where id='a';
 select public.test_command(:'tid','attach-hero','{"heroId":"a"}');
 select public.test_command(:'tid','attach-hero','{"heroId":"a2","visibility":{"sections":[],"notes":[]}}');
 select public.test_assert(public.table_read(:'tid')->'myHeroIds'='["a","a2"]','own hero ids');
@@ -81,6 +82,9 @@ select public.test_command(null,'join',jsonb_build_object('inviteCode',:'invite_
 insert into public.characters(user_id,id,document) values(auth.uid(),'b','{"id":"b","name":"Bob","inventory":[{"id":"gem","name":"Gem","category":"treasure","qty":3,"notes":"Gem description","equipped":true,"effects":[{"field":"stamina","value":2}]}]}');
 select public.test_denied(format('select public.test_command(%L,''attach-hero'',''{"heroId":"a"}'')',:'tid'),'PT404');
 select public.test_command(:'tid','attach-hero','{"heroId":"b"}');
+select public.test_assert(public.table_read(:'tid')#>>'{members,1,hero,avatarUrl}'='https://example.test/storage/v1/object/public/avatars/player/a.webp?v=1','another player sees the attached portrait URL');
+select public.test_assert(public.table_read(:'tid')#>'{members,1,hero,avatar}' is null,'raw avatar metadata stays private');
+select public.test_assert(public.table_read(:'tid')#>'{members,2,hero,avatarUrl}' is null,'older hero without a portrait');
 select public.test_assert((select count(*) from public.characters)=1,'RLS only own character');
 select public.test_denied(format('select public.test_command(%L,''visibility'',''{"heroId":"a","visibility":{"sections":[],"notes":[]}}'')',:'tid'),'PT404');
 select public.test_denied(format('select public.table_command(%L,''{"type":"rename","payload":{"name":"Stale"},"operationId":"stale","expectedRevision":1}'')',:'tid'),'PT409');
@@ -228,7 +232,7 @@ end $$;
 select public.test_assert((select count(*) from pg_publication_tables where pubname='supabase_realtime' and tablename='table_signals')=1,'Realtime publishes signals');
 select public.test_assert((select count(*) from pg_publication_tables where pubname='supabase_realtime' and schemaname='table_backend')=0,'private tables never published');
 select public.test_assert(not exists(select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where (n.nspname='table_backend' or n.nspname='public' and p.proname like 'table_%') and p.prosecdef and not coalesce(p.proconfig,'{}') @> array['search_path=pg_catalog']),'security definer search_path locked');
-select public.test_assert(not exists(select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='table_backend' and p.proname<>'is_member' and has_function_privilege('authenticated',p.oid,'EXECUTE')),'authenticated cannot execute private helpers');
+select public.test_assert(not exists(select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='table_backend' and p.proname not in ('is_member','board_file_access','board_file_expired') and has_function_privilege('authenticated',p.oid,'EXECUTE')),'authenticated cannot execute private helpers');
 select public.test_assert(not exists(select 1 from pg_proc p join pg_namespace n on n.oid=p.pronamespace where (n.nspname='table_backend' or n.nspname='public' and p.proname like 'table_%') and has_function_privilege('anon',p.oid,'EXECUTE')),'anon cannot execute backend functions');
 
 set role authenticated;

@@ -113,7 +113,7 @@ function AncestryFeatureChoices() {
 
 /** Компактный справочник способностей внизу листа, сгруппированный по типу действия. */
 export function SheetAbilitiesPanel() {
-  const { character, update, notify } = useApp();
+  const { character, update, notify, readOnly } = useApp();
   const [selected, setSelected] = useState<Ability | null>(null);
   const [addMode, setAddMode] = useState<AddMode>(null);
   // Store explicitly opened groups: new action groups also start collapsed.
@@ -258,7 +258,7 @@ export function SheetAbilitiesPanel() {
         title="Способности"
         icon="abilities"
         className="sheet-abilities-panel"
-        actions={
+        actions={!readOnly && (
           <Button
             size="sm"
             variant="soft"
@@ -268,42 +268,48 @@ export function SheetAbilitiesPanel() {
             title="Добавить способность"
             onClick={() => setAddMode("catalog")}
           />
-        }
+        )}
       >
-        <div className="sheet-ability-damage-modifier">
-          <Field label="Общий модификатор урона">
-            <NumberInput
-              integer
-              value={character.damageModifier ?? 0}
-              min={-9999}
-              max={9999}
-              label="Общий модификатор урона"
-              onChange={(value) => update((current) => ({ ...current, damageModifier: value }))}
-            />
-          </Field>
-          <p>Для эффектов, которые лист не считает сам. Добавляется один раз к каждому тиру с уроном, в том числе при выключенном авторасчёте.</p>
-          <Button
-            size="sm"
-            variant="ghost"
-            disabled={!character.damageModifier}
-            aria-label="Сбросить общий модификатор урона"
-            onClick={() => update((current) => ({ ...current, damageModifier: 0 }))}
-          >Сбросить</Button>
-        </div>
-        {sheetAbilities.length === 0 && ancestryChoices.length === 0 ? (
+        {readOnly ? (
+          !!character.damageModifier && (
+            <Chip>Общий модификатор урона: {character.damageModifier}</Chip>
+          )
+        ) : (
+          <div className="sheet-ability-damage-modifier">
+            <Field label="Общий модификатор урона">
+              <NumberInput
+                integer
+                value={character.damageModifier ?? 0}
+                min={-9999}
+                max={9999}
+                label="Общий модификатор урона"
+                onChange={(value) => update((current) => ({ ...current, damageModifier: value }))}
+              />
+            </Field>
+            <p>Для эффектов, которые лист не считает сам. Добавляется один раз к каждому тиру с уроном, в том числе при выключенном авторасчёте.</p>
+            <Button
+              size="sm"
+              variant="ghost"
+              disabled={!character.damageModifier}
+              aria-label="Сбросить общий модификатор урона"
+              onClick={() => update((current) => ({ ...current, damageModifier: 0 }))}
+            >Сбросить</Button>
+          </div>
+        )}
+        {sheetAbilities.length === 0 && (readOnly || ancestryChoices.length === 0) ? (
           <EmptyState
             icon="abilities"
             title="Способностей пока нет"
-            text="Добавьте способности из каталога или создайте свою."
-            action={
+            text={readOnly ? undefined : "Добавьте способности из каталога или создайте свою."}
+            action={!readOnly && (
               <Button onClick={() => setAddMode("catalog")}>
                 Добавить способность
               </Button>
-            }
+            )}
           />
         ) : (
           <div className="sheet-ability-sections">
-            <AncestryFeatureChoices />
+            {!readOnly && <AncestryFeatureChoices />}
             {sheetAbilities.length > 0 && (
               <div className="sheet-ability-toolbar">
                 <div className="sheet-ability-search">
@@ -469,7 +475,7 @@ function AbilityDetailModal({
   onDuplicate: () => void;
   onDelete: () => void;
 }) {
-  const { character } = useApp();
+  const { character, readOnly } = useApp();
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [showCalculations, setShowCalculations] = useState(false);
   const subclassSources = useMemo(
@@ -485,15 +491,17 @@ function AbilityDetailModal({
     subclassAbilitySource(subclassSources, ability) ??
     ancestryAbilitySource(ancestrySources, ability);
   const view = useMemo(() => abilityCardView(ability, character), [ability, character]);
+  const canEdit = !readOnly && !derived;
+  const hasCalculations = Boolean(view.rollCalculations?.length || view.tiers.some((tier) => tier.damage?.calculations?.length));
 
   return (
     <CardDetailModal
       open
       onClose={onClose}
       className={`sheet-ability-modal${ability.source === BASIC_ABILITY_SOURCE ? " is-basic" : ""}`}
-      sidecar={<AbilityRollPanel key={ability.id} ability={ability} character={character} showCalculations={showCalculations} />}
+      sidecar={!readOnly && <AbilityRollPanel key={ability.id} ability={ability} character={character} showCalculations={showCalculations} />}
       headerActions={
-        derived ? undefined : (
+        canEdit && (
           <>
             <Button
               variant="ghost"
@@ -520,13 +528,13 @@ function AbilityDetailModal({
           {kindLabel(ability.kind)}
         </Chip>
       }
-      footer={
+      footer={(hasCalculations || canEdit || derived) && (
         <>
-          {(view.rollCalculations?.length || view.tiers.some((tier) => tier.damage?.calculations?.length)) ? (
+          {hasCalculations && (
             <CalculationToggle checked={showCalculations} onChange={setShowCalculations} />
-          ) : null}
+          )}
           <span className="grow" />
-          {!derived && (
+          {canEdit && (
             <Button
               variant="ghost"
               onClick={() =>
@@ -543,7 +551,7 @@ function AbilityDetailModal({
             </span>
           )}
         </>
-      }
+      )}
     >
       <div className="sheet-ability-detail">
         {(origin || ability.source === BASIC_ABILITY_SOURCE || ability.resourceCost > 0) && (

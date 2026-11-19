@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, type DragEvent } from "react";
 import { Button, Card } from "../../components/ui";
+import { Icon } from "../../components/Icons";
 import type { TableScene } from "../../lib/tables/types";
+import { MAIN_SCENE_DROP, SCENE_DROP, hasSceneDrag, readSceneDrop, type SceneDrop } from "../../lib/tables/board";
 
 const kinds = {
   encounter: "Бой",
@@ -14,26 +16,53 @@ const statuses = {
 };
 export function SceneList({
   scenes,
+  currentSceneId,
   director,
   disabled,
   onOpen,
   onEdit,
   onStart,
+  onStartMain,
+  onDropScene,
   onCopy,
   onKeep,
   onDelete,
 }: {
   scenes: TableScene[];
+  currentSceneId: string | null;
   director: boolean;
   disabled: boolean;
   onOpen: (scene: TableScene) => void;
   onEdit: (scene: TableScene) => void;
   onStart: (scene: TableScene) => void;
+  onStartMain: () => void;
+  onDropScene: (target: SceneDrop) => void;
   onCopy: (scene: TableScene) => void;
   onKeep: (scene: TableScene) => void;
   onDelete: (scene: TableScene) => void;
 }) {
   const [filter, setFilter] = useState("all");
+  const [dropTarget, setDropTarget] = useState(false);
+  const canSwitch = director && !disabled;
+  const mainIsCurrent = currentSceneId === null;
+  const currentSceneDrop = (current: boolean) => !current || !canSwitch ? {} : {
+    onDragOver: (event: DragEvent<HTMLElement>) => {
+      if (!hasSceneDrag(event.dataTransfer)) return;
+      event.preventDefault();
+      event.dataTransfer.dropEffect = "copy";
+      setDropTarget(true);
+    },
+    onDragLeave: (event: DragEvent<HTMLElement>) => {
+      if (!(event.relatedTarget instanceof Node) || !event.currentTarget.contains(event.relatedTarget)) setDropTarget(false);
+    },
+    onDrop: (event: DragEvent<HTMLElement>) => {
+      setDropTarget(false);
+      const target = readSceneDrop(event.dataTransfer);
+      if (!target) return;
+      event.preventDefault();
+      onDropScene(target);
+    },
+  };
   const shown = scenes
     .filter((s) => filter === "all" || s.status === filter)
     .sort(
@@ -43,6 +72,20 @@ export function SceneList({
     );
   return (
     <>
+      <Card className={`scene-pinned-row${mainIsCurrent && dropTarget ? " is-scene-drop-target" : ""}`}
+        aria-current={mainIsCurrent ? "true" : undefined}
+        draggable={canSwitch}
+        onDragStart={event => {
+          event.dataTransfer.setData(MAIN_SCENE_DROP, "main");
+          event.dataTransfer.effectAllowed = "copy";
+        }}
+        onDragEnd={() => setDropTarget(false)}
+        {...currentSceneDrop(mainIsCurrent)}>
+        <h3><Icon name="pin" size={16} />{director
+          ? <button type="button" className="table-title-button" disabled={disabled} onClick={onStartMain}>Главная сцена</button>
+          : "Главная сцена"}</h3>
+        {mainIsCurrent && <span className="table-badge is-active">На полотне</span>}
+      </Card>
       <div className="table-filter-bar" aria-label="Фильтр сцен">
         {Object.entries({ all: "Все", ...statuses }).map(([value, label]) => (
           <button
@@ -61,8 +104,14 @@ export function SceneList({
         ))}
       </div>
       <div className="scene-list">
-        {shown.map((s) => (
-          <Card key={s.id} className={`scene-list-row scene-kind-${s.kind}`}>
+        {shown.map((s) => {
+          const current = s.id === currentSceneId;
+          return <Card key={s.id} className={`scene-list-row scene-kind-${s.kind}${current && dropTarget ? " is-scene-drop-target" : ""}`}
+            aria-current={current ? "true" : undefined}
+            draggable={canSwitch} onDragStart={(event) => {
+              event.dataTransfer.setData(SCENE_DROP, s.id);
+              event.dataTransfer.effectAllowed = "copy";
+            }} onDragEnd={() => setDropTarget(false)} {...currentSceneDrop(current)}>
             <div className="scene-list-identity">
               <div className="scene-list-meta">
                 <span>{kinds[s.kind]}</span>
@@ -79,12 +128,12 @@ export function SceneList({
               </div>
               {s.objective && <p className="muted scene-list-description">{s.objective}</p>}
             </div>
-                <span className={`table-badge scene-list-status is-${s.status}`}>
-                  {statuses[s.status]}
+                <span className={`table-badge scene-list-status is-${current ? "active" : s.status}`}>
+                  {current ? "На полотне" : statuses[s.status]}
                 </span>
 
             <div className="table-actions">
-              {director && s.status === "prepared" && (
+              {director && (
                 <Button
                   size="sm"
                   disabled={disabled}
@@ -107,18 +156,6 @@ export function SceneList({
                     >
                       {`Изменить сцену «${s.name}»`}
                     </Button>
-                    {s.status === "finished" && (
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        disabled={disabled}
-                        icon="play"
-                        iconOnly
-                        onClick={() => onStart(s)}
-                      >
-                        {`Запустить сцену «${s.name}»`}
-                      </Button>
-                    )}
                     <Button size="sm" variant="ghost" icon="copy" iconOnly disabled={disabled} onClick={() => onCopy(s)}>{`Копировать сцену «${s.name}»`}</Button>
                     <Button
                       size="sm"
@@ -142,8 +179,8 @@ export function SceneList({
                 </>
               )}
             </div>
-          </Card>
-        ))}
+          </Card>;
+        })}
       </div>
       {shown.length === 0 && (
         <div className="table-empty">

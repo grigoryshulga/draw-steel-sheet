@@ -34,7 +34,7 @@ interface CustomPerkDraft {
 
 /** Компактный блок перков на листе: слоты, свои перки и описания. */
 export function SheetPerksPanel() {
-  const { character, update, goTo, notify } = useApp();
+  const { character, update, goTo, notify, readOnly } = useApp();
   const [detail, setDetail] = useState<{ selected: SelectedPerk; slot?: PerkSlot } | null>(
     null,
   );
@@ -121,6 +121,8 @@ export function SheetPerksPanel() {
   const detailCustomText = detail?.selected.source === "custom" && detail.selected.description &&
     detail.selected.description !== detailPerk?.description ? detail.selected.description : undefined;
 
+  if (readOnly && entries.length === 0) return null;
+
   return (
     <>
       <Panel
@@ -136,8 +138,10 @@ export function SheetPerksPanel() {
                 title={compact ? "Развернуть карточки" : "Свернуть карточки до заголовков"}
                 onClick={() => setCompact((value) => !value)} />
             )}
-            <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label="Изменить перки" title="Изменить перки" onClick={() => goTo("development")} />
-            <Button size="sm" variant="soft" icon="plus" iconOnly aria-label="Добавить перк" title="Добавить перк" onClick={() => setPickingFree(true)} />
+            {!readOnly && <>
+              <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label="Изменить перки" title="Изменить перки" onClick={() => goTo("development")} />
+              <Button size="sm" variant="soft" icon="plus" iconOnly aria-label="Добавить перк" title="Добавить перк" onClick={() => setPickingFree(true)} />
+            </>}
           </>
         }
       >
@@ -158,13 +162,13 @@ export function SheetPerksPanel() {
                   banded
                   className={isCustom ? "is-custom" : undefined}
                   onOpen={() => setDetail({ selected, slot })}
-                  footerAction={isCustom ? (
+                  footerAction={isCustom && !readOnly ? (
                     <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label={`Изменить перк: ${selected.name}`} title="Изменить перк" onClick={() => setEditing(selected)} />
                   ) : undefined}
                 />
               );
             })}
-            {emptySlots.map(({ slot }) => (
+            {!readOnly && emptySlots.map(({ slot }) => (
               <article className="sheet-perk-card is-empty" key={slot.key}>
                 <header className="card-header sheet-perk-head"><span className="eyebrow">{slot.title}</span></header>
                 <button type="button" className="sheet-perk-empty" onClick={() => setPickingSlot(slot)} title="Выбрать перк из списка">
@@ -193,7 +197,7 @@ export function SheetPerksPanel() {
         }
         description={detail?.selected.description}
         action={
-          detail?.selected.source === "custom" ? (
+          !readOnly && detail?.selected.source === "custom" ? (
             <>
               <Button iconOnly
                 variant="ghost"

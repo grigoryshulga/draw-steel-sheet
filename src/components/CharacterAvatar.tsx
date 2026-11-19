@@ -10,14 +10,17 @@ export function CharacterAvatar({
   url,
   className = "",
   alt = "",
+  showInitials = true,
 }: {
   name: string;
   url?: string;
   className?: string;
   alt?: string;
+  showInitials?: boolean;
 }) {
   const [failedUrl, setFailedUrl] = useState<string | null>(null);
   const showImage = Boolean(url) && failedUrl !== url;
+  if (!showImage && !showInitials) return null;
   return (
     <span className={`char-avatar${className ? ` ${className}` : ""}`}>
       {showImage ? (

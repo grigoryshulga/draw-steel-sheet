@@ -19,6 +19,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type RefObject,
 } from "react";
 import {
   catalogSectionCount,
@@ -75,9 +76,13 @@ const ART_KIND_BY_SECTION: Partial<Record<CatalogSectionId, ArtKind>> = {
  * наград, происхождений, карьеры, комплектов, перков и глоссария. Карточки
  * ведут на адрес #/catalog/<раздел>/<запись>, полный текст открывается справа.
  */
-export function CatalogView() {
+export function CatalogView({ embedded }: {
+  embedded?: { navigate: (href: string) => void; scrollRoot: RefObject<HTMLElement | null> };
+} = {}) {
   const segments = useLibraryLocation();
-  const { section, id } = resolveCatalogRoute(segments);
+  const route = resolveCatalogRoute(segments);
+  const { section } = route;
+  const id = embedded ? route.id.split("#")[0] : route.id;
   const director = isDirectorSection(section);
   const sections = CATALOG_SECTIONS.filter(
     (item) => isDirectorSection(item.id) === director,
@@ -89,7 +94,10 @@ export function CatalogView() {
   const deferredQuery = useDeferredValue(query);
   const deferredDirectorFilters = useDeferredValue(directorFilters);
   const app = useContext(AppContext);
-  const compact = useMediaQuery("(max-width: 850px)");
+  const narrowViewport = useMediaQuery("(max-width: 850px)");
+  const compact = !!embedded || narrowViewport;
+  const catalog = useRef<HTMLDivElement>(null);
+  const scrollRoot = embedded?.scrollRoot;
   const groupSlug = id.startsWith("group:") ? id.slice(6) : undefined;
   const isList = !id || !!groupSlug;
   const detailOpen = compact && section !== "glossary" && !isList;
@@ -125,7 +133,7 @@ export function CatalogView() {
       echelon,
       directorFilters,
       listId: id,
-      scrollY: window.scrollY,
+      scrollY: scrollRoot?.current?.scrollTop ?? window.scrollY,
       selectedId: anchor.hash.split("/").slice(3).join("/"),
     };
   };
@@ -169,23 +177,23 @@ export function CatalogView() {
       setDirectorFilters(saved.directorFilters);
       const timer = window.setTimeout(() => {
         const link = [
-          ...document.querySelectorAll<HTMLAnchorElement>(
+          ...(catalog.current?.querySelectorAll<HTMLAnchorElement>(
             ".catalog-browser a, .catalog-global-results a",
-          ),
+          ) ?? []),
         ].find((a) => a.hash.endsWith(saved.selectedId));
         link?.focus({ preventScroll: true });
-        window.scrollTo(0, saved.scrollY);
+        (scrollRoot?.current ?? window).scrollTo(0, saved.scrollY);
       }, 0);
       return () => window.clearTimeout(timer);
     }
     if (!isList) {
-      const target = document.getElementById(
-        compact ? "catalog-reading" : "catalog-detail",
+      const target = catalog.current?.querySelector<HTMLElement>(
+        compact ? "#catalog-reading" : "#catalog-detail",
       );
       target?.focus({ preventScroll: true });
       target?.scrollIntoView({ block: "start" });
     }
-  }, [id, section, compact]);
+  }, [id, section, compact, scrollRoot]);
   useEffect(() => {
     if (compact && isList && browsing.current.section === section) return;
     setQuery("");
@@ -196,8 +204,8 @@ export function CatalogView() {
   const glossaryFragment = (segments[2] ?? "").split("#")[1] ?? "";
   useEffect(() => {
     if (section !== "glossary" || !glossaryFragment) return;
-    document
-      .getElementById(decodeURIComponent(glossaryFragment))
+    catalog.current
+      ?.querySelector(`#${CSS.escape(decodeURIComponent(glossaryFragment))}`)
       ?.scrollIntoView({ block: "center" });
   }, [section, glossaryFragment]);
   const categoryLabel = section === "perks" ? "Все типы" : "Все категории";
@@ -244,7 +252,7 @@ export function CatalogView() {
       : catalogBrowserEntryHref(catalogSection, entry.id);
 
   return (
-    <div className="library-view">
+    <div className="library-view" ref={catalog}>
       {detailOpen ? (
         <div className="catalog-reading-bar">
           <a
@@ -271,7 +279,7 @@ export function CatalogView() {
               placeholder="Поиск по всему справочнику…"
               value={query}
               onValueChange={setQuery}
-              shortcut
+              shortcut={!embedded}
             />
           </div>}
           {compact && (
@@ -282,9 +290,9 @@ export function CatalogView() {
               value={section}
               onChange={(event) => {
                 setQuery("");
-                window.location.hash = catalogSectionHref(
-                  event.target.value as CatalogSectionId,
-                );
+                const href = catalogSectionHref(event.target.value as CatalogSectionId);
+                if (embedded) embedded.navigate(href);
+                else window.location.hash = href;
               }}
             >
               {sections.map((item) => (
@@ -383,7 +391,7 @@ export function CatalogView() {
             >
               <DirectorFilters
                 compact={compact}
-                searchShortcut
+                searchShortcut={!embedded}
                 entries={entries}
                 value={directorFilters}
                 onChange={setDirectorFilters}

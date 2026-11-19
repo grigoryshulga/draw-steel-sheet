@@ -10,7 +10,7 @@ import { StatBreakdown } from "./StatBreakdown";
 
 /** Здоровье: выносливость, урон, восстановления и отдых. */
 export function VitalsPanel() {
-  const { character, derived, patch, performGameAction } = useApp();
+  const { character, derived, patch, performGameAction, readOnly } = useApp();
   const [maxDraft, setMaxDraft] = useState(String(character.stamina.max));
 
   useEffect(
@@ -46,6 +46,7 @@ export function VitalsPanel() {
       : 0;
   const tempPct =
     max > 0 ? clamp((stamina.temp / max) * 100, 0, 100 - fillPct) : 0;
+  const currentClass = `vital-big numeric${stamina.current <= 0 ? " is-down" : ""}`;
 
   return (
     <Panel
@@ -64,64 +65,72 @@ export function VitalsPanel() {
       <div className="vitals-head">
         <RecoveriesReadout />
         <div className="vitals-current">
-          <input
-            className={`vital-big vital-current-input numeric${stamina.current <= 0 ? " is-down" : ""}`}
-            inputMode="numeric"
-            aria-label="Текущая выносливость (исправить значение)"
-            title="Нажмите, чтобы исправить текущее значение"
-            key={stamina.current}
-            defaultValue={stamina.current}
-            onFocus={(event) => event.currentTarget.select()}
-            onBlur={(event) => {
-              const next = Number(event.currentTarget.value);
-              if (
-                event.currentTarget.value.trim() === "" ||
-                !Number.isInteger(next) ||
-                next === stamina.current
-              ) {
-                event.currentTarget.value = String(stamina.current);
-                return;
-              }
-              if (!performGameAction({ kind: "adjust", amount: next }))
-                event.currentTarget.value = String(stamina.current);
-            }}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") event.currentTarget.blur();
-              if (event.key === "Escape") {
-                event.currentTarget.value = String(stamina.current);
-                event.currentTarget.blur();
-              }
-            }}
-          />
-          <span
-            className="vital-max-edit"
-            title="Максимум выносливости — измените и нажмите Enter"
-          >
-            <span className="vital-max-slash numeric">/</span>
-            <TextInput
-              value={maxDraft}
+          {readOnly ? (
+            <span className={currentClass}>{stamina.current}</span>
+          ) : (
+            <input
+              className={`${currentClass} vital-current-input`}
               inputMode="numeric"
-              aria-label="Максимум выносливости"
-              className="vital-max-input number-counter-plain numeric"
-              onChange={(event) => setMaxDraft(event.target.value)}
+              aria-label="Текущая выносливость (исправить значение)"
+              title="Нажмите, чтобы исправить текущее значение"
+              key={stamina.current}
+              defaultValue={stamina.current}
               onFocus={(event) => event.currentTarget.select()}
               onBlur={(event) => {
-                const value = event.currentTarget.value.trim();
-                if (value === "") setMaxDraft(String(character.stamina.max));
-                else commitMax(Number(value));
+                const next = Number(event.currentTarget.value);
+                if (
+                  event.currentTarget.value.trim() === "" ||
+                  !Number.isInteger(next) ||
+                  next === stamina.current
+                ) {
+                  event.currentTarget.value = String(stamina.current);
+                  return;
+                }
+                if (!performGameAction({ kind: "adjust", amount: next }))
+                  event.currentTarget.value = String(stamina.current);
               }}
               onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                  event.preventDefault();
-                  event.currentTarget.blur();
-                }
+                if (event.key === "Enter") event.currentTarget.blur();
                 if (event.key === "Escape") {
-                  event.currentTarget.value = String(character.stamina.max);
-                  setMaxDraft(String(character.stamina.max));
+                  event.currentTarget.value = String(stamina.current);
                   event.currentTarget.blur();
                 }
               }}
             />
+          )}
+          <span
+            className="vital-max-edit"
+            title={readOnly ? undefined : "Максимум выносливости — измените и нажмите Enter"}
+          >
+            <span className="vital-max-slash numeric">/</span>
+            {readOnly ? (
+              <span className="numeric">{stamina.max}</span>
+            ) : (
+              <TextInput
+                value={maxDraft}
+                inputMode="numeric"
+                aria-label="Максимум выносливости"
+                className="vital-max-input number-counter-plain numeric"
+                onChange={(event) => setMaxDraft(event.target.value)}
+                onFocus={(event) => event.currentTarget.select()}
+                onBlur={(event) => {
+                  const value = event.currentTarget.value.trim();
+                  if (value === "") setMaxDraft(String(character.stamina.max));
+                  else commitMax(Number(value));
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    event.preventDefault();
+                    event.currentTarget.blur();
+                  }
+                  if (event.key === "Escape") {
+                    event.currentTarget.value = String(character.stamina.max);
+                    setMaxDraft(String(character.stamina.max));
+                    event.currentTarget.blur();
+                  }
+                }}
+              />
+            )}
             {character.automation?.enabled && (
               <StatBreakdown
                 label="максимума выносливости"
@@ -129,7 +138,9 @@ export function VitalsPanel() {
               />
             )}
           </span>
-          {stamina.temp > 0 && (
+          {stamina.temp > 0 && (readOnly ? (
+            <span className="vital-temp mono">+{stamina.temp} врем.</span>
+          ) : (
             <button
               type="button"
               className="vital-temp mono vital-temp-clear"
@@ -139,7 +150,7 @@ export function VitalsPanel() {
             >
               +{stamina.temp} врем. <Icon name="close" size={12} />
             </button>
-          )}
+          ))}
         </div>
       </div>
 
@@ -170,7 +181,7 @@ export function VitalsPanel() {
         )}
       </div>
 
-      <HealthControls />
+      {!readOnly && <HealthControls />}
     </Panel>
   );
 }

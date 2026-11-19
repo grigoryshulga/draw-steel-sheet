@@ -176,7 +176,7 @@ export function NumberInput({
 
 export interface StepperProps {
   value: number;
-  onChange: (value: number) => void;
+  onChange?: (value: number) => void;
   min?: number;
   max?: number;
   step?: number;
@@ -207,7 +207,7 @@ export function Stepper({
       role="group"
       aria-label={label}
     >
-      <button
+      {onChange && <button
         type="button"
         className="stepper-btn"
         aria-label={`${label ?? "Значение"}: уменьшить`}
@@ -215,11 +215,11 @@ export function Stepper({
         disabled={min !== undefined && value <= min}
       >
         <Icon name="minus" size={14} />
-      </button>
+      </button>}
       <output className="stepper-value numeric">
         {format ? format(value) : value}
       </output>
-      <button
+      {onChange && <button
         type="button"
         className="stepper-btn"
         aria-label={`${label ?? "Значение"}: увеличить`}
@@ -227,7 +227,7 @@ export function Stepper({
         disabled={max !== undefined && value >= max}
       >
         <Icon name="plus" size={14} />
-      </button>
+      </button>}
     </div>
   );
 }

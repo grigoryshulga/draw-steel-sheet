@@ -6,8 +6,8 @@ import "./MarkdownPreview.css";
 const plugins = [remarkGfm];
 
 /** CommonMark + GFM for authored notes, without rule-specific transforms. */
-export const MarkdownPreview = memo(function MarkdownPreview({ text }: { text: string }) {
+export const MarkdownPreview = memo(function MarkdownPreview({ text, images = true }: { text: string; images?: boolean }) {
   return <div className="markdown-preview">
-    <Markdown remarkPlugins={plugins}>{text}</Markdown>
+    <Markdown remarkPlugins={plugins} disallowedElements={images ? undefined : ["img"]}>{text}</Markdown>
   </div>;
 });

@@ -1,10 +1,12 @@
 import type { ComponentType, ReactNode } from "react";
-import { lazy, useEffect, useState } from "react";
+import { lazy, useCallback, useEffect, useState } from "react";
 import { Icon, type IconName } from "../components/Icons";
 import { Button } from "../components/ui";
 import { onSheetTabRequest } from "../lib/sheet-tabs";
 import { useMediaQuery } from "../lib/hooks";
 import { currentRuntime } from "../lib/runtime";
+import { combatPhaseLabel } from "../lib/tables/combat";
+import type { TableCombatLink } from "../types";
 import type { HeroTab } from "../navigation";
 import { useApp } from "../state/AppContext";
 import { CharacteristicsPanel } from "./sheet/CharacteristicsPanel";
@@ -116,10 +118,16 @@ function Column({ className, ids }: { className: string; ids: PanelId[] }) {
   );
 }
 
-function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
+type SheetViewProps = { tab: HeroTab; tools?: ReactNode; onDevelopmentDirtyChange?: (dirty: boolean) => void };
+
+function SheetWorkspace({ tab, tools, onDevelopmentDirtyChange }: SheetViewProps) {
   const { character, performGameAction, goTo } = useApp();
   const [developmentDirty, setDevelopmentDirty] = useState(false);
   const compact = useMediaQuery("(max-width: 700px)");
+  const updateDevelopmentDirty = useCallback((dirty: boolean) => {
+    setDevelopmentDirty(dirty);
+    onDevelopmentDirtyChange?.(dirty);
+  }, [onDevelopmentDirtyChange]);
 
   const switchTab = (next: HeroTab) => {
     if (next === tab) return;
@@ -130,7 +138,7 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
       if (!leave) return;
       // Черновик живёт внутри панели и исчезнет вместе с ней: снимаем метку,
       // иначе точка «есть несохранённые выборы» осталась бы на вкладке.
-      setDevelopmentDirty(false);
+      updateDevelopmentDirty(false);
     }
     goTo(next);
   };
@@ -147,15 +155,17 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
     <div className="sheet-view sheet-workspace-view" onFocusCapture={(event) => {
       if (!compact || !event.currentTarget.contains(event.target) || event.target.closest(".sheet-tablist")) return;
       const target = event.target;
+      const workspace = event.currentTarget;
       requestAnimationFrame(() => {
         if (!target.isConnected || document.activeElement !== target) return;
         const header = document.querySelector(".floating-header")?.getBoundingClientRect();
-        const tabs = document.querySelector(".sheet-tablist")?.getBoundingClientRect();
+        const tabs = workspace.querySelector(".sheet-tablist")?.getBoundingClientRect();
+        const modalBody = workspace.closest(".modal-body");
         const rect = target.getBoundingClientRect();
-        const top = (header?.bottom ?? 0) + 12;
+        const top = (modalBody?.getBoundingClientRect().top ?? header?.bottom ?? 0) + 12;
         const bottom = (tabs?.top ?? window.innerHeight) - 12;
         const delta = rect.top < top ? rect.top - top : rect.bottom > bottom ? rect.bottom - bottom : 0;
-        if (delta) window.scrollBy({ top: delta, behavior: "instant" });
+        if (delta) (modalBody ?? window).scrollBy({ top: delta, behavior: "instant" });
       });
     }}>
       <HeaderPanel compact={compact || tab !== "sheet"} />
@@ -184,6 +194,11 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
           {tab === "sheet" && (
             <div className="sheet-frame-actions">
               {tools}
+              {runtime.tableCombat ? (
+                <span className="chip" role="status">
+                  Раунд {runtime.tableCombat.round} · {combatPhaseLabel[runtime.tableCombat.phase]}
+                </span>
+              ) : <>
               <Button
                 size="sm"
                 variant={combatActive ? "ghost" : "soft"}
@@ -209,6 +224,7 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
               >
                 Новый раунд · {runtime.round}
               </Button>
+              </>}
             </div>
           )}
         </div>
@@ -232,7 +248,7 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
           {tab === "development" && (
             <div className="development-workspace">
               <HeroView embedded />
-              <DevelopmentPanel onDirtyChange={setDevelopmentDirty} />
+              <DevelopmentPanel onDirtyChange={updateDevelopmentDirty} />
             </div>
           )}
           {tab === "inventory" && <InventoryView />}
@@ -244,13 +260,16 @@ function SheetWorkspace({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
   );
 }
 
-export function SheetView({ tab, tools }: { tab: HeroTab; tools?: ReactNode }) {
+export function SheetView(props: SheetViewProps) {
   const { character } = useApp();
-  return <SheetWorkspace key={character.id} tab={tab} tools={tools} />;
+  return <SheetWorkspace key={character.id} {...props} />;
 }
 
 /** The ordinary sheet panels and column layout, isolated from editing and persistence. */
-export function SheetReadOnlyView({ sections }: { sections: readonly string[] }) {
+export function SheetReadOnlyView({ sections, combat }: {
+  sections: readonly string[];
+  combat?: Pick<TableCombatLink, "round" | "phase">;
+}) {
   const { character } = useApp();
   const heroShared = sections.includes("hero");
   const developmentShared = sections.includes("development");
@@ -260,16 +279,22 @@ export function SheetReadOnlyView({ sections }: { sections: readonly string[] })
     (["perks", "skills"].includes(id) && developmentShared),
   );
   return <div className="sheet-view sheet-workspace-view shared-sheet-preview" data-hero-shared={heroShared}>
-    <div className="shared-sheet-identity"><span>{character.ancestry} · {character.className} · {character.level}-й уровень</span><span className="chip">Только просмотр</span></div>
-    <fieldset disabled className="shared-sheet-readonly" onClickCapture={(event) => { if (!(event.target as HTMLElement).closest("a")) event.stopPropagation(); }} onKeyDownCapture={(event) => { if ((event.key === "Enter" || event.key === " ") && !(event.target as HTMLElement).closest("a")) event.stopPropagation(); }}>
-      <div className="sheet-layout-host"><div className="sheet-layout">
+    <div className="shared-sheet-identity">
+      <span>{character.ancestry} · {character.className} · {character.level}-й уровень</span>
+      {combat && <span className="chip" role="status">
+        Раунд {combat.round} · {combat.phase === "active" ? "Ходит" : combatPhaseLabel[combat.phase]}
+      </span>}
+      <span className="chip">Только просмотр</span>
+    </div>
+    <div className="sheet-layout-host">
+      <div className="sheet-layout">
         <div className="sheet-columns">
           <Column className="sheet-col-main" ids={filter(MAIN)} />
           <Column className="sheet-col-side" ids={filter(SIDE)} />
         </div>
         <Column className="sheet-col-full" ids={filter(FULL_WIDTH)} />
-      </div></div>
-    </fieldset>
+      </div>
+    </div>
     {!heroShared && <p className="muted">Игрок открыл только основные показатели. Остальные разделы листа скрыты.</p>}
   </div>;
 }

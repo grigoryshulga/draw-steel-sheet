@@ -11,7 +11,7 @@ import {
 import { BootError, LoadingScreen } from "./components/Topbar";
 import { FloatingHeader } from "./components/FloatingHeader";
 import { Toasts, type ToastMessage } from "./components/Toasts";
-import { Button } from "./components/ui";
+import { Button, Modal } from "./components/ui";
 import { WelcomeView } from "./views/WelcomeView";
 import {
   createGameSession,
@@ -19,7 +19,6 @@ import {
   type GameHistoryEntry,
 } from "./lib/game-actions";
 import { useHashTab } from "./lib/hooks";
-import { useLibraryLocation } from "./lib/library-location";
 import {
   applyTheme,
   THEMES,
@@ -32,6 +31,7 @@ import {
   HERO_TABS,
   TABS,
   TAB_LABELS,
+  isHeroTab,
   type HeroTab,
   type Tab,
 } from "./navigation";
@@ -47,6 +47,9 @@ import { useHeroLifecycle } from "./state/useHeroLifecycle";
 import "./styles/workspace.css";
 import { PersistenceStatus } from "./components/PersistenceStatus";
 import { supabaseEnabled } from "./lib/supabase";
+import { belongsToTableCombat } from "./lib/tables/combat";
+import { useTables } from "./state/useTables";
+import { useTableCombatSync } from "./state/useTableCombatSync";
 
 const TablesView = lazy(() =>
   import("./views/TablesView").then((module) => ({
@@ -96,11 +99,15 @@ export default function WorkspaceApp({
     useState<ThemeChoice>(readThemeChoice);
   const [tab, setTab] = useHashTab("sheet", TABS);
   const [hasOpenedTables, setHasOpenedTables] = useState(tab === "tables");
-  const [hashRoot, hashSection, tableAction, tableCode] = useLibraryLocation();
-  const tableInvite =
-    hashRoot === "#" && hashSection === "tables" && tableAction === "join"
-      ? tableCode
-      : undefined;
+  useEffect(() => {
+    if (tab === "tables") setHasOpenedTables(true);
+  }, [tab]);
+  const tables = useTables(tab === "tables");
+  const [tableSheet, setTableSheet] = useState<{ tableId: string; heroId: string; tab: HeroTab } | null>(null);
+  const tableSheetFocus = useRef<HTMLElement | null>(null);
+  const tableSheetDirty = useRef(false);
+  const trackTableSheetDraft = useCallback((dirty: boolean) => { tableSheetDirty.current = dirty; }, []);
+  const openTableSheet = tab === "tables" && tableSheet?.tableId === tables.selected ? tableSheet : null;
   const lastNonCreateTab = useRef<Tab>("sheet");
   const [rollOpen, setRollOpen] = useState(false);
   const [lastRoll, setLastRoll] = useState<RollEntry | null>(null);
@@ -161,6 +168,38 @@ export default function WorkspaceApp({
     },
     beforeSignOut,
   });
+  useTableCombatSync(character, update, tables, changingCharacter);
+
+  useEffect(() => {
+    if (tableSheet && !openTableSheet) {
+      setTableSheet(null);
+      setRollOpen(false);
+    }
+  }, [tableSheet, openTableSheet]);
+
+  const openTableHero = (heroId: string) => {
+    if (!tables.selected) return;
+    const focused = document.activeElement;
+    tableSheetFocus.current = focused instanceof HTMLElement && focused !== document.body ? focused : null;
+    tableSheetDirty.current = false;
+    const sheet = { tableId: tables.selected, heroId, tab: "sheet" as const };
+    setTableSheet(sheet);
+    void handleSelectCharacter(heroId).then(() => {
+      if (characterRef.current?.id !== heroId) setTableSheet(current => current === sheet ? null : current);
+    });
+  };
+
+  const closeTableHero = () => {
+    if (tableSheetDirty.current &&
+        !window.confirm("В «Развитии» есть несохранённые выборы. Закрыть лист без их сохранения?")) return;
+    const previous = tableSheetFocus.current;
+    setTableSheet(null);
+    setRollOpen(false);
+    requestAnimationFrame(() => {
+      const target = previous?.isConnected ? previous : document.querySelector<HTMLElement>(".table-live-board:not([hidden]) .board-stage");
+      target?.focus({ preventScroll: true });
+    });
+  };
 
   const performRoll = useCallback(
     (config: RollConfig) => {
@@ -177,6 +216,7 @@ export default function WorkspaceApp({
     (action: GameAction, operationId = makeId()) => {
       const current = characterRef.current;
       if (!current || isTransitioning()) return false;
+      if (current.runtime?.tableCombat && belongsToTableCombat(action)) return false;
       const result = gameSession.perform(current, action, operationId);
       if (!result.ok) {
         notify(result.reason, "error");
@@ -304,6 +344,37 @@ export default function WorkspaceApp({
         }
       : null;
 
+  const sheetTools = (
+    <Suspense fallback={null}>
+      <HistoryDialog />
+      <RollDialog open={rollOpen}
+        onToggle={() => setRollOpen(open => !open)}
+        onClose={() => setRollOpen(false)}
+        onRoll={performRoll} lastRoll={lastRoll} log={rollLog} />
+    </Suspense>
+  );
+  const persistenceControls = <>
+    <PersistenceStatus state={persistence} retry={retryPersistence}
+      resolve={resolveConflict} download={downloadRecovery} allowSignOut={allowSignOutWithPending} />
+    {character && saveStatus === "error" && !persistence.pendingCount && !persistence.localError && (
+      <section className="save-error-banner" role="alert">
+        <div>
+          <strong>Изменения не сохранены</strong>
+          <p>Они остаются в открытом листе. Повторите сохранение или скачайте копию перед закрытием страницы.</p>
+          {saveError && <p className="small muted">{saveError}</p>}
+        </div>
+        <div className="hstack wrap">
+          <Button icon="refresh" iconOnly onClick={() => void autosave.flush().catch(() => undefined)}>
+            Повторить сохранение
+          </Button>
+          <Button icon="download" iconOnly onClick={() => void handleExport(character.id)}>
+            Скачать копию
+          </Button>
+        </div>
+      </section>
+    )}
+  </>;
+
   return (
     <>
       <a
@@ -328,12 +399,12 @@ export default function WorkspaceApp({
       />
       <div className="app">
         <div className="main workspace-main" aria-busy={changingCharacter}>
-          {changingCharacter && (
+          {changingCharacter && !openTableSheet && (
             <div className="workspace-progress" role="status">
               Сохраняем и открываем героя…
             </div>
           )}
-          <div inert={changingCharacter}>
+          <div inert={changingCharacter || !!openTableSheet}>
             {supabaseEnabled && (
               <Suspense fallback={null}>
                 <TableOfferInbox
@@ -342,46 +413,7 @@ export default function WorkspaceApp({
                 />
               </Suspense>
             )}
-            <PersistenceStatus
-              state={persistence}
-              retry={retryPersistence}
-              resolve={resolveConflict}
-              download={downloadRecovery}
-              allowSignOut={allowSignOutWithPending}
-            />
-            {character &&
-              saveStatus === "error" &&
-              !persistence.pendingCount &&
-              !persistence.localError && (
-                <section className="save-error-banner" role="alert">
-                  <div>
-                    <strong>Изменения не сохранены</strong>
-                    <p>
-                      Они остаются в открытом листе. Повторите сохранение или
-                      скачайте копию перед закрытием страницы.
-                    </p>
-                    {saveError && <p className="small muted">{saveError}</p>}
-                  </div>
-                  <div className="hstack wrap">
-                    <Button
-                      icon="refresh"
-                      iconOnly
-                      onClick={() =>
-                        void autosave.flush().catch(() => undefined)
-                      }
-                    >
-                      Повторить сохранение
-                    </Button>
-                    <Button
-                      icon="download"
-                      iconOnly
-                      onClick={() => void handleExport(character.id)}
-                    >
-                      Скачать копию
-                    </Button>
-                  </div>
-                </section>
-              )}
+            {!openTableSheet && persistenceControls}
             <main className="content" id="main-content" tabIndex={-1}>
               {(tab === "tables" || hasOpenedTables) && (
                 <Activity mode={tab === "tables" ? "visible" : "hidden"}>
@@ -390,12 +422,10 @@ export default function WorkspaceApp({
                       fallback={<LoadingScreen label="Загрузка столов" />}
                     >
                       <TablesView
+                        state={tables}
                         characters={characters}
-                        inviteCode={tableInvite}
                         beforeCommand={() => autosave.flush()}
-                        openHero={(id) =>
-                          void handleSelectCharacter(id, { openSheet: true })
-                        }
+                        openHero={openTableHero}
                         refreshHero={refreshCharacter}
                       />
                     </Suspense>
@@ -431,25 +461,7 @@ export default function WorkspaceApp({
                       {HERO_TABS.includes(tab as HeroTab) && (
                         <SheetView
                           tab={tab as HeroTab}
-                          tools={
-                            tab === "sheet" ? (
-                              <Suspense fallback={null}>
-                                <>
-                                  <HistoryDialog />
-                                  <RollDialog
-                                    open={rollOpen}
-                                    onToggle={() =>
-                                      setRollOpen((open) => !open)
-                                    }
-                                    onClose={() => setRollOpen(false)}
-                                    onRoll={performRoll}
-                                    lastRoll={lastRoll}
-                                    log={rollLog}
-                                  />
-                                </>
-                              </Suspense>
-                            ) : null
-                          }
+                          tools={tab === "sheet" ? sheetTools : null}
                         />
                       )}
                       {tab === "settings" && (
@@ -475,6 +487,26 @@ export default function WorkspaceApp({
           </div>
         </div>
       </div>
+
+      {openTableSheet && (
+        <Modal open title="Лист героя" className="table-hero-sheet-modal" onClose={closeTableHero}>
+          {persistenceControls}
+          {contextValue?.character.id === openTableSheet.heroId && !changingCharacter ? (
+            <ViewErrorBoundary onExport={() => void handleExport(openTableSheet.heroId)}>
+              <AppContext.Provider value={{ ...contextValue, goTo: next => {
+                if (!isHeroTab(next)) return;
+                setTableSheet(current => current && { ...current, tab: next });
+                document.querySelector(".table-hero-sheet-modal > .modal-body")?.scrollTo({ top: 0 });
+              } }}>
+                <Suspense fallback={<LoadingScreen label="Загрузка листа" />}>
+                  <SheetView tab={openTableSheet.tab} tools={openTableSheet.tab === "sheet" ? sheetTools : null}
+                    onDevelopmentDirtyChange={trackTableSheetDraft} />
+                </Suspense>
+              </AppContext.Provider>
+            </ViewErrorBoundary>
+          ) : <LoadingScreen label="Загрузка листа" />}
+        </Modal>
+      )}
 
       <Toasts
         toasts={toasts}

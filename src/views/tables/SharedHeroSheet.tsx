@@ -1,12 +1,13 @@
 import { useMemo } from "react";
 import { AppContext, type AppContextValue } from "../../state/AppContext";
 import { deriveStats } from "../../lib/rules";
+import type { TableCombatLink } from "../../types";
 import { sharedSheetCharacter } from "../../lib/tables/shared-sheet";
 import type { SharedHero, TableSection } from "../../lib/tables/types";
 import { SheetReadOnlyView } from "../SheetView";
 
 const ignore = () => {};
-export function SharedHeroSheet({ hero }: { hero: SharedHero }) {
+export function SharedHeroSheet({ hero, combat }: { hero: SharedHero; combat?: Pick<TableCombatLink, "round" | "phase"> }) {
   const character = useMemo(() => sharedSheetCharacter(hero), [hero]);
   const value = useMemo<AppContextValue>(() => ({
     readOnly: true,
@@ -15,6 +16,6 @@ export function SharedHeroSheet({ hero }: { hero: SharedHero }) {
     saveStatus: "saved", saveError: "", notify: ignore, goTo: ignore,
   }), [character]);
   return <AppContext.Provider value={value}>
-    <SheetReadOnlyView sections={Object.keys(hero.sections) as TableSection[]} />
+    <SheetReadOnlyView sections={Object.keys(hero.sections) as TableSection[]} combat={combat} />
   </AppContext.Provider>;
 }

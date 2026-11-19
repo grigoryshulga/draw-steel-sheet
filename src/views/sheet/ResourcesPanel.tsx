@@ -45,6 +45,7 @@ function ResourceRow({
   /** Памятка, скрытая под «?» */
   help?: string[];
 }) {
+  const { readOnly } = useApp();
   const top = max ?? limit;
   const pct = max ? clamp((value / max) * 100, 0, 100) : 0;
   return (
@@ -55,70 +56,77 @@ function ResourceRow({
           <span className="resource-title">{label}</span>
           {extra}
         </div>
-        <span className="resource-row-value vitals-current">
-          <Button
-            variant="ghost"
-            iconOnly
-            icon="minus"
-            aria-label={`${label}: уменьшить`}
-            disabled={value <= min}
-            onClick={() => onValue(value - 1)}
-          />
-          <input
-            className="vital-big vital-current-input is-small numeric"
-            inputMode={min < 0 ? "text" : "numeric"}
-            aria-label={`${label}: текущее значение`}
-            key={value}
-            defaultValue={value}
-            onFocus={(event) => event.currentTarget.select()}
-            onBlur={(event) => {
-              const next = Number(event.currentTarget.value);
-              if (
-                event.currentTarget.value.trim() === "" ||
-                !Number.isInteger(next) ||
-                next < min ||
-                next > top ||
-                next === value
-              ) {
-                event.currentTarget.value = String(value);
-                return;
-              }
-              onValue(next);
-            }}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") event.currentTarget.blur();
-              if (event.key === "Escape") {
-                event.currentTarget.value = String(value);
-                event.currentTarget.blur();
-              }
-            }}
-          />
-          {max !== undefined && (
-            <span className="vital-max-edit">
-              <span className="vital-max-slash numeric">/</span>
-              {onMax ? (
-                <NumberInput
-                  value={max}
-                  min={0}
-                  max={99}
-                  label={`${label}: максимум`}
-                  className="vital-max-input"
-                  onChange={onMax}
-                />
-              ) : (
-                <span className="resource-row-max numeric">{max}</span>
-              )}
-            </span>
-          )}
-          <Button
-            variant="ghost"
-            iconOnly
-            icon="plus"
-            aria-label={`${label}: увеличить`}
-            disabled={value >= top}
-            onClick={() => onValue(value + 1)}
-          />
-        </span>
+        {readOnly ? (
+          <span className="resource-row-value vitals-current">
+            <span className="vital-big is-small numeric">{value}</span>
+            {max !== undefined && <span className="resource-row-max numeric">/ {max}</span>}
+          </span>
+        ) : (
+          <span className="resource-row-value vitals-current">
+            <Button
+              variant="ghost"
+              iconOnly
+              icon="minus"
+              aria-label={`${label}: уменьшить`}
+              disabled={value <= min}
+              onClick={() => onValue(value - 1)}
+            />
+            <input
+              className="vital-big vital-current-input is-small numeric"
+              inputMode={min < 0 ? "text" : "numeric"}
+              aria-label={`${label}: текущее значение`}
+              key={value}
+              defaultValue={value}
+              onFocus={(event) => event.currentTarget.select()}
+              onBlur={(event) => {
+                const next = Number(event.currentTarget.value);
+                if (
+                  event.currentTarget.value.trim() === "" ||
+                  !Number.isInteger(next) ||
+                  next < min ||
+                  next > top ||
+                  next === value
+                ) {
+                  event.currentTarget.value = String(value);
+                  return;
+                }
+                onValue(next);
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") event.currentTarget.blur();
+                if (event.key === "Escape") {
+                  event.currentTarget.value = String(value);
+                  event.currentTarget.blur();
+                }
+              }}
+            />
+            {max !== undefined && (
+              <span className="vital-max-edit">
+                <span className="vital-max-slash numeric">/</span>
+                {onMax ? (
+                  <NumberInput
+                    value={max}
+                    min={0}
+                    max={99}
+                    label={`${label}: максимум`}
+                    className="vital-max-input"
+                    onChange={onMax}
+                  />
+                ) : (
+                  <span className="resource-row-max numeric">{max}</span>
+                )}
+              </span>
+            )}
+            <Button
+              variant="ghost"
+              iconOnly
+              icon="plus"
+              aria-label={`${label}: увеличить`}
+              disabled={value >= top}
+              onClick={() => onValue(value + 1)}
+            />
+          </span>
+        )}
       </div>
       {max !== undefined && (
         <div className="meter meter-thin" aria-hidden="true">
@@ -144,7 +152,7 @@ function ResourceGains({
   /** Заголовок блока: у эпического пула он свой, чтобы блоки не путались. */
   title?: string;
 }) {
-  const { performGameAction } = useApp();
+  const { performGameAction, readOnly } = useApp();
   if (gains.length === 0) return null;
   return (
     <section className="resource-gains">
@@ -166,7 +174,7 @@ function ResourceGains({
                 {" · "}
                 {gain.frequency}
               </span>
-              <Button
+              {!readOnly && <Button
                 size="sm"
                 variant={gain.used ? "ghost" : "soft"}
                 icon="check"
@@ -181,7 +189,7 @@ function ResourceGains({
                     used: !gain.used,
                   })
                 }
-              />
+              />}
             </li>
           );
         })}

@@ -5,10 +5,11 @@ import "./HelpTooltip.css";
 interface HelpTooltipProps {
   label: string;
   children: ReactNode;
+  trigger?: ReactNode;
   className?: string;
 }
 
-export function HelpTooltip({ label, children, className }: HelpTooltipProps) {
+export function HelpTooltip({ label, children, className, trigger }: HelpTooltipProps) {
   const tooltipId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -150,7 +151,7 @@ export function HelpTooltip({ label, children, className }: HelpTooltipProps) {
           }
         }}
       >
-        ?
+        {trigger ?? "?"}
       </button>
       {popup}
     </span>

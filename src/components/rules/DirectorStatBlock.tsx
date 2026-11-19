@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { createContext, useContext, type ReactNode } from 'react';
 import { CharacteristicGlyph } from '../CharacteristicGlyph';
 import { Icon } from '../Icons';
 import type { CharacteristicKey } from '../../types';
@@ -11,8 +11,12 @@ const characteristics: [string, CharacteristicKey][] = [
 const combat = ['Выносливость', 'Свободный удар', 'Скорость', 'Устойчивость', 'Размер'];
 const primary = new Set([...combat, ...characteristics.map(([label]) => label)]);
 
-/** A read-only miniature of the hero sheet: printed values, no hero calculations. */
+export type DirectorStaminaOverride = { label?: string; value: ReactNode };
+export const DirectorStaminaContext = createContext<DirectorStaminaOverride | undefined>(undefined);
+
+/** Creature reference with an optional live stamina value supplied by the table. */
 export function DirectorStatBlock({ children, heading, headingActions }: { children: ReactNode; heading?: ReactNode; headingActions?: ReactNode }) {
+  const liveStamina = useContext(DirectorStaminaContext);
   const fields = markdownElements(children).filter(child => child.props['data-director-slot'] === 'stat').map(child => ({
     name: markdownText(markdownSlot(child.props.children, 'label')).trim(),
     label: markdownSlot(child.props.children, 'label'), value: markdownSlot(child.props.children, 'value'),
@@ -42,10 +46,12 @@ export function DirectorStatBlock({ children, heading, headingActions }: { child
     <dl className="director-mini-combat" aria-label="Боевые показатели">
       {combat.map(name => {
         const field = byName.get(name);
-        if (!field) return null;
-        return <div key={name} className={`director-mini-stat${name === 'Выносливость' ? ' is-primary' : ''}`}>
-          <dt>{name === 'Выносливость' && <Icon name="heart" size={14} />}{field.label}</dt>
-          <dd className="numeric">{field.value}</dd>
+        const stamina = name === 'Выносливость';
+        const override = stamina ? liveStamina : undefined;
+        if (!field && !override) return null;
+        return <div key={name} className={`director-mini-stat${stamina ? ' is-primary' : ''}${override ? ' has-stamina-editor' : ''}`}>
+          <dt>{stamina && <Icon name="heart" size={14} />}{override?.label ?? field?.label ?? name}</dt>
+          <dd className="numeric">{override ? override.value : field?.value}</dd>
         </div>;
       })}
     </dl>

@@ -3,12 +3,30 @@ import {
   duplicateScene,
   combatantFromSeed,
   createScene,
+  damageCombatant,
   encounterBudget,
   normalizeScene,
   resizeMinionGroup,
 } from "../src/lib/tables/scenes";
 
 describe("сцены", () => {
+  it("absorbs monster damage with temporary stamina and floors the result at zero", () => {
+    const creature = { ...combatantFromSeed(), stamina: 10, maxStamina: 10, temporaryStamina: 4 };
+    expect(damageCombatant(creature, 2)).toEqual({ stamina: 10, temporaryStamina: 2 });
+    const hurt = { ...creature, ...damageCombatant(creature, 9) };
+    expect(hurt).toMatchObject({ stamina: 5, temporaryStamina: 0 });
+    const defeated = { ...hurt, ...damageCombatant(hurt, 100) };
+    const scene = normalizeScene({ ...createScene("encounter"), combatants: [hurt, defeated] });
+    expect(scene.combatants.map(({ stamina, health }) => ({ stamina, health }))).toEqual([
+      { stamina: 5, health: "winded" },
+      { stamina: 0, health: "defeated" },
+    ]);
+  });
+  it("ignores invalid damage and creatures without stamina", () => {
+    const creature = combatantFromSeed();
+    for (const amount of [-1, 0, 2.5, NaN, Infinity]) expect(damageCombatant(creature, amount)).toEqual({});
+    expect(damageCombatant({ ...creature, stamina: undefined }, 2)).toEqual({});
+  });
   it("builds a minion pool and preserves its damage when resizing", () => {
     const creature = combatantFromSeed({
       sourceId: "minion",

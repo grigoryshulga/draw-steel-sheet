@@ -14,7 +14,7 @@ const INACTIVE: ConditionState = { active: false, ends: "save" };
 
 /** Состояния героя: активные карточки и форма наложения. */
 export function ConditionsPanel() {
-  const { character, patch, notify } = useApp();
+  const { character, patch, notify, readOnly } = useApp();
   const [newCondition, setNewCondition] = useState("");
   const [newEnd, setNewEnd] = useState<ConditionEnd>("save");
   const [lastSaveRoll, setLastSaveRoll] = useState<Record<string, string>>({});
@@ -106,29 +106,31 @@ export function ConditionsPanel() {
                   >
                     {entry.label}
                   </h3>
-                  <Button
-                    size="sm"
-                    variant="soft"
-                    icon="dice"
-                    iconOnly
-                    disabled={entry.state.ends !== "save"}
-                    aria-label={`Спасбросок против состояния: ${entry.label}`}
-                    onClick={() => rollSave(entry.key, entry.label, entry.state)}
-                    title={entry.state.ends !== "save"
-                      ? "Доступно для состояния до спасброска"
-                      : lastSaveRoll[entry.key]
-                        ? `Последний бросок: ${lastSaveRoll[entry.key]}`
-                        : `Спасбросок: d10 + бонус ${saveBonus} ≥ ${SAVE_ENDS_TARGET}`}
-                  />
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    icon="close"
-                    iconOnly
-                    aria-label={`Снять состояние: ${entry.label}`}
-                    title={`Снять состояние: ${entry.label}`}
-                    onClick={() => deactivate(entry.key, entry.state)}
-                  />
+                  {!readOnly && <>
+                    <Button
+                      size="sm"
+                      variant="soft"
+                      icon="dice"
+                      iconOnly
+                      disabled={entry.state.ends !== "save"}
+                      aria-label={`Спасбросок против состояния: ${entry.label}`}
+                      onClick={() => rollSave(entry.key, entry.label, entry.state)}
+                      title={entry.state.ends !== "save"
+                        ? "Доступно для состояния до спасброска"
+                        : lastSaveRoll[entry.key]
+                          ? `Последний бросок: ${lastSaveRoll[entry.key]}`
+                          : `Спасбросок: d10 + бонус ${saveBonus} ≥ ${SAVE_ENDS_TARGET}`}
+                    />
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      icon="close"
+                      iconOnly
+                      aria-label={`Снять состояние: ${entry.label}`}
+                      title={`Снять состояние: ${entry.label}`}
+                      onClick={() => deactivate(entry.key, entry.state)}
+                    />
+                  </>}
                 </header>
 
                 {!compact && (
@@ -142,7 +144,7 @@ export function ConditionsPanel() {
         )}
       </div>
 
-      <div className="conditions-inactive">
+      {!readOnly && <div className="conditions-inactive">
         <div className="conditions-block-head">
           <span className="eyebrow">Наложить</span>
         </div>
@@ -185,7 +187,7 @@ export function ConditionsPanel() {
             />
           </div>
         )}
-      </div>
+      </div>}
     </Panel>
   );
 }

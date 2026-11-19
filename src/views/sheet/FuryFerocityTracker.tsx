@@ -23,7 +23,7 @@ export function FuryFerocityTracker() {
   const next = state.rows.find((row) => row.available && !row.active);
   return (
     <Panel title="Растущая свирепость" icon="spark" className="fury-ferocity" bodyClassName="fury-ferocity-body"
-      actions={!state.missing && <Button size="sm" variant={state.turnActive ? "ghost" : "soft"}
+      actions={!state.missing && !character.runtime?.tableCombat && <Button size="sm" variant={state.turnActive ? "ghost" : "soft"}
           icon={state.turnActive ? "check" : "play"}
           aria-label={state.turnActive ? "Завершить свой ход" : "Начать свой ход"}
           onClick={() => performGameAction({ kind: state.turnActive ? "fury-turn-end" : "fury-turn-start" })}>
@@ -50,7 +50,9 @@ export function FuryFerocityTracker() {
         <p className={`fury-ferocity-turn${state.effective > state.current ? " is-retained" : ""}`} role="status">
           {state.turnActive
             ? `Максимум за ход: ${state.effective}. Достигнутые преимущества сохраняются до конца хода.`
-            : "Преимущества зависят от текущей свирепости. В свой ход нажмите «Начать ход», чтобы сохранить их после траты ресурса."}
+            : character.runtime?.tableCombat
+              ? "Достигнутые преимущества сохраняются во время хода, начатого за столом."
+              : "Преимущества зависят от текущей свирепости. В свой ход нажмите «Начать ход», чтобы сохранить их после траты ресурса."}
         </p>
         <div className="fury-ferocity-benefits" aria-live="polite">
           {active.length ? <ul className="fury-ferocity-active" aria-label="Действующие преимущества">

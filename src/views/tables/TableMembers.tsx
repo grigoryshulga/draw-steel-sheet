@@ -14,6 +14,16 @@ import type {
 
 const SharedHeroSheet = lazy(() => import("./SharedHeroSheet").then((module) => ({ default: module.SharedHeroSheet })));
 
+export function SharedHeroDetails({ hero, onClose, combat }: {
+  hero?: SharedHero | null;
+  onClose: () => void;
+  combat?: { round: number; phase: "ready" | "active" | "done" };
+}) {
+  return <CardDetailModal open={!!hero} onClose={onClose} title={hero?.name ?? "Герой"} className="table-dialog shared-hero-modal" wide>
+    {hero && <Suspense fallback={<p role="status">Загрузка листа…</p>}><SharedHeroSheet hero={hero} combat={combat} /></Suspense>}
+  </CardDetailModal>;
+}
+
 export type SendTableCommand = (
   type: string,
   payload?: Record<string, unknown>,
@@ -29,6 +39,26 @@ const DEFAULT_VISIBILITY: HeroVisibility = {
   sections: ["hero", "development", "inventory", "journal", "companions"],
   notes: [],
 };
+
+export function SharedHeroStaminaBar({ stamina: { current, max }, decorative = false }: {
+  stamina: SharedHero["stamina"];
+  decorative?: boolean;
+}) {
+  const value = Math.max(0, Math.min(current, max));
+  const width = max > 0 ? value / max * 100 : 0;
+  const accessibility = decorative ? { "aria-hidden": true as const } : {
+    role: "meter",
+    "aria-label": `Выносливость: ${current} из ${max}`,
+    "aria-valuemin": 0,
+    "aria-valuemax": Math.max(1, max),
+    "aria-valuenow": value,
+    "aria-valuetext": `${current} / ${max}`,
+  };
+  return <span className="shared-hero-hp" {...accessibility}>
+    <span style={{ width: `${width}%` }} className={current <= 0 ? "is-defeated" : current <= max / 2 ? "is-winded" : ""} />
+  </span>;
+}
+
 export function SharedHeroCard({ hero, compact = false }: { hero: SharedHero; compact?: boolean }) {
   const resources = hero.resources;
   return (
@@ -37,9 +67,7 @@ export function SharedHeroCard({ hero, compact = false }: { hero: SharedHero; co
       <p className="muted">
         {hero.ancestry} · {hero.className} · Уровень {hero.level}
       </p>
-      <div className="shared-hero-hp" role="meter" aria-label={`Выносливость: ${hero.stamina.current} из ${hero.stamina.max}`} aria-valuemin={0} aria-valuemax={Math.max(1, hero.stamina.max)} aria-valuenow={Math.max(0, Math.min(hero.stamina.current, hero.stamina.max))} aria-valuetext={`${hero.stamina.current} / ${hero.stamina.max}`}>
-        <span style={{ width: `${hero.stamina.max > 0 ? Math.max(0, Math.min(100, hero.stamina.current / hero.stamina.max * 100)) : 0}%` }} className={hero.stamina.current <= 0 ? "is-defeated" : hero.stamina.current <= hero.stamina.max / 2 ? "is-winded" : ""} />
-      </div>
+      <SharedHeroStaminaBar stamina={hero.stamina} />
       <div className="table-vitals">
         <span>
           <strong>
@@ -137,7 +165,7 @@ export function HeroVisibilityEditor({
   );
 }
 
-export function TableMembers({
+export function TableMemberSettings({
   table,
   characters,
   busy,
@@ -153,164 +181,132 @@ export function TableMembers({
   error?: string;
 }) {
   const director = table.actorId === table.ownerId;
-  const [viewingHero, setViewingHero] = useState<SharedHero | null>(null);
   const [addingHero, setAddingHero] = useState(false);
   const [heroId, setHeroId] = useState("");
   const [visibility, setVisibility] =
     useState<HeroVisibility>(DEFAULT_VISIBILITY);
   const [editing, setEditing] = useState<string | null>(null);
-  const currentHero = table.members.find((member) => member.hero?.id === viewingHero?.id)?.hero;
-  return (
-    <section className="table-stack">
-      <div className="table-section-heading">
-        <h2>Группа</h2>
-        <span className="muted">Игроков: {table.members.filter((member) => member.role !== "director").length}</span>
-      </div>
-      {table.transferTo === table.actorId && (
-        <Card>
-          <p>
-            Вам предложили стать ведущим. Ваши герои останутся у вас и будут
-            убраны из этого стола.
-          </p>
-          <Button
-            disabled={busy}
-            onClick={() => void command("accept-transfer")}
-          >
-            Принять роль ведущего
-          </Button>
-        </Card>
-      )}
-      {!table.members.some((member) => member.role !== "director") && <p className="table-empty">За столом пока нет игроков.</p>}
-      <div className="table-card-grid">
-        {table.members.filter((member) => member.role !== "director").map((member) => (
-          <Card key={member.userId} className="table-member-card">
-            <div className="table-section-heading table-member-heading">
-              <strong>{member.name}{member.userId === table.actorId ? " · вы" : ""}</strong>
-              <div className="table-actions">
-                {member.role === "director" && <span className="table-badge">Ведущий</span>}
-                {member.hero && <Button icon="eye" iconOnly size="sm" variant="ghost" onClick={() => setViewingHero(member.hero)} aria-label={`Посмотреть героя: ${member.hero.name}`} title={`Посмотреть героя: ${member.hero.name}`}>Посмотреть героя</Button>}
-                {member.hero && member.userId === table.actorId && <Button icon="book" iconOnly size="sm" variant="ghost" onClick={() => openHero(member.hero!.id)}>Открыть свой лист</Button>}
-                {director && member.userId !== table.actorId && <MemberActions name={member.name}>
-                  <Button variant="ghost" disabled={busy || table.archived} onClick={() => { if (confirm(`Предложить ${member.name} роль ведущего?`)) void command("transfer", { userId: member.userId }); }}>Передать роль</Button>
-                  {member.hero && <Button variant="ghost" disabled={busy || table.archived} onClick={() => { if (confirm("Убрать героя из стола? Он останется у владельца.")) void command("remove-hero", { userId: member.userId, heroId: member.hero!.id }); }}>Убрать героя</Button>}
-                  <Button variant="danger" disabled={busy || table.archived} onClick={() => { if (confirm(`Исключить ${member.name} из стола?`)) void command("kick", { userId: member.userId }); }}>Исключить</Button>
-                </MemberActions>}
+  const disabled = busy || table.archived;
+  if (director) {
+    const players = table.members.filter(member => member.role === "player");
+    return (
+      <Card className="table-member-settings">
+        <h3>Участники</h3>
+        {players.length ? <ul className="table-member-list">
+          {players.map(({ userId, name, hero }) => (
+            <li key={userId} className="table-member-row">
+              <div className="table-member-identity">
+                <strong>{name}</strong>
+                <span className="muted">{hero?.name ?? "Без героя"}</span>
               </div>
-            </div>
-            {member.hero ? (
-              <SharedHeroCard hero={member.hero} compact />
-            ) : (
-              <p className="muted">
-                {member.role === "director"
-                  ? "Ведёт этот стол"
-                  : "Активный герой пока не выбран"}
-              </p>
-            )}
-          </Card>
-        ))}
-      </div>
-      {!director && (
-        <Card>
-          <h3>Мои герои за столом</h3>
-          {table.myHeroIds.map((id) => (
-            <div key={id} className="table-actions">
-              <span>
-                {characters.find((c) => c.id === id)?.name ?? "Герой"}
-              </span>
-              <Button
-                disabled={
-                  busy ||
-                  table.archived ||
-                  table.members.find((m) => m.userId === table.actorId)?.hero
-                    ?.id === id
-                }
-                onClick={() => void command("activate-hero", { heroId: id })}
-              >
-                {table.members.find((m) => m.userId === table.actorId)?.hero
-                  ?.id === id
-                  ? "Активный герой"
-                  : "Сделать активным"}
-              </Button>
-              <Button
-                onClick={() => {
-                  setEditing(id);
-                  setVisibility(table.visibility[id] ?? DEFAULT_VISIBILITY);
-                }}
-                icon="settings"
-                iconOnly
-              >
+              <MemberActions name={name}>
+                <Button variant="ghost" disabled={disabled} onClick={() => {
+                  if (confirm(`Предложить ${name} роль ведущего?`)) void command("transfer", { userId });
+                }}>Передать роль</Button>
+                {hero && <Button variant="ghost" disabled={disabled} onClick={() => {
+                  if (confirm("Убрать героя из стола? Он останется у владельца.")) {
+                    void command("remove-hero", { userId, heroId: hero.id });
+                  }
+                }}>Убрать героя</Button>}
+                <Button variant="danger" disabled={disabled} onClick={() => {
+                  if (confirm(`Исключить ${name} из стола?`)) void command("kick", { userId });
+                }}>Исключить</Button>
+              </MemberActions>
+            </li>
+          ))}
+        </ul> : <p className="table-empty">За столом пока нет игроков.</p>}
+      </Card>
+    );
+  }
+
+  const activeHero = table.members.find(member => member.userId === table.actorId)?.hero;
+  const heroIds = activeHero && !table.myHeroIds.includes(activeHero.id)
+    ? [activeHero.id, ...table.myHeroIds] : table.myHeroIds;
+
+  return <>
+    {table.transferTo === table.actorId && (
+      <Card className="table-member-settings">
+        <p>
+          Вам предложили стать ведущим. Ваши герои останутся у вас и будут
+          убраны из этого стола.
+        </p>
+        <Button disabled={disabled} onClick={() => void command("accept-transfer")}>
+          Принять роль ведущего
+        </Button>
+      </Card>
+    )}
+    <Card className="table-member-settings">
+      <h3>Мои герои за столом</h3>
+      {heroIds.length ? <ul className="table-member-list">
+        {heroIds.map(id => {
+          const active = activeHero?.id === id;
+          return <li key={id} className="table-member-row table-owned-hero">
+            <strong>{active ? activeHero.name : characters.find(c => c.id === id)?.name ?? "Герой"}</strong>
+            <div className="table-actions">
+              {active ? <>
+                <span className="table-badge">Активный герой</span>
+                <Button icon="book" iconOnly size="sm" variant="ghost" onClick={() => openHero(id)}>
+                  Открыть свой лист
+                </Button>
+              </> : (
+                <Button size="sm" disabled={disabled} onClick={() => void command("activate-hero", { heroId: id })}>
+                  Сделать активным
+                </Button>
+              )}
+              <Button size="sm" icon="settings" iconOnly onClick={() => {
+                setEditing(id);
+                setVisibility(table.visibility[id] ?? DEFAULT_VISIBILITY);
+              }}>
                 Доступ к листу
               </Button>
             </div>
-          ))}
-          <CardDetailModal open={!!editing} onClose={() => setEditing(null)} title="Доступ к листу" className="table-dialog" wide>
-            {error && <p role="alert">{error}</p>}
-            <fieldset disabled={busy}>
-              <HeroVisibilityEditor
-                value={visibility}
-                onChange={setVisibility}
-              />
-              <div className="table-actions">
-                <Button iconOnly icon="close" onClick={() => setEditing(null)}>Отмена</Button>
-                <Button variant="primary" iconOnly icon="save"
-                  onClick={async () => {
-                    if (
-                      await command("visibility", {
-                        heroId: editing,
-                        visibility,
-                      })
-                    )
-                      setEditing(null);
-                  }}
-                >
-                  Сохранить доступ
-                </Button>
-              </div>
-            </fieldset>
-          </CardDetailModal>
-          {!table.archived && <div className="table-actions"><Button icon="plus" onClick={() => { setVisibility(DEFAULT_VISIBILITY); setAddingHero(true); }}>Добавить героя</Button></div>}
-          <CardDetailModal open={addingHero} onClose={() => setAddingHero(false)} title="Добавить героя" className="table-dialog" wide>
-              {error && <p role="alert">{error}</p>}
-              <fieldset disabled={busy}>
-                <label>
-                  Герой
-                  <select
-                    className="select"
-                    value={heroId}
-                    onChange={(e) => setHeroId(e.target.value)}
-                  >
-                    <option value="">Выберите героя</option>
-                    {characters
-                      .filter((c) => !table.myHeroIds.includes(c.id))
-                      .map((c) => (
-                        <option key={c.id} value={c.id}>
-                          {c.name}
-                        </option>
-                      ))}
-                  </select>
-                </label>
-                <HeroVisibilityEditor
-                  value={visibility}
-                  onChange={setVisibility}
-                />
-                <Button
-                  disabled={!heroId}
-                  onClick={async () => {
-                    if (await command("attach-hero", { heroId, visibility })) {
-                      setHeroId("");
-                      setAddingHero(false);
-                    }
-                  }}
-                >
-                  Добавить за стол
-                </Button>
-              </fieldset>
-          </CardDetailModal>
-        </Card>
-      )}
-      <CardDetailModal open={!!currentHero} onClose={() => setViewingHero(null)} title={currentHero?.name ?? "Герой"} className="table-dialog shared-hero-modal" wide>
-        {currentHero && <Suspense fallback={<p role="status">Загрузка листа…</p>}><SharedHeroSheet hero={currentHero} /></Suspense>}
+          </li>;
+        })}
+      </ul> : <p className="table-empty">У вас пока нет героя за этим столом.</p>}
+      <CardDetailModal open={!!editing} onClose={() => setEditing(null)} title="Доступ к листу" className="table-dialog" wide>
+        {error && <p role="alert">{error}</p>}
+        <fieldset disabled={busy}>
+          <HeroVisibilityEditor value={visibility} onChange={setVisibility} />
+          <div className="table-actions">
+            <Button iconOnly icon="close" onClick={() => setEditing(null)}>Отмена</Button>
+            <Button variant="primary" iconOnly icon="save" onClick={async () => {
+              if (await command("visibility", { heroId: editing, visibility })) setEditing(null);
+            }}>
+              Сохранить доступ
+            </Button>
+          </div>
+        </fieldset>
       </CardDetailModal>
-    </section>
-  );
+      {!table.archived && (
+        <div className="table-actions">
+          <Button icon="plus" onClick={() => { setVisibility(DEFAULT_VISIBILITY); setAddingHero(true); }}>
+            Добавить героя
+          </Button>
+        </div>
+      )}
+      <CardDetailModal open={addingHero} onClose={() => setAddingHero(false)} title="Добавить героя" className="table-dialog" wide>
+        {error && <p role="alert">{error}</p>}
+        <fieldset disabled={busy}>
+          <label>
+            Герой
+            <select className="select" value={heroId} onChange={(event) => setHeroId(event.target.value)}>
+              <option value="">Выберите героя</option>
+              {characters.filter(c => !heroIds.includes(c.id)).map(c => (
+                <option key={c.id} value={c.id}>{c.name}</option>
+              ))}
+            </select>
+          </label>
+          <HeroVisibilityEditor value={visibility} onChange={setVisibility} />
+          <Button disabled={!heroId} onClick={async () => {
+            if (await command("attach-hero", { heroId, visibility })) {
+              setHeroId("");
+              setAddingHero(false);
+            }
+          }}>
+            Добавить за стол
+          </Button>
+        </fieldset>
+      </CardDetailModal>
+    </Card>
+  </>;
 }

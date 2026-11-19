@@ -1,5 +1,7 @@
+import { applyDamage } from "../rules";
 import type { SceneCombatant, TableScene } from "./types";
 import type { MonsterSeed } from "./monster-catalog";
+import { challengeCounter, montageLimits, setChallengeCounter } from "./challenges";
 
 export const sceneId = () => globalThis.crypto.randomUUID();
 export function combatantFromSeed(seed?: MonsterSeed): SceneCombatant {
@@ -45,6 +47,16 @@ export function resizeMinionGroup(
     ),
   };
 }
+
+export function damageCombatant(
+  combatant: SceneCombatant,
+  amount: number,
+): Partial<SceneCombatant> {
+  if (combatant.stamina === undefined || !Number.isSafeInteger(amount) || amount <= 0) return {};
+  const { stamina, temp } = applyDamage(combatant.stamina, combatant.temporaryStamina ?? 0, amount);
+  return { stamina: Math.max(0, stamina), temporaryStamina: temp };
+}
+
 const nonnegative = (value: number | undefined, fallback = 0) =>
   Number.isFinite(value) ? Math.max(0, Math.floor(value!)) : fallback;
 export function healthLabel(health: SceneCombatant["health"]): string {
@@ -102,20 +114,8 @@ export function normalizeScene(scene: TableScene): TableScene {
     }),
   };
 }
-export function createScene(kind: TableScene["kind"], name = ""): TableScene {
-  const counters =
-    kind === "negotiation"
-      ? [
-          { id: sceneId(), name: "Интерес", value: 1, max: 5, public: false },
-          { id: sceneId(), name: "Терпение", value: 3, max: 5, public: false },
-        ]
-      : kind === "montage"
-        ? [
-            { id: sceneId(), name: "Успехи", value: 0, max: 6, public: true },
-            { id: sceneId(), name: "Провалы", value: 0, max: 3, public: true },
-          ]
-        : [];
-  return {
+export function createScene(kind: TableScene["kind"], name = "", heroes = 5): TableScene {
+  const scene: TableScene = {
     id: sceneId(),
     kind,
     name,
@@ -128,8 +128,16 @@ export function createScene(kind: TableScene["kind"], name = ""): TableScene {
     initiative: "heroes",
     malice: 0,
     combatants: [],
-    counters,
+    counters: [],
+    challenge: kind === "montage" ? { kind, rounds: 2, difficulty: "moderate" } :
+      kind === "negotiation" ? { kind, traits: [] } : undefined,
   };
+  if (kind === "negotiation") return setChallengeCounter(setChallengeCounter(scene, "interest", {}), "patience", {});
+  if (kind === "montage") {
+    const limits = montageLimits("moderate", heroes);
+    return setChallengeCounter(setChallengeCounter(scene, "successes", { max: limits.successes }), "failures", { max: limits.failures });
+  }
+  return scene;
 }
 
 /** Monsters, chapter 22: ES = sum(4 + 2 × hero level); victories add effective heroes. */
@@ -172,6 +180,11 @@ export function encounterBudget(
 }
 export function duplicateScene(scene: TableScene): TableScene {
   const ids = new Map(scene.combatants.map((c) => [c.id, sceneId()]));
+  const montage = scene.challenge?.kind === "montage" ? scene.challenge : undefined;
+  const negotiation = scene.challenge?.kind === "negotiation" ? scene.challenge : undefined;
+  const montageCounters = scene.kind === "montage" ? [challengeCounter(scene, "successes"), challengeCounter(scene, "failures")] : [];
+  const interest = negotiation && challengeCounter(scene, "interest");
+  const patience = negotiation && challengeCounter(scene, "patience");
   return normalizeScene({
     ...scene,
     id: sceneId(),
@@ -179,6 +192,9 @@ export function duplicateScene(scene: TableScene): TableScene {
     status: "prepared",
     published: false,
     round: 1,
+    challenge: montage ? { ...montage, result: undefined, acted: [] } : negotiation
+      ? { ...negotiation, result: undefined, researched: false, traits: negotiation.traits.map(t => ({ ...t, used: false, revealed: false })) }
+      : undefined,
     combatants: scene.combatants.map((c) => ({
       ...c,
       id: ids.get(c.id)!,
@@ -190,6 +206,8 @@ export function duplicateScene(scene: TableScene): TableScene {
         id: sceneId(),
       })),
     })),
-    counters: scene.counters.map((c) => ({ ...c, id: sceneId() })),
+    counters: scene.counters.map(c => ({ ...c, value: montageCounters.includes(c) ? 0 :
+      c === interest ? negotiation?.initialInterest ?? c.value : c === patience ? negotiation?.initialPatience ?? c.value : c.value,
+      id: ["successes", "failures", "interest", "patience"].includes(c.id) ? c.id : sceneId() })),
   });
 }

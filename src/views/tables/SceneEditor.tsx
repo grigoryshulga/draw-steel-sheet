@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { Button, Card } from "../../components/ui";
 import {
@@ -12,6 +12,7 @@ import { monsterGroupName, searchMonsterSeeds, type MonsterSeed } from "../../li
 import { SceneEditorHeader } from "./SceneEditorHeader";
 import { SceneBudgetBar } from "./SceneBudgetBar";
 import { SceneCatalog } from "./SceneCatalog";
+import { SceneChallengeSettings } from "./SceneChallengeSettings";
 import type { SceneCombatant, TableScene } from "../../lib/tables/types";
 import "./Scenes.css";
 
@@ -23,6 +24,7 @@ export function SceneEditor({
   busy = false,
   partyLevels = [],
   onSaveTemplate,
+  renderLayout,
 }: {
   scene: TableScene;
   onSave: (scene: TableScene) => void;
@@ -31,6 +33,7 @@ export function SceneEditor({
   busy?: boolean;
   partyLevels?: number[];
   onSaveTemplate?: (scene: TableScene) => void;
+  renderLayout?: (draft: TableScene, update: (patch: Partial<TableScene>) => void) => ReactNode;
 }) {
   const [catalogActionHost, setCatalogActionHost] = useState<HTMLDivElement | null>(null);
   const [catalogTab, setCatalogTab] = useState<"monster" | "terrain" | null>(null);
@@ -45,6 +48,7 @@ export function SceneEditor({
   );
   const [victories, setVictories] = useState(0);
   const budget = encounterBudget(draft, levels, victories);
+  const CounterSection = draft.kind === "encounter" ? "section" : "details";
   const update = (patch: Partial<TableScene>) =>
     setDraft((s) => ({ ...s, ...patch }));
   const combatant = (id: string, patch: Partial<SceneCombatant>) =>
@@ -276,6 +280,7 @@ export function SceneEditor({
         else if (rect.bottom > bounds.bottom - margin) scroller.scrollBy({ top: rect.bottom - bounds.bottom + margin, behavior: "instant" });
       });
     }}>
+      {renderLayout?.(draft, update)}
       <SceneEditorHeader onBack={onCancel}>
           <Button disabled={busy} iconOnly icon="close" onClick={onCancel}>Отмена</Button>
           {onSaveTemplate && (
@@ -431,13 +436,9 @@ export function SceneEditor({
           <header><h3 id="scene-complications-title">Осложнения</h3></header>
           {renderParticipants(draft.combatants.filter((c) => terrainIds.has(c.sourceId ?? "")))}
         </section>}
-        <section
-          className="table-disclosure"
-        >
-          <h3>
-            Счётчики{" "}
-            <span className="table-badge">{draft.counters.length}</span>
-          </h3>
+        {draft.kind !== "encounter" && <SceneChallengeSettings scene={draft} heroes={partyLevels.length || 5} onChange={setDraft} />}
+        <CounterSection className="table-disclosure">
+          {draft.kind === "encounter" ? <h3>Счётчики</h3> : <summary>Дополнительные счётчики и их видимость</summary>}
           <div className="table-stack">
             {draft.counters.map((c) => (
               <Card key={c.id} className="scene-counter-editor">
@@ -550,7 +551,7 @@ export function SceneEditor({
               Добавить счётчик
             </Button>
           </div>
-        </section>
+        </CounterSection>
       </fieldset>
       <CardDetailModal open={catalogTab !== null} onClose={() => setCatalogTab(null)} title={catalogTab === "terrain" ? "Добавить местность" : "Добавить участников"} headerActions={draft.kind === "encounter" && budget ? <SceneBudgetBar cost={budget.cost} standardMax={budget.standardMax} hardMax={budget.hardMax} floatingEnabled={false} /> : undefined} className="scene-ui scene-catalog-modal" wide footer={<div className="scene-catalog-footer">{catalogTab === "monster" && <div className="scene-actions scene-add-actions"><Button icon="plus" onClick={() => { const c = combatantFromSeed(); setDraft((old) => ({ ...old, combatants: [...old.combatants, c] })); setCatalogTab(null); setEditingParticipant(c.id); }}>Добавить вручную</Button></div>}<div ref={setCatalogActionHost} /></div>}>
         <fieldset disabled={busy}>

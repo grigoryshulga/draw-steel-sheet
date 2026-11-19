@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from "react";
 import { Icon } from "../components/Icons";
 import {
   Button,
@@ -174,6 +175,21 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
 function HeroLanguages() {
   const { character, update } = useApp();
   const languages = character.languages;
+  const [draft, setDraft] = useState("");
+  const [adding, setAdding] = useState(false);
+  const addButton = useRef<HTMLButtonElement>(null);
+  const restoreFocus = useRef(false);
+  const closeEditor = () => {
+    restoreFocus.current = true;
+    setDraft("");
+    setAdding(false);
+  };
+  useLayoutEffect(() => {
+    if (!adding && restoreFocus.current) {
+      restoreFocus.current = false;
+      addButton.current?.focus();
+    }
+  }, [adding]);
 
   return (
     <section className="hero-language-column">
@@ -200,23 +216,36 @@ function HeroLanguages() {
           ))}
         </div>
       )}
-      <form
-        className="hero-lang-editor"
-        onSubmit={(event) => {
-          event.preventDefault();
-          const form = event.currentTarget;
-          const language = String(new FormData(form).get("language") ?? "").trim();
-          if (language && !languages.includes(language)) {
+      {adding ? (
+        <form
+          className="hero-lang-editor"
+          onSubmit={(event) => {
+            event.preventDefault();
+            const language = draft.trim();
+            if (!language) return;
             update((current) => current.languages.includes(language)
               ? current
               : { ...current, languages: [...current.languages, language] });
-          }
-          form.reset();
-        }}
-      >
-        <TextInput name="language" placeholder="Новый язык" aria-label="Новый язык" />
-        <Button type="submit" icon="plus" iconOnly>Добавить язык</Button>
-      </form>
+            closeEditor();
+          }}
+          onKeyDown={(event) => {
+            if (event.key !== "Escape") return;
+            event.stopPropagation();
+            closeEditor();
+          }}
+          onBlur={(event) => {
+            if (!draft.trim() && !event.currentTarget.contains(event.relatedTarget)) setAdding(false);
+          }}
+        >
+          <TextInput value={draft} placeholder="Новый язык" aria-label="Новый язык" autoFocus
+            enterKeyHint="done" onChange={(event) => setDraft(event.target.value)} />
+          <Button type="submit" size="sm" variant="ghost" icon="check" iconOnly disabled={!draft.trim()}>Сохранить язык</Button>
+        </form>
+      ) : (
+        <div ref={(node) => { addButton.current = node?.querySelector("button") ?? null; }} className="hero-lang-add">
+          <Button type="button" size="sm" variant="ghost" icon="plus" iconOnly onClick={() => setAdding(true)}>Добавить язык</Button>
+        </div>
+      )}
     </section>
   );
 }

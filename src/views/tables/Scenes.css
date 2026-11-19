@@ -548,6 +548,7 @@
 .scene-catalog-forecast { color: var(--muted); font-size: var(--text-body); text-align: right; }
 .scene-catalog-forecast[data-over-budget="true"] { color: var(--red); }
 .scene-management-modal .scene-actions { display: grid; gap: var(--space-4); }
+.modal.scene-management-modal { width: min(360px, calc(100vw - 32px)); }
 .scene-management-modal .scene-actions > .btn { min-height: var(--touch-target-size); justify-content: flex-start; white-space: normal; text-align: left; }
 @media (pointer: coarse), (max-width: 600px) {
   .scene-catalog-footer .btn,
@@ -691,3 +692,233 @@
 }
 .scene-counter-editor { display: flex; flex-direction: column; gap: var(--space-6); }
 .scene-counter-editor > .scene-actions { justify-content: flex-end; }
+
+.scene-combat-status { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); margin-inline-end: auto; }
+.scene-combat-summary { display: contents; }
+.scene-turn-check { margin-inline-start: var(--space-3); color: var(--green); vertical-align: middle; }
+.scene-combatant.is-done { opacity: .82; }
+@media (max-width: 700px) {
+  .scene-tracker.scene-kind-encounter > .scene-toolbar { display: flex; }
+}
+
+.scene-ui.is-live-tracker {
+  justify-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  margin-inline: var(--scene-hud-clearance);
+  padding-block-start: calc(var(--scene-hud-top) + var(--space-4));
+}
+.is-live-tracker:has(> .scene-combat-status) {
+  padding-block-start: max(
+    calc(var(--board-roster-height, 0px) + var(--space-6)),
+    calc(36dvh - var(--board-cards-top, 0px))
+  );
+}
+.scene-live-manage.btn {
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline-start: 0;
+  pointer-events: auto;
+  background: var(--surface);
+}
+.is-live-tracker > .scene-combat-status {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  margin: 0;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 5px rgb(0 0 0 / .9);
+}
+.scene-combat-summary,
+.scene-combat-announcement { grid-area: 1 / 1; }
+.is-live-tracker .scene-combat-summary,
+.scene-live-round-actions > .muted {
+  display: grid;
+  justify-items: center;
+  margin: 0;
+  padding: var(--space-2) var(--space-6);
+  text-align: center;
+}
+.is-live-tracker :is(.scene-combat-summary, .scene-counter, .scene-live-round-actions > .muted) {
+  position: relative;
+  isolation: isolate;
+  color: white;
+  text-shadow: 0 1px 5px rgb(0 0 0 / .9);
+}
+.is-live-tracker :is(.scene-combat-summary, .scene-counter, .scene-live-round-actions > .muted)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: 50%;
+  background: rgb(0 0 0 / .72);
+  filter: blur(12px);
+  pointer-events: none;
+}
+.is-live-tracker .scene-round { padding: 0; font-size: var(--text-2xl); line-height: var(--leading-tight); }
+.is-live-tracker .scene-combat-summary { gap: var(--space-1); }
+.scene-combat-status:has(> .scene-combat-announcement) > .scene-combat-summary { visibility: hidden; }
+.scene-combat-announcement {
+  min-width: 0;
+  padding-inline: var(--space-2);
+  font: 600 var(--text-2xl) / var(--leading-tight) var(--font-display);
+  overflow-wrap: anywhere;
+  animation: scene-combat-announcement 2400ms var(--ease) both;
+}
+@keyframes scene-combat-announcement {
+  0%, 100% { opacity: 0; }
+  9%, 83% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene-combat-announcement { animation: none; }
+}
+.scene-live-round-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.scene-live-round-actions > :is(button, select) { pointer-events: auto; }
+.scene-live-round-actions > .select { width: auto; max-width: 100%; background-color: var(--surface); }
+.is-live-tracker .scene-live-round-actions > .btn:not(.btn-primary) { background: var(--surface); }
+.scene-live-malice { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+.table-dialog .scene-statblock-stamina {
+  display: grid;
+  min-inline-size: 0;
+  gap: var(--space-2);
+}
+.scene-stamina-pool,
+.table-dialog .scene-stamina-temp {
+  display: grid;
+  align-items: center;
+  gap: var(--space-2);
+}
+.scene-stamina-pool {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  color: var(--muted);
+  font-size: var(--text-md);
+}
+.table-dialog .scene-stamina-temp {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  text-align: start;
+}
+.table-dialog .scene-statblock-stamina .scene-stamina-value {
+  appearance: textfield;
+  padding-inline: var(--space-2);
+  text-align: center;
+  font-size: var(--text-lg);
+}
+.scene-stamina-value::-webkit-inner-spin-button { appearance: none; }
+@container director-mini (max-width: 460px) {
+  .director-mini-combat .director-mini-stat.has-stamina-editor {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+.is-live-tracker > .scene-counters {
+  display: flex;
+  width: 100%;
+  justify-content: safe center;
+  gap: var(--space-2);
+  padding-block: var(--space-4);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+.is-live-tracker .scene-counter {
+  display: grid;
+  flex: none;
+  justify-content: center;
+  justify-items: center;
+  gap: var(--space-1);
+  max-width: 100%;
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+  overflow-wrap: anywhere;
+  pointer-events: auto;
+  background: transparent;
+  border: 0;
+}
+.is-live-tracker .scene-counter :is(.muted, small, .btn-ghost) { color: inherit; }
+.is-live-tracker .scene-counter > meter { grid-row: 3; width: 100%; }
+.scene-management-modal .scene-live-round-actions { justify-content: start; }
+@media (max-width: 600px) {
+  .table-live-hud.is-director .is-live-tracker:not(.scene-kind-encounter) {
+    margin-inline: 0;
+    padding-block-start: calc(max(var(--scene-hud-top), var(--touch-target-size)) + var(--space-4));
+  }
+}
+
+.scene-challenge {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  width: min(100%, 42rem);
+  min-width: 0;
+}
+.scene-challenge-status {
+  display: grid;
+  gap: var(--space-1);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.scene-challenge-status > strong { font-size: var(--text-xl); }
+.scene-challenge-note { white-space: pre-wrap; }
+.scene-challenge-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+.scene-challenge-roster {
+  display: grid;
+  gap: var(--space-2);
+  width: 100%;
+  max-block-size: min(28dvh, 15rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.scene-challenge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.scene-challenge-row small { display: block; color: var(--muted); }
+.scene-challenge-row > span { min-width: 0; overflow-wrap: anywhere; }
+.scene-challenge-done { color: var(--green); }
+.scene-challenge-options { max-width: 100%; }
+.scene-challenge-details > summary { cursor: pointer; }
+.scene-challenge-details[open] > :not(summary) { margin-block-start: var(--space-4); }
+.scene-challenge-settings,
+.scene-challenge-score-setting { display: grid; gap: var(--space-4); }
+.scene-challenge-settings { padding-block: var(--space-4); }
+.scene-challenge-trait-input { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2); }
+.scene-challenge-settings .table-disclosure { margin: 0; }
+.is-live-tracker:is(.scene-kind-negotiation, .scene-kind-montage) {
+  padding-block-start: calc(max(var(--board-roster-height, 0px), var(--board-director-height, 0px), var(--touch-target-size)) + var(--space-4));
+}
+.is-live-tracker .scene-challenge-status { color: white; text-shadow: 0 1px 8px #000, 0 1px 3px #000; }
+.is-live-tracker .scene-challenge :is(button, .scene-challenge-options, .scene-challenge-roster) { pointer-events: auto; }
+.is-live-tracker .scene-challenge-actions > .btn { background-color: var(--surface); }
+.is-live-tracker .scene-challenge-actions > .btn:hover:not(:disabled) { border-color: var(--accent); }
+.is-live-tracker .scene-challenge-options {
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  max-block-size: 24dvh;
+  overflow: auto;
+  overscroll-behavior: contain;
+}

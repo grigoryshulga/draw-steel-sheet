@@ -10,11 +10,13 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PORT = Number(process.env.PORT || 8787);
 const HOST = process.env.HOST || "127.0.0.1";
 const DEV = process.argv.includes("--dev") || process.env.NODE_ENV !== "production";
+const demoPlayer = process.env.DS_DEMO_PLAYER === "1";
+if (demoPlayer && !process.env.DS_DATA_DIR) throw new Error("Для демо игрока укажите отдельный DS_DATA_DIR");
 const DATA_DIR = process.env.DS_DATA_DIR || path.join(ROOT, "data");
 
 const store = createStore(DATA_DIR);
 const handleApi = createApi({ store });
-const handleTablesApi = createTablesApi({ dataDir: DATA_DIR, charactersStore: store });
+const handleTablesApi = createTablesApi({ dataDir: DATA_DIR, charactersStore: store, demoPlayer });
 const serveStatic = createStaticHandler(path.join(ROOT, "dist"));
 
 let vite;
@@ -42,6 +44,7 @@ if (DEV) {
   const { createServer } = await import("vite");
   vite = await createServer({
     root: ROOT,
+    ...(demoPlayer ? { cacheDir: path.join(DATA_DIR, ".vite") } : {}),
     appType: "spa",
     server: {
       middlewareMode: true,
