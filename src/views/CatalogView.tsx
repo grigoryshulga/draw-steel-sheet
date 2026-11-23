@@ -84,9 +84,9 @@ export function CatalogView({ embedded }: {
   const { section } = route;
   const id = embedded ? route.id.split("#")[0] : route.id;
   const director = isDirectorSection(section);
-  const sections = CATALOG_SECTIONS.filter(
+  const sections = useMemo(() => CATALOG_SECTIONS.filter(
     (item) => isDirectorSection(item.id) === director,
-  );
+  ), [director]);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [echelon, setEchelon] = useState("");
@@ -224,8 +224,8 @@ export function CatalogView({ embedded }: {
   const globalGroups = useMemo(() => {
     if (!globalQuery) return [];
     const matchesQuery = createLibraryMatcher(globalQuery);
-    return CATALOG_SECTIONS.filter(
-      (item) => isDirectorSection(item.id) === director,
+    return [...sections].sort((a, b) =>
+      Number(b.id === "glossary") - Number(a.id === "glossary"),
     )
       .map((catalogSection) => ({
         section: catalogSection,
@@ -234,7 +234,7 @@ export function CatalogView({ embedded }: {
         ),
       }))
       .filter((group) => group.entries.length > 0);
-  }, [globalQuery, director]);
+  }, [globalQuery, sections]);
   const globalCount = globalGroups.reduce(
     (total, group) => total + group.entries.length,
     0,

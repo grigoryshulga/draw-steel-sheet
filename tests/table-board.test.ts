@@ -3,7 +3,7 @@ import { mkdtemp, readFile, rm, utimes } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
-import { BOARD_VIEW, alignBoardItem, clampBoardView, moveBoardItem, resizeBoardItem, screenToBoard, zoomBoard } from "../src/lib/tables/board";
+import { BOARD_VIEW, alignBoardItem, boundCounterPlacement, clampBoardView, moveBoardItem, resizeBoardItem, screenToBoard, zoomBoard } from "../src/lib/tables/board";
 import { createTablesStore } from "../server/tables-store.mjs";
 import { createScene } from "../src/lib/tables/scenes";
 
@@ -36,7 +36,7 @@ describe("table board", () => {
     expect(screenToBoard({ x: 450, y: 700 }, 800, zoomBoard(BOARD_VIEW, 2, tallPoint), 900)).toEqual(tallPoint);
   });
 
-  it("fits a background to the viewport height and keeps zoom anchored on a tall screen", () => {
+  it("fills a tall viewport and keeps zoom anchored", () => {
     const width = 390, height = 840;
     expect(screenToBoard({ x: width / 2, y: 0 }, width, BOARD_VIEW, height, true)).toEqual({ x: 800, y: 0 });
     expect(screenToBoard({ x: width / 2, y: height }, width, BOARD_VIEW, height, true)).toEqual({ x: 800, y: 900 });
@@ -44,6 +44,27 @@ describe("table board", () => {
     const point = screenToBoard(cursor, width, BOARD_VIEW, height, true);
     const zoomed = zoomBoard(BOARD_VIEW, 2, point);
     expect(screenToBoard(cursor, width, zoomed, height, true)).toEqual(point);
+  });
+
+  it("fills a wide viewport while keeping the visible area centred on the camera", () => {
+    const width = 1600, height = 600;
+    expect(screenToBoard({ x: 0, y: 0 }, width, BOARD_VIEW, height, true)).toEqual({ x: 0, y: 150 });
+    expect(screenToBoard({ x: width, y: height }, width, BOARD_VIEW, height, true)).toEqual({ x: 1600, y: 750 });
+    const cursor = { x: 1000, y: 120 };
+    const point = screenToBoard(cursor, width, BOARD_VIEW, height, true);
+    expect(screenToBoard(cursor, width, zoomBoard(BOARD_VIEW, 2, point), height, true)).toEqual(point);
+  });
+
+  it("fits artwork with a different aspect ratio in its original board coordinates", () => {
+    // A 4:3 image fills the stage from board x = 200 to x = 1400.
+    expect(screenToBoard({ x: 0, y: 0 }, 1200, BOARD_VIEW, 600, true, 1200)).toEqual({ x: 200, y: 150 });
+    // A wide image remains entirely visible even when it extends past the logical board.
+    expect(screenToBoard({ x: 0, y: 650 }, 1000, BOARD_VIEW, 650, false, 2000)).toEqual({ x: -200, y: 900 });
+  });
+
+  it("keeps legacy counter cards entirely within the overlay and independent of the grid", () => {
+    expect(boundCounterPlacement({ x: 1590, y: 5, width: 240, height: 120, snap: true, locked: true }))
+      .toEqual({ x: 1480, y: 60, width: 240, height: 120, snap: false, locked: true });
   });
 
   it("keeps preparation private and installs the styled layout once when launched", async () => {

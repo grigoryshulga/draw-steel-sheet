@@ -153,7 +153,7 @@ describe("resolveSkillSelection", () => {
     const state = resolveSkillSelection(slots, full, prior);
     expect(state.complete).toBe(true);
     expect(state.requirements).toEqual([
-      { label: "Замена: Скрытность", required: 1, selected: 1 },
+      { label: "Любой навык взамен «Скрытность»", required: 1, selected: 1 },
       { label: "Межличностные", required: 1, selected: 1 },
       { label: "Интрига", required: 1, selected: 1 },
     ]);
@@ -167,7 +167,7 @@ describe("resolveSkillSelection", () => {
     expect(partial.remaining).toBe(1);
     expect(partial.complete).toBe(false);
     expect(partial.requirements).toEqual([
-      { label: "Замена: Скрытность", required: 1, selected: 0 },
+      { label: "Любой навык взамен «Скрытность»", required: 1, selected: 0 },
       { label: "Межличностные", required: 1, selected: 1 },
       { label: "Интрига", required: 1, selected: 1 },
     ]);
@@ -486,7 +486,7 @@ describe("resolveSkillSelection", () => {
     expect(empty.required).toBe(3);
     expect(empty.known).toEqual(prior);
     expect(empty.requirements[0]).toEqual({
-      label: "Замена: Музыка или Выступление (уже известны)",
+      label: "Любой навык взамен «Музыка или Выступление»",
       required: 1,
       selected: 0,
     });
@@ -506,7 +506,7 @@ describe("resolveSkillSelection", () => {
     expect(filled.values).toEqual(["Кулинария", "Обман", "Эмпатия"]);
     expect(filled.complete).toBe(true);
     expect(filled.requirements).toEqual([
-      { label: "Замена: Музыка или Выступление (уже известны)", required: 1, selected: 1 },
+      { label: "Любой навык взамен «Музыка или Выступление»", required: 1, selected: 1 },
       { label: "Межличностные", required: 2, selected: 2 },
     ]);
 
@@ -528,7 +528,7 @@ describe("resolveSkillSelection", () => {
     const lower = ["музыка", "выступление", "алхимия"];
     expect(
       resolveSkillSelection(slots, [], lower).requirements[0].label,
-    ).toBe("Замена: Музыка или Выступление (уже известны)");
+    ).toBe("Любой навык взамен «Музыка или Выступление»");
     expect(resolveSkillSelection(slots, [], lower).available).toContain(
       "Кулинария",
     );

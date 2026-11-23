@@ -1,4 +1,4 @@
-import { lazy, Suspense, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useMemo, useRef, useState, type ReactNode } from "react";
 import { Icon } from "../../components/Icons";
 import { AbilityCard } from "../../components/AbilityCard";
 import { AbilityFacts } from "../../components/rules/AbilitySheet";
@@ -7,7 +7,6 @@ import { CalculationInline, CalculationToggle } from "../../components/rules/Cal
 import { abilityCardView } from "../../components/rules/abilityCardView";
 import { CharacteristicGlyphText } from "../../components/CharacteristicGlyph";
 import { DamageChip } from "../../components/DamageChip";
-import { AbilityEditor } from "../abilities/AbilityEditor";
 import { TemplatesModal } from "../abilities/TemplatesModal";
 import { makeId } from "../../data/templates";
 import { Button, Chip, EmptyState, Field, NumberInput, Panel, Select } from "../../components/ui";
@@ -43,6 +42,10 @@ import "./SheetAbilitiesPanel.css";
 
 const AbilityRollPanel = lazy(() =>
   import("../abilities/RollModal").then((module) => ({ default: module.AbilityRollPanel })),
+);
+
+const AbilityEditor = lazy(() =>
+  import("../abilities/AbilityEditor").then((module) => ({ default: module.AbilityEditor })),
 );
 
 const AbilityPicker = lazy(() =>
@@ -121,8 +124,8 @@ export function SheetAbilitiesPanel() {
   const [selected, setSelected] = useState<Ability | null>(null);
   const [addMode, setAddMode] = useState<AddMode>(null);
   // Store explicitly opened groups: new action groups also start collapsed.
-  const [expanded, setExpanded] = useState<Set<string>>(new Set());
-  const [compactSections, setCompactSections] = useState<Set<string>>(new Set());
+  const [expanded, setExpanded] = useState(() => new Set<string>());
+  const [compactSections, setCompactSections] = useState(() => new Set(["favorites"]));
   const [filter, setFilter] = useState<AbilitySheetFilter>("all");
   const [query, setQuery] = useState("");
   const searchInput = useRef<HTMLInputElement>(null);
@@ -157,6 +160,8 @@ export function SheetAbilitiesPanel() {
     ],
     [abilities, classGrants, ancestryEntries, itemEntries],
   );
+  const favoriteIds = new Set(character.favoriteAbilityIds);
+  const favorites = sheetAbilities.filter(ability => favoriteIds.has(ability.id));
   // Карта «способность → подкласс» не зависит от поиска и фильтра, поэтому
   // считается один раз на героя.
   const subclassSources = useMemo(
@@ -195,6 +200,20 @@ export function SheetAbilitiesPanel() {
     if (ancestryAbilitySource(ancestrySources, ability)) return "Выдана происхождением";
   }
 
+  const favoriteAction = (ability: Ability) => {
+    if (readOnly) return undefined;
+    const favorite = favoriteIds.has(ability.id);
+    return <Button size="sm" variant="ghost" icon="bookmark" iconOnly
+      className="sheet-ability-favorite" aria-pressed={favorite}
+      onClick={() => update(current => {
+        const ids = new Set(current.favoriteAbilityIds);
+        if (!ids.delete(ability.id)) ids.add(ability.id);
+        return { ...current, favoriteAbilityIds: [...ids] };
+      })}>
+      {`${favorite ? "Убрать из избранного" : "Добавить в избранное"}: ${ability.name || "Без названия"}`}
+    </Button>;
+  };
+
   const renderAbilityCard = (ability: Ability) => {
     const source = itemSource(ability);
     return <AbilityCard
@@ -206,6 +225,7 @@ export function SheetAbilitiesPanel() {
         subclassAbilitySource(subclassSources, ability) ??
         ancestryAbilitySource(ancestrySources, ability)
       }
+      headerAction={favoriteAction(ability)}
       details={source && <p className="small muted">{source.text}</p>}
       onOpen={() => openAbility(ability)}
       openOnCardClick
@@ -260,6 +280,7 @@ export function SheetAbilitiesPanel() {
     update((c) => ({
       ...c,
       abilities: c.abilities.filter((item) => item.id !== ability.id),
+      favoriteAbilityIds: c.favoriteAbilityIds?.filter(id => id !== ability.id),
     }));
     notify(`«${ability.name}» удалена`, "info");
   };
@@ -400,6 +421,13 @@ export function SheetAbilitiesPanel() {
               </section>
             )}
             {hasQuery && groups.length > 0 && <h3 className="sheet-ability-remainder-title">Остальные способности</h3>}
+            {!readOnly && !hasQuery && activeFilter === "all" && favorites.length > 0 &&
+              <AbilityGroup action="favorites" label="Избранное" count={favorites.length}
+                compact={compactSections.has("favorites")}
+                headerActions={<CardSummaryToggle label="Избранное" compact={compactSections.has("favorites")}
+                  onToggle={() => toggleCardSummary("favorites")} />}>
+                {favorites.map(renderAbilityCard)}
+              </AbilityGroup>}
             {groups.map(group => <AbilityGroup key={group.key}
               action={group.key} label={group.label} count={group.items.length}
               collapsed={!expanded.has(group.key)} onToggle={() => toggleGroup(group.key)}
@@ -415,6 +443,7 @@ export function SheetAbilitiesPanel() {
         <AbilityDetailModal
           ability={selected}
           derivedNote={derivedNote(selected)}
+          favoriteAction={favoriteAction(selected)}
           itemOrigin={itemSource(selected)}
           onClose={() => setSelected(null)}
           onEdit={() => {
@@ -456,13 +485,15 @@ export function SheetAbilitiesPanel() {
         />
       )}
       {editing && (
-        <AbilityEditor
-          key={editing.ability.id}
-          initial={editing.ability}
-          isNew={editing.isNew}
-          onClose={() => setEditing(null)}
-          onSave={saveAbility}
-        />
+        <Suspense fallback={null}>
+          <AbilityEditor
+            key={editing.ability.id}
+            initial={editing.ability}
+            isNew={editing.isNew}
+            onClose={() => setEditing(null)}
+            onSave={saveAbility}
+          />
+        </Suspense>
       )}
 
     </>
@@ -473,6 +504,7 @@ function AbilityDetailModal({
   ability,
   itemOrigin,
   derivedNote,
+  favoriteAction,
   onClose,
   onEdit,
   onDuplicate,
@@ -481,6 +513,7 @@ function AbilityDetailModal({
   ability: Ability;
   itemOrigin?: { label: string; value: string; text: string };
   derivedNote?: string;
+  favoriteAction?: ReactNode;
   onClose: () => void;
   onEdit: () => void;
   onDuplicate: () => void;
@@ -516,26 +549,29 @@ function AbilityDetailModal({
         </Suspense>
       )}
       headerActions={
-        canEdit && (
-          <>
-            <Button
-              variant="ghost"
-              icon="copy"
-              iconOnly
-              aria-label="Создать копию"
-              title="Копия"
-              onClick={onDuplicate}
-            />
-            <Button
-              variant="ghost"
-              icon="edit"
-              iconOnly
-              aria-label="Изменить"
-              title="Изменить"
-              onClick={onEdit}
-            />
-          </>
-        )
+        <>
+          {favoriteAction}
+          {canEdit && (
+            <>
+              <Button
+                variant="ghost"
+                icon="copy"
+                iconOnly
+                aria-label="Создать копию"
+                title="Копия"
+                onClick={onDuplicate}
+              />
+              <Button
+                variant="ghost"
+                icon="edit"
+                iconOnly
+                aria-label="Изменить"
+                title="Изменить"
+                onClick={onEdit}
+              />
+            </>
+          )}
+        </>
       }
       title={ability.name || "Без названия"}
       meta={

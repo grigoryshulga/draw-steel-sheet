@@ -87,8 +87,9 @@ export function BoardCounterForm({ board, table, draft, busy, command, onClose, 
   return <CardDetailModal open onClose={onClose} title="Добавить счётчик" className="table-dialog">
     <form onSubmit={async event => {
       event.preventDefault();
-      const result = await command("board-show", {
-        id: crypto.randomUUID(), kind: "counter", title: name.trim(), x, y, settings,
+      const result = await command(draft ? "board-show" : "board-add-counter", {
+        id: crypto.randomUUID(),
+        ...(draft ? { kind: "counter", title: name.trim(), x, y, settings } : { name: name.trim() }),
         value: Number(value), ...(max ? { max: Number(max) } : {}),
       });
       if (result) onClose();
@@ -96,7 +97,7 @@ export function BoardCounterForm({ board, table, draft, busy, command, onClose, 
       <label>Название<input autoFocus className="input" value={name} maxLength={200} required onChange={event => setName(event.target.value)} /></label>
       <label>Значение<input className="input" type="number" min={0} max={max || 1000000000} required value={value} onChange={event => setValue(event.target.value)} /></label>
       <label>Максимум<input className="input" type="number" min={value || 0} max={1000000000} value={max} onChange={event => setMax(event.target.value)} /></label>
-      <Button type="submit" variant="primary" disabled={busy || !name.trim() || board.materials.length >= 32}>Создать счётчик</Button>
+      <Button type="submit" variant="primary" disabled={busy || !name.trim() || draft && board.materials.length >= 32}>Создать счётчик</Button>
     </form>
     {sources.length > 0 && <form onSubmit={async event => {
       event.preventDefault();

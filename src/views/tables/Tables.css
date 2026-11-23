@@ -481,7 +481,7 @@ details[open] > summary > .table-disclosure-chevron { transform: rotate(90deg); 
   padding-bottom: var(--space-7);
   border-bottom: 1px solid var(--line);
 }
-.table-journal li > .muted {
+.table-journal-entry-head > .muted {
   font-size: var(--text-body);
 }
 .tables-page .table-item-composer > details {
@@ -736,6 +736,12 @@ body:has(.is-board-focused) .floating-header { display: none; }
   padding: var(--card-padding);
 }
 .table-drawer-content::-webkit-scrollbar { display: none; }
+.table-drawer-content:has(.table-items-panel) {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+.table-drawer-content:has(.table-items-panel)::-webkit-scrollbar { display: block; width: var(--space-4); }
+.table-drawer-content:has(.table-items-panel)::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: var(--radius-pill); }
 .table-reference > div > h2 { margin-block-end: var(--space-6); }
 .table-reference .library-view > .select { width: 100%; margin-block-end: var(--space-6); }
 .table-reference .catalog-layout.has-detail { grid-template-columns: minmax(0, 1fr); }
@@ -1004,14 +1010,25 @@ body:has(.is-board-focused) .floating-header { display: none; }
 .table-material-excerpt { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .table-material-card > .table-section-heading { align-items: start; }
 .table-material-card .table-badge { flex-shrink: 0; }
-.table-items-layout { display: grid; align-items: start; gap: var(--space-8); min-width: 0; }
-.table-items-layout.has-library { grid-template-columns: minmax(0, 1fr) auto; }
-.table-items-layout > .table-stack { min-width: 0; }
-.table-offer-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4) var(--space-6); align-content: start; }
-.table-offer-card > h3 { grid-column: 1; margin: 0; }
-.table-offer-card > .table-badge { grid-column: 2; grid-row: 1; align-self: start; }
-.table-offer-card > p { grid-column: 1 / -1; margin: 0; }
-.table-offer-card > .table-actions { grid-column: 1 / -1; }
+.table-item-templates { display: grid; gap: var(--space-6); min-width: 0; }
+.table-item-templates .scene-library-results { gap: 0; }
+.table-template-accepted {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--green);
+  font-size: var(--text-md);
+}
+.table-offer-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+}
+.table-offer-card > h3 { flex-basis: 100%; margin: 0; }
+.table-offer-card > .table-offer-recipient { margin: 0; overflow-wrap: anywhere; }
+.table-offer-card > .table-actions { margin-inline-start: auto; }
+.tables-page .table-drawer-content :is(.table-offer-card, .table-item-template) { padding-block: var(--space-4); }
 .table-offer-card.is-pending, .table-trade-card.is-pending { border-left: 3px solid var(--yellow); }
 .table-offer-card.is-accepted, .table-trade-card.is-accepted { border-left: 3px solid var(--green); }
 .table-offer-card:is(.is-declined, .is-revoked), .table-trade-card.is-cancelled { border-left: 3px solid var(--muted); }
@@ -1021,10 +1038,12 @@ body:has(.is-board-focused) .floating-header { display: none; }
 .table-settings .table-delete-section { padding-top: var(--space-7); border-top: 1px solid var(--line); }
 .table-settings .table-delete-section > .btn { display: flex; margin-left: auto; }
 .table-journal li { padding-block: var(--space-6); }
+.table-journal-entry-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
+.table-journal-entry-head .table-actions { flex: none; }
+.table-companions .table-member-identity { flex: 1; gap: var(--space-2); }
+.table-companions .table-member-identity .shared-hero-hp { max-width: 180px; }
 @media (max-width: 800px) {
-  .table-items-layout.has-library, .table-settings { grid-template-columns: minmax(0, 1fr); }
-  .table-offer-card { grid-template-columns: minmax(0, 1fr); }
-  .table-offer-card > .table-badge { grid-column: 1; grid-row: auto; justify-self: start; }
+  .table-settings { grid-template-columns: minmax(0, 1fr); }
 }
 .modal.table-dialog { display: flex; gap: 0; }
 .table-dialog :is(input.input, select.select, textarea.textarea) { font-family: var(--font-ui); font-size: var(--text-base); }

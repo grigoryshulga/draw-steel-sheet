@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { lazy, Suspense, useState, type ReactNode } from "react";
 import { HelpTooltip } from "../../components/HelpTooltip";
 import { Button, NumberInput, Panel } from "../../components/ui";
 import { heroicResourceName } from "../../data/classes";
@@ -17,6 +17,8 @@ import type { ResourceName } from "../../lib/game-actions";
 import { clamp, surgeDamageTotal } from "../../lib/rules";
 import { useApp } from "../../state/AppContext";
 import "./ResourcesPanel.css";
+
+const DramaSourcesDialog = lazy(() => import("./DramaSourcesDialog").then(module => ({ default: module.DramaSourcesDialog })));
 
 function HelpTip({ label, lines }: { label: string; lines: string[] }) {
   return <HelpTooltip label={`${label}: памятка`}><ul className="resource-help-lines">{lines.map((line) => <li key={line}>{line}</li>)}</ul></HelpTooltip>;
@@ -147,17 +149,24 @@ function ResourceRow({
 function ResourceGains({
   gains,
   title = "Откуда капает",
+  actions,
+  note,
 }: {
   gains: ReturnType<typeof resourceGainLabels>;
   /** Заголовок блока: у эпического пула он свой, чтобы блоки не путались. */
   title?: string;
+  actions?: ReactNode;
+  note?: string;
 }) {
   const { performGameAction, readOnly } = useApp();
-  if (gains.length === 0) return null;
+  if (gains.length === 0 && !actions && !note) return null;
   return (
     <section className="resource-gains">
-      <h3 className="resource-gains-title">{title}</h3>
-      <ul className="resource-gains-list">
+      <div className="resource-gains-heading">
+        <h3 className="resource-gains-title">{title}</h3>
+        {actions}
+      </div>
+      {gains.length > 0 && <ul className="resource-gains-list">
         {gains.map((gain) => {
           // «= Победы» уже равенство, плюс к нему не ставится.
           const amountText = gain.amount.startsWith("=")
@@ -193,14 +202,18 @@ function ResourceGains({
             </li>
           );
         })}
-      </ul>
+      </ul>}
+      {note && <p className="drama-source-note">{note}</p>}
     </section>
   );
 }
 
 /** Ресурсы боя, независимые от здоровья и восстановлений. */
 export function ResourcesPanel() {
-  const { character, performGameAction } = useApp();
+  const { character, performGameAction, readOnly, update } = useApp();
+  const [editDrama, setEditDrama] = useState(false);
+  const ownDrama = character.className === "Трубадур" && !readOnly;
+  const drama = ownDrama ? character.dramaSources : undefined;
   const resourceName = heroicResourceName(character.className);
   const gains = resourceGainLabels(character).filter((gain) =>
     !(gain.tag === "start-of-turn" && ["Проводник", "Элементалист"].includes(character.className)),
@@ -221,7 +234,10 @@ export function ResourcesPanel() {
           value={character.heroicResource.current}
           onValue={(value) => set("heroicResource", value)}
         />
-        <ResourceGains gains={gains} />
+        <ResourceGains gains={drama ? gains.filter(gain => !drama.hidden.includes(gain.tag)) : gains}
+          note={drama?.note}
+          actions={ownDrama && <Button size="sm" variant="ghost" icon="settings" iconOnly
+            onClick={() => setEditDrama(true)}>Настроить источники Драмы</Button>} />
 
         {epicName && (
           <>
@@ -248,13 +264,20 @@ export function ResourcesPanel() {
           }
         />
 
-        <ResourceRow
+        {!readOnly && <ResourceRow
           label="Жетоны героя"
           help={HERO_TOKENS_HELP}
           value={character.heroTokens}
           onValue={(value) => set("heroTokens", value)}
-        />
+        />}
       </div>
+      {ownDrama && editDrama && <Suspense fallback={null}>
+        <DramaSourcesDialog gains={gains} value={drama} onClose={() => setEditDrama(false)}
+          onSave={dramaSources => {
+            update(hero => ({ ...hero, dramaSources }));
+            setEditDrama(false);
+          }} />
+      </Suspense>}
     </Panel>
   );
 }

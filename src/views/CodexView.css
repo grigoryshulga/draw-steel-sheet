@@ -450,17 +450,8 @@
   color: var(--muted);
   font-size: var(--text-body);
   line-height: var(--leading-relaxed);
-  margin: 0 0 var(--space-9);
+  margin: 0;
   max-width: 34ch;
-}
-.codex-collection-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: var(--space-7);
-  border-top: 1px solid var(--line);
-  color: var(--accent);
-  font-size: var(--text-body);
 }
 .codex-empty {
   padding: 40px var(--space-9);
@@ -509,7 +500,8 @@
   font-family: var(--font-display);
 }
 .codex-article .rule-text h3 {
-  margin-top: 28px;
+  margin-top: var(--space-9);
+  font-size: var(--text-xl);
 }
 .codex-article .rule-text tbody tr:nth-child(even) {
   background: var(--surface-2);
@@ -629,14 +621,10 @@
 .codex-collection h3 a:hover {
   color: var(--accent);
 }
-.codex-collection-footer {
-  text-decoration: none;
-}
 .codex-section-links {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3) var(--space-6);
-  margin-bottom: var(--space-9);
 }
 .codex-section-links a {
   color: var(--muted);

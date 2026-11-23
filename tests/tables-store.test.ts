@@ -25,6 +25,55 @@ function scene(): TableScene {
 }
 
 describe('local Director tables', () => {
+  it('limits journal edits to the author and protects rolls and private entries', async () => {
+    const { store, dataDir } = await setup();
+    await seedDemoTable(dataDir);
+    const player = createTablesStore({ dataDir, demoPlayer: true });
+    let room = await store.read(DEMO_TABLE_ID);
+    const send = async (type: string, payload: object, writer = store) => {
+      room = await writer.command(room.id, command(type, payload, room.revision));
+      return room;
+    };
+    await send('event', { text: 'Секрет', public: false, kind: 'message' });
+    const secret = room.events.at(-1).id;
+    await expect(send('event-delete', { eventId: secret }, player)).rejects.toMatchObject({ status: 404 });
+    await send('event', { text: 'Бросок игрока', public: true, kind: 'roll' }, player);
+    const roll = room.events.at(-1).id;
+    await expect(send('event-delete', { eventId: roll })).rejects.toMatchObject({ status: 403 });
+    await send('event', { text: 'Старая запись', public: true, kind: 'message' }, player);
+    const entry = room.events.at(-1);
+    await expect(send('event-edit', { eventId: entry.id, text: 'Чужая правка' })).rejects.toMatchObject({ status: 403 });
+    const edit = command('event-edit', { eventId: entry.id, text: ' Новая запись ' }, room.revision);
+    room = await player.command(room.id, edit);
+    expect(room.events.at(-1)).toEqual({ ...entry, text: 'Новая запись', editedAt: expect.any(String) });
+    expect(await player.command(room.id, edit)).toEqual(room);
+    await send('event-delete', { eventId: entry.id });
+    expect(room.events.some(e => e.id === entry.id)).toBe(false);
+    expect(room.events.some(e => e.id === roll)).toBe(true);
+  });
+  it('shares companions with players and persists only validated Director changes', async () => {
+    const { store, dataDir } = await setup();
+    await seedDemoTable(dataDir);
+    let room = await store.read(DEMO_TABLE_ID);
+    expect(room.companions).toEqual([]);
+    const companion = { id: 'retainer', name: ' Гоблин ', sourceId: 'catalog-id', stamina: 20, maxStamina: 25, private: 'discard' };
+    const save = command('save-companion', { companion }, room.revision);
+    const player = createTablesStore({ dataDir, demoPlayer: true });
+    await expect(player.command(room.id, save)).rejects.toMatchObject({ status: 403 });
+    room = await store.command(room.id, save);
+    expect((await player.read(room.id)).companions).toEqual([
+      { id: 'retainer', name: 'Гоблин', sourceId: 'catalog-id', stamina: 20, maxStamina: 25 },
+    ]);
+    await expect(store.command(room.id, command('save-companion', { companion: { ...companion, stamina: 26 } }, room.revision)))
+      .rejects.toMatchObject({ status: 400 });
+    room = await store.command(room.id, command('save-companion', { companion: { ...companion, stamina: 11 } }, room.revision));
+    expect(room.companions).toHaveLength(1);
+    expect(room.companions[0].stamina).toBe(11);
+    await expect(player.command(room.id, command('delete-companion', { companionId: companion.id }, room.revision)))
+      .rejects.toMatchObject({ status: 403 });
+    room = await store.command(room.id, command('delete-companion', { companionId: companion.id }, room.revision));
+    expect((await player.read(room.id)).companions).toEqual([]);
+  });
   it('claims one turn atomically, alternates, and resets the same encounter', async () => {
     const { store, dataDir } = await setup();
     await seedDemoTable(dataDir);

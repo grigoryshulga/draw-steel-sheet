@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { Activity, lazy, Suspense, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { MarkdownEditor } from "../components/MarkdownEditor";
 import { MarkdownPreview } from "../components/MarkdownPreview";
@@ -26,6 +26,7 @@ import { useStorageScope } from "../state/StorageScope";
 import type { useTables } from "../state/useTables";
 import { TableMemberSettings } from "./tables/TableMembers";
 import { TableItems } from "./tables/TableItems";
+import { TableJournal } from "./tables/TableJournal";
 import { SceneEditor } from "./tables/SceneEditor";
 import { SceneTracker } from "./tables/SceneTracker";
 import { BoardMonsterCards } from "./tables/BoardMonsterCards";
@@ -34,6 +35,7 @@ import "./tables/Tables.css";
 const PANELS = {
   reference: { label: "Справочник", icon: "library" },
   scenes: { label: "Сцены", icon: "sword" },
+  companions: { label: "Спутники", icon: "users" },
   materials: { label: "Материалы", icon: "sheet" },
   items: { label: "Предметы", icon: "inventory" },
   journal: { label: "Журнал", icon: "book" },
@@ -42,6 +44,7 @@ const PANELS = {
 const TableBoard = lazy(() => import("./tables/TableBoard").then(module => ({ default: module.TableBoard })));
 const SceneLayoutEditor = lazy(() => import("./tables/SceneLayoutEditor").then(module => ({ default: module.SceneLayoutEditor })));
 const TableReference = lazy(() => import("./tables/TableReference").then(module => ({ default: module.TableReference })));
+const TableCompanions = lazy(() => import("./tables/TableCompanions").then(module => ({ default: module.TableCompanions })));
 type Panel = keyof typeof PANELS;
 const SCENE_NAMES: Record<TableScene["kind"], string> = {
   encounter: "Бой",
@@ -93,7 +96,6 @@ export function TablesView({
   const [exitOpen, setExitOpen] = useState(false);
   const [drawerWidth, setDrawerWidth] = useState(560);
   const [layoutHost, setLayoutHost] = useState<HTMLDivElement | null>(null);
-  const [draftGridHost, setDraftGridHost] = useState<HTMLDivElement | null>(null);
   const [preparingDrop, setPreparingDrop] = useState(false);
   const [sceneDropTarget, setSceneDropTarget] = useState(false);
   const [tableName, setTableName] = useState("");
@@ -112,8 +114,6 @@ export function TablesView({
     text: "",
     public: false,
   });
-  const [journalText, setJournalText] = useState("");
-  const [journalPublic, setJournalPublic] = useState(true);
   const [message, setMessage] = useState("");
   useEffect(() => {
     if (!message) return;
@@ -440,7 +440,6 @@ export function TablesView({
                 resizeDrawer(width + (event.key === "ArrowLeft" ? 32 : -32));
               }} />
             <div className="table-drawer-actions">
-              {scene && <div className="table-drawer-grid-host" ref={setDraftGridHost} />}
               <Button size="sm" iconOnly icon="chevron-right" variant="ghost" onClick={() => collapseDrawer(true)}>Свернуть панель</Button>
             </div>
             <div ref={drawerContent} className="table-drawer-content" tabIndex={0} role="region" aria-label={panel ? PANELS[panel].label : "Содержимое панели"}>
@@ -542,7 +541,7 @@ export function TablesView({
                       onDirtyChange={setSceneDirty}
                       renderLayout={(draft, update) => layoutHost && createPortal(
                         <Suspense fallback={null}>
-                          <SceneLayoutEditor table={table} layout={draft.layout} busy={busy || table.archived} gridHost={draftGridHost}
+                          <SceneLayoutEditor table={table} layout={draft.layout} busy={busy || table.archived}
                             onChange={(layout) => update({ layout })} />
                         </Suspense>, layoutHost)}
                       busy={busy || table.archived}
@@ -805,81 +804,14 @@ export function TablesView({
                 </CardDetailModal>
               </section>
             )}
-            {panel === "journal" && (
-              <section className="table-stack table-journal-panel">
-                <h2>Журнал стола</h2>
-                {!table.archived && (
-                  <form
-                    className="table-journal-composer"
-                    onSubmit={async (e) => {
-                      e.preventDefault();
-                      if (
-                        await command("event", {
-                          text: journalText.trim(),
-                          public: director ? journalPublic : true,
-                          kind: "message",
-                        })
-                      )
-                        setJournalText("");
-                    }}
-                  >
-                    <label>
-                      Запись
-                      <textarea
-                        className="textarea"
-                        required
-                        maxLength={4000}
-                        rows={2}
-                        placeholder="Итог сцены, находка или важное решение…"
-                        value={journalText}
-                        onChange={(e) => setJournalText(e.target.value)}
-                      />
-                    </label>
-                    <div className="table-actions table-form-footer">
-                      {director && (
-                        <label className="table-check">
-                          <input
-                            type="checkbox"
-                            checked={journalPublic}
-                            onChange={(e) => setJournalPublic(e.target.checked)}
-                          />
-                          Видна игрокам
-                        </label>
-                      )}
-                      <Button iconOnly icon="plus"
-                        type="submit"
-                        size="sm"
-                        variant="primary"
-                        disabled={busy || !journalText.trim()}
-                      >
-                        Добавить запись
-                      </Button>
-                    </div>
-                  </form>
-                )}
-                {table.events.length === 0 && (
-                  <p className="table-empty">
-                    Здесь сохраняется история игры и записи участников.
-                  </p>
-                )}
-                <ol className="table-journal">
-                  {[...table.events].reverse().map((event) => (
-                    <li key={event.id}>
-                      <div className="muted">
-                        <time dateTime={event.at}>
-                          {new Date(event.at).toLocaleString("ru")}
-                        </time>{" "}
-                        ·{" "}
-                        {table.members.find((m) => m.userId === event.actor)
-                          ?.name ?? "Участник"}
-                        {!event.public && " · Только ведущему"}
-                      </div>
-                      <p className="table-prose">{event.text}</p>
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            )}
+            <Activity mode={panel === "journal" ? "visible" : "hidden"}>
+              <TableJournal key={table.id} table={table} busy={busy || state.needsRetry || state.stale}
+                command={command} commandError={state.error} />
+            </Activity>
+            {panel === "companions" && <Suspense fallback={<p role="status">Загрузка спутников…</p>}>
+              <TableCompanions key={table.id} table={table} busy={busy || state.needsRetry || state.stale}
+                command={command} commandError={state.error} />
+            </Suspense>}
             {panel === "settings" && (
               <section className="table-stack table-settings">
                 <h2>Управление столом</h2>
@@ -1062,7 +994,7 @@ export function TablesView({
             }}>
             <Suspense fallback={<p role="status">Загрузка полотна…</p>}>
               <TableBoard key={table.id} table={table} busy={busy || preparingDrop} needsRetry={state.needsRetry}
-                gridObscured={drawerOpen} openHero={openHero}
+                openHero={openHero}
                 sceneHud={activeScene && <SceneTracker key={activeScene.id} scene={activeScene}
                   director={director} live showRoster={false} error={state.error}
                   table={table} onCombat={(type, payload) => void command(type, payload)}

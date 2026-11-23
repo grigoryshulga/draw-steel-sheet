@@ -236,6 +236,8 @@ export interface Character {
   stamina: { current: number; max: number; temp: number };
   recoveries: { current: number; max: number };
   heroicResource: { name: string; current: number; max: number };
+  /** Личные настройки отображения источников Драмы. */
+  dramaSources?: { hidden: string[]; note: string };
   surges: number;
   heroTokens: number;
 
@@ -252,6 +254,7 @@ export interface Character {
 
   conditions: Record<string, ConditionState>;
   abilities: Ability[];
+  favoriteAbilityIds?: string[];
   /** Общая ручная прибавка/штраф к урону способностей; действует независимо от авторасчёта. */
   damageModifier?: number;
   perks: SelectedPerk[];

@@ -8,6 +8,8 @@ import { heroTurnPhase } from "../../lib/tables/combat";
 import type { SharedHero, TableMember, TableSnapshot } from "../../lib/tables/types";
 import { SharedHeroCard, SharedHeroDetails, SharedHeroStaminaBar, type SendTableCommand } from "./TableMembers";
 
+const playerCard = (trigger: HTMLElement) => trigger.closest<HTMLElement>(".board-player-card");
+
 type ResourceGlyph = [label: string, value: string | number, icon: IconName, tone: string];
 
 export function BoardMemberCards({ table, command, busy, openHero }: {
@@ -52,14 +54,14 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
   }, [playerCardOpen, close]);
 
   const activatePlayer = (member: TableMember) => {
-    if (pinned !== member.userId) {
-      setPinned(member.userId);
-    } else {
-      close();
-      if (!member.hero) return;
-      if (member.userId === table.actorId && openHero) openHero(member.hero.id);
-      else setViewing({ userId: member.userId, heroId: member.hero.id });
+    if (!member.hero) {
+      if (pinned === member.userId) close();
+      else setPinned(member.userId);
+      return;
     }
+    close();
+    if (member.userId === table.actorId && openHero) openHero(member.hero.id);
+    else setViewing({ userId: member.userId, heroId: member.hero.id });
   };
   const details = (member: TableMember, mobile = false) => {
     const hero = member.hero;
@@ -69,22 +71,19 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
         [resources.heroicResource.name || "Ресурс героя", resources.heroicResource.current, "abilities", "magenta"],
         ["Восстановления", `${resources.recoveries.current}/${resources.recoveries.max}`, "heart", "cyan"],
         ["Всплески", resources.surges, "spark", "yellow"],
-        ["Жетоны героя", resources.heroTokens, "shield", "blue"],
         ...Object.entries(resources.additional ?? {}).map(([name, value]): ResourceGlyph => [name, value, "tag", "orange"]),
       ] : [];
       const phase = phaseFor(member);
       const sheetAction = member.userId === table.actorId && openHero ? "Открыть свой лист" : "Открыть лист";
       return <div className={`board-seat-details board-player-card${mobile ? " board-seat-details-mobile" : ""}`} data-turn={phase}
         onClick={event => {
-          if (event.target instanceof Element && !event.target.closest("button, .help-tooltip-popup")) activatePlayer(member);
+          if (hero && event.target instanceof Element && !event.target.closest("button, .help-tooltip-popup")) activatePlayer(member);
         }}
         onPointerLeave={mobile ? () => setHovered(current => current === member.userId ? null : current) : undefined}>
         {hero && <CharacterAvatar name={hero.name} url={portraitUrlFor(hero)} showInitials={false}
           className="board-player-portrait" />}
-        <button className="board-player-action" type="button" onClick={() => activatePlayer(member)}
-          aria-label={pinned === member.userId
-            ? hero ? `${sheetAction}: ${hero.name}` : "Свернуть карточку"
-            : `Закрепить карточку: ${hero?.name || member.name}`} />
+        {hero && <button className="board-player-action" type="button" onClick={() => activatePlayer(member)}
+          aria-label={`${sheetAction}: ${hero.name}`} />}
         <div className="board-player-footer">
           <strong className="board-player-summary">{hero?.name || member.name}
             {phase === "done" && <Icon name="check" size={14} className="board-turn-check" aria-label="Ход завершён" />}
@@ -95,7 +94,7 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
           </div>}
           {counters.length > 0 && <div className="board-player-resources" role="group" aria-label="Ресурсы героя">
             {counters.map(([name, value, icon, tone], index) => <HelpTooltip key={`${index}-${name}`}
-              className={`board-player-resource is-${tone}`} label={`${name}: ${value}`}
+              className={`board-player-resource is-${tone}`} positionAbove={playerCard} label={`${name}: ${value}`}
               trigger={<><Icon name={icon} size={16} /><span>{value}</span></>}>
               {name}
             </HelpTooltip>)}
@@ -156,8 +155,9 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
         <button
           className="board-seat-tab"
           type="button"
-          aria-expanded={expanded}
-          aria-label={stamina ? `${label}. Выносливость: ${stamina.current} из ${stamina.max}${phase === "done" ? ". Ход завершён" : phase === "active" ? ". Ходит" : ""}` : undefined}
+          aria-expanded={member.role === "player" && hero ? undefined : expanded}
+          data-preview-open={expanded || undefined}
+          aria-label={stamina ? `${member.role === "player" ? "Открыть лист: " : ""}${label}. Выносливость: ${stamina.current} из ${stamina.max}${phase === "done" ? ". Ход завершён" : phase === "active" ? ". Ходит" : ""}` : undefined}
           onPointerEnter={event => { if (event.pointerType === "mouse") setHovered(member.userId); }}
           onClick={() => {
             if (member.role === "player") activatePlayer(member);
@@ -187,7 +187,7 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
     </div>}
     <div className="board-seats board-seats-players" ref={playerSeats} aria-label="Игроки" onKeyDown={event => {
       if (event.key === "Escape") {
-        event.currentTarget.querySelector<HTMLButtonElement>(".board-seat-tab[aria-expanded=true]")?.focus();
+        event.currentTarget.querySelector<HTMLButtonElement>(".board-seat-tab[data-preview-open]")?.focus();
         close();
       }
     }}>

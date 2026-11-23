@@ -1,12 +1,11 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import type { CSSProperties, DragEvent, ReactNode } from "react";
-import { createPortal } from "react-dom";
 import { Button } from "../../components/ui";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { Icon } from "../../components/Icons";
 import { MarkdownPreview } from "../../components/MarkdownPreview";
 import { AVATAR_ACCEPT, AVATAR_MIME_TYPES, prepareWebp } from "../../lib/avatar";
-import { BOARD_BRUSH_MAX, BOARD_HEIGHT, BOARD_IMAGE_MAX, BOARD_STROKE_MAX, BOARD_VIEW, BOARD_WIDTH, EMPTY_BOARD, alignBoardItem, boardCenterY, boardScale, hasSceneDrag, zoomBoard, type BoardResizeEdge } from "../../lib/tables/board";
+import { BOARD_BRUSH_MAX, BOARD_HEIGHT, BOARD_IMAGE_MAX, BOARD_STROKE_MAX, BOARD_VIEW, BOARD_WIDTH, EMPTY_BOARD, alignBoardItem, boardCenterY, boardScale, boundCounterPlacement, hasSceneDrag, zoomBoard, type BoardResizeEdge } from "../../lib/tables/board";
 import { tableRepository } from "../../lib/tables/repository";
 import type { BoardGrid, BoardMaterial, BoardPlacement, BoardPoint, BoardStroke, TableSnapshot } from "../../lib/tables/types";
 import { useBoardView } from "../../state/useBoardView";
@@ -24,13 +23,18 @@ type PendingImage = { file: File; id: string; point?: BoardPoint };
 const itemSettings = {
   text: { width: 280, height: 144, snap: true },
   image: { width: 320, height: 240, snap: true },
-  counter: { width: 240, height: 120, snap: true },
+  counter: { width: 240, height: 120, snap: false },
 };
+const counterPlacement = (index: number): BoardPlacement => ({
+  ...itemSettings.counter,
+  x: 200 + (index % 5) * 300,
+  y: Math.max(100, 720 - Math.floor(index / 5) * 145),
+});
 const edges: BoardResizeEdge[] = ["n", "e", "s", "w", "nw", "ne", "sw", "se"];
 const noStrokes: BoardStroke[] = [];
 const gridSizes = [20, 40, 60, 80, 100, 120, 160];
 
-export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHud, draft = false, gridHost, gridObscured = false }: {
+export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHud, draft = false }: {
   table: TableSnapshot;
   command: SendTableCommand;
   busy: boolean;
@@ -38,8 +42,6 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   openHero?: (id: string) => void;
   sceneHud?: ReactNode;
   draft?: boolean;
-  gridHost?: HTMLElement | null;
-  gridObscured?: boolean;
 }) {
   const board = table.board ?? EMPTY_BOARD;
   const director = table.actorId === table.ownerId;
@@ -58,6 +60,7 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   const [dropTarget, setDropTarget] = useState(false);
   const [cameraOpen, setCameraOpen] = useState(false);
   const [containedBackground, setContainedBackground] = useState<string>();
+  const [artwork, setArtwork] = useState<{ id: string; width: number }>();
   const [[width, height], setSize] = useState([0, 0]);
   const imageInput = useRef<HTMLInputElement>(null);
   const backgroundInput = useRef<HTMLInputElement>(null);
@@ -68,26 +71,25 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   const wheelHandler = useRef<(event: WheelEvent) => void>(() => {});
   const blocked = busy || uploading || needsRetry;
   const currentMaterial = board.materials.find(material => material.id === selected);
-  const gridAvailable = toolsOpen || !gridObscured;
-  const grid = dialog === "grid" && gridAvailable ? gridPreview ?? board.grid : board.grid;
-  const fitHeight = !!board.background && containedBackground !== board.background;
-  const scale = boardScale(width, height, fitHeight);
-  const canSwitchFit = !!board.background && width * BOARD_HEIGHT < height * BOARD_WIDTH;
-
-  useEffect(() => {
-    if (!gridAvailable) setDialog(current => current === "grid" ? null : current);
-  }, [gridAvailable]);
+  const grid = dialog === "grid" && toolsOpen ? gridPreview ?? board.grid : board.grid;
+  const fillViewport = !!board.background && containedBackground !== board.background;
+  const artworkWidth = artwork && artwork.id === board.background ? artwork.width : BOARD_WIDTH;
+  const scale = boardScale(width, height, fillViewport, artworkWidth);
+  const canSwitchFit = !!board.background;
+  const measureArtwork = useCallback((id: string, ratio: number) => {
+    setArtwork({ id, width: BOARD_HEIGHT * ratio });
+  }, []);
 
   const startPlacement = (kind: BoardMaterial["kind"], point: BoardPoint = camera.position.current) =>
     alignBoardItem({ ...itemSettings[kind], x: point.x, y: point.y }, board.grid);
-  const items = new Map<string, { placement: BoardPlacement; title: string; reference: { id: string; sceneId?: string }; counter: boolean }>();
+  const items = new Map<string, { placement: BoardPlacement; title: string; reference: { id: string; sceneId?: string }; counter: boolean; overlay: boolean }>();
   for (const material of board.materials) items.set(`material/${material.id}`, {
     placement: { x: material.x, y: material.y, ...(material.settings ?? { ...itemSettings[material.kind], snap: false }) },
-    title: material.title, reference: { id: material.id }, counter: false,
+    title: material.title, reference: { id: material.id }, counter: false, overlay: material.kind === "counter",
   });
   board.counters.forEach((counter, index) => items.set(boardCounterKey(counter), {
-    placement: counter.placement ?? { ...itemSettings.counter, snap: false, x: 200 + (index % 5) * 300, y: Math.max(100, 790 - Math.floor(index / 5) * 145) },
-    title: counter.name, reference: boardCounterRef(counter), counter: true,
+    placement: counter.placement ?? counterPlacement(index),
+    title: counter.name, reference: boardCounterRef(counter), counter: true, overlay: true,
   }));
   const place = async ({ key, placement }: { key: string; placement: BoardPlacement }) => {
     const item = items.get(key);
@@ -105,10 +107,11 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
     stage.current?.focus({ preventScroll: true });
   };
 
-  const gestures = useBoardGestures(camera, board.grid, fitHeight,
+  const gestures = useBoardGestures(camera, board.grid, fillViewport, artworkWidth,
     key => {
-      const placement = items.get(key)?.placement;
-      return editable && !blocked && !placement?.locked ? placement : undefined;
+      const item = items.get(key);
+      if (!editable || blocked || !item || item.placement.locked) return undefined;
+      return { placement: item.overlay ? boundCounterPlacement(item.placement) : item.placement, overlay: item.overlay };
     }, place);
   const stage = gestures.stage;
   const strokes = board.strokes ?? noStrokes;
@@ -228,15 +231,16 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   const moveZoom = (factor: number) => camera.move(zoomBoard(camera.position.current, currentZoom() * factor), true);
   const cameraDisabled = camera.following || camera.changing;
   const fitWholeBoard = () => {
-    if (canSwitchFit && board.background) setContainedBackground(board.background);
+    if (board.background) setContainedBackground(board.background);
     camera.move(BOARD_VIEW, true);
   };
-  const restoreHeightFit = canSwitchFit && !fitHeight && zoom === 1;
+  const restoreFill = canSwitchFit && !fillViewport && zoom === 1;
   const showRetry = upload && !board.materials.some(material => material.id === upload.id) && board.background !== upload.id;
 
   const renderItem = (key: string, kind: BoardMaterial["kind"], children: ReactNode) => {
     const item = items.get(key)!;
-    const placement = gestures.dragged?.key === key ? gestures.dragged.placement : item.placement;
+    const rawPlacement = gestures.dragged?.key === key ? gestures.dragged.placement : item.placement;
+    const placement = item.overlay ? boundCounterPlacement(rawPlacement) : rawPlacement;
     const chosen = active === key;
     const select = () => { if (editable) setActive(key); };
     const { locked, snap } = placement;
@@ -246,18 +250,25 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
         select();
         if (editable && !(event.target as Element).closest("button")) event.currentTarget.focus({ preventScroll: true });
       }}
-      style={{ left: `${placement.x / BOARD_WIDTH * 100}%`, top: `${placement.y / BOARD_HEIGHT * 100}%`,
-        width: `${placement.width / BOARD_WIDTH * 100}%`, height: `${placement.height / BOARD_HEIGHT * 100}%` }}>
+      style={item.overlay ? {
+        "--counter-x": `${placement.x / BOARD_WIDTH * 100}%`,
+        "--counter-y": `${placement.y / BOARD_HEIGHT * 100}%`,
+        "--counter-width": `${placement.width / BOARD_WIDTH * 100}%`,
+        "--counter-height": `${placement.height / BOARD_HEIGHT * 100}%`,
+      } as CSSProperties : {
+        left: `${placement.x / BOARD_WIDTH * 100}%`, top: `${placement.y / BOARD_HEIGHT * 100}%`,
+        width: `${placement.width / BOARD_WIDTH * 100}%`, height: `${placement.height / BOARD_HEIGHT * 100}%`,
+      }}>
       <div className="board-material-content">{children}</div>
       {editable && <div className="board-material-tools">
         {kind !== "counter" && <Button size="sm" icon="eye" iconOnly variant="ghost"
           onClick={() => setSelected(item.reference.id)}>{kind === "image" ? "Открыть изображение" : "Открыть текст"}</Button>}
         <button type="button" className="board-drag-handle" data-board-move={key} disabled={blocked || locked}
           aria-label={`Переместить: ${item.title}`} title="Перетащите или используйте стрелки"><Icon name="move" size={16} /></button>
-        <Button size="sm" iconOnly icon="table" variant={snap ? "soft" : "ghost"} aria-pressed={snap} disabled={blocked || locked}
-          onClick={() => void place({ key, placement: alignBoardItem({ ...placement, snap: !snap }, board.grid) })}>Привязать к сетке</Button>
+        {!item.overlay && <Button size="sm" iconOnly icon="table" variant={snap ? "soft" : "ghost"} aria-pressed={snap} disabled={blocked || locked}
+          onClick={() => void place({ key, placement: alignBoardItem({ ...placement, snap: !snap }, board.grid) })}>Привязать к сетке</Button>}
         <Button size="sm" iconOnly icon="lock" variant={locked ? "soft" : "ghost"} aria-pressed={!!locked} disabled={blocked}
-          onClick={() => void place({ key, placement: { ...placement, locked: !locked } })}>Закрепить на месте</Button>
+          onClick={() => void place({ key, placement: { ...rawPlacement, locked: !locked } })}>Закрепить на месте</Button>
         <Button size="sm" iconOnly icon="close" variant="ghost" disabled={blocked} onClick={() => remove(key)}>Убрать с полотна</Button>
       </div>}
       {editable && !locked && edges.map(edge => <button key={edge} type="button" disabled={blocked}
@@ -269,8 +280,6 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   const toggleTools = () => {
     if (toolsOpen) {
       if (drawing.painting) drawing.toggle();
-      setDialog(null);
-    } else if (dialog === "grid") {
       setDialog(null);
     }
     setToolsOpen(!toolsOpen);
@@ -306,17 +315,6 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
       return !!result;
     }} />
   </aside>;
-
-  const gridControls = <div className="board-grid-dock" role="group" aria-label="Сетка полотна"
-    onKeyDown={event => {
-      if (event.key === "Escape" && dialog === "grid") {
-        setDialog(null);
-        event.currentTarget.querySelector<HTMLButtonElement>(".board-grid-settings")?.focus();
-      }
-    }}>
-    {gridButtons}
-    {gridPanel}
-  </div>;
 
   const textPanel = dialog === "text" && <aside className="board-add-panel" aria-label="Добавить текст">
     <div className="board-add-panel-header">
@@ -402,8 +400,8 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
         <Button size="sm" icon="minus" iconOnly disabled={cameraDisabled || zoom <= 1} onClick={() => moveZoom(0.8)}>Уменьшить масштаб</Button>
         <Button size="sm" icon="plus" iconOnly disabled={cameraDisabled || zoom >= 4} onClick={() => moveZoom(1.25)}>Увеличить масштаб</Button>
         <Button size="sm" icon="expand" iconOnly disabled={cameraDisabled || (zoom === 1 && !canSwitchFit)}
-          onClick={restoreHeightFit ? () => setContainedBackground(undefined) : fitWholeBoard}>
-          {restoreHeightFit ? "Вписать фон по высоте" : "Уместить полотно"}
+          onClick={restoreFill ? () => setContainedBackground(undefined) : fitWholeBoard}>
+          {restoreFill ? "Заполнить фоном полотно" : "Уместить полотно"}
         </Button>
         {editable && !draft && <Button size="sm" icon={camera.shared.control ? "pause" : "play"} aria-pressed={!!camera.shared.control}
           disabled={!camera.ready || camera.changing} onClick={() => void camera.lead(!camera.shared.control)}>
@@ -449,7 +447,10 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
           gestures.keyDown(event);
         }}
         onPointerDown={event => {
-          if (drawing.pointerDown(event)) { setActive(""); return; }
+          if (!(event.target as Element).closest(".board-counter-layer") && drawing.pointerDown(event)) {
+            setActive("");
+            return;
+          }
           if (!(event.target as Element).closest(".board-material")) setActive("");
           gestures.pointerDown(event);
         }}
@@ -474,7 +475,8 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
         onDrop={drop}
       >
         <div className="board-world" style={{ width: BOARD_WIDTH * scale, height: BOARD_HEIGHT * scale, transform: `translate(${translationX}px, ${translationY}px) scale(${zoom})` }}>
-          {board.background && <BoardImage key={board.background} tableId={table.id} assetId={board.background} label="" background />}
+          {board.background && <BoardImage key={board.background} tableId={table.id} assetId={board.background}
+            label="" background onAspectRatio={measureArtwork} />}
           {grid.enabled && <div className="board-grid" aria-hidden="true" style={{
             // Fill the viewport using the same coordinates as the artwork and materials.
             left: gridLeft,
@@ -489,10 +491,8 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
             ).join(","),
           }} />}
           <BoardDrawingLayer strokes={strokes} preview={drawing.preview} />
-          {board.materials.map(material => renderItem(`material/${material.id}`, material.kind,
-            material.kind === "counter"
-              ? <BoardCounterValue counter={{ ...material, name: material.title }} editable={editable} busy={blocked} command={command} />
-              : material.kind === "image"
+          {board.materials.filter(material => material.kind !== "counter").map(material => renderItem(`material/${material.id}`, material.kind,
+            material.kind === "image"
                 ? <BoardImage tableId={table.id} assetId={material.assetId} label={material.title}
                   onOpen={editable ? undefined : () => setSelected(material.id)} />
                 : editable
@@ -500,6 +500,11 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
                   : <Button className="board-material-open" variant="ghost" size="sm" onClick={() => setSelected(material.id)}>
                     {material.text.slice(0, 1500)}
                   </Button>,
+          ))}
+        </div>
+        <div className="board-counter-layer">
+          {board.materials.map(material => material.kind === "counter" && renderItem(`material/${material.id}`, "counter",
+            <BoardCounterValue counter={{ ...material, name: material.title }} editable={editable} busy={blocked} command={command} />,
           ))}
           {board.counters.map(counter => renderItem(boardCounterKey(counter), "counter",
             <BoardCounterValue counter={counter} editable={editable} busy={blocked} command={command} />,
@@ -516,7 +521,8 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
         busy={busy || needsRetry || table.archived} openHero={openHero} />}
     </div>
     {dialog === "counter" && editable && <BoardCounterForm board={board} table={table} draft={draft} busy={blocked}
-      command={command} placement={startPlacement("counter")} onClose={() => setDialog(null)} />}
+      command={command} placement={counterPlacement(board.counters.length + board.materials.filter(material => material.kind === "counter").length)}
+      onClose={() => setDialog(null)} />}
     {currentMaterial && currentMaterial.kind !== "counter" && <CardDetailModal open title={currentMaterial.title} wide onClose={() => setSelected("")} className="table-dialog board-reading">
       {currentMaterial.kind === "image"
         ? <BoardImage tableId={table.id} assetId={currentMaterial.assetId} label={currentMaterial.title} />
@@ -536,6 +542,5 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
         event.currentTarget.value = "";
         if (file) void showImage({ file, id: crypto.randomUUID(), point: camera.position.current });
       }} />}
-    {editable && !toolsOpen && !gridObscured && (gridHost ? createPortal(gridControls, gridHost) : gridControls)}
   </section>;
 }

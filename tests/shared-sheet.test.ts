@@ -42,8 +42,10 @@ describe('read-only shared sheet model', () => {
       { damage: '5', effect: '' }, { damage: '7', effect: '' }, { damage: '9', effect: '' },
     ] };
     source.abilities = [ability];
+    source.favoriteAbilityIds = [ability.id];
     const shared = sharedSheetCharacter(projectHero(source, { sections: ['hero'], notes: [] }) as SharedHero);
     expect(shared.damageModifier).toBe(-2);
+    expect(shared.favoriteAbilityIds).toBeUndefined();
     expect(evaluateAbilityDamage(shared.abilities[0], 1, shared).values).toEqual([3]);
     const closed = projectHero(source, { sections: ['development'], notes: [] }) as SharedHero;
     expect(JSON.stringify(closed)).not.toContain('damageModifier');

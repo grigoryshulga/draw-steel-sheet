@@ -2,18 +2,17 @@ import { EMPTY_BOARD } from "../../lib/tables/board";
 import type { BoardGrid, BoardMaterial, BoardStroke, SceneLayout, TableSnapshot } from "../../lib/tables/types";
 import { TableBoard } from "./TableBoard";
 
-export function SceneLayoutEditor({ table, layout, busy, gridHost, onChange }: {
+export function SceneLayoutEditor({ table, layout, busy, onChange }: {
   table: TableSnapshot;
   layout?: SceneLayout;
   busy: boolean;
-  gridHost: HTMLElement | null;
   onChange: (layout: SceneLayout) => void;
 }) {
   const current = layout ?? {
     tableId: table.id, background: null, grid: EMPTY_BOARD.grid, materials: [],
   };
   const snapshot = { ...table, board: { ...current, counters: [] } };
-  return <TableBoard draft table={snapshot} busy={busy} gridHost={gridHost} needsRetry={false} command={async (type, payload = {}) => {
+  return <TableBoard draft table={snapshot} busy={busy} needsRetry={false} command={async (type, payload = {}) => {
     const materials = current.materials;
     let next: SceneLayout;
     switch (type) {

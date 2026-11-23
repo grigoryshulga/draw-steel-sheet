@@ -100,6 +100,13 @@ export function TableItems({
   commandError?: string;
 }) {
   const director = table.actorId === table.ownerId;
+  const [tab, setTab] = useState<"offers" | "templates">("offers");
+  const showingOffers = !director || tab === "offers";
+  const acceptedIds = new Set(table.offers.flatMap(offer =>
+    offer.status === "accepted" && offer.fromUserId === table.actorId && offer.templateId
+      ? [offer.templateId]
+      : [],
+  ));
   const [composing, setComposing] = useState(false);
   const [tradingHeroId, setTradingHeroId] = useState<string | null>(null);
   const [tradeDetails, setTradeDetails] = useState<TableSnapshot["trades"][number] | null>(null);
@@ -148,7 +155,7 @@ export function TableItems({
     return result;
   }
   return (
-    <section className="table-stack">
+    <section className="table-stack table-items-panel">
       <div className="table-section-heading">
         <h2>Предметы и обмен</h2>
         <div className="table-actions">
@@ -161,8 +168,10 @@ export function TableItems({
           }}>Подарить или обменять</Button>}
         </div>
       </div>
-      <div className={`table-items-layout${director ? " has-library" : ""}`}>
-      <div className="table-stack">
+      {director && <div className="table-filter-bar" role="group" aria-label="Разделы предметов">
+        <button type="button" aria-pressed={showingOffers} onClick={() => setTab("offers")}>Предложения</button>
+        <button type="button" aria-pressed={!showingOffers} onClick={() => setTab("templates")}>Заготовки</button>
+      </div>}
       {error && !composing && !trading && <p role="alert">{error}</p>}
       {table.archived && (
         <p className="table-notice">
@@ -358,7 +367,10 @@ export function TableItems({
                         toUserId: recipient,
                         item,
                         ...(templateId ? { templateId } : {}),
-                      })) setComposing(false);
+                      })) {
+                      setTab("offers");
+                      setComposing(false);
+                    }
                   }}
                 >
                   Предложить
@@ -368,14 +380,14 @@ export function TableItems({
           </section>
         </CardDetailModal>
       )}
-      {table.offers.length === 0 && table.trades.length === 0 && (
+      {showingOffers && table.offers.length === 0 && table.trades.length === 0 && (
         <p className="table-empty">
           {director
             ? "Предложите предмет герою. Он появится в инвентаре после согласия игрока."
             : "Здесь появятся предложения предметов и обмена."}
         </p>
       )}
-      <div className="table-card-grid">
+      {showingOffers && table.offers.length > 0 && <div className="table-card-grid">
         {[...table.offers]
           .sort(
             (a, b) =>
@@ -386,7 +398,7 @@ export function TableItems({
               <h3>
                 {offer.item.name} × {offer.item.qty}
               </h3>
-              <p className="muted">
+              <p className="muted table-offer-recipient">
                 {table.members.find((m) => m.userId === offer.toUserId)?.hero
                   ?.name ??
                   table.members.find((m) => m.userId === offer.toUserId)
@@ -454,7 +466,7 @@ export function TableItems({
               </div>
             </Card>
           ))}
-      </div>
+      </div>}
       {!director && own && (
         <CardDetailModal open={trading} onClose={() => setTradingHeroId(null)} title="Подарить или обменять" className="table-dialog" wide>
           {(error || commandError) && <p role="alert">{error || commandError}</p>}
@@ -503,7 +515,7 @@ export function TableItems({
           </form>
         </CardDetailModal>
       )}
-      {table.trades.map((trade) => (
+      {showingOffers && table.trades.map((trade) => (
         <Card key={trade.id} className={`table-trade-card is-${trade.status}`}>
           <h3>
             Обмен между{" "}
@@ -570,14 +582,12 @@ export function TableItems({
             )}
         </Card>
       ))}
-      </div>
-      {director && <TableLibrary kind="item" templates={templates} disabled={busy || table.archived} onAdd={(template) => {
+      {director && !showingOffers && <TableLibrary kind="item" templates={templates} acceptedIds={acceptedIds} disabled={busy || table.archived} onAdd={(template) => {
         if (!template.item) return;
         setTemplateId(template.id);
         setItem({ ...structuredClone(template.item), id: crypto.randomUUID(), equipped: false });
         setComposing(true);
       }} />}
-      </div>
       <CardDetailModal open={!!tradeDetails} onClose={() => setTradeDetails(null)} title="Состав и эффекты предметов" className="table-dialog" wide>
         {tradeDetails && [...tradeDetails.offered, ...tradeDetails.requested].map((row, index) => row.item && <section key={`${row.itemId}-${index}`} className="table-disclosure"><h3>{row.item.name} × {row.qty}</h3><MarkdownPreview text={row.item.notes} /><ItemEffectsSummary effects={row.item.effects ?? []} /></section>)}
       </CardDetailModal>

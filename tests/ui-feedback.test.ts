@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import { KitRuleBody } from "../src/components/rules/KitRuleBody";
 import { RuleEntityView } from "../src/components/rules/RuleEntity";
 import { RuleArticleContent } from "../src/components/rules/RuleArticle";
-import { readingParts } from "../src/rules/codex-navigation";
+import { bookChapterNumber, codexArticleHref, readingParts } from "../src/rules/codex-navigation";
 import type { RuleEntity, RuleArticle } from "../src/rules/schema";
 import { kitVariantEntity } from "../src/rules/kit-variants";
 
@@ -56,6 +56,10 @@ describe("reader feedback", () => {
     expect(readingParts.find(part => part.id === "creating-hero")!.chapters.some(chapter => chapter.startsWith("11."))).toBe(true);
     expect(readingParts).toHaveLength(4);
     expect(readingParts.find(part => part.id === "for-director")!.chapters.some(chapter => chapter.startsWith("23."))).toBe(true);
+    const chapters = readingParts.flatMap(part => part.chapters);
+    expect(chapters.at(-1)).toBe("21. О Проекте");
+    expect(bookChapterNumber("21. О Проекте")).toBe(chapters.length);
+    expect(codexArticleHref("2102")).toBe("#/codex/2102");
   });
   it("nests ancestry features below the ancestry and keeps the existing anchor", () => {
     const feature = entity("content/rules/entities/feature/ancestry-dyavol/feature.ancestry.devil.signature.serebryanyy-yazyk.json");

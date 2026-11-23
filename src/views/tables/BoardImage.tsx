@@ -1,12 +1,13 @@
 import { memo, useEffect, useState } from "react";
 import { tableRepository } from "../../lib/tables/repository";
 
-export const BoardImage = memo(function BoardImage({ tableId, assetId, label, background = false, onOpen }: {
+export const BoardImage = memo(function BoardImage({ tableId, assetId, label, background = false, onOpen, onAspectRatio }: {
   tableId: string;
   assetId: string;
   label: string;
   background?: boolean;
   onOpen?: () => void;
+  onAspectRatio?: (assetId: string, ratio: number) => void;
 }) {
   const [url, setUrl] = useState("");
   const [failed, setFailed] = useState(false);
@@ -30,6 +31,10 @@ export const BoardImage = memo(function BoardImage({ tableId, assetId, label, ba
   }
   if (!url) return null;
   const image = <img className={background ? "board-backdrop" : "board-image"}
-    src={url} alt={onOpen ? "" : label} draggable={false} onError={() => setFailed(true)} />;
+    src={url} alt={onOpen ? "" : label} draggable={false} onError={() => setFailed(true)}
+    onLoad={onAspectRatio && (event => {
+      const { naturalWidth, naturalHeight } = event.currentTarget;
+      if (naturalWidth && naturalHeight) onAspectRatio(assetId, naturalWidth / naturalHeight);
+    })} />;
   return onOpen ? <button type="button" className="board-image-open" aria-label={label} onClick={onOpen}>{image}</button> : image;
 });

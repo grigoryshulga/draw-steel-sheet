@@ -732,10 +732,6 @@ export function CodexView() {
                                     .join(" · ")}
                                 </p>
                               )}
-                              <a className="codex-collection-footer" href={catalogLink(name)}>
-                                Открыть главу · {entries.length}
-                                <Icon name="arrow-right" size={16} />
-                              </a>
                             </section>
                           );
                         })}
@@ -753,12 +749,6 @@ export function CodexView() {
                                 .map((id) => articleTitle(id))
                                 .join(" · ")}
                             </p>
-                            <a
-                              className="codex-collection-footer"
-                              href={codexArticleHref(extra.articleIds[0])}
-                            >
-                              Открыть <Icon name="arrow-right" size={16} />
-                            </a>
                           </section>
                         ))}
                       </div>

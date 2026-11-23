@@ -40,10 +40,12 @@ psql_local < "$root_dir/supabase/migrations/202611180005_board_drawing.sql"
 psql_local < "$root_dir/supabase/migrations/202611190001_main_scene.sql"
 psql_local < "$root_dir/supabase/migrations/202611190002_table_combat.sql"
 psql_local < "$root_dir/supabase/migrations/202611190003_scene_challenges.sql"
+psql_local < "$root_dir/supabase/migrations/202611230001_table_journal_companions.sql"
 psql_local < "$root_dir/tests/sql/tables-fixture.sql"
 psql_local < "$root_dir/tests/sql/table-board-fixture.sql"
 psql_local < "$root_dir/tests/sql/table-combat-fixture.sql"
 psql_local < "$root_dir/tests/sql/table-scene-challenges-fixture.sql"
+psql_local < "$root_dir/tests/sql/table-journal-companions-fixture.sql"
 has_revision_rpc=0
 if [[ -f "$root_dir/supabase/migrations/202611070002_character_revisions.sql" ]]; then
   has_revision_rpc=1

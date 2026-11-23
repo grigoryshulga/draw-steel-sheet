@@ -14,6 +14,7 @@ import {
   elementalistPersistentAbilities,
   elementalistStartTurnGain,
   elementalistSustainCost,
+  hasMedley,
   normalizeElementalistState,
   normalizeTroubadourState,
   persistentCost,
@@ -27,15 +28,17 @@ export function TroubadourPanel() {
   const { character, performGameAction } = useApp();
   const state = normalizeTroubadourState(character.classMechanics?.troubadour);
   const routines = troubadourRoutines(character);
+  const medley = hasMedley(character);
   const [editing, setEditing] = useState(false);
   const [selected, setSelected] = useState("");
   const [secondSelection, setSecond] = useState<string>();
-  const second = secondSelection ?? state.activeRoutineIds?.[1] ?? "";
+  const second = medley ? secondSelection ?? state.activeRoutineIds?.[1] ?? "" : "";
   const chosen =
     routines.find((a) => a.id === selected) ??
     routines.find((a) => a.id === state.activeRoutineId) ??
     routines[0];
-  const active = routines.filter((a) => state.activeRoutineIds?.includes(a.id));
+  const activeIds = medley ? state.activeRoutineIds : state.activeRoutineIds?.slice(0, 1);
+  const active = routines.filter((a) => activeIds?.includes(a.id));
   const action: RoutinesMagicAction = {
     kind: "troubadour-select",
     abilityId: chosen?.id ?? "",
@@ -57,9 +60,7 @@ export function TroubadourPanel() {
             текущее. Без действия; до конца встречи или потери возможности
             выступать.
           </p>
-          <p>
-            С 5-го уровня «Медли» позволяет вести два выступления одновременно.
-          </p>
+          {medley && <p>«Медли» позволяет вести два выступления одновременно.</p>}
           <label>
             <input
               type="checkbox"
@@ -146,7 +147,7 @@ export function TroubadourPanel() {
                 {chosen && (
                   <AbilityPeek ability={chosen} character={character} />
                 )}
-                {character.level >= 5 && (
+                {medley && (
                   <Field label="Второе выступление · Медли">
                     <Select
                       value={second}

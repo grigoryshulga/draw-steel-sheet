@@ -49,8 +49,15 @@ describe("классовые панели", () => {
     expect(render(createCharacter({ className: "Неистовый" }))).toBe("");
     expect(render(createCharacter({ className: "Призыватель" }))).toBe("");
   });
-  it("после загрузки показывает названия обоих выступлений, оставляя полные эффекты для попапа", () => {
+  it("показывает оба сохранённых выступления у Виртуоза с Медли и одно у Автора", () => {
     const hero = createCharacter({ className: "Трубадур", level: 5 });
+    hero.subclass = "Виртуоз";
+    hero.automation = {
+      enabled: false,
+      adjustments: {},
+      ancestryTraits: [],
+      classFeatureSelections: { "troubadour.feature.5.virtuoz": "Медли" },
+    };
     const routines = ["Хореография", "Живительный Лимерик"].map((name) =>
       ABILITY_COMPENDIUM.find((a) => a.name === name)!,
     );
@@ -66,5 +73,8 @@ describe("классовые панели", () => {
     expect(html).not.toContain("бонус +2 к скорости");
     expect(html).toContain("Живительный Лимерик");
     expect(html).not.toContain("потратить Восстановление");
+    const author = render({ ...hero, subclass: "Автор" });
+    expect(author).toContain("Хореография");
+    expect(author).not.toContain("Живительный Лимерик");
   });
 });
