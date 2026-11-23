@@ -1,6 +1,5 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import type { CSSProperties, DragEvent, ReactNode } from "react";
-import { createPortal } from "react-dom";
 import { Button } from "../../components/ui";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { Icon } from "../../components/Icons";
@@ -30,7 +29,7 @@ const edges: BoardResizeEdge[] = ["n", "e", "s", "w", "nw", "ne", "sw", "se"];
 const noStrokes: BoardStroke[] = [];
 const gridSizes = [20, 40, 60, 80, 100, 120, 160];
 
-export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHud, draft = false, gridHost, gridObscured = false }: {
+export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHud, draft = false }: {
   table: TableSnapshot;
   command: SendTableCommand;
   busy: boolean;
@@ -38,8 +37,6 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   openHero?: (id: string) => void;
   sceneHud?: ReactNode;
   draft?: boolean;
-  gridHost?: HTMLElement | null;
-  gridObscured?: boolean;
 }) {
   const board = table.board ?? EMPTY_BOARD;
   const director = table.actorId === table.ownerId;
@@ -58,6 +55,7 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   const [dropTarget, setDropTarget] = useState(false);
   const [cameraOpen, setCameraOpen] = useState(false);
   const [containedBackground, setContainedBackground] = useState<string>();
+  const [artwork, setArtwork] = useState<{ id: string; width: number }>();
   const [[width, height], setSize] = useState([0, 0]);
   const imageInput = useRef<HTMLInputElement>(null);
   const backgroundInput = useRef<HTMLInputElement>(null);
@@ -68,15 +66,14 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   const wheelHandler = useRef<(event: WheelEvent) => void>(() => {});
   const blocked = busy || uploading || needsRetry;
   const currentMaterial = board.materials.find(material => material.id === selected);
-  const gridAvailable = toolsOpen || !gridObscured;
-  const grid = dialog === "grid" && gridAvailable ? gridPreview ?? board.grid : board.grid;
-  const fitHeight = !!board.background && containedBackground !== board.background;
-  const scale = boardScale(width, height, fitHeight);
-  const canSwitchFit = !!board.background && width * BOARD_HEIGHT < height * BOARD_WIDTH;
-
-  useEffect(() => {
-    if (!gridAvailable) setDialog(current => current === "grid" ? null : current);
-  }, [gridAvailable]);
+  const grid = dialog === "grid" && toolsOpen ? gridPreview ?? board.grid : board.grid;
+  const fillViewport = !!board.background && containedBackground !== board.background;
+  const artworkWidth = artwork && artwork.id === board.background ? artwork.width : BOARD_WIDTH;
+  const scale = boardScale(width, height, fillViewport, artworkWidth);
+  const canSwitchFit = !!board.background;
+  const measureArtwork = useCallback((id: string, ratio: number) => {
+    setArtwork({ id, width: BOARD_HEIGHT * ratio });
+  }, []);
 
   const startPlacement = (kind: BoardMaterial["kind"], point: BoardPoint = camera.position.current) =>
     alignBoardItem({ ...itemSettings[kind], x: point.x, y: point.y }, board.grid);
@@ -105,7 +102,7 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
     stage.current?.focus({ preventScroll: true });
   };
 
-  const gestures = useBoardGestures(camera, board.grid, fitHeight,
+  const gestures = useBoardGestures(camera, board.grid, fillViewport, artworkWidth,
     key => {
       const placement = items.get(key)?.placement;
       return editable && !blocked && !placement?.locked ? placement : undefined;
@@ -228,10 +225,10 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   const moveZoom = (factor: number) => camera.move(zoomBoard(camera.position.current, currentZoom() * factor), true);
   const cameraDisabled = camera.following || camera.changing;
   const fitWholeBoard = () => {
-    if (canSwitchFit && board.background) setContainedBackground(board.background);
+    if (board.background) setContainedBackground(board.background);
     camera.move(BOARD_VIEW, true);
   };
-  const restoreHeightFit = canSwitchFit && !fitHeight && zoom === 1;
+  const restoreFill = canSwitchFit && !fillViewport && zoom === 1;
   const showRetry = upload && !board.materials.some(material => material.id === upload.id) && board.background !== upload.id;
 
   const renderItem = (key: string, kind: BoardMaterial["kind"], children: ReactNode) => {
@@ -270,8 +267,6 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
     if (toolsOpen) {
       if (drawing.painting) drawing.toggle();
       setDialog(null);
-    } else if (dialog === "grid") {
-      setDialog(null);
     }
     setToolsOpen(!toolsOpen);
   };
@@ -306,17 +301,6 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
       return !!result;
     }} />
   </aside>;
-
-  const gridControls = <div className="board-grid-dock" role="group" aria-label="Сетка полотна"
-    onKeyDown={event => {
-      if (event.key === "Escape" && dialog === "grid") {
-        setDialog(null);
-        event.currentTarget.querySelector<HTMLButtonElement>(".board-grid-settings")?.focus();
-      }
-    }}>
-    {gridButtons}
-    {gridPanel}
-  </div>;
 
   const textPanel = dialog === "text" && <aside className="board-add-panel" aria-label="Добавить текст">
     <div className="board-add-panel-header">
@@ -402,8 +386,8 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
         <Button size="sm" icon="minus" iconOnly disabled={cameraDisabled || zoom <= 1} onClick={() => moveZoom(0.8)}>Уменьшить масштаб</Button>
         <Button size="sm" icon="plus" iconOnly disabled={cameraDisabled || zoom >= 4} onClick={() => moveZoom(1.25)}>Увеличить масштаб</Button>
         <Button size="sm" icon="expand" iconOnly disabled={cameraDisabled || (zoom === 1 && !canSwitchFit)}
-          onClick={restoreHeightFit ? () => setContainedBackground(undefined) : fitWholeBoard}>
-          {restoreHeightFit ? "Вписать фон по высоте" : "Уместить полотно"}
+          onClick={restoreFill ? () => setContainedBackground(undefined) : fitWholeBoard}>
+          {restoreFill ? "Заполнить фоном полотно" : "Уместить полотно"}
         </Button>
         {editable && !draft && <Button size="sm" icon={camera.shared.control ? "pause" : "play"} aria-pressed={!!camera.shared.control}
           disabled={!camera.ready || camera.changing} onClick={() => void camera.lead(!camera.shared.control)}>
@@ -474,7 +458,8 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
         onDrop={drop}
       >
         <div className="board-world" style={{ width: BOARD_WIDTH * scale, height: BOARD_HEIGHT * scale, transform: `translate(${translationX}px, ${translationY}px) scale(${zoom})` }}>
-          {board.background && <BoardImage key={board.background} tableId={table.id} assetId={board.background} label="" background />}
+          {board.background && <BoardImage key={board.background} tableId={table.id} assetId={board.background}
+            label="" background onAspectRatio={measureArtwork} />}
           {grid.enabled && <div className="board-grid" aria-hidden="true" style={{
             // Fill the viewport using the same coordinates as the artwork and materials.
             left: gridLeft,
@@ -536,6 +521,5 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
         event.currentTarget.value = "";
         if (file) void showImage({ file, id: crypto.randomUUID(), point: camera.position.current });
       }} />}
-    {editable && !toolsOpen && !gridObscured && (gridHost ? createPortal(gridControls, gridHost) : gridControls)}
   </section>;
 }

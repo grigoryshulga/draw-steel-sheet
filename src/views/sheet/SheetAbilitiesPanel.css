@@ -49,6 +49,11 @@
   text-transform: uppercase;
 }
 
+.sheet-ability-section[data-action="favorites"] { --section-accent: var(--yellow); }
+.sheet-ability-favorite { flex: none; }
+.sheet-ability-favorite[aria-pressed="true"] { color: var(--yellow); }
+.sheet-ability-favorite[aria-pressed="true"] svg { fill: currentColor; }
+
 .sheet-ability-summary-toggle {
   display: grid;
   place-items: center;

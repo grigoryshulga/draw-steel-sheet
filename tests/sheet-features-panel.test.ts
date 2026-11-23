@@ -1,7 +1,7 @@
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { createCharacter } from "../src/lib/defaults";
+import { createCharacter, normalizeCharacter } from "../src/lib/defaults";
 import { ancestrySignatureFeatures } from "../src/data/ancestry-features/skeleton";
 import { AppContext, type AppContextValue } from "../src/state/AppContext";
 import { SheetAbilitiesPanel } from "../src/views/sheet/SheetAbilitiesPanel";
@@ -56,4 +56,22 @@ describe("особенности на листе", () => {
     expect(features).toContain("Вести за собой");
     expect(render(SheetAbilitiesPanel)).not.toContain("Вести за собой");
   });
+});
+
+it("сохраняет избранное конкретного героя и показывает его над действиями", () => {
+  const source = createCharacter();
+  const [favorite] = source.abilities;
+  const character = normalizeCharacter(JSON.parse(JSON.stringify({
+    ...source,
+    favoriteAbilityIds: [favorite.id, favorite.id, null, ""],
+  })));
+  expect(character.favoriteAbilityIds).toEqual([favorite.id]);
+  expect(normalizeCharacter(source).favoriteAbilityIds).toBeUndefined();
+
+  const render = (readOnly: boolean) => renderToStaticMarkup(createElement(AppContext.Provider,
+    { value: { character, readOnly } as AppContextValue }, createElement(SheetAbilitiesPanel)));
+  const html = render(false);
+  expect(html).toMatch(/data-action="favorites".*Избранное/);
+  expect(html).toContain(`Убрать из избранного: ${favorite.name}`);
+  expect(render(true)).not.toContain('data-action="favorites"');
 });

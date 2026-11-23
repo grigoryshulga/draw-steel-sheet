@@ -4,12 +4,13 @@ import '../AbilityCard.css';
 
 /** Shared shell for calculated hero abilities and source-only monster cards. */
 export function AbilityCardFrame({
-  title, titleText, tags, actionType, kind, full = false, flat = false,
+  title, titleText, tags, headerAction, actionType, kind, full = false, flat = false,
   className = '', children, onOpen, ...props
 }: Omit<CardProps, 'title'> & {
   title: ReactNode;
   titleText?: string;
   tags?: ReactNode;
+  headerAction?: ReactNode;
   actionType: string;
   kind?: string;
   full?: boolean;
@@ -24,6 +25,7 @@ export function AbilityCardFrame({
         {title}
       </CardTitle>
       {tags}
+      {headerAction}
     </CardHeader>
     {children}
   </Card>;

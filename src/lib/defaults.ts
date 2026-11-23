@@ -355,6 +355,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     damageTraits: rawDamageTraits,
     classMechanics: rawClassMechanics,
     damageModifier: rawDamageModifier,
+    favoriteAbilityIds: rawFavoriteAbilities,
     ...inputWithoutAdvancements
   } = input as Partial<Character> & {
     advancements?: unknown;
@@ -363,6 +364,9 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     damageTraits?: unknown;
     damageModifier?: unknown;
   };
+  const favoriteAbilityIds = Array.isArray(rawFavoriteAbilities)
+    ? [...new Set(rawFavoriteAbilities.filter((id): id is string => typeof id === "string" && id.trim().length > 0))]
+    : [];
   const normalizedAvatar = normalizeAvatar(rawAvatar);
   const normalizedDamageTraits = normalizeDamageTraits(rawDamageTraits);
   const threshold = rawXpThreshold && typeof rawXpThreshold === "object" && !Array.isArray(rawXpThreshold)
@@ -478,6 +482,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     abilities: Array.isArray(input.abilities)
       ? normalizeAbilities(input.abilities)
       : base.abilities,
+    ...(favoriteAbilityIds.length ? { favoriteAbilityIds } : {}),
     perks: Array.isArray(input.perks) ? input.perks : [],
     inventory: (Array.isArray(input.inventory) ? input.inventory : []).map(
       (item) => ({

@@ -200,7 +200,7 @@ function ResourceGains({
 
 /** Ресурсы боя, независимые от здоровья и восстановлений. */
 export function ResourcesPanel() {
-  const { character, performGameAction } = useApp();
+  const { character, performGameAction, readOnly } = useApp();
   const resourceName = heroicResourceName(character.className);
   const gains = resourceGainLabels(character).filter((gain) =>
     !(gain.tag === "start-of-turn" && ["Проводник", "Элементалист"].includes(character.className)),
@@ -248,12 +248,12 @@ export function ResourcesPanel() {
           }
         />
 
-        <ResourceRow
+        {!readOnly && <ResourceRow
           label="Жетоны героя"
           help={HERO_TOKENS_HELP}
           value={character.heroTokens}
           onValue={(value) => set("heroTokens", value)}
-        />
+        />}
       </div>
     </Panel>
   );

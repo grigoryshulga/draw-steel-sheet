@@ -252,6 +252,7 @@ export interface Character {
 
   conditions: Record<string, ConditionState>;
   abilities: Ability[];
+  favoriteAbilityIds?: string[];
   /** Общая ручная прибавка/штраф к урону способностей; действует независимо от авторасчёта. */
   damageModifier?: number;
   perks: SelectedPerk[];

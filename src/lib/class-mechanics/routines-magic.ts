@@ -1,5 +1,6 @@
 import type { Ability, Character } from "../../types";
 import type { ActionPreview } from "../game-actions";
+import { activeClassFeatures } from "../class-features";
 import { resolvedResourceGains } from "../resources";
 
 export interface TroubadourState {
@@ -88,6 +89,12 @@ export function troubadourRoutines(character: Character): Ability[] {
     ),
   );
 }
+export function hasMedley(character: Character): boolean {
+  return activeClassFeatures(character).some(
+    (feature) => feature.id === "feature.troubadour.level-5.medley",
+  );
+}
+
 /** Only an explicit priced sustain clause is a supported persistent effect. */
 export function persistentCost(ability: Ability): number | undefined {
   const match = `${ability.effect}\n${ability.notes}`.match(
@@ -246,10 +253,10 @@ export function previewRoutinesMagic(
       : undefined;
     if (
       action.secondAbilityId &&
-      (!second || character.level < 5 || second.id === ability.id)
+      (!second || !hasMedley(character) || second.id === ability.id)
     )
       return fail(
-        "Второе отличающееся выступление доступно с 5-го уровня благодаря «Медли».",
+        "Второе выступление должно отличаться от первого и требует особенности «Медли».",
       );
     const state = normalizeTroubadourState(
       character.classMechanics?.troubadour,
@@ -359,12 +366,14 @@ export function transitionRoutinesMagic(
     const owned = (state.activeRoutineIds ?? []).every((id) =>
       troubadourRoutines(character).some((ability) => ability.id === id),
     );
-    return clear || routineUnavailableReason(character) || !owned
-      ? withTroubadour(character, {
-          incapacitated: clear ? false : state.incapacitated,
-          selectedRound: clear ? undefined : state.selectedRound,
-        })
-      : character;
+    if (clear || routineUnavailableReason(character) || !owned)
+      return withTroubadour(character, {
+        incapacitated: clear ? false : state.incapacitated,
+        selectedRound: clear ? undefined : state.selectedRound,
+      });
+    if (state.activeRoutineIds?.length === 2 && !hasMedley(character))
+      return withTroubadour(character, { ...state, activeRoutineIds: state.activeRoutineIds.slice(0, 1) });
+    return character;
   }
   if (character.className !== "Элементалист") return character;
   let state = elementalistState(character);

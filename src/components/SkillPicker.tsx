@@ -46,7 +46,14 @@ export function SkillPicker({
       <h3 className={hideTitle ? "sr-only" : "skill-picker__title"} id={`${id}-title`}>{label}</h3>
       {state.required > 0 && <div className="skill-picker__summary">
         <strong role="status">Выбрано {state.selected.length} из {state.required}</strong>
-        <p>Доступный выбор: {state.requirements.map((item) => `${item.label} — ${item.required}`).join("; ")}.</p>
+        <ul className="skill-picker__requirements" aria-label="Условия выбора навыков">
+          {state.requirements.map(({ label, required, selected }, index) => (
+            <li key={index}>
+              <span>{label}</span>
+              <span className="numeric">Осталось {required - selected} из {required}</span>
+            </li>
+          ))}
+        </ul>
       </div>}
 
       {state.automatic.length > 0 ? (
@@ -68,13 +75,6 @@ export function SkillPicker({
             return available.has(key) || automatic.has(key) || known.has(key);
           });
           if (relevantSkills.length === 0) return null;
-          const requirement = state.requirements.find(
-            (item) => item.label === group.label,
-          );
-          const remaining = requirement
-            ? Math.max(0, requirement.required - requirement.selected)
-            : 0;
-
           return (
             <fieldset
               className="skill-picker__group"
@@ -84,26 +84,7 @@ export function SkillPicker({
               <legend className="sr-only">{group.label}</legend>
               <div className="skill-picker__group-head">
                 <span className="skill-picker__group-name">{group.label}</span>
-                {requirement && (
-                  <span
-                    className={`skill-picker__group-count${
-                      remaining === 0 ? " is-complete" : ""
-                    }`}
-                    title={`Выбрано ${requirement.selected} из ${requirement.required}`}
-                  >
-                    {remaining === 0 ? (
-                      <>
-                        <Icon name="check" size={12} aria-hidden="true" />
-                        Готово
-                      </>
-                    ) : (
-                      <>
-                        <b className="numeric">{remaining}</b>
-                        осталось
-                      </>
-                    )}
-                  </span>
-                )}
+
               </div>
               <div className="skill-picker__chips">
                 {relevantSkills.map((skill, skillIndex) => {

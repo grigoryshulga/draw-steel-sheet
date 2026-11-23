@@ -6,7 +6,6 @@ import { RuleArticleReader } from "../components/rules/RuleArticleReader";
 import { catalogSectionEntries } from "../data/reference-catalog";
 import { ItemEffectsEditor, ItemEffectsSummary } from "../components/ItemEffectsEditor";
 import { normalizeItemEffects } from "../lib/item-effects";
-import { Artwork } from "../components/Artwork";
 import { Icon } from "../components/Icons";
 import {
   Button,
@@ -490,7 +489,6 @@ export function InventoryView() {
             return (
             <article className="inv-kit-column" key={slot.label}>
               <header className="inv-kit-slot-head">
-                <Artwork kind="kit" name={slot.name} className="inv-kit-feature-art" />
                 <div className="inv-kit-feature-name">
                   <span className="eyebrow">{slot.label}</span>
                   <h3>{kit?.name || slot.name.trim() || "Не выбран"}</h3>

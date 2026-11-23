@@ -7,9 +7,10 @@ interface HelpTooltipProps {
   children: ReactNode;
   trigger?: ReactNode;
   className?: string;
+  positionAbove?: (trigger: HTMLElement) => HTMLElement | null;
 }
 
-export function HelpTooltip({ label, children, className, trigger }: HelpTooltipProps) {
+export function HelpTooltip({ label, children, className, trigger, positionAbove }: HelpTooltipProps) {
   const tooltipId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -49,8 +50,9 @@ export function HelpTooltip({ label, children, className, trigger }: HelpTooltip
         window.innerWidth - popupRect.width - margin,
       );
       const below = window.innerHeight - triggerRect.bottom;
-      const preferredTop = below < popupRect.height + 8
-        ? Math.max(margin, triggerRect.top - popupRect.height - 8)
+      const anchor = positionAbove?.(trigger);
+      const preferredTop = anchor || below < popupRect.height + 8
+        ? (anchor?.getBoundingClientRect().top ?? triggerRect.top) - popupRect.height - 8
         : triggerRect.bottom + 8;
       const top = Math.min(
         Math.max(margin, preferredTop),
@@ -67,7 +69,7 @@ export function HelpTooltip({ label, children, className, trigger }: HelpTooltip
       window.removeEventListener("resize", positionPopup);
       window.removeEventListener("scroll", positionPopup, true);
     };
-  }, [open]);
+  }, [open, positionAbove]);
 
   useLayoutEffect(() => {
     if (!open) return;

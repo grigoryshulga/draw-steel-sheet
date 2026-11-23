@@ -552,7 +552,7 @@ describe("builder skill workflow", () => {
     expect(state.complete).toBe(false);
     expect(state.available).toContain("Кулинария");
     expect(state.requirements[0].label).toBe(
-      "Замена: Музыка или Выступление (уже известны)",
+      "Любой навык взамен «Музыка или Выступление»",
     );
 
     // The full draft still validates and builds with three career skills.

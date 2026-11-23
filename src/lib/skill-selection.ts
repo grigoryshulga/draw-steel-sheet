@@ -194,8 +194,8 @@ function prepareSlots(
       ? {
           key: `replacement:${index}`,
           label: slot.fixed
-            ? `Замена: ${slot.label}`
-            : `Замена: ${optionsLabel(sourceOptions, slot.label || "Навык")} (уже известны)`,
+            ? `Любой навык взамен «${slot.label}»`
+            : `Любой навык взамен «${optionsLabel(sourceOptions, slot.label || "Навык")}»`,
         }
       : slotDomain(slot);
     return {

@@ -110,8 +110,29 @@ describe("выступления", () => {
       secondAbilityId: "song",
     } as const;
     expect(previewRoutinesMagic(character, action).ok).toBe(false);
-    character = { ...character, level: 5 };
+    character = { ...character, level: 5, subclass: "Автор" };
+    expect(previewRoutinesMagic(character, action).ok).toBe(false);
+    character = {
+      ...character,
+      subclass: "Виртуоз",
+      automation: {
+        enabled: false,
+        adjustments: {},
+        ancestryTraits: [],
+        classFeatureSelections: { "troubadour.feature.5.virtuoz": "Поддерживающая перепалка" },
+      },
+    };
+    expect(previewRoutinesMagic(character, action).ok).toBe(false);
+    character = {
+      ...character,
+      automation: { ...character.automation!,
+        classFeatureSelections: { "troubadour.feature.5.virtuoz": "Медли" },
+      },
+    };
+    expect(previewRoutinesMagic({ ...character, level: 4 }, action).ok).toBe(false);
     character = act(character, action);
+    expect(transitionRoutinesMagic({ ...character, subclass: "Автор" }, "resource-change")
+      .classMechanics?.troubadour?.activeRoutineIds).toEqual(["dance"]);
     expect(character.classMechanics?.troubadour?.activeRoutineIds).toEqual([
       "dance",
       "song",

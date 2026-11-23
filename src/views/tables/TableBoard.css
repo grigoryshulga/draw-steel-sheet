@@ -127,18 +127,7 @@
   accent-color: var(--accent);
 }
 .board-brush-controls output { min-width: 2ch; color: var(--muted); font-size: var(--text-md); font-variant-numeric: tabular-nums; }
-.board-background-actions, .board-grid-dock { display: flex; align-items: center; gap: var(--space-1); }
-.board-grid-dock {
-  position: absolute;
-  z-index: 5;
-  inset-inline-end: var(--table-right-edge, var(--space-6));
-  inset-block-end: var(--space-1);
-  padding: var(--space-1);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-}
-
+.board-background-actions { display: flex; align-items: center; gap: var(--space-1); }
 .board-material {
   position: absolute;
   display: grid;
@@ -327,6 +316,7 @@
   cursor: pointer;
 }
 .board-player-action:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.board-player-card:has(.board-player-action) .board-player-summary { cursor: pointer; }
 .board-player-footer {
   position: relative;
   display: grid;
@@ -344,7 +334,7 @@
 .board-player-stamina .shared-hero-hp { height: 18px; }
 .board-player-resources {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
 }
 .board-player-resource .help-tooltip-trigger {
   width: 100%;
@@ -364,7 +354,6 @@
 .board-player-resource.is-magenta svg { color: var(--magenta); }
 .board-player-resource.is-cyan svg { color: var(--cyan); }
 .board-player-resource.is-yellow svg { color: var(--yellow); }
-.board-player-resource.is-blue svg { color: var(--blue); }
 .board-player-resource.is-orange svg { color: var(--orange); }
 @media (pointer: coarse) {
   .board-player-resource .help-tooltip-trigger { height: var(--touch-target-size); }
@@ -434,19 +423,6 @@
   inset-inline-end: var(--table-edge, var(--space-3));
   width: min(330px, calc(100% - 2 * var(--table-edge, var(--space-3))));
 }
-.table-drawer-grid-host .board-grid-dock {
-  position: relative;
-  inset: auto;
-  padding: 0;
-  border: 0;
-}
-.table-drawer-grid-host .board-grid-panel {
-  inset-block-start: calc(100% + var(--space-3));
-  inset-block-end: auto;
-  width: min(330px, calc(100cqw - var(--card-padding) - var(--touch-target-size) - var(--space-4)));
-  max-height: min(520px, calc(100dvh - var(--table-board-top) - 64px));
-}
-
 .board-add-panel-header { display: flex; justify-content: space-between; align-items: center; }
 .board-material-library { display: grid; gap: var(--space-2); }
 .board-material-library button { justify-content: start; text-align: start; cursor: grab; }
@@ -519,15 +495,11 @@
   inset-inline-end: var(--board-cards-end);
 }
 .is-board-focused .board-seats-players {
-  --board-seats-edge: calc(var(--table-edge) + max(var(--board-camera-width, 0px), var(--board-grid-dock-width, 0px)) + var(--space-3));
+  --board-seats-edge: calc(var(--table-edge) + var(--board-camera-width, 0px) + var(--space-3));
   z-index: 4;
   bottom: 0;
   inset-inline: var(--board-seats-edge) calc(var(--board-seats-edge) + var(--table-rail-width));
 }
-.is-board-focused .table-board:has(> .board-grid-dock) {
-  --board-grid-dock-width: calc(2 * var(--touch-target-size) + var(--space-6));
-}
-
 @media (max-width: 900px) {
   .is-board-focused .board-view-toggle.btn { display: inline-flex; }
   .is-board-focused .board-view-controls {

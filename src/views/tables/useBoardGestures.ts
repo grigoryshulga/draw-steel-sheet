@@ -17,7 +17,8 @@ const distance = (a: BoardPoint, b: BoardPoint) => Math.hypot(a.x - b.x, a.y - b
 export function useBoardGestures(
   camera: ReturnType<typeof useBoardView>,
   grid: BoardGrid,
-  fitHeight: boolean,
+  fillViewport: boolean,
+  artworkWidth: number,
   readItem: (key: string) => BoardPlacement | undefined,
   onPlace: (item: DraggedItem) => Promise<void>,
 ) {
@@ -32,11 +33,11 @@ export function useBoardGestures(
     const rect = stage.current?.getBoundingClientRect();
     return { x: x - (rect?.left ?? 0), y: y - (rect?.top ?? 0) };
   };
-  const at = (x: number, y: number) => screenToBoard(local(x, y), width(), camera.position.current, height(), fitHeight);
+  const at = (x: number, y: number) => screenToBoard(local(x, y), width(), camera.position.current, height(), fillViewport, artworkWidth);
   const inside = (point: BoardPoint) => point.x >= 0 && point.x <= width() &&
     point.y >= 0 && point.y <= height();
   const offsetView = (view: BoardView, origin: BoardPoint, next: BoardPoint): BoardView => {
-    const scale = boardScale(width(), height(), fitHeight) * view.zoom;
+    const scale = boardScale(width(), height(), fillViewport, artworkWidth) * view.zoom;
     return { ...view, x: view.x - (next.x - origin.x) / scale, y: view.y - (next.y - origin.y) / scale };
   };
   const placement = (current: Extract<Gesture, { kind: "item" }>, point: BoardPoint, event: ReactPointerEvent<HTMLDivElement>) => {
@@ -90,7 +91,7 @@ export function useBoardGestures(
       camera.move(offsetView(current.view, current.origin, point));
     } else {
       const [first, second] = [...pointers.current.values()];
-      const anchor = screenToBoard(current.origin, width(), current.view, height(), fitHeight);
+      const anchor = screenToBoard(current.origin, width(), current.view, height(), fillViewport, artworkWidth);
       const next = zoomBoard(current.view, current.view.zoom * distance(first, second) / current.distance, anchor);
       camera.move(offsetView(next, current.origin, midpoint(first, second)));
     }

@@ -94,9 +94,6 @@ export function SharedHeroCard({ hero, compact = false }: { hero: SharedHero; co
         <span>
           <strong>{resources.surges}</strong> Всплески
         </span>
-        <span>
-          <strong>{resources.heroTokens}</strong> Жетоны героя
-        </span>
       </div>
       {Object.entries(resources.additional ?? {}).map(([name, value]) => (
         <span className="chip" key={name}>

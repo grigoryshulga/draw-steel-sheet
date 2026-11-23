@@ -128,19 +128,23 @@ export function readSceneDrop(data: DataTransfer): SceneDrop | undefined {
   if (template) return { kind: "template", id: template };
 }
 
-export function boardScale(width: number, height: number, fitHeight = false) {
+export function boardScale(width: number, height: number, fillViewport = false, artworkWidth = BOARD_WIDTH) {
   const heightScale = height / BOARD_HEIGHT;
-  return fitHeight ? heightScale : Math.min(width / BOARD_WIDTH, heightScale);
+  // Artwork keeps its original height and horizontal centre in board coordinates.
+  // Fit both the art and logical board so existing placements stay aligned.
+  return fillViewport
+    ? Math.max(width / Math.min(artworkWidth, BOARD_WIDTH), heightScale)
+    : Math.min(width / Math.max(artworkWidth, BOARD_WIDTH), heightScale);
 }
 
 export function boardCenterY(height: number, fitScale: number) {
-  return height - BOARD_HEIGHT * fitScale / 2;
+  return Math.max(height / 2, height - BOARD_HEIGHT * fitScale / 2);
 }
 
 /** Screen coordinates are relative to the viewport. */
 export function screenToBoard(point: BoardPoint, viewportWidth: number, view: BoardView,
-  viewportHeight = viewportWidth * BOARD_HEIGHT / BOARD_WIDTH, fitHeight = false): BoardPoint {
-  const fitScale = boardScale(viewportWidth, viewportHeight, fitHeight);
+  viewportHeight = viewportWidth * BOARD_HEIGHT / BOARD_WIDTH, fillViewport = false, artworkWidth = BOARD_WIDTH): BoardPoint {
+  const fitScale = boardScale(viewportWidth, viewportHeight, fillViewport, artworkWidth);
   const scale = fitScale * view.zoom;
   return {
     x: view.x + (point.x - viewportWidth / 2) / scale,

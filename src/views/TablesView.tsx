@@ -93,7 +93,6 @@ export function TablesView({
   const [exitOpen, setExitOpen] = useState(false);
   const [drawerWidth, setDrawerWidth] = useState(560);
   const [layoutHost, setLayoutHost] = useState<HTMLDivElement | null>(null);
-  const [draftGridHost, setDraftGridHost] = useState<HTMLDivElement | null>(null);
   const [preparingDrop, setPreparingDrop] = useState(false);
   const [sceneDropTarget, setSceneDropTarget] = useState(false);
   const [tableName, setTableName] = useState("");
@@ -440,7 +439,6 @@ export function TablesView({
                 resizeDrawer(width + (event.key === "ArrowLeft" ? 32 : -32));
               }} />
             <div className="table-drawer-actions">
-              {scene && <div className="table-drawer-grid-host" ref={setDraftGridHost} />}
               <Button size="sm" iconOnly icon="chevron-right" variant="ghost" onClick={() => collapseDrawer(true)}>Свернуть панель</Button>
             </div>
             <div ref={drawerContent} className="table-drawer-content" tabIndex={0} role="region" aria-label={panel ? PANELS[panel].label : "Содержимое панели"}>
@@ -542,7 +540,7 @@ export function TablesView({
                       onDirtyChange={setSceneDirty}
                       renderLayout={(draft, update) => layoutHost && createPortal(
                         <Suspense fallback={null}>
-                          <SceneLayoutEditor table={table} layout={draft.layout} busy={busy || table.archived} gridHost={draftGridHost}
+                          <SceneLayoutEditor table={table} layout={draft.layout} busy={busy || table.archived}
                             onChange={(layout) => update({ layout })} />
                         </Suspense>, layoutHost)}
                       busy={busy || table.archived}
@@ -1062,7 +1060,7 @@ export function TablesView({
             }}>
             <Suspense fallback={<p role="status">Загрузка полотна…</p>}>
               <TableBoard key={table.id} table={table} busy={busy || preparingDrop} needsRetry={state.needsRetry}
-                gridObscured={drawerOpen} openHero={openHero}
+                openHero={openHero}
                 sceneHud={activeScene && <SceneTracker key={activeScene.id} scene={activeScene}
                   director={director} live showRoster={false} error={state.error}
                   table={table} onCombat={(type, payload) => void command(type, payload)}

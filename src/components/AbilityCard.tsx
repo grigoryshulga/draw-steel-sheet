@@ -57,6 +57,7 @@ export interface AbilityCardProps {
   full?: boolean;
   /** Без рамки и фона: карточка как содержимое поп-апа, а не карточка в карточке. */
   flat?: boolean;
+  headerAction?: ReactNode;
   footerAction?: ReactNode;
   details?: ReactNode;
   className?: string;
@@ -72,6 +73,7 @@ export function AbilityCard({
   selected = false,
   full = false,
   flat = false,
+  headerAction,
   footerAction,
   details,
   className,
@@ -85,6 +87,7 @@ export function AbilityCard({
       title={ability.name || "Без названия"}
       titleText={ability.name || "Без названия"}
       tags={<AbilityTags view={view} />}
+      headerAction={headerAction}
       actionType={ability.actionType}
       kind={ability.kind}
       full={full}

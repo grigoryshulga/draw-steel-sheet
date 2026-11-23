@@ -252,7 +252,8 @@ export function buildReadingStructure({ articles, articleById, entities, entityB
     }),
   }));
   const directorChapters = ['22', '23', '24', '25'].flatMap(number => chapterByNumber.has(number) ? [chapterByNumber.get(number)] : []);
-  parts.find(part => part.id === 'for-director').chapters.push(...directorChapters);
+  const directorPart = parts.find(part => part.id === "for-director");
+  directorPart.chapters.splice(directorPart.chapters.indexOf(requireChapter("21", "часть for-director")), 0, ...directorChapters);
 
   // Лендинги классов: статьи главы 08 по группе = русскому имени класса.
   const classChapterPrefix = "08.";
