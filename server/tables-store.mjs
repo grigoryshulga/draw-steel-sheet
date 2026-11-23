@@ -139,6 +139,7 @@ export function projectTable(t, actorId) {
     visibility: Object.fromEntries(Object.entries(t.visibility || {}).filter(([h]) => t.heroOwners?.[h] === actorId)),
     scenes: t.scenes.filter(s => director || s.published && s.status !== 'prepared').map(s => projectScene(s, director)),
     board: projectBoard(t, director), combat: projectCombat(t, director), materials: t.materials.filter(m => director || m.public).map(copy), events: t.events.filter(e => director || e.public || e.actor === actorId).map(copy),
+    companions: (t.companions ?? []).map(c => pick(c, ['id', 'name', 'sourceId', 'stamina', 'maxStamina'])),
     offers: t.offers.filter(o => director || o.fromUserId === actorId || o.toUserId === actorId).map(copy), trades: t.trades.filter(o => o.fromUserId === actorId || o.toUserId === actorId).map(copy),
     ...(director ? { inviteCode: t.inviteCode, ...(t.transferTo ? { transferTo: t.transferTo } : {}) } : t.transferTo === actorId ? { transferTo: actorId } : {}) };
 }
@@ -258,7 +259,8 @@ export function createTablesStore({ dataDir, charactersStore = dataDir ? createS
       if (demoPlayer) {
         const ownTurn = (command.type === 'combat-start-turn' || command.type === 'combat-end-turn') &&
           p.side === 'heroes' && p.id === actor;
-        const journalEntry = command.type === 'event' && (p.kind === 'message' || p.kind === 'roll');
+        const journalEntry = command.type === 'event' && (p.kind === 'message' || p.kind === 'roll') ||
+          command.type === 'event-edit' || command.type === 'event-delete';
         if (!ownTurn && !journalEntry) requireDirector();
       }
       const state = await load(), fingerprint = JSON.stringify({ tableId, command });
@@ -312,6 +314,43 @@ export function createTablesStore({ dataDir, charactersStore = dataDir ? createS
           case 'delete-material': requireValid(id(p.materialId)); t.materials = t.materials.filter(m => m.id !== p.materialId); break;
           // Only explicitly authored text enters events; never log scene state.
           case 'event': requireValid(text(p.text, 10000) && typeof p.public === 'boolean' && text(p.kind, 80)); t.events.push({ id: randomUUID(), at: now(), actor, text: p.text, public: p.public, kind: p.kind }); break;
+          case 'event-edit':
+          case 'event-delete': {
+            requireValid(id(p.eventId));
+            const entry = t.events.find(e => e.id === p.eventId);
+            const director = t.ownerId === actor;
+            if (!entry || (!director && !entry.public && entry.actor !== actor)) fail(404, 'Запись не найдена');
+            const editing = command.type === 'event-edit';
+            if (entry.kind !== 'message' || (entry.actor !== actor && (editing || !director)))
+              fail(403, 'Нельзя изменить эту запись');
+            if (editing) {
+              requireValid(text(p.text, 10000) && (p.public === undefined || director && typeof p.public === 'boolean'));
+              Object.assign(entry, { text: p.text.trim(), editedAt: now(), ...(p.public === undefined ? {} : { public: p.public }) });
+            } else {
+              t.events = t.events.filter(e => e !== entry);
+            }
+            break;
+          }
+          case 'save-companion': {
+            const companion = p.companion;
+            requireValid(object(companion) && id(companion.id) && text(companion.name, 160) &&
+              (companion.sourceId === undefined || text(companion.sourceId, 200)) &&
+              integer(companion.stamina) && integer(companion.maxStamina, 1) &&
+              companion.stamina <= companion.maxStamina && companion.maxStamina <= 9999);
+            const companions = t.companions ??= [];
+            const index = companions.findIndex(c => c.id === companion.id);
+            if (index < 0 && companions.length >= 50) fail(409, 'На столе уже 50 спутников');
+            const next = { ...pick(companion, ['id', 'sourceId', 'stamina', 'maxStamina']), name: companion.name.trim() };
+            if (index < 0) companions.push(next);
+            else companions[index] = next;
+            break;
+          }
+          case 'delete-companion': {
+            requireValid(id(p.companionId));
+            if (!t.companions?.some(c => c.id === p.companionId)) fail(404, 'Спутник не найден');
+            t.companions = t.companions.filter(c => c.id !== p.companionId);
+            break;
+          }
           default:
             if (combatCommands.has(command.type)) {
               applyCombatCommand(t, command, fail);

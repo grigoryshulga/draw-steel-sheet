@@ -481,7 +481,7 @@ details[open] > summary > .table-disclosure-chevron { transform: rotate(90deg); 
   padding-bottom: var(--space-7);
   border-bottom: 1px solid var(--line);
 }
-.table-journal li > .muted {
+.table-journal-entry-head > .muted {
   font-size: var(--text-body);
 }
 .tables-page .table-item-composer > details {
@@ -1038,6 +1038,10 @@ body:has(.is-board-focused) .floating-header { display: none; }
 .table-settings .table-delete-section { padding-top: var(--space-7); border-top: 1px solid var(--line); }
 .table-settings .table-delete-section > .btn { display: flex; margin-left: auto; }
 .table-journal li { padding-block: var(--space-6); }
+.table-journal-entry-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
+.table-journal-entry-head .table-actions { flex: none; }
+.table-companions .table-member-identity { flex: 1; gap: var(--space-2); }
+.table-companions .table-member-identity .shared-hero-hp { max-width: 180px; }
 @media (max-width: 800px) {
   .table-settings { grid-template-columns: minmax(0, 1fr); }
 }

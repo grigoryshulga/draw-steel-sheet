@@ -183,6 +183,15 @@ function isObjectRecord(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === "object" && !Array.isArray(value);
 }
 
+function normalizeDramaSources(value: unknown): Character["dramaSources"] {
+  if (!isObjectRecord(value)) return undefined;
+  const hidden = Array.isArray(value.hidden)
+    ? [...new Set(value.hidden.filter((tag): tag is string => typeof tag === "string" && tag.trim().length > 0))]
+    : [];
+  const note = typeof value.note === "string" ? value.note.trim().slice(0, 1000) : "";
+  return hidden.length || note ? { hidden, note } : undefined;
+}
+
 function isLevelAdvancementRecord(value: unknown): value is LevelAdvancementRecord {
   if (!isObjectRecord(value)) return false;
   const { fromLevel, toLevel } = value;
@@ -356,6 +365,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     classMechanics: rawClassMechanics,
     damageModifier: rawDamageModifier,
     favoriteAbilityIds: rawFavoriteAbilities,
+    dramaSources: rawDramaSources,
     ...inputWithoutAdvancements
   } = input as Partial<Character> & {
     advancements?: unknown;
@@ -369,6 +379,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
     : [];
   const normalizedAvatar = normalizeAvatar(rawAvatar);
   const normalizedDamageTraits = normalizeDamageTraits(rawDamageTraits);
+  const dramaSources = normalizeDramaSources(rawDramaSources);
   const threshold = rawXpThreshold && typeof rawXpThreshold === "object" && !Array.isArray(rawXpThreshold)
     ? rawXpThreshold as Record<string, unknown> : undefined;
   const normalizedThreshold = threshold && Number.isSafeInteger(threshold.level) &&
@@ -474,6 +485,7 @@ export function normalizeCharacter(input: Partial<Character>): Character {
       ...(input.heroicResource ?? {}),
       name: heroicResourceName(input.className ?? base.className),
     },
+    ...(dramaSources ? { dramaSources } : {}),
     culture: { ...base.culture, ...(input.culture ?? {}) },
     careerInfo: { ...base.careerInfo, ...(input.careerInfo ?? {}) },
     conditions: normalizeConditions(

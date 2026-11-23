@@ -1,14 +1,15 @@
 import { useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent, KeyboardEvent as ReactKeyboardEvent } from "react";
-import { boardScale, moveBoardItem, resizeBoardItem, screenToBoard, zoomBoard, type BoardResizeEdge } from "../../lib/tables/board";
+import { BOARD_HEIGHT, BOARD_WIDTH, boardScale, boundCounterPlacement, moveBoardItem, resizeBoardItem, screenToBoard, zoomBoard, type BoardResizeEdge } from "../../lib/tables/board";
 import type { BoardGrid, BoardPlacement, BoardPoint, BoardView } from "../../lib/tables/types";
 import type { useBoardView } from "../../state/useBoardView";
 
 type DraggedItem = { key: string; placement: BoardPlacement };
+type MoveTarget = { placement: BoardPlacement; overlay: boolean };
 type Gesture =
   | { kind: "pan"; origin: BoardPoint; view: BoardView }
   | { kind: "pinch"; origin: BoardPoint; distance: number; view: BoardView }
-  | { kind: "item"; item: DraggedItem; edge?: BoardResizeEdge; origin: BoardPoint; view: BoardView; moved: boolean };
+  | { kind: "item"; item: DraggedItem & MoveTarget; edge?: BoardResizeEdge; origin: BoardPoint; view: BoardView; moved: boolean };
 
 const closeEnough = (a: BoardPoint, b: BoardPoint) => Math.hypot(a.x - b.x, a.y - b.y) < 4;
 const midpoint = (a: BoardPoint, b: BoardPoint) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
@@ -19,7 +20,7 @@ export function useBoardGestures(
   grid: BoardGrid,
   fillViewport: boolean,
   artworkWidth: number,
-  readItem: (key: string) => BoardPlacement | undefined,
+  readItem: (key: string) => MoveTarget | undefined,
   onPlace: (item: DraggedItem) => Promise<void>,
 ) {
   const stage = useRef<HTMLDivElement>(null);
@@ -41,13 +42,17 @@ export function useBoardGestures(
     return { ...view, x: view.x - (next.x - origin.x) / scale, y: view.y - (next.y - origin.y) / scale };
   };
   const placement = (current: Extract<Gesture, { kind: "item" }>, point: BoardPoint, event: ReactPointerEvent<HTMLDivElement>) => {
-    const offset = offsetView(current.view, current.origin, point);
-    const delta = { x: current.view.x - offset.x, y: current.view.y - offset.y };
-    const effectiveGrid = event.ctrlKey || event.metaKey ? { ...grid, enabled: false } : grid;
-    return { key: current.item.key, placement: current.edge
-      ? resizeBoardItem(current.item.placement, current.edge, delta, effectiveGrid,
-        { symmetric: event.altKey, proportional: event.shiftKey })
-      : moveBoardItem(current.item.placement, delta, effectiveGrid) };
+    const { key, overlay, placement: start } = current.item;
+    const scale = boardScale(width(), height(), fillViewport, artworkWidth) * current.view.zoom;
+    const delta = {
+      x: (point.x - current.origin.x) * (overlay ? BOARD_WIDTH / width() : 1 / scale),
+      y: (point.y - current.origin.y) * (overlay ? BOARD_HEIGHT / height() : 1 / scale),
+    };
+    const effectiveGrid = overlay || event.ctrlKey || event.metaKey ? { ...grid, enabled: false } : grid;
+    const next = current.edge
+      ? resizeBoardItem(start, current.edge, delta, effectiveGrid, { symmetric: event.altKey, proportional: event.shiftKey })
+      : moveBoardItem(start, delta, effectiveGrid);
+    return { key, placement: overlay ? boundCounterPlacement(next) : next };
   };
 
   const pointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
@@ -71,7 +76,7 @@ export function useBoardGestures(
     if (isSecond) {
       const [first, second] = [...pointers.current.values()];
       gesture.current = { kind: "pinch", origin: midpoint(first, second), distance: Math.max(1, distance(first, second)), view };
-    } else if (item && key) gesture.current = { kind: "item", item: { key, placement: item },
+    } else if (item && key) gesture.current = { kind: "item", item: { key, ...item },
       edge: handle?.dataset.boardResize as BoardResizeEdge | undefined, origin, view, moved: false };
     else gesture.current = { kind: "pan", origin, view };
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -140,10 +145,14 @@ export function useBoardGestures(
     const item = key ? readItem(key) : undefined;
     if (key && item && shift) {
       event.preventDefault();
-      const step = grid.enabled && item.snap ? grid.size : event.shiftKey ? 40 : 10;
+      const effectiveGrid = item.overlay ? { ...grid, enabled: false } : grid;
+      const step = effectiveGrid.enabled && item.placement.snap ? grid.size : event.shiftKey ? 40 : 10;
       const delta = { x: step * shift.x, y: step * shift.y };
       const edge = handle?.dataset.boardResize as BoardResizeEdge | undefined;
-      void onPlace({ key, placement: edge ? resizeBoardItem(item, edge, delta, grid) : moveBoardItem(item, delta, grid) });
+      const next = edge
+        ? resizeBoardItem(item.placement, edge, delta, effectiveGrid)
+        : moveBoardItem(item.placement, delta, effectiveGrid);
+      void onPlace({ key, placement: item.overlay ? boundCounterPlacement(next) : next });
       return;
     }
     if (event.target !== event.currentTarget || camera.following) return;

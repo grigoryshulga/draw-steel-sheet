@@ -94,9 +94,19 @@
 }
 
 .board-stage.is-panning { cursor: grabbing; }
-.board-stage.is-drawing, .board-stage.is-drawing .board-material[data-board-move] { cursor: crosshair; }
+.board-stage.is-drawing, .board-stage.is-drawing .board-world .board-material[data-board-move] { cursor: crosshair; }
 .board-stage.is-drop-target, .table-live-board.is-scene-drop-target .board-stage { outline: 2px solid var(--accent); outline-offset: -2px; }
 .board-world { position: absolute; inset: 0; transform-origin: top left; }
+.board-counter-layer { position: absolute; inset: 0; pointer-events: none; }
+.board-counter-layer .board-material {
+  --half-width: max(calc(var(--counter-width) / 2), min(64px, 50%));
+  --half-height: max(calc(var(--counter-height) / 2), min(38px, 50%));
+  left: clamp(var(--half-width), var(--counter-x), calc(100% - var(--half-width)));
+  top: clamp(var(--half-height), var(--counter-y), calc(100% - var(--half-height)));
+  width: calc(var(--half-width) * 2);
+  height: calc(var(--half-height) * 2);
+  pointer-events: auto;
+}
 .board-backdrop, .board-grid { position: absolute; pointer-events: none; }
 .board-backdrop {
   inset-block-start: 0;

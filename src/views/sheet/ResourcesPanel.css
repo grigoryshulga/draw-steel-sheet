@@ -79,11 +79,6 @@
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  cursor: pointer;
-}
-.resource-gains-title:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
 }
 .resource-gains-list {
   display: flex;
@@ -120,4 +115,38 @@
 .resource-gain button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+.resource-gains-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.drama-source-note {
+  margin: var(--space-4) 0 0;
+  padding-block-start: var(--space-4);
+  border-block-start: 1px solid var(--line);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: var(--text-md);
+}
+.drama-sources-form,
+.drama-sources-list {
+  display: grid;
+  gap: var(--space-4);
+}
+.drama-sources-list {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.drama-sources-list label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 32px;
+}
+@media (pointer: coarse) {
+  .drama-sources-list label { min-height: var(--touch-target-size); }
 }

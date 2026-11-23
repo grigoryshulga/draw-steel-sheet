@@ -236,6 +236,8 @@ export interface Character {
   stamina: { current: number; max: number; temp: number };
   recoveries: { current: number; max: number };
   heroicResource: { name: string; current: number; max: number };
+  /** Личные настройки отображения источников Драмы. */
+  dramaSources?: { hidden: string[]; note: string };
   surges: number;
   heroTokens: number;
 

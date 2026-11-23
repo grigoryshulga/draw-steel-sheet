@@ -192,6 +192,14 @@ export interface TableEvent {
   text: string;
   public: boolean;
   kind: string;
+  editedAt?: string;
+}
+export interface TableCompanion {
+  id: string;
+  name: string;
+  sourceId?: string;
+  stamina: number;
+  maxStamina: number;
 }
 export interface ItemOffer {
   id: string;
@@ -234,6 +242,7 @@ export interface TableSnapshot extends TableSummary {
   scenes: TableScene[];
   materials: TableMaterial[];
   events: TableEvent[];
+  companions?: TableCompanion[];
   offers: ItemOffer[];
   trades: ItemTrade[];
   inviteCode?: string;

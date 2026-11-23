@@ -68,15 +68,6 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
               ))}
             </Select>
           </Field>
-          <Field label={<span className="hstack">Класс <HelpTooltip label="Почему нельзя сменить класс"><p>Для другого класса создайте нового героя. Смена класса в готовом листе не пересобирает его способности и особенности.</p></HelpTooltip></span>}>
-            <span className="hero-locked-choice">
-            <Icon name="lock" size={14} />
-            <TextInput
-              value={character.className}
-              readOnly aria-label="Класс" placeholder="Не выбран"
-            />
-            </span>
-          </Field>
           <Field label="Карьера">
             <Select
               value={character.career}
@@ -90,15 +81,15 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
               ))}
             </Select>
           </Field>
-          <Field label={<span className="hstack">Подкласс <HelpTooltip label="Почему нельзя сменить подкласс"><p>Для другого подкласса создайте нового героя. Так сохранятся согласованные способности и особенности.</p></HelpTooltip></span>}>
-            <span className="hero-locked-choice">
-            <Icon name="lock" size={14} />
-            <TextInput
-              value={character.subclass}
-              readOnly aria-label="Подкласс" placeholder="Не выбран"
-            />
-            </span>
-          </Field>
+          <div className="hero-identity-build">
+            <dl>
+              <div><dt>Класс</dt><dd>{character.className || "Не выбран"}</dd></div>
+              <div><dt>Подкласс</dt><dd>{character.subclass || "Не выбран"}</dd></div>
+            </dl>
+            <HelpTooltip label="Как сменить класс или подкласс">
+              <p>Для другого класса или подкласса создайте нового героя. Так способности и особенности будут соответствовать вашему выбору.</p>
+            </HelpTooltip>
+          </div>
           <Field label="Уровень" className="hero-identity-level">
             <NumberInput
               value={character.level}

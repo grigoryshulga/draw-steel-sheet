@@ -7,7 +7,11 @@ import {
   epicResourceGainLabels,
   epicResourceName,
 } from "../src/lib/resources";
-import { createCharacter } from "../src/lib/defaults";
+import { createCharacter, normalizeCharacter } from "../src/lib/defaults";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { AppContext, type AppContextValue } from "../src/state/AppContext";
+import { ResourcesPanel } from "../src/views/sheet/ResourcesPanel";
 import { previewGameAction } from "../src/lib/game-actions";
 import { resourceGainLabels } from "../src/lib/resources";
 import { beginRound, currentRuntime, markTrigger } from "../src/lib/runtime";
@@ -26,6 +30,24 @@ function furyWithAspect(aspect: string, level = 1): Character {
 }
 
 describe("прибавки ресурса на листе", () => {
+  it("сохраняет личную настройку Драмы и скрывает строки только на личном листе", () => {
+    const base = createCharacter({ className: "Трубадур" });
+    const [gain] = resourceGainLabels(base);
+    const character = normalizeCharacter(JSON.parse(JSON.stringify({ ...base,
+      dramaSources: { hidden: [gain.tag, gain.tag, null, ""], note: " Личная памятка " },
+    })));
+    expect(character.dramaSources).toEqual({ hidden: [gain.tag], note: "Личная памятка" });
+    expect(normalizeCharacter(base).dramaSources).toBeUndefined();
+    expect(resourceGainLabels(character)).toEqual(resourceGainLabels(base));
+    const render = (readOnly: boolean) => renderToStaticMarkup(createElement(AppContext.Provider,
+      { value: { character, readOnly } as AppContextValue }, createElement(ResourcesPanel)));
+    const owner = render(false);
+    expect(owner).toContain("Личная памятка");
+    expect(owner).not.toContain(`Отметить прибавку: ${gain.label}`);
+    const shared = render(true);
+    expect(shared).toContain(gain.label);
+    expect(shared).not.toContain("Личная памятка");
+  });
   it("прибавки показываются с триггером, количеством и частотой", () => {
     expect(resourceGainLabels(fury(1))).toEqual([
       {

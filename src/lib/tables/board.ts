@@ -36,6 +36,15 @@ export function alignBoardItem(item: BoardPlacement, grid: BoardGrid): BoardPlac
   return moveBoardItem(item, { x: 0, y: 0 }, grid);
 }
 
+export function boundCounterPlacement(item: BoardPlacement): BoardPlacement {
+  return {
+    ...item,
+    x: constrain(item.x, item.width / 2, BOARD_WIDTH - item.width / 2),
+    y: constrain(item.y, item.height / 2, BOARD_HEIGHT - item.height / 2),
+    snap: false,
+  };
+}
+
 export type BoardResizeEdge = "n" | "e" | "s" | "w" | "nw" | "ne" | "sw" | "se";
 
 function commonDivisor(a: number, b: number): number {
