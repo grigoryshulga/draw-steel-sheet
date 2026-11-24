@@ -1,3 +1,5 @@
+import type { PrintedCreatureTree } from './creature-tree';
+import type { PrintedAbility } from './printed-ability';
 import type { CompendiumAbility, OriginalFields } from '../types';
 export type RuleEntityKind = 'ability' | 'feature' | 'ancestry' | 'career' | 'kit' | 'perk' | 'item' | 'project' | 'title' | 'monster' | 'retainer' | 'terrain' | 'monster-feature' | 'monster-lore' | 'monster-rule';
 export interface DirectorMetadata {
@@ -15,19 +17,24 @@ export interface DirectorMetadata {
   keywords?: string[];
 }
 export interface RuleEntity extends OriginalFields {
+  englishEdition?: { name: string; text: string };
   id: string; // namespaced stable identity; not derived anew from translated names
   kind: RuleEntityKind;
   name: string;
   markdown: string; // complete original rule block; never the lossy ability summary
   source: { articleId: string; path: string };
+  printedAbility?: PrintedAbility;
+  printedCreature?: { ru: PrintedCreatureTree; en?: PrintedCreatureTree };
+  englishSignatures?: { ref: string; start: number; end: number }[];
   ability?: CompendiumAbility; // structured projection when reliably mapped
   /** Составной комплект: полный текст остаётся в markdown, идентичность вариантов закреплена явно. */
   kitVariants?: { id: string; name: string; signatureAbilityId: string; damageType: string }[];
   grantedAbilityIds?: string[];
   director?: DirectorMetadata;
 }
-export type RuleBlock = { type: 'markdown'; text: string } | { type: 'entity'; ref: string };
+export type RuleBlock = { type: 'markdown'; text: string; originalText?: string } | { type: 'entity'; ref: string };
 export interface RuleArticle extends OriginalFields {
+  englishEdition?: { kind?: "source"; title: string; blocks: RuleBlock[] };
   id: string;
   title: string;
   chapter: string;

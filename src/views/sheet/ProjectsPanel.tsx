@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { Icon } from "../../components/Icons";
 import {
   Button,
@@ -17,6 +18,7 @@ import "./ProjectsPanel.css";
 
 /** Проекты отдыха: цель, накопленные очки и быстрый трекинг. */
 export function ProjectsPanel() {
+  const { t } = useLocale();
   const { character, update } = useApp();
   const projects = character.projects;
 
@@ -49,13 +51,13 @@ export function ProjectsPanel() {
   };
   return (
     <Panel
-      title="Проекты отдыха"
+      title={t("Проекты отдыха", "Respite projects")}
       icon="book"
       className="projects-panel"
       actions={
         <>
-          <a href="#/catalog/project">Каталог проектов</a>
-          <Button size="sm" variant="soft" icon="plus" iconOnly aria-label="Добавить проект" title="Добавить проект" onClick={addProject} />
+          <a href="#/catalog/project">{t("Каталог проектов", "Project catalog")}</a>
+          <Button size="sm" variant="soft" icon="plus" iconOnly aria-label={t("Добавить проект", "Add project")} title={t("Добавить проект", "Add project")} onClick={addProject} />
         </>
       }
     >
@@ -65,7 +67,7 @@ export function ProjectsPanel() {
             <Icon name="book" size={20} />
           </span>
           <div>
-            <strong>Проектов пока нет</strong>
+            <strong>{t("Проектов пока нет", "No projects yet")}</strong>
           </div>
         </div>
       ) : (
@@ -81,8 +83,8 @@ export function ProjectsPanel() {
                   <TextInput
                     className="project-name"
                     value={project.name}
-                    placeholder="Название проекта"
-                    aria-label="Название проекта"
+                    placeholder={t("Название проекта", "Project name")}
+                    aria-label={t("Название проекта", "Project name")}
                     onChange={(event) =>
                       patchProject(project.id, { name: event.target.value })
                     }
@@ -92,8 +94,8 @@ export function ProjectsPanel() {
                     variant="ghost"
                     icon="trash"
                     iconOnly
-                    aria-label={`Удалить проект: ${project.name || "без названия"}`}
-                    title="Удалить проект"
+                    aria-label={t(`Удалить проект: ${project.name || "без названия"}`, `Delete project: ${project.name || "untitled"}`)}
+                    title={t("Удалить проект", "Delete project")}
                     onClick={() => removeProject(project.id)}
                   />
                 </header>
@@ -102,15 +104,15 @@ export function ProjectsPanel() {
                   <a
                     href={`#/catalog/project/${encodeURIComponent(project.catalogId)}`}
                   >
-                    Требования и описание проекта <Icon name="arrow-right" size={16} />
+                    {t("Требования и описание проекта", "Project requirements and description")} <Icon name="arrow-right" size={16} />
                   </a>
                 )}
                 <div className="project-meta">
-                  <Field label="Исполнитель">
+                  <Field label={t("Исполнитель", "Assignee")}>
                     <TextInput
                       value={project.assigned}
-                      placeholder="Герой или последователь"
-                      aria-label="Исполнитель проекта"
+                      placeholder={t("Герой или последователь", "Hero or follower")}
+                      aria-label={t("Исполнитель проекта", "Project assignee")}
                       onChange={(event) =>
                         patchProject(project.id, {
                           assigned: event.target.value,
@@ -118,10 +120,10 @@ export function ProjectsPanel() {
                       }
                     />
                   </Field>
-                  <Field label="Характеристика">
+                  <Field label={t("Характеристика", "Characteristic")}>
                     <Select
                       value={project.characteristic}
-                      aria-label="Характеристика проекта"
+                      aria-label={t("Характеристика проекта", "Project characteristic")}
                       onChange={(event) =>
                         patchProject(project.id, {
                           characteristic: event.target.value,
@@ -139,21 +141,21 @@ export function ProjectsPanel() {
                       ))}
                     </Select>
                   </Field>
-                  <Field label="Очки">
+                  <Field label={t("Очки", "Points")}>
                     <NumberInput
                       value={progress.points}
                       min={0}
-                      label="Накопленные очки проекта"
+                      label={t("Накопленные очки проекта", "Accumulated project points")}
                       onChange={(points) =>
                         patchProject(project.id, { points: String(points) })
                       }
                     />
                   </Field>
-                  <Field label="Цель">
+                  <Field label={t("Цель", "Goal")}>
                     <NumberInput
                       value={progress.goal}
                       min={0}
-                      label="Цель проекта"
+                      label={t("Цель проекта", "Project goal")}
                       onChange={(goal) =>
                         patchProject(project.id, { goal: String(goal) })
                       }
@@ -163,7 +165,7 @@ export function ProjectsPanel() {
 
                 <div className="project-progress">
                   <div className="between">
-                    <span className="eyebrow">Прогресс</span>
+                    <span className="eyebrow">{t("Прогресс", "Progress")}</span>
                     <span className="mono project-numbers">
                       {progress.points} / {progress.goal}
                       {progress.goal > 0 && ` · ${progress.percent}%`}
@@ -175,7 +177,7 @@ export function ProjectsPanel() {
                     aria-valuemin={0}
                     aria-valuemax={Math.max(progress.goal, progress.points)}
                     aria-valuenow={progress.points}
-                    aria-label={`Прогресс проекта: ${progress.points} из ${progress.goal}`}
+                    aria-label={t(`Прогресс проекта: ${progress.points} из ${progress.goal}`, `Project progress: ${progress.points} of ${progress.goal}`)}
                   >
                     <span style={{ width: `${progress.percent}%` }} />
                   </div>
@@ -214,7 +216,7 @@ export function ProjectsPanel() {
                       +5
                     </Button>
                     <span className="grow" />
-                    {progress.complete && <Chip tone="green">готов</Chip>}
+                    {progress.complete && <Chip tone="green">{t("готов", "complete")}</Chip>}
                   </div>
                 </div>
               </article>

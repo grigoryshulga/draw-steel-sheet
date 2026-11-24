@@ -51,7 +51,44 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
       "originalName": "3rd-Level Features",
-      "originalDescription": "As a 3rd-level censor, you gain the following features."
+      "originalDescription": "As a 3rd-level censor, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "3rd-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 3rd-level censor, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-3.look-on-my-work-and-despair"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-3.7-wrath-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-3.edict-of-disruptive-isolation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-3.edict-of-perfect-order"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-3.edict-of-purifying-pacifism"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-3.edict-of-stillness"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -66,7 +103,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-3/look-on-my-work-and-despair",
       "originalName": "Look On My Work and Despair",
-      "originalDescription": "Your judgment has grown in divine power, instilling fear in those you condemn. Whenever you use your Judgment ability, you can spend 1 wrath, and if the target has P < AVERAGE, they are frightened of you (save ends). Additionally, whenever a creature judged by you is reduced to 0 Stamina and you use Judgment as a free triggered action, if the new target has P < STRONG, they are frightened of you (save ends). If the target is already frightened of you, they instead take holy damage equal to twice your Presence score."
+      "originalDescription": "Your judgment has grown in divine power, instilling fear in those you condemn. Whenever you use your Judgment ability, you can spend 1 wrath, and if the target has P < AVERAGE, they are frightened of you (save ends). Additionally, whenever a creature judged by you is reduced to 0 Stamina and you use Judgment as a free triggered action, if the new target has P < STRONG, they are frightened of you (save ends). If the target is already frightened of you, they instead take holy damage equal to twice your Presence score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-3.7-wrath-ability",
@@ -79,7 +119,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-3/7-wrath-ability",
       "originalName": "7-Wrath Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 wrath to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 wrath to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-3.edict-of-disruptive-isolation",
@@ -133,7 +176,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-disruptive-isolation",
       "originalName": "Edict of Disruptive Isolation",
-      "originalDescription": "*The evil within your foes detonates with holy fire that burns only the guilty.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target takes holy damage equal to your Presence score at the end of each of your turns. A target takes an extra 2d6 holy damage if they are judged by you or if they are adjacent to any enemy."
+      "originalDescription": "*The evil within your foes detonates with holy fire that burns only the guilty.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target takes holy damage equal to your Presence score at the end of each of your turns. A target takes an extra 2d6 holy damage if they are judged by you or if they are adjacent to any enemy.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The evil within your foes detonates with holy fire that burns only the guilty.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "2 aura"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, each target takes holy damage equal to your Presence score at the end of each of your turns. A target takes an extra 2d6 holy damage if they are judged by you or if they are adjacent to any enemy."
+      }
     },
     {
       "id": "feature.ability.censor.level-3.edict-of-perfect-order",
@@ -187,7 +249,29 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-perfect-order",
       "originalName": "Edict of Perfect Order",
-      "originalDescription": "*Within the area of your divine presence, your enemies will regret using their fell abilities.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target uses an ability that costs Malice (see *Draw Steel: Monsters*), they take holy damage equal to three times your Presence score. A target judged by you takes an extra 2d6 holy damage."
+      "originalDescription": "*Within the area of your divine presence, your enemies will regret using their fell abilities.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target uses an ability that costs Malice (see *Draw Steel: Monsters*), they take holy damage equal to three times your Presence score. A target judged by you takes an extra 2d6 holy damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Effect:** Until the end of the encounter or until you are dying, whenever a target uses an ability that costs Malice (see *Draw Steel: Monsters*), they take holy damage equal to three times your Presence score. A target judged by you takes an extra 2d6 holy damage."
+          }
+        ],
+        "flavor": "Within the area of your divine presence, your enemies will regret using their fell abilities.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "2 aura"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.censor.level-3.edict-of-purifying-pacifism",
@@ -241,7 +325,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-purifying-pacifism",
       "originalName": "Edict of Purifying Pacifism",
-      "originalDescription": "*You shed a righteous energy that punishes enemies who would harm you or your allies.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target makes a strike, they take holy damage equal to twice your Presence score. A target judged by you takes an extra 2d6 holy damage."
+      "originalDescription": "*You shed a righteous energy that punishes enemies who would harm you or your allies.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target makes a strike, they take holy damage equal to twice your Presence score. A target judged by you takes an extra 2d6 holy damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You shed a righteous energy that punishes enemies who would harm you or your allies.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "2 aura"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, whenever a target makes a strike, they take holy damage equal to twice your Presence score. A target judged by you takes an extra 2d6 holy damage."
+      }
     },
     {
       "id": "feature.ability.censor.level-3.edict-of-stillness",
@@ -295,7 +398,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-3/edict-of-stillness",
       "originalName": "Edict of Stillness",
-      "originalDescription": "*The holy aura you project makes it painful for evil-doers to leave your reach.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target moves or is force moved out of the area, they take holy damage equal to twice your Presence score. A target judged by you who moves willingly takes an extra 2d6 holy damage."
+      "originalDescription": "*The holy aura you project makes it painful for evil-doers to leave your reach.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever a target moves or is force moved out of the area, they take holy damage equal to twice your Presence score. A target judged by you who moves willingly takes an extra 2d6 holy damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The holy aura you project makes it painful for evil-doers to leave your reach.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "2 aura"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, whenever a target moves or is force moved out of the area, they take holy damage equal to twice your Presence score. A target judged by you who moves willingly takes an extra 2d6 holy damage."
+      }
     }
   ]
 }

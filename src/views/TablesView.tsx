@@ -1,3 +1,5 @@
+import { storageMessage } from "../i18n/storage-messages";
+import { useLocale } from "../i18n/locale";
 import { Activity, lazy, Suspense, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { MarkdownEditor } from "../components/MarkdownEditor";
@@ -32,25 +34,25 @@ import { SceneTracker } from "./tables/SceneTracker";
 import { BoardMonsterCards } from "./tables/BoardMonsterCards";
 import "./tables/Tables.css";
 
-const PANELS = {
-  reference: { label: "Справочник", icon: "library" },
-  scenes: { label: "Сцены", icon: "sword" },
-  companions: { label: "Спутники", icon: "users" },
-  materials: { label: "Материалы", icon: "sheet" },
-  items: { label: "Предметы", icon: "inventory" },
-  journal: { label: "Журнал", icon: "book" },
-  settings: { label: "Управление", icon: "settings" },
-} satisfies Record<string, { label: string; icon: IconName }>;
+const tablePanels = (t: (ru: string, en: string) => string) => ({
+  reference: { label: t("Справочник", "Reference"), icon: "library" },
+  scenes: { label: t("Сцены", "Scenes"), icon: "sword" },
+  companions: { label: t("Спутники", "Companions"), icon: "users" },
+  materials: { label: t("Материалы", "Handouts"), icon: "sheet" },
+  items: { label: t("Предметы", "Items"), icon: "inventory" },
+  journal: { label: t("Журнал", "Journal"), icon: "book" },
+  settings: { label: t("Управление", "Settings"), icon: "settings" },
+} satisfies Record<string, { label: string; icon: IconName }>);
 const TableBoard = lazy(() => import("./tables/TableBoard").then(module => ({ default: module.TableBoard })));
 const SceneLayoutEditor = lazy(() => import("./tables/SceneLayoutEditor").then(module => ({ default: module.SceneLayoutEditor })));
 const TableReference = lazy(() => import("./tables/TableReference").then(module => ({ default: module.TableReference })));
 const TableCompanions = lazy(() => import("./tables/TableCompanions").then(module => ({ default: module.TableCompanions })));
-type Panel = keyof typeof PANELS;
-const SCENE_NAMES: Record<TableScene["kind"], string> = {
-  encounter: "Бой",
-  negotiation: "Переговоры",
-  montage: "Монтаж",
-};
+type Panel = keyof ReturnType<typeof tablePanels>;
+const sceneNames = (t: (ru: string, en: string) => string): Record<TableScene["kind"], string> => ({
+  encounter: t("Бой", "Encounter"),
+  negotiation: t("Переговоры", "Negotiation"),
+  montage: t("Монтаж", "Montage"),
+});
 
 function invitationFromHash(hash: string) {
   const code = /^#\/tables\/join\/([^/]+)$/.exec(hash)?.[1];
@@ -75,6 +77,9 @@ export function TablesView({
   openHero: (id: string) => void;
   refreshHero: () => Promise<void>;
 }) {
+  const { t, locale } = useLocale();
+  const errorMessage = storageMessage(state.error, locale);
+  const panels = tablePanels(t);
   const actorId = useStorageScope();
   const { table, busy, command: send, setError } = state;
   const previousTableId = useRef(table?.id);
@@ -179,7 +184,7 @@ export function TablesView({
         return await send(type, payload, id);
       } catch (e) {
         state.setError(
-          e instanceof Error ? e.message : "Не удалось сохранить героя",
+          e instanceof Error ? e.message : t("Не удалось сохранить героя", "Couldn’t save the hero"),
         );
         return null;
       }
@@ -197,7 +202,7 @@ export function TablesView({
   const saveTemplate = async (template: DirectorTemplate) => {
     const saved = await tableRepository.saveTemplate(template);
     setTemplates((old) => [...old.filter((t) => t.id !== saved.id), saved]);
-    setMessage("Заготовка сохранена в вашей библиотеке");
+    setMessage(t("Заготовка сохранена в вашей библиотеке", "Template saved to your library"));
   };
   const editScene = (next: TableScene) => {
     setScene(structuredClone(next));
@@ -212,7 +217,7 @@ export function TablesView({
       sceneBase
     ) {
       state.setError(
-        "Эту сцену изменили на другом устройстве. Ваш черновик сохранён на экране; сохраните его в библиотеку или откройте свежую версию.",
+        t("Эту сцену изменили на другом устройстве. Ваш черновик сохранён на экране; сохраните его в библиотеку или откройте свежую версию.", "This scene changed on another device. Your draft is still open. Save it to your library or open the latest version."),
       );
       return;
     }
@@ -233,7 +238,7 @@ export function TablesView({
       return;
     }
     if (next !== "scenes" && scene) {
-      if (sceneDirty && !confirm("Закрыть подготовку без сохранения?")) return;
+      if (sceneDirty && !confirm(t("Закрыть подготовку без сохранения?", "Close scene preparation without saving?"))) return;
       setScene(null);
       setSceneDirty(false);
     }
@@ -262,7 +267,7 @@ export function TablesView({
         if (!fromDrop) collapseDrawer();
       }
     } catch (error) {
-      setError(error instanceof Error ? error.message : "Не удалось запустить сцену");
+      setError(error instanceof Error ? error.message : t("Не удалось запустить сцену", "Couldn’t start the scene"));
     } finally {
       setPreparingDrop(false);
     }
@@ -276,7 +281,7 @@ export function TablesView({
         layout: await copySceneLayout(template.scene.layout, table.id),
       });
     } catch (error) {
-      setError(error instanceof Error ? error.message : "Не удалось открыть заготовку");
+      setError(error instanceof Error ? error.message : t("Не удалось открыть заготовку", "Couldn’t open the template"));
     } finally {
       setPreparingDrop(false);
     }
@@ -291,10 +296,10 @@ export function TablesView({
       className={`tables-page${table ? " is-board-focused" : ""}`}
     >
       {!table && <header className="table-page-header">
-        <h1>Мои столы</h1>
+        <h1>{t("Мои столы", "My tables")}</h1>
         {state.selected && (
           <Button iconOnly icon="arrow-left" size="sm" variant="ghost" onClick={() => state.select(null)}>
-            Все столы
+            {t("Все столы", "All tables")}
           </Button>
         )}
         {!state.selected && (
@@ -308,20 +313,20 @@ export function TablesView({
                 setLobbyAction("create");
               }}
             >
-              Создать стол
+              {t("Создать стол", "Create a table")}
             </Button>
             {supabaseEnabled && (
               <Button onClick={() => setLobbyAction("join")}>
-                Присоединиться
+                {t("Присоединиться", "Join a table")}
               </Button>
             )}
           </div>
         )}
       </header>}
-      {table?.archived && <p className="table-archive-state">Стол в архиве</p>}
+      {table?.archived && <p className="table-archive-state">{t("Стол в архиве", "Table archived")}</p>}
       {state.error && (
         <div className="table-notice table-error" role="alert">
-          {state.error}
+          {errorMessage}
           <Button
             variant="ghost"
             size="sm"
@@ -329,62 +334,60 @@ export function TablesView({
             icon="close"
             iconOnly
           >
-            Закрыть сообщение
+            {t("Закрыть сообщение", "Dismiss message")}
           </Button>
         </div>
       )}
       {state.needsRetry && (
         <div className="table-notice">
           <p>
-            Подтверждение действия не получено. Повторный запрос безопасен:
-            действие выполнится один раз.
+            {t("Подтверждение действия не получено. Повторный запрос безопасен: действие выполнится один раз.", "No confirmation received. You can retry safely. The action will only run once.")}
           </p>
           <Button disabled={busy} onClick={() => void state.retryCommand()}>
-            Повторить подтверждение
+            {t("Повторить подтверждение", "Retry confirmation")}
           </Button>
         </div>
       )}
       <Toasts toasts={message ? [{ id: 1, message, tone: "success" }] : []} onDismiss={() => setMessage("")} />
       {state.stale && (
         <p className="table-notice" role="status">
-          Связь потеряна. Показаны последние полученные данные
+          {t("Связь потеряна. Показаны последние полученные данные", "Connection lost. Showing the most recent data")}
           {state.lastRead &&
-            ` на ${new Date(state.lastRead).toLocaleTimeString("ru")}`}
-          . Действия станут доступны после восстановления связи.
+            ` ${t("на", "as of")} ${new Date(state.lastRead).toLocaleTimeString(locale)}`}
+          . {t("Действия станут доступны после восстановления связи.", "Actions will be available when you reconnect.")}
         </p>
       )}
       {state.loading ? (
-        <LoadingScreen label="Загрузка столов" />
+        <LoadingScreen label={t("Загрузка столов", "Loading tables")} />
       ) : !state.selected ? (
         <>
           {state.tables.length === 0 && (
             <div className="table-empty">
-              <strong>Ваш первый стол</strong>
+              <strong>{t("Ваш первый стол", "Your first table")}</strong>
               <p>
-                Создайте место для своей кампании или присоединитесь по
-                приглашению ведущего.
+                {t("Создайте место для своей кампании или присоединитесь по приглашению ведущего.", "Create a table for your campaign or join with an invitation from your Director.")}
               </p>
             </div>
           )}
           {([
-            { title: "Я ведущий", tables: state.tables.filter((row) => row.ownerId === (row.actorId ?? actorId)) },
-            { title: "Я игрок", tables: state.tables.filter((row) => row.ownerId !== (row.actorId ?? actorId)) },
+            { title: t("Я ведущий", "Tables I run"), tables: state.tables.filter((row) => row.ownerId === (row.actorId ?? actorId)) },
+            { title: t("Я игрок", "Tables I play at"), tables: state.tables.filter((row) => row.ownerId !== (row.actorId ?? actorId)) },
           ]).filter((group) => group.tables.length > 0).map((group) => (
             <section className="table-lobby-section" key={group.title} aria-label={group.title}>
               <h2>{group.title}</h2>
               <div className="table-card-grid table-lobby-grid">
                 {group.tables.map((row) => (
                   <Card key={row.id} className="table-lobby-card">
-                    {row.archived && <p className="eyebrow">Архив</p>}
+                    {row.archived && <p className="eyebrow">{t("Архив", "Archive")}</p>}
                     <h3>{row.name}</h3>
-                    <p className="muted">Участников: {row.memberCount}</p>
+                    <p className="muted">{t("Участников:", "Members:")} {row.memberCount}</p>
                     <Button
                       size="sm"
                       onClick={() => state.select(row.id)}
                       icon="login"
                       iconOnly
                     >
-                      Войти в стол
+                      {t("Войти в стол", "Open table")}
                     </Button>
                   </Card>
                 ))}
@@ -395,8 +398,8 @@ export function TablesView({
       ) : !table ? (
         <p className="muted">
           {state.stale
-            ? "Стол пока недоступен. Проверьте соединение."
-            : "Загрузка стола…"}
+            ? t("Стол пока недоступен. Проверьте соединение.", "This table is unavailable. Check your connection.")
+            : t("Загрузка стола…", "Loading table…")}
         </p>
       ) : (
         <>
@@ -407,23 +410,23 @@ export function TablesView({
                 collapseDrawer(true);
               }
             }}>
-          <nav className="table-rail" ref={rail} aria-label="Разделы стола">
-            {(Object.keys(PANELS) as Panel[]).filter(key => director || key !== "scenes").map(key => {
-              const { label, icon } = PANELS[key];
+          <nav className="table-rail" ref={rail} aria-label={t("Разделы стола", "Table sections")}>
+            {(Object.keys(panels) as Panel[]).filter(key => director || key !== "scenes").map(key => {
+              const { label, icon } = panels[key];
               const active = drawerOpen && panel === key;
               const pending = key === "items" && table.offers.some(offer => offer.toUserId === table.actorId && offer.status === "pending");
               return <Button key={key} iconOnly icon={icon} variant={active ? "soft" : "ghost"}
-                aria-label={pending ? `${label} · Новое предложение` : label} aria-expanded={active} aria-controls={drawerId}
+                aria-label={pending ? `${label} · ${t("Новое предложение", "New offer")}` : label} aria-expanded={active} aria-controls={drawerId}
                 data-table-panel={key} data-notification={pending || undefined}
                 onClick={() => switchPanel(key)}>{label}</Button>;
             })}
             <div className="table-rail-footer">
-              <SaveIndicator status={state.stale ? "error" : busy ? "saving" : "saved"} error={state.stale ? "Нет связи" : ""} />
-              <Button icon="logout" iconOnly variant="ghost" onClick={() => setExitOpen(true)}>Выйти из стола</Button>
+              <SaveIndicator status={state.stale ? "error" : busy ? "saving" : "saved"} error={state.stale ? t("Нет связи", "Offline") : ""} />
+              <Button icon="logout" iconOnly variant="ghost" onClick={() => setExitOpen(true)}>{t("Выйти из стола", "Leave table")}</Button>
             </div>
           </nav>
           <div id={drawerId} className="table-panel table-drawer" inert={!drawerOpen || state.stale}>
-            <div className="table-drawer-resize" role="separator" aria-label="Ширина панели" aria-orientation="vertical" tabIndex={0}
+            <div className="table-drawer-resize" role="separator" aria-label={t("Ширина панели", "Panel width")} aria-orientation="vertical" tabIndex={0}
               onPointerDown={(event) => {
                 if (event.button === 0) event.currentTarget.setPointerCapture(event.pointerId);
               }}
@@ -440,11 +443,11 @@ export function TablesView({
                 resizeDrawer(width + (event.key === "ArrowLeft" ? 32 : -32));
               }} />
             <div className="table-drawer-actions">
-              <Button size="sm" iconOnly icon="chevron-right" variant="ghost" onClick={() => collapseDrawer(true)}>Свернуть панель</Button>
+              <Button size="sm" iconOnly icon="chevron-right" variant="ghost" onClick={() => collapseDrawer(true)}>{t("Свернуть панель", "Collapse panel")}</Button>
             </div>
-            <div ref={drawerContent} className="table-drawer-content" tabIndex={0} role="region" aria-label={panel ? PANELS[panel].label : "Содержимое панели"}>
+            <div ref={drawerContent} className="table-drawer-content" tabIndex={0} role="region" aria-label={panel ? panels[panel].label : t("Содержимое панели", "Panel contents")}>
             {panel === "reference" && (
-              <Suspense fallback={<p role="status">Загрузка справочника…</p>}>
+              <Suspense fallback={<p role="status">{t("Загрузка справочника…", "Loading reference…")}</p>}>
                 <TableReference scrollRoot={drawerContent} />
               </Suspense>
             )}
@@ -456,7 +459,7 @@ export function TablesView({
                 command={command}
                 saveTemplate={saveTemplate}
                 refreshHero={refreshHero}
-                commandError={state.error}
+                commandError={errorMessage}
               />
             )}
             {panel === "scenes" && (
@@ -464,17 +467,17 @@ export function TablesView({
                 <div className="table-stack">
                 {!scene && !selectedScene && (
                   <div className="table-section-heading">
-                    <h2>Сцены</h2>
+                    <h2>{t("Сцены", "Scenes")}</h2>
                     {director && !table.archived && (
                       <div className="table-actions">
-                        {Object.entries(SCENE_NAMES).map(([kind, label]) => (
+                        {Object.entries(sceneNames(t)).map(([kind, label]) => (
                           <Button
                             key={kind}
                             onClick={() =>
                               editScene(
                                 createScene(
                                   kind as TableScene["kind"],
-                                  `Новая сцена: ${label.toLowerCase()}`,
+                                  `${t("Новая сцена", "New scene")}: ${label.toLowerCase()}`,
                                   table.members.filter(m => m.role === "player" && m.hero).length || 5,
                                 ),
                               )
@@ -496,7 +499,7 @@ export function TablesView({
                         if (
                           !sceneDirty ||
                           confirm(
-                            "Вернуться к списку без сохранения черновика?",
+                            t("Вернуться к списку без сохранения черновика?", "Return to the list without saving this draft?"),
                           )
                         ) {
                           setScene(null);
@@ -504,9 +507,9 @@ export function TablesView({
                         }
                       }}
                     >
-                      Список сцен
+                      {t("Список сцен", "Scene list")}
                     </Button>
-                    <SaveIndicator status={state.stale ? "error" : busy ? "saving" : "saved"} error={state.stale ? "Нет связи" : ""} />
+                    <SaveIndicator status={state.stale ? "error" : busy ? "saving" : "saved"} error={state.stale ? t("Нет связи", "Offline") : ""} />
                     {!scene && director && (
                       <Button
                         size="sm"
@@ -521,7 +524,7 @@ export function TablesView({
                         }}
                         iconOnly
                       >
-                        Подготовка сцены
+                        {t("Подготовка сцены", "Scene preparation")}
                       </Button>
                     )}
                   </div>
@@ -533,7 +536,7 @@ export function TablesView({
                       scene={scene}
                       onSave={(s) => void saveScene(s)}
                       onCancel={() => {
-                        if (!sceneDirty || confirm("Отменить изменения сцены?")) {
+                        if (!sceneDirty || confirm(t("Отменить изменения сцены?", "Discard your changes to this scene?"))) {
                           setSceneDirty(false);
                           setScene(null);
                         }
@@ -578,7 +581,7 @@ export function TablesView({
                         onDropScene={(target) => void launchScene(target, true)}
                         onCopy={async (s) => {
                           const copy = duplicateScene(s);
-                          if (await command("save-scene", { scene: copy })) setMessage("Сцена скопирована");
+                          if (await command("save-scene", { scene: copy })) setMessage(t("Сцена скопирована", "Scene copied"));
                         }}
                         onKeep={(s) =>
                           void saveTemplate({
@@ -590,7 +593,7 @@ export function TablesView({
                           }).catch((e) => state.setError(e.message))
                         }
                         onDelete={(s) => {
-                          if (confirm(`Удалить сцену «${s.name}»?`))
+                          if (confirm(t(`Удалить сцену «${s.name}»?`, `Delete scene “${s.name}”?`)))
                             void command("delete-scene", { sceneId: s.id });
                         }}
                       />
@@ -606,7 +609,7 @@ export function TablesView({
                         combat={table.combat?.sceneId === selectedScene ? table.combat : undefined}
                         table={activeScene?.id === selectedScene ? table : undefined}
                         onCombat={activeScene?.id === selectedScene ? (type, payload) => void command(type, payload) : undefined}
-                        error={state.error}
+                        error={errorMessage}
                         onChange={(s) =>
                           void command("save-scene", { scene: s })
                         }
@@ -621,11 +624,11 @@ export function TablesView({
                     disabled={table.archived || busy || preparingDrop}
                     onAdd={(t) => void openTemplate(t)}
                     onStart={(t) => void launchScene({ kind: "template", id: t.id })}
-                    onDelete={async (t) => {
-                      if (!confirm("Удалить заготовку из личной библиотеки?")) return;
+                    onDelete={async (template) => {
+                      if (!confirm(t("Удалить заготовку из личной библиотеки?", "Delete this template from your library?"))) return;
                       try {
-                        await tableRepository.deleteTemplate(t.id);
-                        setTemplates((old) => old.filter((x) => x.id !== t.id));
+                        await tableRepository.deleteTemplate(template.id);
+                        setTemplates((old) => old.filter((x) => x.id !== template.id));
                       } catch (e) { state.setError((e as Error).message); }
                     }}
                   />
@@ -635,7 +638,7 @@ export function TablesView({
             {panel === "materials" && (
               <section className="table-stack table-materials">
                 <div className="table-section-heading">
-                  <h2>Материалы</h2>
+                  <h2>{t("Материалы", "Handouts")}</h2>
                   {director && !table.archived && (
                     <Button
                       size="sm"
@@ -652,17 +655,17 @@ export function TablesView({
                       icon="plus"
                       iconOnly
                     >
-                      Добавить материал
+                      {t("Добавить материал", "Add handout")}
                     </Button>
                   )}
                 </div>
                 {table.materials.length === 0 && (
                   <div className="table-empty">
-                    <strong>Пока нет материалов</strong>
+                    <strong>{t("Пока нет материалов", "No handouts yet")}</strong>
                     <p>
                       {director
-                        ? "Сохраните описание места, улику или заметку. Игроки увидят только раскрытые материалы."
-                        : "Здесь появятся материалы, которыми поделится ведущий."}
+                        ? t("Сохраните описание места, улику или заметку. Игроки увидят только раскрытые материалы.", "Save a location description, clue, or note. Players see handouts when you share them.")
+                        : t("Здесь появятся материалы, которыми поделится ведущий.", "Handouts your Director shares will appear here.")}
                     </p>
                   </div>
                 )}
@@ -670,11 +673,11 @@ export function TablesView({
                   <CardDetailModal
                     open={materialEditing}
                     onClose={() => setMaterialEditing(false)}
-                    title={material.id ? "Изменить материал" : "Новый материал"}
+                    title={material.id ? t("Изменить материал", "Edit handout") : t("Новый материал", "New handout")}
                     className="table-dialog"
                     wide
                   >
-                    {state.error && <p role="alert">{state.error}</p>}
+                    {state.error && <p role="alert">{errorMessage}</p>}
                     <form
                       onSubmit={async (e) => {
                         e.preventDefault();
@@ -697,7 +700,7 @@ export function TablesView({
                       }}
                     >
                       <label>
-                        Название
+                        {t("Название", "Title")}
                         <input
                           className="input"
                           required
@@ -709,10 +712,10 @@ export function TablesView({
                         />
                       </label>
                       <div className="field">
-                        <span className="field-label">Текст</span>
+                        <span className="field-label">{t("Текст", "Text")}</span>
                         <MarkdownEditor
                           disabled={busy || table.archived}
-                          aria-label="Текст материала"
+                          aria-label={t("Текст материала", "Handout text")}
                           required
                           value={material.text}
                           onChange={(text) =>
@@ -731,7 +734,7 @@ export function TablesView({
                             })
                           }
                         />
-                        Открыть игрокам
+                        {t("Открыть игрокам", "Share with players")}
                       </label>
                       <Button iconOnly icon="save"
                         type="submit"
@@ -742,16 +745,16 @@ export function TablesView({
                           !material.text.trim()
                         }
                       >
-                        Сохранить материал
+                        {t("Сохранить материал", "Save handout")}
                       </Button>
                     </form>
                   </CardDetailModal>
                 )}
                 {table.materials.map((m) => (
                   <Card key={m.id} className="table-material-card">
-                    <div className="table-section-heading"><h3>{m.title}</h3><span className="table-badge">{m.public ? "Виден игрокам" : "Только ведущему"}</span></div>
+                    <div className="table-section-heading"><h3>{m.title}</h3><span className="table-badge">{m.public ? t("Виден игрокам", "Visible to players") : t("Только ведущему", "Director only")}</span></div>
                     <div className="table-material-excerpt"><MarkdownPreview text={m.text} /></div>
-                    <div className="table-actions"><Button icon="eye" iconOnly size="sm" variant="ghost" onClick={() => setViewingMaterial(m)}>Прочитать материал</Button>
+                    <div className="table-actions"><Button icon="eye" iconOnly size="sm" variant="ghost" onClick={() => setViewingMaterial(m)}>{t("Прочитать материал", "Read handout")}</Button>
                     {director && !table.archived && (
                       <>
                         <Button
@@ -764,14 +767,14 @@ export function TablesView({
                           }}
                           iconOnly
                         >
-                          Изменить
+                          {t("Изменить", "Edit")}
                         </Button>
                         <Button
                           iconOnly
                           icon={m.public ? "eye-off" : "users"}
                           aria-pressed={m.public}
-                          aria-label={`${m.public ? "Скрыть" : "Раскрыть"} материал: ${m.title}`}
-                          title={`${m.public ? "Скрыть" : "Раскрыть"} материал: ${m.title}`}
+                          aria-label={`${m.public ? t("Скрыть", "Hide") : t("Раскрыть", "Reveal") } ${t("материал", "handout")}: ${m.title}`}
+                          title={`${m.public ? t("Скрыть", "Hide") : t("Раскрыть", "Reveal") } ${t("материал", "handout")}: ${m.title}`}
                           disabled={busy}
                           onClick={() =>
                             void command("save-material", {
@@ -779,12 +782,12 @@ export function TablesView({
                             })
                           }
                         >
-                          {m.public ? "Скрыть" : "Раскрыть"}
+                          {m.public ? t("Скрыть", "Hide") : t("Раскрыть", "Reveal")}
                         </Button>
                         <Button
                           disabled={busy}
                           onClick={() => {
-                            if (confirm("Удалить материал?"))
+                            if (confirm(t("Удалить материал?", "Delete handout?")))
                               void command("delete-material", {
                                 materialId: m.id,
                               });
@@ -792,29 +795,29 @@ export function TablesView({
                           icon="trash"
                           iconOnly
                         >
-                          Удалить
+                          {t("Удалить", "Delete")}
                         </Button>
                       </>
                     )}
                     </div>
                   </Card>
                 ))}
-                <CardDetailModal open={!!viewingMaterial} onClose={() => setViewingMaterial(null)} title={viewingMaterial?.title ?? "Материал"} className="table-dialog" wide>
+                <CardDetailModal open={!!viewingMaterial} onClose={() => setViewingMaterial(null)} title={viewingMaterial?.title ?? t("Материал", "Handout")} className="table-dialog" wide>
                   <MarkdownPreview text={viewingMaterial?.text ?? ""} />
                 </CardDetailModal>
               </section>
             )}
             <Activity mode={panel === "journal" ? "visible" : "hidden"}>
               <TableJournal key={table.id} table={table} busy={busy || state.needsRetry || state.stale}
-                command={command} commandError={state.error} />
+                command={command} commandError={errorMessage} />
             </Activity>
-            {panel === "companions" && <Suspense fallback={<p role="status">Загрузка спутников…</p>}>
+            {panel === "companions" && <Suspense fallback={<p role="status">{t("Загрузка спутников…", "Loading companions…")}</p>}>
               <TableCompanions key={table.id} table={table} busy={busy || state.needsRetry || state.stale}
-                command={command} commandError={state.error} />
+                command={command} commandError={errorMessage} />
             </Suspense>}
             {panel === "settings" && (
               <section className="table-stack table-settings">
-                <h2>Управление столом</h2>
+                <h2>{t("Управление столом", "Table settings")}</h2>
                 <TableMemberSettings
                   key={table.id}
                   table={table}
@@ -822,16 +825,16 @@ export function TablesView({
                   busy={busy}
                   command={command}
                   openHero={openHero}
-                  error={state.error}
+                  error={errorMessage}
                 />
                 {director ? (
                   <>
                     <Card>
-                      <h3>Приглашение</h3>
+                      <h3>{t("Приглашение", "Invitation")}</h3>
                       {supabaseEnabled && table.inviteCode ? (
                         <>
                           <label>
-                            Ссылка
+                            {t("Ссылка", "Link")}
                             <input
                               className="input"
                               readOnly
@@ -846,15 +849,15 @@ export function TablesView({
                                   .writeText(
                                     `${location.origin}${location.pathname}#/tables/join/${encodeURIComponent(table.inviteCode!)}`,
                                   )
-                                  .then(() => setMessage("Ссылка скопирована"))
+                                  .then(() => setMessage(t("Ссылка скопирована", "Link copied")))
                                   .catch(() =>
-                                    state.setError("Не удалось скопировать ссылку. Выделите и скопируйте её из поля."),
+                                    state.setError(t("Не удалось скопировать ссылку. Выделите и скопируйте её из поля.", "Couldn’t copy the link. Select it in the text field and copy it.")),
                                   )
                               }
                               icon="copy"
                               iconOnly
                             >
-                              Скопировать
+                              {t("Скопировать", "Copy")}
                             </Button>
                             <Button
                               disabled={busy || table.archived}
@@ -862,13 +865,13 @@ export function TablesView({
                               icon="refresh"
                               iconOnly
                             >
-                              Заменить ссылку
+                              {t("Заменить ссылку", "Replace link")}
                             </Button>
                           </div>
                         </>
                       ) : (
                         <p className="muted">
-                          Приглашения доступны в облачном режиме.
+                          {t("Приглашения доступны в облачном режиме.", "Invitations are available in cloud mode.")}
                         </p>
                       )}
                     </Card>
@@ -881,7 +884,7 @@ export function TablesView({
                         }}
                       >
                         <label>
-                          Название стола
+                          {t("Название стола", "Table name")}
                           <input
                             className="input"
                             value={tableName}
@@ -894,19 +897,18 @@ export function TablesView({
                           type="submit"
                           disabled={busy || table.archived || !tableName.trim()}
                         >
-                          Переименовать
+                          {t("Переименовать", "Rename")}
                         </Button>
                       </form>
                     </Card>
                     <Card>
                       <h3>
                         {table.archived
-                          ? "Архив стола"
-                          : "Архивирование"}
+                          ? t("Архив стола", "Table archive")
+                          : t("Архивирование", "Archive table")}
                       </h3>
                       <p>
-                        Архив сохраняет стол для просмотра и приостанавливает
-                        совместные действия. Ведущий может восстановить его.
+                        {t("Архив сохраняет стол для просмотра и приостанавливает совместные действия. Ведущий может восстановить его.", "Archived tables stay available to read. The Director can restore a table to resume play.")}
                       </p>
                       <div className="table-actions">
                         <Button
@@ -915,7 +917,7 @@ export function TablesView({
                             if (
                               table.archived ||
                               confirm(
-                                "Архивировать стол и приостановить совместные действия?",
+                                t("Архивировать стол и приостановить совместные действия?", "Archive this table and pause play?"),
                               )
                             )
                               void command("archive", {
@@ -924,15 +926,14 @@ export function TablesView({
                           }}
                         >
                           {table.archived
-                            ? "Восстановить стол"
-                            : "Архивировать"}
+                            ? t("Восстановить стол", "Restore table")
+                            : t("Архивировать", "Archive")}
                         </Button>
                       </div>
                       <section className="table-disclosure table-delete-section">
-                        <h3>Удалить стол навсегда</h3>
+                        <h3>{t("Удалить стол навсегда", "Delete table permanently")}</h3>
                         <p className="muted">
-                          Сцены, материалы и журнал будут удалены. Личные герои
-                          останутся у владельцев.
+                          {t("Сцены, материалы и журнал будут удалены. Личные герои останутся у владельцев.", "Deleting the table removes its scenes, handouts, and journal. Players keep their heroes.")}
                         </p>
                         <Button
                           variant="danger"
@@ -940,32 +941,31 @@ export function TablesView({
                           onClick={() => {
                             if (
                               confirm(
-                                "Удалить стол навсегда вместе со сценами и журналом? Личные герои останутся у владельцев.",
+                                t("Удалить стол навсегда вместе со сценами и журналом? Личные герои останутся у владельцев.", "Permanently delete this table, its scenes, and its journal? Players will keep their heroes."),
                               )
                             )
                               void command("delete");
                           }}
                         >
-                          Удалить стол
+                          {t("Удалить стол", "Delete table")}
                         </Button>
                       </section>
                     </Card>
                   </>
                 ) : (
                   <Card>
-                    <h3>Выйти из стола</h3>
+                    <h3>{t("Выйти из стола", "Leave table")}</h3>
                     <p>
-                      Ваши герои и полученные предметы останутся у вас.
-                      Ожидающие предложения будут отменены.
+                      {t("Ваши герои и полученные предметы останутся у вас. Ожидающие предложения будут отменены.", "You will keep your heroes and items. Pending offers will be canceled.")}
                     </p>
                     <Button
                       variant="danger"
                       disabled={busy}
                       onClick={() => {
-                        if (confirm("Выйти из стола?")) void command("leave");
+                        if (confirm(t("Выйти из стола?", "Leave this table?"))) void command("leave");
                       }}
                     >
-                      Выйти
+                      {t("Выйти", "Leave")}
                     </Button>
                   </Card>
                 )}
@@ -992,45 +992,45 @@ export function TablesView({
               const target = readSceneDrop(event.dataTransfer);
               if (target) void launchScene(target, true);
             }}>
-            <Suspense fallback={<p role="status">Загрузка полотна…</p>}>
+            <Suspense fallback={<p role="status">{t("Загрузка полотна…", "Loading the board…")}</p>}>
               <TableBoard key={table.id} table={table} busy={busy || preparingDrop} needsRetry={state.needsRetry}
                 openHero={openHero}
                 sceneHud={activeScene && <SceneTracker key={activeScene.id} scene={activeScene}
-                  director={director} live showRoster={false} error={state.error}
+                  director={director} live showRoster={false} error={errorMessage}
                   table={table} onCombat={(type, payload) => void command(type, payload)}
                   busy={busy || table.archived || state.needsRetry} onChange={(s) => void command("save-scene", { scene: s })} />}
                 command={(type, payload) => command(type, payload, table.id)} />
             </Suspense>
             {activeScene && (
               <BoardMonsterCards key={`roster-${activeScene.id}`} scene={activeScene} combat={table.combat}
-                director={director} busy={busy || table.archived || state.needsRetry} error={state.error}
+                director={director} busy={busy || table.archived || state.needsRetry} error={errorMessage}
                 command={(type, payload) => command(type, payload, table.id)} />
             )}
           </div>
           {scene && <div className="table-draft-board" ref={setLayoutHost} />}
         </>
       )}
-      <CardDetailModal open={!!table && exitOpen} onClose={() => setExitOpen(false)} title="Выйти из стола?"
+      <CardDetailModal open={!!table && exitOpen} onClose={() => setExitOpen(false)} title={t("Выйти из стола?", "Leave this table?")}
         className="table-dialog" footer={<>
-          <Button onClick={() => setExitOpen(false)}>Отмена</Button>
+          <Button onClick={() => setExitOpen(false)}>{t("Отмена", "Cancel")}</Button>
           <Button variant="primary" onClick={() => {
             setExitOpen(false);
             state.select(null);
-          }}>Выйти</Button>
+          }}>{t("Выйти", "Leave")}</Button>
         </>}>
-        <p>{sceneDirty ? "Вы вернётесь к списку столов. Несохранённые изменения сцены будут сброшены." : "Вы вернётесь к списку столов."}</p>
+        <p>{sceneDirty ? t("Вы вернётесь к списку столов. Несохранённые изменения сцены будут сброшены.", "Return to the table list and discard unsaved scene changes.") : t("Вы вернётесь к списку столов.", "Return to the table list.")}</p>
       </CardDetailModal>
       <CardDetailModal
         open={!state.loading && !!lobbyAction}
         onClose={closeLobbyAction}
         title={
-          lobbyAction === "create" ? "Новый стол" : "Присоединиться к столу"
+          lobbyAction === "create" ? t("Новый стол", "New table") : t("Присоединиться к столу", "Join a table")
         }
         className="table-dialog"
       >
         {state.error && (
           <p className="table-error" role="alert">
-            {state.error}
+            {errorMessage}
           </p>
         )}
         {lobbyAction === "create" && (
@@ -1042,7 +1042,7 @@ export function TablesView({
                   "create",
                   {
                     name: tableName.trim(),
-                    memberName: memberName.trim() || "Ведущий",
+                    memberName: memberName.trim() || t("Ведущий", "Director"),
                   },
                   null,
                 );
@@ -1050,24 +1050,24 @@ export function TablesView({
               }}
             >
               <label>
-                Название стола
+                {t("Название стола", "Table name")}
                 <input
                   className="input"
                   required
                   maxLength={120}
                   value={tableName}
                   onChange={(e) => setTableName(e.target.value)}
-                  placeholder="Хроники Железной долины"
+                  placeholder={t("Хроники Железной долины", "Chronicles of the Iron Valley")}
                 />
               </label>
               <label>
-                Ваше имя за столом
+                {t("Ваше имя за столом", "Your name at the table")}
                 <input
                   className="input"
                   maxLength={80}
                   value={memberName}
                   onChange={(e) => setMemberName(e.target.value)}
-                  placeholder="Как вас знают игроки"
+                  placeholder={t("Как вас знают игроки", "Name other players will see")}
                 />
               </label>
               <Button
@@ -1075,7 +1075,7 @@ export function TablesView({
                 variant="primary"
                 disabled={busy || !tableName.trim()}
               >
-                Создать
+                {t("Создать", "Create")}
               </Button>
             </form>
           </>
@@ -1090,7 +1090,7 @@ export function TablesView({
                   "join",
                   {
                     inviteCode: code,
-                    memberName: memberName.trim() || "Игрок",
+                    memberName: memberName.trim() || t("Игрок", "Player"),
                   },
                   null,
                 );
@@ -1098,7 +1098,7 @@ export function TablesView({
               }}
             >
               <label>
-                Ссылка или код приглашения
+                {t("Ссылка или код приглашения", "Invitation link or code")}
                 <input
                   className="input"
                   required
@@ -1107,7 +1107,7 @@ export function TablesView({
                 />
               </label>
               <label>
-                Ваше имя
+                {t("Ваше имя", "Your name")}
                 <input
                   className="input"
                   required
@@ -1117,10 +1117,10 @@ export function TablesView({
                 />
               </label>
               <p className="muted">
-                Героя можно выбрать или создать после вступления.
+                {t("Героя можно выбрать или создать после вступления.", "You can choose or create a hero after you join.")}
               </p>
               <Button type="submit" disabled={busy || !invite.trim()}>
-                Вступить
+                {t("Вступить", "Join")}
               </Button>
             </form>
           </>

@@ -1,6 +1,9 @@
+import { EnglishAbilityRemainder } from "./EnglishAbilityRemainder";
+import { printedAbilityView } from "./printedAbilityView";
 import type { DirectorView } from "../../lib/remark-director-view";
-import type { ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import { CharacteristicGlyphText } from "../CharacteristicGlyph";
+import { englishKitVariantName } from "../../rules/kit-variants";
 import type { RuleEntity } from "../../rules/schema";
 import { headingId } from "../../lib/codex";
 import type { ArtAsset } from "../../lib/art";
@@ -13,6 +16,7 @@ import {
 import { RuleMarkdown, headingTag } from "./RuleMarkdown";
 import "./RuleEntity.css";
 import { KitRuleBody } from "./KitRuleBody";
+import { useRuleLanguage } from "../../i18n/locale";
 
 /** Стабильный якорь раздела: зависит от id, а не от перевода названия. */
 export function ruleEntityAnchor(entity: Pick<RuleEntity, "id">): string {
@@ -58,6 +62,14 @@ export function stripRepeatedEntityHeading(
   return { markdown: rest.join("\n"), headingId: headingId(title), ...(signature ? { label: "Знаковая черта" } : {}) };
 }
 
+function missingHeadingAnchors(previous: string, current: string, existing: (string | undefined)[]) {
+  const headingIds = (text: string) => [...text.matchAll(/^#{1,6}[ \t]+(.+?)[ \t]*$/gm)]
+    .map(match => headingId(headingText(match[1])));
+  const rendered = new Set([...existing, ...headingIds(current)]);
+  return [...new Set(headingIds(previous))].filter(id => id && !rendered.has(id))
+    .map(id => <span key={id} id={id} />);
+}
+
 /**
  * Чтение одной канонической сущности правил.
  *
@@ -72,6 +84,7 @@ export function stripRepeatedEntityHeading(
  */
 export function RuleEntityView({
   entity,
+  entities,
   art,
   onOpen,
   withAnchor = true,
@@ -80,6 +93,7 @@ export function RuleEntityView({
   directorMode,
 }: {
   entity: RuleEntity;
+  entities?: Record<string, RuleEntity>;
   art?: ArtAsset;
   /** Открыть полную карточку в поп-апе; работает только для способностей. */
   onOpen?: () => void;
@@ -90,18 +104,50 @@ export function RuleEntityView({
   headingActions?: ReactNode;
   directorMode?: DirectorView;
 }) {
+  const englishText = entity.englishEdition?.text || entity.originalDescription;
+  const { language, available } = useRuleLanguage(entity.id, englishText);
   const anchor = withAnchor ? ruleEntityAnchor(entity) : undefined;
-  const ability = entity.ability ? referenceAbilityView(entity.ability) : null;
-  const content = stripRepeatedEntityHeading(entity.markdown, entity.name);
-  const hasMarkdown = content.markdown.trim().length > 0;
+  const english = language === "en" && available;
+  const name = english ? entity.englishEdition?.name || entity.originalName || entity.name : entity.name;
+  const content = stripRepeatedEntityHeading(english ? englishText! : entity.markdown, name);
+  const baseAbility = entity.ability && referenceAbilityView(entity.ability);
+  const edition = english ? entity.printedAbility : undefined;
+  const ability = english && baseAbility
+    ? edition && printedAbilityView(baseAbility, edition, undefined, text => <RuleMarkdown sourceLocale="en" text={text} articleId={entity.source.articleId} />)
+    : baseAbility;
+  const trigger = ability?.trigger;
+  const printedCreature = entity.printedCreature?.[language];
+  const hasMarkdown = Boolean(printedCreature || content.markdown.trim());
   const openable = Boolean(ability && onOpen);
   const Heading = headingTag(headingLevel);
   const nestedHeadingOffset = headingLevel === 2 ? 0 : headingLevel - 1;
-  const creatureSheet = Boolean(entity.director && (entity.kind === 'monster' || entity.kind === 'retainer'));
-  const directorHeading = creatureSheet && (!directorMode || directorMode === 'stats') ? <div className="director-mini-title" id={withAnchor ? content.headingId || undefined : undefined}>
-    <Heading className="rule-entity-name" id={anchor}>{entity.name}</Heading>
-    {entity.originalName && <span className="director-mini-original" lang="en">{entity.originalName}</span>}
+  const creatureSheet = Boolean(entity.director && (entity.kind === "monster" || entity.kind === "retainer"));
+  const directorHeading = creatureSheet && (!directorMode || directorMode === "stats") ? <div className="director-mini-title" id={withAnchor ? content.headingId || undefined : undefined}>
+    <Heading className="rule-entity-name" id={anchor}>{name}</Heading>
+    {!english && entity.originalName && <span className="director-mini-original" lang="en">{entity.originalName}</span>}
   </div> : undefined;
+  const legacyAnchors = english && withAnchor
+    ? missingHeadingAnchors(entity.markdown, content.markdown, [anchor, content.headingId])
+    : [];
+
+  function kitBody() {
+    const prose = (text: string) => <KitRuleBody text={text} sourceLocale={language} articleId={entity.source.articleId} headingOffset={nestedHeadingOffset} />;
+    if (!english || !entity.englishSignatures?.length || !entities) return prose(content.markdown);
+    const blocks: ReactNode[] = [];
+    let offset = 0;
+    for (const { ref, start, end } of entity.englishSignatures) {
+      const signature = entities[ref];
+      if (!signature) continue;
+      blocks.push(<Fragment key={ref}>
+        {prose(englishText!.slice(offset, start))}
+        {withAnchor && <span id={headingId(signature.originalName ?? signature.name)} />}
+        <RuleEntityView entity={signature} withAnchor={withAnchor} headingLevel={Math.min(6, headingLevel + 1)} />
+      </Fragment>);
+      offset = end;
+    }
+    const rest = englishText!.slice(offset).trim();
+    return <>{blocks}{rest && prose(rest)}</>;
+  }
 
   if (ability)
     return (
@@ -110,7 +156,9 @@ export function RuleEntityView({
         data-rule-entity={entity.id}
         data-kind={entity.kind}
         aria-labelledby={anchor}
+        lang={english ? "en" : undefined}
       >
+        {legacyAnchors}
         <article
           className="sheet-ability-card is-full"
           data-action={ability.actionType}
@@ -119,7 +167,7 @@ export function RuleEntityView({
           data-openable={openable ? "true" : undefined}
           role={openable ? "button" : undefined}
           tabIndex={openable ? 0 : undefined}
-          aria-label={openable ? `Открыть карточку: ${entity.name}` : undefined}
+          aria-label={openable ? `${english ? "Open card" : "Открыть карточку"}: ${name}` : undefined}
           onClick={openable ? onOpen : undefined}
           onKeyDown={
             openable
@@ -134,32 +182,31 @@ export function RuleEntityView({
         >
           <header className="rule-entity-head card-band">
             <Heading className="rule-entity-name" id={anchor}>
-              {entity.name}
+              {name}
             </Heading>
-            <AbilityTags view={ability} />
+            <AbilityTags language={language} view={ability} />
+            {headingActions}
           </header>
 
           {ability.flavor && (
             <p className="rule-ability-flavor">{ability.flavor}</p>
           )}
 
-          <AbilityBody view={ability} full />
-
-          {ability.trigger && (
+          {trigger && (
             <p className="rule-ability-trigger">
-              <strong className="rule-ability-trigger-label">Триггер:</strong>{" "}
-              <CharacteristicGlyphText text={ability.trigger} />
+              <strong className="rule-ability-trigger-label">{english ? "Trigger:" : "Триггер:"}</strong>{" "}
+              <CharacteristicGlyphText language={language} text={trigger} />
             </p>
           )}
+          <AbilityBody language={language} view={ability} full />
         </article>
 
-        <RuleMarkdown
-          text={entity.markdown}
-          articleId={entity.source.articleId}
-          className="rule-text rule-entity-extras"
-          headingOffset={nestedHeadingOffset}
-          abilityCardRemainder={{ shownText: entity.ability?.effect }}
-        />
+        {edition
+          ? <div className="rule-entity-extras"><EnglishAbilityRemainder blocks={edition.blocks} articleId={entity.source.articleId} /></div>
+          : <RuleMarkdown text={english ? content.markdown : entity.markdown} sourceLocale={english ? "en" : undefined} articleId={entity.source.articleId}
+              className="rule-text rule-entity-extras" headingOffset={nestedHeadingOffset}
+              abilityCardRemainder={{ shownText: entity.ability?.effect }} />}
+
       </section>
     );
 
@@ -169,18 +216,21 @@ export function RuleEntityView({
       data-rule-entity={entity.id}
       data-kind={entity.kind}
       aria-labelledby={anchor}
+      lang={english ? "en" : undefined}
     >
+      {legacyAnchors}
       {!creatureSheet && <header
         className="rule-entity-head"
         id={withAnchor ? content.headingId || undefined : undefined}
       >
         <div className="rule-entity-title">
           <Heading className="rule-entity-name" id={anchor}>
-            {entity.name}
+            {name}
           </Heading>
           {content.label && <span className="rule-entity-type">{content.label}</span>}
-          {entity.director && entity.originalName && <span className="director-original-name" lang="en">{entity.originalName}</span>}
+          {!english && entity.director && entity.originalName && <span className="director-original-name" lang="en">{entity.originalName}</span>}
         </div>
+        {headingActions}
       </header>}
 
       {art && hasMarkdown && (
@@ -190,17 +240,20 @@ export function RuleEntityView({
         />
       )}
 
-      {!!entity.kitVariants?.length && <nav className="kit-rule-variants" aria-label="Комплекты буревестника">
-        {entity.kitVariants.map((variant) => <a key={variant.id} href={`#/catalog/kits/${encodeURIComponent(variant.id)}`}>{variant.name}</a>)}
+      {!!entity.kitVariants?.length && <nav className="kit-rule-variants" aria-label={english ? "Stormwight kits" : "Комплекты буревестника"}>
+        {entity.kitVariants.map((variant) => <a key={variant.id} href={`#/catalog/kits/${encodeURIComponent(variant.id)}`}>{english ? englishKitVariantName(variant) : variant.name}</a>)}
       </nav>}
 
       {hasMarkdown && entity.kind === "kit" ? (
-        <KitRuleBody text={content.markdown} articleId={entity.source.articleId} headingOffset={nestedHeadingOffset} />
+        kitBody()
       ) : hasMarkdown ? (
         <RuleMarkdown
           text={content.markdown}
           articleId={entity.source.articleId}
           headingOffset={nestedHeadingOffset}
+          sourceLocale={english ? "en" : undefined}
+          printedCreature={printedCreature}
+          omitFirstHeading={Boolean(content.headingId)}
           directorMode={directorMode}
           directorHeading={directorHeading}
           directorHeadingActions={headingActions}
@@ -208,7 +261,7 @@ export function RuleEntityView({
         />
       ) : (
         <p className="rule-entity-empty">
-          В источнике нет описания этого правила.
+          {english ? "This source has no rule description." : "В источнике нет описания этого правила."}
         </p>
       )}
     </section>

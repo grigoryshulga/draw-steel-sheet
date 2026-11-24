@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useState } from "react";
 import type { Ability, AbilityKind, CharacteristicKey, ActionType } from "../../types";
 import { ABILITY_KINDS, ACTION_TYPES } from "../../data/actions";
@@ -26,6 +27,7 @@ export interface AbilityEditorProps {
 }
 
 export function AbilityEditor({ initial, isNew, onClose, onSave }: AbilityEditorProps) {
+  const { t, locale } = useLocale();
   const { character } = useApp();
   const [draft, setDraft] = useState<Ability>(() => ({
     ...initial,
@@ -88,31 +90,31 @@ export function AbilityEditor({ initial, isNew, onClose, onSave }: AbilityEditor
       open
       onClose={onClose}
       className="abil-editor-modal"
-      title={isNew ? "Новая способность" : `Изменить: ${initial.name}`}
+      title={isNew ? t("Новая способность", "New ability") : `${t("Изменить", "Edit")}: ${initial.name}`}
       footer={
         <div className="abil-editor-footer">
-          {!nameValid && <span className="abil-editor-error">Введите название способности.</span>}
+          {!nameValid && <span className="abil-editor-error">{t("Введите название способности.", "Enter an ability name.")}</span>}
           <span className="grow" />
           <Button iconOnly icon="close" variant="ghost" onClick={onClose}>
-            Отмена
+            {t("Отмена", "Cancel")}
           </Button>
           <Button iconOnly variant="primary" icon="check" disabled={!nameValid} onClick={save}>
-            Сохранить
+            {t("Сохранить", "Save")}
           </Button>
         </div>
       }
     >
       <div className="abil-editor-grid">
-        <Field label="Название" className="span-2">
+        <Field label={t("Название", "Name")} className="span-2">
           <TextInput
             value={draft.name}
             onChange={(event) => patch({ name: event.target.value })}
-            placeholder="Например: Пронзающий выпад"
+            placeholder={t("Например: Пронзающий выпад", "For example: Piercing Lunge") }
             autoFocus
           />
         </Field>
 
-        <Field label="Флейвор" className="span-2">
+        <Field label={t("Флейвор", "Flavor")} className="span-2">
           <TextArea
             rows={2}
             value={draft.flavor}
@@ -120,76 +122,76 @@ export function AbilityEditor({ initial, isNew, onClose, onSave }: AbilityEditor
           />
         </Field>
 
-        <Field label="Тип действия">
+        <Field label={t("Тип действия", "Action type")}>
           <Select
             value={draft.actionType}
             onChange={(event) => patch({ actionType: event.target.value as ActionType })}
           >
             {ACTION_TYPES.map((type) => (
               <option key={type.key} value={type.key}>
-                {type.label}
+                {locale === "en" ? ({ main: "Main action", maneuver: "Maneuver", move: "Move action", trigger: "Triggered action", "free-trigger": "Free triggered action", "free-maneuver": "Free maneuver", none: "No action" } as const)[type.key] : type.label}
               </option>
             ))}
           </Select>
         </Field>
 
-        <Field label="Вид">
+        <Field label={t("Вид", "Kind")}>
           <Select
             value={draft.kind}
             onChange={(event) => patch({ kind: event.target.value as AbilityKind })}
           >
             {ABILITY_KINDS.map((kind) => (
               <option key={kind.key} value={kind.key}>
-                {kind.label}
+                {locale === "en" ? ({ signature: "Signature", heroic: "Heroic", "free-strike": "Free strike", other: "Other" } as const)[kind.key] : kind.label}
               </option>
             ))}
           </Select>
         </Field>
 
-        <Field label="Ключевые слова" className="span-2">
+        <Field label={t("Ключевые слова", "Keywords")} className="span-2">
           <TextInput
             value={keywordsText}
             onChange={(event) => setKeywords(event.target.value)}
-            placeholder="Ближний, Удар, Оружие"
+            placeholder={t("Ближний, Удар, Оружие", "Enter keywords") }
           />
         </Field>
 
-        <Field label="Дистанция">
+        <Field label={t("Дистанция", "Distance")}>
           <TextInput
             value={draft.distance}
             onChange={(event) => patch({ distance: event.target.value })}
-            placeholder="Ближний 1"
+            placeholder={t("Ближний 1", "Enter distance") }
           />
         </Field>
 
-        <Field label="Цель">
+        <Field label={t("Цель", "Target")}>
           <TextInput
             value={draft.target}
             onChange={(event) => patch({ target: event.target.value })}
-            placeholder="Одно существо или объект"
+            placeholder={t("Одно существо или объект", "One creature or object") }
           />
         </Field>
 
         <div className="field span-2">
-          <span className="field-label">Характеристики броска</span>
+          <span className="field-label">{t("Характеристики броска", "Roll characteristics")}</span>
           <div className="abil-chips">
             {CHARACTERISTICS.map((info) => (
               <Chip
                 key={info.key}
                 active={draft.rollCharacteristics.includes(info.key)}
                 onClick={() => toggleCharacteristic(info.key)}
-                title={info.label}
+                title={locale === "en" ? ({ might: "Might", agility: "Agility", reason: "Reason", intuition: "Intuition", presence: "Presence" } as const)[info.key] : info.label}
               >
-                {info.short}
+                {locale === "en" ? ({ might: "M", agility: "A", reason: "R", intuition: "I", presence: "P" } as const)[info.key] : info.short}
               </Chip>
             ))}
             {draft.rollCharacteristics.length === 0 && (
-              <span className="muted small">Пусто — способность без броска силы.</span>
+              <span className="muted small">{t("Пусто — способность без броска силы.", "Leave empty for an ability without a power roll.")}</span>
             )}
           </div>
         </div>
 
-        <Field label="Предпочтительная характеристика">
+        <Field label={t("Предпочтительная характеристика", "Preferred characteristic")}>
           <Select
             value={draft.preferredCharacteristic || ""}
             disabled={draft.rollCharacteristics.length === 0}
@@ -197,43 +199,43 @@ export function AbilityEditor({ initial, isNew, onClose, onSave }: AbilityEditor
               patch({ preferredCharacteristic: event.target.value as CharacteristicKey | "" })
             }
           >
-            {draft.rollCharacteristics.length === 0 && <option value="">Нет броска</option>}
+            {draft.rollCharacteristics.length === 0 && <option value="">{t("Нет броска", "No roll")}</option>}
             {draft.rollCharacteristics.map((key) => {
               const info = CHARACTERISTICS.find((item) => item.key === key);
               return (
                 <option key={key} value={key}>
-                  {info?.label ?? key}
+                  {locale === "en" ? ({ might: "Might", agility: "Agility", reason: "Reason", intuition: "Intuition", presence: "Presence" } as const)[key] : info?.label ?? key}
                 </option>
               );
             })}
           </Select>
         </Field>
 
-        <Field label="Бонус броска">
+        <Field label={t("Бонус броска", "Roll bonus")}>
           <NumberInput
             value={draft.rollBonus}
             onChange={(value) => patch({ rollBonus: value })}
             min={-10}
             max={20}
-            label="Бонус броска"
+            label={t("Бонус броска", "Roll bonus")}
           />
         </Field>
 
-        <Field label="Стоимость ресурса">
+        <Field label={t("Стоимость ресурса", "Resource cost")}>
           <NumberInput
             value={draft.resourceCost}
             onChange={(value) => patch({ resourceCost: value })}
             min={0}
             max={10}
-            label="Стоимость ресурса"
+            label={t("Стоимость ресурса", "Resource cost")}
           />
         </Field>
 
-        <Field label="Триггер" className="span-2">
+        <Field label={t("Триггер", "Trigger")} className="span-2">
           <TextInput
             value={draft.trigger}
             onChange={(event) => patch({ trigger: event.target.value })}
-            placeholder="Когда враг…"
+            placeholder={t("Когда враг…", "When an enemy…") }
           />
         </Field>
 
@@ -251,19 +253,19 @@ export function AbilityEditor({ initial, isNew, onClose, onSave }: AbilityEditor
                 className="mono"
                 value={tier.damage}
                 onChange={(event) => patchTier(index, { damage: event.target.value })}
-                placeholder="Урон: 3 + M"
+                placeholder={t("Урон: 3 + M", "Damage: 3 + M") }
               />
               <TextArea
                 rows={2}
                 value={tier.effect}
                 onChange={(event) => patchTier(index, { effect: event.target.value })}
-                placeholder="Эффект тира"
+                placeholder={t("Эффект тира", "Tier effect") }
               />
             </div>
           ))}
         </div>
 
-        <Field label="Эффект" className="span-2">
+        <Field label={t("Эффект", "Effect")} className="span-2">
           <TextArea
             rows={3}
             value={draft.effect}
@@ -271,15 +273,15 @@ export function AbilityEditor({ initial, isNew, onClose, onSave }: AbilityEditor
           />
         </Field>
 
-        <Field label="Источник">
+        <Field label={t("Источник", "Source")}>
           <TextInput
             value={draft.source}
             onChange={(event) => patch({ source: event.target.value })}
-            placeholder="Класс, комплект или каталог"
+            placeholder={t("Класс, комплект или каталог", "Class, kit, or catalog") }
           />
         </Field>
 
-        <Field label="Заметки">
+        <Field label={t("Заметки", "Notes")}>
           <TextInput
             value={draft.notes}
             onChange={(event) => patch({ notes: event.target.value })}

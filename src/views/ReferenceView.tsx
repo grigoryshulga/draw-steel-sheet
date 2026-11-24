@@ -4,6 +4,7 @@ import { LibraryHeader } from "../components/LibraryHeader";
 import { useLibraryLocation } from "../lib/library-location";
 import "./CodexView.css";
 import "./ReferenceView.css";
+import { useLocale } from "../i18n/locale";
 
 const CatalogView = lazy(() =>
   import("./CatalogView").then((module) => ({ default: module.CatalogView })),
@@ -20,6 +21,7 @@ const ClassLandingView = lazy(() =>
  * остаётся только лендинг класса, потому что он собирает десять статей-уровней.
  */
 export function ReferenceView() {
+  const { t } = useLocale();
   const segments = useLibraryLocation();
   const section = segments[2] ?? "";
   const item = segments[3] ?? "";
@@ -30,9 +32,9 @@ export function ReferenceView() {
   }
   return (
     <div className="reference-view">
-      <LibraryHeader title={isDirectorSection(section) ? "Ведущему" : "Справочник"} />
+      <LibraryHeader title={isDirectorSection(section) ? t("Ведущему", "Director") : t("Справочник", "Reference")} />
       <div className="reference-body">
-        <Suspense fallback={<p className="muted">Загрузка справочника…</p>}>
+        <Suspense fallback={<p className="muted">{t("Загрузка справочника…", "Loading reference…")}</p>}>
           <CatalogView />
         </Suspense>
       </div>

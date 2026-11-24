@@ -21,8 +21,8 @@
     "data:library": "node scripts/build-library.mjs",
     "check": "npm run check:architecture && npm run content:check && npm test && npm run build && npm run perf:check",
     "content:import": "node scripts/content/import-legacy.mjs",
-    "content:build": "node scripts/content/build-rules.mjs && node scripts/content/build-consumer-data.mjs",
-    "content:check": "node scripts/content/build-rules.mjs --check && node scripts/content/build-consumer-data.mjs --check",
+    "content:build": "node scripts/content/build-rules.mjs && node scripts/content/build-consumer-data.mjs && node scripts/build-english-reference.mjs",
+    "content:check": "node scripts/content/build-rules.mjs --check && node scripts/content/build-consumer-data.mjs --check && node scripts/build-english-reference.mjs --check",
     "content:consumers": "node scripts/content/build-consumer-data.mjs",
     "content:consumers:check": "node scripts/content/build-consumer-data.mjs --check",
     "perf:check": "node scripts/check-performance.mjs"
@@ -43,7 +43,9 @@
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-markdown": "^10.1.0",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

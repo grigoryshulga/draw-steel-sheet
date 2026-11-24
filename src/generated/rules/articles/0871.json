@@ -283,7 +283,204 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
       "originalName": "1st-Level Features",
-      "originalDescription": "As a 1st-level troubadour, you gain the following features."
+      "originalDescription": "As a 1st-level troubadour, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "1st-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 1st-level troubadour, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.troubadour-class-act"
+          },
+          {
+            "type": "markdown",
+            "text": "## Drama\n\nDuring battles, you are fueled by the dynamic ups, downs, and upside downs of the fray, from which you derive a Heroic Resource called drama."
+          },
+          {
+            "type": "markdown",
+            "text": "### Drama in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain drama equal to your Victories. At the start of each of your turns during combat, you gain 1d3 drama.\n\nAdditionally, you gain drama when certain events occur during a combat encounter:\n\n- The first time three or more heroes use an ability on the same turn, you gain 2 drama.\n- The first time any hero is made winded during the encounter, you gain 2 drama.\n- Whenever a creature within your line of effect rolls a natural 19 or 20, you gain 3 drama.\n- When you or another hero dies, you gain 10 drama.\n\nWhen you are dead, you continue to gain drama during combat as long as your body is intact. If you have 30 drama during the encounter in which you died, you can come back to life with 1 Stamina and 0 drama (no action required). If you are still dead after the encounter in which you died, you can't gain drama during future encounters.\n\nYou lose any remaining drama at the end of the encounter."
+          },
+          {
+            "type": "markdown",
+            "text": "### Drama Outside of Combat\n\nThough you can't gain drama outside of combat, you can use your heroic abilities and effects that cost drama without spending it. Whenever you use an ability or effect outside of combat that costs drama, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited drama on its effect, such as Artful Flourish, you can use it as if you had spent an amount of drama equal to your Victories.\n\n> **The Auteur Troubadour**\n>\n> Abilities like Guest Star, Missed Cue, and Twist at the End allow the auteur to rewrite bits of what happens in the battle by temporarily removing creatures from an encounter, bringing people back to life, or causing a new ally to appear. These abilities and features are no more powerful than any other, but they're narratively different from shooting rays of fire or swinging a sword.\n>\n> This is because, uniquely among all the subclasses in *Draw Steel*, the auteur knows that the combat encounter playing out at your table is really a story being told sometime later, probably in a tavern.\n>\n> When the auteur uses these abilities, they are changing that story. They rewrite stories to make them more dramatic in the telling. What *actually* happened is a matter of some debate. Even the people who were there don't agree on exactly what took place. How people *remember* it is what's important!\n>\n> This is pretty weird, but also very fun. If it's too weird for you or your table, you could always interpret those abilities as a kind of magic. A school of conjuring that really does change the battlefield, which the auteur merely *flavors* as rewriting the story."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.kit"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.scene-partner"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.routines"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.choreography"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.revitalizing-limerick"
+          },
+          {
+            "type": "markdown",
+            "text": "## 1st-Level Class Act Features\n\nYour troubadour class act grants you two features, as shown on the 1st-Level Class Act Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 1st-Level Class Act Features Table\n\n| Class Act  | Features                           |\n|------------|------------------------------------|\n| Auteur     | Blocking, Dramatic Monologue       |\n| Duelist    | Acrobatics, Star Power             |\n| Virtuoso   | Power Chord, Virtuoso Performances |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.acrobatics"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.acrobatics"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.blocking"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.blocking"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.dramatic-monologue"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.dramatic-monologue"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.power-chord"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.power-chord"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.star-power"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.star-power"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.virtuoso-performances"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.thunder-mother"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.ballad-of-the-beast"
+          },
+          {
+            "type": "markdown",
+            "text": "## Class Act Triggered Action\n\nYour troubadour class act grants you a triggered action, as shown on the Class Act Triggered Actions table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Class Act Triggered Action Table\n\n| Class Act | Triggered Action       |\n|-----------|------------------------|\n| Auteur    | Turnabout Is Fair Play |\n| Duelist   | Riposte                |\n| Virtuoso  | Harmonize              |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.harmonize"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.riposte"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.turnabout-is-fair-play"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-1.troubadour-abilities"
+          },
+          {
+            "type": "markdown",
+            "text": "## Signature Ability\n\nChoose one signature ability from the following options. Signature abilities can be used at will. (*Quick Build:* Witty Banter.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.artful-flourish"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.cutting-sarcasm"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.instigator"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.witty-banter"
+          },
+          {
+            "type": "markdown",
+            "text": "### Heroic Abilities\n\nYou master a range of heroic abilities, all of which cost drama to empower them."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 3-Drama Ability\n\nChoose one heroic ability from the following options, each of which costs 3 drama to use. (*Quick Build:* Harsh Critic.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.harsh-critic"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.hypnotic-overtones"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.quick-rewrite"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.upstage"
+          },
+          {
+            "type": "markdown",
+            "text": "#### 5-Drama Ability\n\nChoose one heroic ability from the following options, each of which costs 5 drama to use. (*Quick Build:* Dramatic Reversal.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.dramatic-reversal"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.fake-your-death"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.flip-the-script"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-1.method-acting"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -298,7 +495,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/troubadour-class-act",
       "originalName": "Troubadour Class Act",
-      "originalDescription": "Panache, melody, and depiction. Some troubadours have it all, but everyone starts somewhere. Your troubadour class act is your art form, summing up the manner in which the world becomes your stage. As you go about unearthing the drama of everyday life and strife, you choose a troubadour class act from the following options, each of which grants you a skill. (*Quick Build:* Virtuoso.)\n\n- **Auteur:** You seek drama from story and recount, using your magic to manipulate the sequence of events unfolding before you. You have the Brag skill.\n- **Duelist:** Drama infuses your every movement done in tandem with another. You perform dances of death, putting trust in your opponent to return your passion in kind. You have the Gymnastics skill.\n- **Virtuoso:** You find drama in music and song, weaving magic between vibrations and filling the audience with your pathos. You have the Music skill and can play an instrument.\n\nYour troubadour class act is your subclass, and your choice of class act determines many of the features you'll gain as you gain new levels."
+      "originalDescription": "Panache, melody, and depiction. Some troubadours have it all, but everyone starts somewhere. Your troubadour class act is your art form, summing up the manner in which the world becomes your stage. As you go about unearthing the drama of everyday life and strife, you choose a troubadour class act from the following options, each of which grants you a skill. (*Quick Build:* Virtuoso.)\n\n- **Auteur:** You seek drama from story and recount, using your magic to manipulate the sequence of events unfolding before you. You have the Brag skill.\n- **Duelist:** Drama infuses your every movement done in tandem with another. You perform dances of death, putting trust in your opponent to return your passion in kind. You have the Gymnastics skill.\n- **Virtuoso:** You find drama in music and song, weaving magic between vibrations and filling the audience with your pathos. You have the Music skill and can play an instrument.\n\nYour troubadour class act is your subclass, and your choice of class act determines many of the features you'll gain as you gain new levels.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-1.drama",
@@ -311,7 +511,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/drama",
       "originalName": "Drama",
-      "originalDescription": "During battles, you are fueled by the dynamic ups, downs, and upside downs of the fray, from which you derive a Heroic Resource called drama.\n\n##### Drama in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain drama equal to your Victories. At the start of each of your turns during combat, you gain 1d3 drama.\n\nAdditionally, you gain drama when certain events occur during a combat encounter:\n\n- The first time three or more heroes use an ability on the same turn, you gain 2 drama.\n- The first time any hero is made winded during the encounter, you gain 2 drama.\n- Whenever a creature within your line of effect rolls a natural 19 or 20, you gain 3 drama.\n- When you or another hero dies, you gain 10 drama.\n\nWhen you are dead, you continue to gain drama during combat as long as your body is intact. If you have 30 drama during the encounter in which you died, you can come back to life with 1 Stamina and 0 drama (no action required). If you are still dead after the encounter in which you died, you can't gain drama during future encounters.\n\nYou lose any remaining drama at the end of the encounter.\n\n##### Drama Outside of Combat\n\nThough you can't gain drama outside of combat, you can use your heroic abilities and effects that cost drama without spending it. Whenever you use an ability or effect outside of combat that costs drama, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited drama on its effect, such as Artful Flourish, you can use it as if you had spent an amount of drama equal to your Victories.\n\n> **The Auteur Troubadour**\n>\n> Abilities like Guest Star, Missed Cue, and Twist at the End allow the auteur to rewrite bits of what happens in the battle by temporarily removing creatures from an encounter, bringing people back to life, or causing a new ally to appear. These abilities and features are no more powerful than any other, but they're narratively different from shooting rays of fire or swinging a sword.\n>\n> This is because, uniquely among all the subclasses in *Draw Steel*, the auteur knows that the combat encounter playing out at your table is really a story being told sometime later, probably in a tavern.\n>\n> When the auteur uses these abilities, they are changing that story. They rewrite stories to make them more dramatic in the telling. What *actually* happened is a matter of some debate. Even the people who were there don't agree on exactly what took place. How people *remember* it is what's important!\n>\n> This is pretty weird, but also very fun. If it's too weird for you or your table, you could always interpret those abilities as a kind of magic. A school of conjuring that really does change the battlefield, which the auteur merely *flavors* as rewriting the story."
+      "originalDescription": "During battles, you are fueled by the dynamic ups, downs, and upside downs of the fray, from which you derive a Heroic Resource called drama.\n\n##### Drama in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain drama equal to your Victories. At the start of each of your turns during combat, you gain 1d3 drama.\n\nAdditionally, you gain drama when certain events occur during a combat encounter:\n\n- The first time three or more heroes use an ability on the same turn, you gain 2 drama.\n- The first time any hero is made winded during the encounter, you gain 2 drama.\n- Whenever a creature within your line of effect rolls a natural 19 or 20, you gain 3 drama.\n- When you or another hero dies, you gain 10 drama.\n\nWhen you are dead, you continue to gain drama during combat as long as your body is intact. If you have 30 drama during the encounter in which you died, you can come back to life with 1 Stamina and 0 drama (no action required). If you are still dead after the encounter in which you died, you can't gain drama during future encounters.\n\nYou lose any remaining drama at the end of the encounter.\n\n##### Drama Outside of Combat\n\nThough you can't gain drama outside of combat, you can use your heroic abilities and effects that cost drama without spending it. Whenever you use an ability or effect outside of combat that costs drama, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited drama on its effect, such as Artful Flourish, you can use it as if you had spent an amount of drama equal to your Victories.\n\n> **The Auteur Troubadour**\n>\n> Abilities like Guest Star, Missed Cue, and Twist at the End allow the auteur to rewrite bits of what happens in the battle by temporarily removing creatures from an encounter, bringing people back to life, or causing a new ally to appear. These abilities and features are no more powerful than any other, but they're narratively different from shooting rays of fire or swinging a sword.\n>\n> This is because, uniquely among all the subclasses in *Draw Steel*, the auteur knows that the combat encounter playing out at your table is really a story being told sometime later, probably in a tavern.\n>\n> When the auteur uses these abilities, they are changing that story. They rewrite stories to make them more dramatic in the telling. What *actually* happened is a matter of some debate. Even the people who were there don't agree on exactly what took place. How people *remember* it is what's important!\n>\n> This is pretty weird, but also very fun. If it's too weird for you or your table, you could always interpret those abilities as a kind of magic. A school of conjuring that really does change the battlefield, which the auteur merely *flavors* as rewriting the story.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-1.drama-in-combat",
@@ -324,7 +527,10 @@
       },
       "originalId": "",
       "originalName": "Drama in Combat",
-      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain drama equal to your Victories."
+      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain drama equal to your Victories. At the start of each of your turns during combat, you gain 1d3 drama.\n\nAdditionally, you gain drama when certain events occur during a combat encounter:\n\n- The first time three or more heroes use an ability on the same turn, you gain 2 drama.\n- The first time any hero is made winded during the encounter, you gain 2 drama.\n- Whenever a creature within your line of effect rolls a natural 19 or 20, you gain 3 drama.\n- When you or another hero dies, you gain 10 drama.\n\nWhen you are dead, you continue to gain drama during combat as long as your body is intact. If you have 30 drama during the encounter in which you died, you can come back to life with 1 Stamina and 0 drama (no action required). If you are still dead after the encounter in which you died, you can't gain drama during future encounters.\n\nYou lose any remaining drama at the end of the encounter.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-1.drama-outside-of-combat",
@@ -337,7 +543,10 @@
       },
       "originalId": "",
       "originalName": "Drama Outside of Combat",
-      "originalDescription": "Though you can't gain drama outside of combat, you can use your heroic abilities and effects that cost drama without spending it."
+      "originalDescription": "Though you can't gain drama outside of combat, you can use your heroic abilities and effects that cost drama without spending it. Whenever you use an ability or effect outside of combat that costs drama, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited drama on its effect, such as Artful Flourish, you can use it as if you had spent an amount of drama equal to your Victories.\n\n> **The Auteur Troubadour**\n>\n> Abilities like Guest Star, Missed Cue, and Twist at the End allow the auteur to rewrite bits of what happens in the battle by temporarily removing creatures from an encounter, bringing people back to life, or causing a new ally to appear. These abilities and features are no more powerful than any other, but they're narratively different from shooting rays of fire or swinging a sword.\n>\n> This is because, uniquely among all the subclasses in *Draw Steel*, the auteur knows that the combat encounter playing out at your table is really a story being told sometime later, probably in a tavern.\n>\n> When the auteur uses these abilities, they are changing that story. They rewrite stories to make them more dramatic in the telling. What *actually* happened is a matter of some debate. Even the people who were there don't agree on exactly what took place. How people *remember* it is what's important!\n>\n> This is pretty weird, but also very fun. If it's too weird for you or your table, you could always interpret those abilities as a kind of magic. A school of conjuring that really does change the battlefield, which the auteur merely *flavors* as rewriting the story.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-1.kit",
@@ -350,7 +559,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/kit",
       "originalName": "Kit",
-      "originalDescription": "You can use and gain the benefits of a kit. See Chapter 6: Kits for more information. (*Quick Build:* Swashbuckler.)"
+      "originalDescription": "You can use and gain the benefits of a kit. See Chapter 6: Kits for more information. (*Quick Build:* Swashbuckler.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-1.scene-partner",
@@ -363,7 +575,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/scene-partner",
       "originalName": "Scene Partner",
-      "originalDescription": "Whenever you obtain a success on a test to interact with an NPC using a skill from the interpersonal group, you can form a bond with that NPC. When you enter into a negotiation with a bonded NPC, their patience increases by 1 (to a maximum of 5). Additionally, the first time during a negotiation that you personally make an argument that would increase a bonded NPC's interest by 1, you instead increase their interest by 2 (to a maximum of 5).\n\nYou can have a number of bonds active equal to your level. When you form a bond with a new NPC that would exceed the limit, you must choose which of your active bonds to lose."
+      "originalDescription": "Whenever you obtain a success on a test to interact with an NPC using a skill from the interpersonal group, you can form a bond with that NPC. When you enter into a negotiation with a bonded NPC, their patience increases by 1 (to a maximum of 5). Additionally, the first time during a negotiation that you personally make an argument that would increase a bonded NPC's interest by 1, you instead increase their interest by 2 (to a maximum of 5).\n\nYou can have a number of bonds active equal to your level. When you form a bond with a new NPC that would exceed the limit, you must choose which of your active bonds to lose.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-1.routines",
@@ -376,7 +591,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/routines",
       "originalName": "Routines",
-      "originalDescription": "You enter every battle with a set of performance abilities at the ready. Performances are magical presentations (such as songs, dances, poems, or gymnastic feats) that your allies can participate in. These abilities have the Performance keyword. At the start of each combat round, as long as you are not dazed, dead, or surprised, you can either choose a new performance or maintain your current performance (no action required). Your performance lasts until you are unable to maintain it or until the end of the encounter.\n\nYou start off with the Choreography and Revitalizing Limerick performance abilities. Your choice of class act grants you additional performances."
+      "originalDescription": "You enter every battle with a set of performance abilities at the ready. Performances are magical presentations (such as songs, dances, poems, or gymnastic feats) that your allies can participate in. These abilities have the Performance keyword. At the start of each combat round, as long as you are not dazed, dead, or surprised, you can either choose a new performance or maintain your current performance (no action required). Your performance lasts until you are unable to maintain it or until the end of the encounter.\n\nYou start off with the Choreography and Revitalizing Limerick performance abilities. Your choice of class act grants you additional performances.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.choreography",
@@ -431,7 +649,27 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/choreography",
       "originalName": "Choreography",
-      "originalDescription": "*Taps, kicks, steps. It's all \"choreography.\"*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains a +2 bonus to speed until the end of their turn."
+      "originalDescription": "*Taps, kicks, steps. It's all \"choreography.\"*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains a +2 bonus to speed until the end of their turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Taps, kicks, steps. It's all \"choreography.\"",
+        "facts": {
+          "action": "No action",
+          "distance": [
+            "5 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Performance"
+          ]
+        },
+        "effect": "While this performance is active, each target who starts their turn in the area gains a +2 bonus to speed until the end of their turn."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.revitalizing-limerick",
@@ -486,7 +724,27 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/revitalizing-limerick",
       "originalName": "Revitalizing Limerick",
-      "originalDescription": "*There once was a man from Capital...*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** At the end of each of your turns while this performance is active, you can choose up to a number of targets equal to your Presence score. Each chosen target can spend a Recovery."
+      "originalDescription": "*There once was a man from Capital...*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** At the end of each of your turns while this performance is active, you can choose up to a number of targets equal to your Presence score. Each chosen target can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "There once was a man from Capital...",
+        "facts": {
+          "action": "No action",
+          "distance": [
+            "5 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Performance"
+          ]
+        },
+        "effect": "At the end of each of your turns while this performance is active, you can choose up to a number of targets equal to your Presence score. Each chosen target can spend a Recovery."
+      }
     },
     {
       "id": "feature.troubadour.level-1.1st-level-class-act-features",
@@ -499,7 +757,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/1st-level-class-act-features",
       "originalName": "1st-Level Class Act Features",
-      "originalDescription": "Your troubadour class act grants you two features, as shown on the 1st-Level Class Act Features table.\n\n###### 1st-Level Class Act Features Table\n\n| Class Act  | Features                           |\n|------------|------------------------------------|\n| Auteur     | Blocking, Dramatic Monologue       |\n| Duelist    | Acrobatics, Star Power             |\n| Virtuoso   | Power Chord, Virtuoso Performances |"
+      "originalDescription": "Your troubadour class act grants you two features, as shown on the 1st-Level Class Act Features table.\n\n###### 1st-Level Class Act Features Table\n\n| Class Act  | Features                           |\n|------------|------------------------------------|\n| Auteur     | Blocking, Dramatic Monologue       |\n| Duelist    | Acrobatics, Star Power             |\n| Virtuoso   | Power Chord, Virtuoso Performances |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-1.acrobatics",
@@ -512,7 +773,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/acrobatics",
       "originalName": "Acrobatics",
-      "originalDescription": "You have the following performance ability, which is usable with your Routines feature."
+      "originalDescription": "You have the following performance ability, which is usable with your Routines feature.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.acrobatics",
@@ -567,7 +831,27 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/acrobatics",
       "originalName": "Acrobatics",
-      "originalDescription": "*Folks love a good tumble.*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area can automatically obtain a tier 3 outcome on one test made to jump, tumble, or climb as part of their movement before the end of their turn."
+      "originalDescription": "*Folks love a good tumble.*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area can automatically obtain a tier 3 outcome on one test made to jump, tumble, or climb as part of their movement before the end of their turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Folks love a good tumble.",
+        "facts": {
+          "action": "No action",
+          "distance": [
+            "5 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Performance"
+          ]
+        },
+        "effect": "While this performance is active, each target who starts their turn in the area can automatically obtain a tier 3 outcome on one test made to jump, tumble, or climb as part of their movement before the end of their turn."
+      }
     },
     {
       "id": "feature.troubadour.level-1.blocking",
@@ -580,7 +864,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/blocking",
       "originalName": "Blocking",
-      "originalDescription": "You have the following performance ability, which is usable with your Routines feature."
+      "originalDescription": "You have the following performance ability, which is usable with your Routines feature.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.blocking",
@@ -635,7 +922,27 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/blocking",
       "originalName": "Blocking",
-      "originalDescription": "*No, no, no, you lose the audience that way. Try it like this...*\n\n| **Area, Magic, Performance** |                    **No action** |\n|------------------------------|---------------------------------:|\n| **📏 2 aura**                | **🎯 Each creature in the area** |\n\n**Effect:** At the end of each of your turns while this performance is active, you can choose up to a number of targets equal to your Presence score and teleport those targets to unoccupied spaces in the area. A target can't be teleported in a way that would harm them (such as over a cliff), leave them dying, or result in them suffering a condition or other negative effect."
+      "originalDescription": "*No, no, no, you lose the audience that way. Try it like this...*\n\n| **Area, Magic, Performance** |                    **No action** |\n|------------------------------|---------------------------------:|\n| **📏 2 aura**                | **🎯 Each creature in the area** |\n\n**Effect:** At the end of each of your turns while this performance is active, you can choose up to a number of targets equal to your Presence score and teleport those targets to unoccupied spaces in the area. A target can't be teleported in a way that would harm them (such as over a cliff), leave them dying, or result in them suffering a condition or other negative effect.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "No, no, no, you lose the audience that way. Try it like this...",
+        "facts": {
+          "action": "No action",
+          "distance": [
+            "2 aura"
+          ],
+          "target": "Each creature in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Performance"
+          ]
+        },
+        "effect": "At the end of each of your turns while this performance is active, you can choose up to a number of targets equal to your Presence score and teleport those targets to unoccupied spaces in the area. A target can't be teleported in a way that would harm them (such as over a cliff), leave them dying, or result in them suffering a condition or other negative effect."
+      }
     },
     {
       "id": "feature.troubadour.level-1.dramatic-monologue",
@@ -648,7 +955,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/dramatic-monologue",
       "originalName": "Dramatic Monologue",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.dramatic-monologue",
@@ -702,7 +1012,34 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/dramatic-monologue",
       "originalName": "Dramatic Monologue",
-      "originalDescription": "*It doesn't need to make sense. Just say it with emotion.*\n\n| **Magic, Ranged** |   **Maneuver** |\n|-------------------|---------------:|\n| **📏 Ranged 10**  | **🎯 Special** |\n\n**Effect:** Choose one of the following effects:\n\n- You orate a rousing tale of victory. One ally within distance gains an edge on the next power roll they make before the start of your next turn.\n- You weave a tale of high-stakes heroics. One ally within distance gains 1 surge.\n- You insult a foe where they're most vulnerable. One enemy within distance takes a bane on the next power roll they make before the end of their next turn.\n\n**Spend 1 Drama:** You can choose two targets for the chosen effect."
+      "originalDescription": "*It doesn't need to make sense. Just say it with emotion.*\n\n| **Magic, Ranged** |   **Maneuver** |\n|-------------------|---------------:|\n| **📏 Ranged 10**  | **🎯 Special** |\n\n**Effect:** Choose one of the following effects:\n\n- You orate a rousing tale of victory. One ally within distance gains an edge on the next power roll they make before the start of your next turn.\n- You weave a tale of high-stakes heroics. One ally within distance gains 1 surge.\n- You insult a foe where they're most vulnerable. One enemy within distance takes a bane on the next power roll they make before the end of their next turn.\n\n**Spend 1 Drama:** You can choose two targets for the chosen effect.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "- You orate a rousing tale of victory. One ally within distance gains an edge on the next power roll they make before the start of your next turn.\n- You weave a tale of high-stakes heroics. One ally within distance gains 1 surge.\n- You insult a foe where they're most vulnerable. One enemy within distance takes a bane on the next power roll they make before the end of their next turn.\n\n**Spend 1 Drama:** You can choose two targets for the chosen effect."
+          }
+        ],
+        "flavor": "It doesn't need to make sense. Just say it with emotion.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Special",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "Choose one of the following effects:"
+      }
     },
     {
       "id": "feature.troubadour.level-1.power-chord",
@@ -715,7 +1052,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/power-chord",
       "originalName": "Power Chord",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.power-chord",
@@ -771,7 +1111,40 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/power-chord",
       "originalName": "Power Chord",
-      "originalDescription": "*Your instrument rings true and your music blows everyone away.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3"
+      "originalDescription": "*Your instrument rings true and your music blows everyone away.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your instrument rings true and your music blows everyone away.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "2 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "effect": "Push 1"
+            },
+            {
+              "effect": "Push 2"
+            },
+            {
+              "effect": "Push 3"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.troubadour.level-1.star-power",
@@ -784,7 +1157,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/star-power",
       "originalName": "Star Power",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.star-power",
@@ -835,7 +1211,27 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/star-power",
       "originalName": "Star Power",
-      "originalDescription": "*Your years of practicing fencing and dancing pay off on the battlefield.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain a +2 bonus to speed until the end of your turn. Additionally, the next power roll you make this turn can't have an outcome lower than tier 2.\n\n**Spend 1 Drama:** You gain a +4 bonus to speed instead."
+      "originalDescription": "*Your years of practicing fencing and dancing pay off on the battlefield.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain a +2 bonus to speed until the end of your turn. Additionally, the next power roll you make this turn can't have an outcome lower than tier 2.\n\n**Spend 1 Drama:** You gain a +4 bonus to speed instead.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 1 Drama:** You gain a +4 bonus to speed instead."
+          }
+        ],
+        "flavor": "Your years of practicing fencing and dancing pay off on the battlefield.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": []
+        },
+        "effect": "You gain a +2 bonus to speed until the end of your turn. Additionally, the next power roll you make this turn can't have an outcome lower than tier 2."
+      }
     },
     {
       "id": "feature.troubadour.level-1.virtuoso-performances",
@@ -848,7 +1244,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/virtuoso-performances",
       "originalName": "Virtuoso Performances",
-      "originalDescription": "You have the following performance abilities, which are usable with your Routines feature."
+      "originalDescription": "You have the following performance abilities, which are usable with your Routines feature.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.thunder-mother",
@@ -906,7 +1305,47 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/thunder-mother",
       "originalName": "\"Thunder Mother\"",
-      "originalDescription": "*All for thunder motherrr! ♪ Run and hide for coverrr!♪*\n\n| **Magic, Performance, Ranged, Strike** |       **No action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** At the end of each combat round while this performance is active, you can make a power roll against the target that ignores cover. You can't target the same creature twice with this effect.\n\n**Power Roll + Presence:**\n\n- **≤11:** Lightning damage equal to your level\n- **12-16:** Lightning damage equal to 5 + your level\n- **17+:** Lightning damage equal to 10 + your level"
+      "originalDescription": "*All for thunder motherrr! ♪ Run and hide for coverrr!♪*\n\n| **Magic, Performance, Ranged, Strike** |       **No action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** At the end of each combat round while this performance is active, you can make a power roll against the target that ignores cover. You can't target the same creature twice with this effect.\n\n**Power Roll + Presence:**\n\n- **≤11:** Lightning damage equal to your level\n- **12-16:** Lightning damage equal to 5 + your level\n- **17+:** Lightning damage equal to 10 + your level",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "All for thunder motherrr! ♪ Run and hide for coverrr!♪",
+        "facts": {
+          "action": "No action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Performance",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "beforeRoll": "**Effect:** At the end of each combat round while this performance is active, you can make a power roll against the target that ignores cover. You can't target the same creature twice with this effect.",
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "effect": "Lightning damage equal to your level"
+            },
+            {
+              "effect": "Lightning damage equal to 5 + your level"
+            },
+            {
+              "effect": "Lightning damage equal to 10 + your level"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.ballad-of-the-beast",
@@ -961,7 +1400,27 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/ballad-of-the-beast",
       "originalName": "\"Ballad of the Beast\"",
-      "originalDescription": "*Teeth are bare! ♪ Eyes black! ♪ No escaping the beast!♪*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains 1 surge."
+      "originalDescription": "*Teeth are bare! ♪ Eyes black! ♪ No escaping the beast!♪*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains 1 surge.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Teeth are bare! ♪ Eyes black! ♪ No escaping the beast!♪",
+        "facts": {
+          "action": "No action",
+          "distance": [
+            "5 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Performance"
+          ]
+        },
+        "effect": "While this performance is active, each target who starts their turn in the area gains 1 surge."
+      }
     },
     {
       "id": "feature.troubadour.level-1.class-act-triggered-action",
@@ -974,7 +1433,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/class-act-triggered-action",
       "originalName": "Class Act Triggered Action",
-      "originalDescription": "Your troubadour class act grants you a triggered action, as shown on the Class Act Triggered Actions table.\n\n###### Class Act Triggered Action Table\n\n| Class Act | Triggered Action       |\n|-----------|------------------------|\n| Auteur    | Turnabout Is Fair Play |\n| Duelist   | Riposte                |\n| Virtuoso  | Harmonize              |"
+      "originalDescription": "Your troubadour class act grants you a triggered action, as shown on the Class Act Triggered Actions table.\n\n###### Class Act Triggered Action Table\n\n| Class Act | Triggered Action       |\n|-----------|------------------------|\n| Auteur    | Turnabout Is Fair Play |\n| Duelist   | Riposte                |\n| Virtuoso  | Harmonize              |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.harmonize",
@@ -1027,7 +1489,34 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/harmonize",
       "originalName": "Harmonize",
-      "originalDescription": "*Give the chorus a little punch.*\n\n| **Ranged**      |   **Triggered** |\n|-----------------|----------------:|\n| **📏 Ranged 5** | **🎯 One ally** |\n\n**Trigger:** The target uses an ability that targets only one enemy and costs 3 or fewer of their Heroic Resource.\n\n**Effect:** The target can choose one additional target for the triggering ability. Any damage dealt to the additional target is sonic damage.\n\n**Spend 1+ Drama:** You can trigger this ability when a target uses an ability that has a Heroic Resource cost of 3 + each additional drama spent."
+      "originalDescription": "*Give the chorus a little punch.*\n\n| **Ranged**      |   **Triggered** |\n|-----------------|----------------:|\n| **📏 Ranged 5** | **🎯 One ally** |\n\n**Trigger:** The target uses an ability that targets only one enemy and costs 3 or fewer of their Heroic Resource.\n\n**Effect:** The target can choose one additional target for the triggering ability. Any damage dealt to the additional target is sonic damage.\n\n**Spend 1+ Drama:** You can trigger this ability when a target uses an ability that has a Heroic Resource cost of 3 + each additional drama spent.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 1+ Drama:** You can trigger this ability when a target uses an ability that has a Heroic Resource cost of 3 + each additional drama spent."
+          }
+        ],
+        "flavor": "Give the chorus a little punch.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 5
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "trigger": "The target uses an ability that targets only one enemy and costs 3 or fewer of their Heroic Resource.",
+        "effect": "The target can choose one additional target for the triggering ability. Any damage dealt to the additional target is sonic damage."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.riposte",
@@ -1080,7 +1569,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/riposte",
       "originalName": "Riposte",
-      "originalDescription": "*\"I'd have brought treats had I known I'd be fighting a dog.\"*\n\n| **Melee**      |           **Triggered** |\n|----------------|------------------------:|\n| **📏 Melee 1** | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage from a melee strike.\n\n**Effect:** The target makes a free strike against the creature who made the triggering strike."
+      "originalDescription": "*\"I'd have brought treats had I known I'd be fighting a dog.\"*\n\n| **Melee**      |           **Triggered** |\n|----------------|------------------------:|\n| **📏 Melee 1** | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage from a melee strike.\n\n**Effect:** The target makes a free strike against the creature who made the triggering strike.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "\"I'd have brought treats had I known I'd be fighting a dog.\"",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Melee"
+          ]
+        },
+        "trigger": "The target takes damage from a melee strike.",
+        "effect": "The target makes a free strike against the creature who made the triggering strike."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.turnabout-is-fair-play",
@@ -1133,7 +1645,34 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/turnabout-is-fair-play",
       "originalName": "Turnabout Is Fair Play",
-      "originalDescription": "*All's fair in love and whatever.*\n\n| **Ranged**       |       **Triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target makes an ability roll that has an edge, a double edge, a bane, or a double bane.\n\n**Effect:** An edge on the triggering roll becomes a bane, or a double edge becomes an edge. A bane becomes an edge, or a double bane becomes a bane.\n\n**Spend 3 Drama:** An edge on the triggering roll becomes a double bane, or a double edge is negated. A bane becomes a double edge, or a double bane is negated."
+      "originalDescription": "*All's fair in love and whatever.*\n\n| **Ranged**       |       **Triggered** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Trigger:** The target makes an ability roll that has an edge, a double edge, a bane, or a double bane.\n\n**Effect:** An edge on the triggering roll becomes a bane, or a double edge becomes an edge. A bane becomes an edge, or a double bane becomes a bane.\n\n**Spend 3 Drama:** An edge on the triggering roll becomes a double bane, or a double edge is negated. A bane becomes a double edge, or a double bane is negated.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 3 Drama:** An edge on the triggering roll becomes a double bane, or a double edge is negated. A bane becomes a double edge, or a double bane is negated."
+          }
+        ],
+        "flavor": "All's fair in love and whatever.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "trigger": "The target makes an ability roll that has an edge, a double edge, a bane, or a double bane.",
+        "effect": "An edge on the triggering roll becomes a bane, or a double edge becomes an edge. A bane becomes an edge, or a double bane becomes a bane."
+      }
     },
     {
       "id": "feature.troubadour.level-1.troubadour-abilities",
@@ -1146,7 +1685,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/troubadour-abilities",
       "originalName": "Troubadour Abilities",
-      "originalDescription": "Your performance centers around maneuvering through the scene of battle, maintaining its momentum so that the story flows as dramatically as possible."
+      "originalDescription": "Your performance centers around maneuvering through the scene of battle, maintaining its momentum so that the story flows as dramatically as possible.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-1.signature-ability",
@@ -1159,7 +1701,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-1/signature-ability",
       "originalName": "Signature Ability",
-      "originalDescription": "Choose one signature ability from the following options. Signature abilities can be used at will. (*Quick Build:* Witty Banter.)\n\n##### Heroic Abilities\n\nYou master a range of heroic abilities, all of which cost drama to empower them.\n\n###### 3-Drama Ability\n\nChoose one heroic ability from the following options, each of which costs 3 drama to use. (*Quick Build:* Harsh Critic.)\n\n###### 5-Drama Ability\n\nChoose one heroic ability from the following options, each of which costs 5 drama to use. (*Quick Build:* Dramatic Reversal.)"
+      "originalDescription": "Choose one signature ability from the following options. Signature abilities can be used at will. (*Quick Build:* Witty Banter.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.artful-flourish",
@@ -1216,7 +1761,59 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/artful-flourish",
       "originalName": "Artful Flourish",
-      "originalDescription": "*And they said practicing fencing was a waste!*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** You can shift up to 3 squares.\n\n**Spend 2+ Drama:** You can target one additional creature or object for every 2 drama spent."
+      "originalDescription": "*And they said practicing fencing was a waste!*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** You can shift up to 3 squares.\n\n**Spend 2+ Drama:** You can target one additional creature or object for every 2 drama spent.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 2+ Drama:** You can target one additional creature or object for every 2 drama spent."
+          }
+        ],
+        "flavor": "And they said practicing fencing was a waste!",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "Two creatures or objects",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can shift up to 3 squares."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.cutting-sarcasm",
@@ -1274,7 +1871,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/cutting-sarcasm",
       "originalName": "Cutting Sarcasm",
-      "originalDescription": "*There you are, radiating your usual charisma.*\n\n| **Magic, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Ranged 10**                  | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 + P psychic damage; P < WEAK, bleeding (save ends)\n- **12-16:** 5 + P psychic damage; P < AVERAGE, bleeding (save ends)\n- **17+:** 7 + P psychic damage; P < STRONG, bleeding (save ends)"
+      "originalDescription": "*There you are, radiating your usual charisma.*\n\n| **Magic, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Ranged 10**                  | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 + P psychic damage; P < WEAK, bleeding (save ends)\n- **12-16:** 5 + P psychic damage; P < AVERAGE, bleeding (save ends)\n- **17+:** 7 + P psychic damage; P < STRONG, bleeding (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "There you are, radiating your usual charisma.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2 + P",
+                "type": "psychic"
+              },
+              "effect": "P < WEAK, bleeding (save ends)"
+            },
+            {
+              "damage": {
+                "value": "5 + P",
+                "type": "psychic"
+              },
+              "effect": "P < AVERAGE, bleeding (save ends)"
+            },
+            {
+              "damage": {
+                "value": "7 + P",
+                "type": "psychic"
+              },
+              "effect": "P < STRONG, bleeding (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.instigator",
@@ -1331,7 +1979,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/instigator",
       "originalName": "Instigator",
-      "originalDescription": "*I didn't do it! What?*\n\n| **Melee, Strike, Weapon**             | **Main action** |\n|---------------------------------------|----------------:|\n| **📏 Melee 1**                        | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P damage\n- **12-16:** 6 + P damage\n- **17+:** 9 + P damage\n\n**Effect:** The target is taunted by you or a willing ally adjacent to you until the end of the target's next turn."
+      "originalDescription": "*I didn't do it! What?*\n\n| **Melee, Strike, Weapon**             | **Main action** |\n|---------------------------------------|----------------:|\n| **📏 Melee 1**                        | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P damage\n- **12-16:** 6 + P damage\n- **17+:** 9 + P damage\n\n**Effect:** The target is taunted by you or a willing ally adjacent to you until the end of the target's next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "I didn't do it! What?",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + P"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "6 + P"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "9 + P"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "The target is taunted by you or a willing ally adjacent to you until the end of the target's next turn."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.witty-banter",
@@ -1389,7 +2085,68 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/witty-banter",
       "originalName": "Witty Banter",
-      "originalDescription": "*A lyrical (and physical) jab insults an enemy and inspires an ally.*\n\n| **Magic, Melee, Ranged, Strike** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**       | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 + P psychic damage\n- **12-16:** 5 + P psychic damage\n- **17+:** 7 + P psychic damage\n\n**Effect:** One ally within 10 squares of you can end one effect on them that is ended by a saving throw or that ends at the end of their turn.\n\n**Spend 1 Drama:** The chosen ally can spend a Recovery."
+      "originalDescription": "*A lyrical (and physical) jab insults an enemy and inspires an ally.*\n\n| **Magic, Melee, Ranged, Strike** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**       | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 + P psychic damage\n- **12-16:** 5 + P psychic damage\n- **17+:** 7 + P psychic damage\n\n**Effect:** One ally within 10 squares of you can end one effect on them that is ended by a saving throw or that ends at the end of their turn.\n\n**Spend 1 Drama:** The chosen ally can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 1 Drama:** The chosen ally can spend a Recovery."
+          }
+        ],
+        "flavor": "A lyrical (and physical) jab insults an enemy and inspires an ally.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            },
+            " or ranged ",
+            {
+              "mode": "ranged",
+              "value": 5
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + P",
+                "type": "psychic"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5 + P",
+                "type": "psychic"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7 + P",
+                "type": "psychic"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "One ally within 10 squares of you can end one effect on them that is ended by a saving throw or that ends at the end of their turn."
+      }
     },
     {
       "id": "feature.troubadour.level-1.heroic-abilities",
@@ -1402,7 +2159,10 @@
       },
       "originalId": "",
       "originalName": "Heroic Abilities",
-      "originalDescription": "You master a range of heroic abilities, all of which cost drama to empower them."
+      "originalDescription": "You master a range of heroic abilities, all of which cost drama to empower them.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-1.3-drama-ability",
@@ -1415,7 +2175,10 @@
       },
       "originalId": "",
       "originalName": "3-Drama Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 drama to use. (Quick Build: Harsh Critic.)"
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 drama to use. (*Quick Build:* Harsh Critic.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.harsh-critic",
@@ -1473,7 +2236,64 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/harsh-critic",
       "originalName": "Harsh Critic",
-      "originalDescription": "*Just one bad review will ruin their day.*\n\n| **Magic, Melee, Ranged, Strike** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 10**      | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P sonic damage\n- **12-16:** 10 + P sonic damage\n- **17+:** 13 + P sonic damage\n\n**Effect:** The first time the target uses an ability before the start of your next turn, any effects from the ability's tier outcomes other than damage are negated for all targets. Ability effects that always happen regardless of the power roll work as usual."
+      "originalDescription": "*Just one bad review will ruin their day.*\n\n| **Magic, Melee, Ranged, Strike** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 10**      | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P sonic damage\n- **12-16:** 10 + P sonic damage\n- **17+:** 13 + P sonic damage\n\n**Effect:** The first time the target uses an ability before the start of your next turn, any effects from the ability's tier outcomes other than damage are negated for all targets. Ability effects that always happen regardless of the power roll work as usual.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Just one bad review will ruin their day.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            },
+            " or ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "7 + P",
+                "type": "sonic"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "10 + P",
+                "type": "sonic"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "13 + P",
+                "type": "sonic"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "The first time the target uses an ability before the start of your next turn, any effects from the ability's tier outcomes other than damage are negated for all targets. Ability effects that always happen regardless of the power roll work as usual."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.hypnotic-overtones",
@@ -1529,7 +2349,44 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/hypnotic-overtones",
       "originalName": "Hypnotic Overtones",
-      "originalDescription": "*You produce an entrancing note that twists the senses in a spectacular fashion.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Slide 1; I < WEAK, dazed (save ends)\n- **12-16:** Slide 1; I < AVERAGE, dazed (save ends)\n- **17+:** Slide 2; I < STRONG, dazed (save ends)\n\n**Spend 2+ Drama:** The size of the burst increases by 1 for every 2 drama spent."
+      "originalDescription": "*You produce an entrancing note that twists the senses in a spectacular fashion.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Slide 1; I < WEAK, dazed (save ends)\n- **12-16:** Slide 1; I < AVERAGE, dazed (save ends)\n- **17+:** Slide 2; I < STRONG, dazed (save ends)\n\n**Spend 2+ Drama:** The size of the burst increases by 1 for every 2 drama spent.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 2+ Drama:** The size of the burst increases by 1 for every 2 drama spent."
+          }
+        ],
+        "flavor": "You produce an entrancing note that twists the senses in a spectacular fashion.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "2 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "effect": "Slide 1; I < WEAK, dazed (save ends)"
+            },
+            {
+              "effect": "Slide 1; I < AVERAGE, dazed (save ends)"
+            },
+            {
+              "effect": "Slide 2; I < STRONG, dazed (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.quick-rewrite",
@@ -1586,7 +2443,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/quick-rewrite",
       "originalName": "Quick Rewrite",
-      "originalDescription": "*You write something unexpected into the scene that hinders your enemy.*\n\n| **Area, Magic, Ranged**     |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 3 cube within 10**     | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 damage; P < WEAK, slowed (save ends)\n- **12-16:** 5 damage; P < AVERAGE, slowed (save ends)\n- **17+:** 6 damage; P < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain for enemies."
+      "originalDescription": "*You write something unexpected into the scene that hinders your enemy.*\n\n| **Area, Magic, Ranged**     |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 3 cube within 10**     | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 damage; P < WEAK, slowed (save ends)\n- **12-16:** 5 damage; P < AVERAGE, slowed (save ends)\n- **17+:** 6 damage; P < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain for enemies.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You write something unexpected into the scene that hinders your enemy.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "3 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4"
+              },
+              "effect": "P < WEAK, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "5"
+              },
+              "effect": "P < AVERAGE, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "6"
+              },
+              "effect": "P < STRONG, restrained (save ends)"
+            }
+          ]
+        },
+        "effect": "The area is difficult terrain for enemies."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.upstage",
@@ -1644,7 +2549,41 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/upstage",
       "originalName": "Upstage",
-      "originalDescription": "*As you bob and weave through the crowd, you can't help but leave the audience wanting more.*\n\n| **Melee, Strike, Weapon** | **Maneuver** |\n|---------------------------|-------------:|\n| **📏 Self; see below**    |  **🎯 Self** |\n\n**Effect:** You shift up to your speed. You make one power roll that targets each enemy you move adjacent to during this shift.\n\n**Power Roll + Agility or Presence:**\n\n- **≤11:** Taunted (EoT); A < WEAK, prone\n- **12-16:** Taunted (EoT); A < AVERAGE, prone\n- **17+:** Taunted (EoT); A < STRONG, prone and can't stand (EoT)"
+      "originalDescription": "*As you bob and weave through the crowd, you can't help but leave the audience wanting more.*\n\n| **Melee, Strike, Weapon** | **Maneuver** |\n|---------------------------|-------------:|\n| **📏 Self; see below**    |  **🎯 Self** |\n\n**Effect:** You shift up to your speed. You make one power roll that targets each enemy you move adjacent to during this shift.\n\n**Power Roll + Agility or Presence:**\n\n- **≤11:** Taunted (EoT); A < WEAK, prone\n- **12-16:** Taunted (EoT); A < AVERAGE, prone\n- **17+:** Taunted (EoT); A < STRONG, prone and can't stand (EoT)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "As you bob and weave through the crowd, you can't help but leave the audience wanting more.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self; see below"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** You shift up to your speed. You make one power roll that targets each enemy you move adjacent to during this shift.",
+        "roll": {
+          "title": "Power Roll + Agility or Presence",
+          "tiers": [
+            {
+              "effect": "Taunted (EoT); A < WEAK, prone"
+            },
+            {
+              "effect": "Taunted (EoT); A < AVERAGE, prone"
+            },
+            {
+              "effect": "Taunted (EoT); A < STRONG, prone and can't stand (EoT)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.troubadour.level-1.5-drama-ability",
@@ -1657,7 +2596,10 @@
       },
       "originalId": "",
       "originalName": "5-Drama Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 drama to use. (Quick Build: Dramatic Reversal.)"
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 drama to use. (*Quick Build:* Dramatic Reversal.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.dramatic-reversal",
@@ -1713,7 +2655,40 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/dramatic-reversal",
       "originalName": "Dramatic Reversal",
-      "originalDescription": "*Give the audience a surprise.*\n\n| **Area, Magic** |                       **Main action** |\n|-----------------|--------------------------------------:|\n| **📏 3 burst**  | **🎯 Self and each ally in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** The target can shift 1 square and make a free strike.\n- **12-16:** The target can shift up to 2 squares and make a free strike that gains an edge.\n- **17+:** The target can shift up to 3 squares and make a free strike that gains an edge, then can spend a Recovery."
+      "originalDescription": "*Give the audience a surprise.*\n\n| **Area, Magic** |                       **Main action** |\n|-----------------|--------------------------------------:|\n| **📏 3 burst**  | **🎯 Self and each ally in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** The target can shift 1 square and make a free strike.\n- **12-16:** The target can shift up to 2 squares and make a free strike that gains an edge.\n- **17+:** The target can shift up to 3 squares and make a free strike that gains an edge, then can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Give the audience a surprise.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "3 burst"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "effect": "The target can shift 1 square and make a free strike."
+            },
+            {
+              "effect": "The target can shift up to 2 squares and make a free strike that gains an edge."
+            },
+            {
+              "effect": "The target can shift up to 3 squares and make a free strike that gains an edge, then can spend a Recovery."
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.fake-your-death",
@@ -1766,7 +2741,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/fake-your-death",
       "originalName": "Fake Your Death",
-      "originalDescription": "*O happy dagger, this is thy sheath!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You turn invisible and create a magical illusion of your corpse falling in your space. While you are invisible, you gain a +3 bonus to speed and you ignore difficult terrain. The illusion and your invisibility last until the end of your next turn, or until the illusion is interacted with, you take damage, or you use a main action or a maneuver."
+      "originalDescription": "*O happy dagger, this is thy sheath!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You turn invisible and create a magical illusion of your corpse falling in your space. While you are invisible, you gain a +3 bonus to speed and you ignore difficult terrain. The illusion and your invisibility last until the end of your next turn, or until the illusion is interacted with, you take damage, or you use a main action or a maneuver.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "O happy dagger, this is thy sheath!",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "You turn invisible and create a magical illusion of your corpse falling in your space. While you are invisible, you gain a +3 bonus to speed and you ignore difficult terrain. The illusion and your invisibility last until the end of your next turn, or until the illusion is interacted with, you take damage, or you use a main action or a maneuver."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.flip-the-script",
@@ -1820,7 +2813,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/flip-the-script",
       "originalName": "Flip the Script",
-      "originalDescription": "*You try a different take on events, justifying the new locations everyone ended up in.*\n\n| **Area, Magic** |                       **Main action** |\n|-----------------|--------------------------------------:|\n| **📏 3 burst**  | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can teleport up to 5 squares. Any teleported target who was slowed is no longer slowed."
+      "originalDescription": "*You try a different take on events, justifying the new locations everyone ended up in.*\n\n| **Area, Magic** |                       **Main action** |\n|-----------------|--------------------------------------:|\n| **📏 3 burst**  | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can teleport up to 5 squares. Any teleported target who was slowed is no longer slowed.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You try a different take on events, justifying the new locations everyone ended up in.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "3 burst"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Each target can teleport up to 5 squares. Any teleported target who was slowed is no longer slowed."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-1.method-acting",
@@ -1877,7 +2889,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-1/method-acting",
       "originalName": "Method Acting",
-      "originalDescription": "*They're so hurt by your performance, you start to believe it yourself.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; P < WEAK, weakened (save ends)\n- **12-16:** 10 + A damage; P < AVERAGE, weakened (save ends)\n- **17+:** 14 + A damage; P < STRONG, weakened (save ends)\n\n**Effect:** You can become bleeding (save ends) to deal an extra 5 corruption damage to the target."
+      "originalDescription": "*They're so hurt by your performance, you start to believe it yourself.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; P < WEAK, weakened (save ends)\n- **12-16:** 10 + A damage; P < AVERAGE, weakened (save ends)\n- **17+:** 14 + A damage; P < STRONG, weakened (save ends)\n\n**Effect:** You can become bleeding (save ends) to deal an extra 5 corruption damage to the target.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "They're so hurt by your performance, you start to believe it yourself.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6 + A"
+              },
+              "effect": "P < WEAK, weakened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "10 + A"
+              },
+              "effect": "P < AVERAGE, weakened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "14 + A"
+              },
+              "effect": "P < STRONG, weakened (save ends)"
+            }
+          ]
+        },
+        "effect": "You can become bleeding (save ends) to deal an extra 5 corruption damage to the target."
+      }
     }
   ]
 }

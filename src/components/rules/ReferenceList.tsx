@@ -8,12 +8,14 @@ import type { PerkType } from "../../types";
 import type { ReactNode } from "react";
 import { type ArtKind } from "../../lib/art";
 import "./ReferenceList.css";
+import { useLocale } from "../../i18n/locale";
 
 type ReferenceListEntry = {
   catalog?: CatalogEntry;
   perk?: { type: PerkType };
   id?: string;
   name: string;
+  originalName?: string;
   summary?: string;
   eyebrow?: string;
   echelon?: number | null;
@@ -37,6 +39,7 @@ export function ReferenceList<T extends ReferenceListEntry>({
   metaFor?: (entry: T) => ReactNode;
   label?: string;
 }) {
+  const { locale, t } = useLocale();
   return (
     <div
       className="catalog-cards"
@@ -47,7 +50,7 @@ export function ReferenceList<T extends ReferenceListEntry>({
         const id = entry.id ?? entry.name;
         if (entry.perk && hrefFor) return (
           <a key={id} className="catalog-perk-link" href={hrefFor(entry)} aria-current={id === selectedId ? "page" : undefined}>
-            <PerkCard name={entry.name} type={entry.perk.type} summary={entry.summary} banded selected={id === selectedId} />
+            <PerkCard name={locale === "en" ? entry.originalName || entry.name : entry.name} type={entry.perk.type} summary={entry.summary} banded selected={id === selectedId} />
           </a>
         );
         const rank = catalogAccent(entry.catalog);
@@ -60,7 +63,7 @@ export function ReferenceList<T extends ReferenceListEntry>({
                 <span className="eyebrow">
                   {entry.eyebrow}
                   {!rank && entry.eyebrow && entry.echelon ? " · " : ""}
-                  {!rank && entry.echelon ? `Эшелон ${entry.echelon}` : ""}
+                  {!rank && entry.echelon ? t(`Эшелон ${entry.echelon}`, `Echelon ${entry.echelon}`) : ""}
                 </span>
               )}
               {entry.director && <span className="catalog-creature-type">
@@ -69,13 +72,13 @@ export function ReferenceList<T extends ReferenceListEntry>({
               <CatalogRank rank={rank} />
               <TreasureKind entry={entry.catalog} />
               </span>
-              <span className="catalog-card-title">{entry.name}</span>
+              <span className="catalog-card-title">{locale === "en" ? entry.originalName || entry.name : entry.name}</span>
               {entry.director ? <>
                 <span className="catalog-creature-stats">
                   {[
-                    ['Уровень', entry.director.level],
-                    ['БЦ', entry.director.ev?.replace(/for (?:four|4) minions/gi, 'за 4 миньонов')],
-                    ['Размер', entry.director.size],
+                    [t('Уровень', 'Level'), entry.director.level],
+                    [t('БЦ', 'EV'), locale === 'en' ? entry.director.ev : entry.director.ev?.replace(/for (?:four|4) minions/gi, 'за 4 миньонов')],
+                    [t('Размер', 'Size'), entry.director.size],
                   ].filter(([, value]) => value !== undefined && value !== '').map(([label, value]) =>
                     <span className="catalog-creature-stat" key={label}>
                       <span className="catalog-creature-stat-label" title={label === 'БЦ' ? 'Боевая ценность' : undefined}>{label}</span>

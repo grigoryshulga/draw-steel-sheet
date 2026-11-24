@@ -1,4 +1,5 @@
-import { artFor, type ArtAsset, type ArtKind } from "../lib/art";
+import { useLocale } from "../i18n/locale";
+import { artFor, artworkCredit, type ArtAsset, type ArtKind } from "../lib/art";
 import "./Artwork.css";
 
 /** Decorative alongside a visible option name; credits live in the figure and settings. */
@@ -38,6 +39,7 @@ export function ArtworkFigure({
   /** Подпись поверх картинки в верхнем углу: не занимает место в макете. */
   overlayCaption?: boolean;
 }) {
+  const { locale } = useLocale();
   if (!art) return null;
   return (
     <figure
@@ -55,10 +57,10 @@ export function ArtworkFigure({
       <figcaption>
         {art.sourceUrl ? (
           <a href={art.sourceUrl} target="_blank" rel="noreferrer">
-            {art.credit} ↗
+            {artworkCredit(art, locale)} ↗
           </a>
         ) : (
-          art.credit
+          artworkCredit(art, locale)
         )}
       </figcaption>
     </figure>

@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { Field, Panel, Stepper, TextInput } from "../../components/ui";
 import { CharacteristicGlyph } from "../../components/CharacteristicGlyph";
 import { HelpTooltip } from "../../components/HelpTooltip";
@@ -11,6 +12,7 @@ import "./CharacteristicsPanel.css";
 
 /** Пять характеристик с тестами и порогами тиров. */
 export function CharacteristicsPanel() {
+  const { t, locale } = useLocale();
   const { character, derived, patch, readOnly } = useApp();
   // Эффективные значения считает движок (сохранённое + бонусы особенностей,
   // с теми же ограничениями); правится по-прежнему сохранённое значение.
@@ -20,24 +22,24 @@ export function CharacteristicsPanel() {
 
   return (
     <Panel
-      title="Характеристики"
+      title={t("Характеристики", "Characteristics")}
       icon="spark"
       className="char-panel"
       dense
       actions={
-        <HelpTooltip label="Пороги бросков 2d10">
+        <HelpTooltip label={t("Пороги бросков 2d10", "2d10 roll thresholds")}>
           <div className="stat-breakdown-equation">
-            <strong>Пороги бросков 2d10</strong>
+            <strong>{t("Пороги бросков 2d10", "2d10 roll thresholds")}</strong>
             {CHARACTERISTICS.map((meta) => {
               const threshold = derived.tierThresholds[meta.key];
               return (
                 <p key={meta.key}>
-                  <strong>{meta.short}</strong>{" · "}
-                  <span>Т1 ≤ {threshold.t2 - 1}</span>{" · "}
+                  <strong>{locale === "en" ? meta.key[0].toUpperCase() : meta.short}</strong>{" · "}
+                  <span>{t("Т1", "T1")} ≤ {threshold.t2 - 1}</span>{" · "}
                   <span>
-                    Т2 {threshold.t2}–{threshold.t3 - 1}
+                    {t("Т2", "T2")} {threshold.t2}–{threshold.t3 - 1}
                   </span>{" · "}
-                  <span>Т3 ≥ {threshold.t3}</span>
+                  <span>{t("Т3", "T3")} ≥ {threshold.t3}</span>
                 </p>
               );
             })}
@@ -47,6 +49,7 @@ export function CharacteristicsPanel() {
     >
       <div className="char-grid">
         {CHARACTERISTICS.map((meta) => {
+          const name = t(meta.label, meta.key[0].toUpperCase() + meta.key.slice(1));
           const value = character.characteristics[meta.key];
           const shown = effective[meta.key];
           const bonus = shown - value;
@@ -54,14 +57,14 @@ export function CharacteristicsPanel() {
             <div className="stat-card" key={meta.key}>
               <div className="stat-card-head">
                 <span className="stat-name-with-glyph">
-                  <span aria-hidden="true"><CharacteristicGlyph characteristic={meta.key} /></span>
-                  <span className="stat-name">{meta.label}</span>
+                  <span aria-hidden="true"><CharacteristicGlyph characteristic={meta.key} language={locale} /></span>
+                  <span className="stat-name">{name}</span>
                 </span>
                 {bonus !== 0 && (
                   <span
                     className="stat-effective"
-                    title={`${bonus > 0 ? "+" : ""}${bonus} от особенностей`}
-                    aria-label={`${meta.label}: эффективное значение ${shown}, ${bonus > 0 ? "+" : ""}${bonus} от особенностей`}
+                    title={t(`${bonus > 0 ? "+" : ""}${bonus} от особенностей`, `${bonus > 0 ? "+" : ""}${bonus} from features`)}
+                    aria-label={t(`${name}: эффективное значение ${shown}, ${bonus > 0 ? "+" : ""}${bonus} от особенностей`, `${name}: effective score ${shown}, ${bonus > 0 ? "+" : ""}${bonus} from features`)}
                   >
                     {shown}
                     <span className="stat-effective-delta">
@@ -74,7 +77,7 @@ export function CharacteristicsPanel() {
                 value={value}
                 min={-5}
                 max={5}
-                label={`Характеристика: ${meta.label}`}
+                label={t(`Характеристика: ${meta.label}`, `Characteristic: ${name}`)}
                 onChange={readOnly ? undefined : (next) =>
                   patch({
                     characteristics: {
@@ -89,32 +92,32 @@ export function CharacteristicsPanel() {
         })}
       </div>
       <div className="movement-grid">
-        <Field label="Размер">
+        <Field label={t("Размер", "Size")}>
           <TextInput
             className="numeric"
             value={character.size}
             placeholder="1"
-            aria-label="Размер"
+            aria-label={t("Размер", "Size")}
             readOnly={readOnly || sizeFromForm}
-            title={sizeFromForm ? "Размер задан текущей формой. Размер гибрида выбирается в панели форм." : "Размер существа: 1T, 1S, 1M, 1L и так далее"}
+            title={sizeFromForm ? t("Размер задан текущей формой. Размер гибрида выбирается в панели форм.", "Your current form sets your size. Select your hybrid size in the forms panel.") : t("Размер существа: 1T, 1S, 1M, 1L и так далее", "Creature size, such as 1T, 1S, 1M, or 1L")}
             onChange={(event) => patch({ size: event.target.value })}
           />
         </Field>
         <div>
           <div className="field">
             <span className="field-label stat-label-with-help">
-              Скорость
+              {t("Скорость", "Speed")}
               {character.automation?.enabled && (
-                <StatBreakdown label="скорости" breakdown={characterStatBreakdown(character, "speed")} />
+                <StatBreakdown label={t("скорости", "speed")} breakdown={characterStatBreakdown(character, "speed")} />
               )}
             </span>
             <TextInput
               className="numeric"
               value={character.speed}
               placeholder="5"
-              aria-label="Скорость"
+              aria-label={t("Скорость", "Speed")}
               readOnly={readOnly}
-              title="Скорость в клетках"
+              title={t("Скорость в клетках", "Speed in squares")}
               onChange={(event) => patch({ speed: event.target.value })}
             />
           </div>
@@ -122,18 +125,18 @@ export function CharacteristicsPanel() {
         <div>
           <div className="field">
             <span className="field-label stat-label-with-help">
-              Отход
+              {t("Отход", "Disengage")}
               {character.automation?.enabled && (
-                <StatBreakdown label="отхода" breakdown={characterStatBreakdown(character, "disengage")} />
+                <StatBreakdown label={t("отхода", "disengage")} breakdown={characterStatBreakdown(character, "disengage")} />
               )}
             </span>
             <TextInput
               className="numeric"
               value={character.disengage}
               placeholder="1"
-              aria-label="Отход"
+              aria-label={t("Отход", "Disengage")}
               readOnly={readOnly}
-              title="Сколько клеток можно сместиться при отходе"
+              title={t("Сколько клеток можно сместиться при отходе", "Squares you can shift when disengaging")}
               onChange={(event) => patch({ disengage: event.target.value })}
             />
           </div>
@@ -141,37 +144,37 @@ export function CharacteristicsPanel() {
         <div>
           <div className="field">
             <span className="field-label stat-label-with-help">
-              Устойчивость
+              {t("Устойчивость", "Stability")}
               {character.automation?.enabled && (
-                <StatBreakdown label="устойчивости" breakdown={characterStatBreakdown(character, "stability")} />
+                <StatBreakdown label={t("устойчивости", "stability")} breakdown={characterStatBreakdown(character, "stability")} />
               )}
             </span>
             <TextInput
               className="numeric"
               value={character.stability}
               placeholder="0"
-              aria-label="Устойчивость"
+              aria-label={t("Устойчивость", "Stability")}
               readOnly={readOnly}
-              title="Сопротивление принудительному движению"
+              title={t("Сопротивление принудительному движению", "Resistance to forced movement")}
               onChange={(event) => patch({ stability: event.target.value })}
             />
           </div>
         </div>
         <div className="field potency-group">
           <span className="field-label stat-label-with-help">
-            Потенциал
-            <HelpTooltip label="Расчёт и применение потенциала">
-              <strong>Потенциал</strong>
-              <p>Наивысшая характеристика: {derived.highestCharacteristic}.</p>
-              <p>Слабый: {derived.potency.weak} · Средний: {derived.potency.average} · Сильный: {derived.potency.strong}.</p>
-              <p>Эффект применяется, если характеристика цели строго ниже порога.</p>
+            {t("Потенциал", "Potency")}
+            <HelpTooltip label={t("Расчёт и применение потенциала", "Potency calculation and use")}>
+              <strong>{t("Потенциал", "Potency")}</strong>
+              <p>{t("Наивысшая характеристика", "Highest characteristic")}: {derived.highestCharacteristic}.</p>
+              <p>{t("Слабый", "Weak")}: {derived.potency.weak} · {t("Средний", "Average")}: {derived.potency.average} · {t("Сильный", "Strong")}: {derived.potency.strong}.</p>
+              <p>{t("Эффект применяется, если характеристика цели строго ниже порога.", "The effect applies if the target’s characteristic is strictly below the threshold.")}</p>
             </HelpTooltip>
           </span>
-          <output className="input numeric potency-group-values" aria-label={`Потенциал: слабый ${derived.potency.weak}, средний ${derived.potency.average}, сильный ${derived.potency.strong}`}>
+          <output className="input numeric potency-group-values" aria-label={t(`Потенциал: слабый ${derived.potency.weak}, средний ${derived.potency.average}, сильный ${derived.potency.strong}`, `Potency: weak ${derived.potency.weak}, average ${derived.potency.average}, strong ${derived.potency.strong}`)}>
             {([
-              ["Слабый", derived.potency.weak],
-              ["Средний", derived.potency.average],
-              ["Сильный", derived.potency.strong],
+              [t("Слабый", "Weak"), derived.potency.weak],
+              [t("Средний", "Average"), derived.potency.average],
+              [t("Сильный", "Strong"), derived.potency.strong],
             ] as const).map(([label, value]) => (
               <span className="potency-compact" key={label}>
                 <span className="potency-compact-label" aria-hidden="true">{label}</span>

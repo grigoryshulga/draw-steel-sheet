@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import type { Ability, AbilityKind, Character } from "../../types";
 import { ABILITY_KINDS } from "../../data/actions";
 import { characteristicShort } from "../../lib/rules";
@@ -102,27 +103,28 @@ export function TierRequirementSummary({
   ability: Ability;
   character: Character;
 }) {
+  const { locale, t } = useLocale();
   const req = abilityTierRequirements(ability, character);
   if (!req) return null;
-  const source = `${characteristicShort(req.characteristic)} ${formatBonus(req.characteristicBonus)}`;
+  const source = `${locale === "en" ? ({ might: "M", agility: "A", reason: "R", intuition: "I", presence: "P" } as const)[req.characteristic] : characteristicShort(req.characteristic)} ${formatBonus(req.characteristicBonus)}`;
   return (
     <div
       className="abil-tier-req"
-      title={`Натуральный бросок 2d10: ${source}, бонус способности ${formatBonus(req.rollBonus)}`}
+      title={t(`Натуральный бросок 2d10: ${source}, бонус способности ${formatBonus(req.rollBonus)}`, `Natural 2d10 roll: ${source}, ability bonus ${formatBonus(req.rollBonus)}`)}
     >
-      <span className="abil-tier-req-title">Порог 2d10</span>
+      <span className="abil-tier-req-title">{t("Порог 2d10", "2d10 thresholds")}</span>
       <span className="abil-tier-req-item" data-tier="1">
-        Т1 {tierRequirementText(req, 1)}
+        {locale === "en" ? "T1" : "Т1"} {tierRequirementText(req, 1)}
       </span>
       <span className="abil-tier-req-item" data-tier="2">
-        Т2 {tierRequirementText(req, 2)}
+        {locale === "en" ? "T2" : "Т2"} {tierRequirementText(req, 2)}
       </span>
       <span className="abil-tier-req-item" data-tier="3">
-        Т3 {tierRequirementText(req, 3)}
+        {locale === "en" ? "T3" : "Т3"} {tierRequirementText(req, 3)}
       </span>
       <span className="abil-tier-req-source">
         {source}
-        {req.rollBonus !== 0 && ` · бонус ${formatBonus(req.rollBonus)}`}
+        {req.rollBonus !== 0 && ` · ${t("бонус", "bonus")} ${formatBonus(req.rollBonus)}`}
       </span>
     </div>
   );

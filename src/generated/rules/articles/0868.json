@@ -75,7 +75,68 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
       "originalName": "8th-Level Features",
-      "originalDescription": "As an 8th-level shadow, you gain the following features."
+      "originalDescription": "As an 8th-level shadow, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "8th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As an 8th-level shadow, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-8.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 8th-Level College Feature\n\nYour shadow college grants you a feature, as shown on the 8th-Level College Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 8th-Level College Features Table\n\n| College         | Feature     |\n|-----------------|-------------|\n| Black Ash       | Cinder Step |\n| Caustic Alchemy | Time Bomb   |\n| Harlequin Mask  | Parkour     |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-8.cinder-step"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-8.parkour"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-8.time-bomb"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-8.time-bomb"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-8.11-insight-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-8.assassinate"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-8.shadowgrasp"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-8.speed-of-shadows"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-8.they-always-line-up"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -90,7 +151,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-8/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one perk of your choice."
+      "originalDescription": "You gain one perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-8.8th-level-college-feature",
@@ -103,7 +167,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-8/8th-level-college-feature",
       "originalName": "8th-Level College Feature",
-      "originalDescription": "Your shadow college grants you a feature, as shown on the 8th-Level College Features table.\n\n###### 8th-Level College Features Table\n\n| College         | Feature     |\n|-----------------|-------------|\n| Black Ash       | Cinder Step |\n| Caustic Alchemy | Time Bomb   |\n| Harlequin Mask  | Parkour     |"
+      "originalDescription": "Your shadow college grants you a feature, as shown on the 8th-Level College Features table.\n\n###### 8th-Level College Features Table\n\n| College         | Feature     |\n|-----------------|-------------|\n| Black Ash       | Cinder Step |\n| Caustic Alchemy | Time Bomb   |\n| Harlequin Mask  | Parkour     |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-8.cinder-step",
@@ -116,7 +183,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-8/cinder-step",
       "originalName": "Cinder Step",
-      "originalDescription": "Whenever you willingly move, you can teleport. When you teleport this way, it counts as using a shadow ability for the purpose of using your Burning Ash and Trail of Cinders features."
+      "originalDescription": "Whenever you willingly move, you can teleport. When you teleport this way, it counts as using a shadow ability for the purpose of using your Burning Ash and Trail of Cinders features.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-8.parkour",
@@ -129,7 +199,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-8/parkour",
       "originalName": "Parkour",
-      "originalDescription": "Your movement no longer provokes opportunity attacks. Additionally, you can use your Harlequin Gambit feature as a free triggered action when a creature is reduced to 0 Stamina by your Clever Trick ability."
+      "originalDescription": "Your movement no longer provokes opportunity attacks. Additionally, you can use your Harlequin Gambit feature as a free triggered action when a creature is reduced to 0 Stamina by your Clever Trick ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-8.time-bomb",
@@ -142,7 +215,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-8/time-bomb",
       "originalName": "Time Bomb",
-      "originalDescription": "You have damage immunity against area abilities and effects equal to your Agility score. You also have the following ability, which you can use once per round on your turn."
+      "originalDescription": "You have damage immunity against area abilities and effects equal to your Agility score. You also have the following ability, which you can use once per round on your turn.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.shadow.level-8.time-bomb",
@@ -196,7 +272,34 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/time-bomb",
       "originalName": "Time Bomb",
-      "originalDescription": "*The longer it cooks, the bigger the boom.*\n\n| **Area, Ranged**        |             **Free maneuver** |\n|-------------------------|------------------------------:|\n| **📏 2 cube within 10** | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes acid, fire, or poison damage (your choice) equal to your Agility score.\n\nFor each combat round that has passed since this ability was last used in the current encounter, the area increases by 1 and you gain 1 surge that must be used with this ability. After using the ability or at the end of the encounter, its area and surges are reset.\n\n**Spend 2+ Insight:** For every 2 insight spent, you increase the cube's size by 1 and gain 1 surge that can be used only with this ability."
+      "originalDescription": "*The longer it cooks, the bigger the boom.*\n\n| **Area, Ranged**        |             **Free maneuver** |\n|-------------------------|------------------------------:|\n| **📏 2 cube within 10** | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes acid, fire, or poison damage (your choice) equal to your Agility score.\n\nFor each combat round that has passed since this ability was last used in the current encounter, the area increases by 1 and you gain 1 surge that must be used with this ability. After using the ability or at the end of the encounter, its area and surges are reset.\n\n**Spend 2+ Insight:** For every 2 insight spent, you increase the cube's size by 1 and gain 1 surge that can be used only with this ability.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "For each combat round that has passed since this ability was last used in the current encounter, the area increases by 1 and you gain 1 surge that must be used with this ability. After using the ability or at the end of the encounter, its area and surges are reset.\n\n**Spend 2+ Insight:** For every 2 insight spent, you increase the cube's size by 1 and gain 1 surge that can be used only with this ability."
+          }
+        ],
+        "flavor": "The longer it cooks, the bigger the boom.",
+        "facts": {
+          "action": "Free maneuver",
+          "distance": [
+            "2 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Ranged"
+          ]
+        },
+        "effect": "Each target takes acid, fire, or poison damage (your choice) equal to your Agility score."
+      }
     },
     {
       "id": "feature.shadow.level-8.11-insight-ability",
@@ -209,7 +312,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-8/11-insight-ability",
       "originalName": "11-Insight Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 insight to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 insight to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.shadow.level-8.assassinate",
@@ -266,7 +372,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/assassinate",
       "originalName": "Assassinate",
-      "originalDescription": "*A practiced attack will instantly kill an already weakened foe.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage\n- **12-16:** 18 + A damage\n- **17+:** 24 + A damage\n\n**Effect:** A target who is not a minion, leader, or solo creature and who is winded after taking this damage is reduced to 0 Stamina."
+      "originalDescription": "*A practiced attack will instantly kill an already weakened foe.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage\n- **12-16:** 18 + A damage\n- **17+:** 24 + A damage\n\n**Effect:** A target who is not a minion, leader, or solo creature and who is winded after taking this damage is reduced to 0 Stamina.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A practiced attack will instantly kill an already weakened foe.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "12 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "18 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "24 + A"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "A target who is not a minion, leader, or solo creature and who is winded after taking this damage is reduced to 0 Stamina."
+      }
     },
     {
       "id": "feature.ability.shadow.level-8.shadowgrasp",
@@ -322,7 +476,52 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/shadowgrasp",
       "originalName": "Shadowgrasp",
-      "originalDescription": "*The shadows around you give way, allowing the shadow creature within you to grasp at your foes.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 11 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 16 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 21 corruption damage; A < STRONG, restrained (save ends)"
+      "originalDescription": "*The shadows around you give way, allowing the shadow creature within you to grasp at your foes.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 11 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 16 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 21 corruption damage; A < STRONG, restrained (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The shadows around you give way, allowing the shadow creature within you to grasp at your foes.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "2 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "11",
+                "type": "corruption"
+              },
+              "effect": "A < WEAK, restrained (save ends)"
+            },
+            {
+              "damage": {
+                "value": "16",
+                "type": "corruption"
+              },
+              "effect": "A < AVERAGE, restrained (save ends)"
+            },
+            {
+              "damage": {
+                "value": "21",
+                "type": "corruption"
+              },
+              "effect": "A < STRONG, restrained (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.shadow.level-8.speed-of-shadows",
@@ -375,7 +574,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/speed-of-shadows",
       "originalName": "Speed of Shadows",
-      "originalDescription": "*You make multiple strikes against a foe before they even notice they're dead.*\n\n| **Magic**   | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You can use a strike signature ability four times, use a strike signature ability that gains an edge three times, or use a strike signature ability that has a double edge twice. You can shift up to 2 squares between each use."
+      "originalDescription": "*You make multiple strikes against a foe before they even notice they're dead.*\n\n| **Magic**   | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You can use a strike signature ability four times, use a strike signature ability that gains an edge three times, or use a strike signature ability that has a double edge twice. You can shift up to 2 squares between each use.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You make multiple strikes against a foe before they even notice they're dead.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "You can use a strike signature ability four times, use a strike signature ability that gains an edge three times, or use a strike signature ability that has a double edge twice. You can shift up to 2 squares between each use."
+      }
     },
     {
       "id": "feature.ability.shadow.level-8.they-always-line-up",
@@ -432,7 +649,54 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-8/they-always-line-up",
       "originalName": "They Always Line Up",
-      "originalDescription": "*You fire a projectile so fast that it passes through a line of foes, hamstringing them.*\n\n| **Area, Ranged, Weapon**   |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 5 x 1 line within 5** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 damage; M < WEAK, slowed (save ends)\n- **12-16:** 18 damage; M < AVERAGE, slowed (save ends)\n- **17+:** 24 damage; M < STRONG, slowed (save ends)"
+      "originalDescription": "*You fire a projectile so fast that it passes through a line of foes, hamstringing them.*\n\n| **Area, Ranged, Weapon**   |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 5 x 1 line within 5** | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 damage; M < WEAK, slowed (save ends)\n- **12-16:** 18 damage; M < AVERAGE, slowed (save ends)\n- **17+:** 24 damage; M < STRONG, slowed (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You fire a projectile so fast that it passes through a line of foes, hamstringing them.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "5 x 1 line within ",
+            {
+              "mode": "within",
+              "value": 5
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Ranged",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "12"
+              },
+              "effect": "M < WEAK, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "18"
+              },
+              "effect": "M < AVERAGE, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "24"
+              },
+              "effect": "M < STRONG, slowed (save ends)"
+            }
+          ]
+        }
+      }
     }
   ]
 }

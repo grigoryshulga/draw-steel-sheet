@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
 import type { Element } from 'hast';
 import type { Tier } from '../../lib/rule-display';
-import { inferDamageType } from '../../lib/damageType';
+import { damageTypeByKey } from '../../lib/damageType';
 import { AbilityCardFrame } from './AbilityCardFrame';
 import { AbilityGroup } from './AbilityGroup';
-import { AbilityFacts, AbilityTiers, type AbilityTierView } from './AbilitySheet';
+import { AbilityFacts, AbilityTiers, type AbilityTierView, type AbilityFactView } from './AbilitySheet';
 import { markdownElements as elements, markdownSlot as content, markdownText as plain } from './markdown-slots';
 import './DirectorAbilityCard.css';
 
@@ -20,25 +20,32 @@ export function directorAbilityElement(node: Element | undefined, children: Reac
       label={String(node!.properties['data-label'])} count={cards.length}>{cards}</AbilityGroup>;
   }
   if (slot === 'card') {
+    const english = node?.properties['data-language'] === 'en';
     const badge = content(children, 'badge');
     const cost = String(node!.properties['data-cost'] || '');
     const kind = String(node!.properties['data-kind']);
     return <AbilityCardFrame title={content(children, 'name')} titleText={String(node!.properties['data-name'])}
       actionType={String(node!.properties['data-action'])} kind={kind} full className="director-ability"
       tags={(plain(badge) || kind === 'trait') && <span className="sheet-ability-card-tags">
-        {cost ? <span className="sheet-ability-cost-stamp is-paid director-ability-cost" aria-label={`Стоимость: ${cost}`}>{badge}</span>
-          : <span className="chip chip-static chip-default">{plain(badge) ? badge : 'Черта'}</span>}
+        {cost ? <span className="sheet-ability-cost-stamp is-paid director-ability-cost" aria-label={`${english ? "Cost" : "Стоимость"}: ${cost}`}>{badge}</span>
+          : <span className="chip chip-static chip-default">{plain(badge) ? badge : english ? 'Trait' : 'Черта'}</span>}
       </span>}>
       {elements(children).filter(child => !['name', 'badge'].includes(child.props['data-director-slot'] ?? ''))}
     </AbilityCardFrame>;
   }
   if (slot === 'facts') {
-    return <AbilityFacts view={{ keywords: [], facts: elements(children).map(child => ({
-      label: child.props['data-director-slot']!, value: plain(child.props.children), content: child.props.children,
-      title: child.props['data-director-slot'] === 'Дист.' ? 'Дистанция' : undefined,
-    })) }} />;
+    const english = node?.properties['data-language'] === 'en';
+    const labels = english
+      ? { action: 'Action', distance: 'Distance', target: 'Target', keywords: 'Keywords', roll: 'Power roll' }
+      : { action: 'Действие', distance: 'Дистанция', target: 'Цель', keywords: 'Ключевые слова', roll: 'Бросок' };
+    const facts: AbilityFactView[] = elements(children).map(child => {
+      const id = child.props['data-director-slot'] as AbilityFactView['id'];
+      return { id, label: labels[id], value: plain(child.props.children), content: child.props.children };
+    });
+    return <AbilityFacts view={{ keywords: [], facts }} language={english ? 'en' : 'ru'} />;
   }
   if (slot === 'tiers') {
+    const english = node?.properties['data-language'] === 'en';
     const tiers: AbilityTierView[] = elements(children).map(child => {
       const value = plain(content(child.props.children, 'damage-value'));
       const label = content(child.props.children, 'damage-label');
@@ -46,12 +53,12 @@ export function directorAbilityElement(node: Element | undefined, children: Reac
       const effect = content(child.props.children, 'effect');
       return {
         tier: Number(child.props['data-tier']) as Tier,
-        range: child.props['data-range']!, rangeTitle: 'Диапазон суммы броска силы',
-        damage: value ? { value, label, type: inferDamageType({ name: '', keywords: [], effect: plain(label) }) } : undefined,
+        range: child.props['data-range']!, rangeTitle: english ? 'Power roll range' : 'Диапазон суммы броска силы',
+        damage: value ? { value, label, type: damageTypeByKey(child.props['data-damage-type']) } : undefined,
         effectContent: plain(effect).trim() || rest.length ? <>{effect}{rest}</> : undefined,
       };
     });
-    return <AbilityTiers tiers={tiers} />;
+    return <AbilityTiers tiers={tiers} language={english ? "en" : "ru"} />;
   }
   return undefined;
 }

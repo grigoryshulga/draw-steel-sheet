@@ -1,3 +1,5 @@
+import { creatureCategory, creatureDisplayName } from "./table-display";
+import { useLocale } from "../../i18n/locale";
 import { useEffect, useState, type ReactNode } from "react";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { Button, Card } from "../../components/ui";
@@ -35,6 +37,7 @@ export function SceneEditor({
   onSaveTemplate?: (scene: TableScene) => void;
   renderLayout?: (draft: TableScene, update: (patch: Partial<TableScene>) => void) => ReactNode;
 }) {
+  const { t: tr, locale } = useLocale();
   const [catalogActionHost, setCatalogActionHost] = useState<HTMLDivElement | null>(null);
   const [catalogTab, setCatalogTab] = useState<"monster" | "terrain" | null>(null);
   const [editingParticipant, setEditingParticipant] = useState<string | null>(null);
@@ -71,25 +74,25 @@ export function SceneEditor({
               <h3>
                 <span className="scene-editor-name">
                   <small className="muted">{index + 1}</small>
-                  <strong>{c.name}</strong>
+                  <strong>{creatureDisplayName(c.sourceId, c.name, locale)}</strong>
                 </span>
                 <span className="muted">
-                  {c.count && c.count > 1 ? `${c.count} в отряде · ` : ""}
-                  {c.encounterValue ?? 0} БЦ
+                  {c.count && c.count > 1 ? `${c.count} ${tr("в отряде", "in squad")} · ` : ""}
+                  {c.encounterValue ?? 0} {tr("БЦ", "EV")}
                 </span>
               </h3>
               <div className="scene-participant-facts">
                 <span>{monsterGroupName(c.group)}</span>
-                <span>{c.organization}</span>
-                {c.maxStamina !== undefined && <span>Выносливость: {c.stamina ?? c.maxStamina} / {c.maxStamina}</span>}
-                <span>{c.faction === "ally" ? "Союзник" : "Противник"}</span>
+                <span>{creatureCategory(c.organization, locale)}</span>
+                {c.maxStamina !== undefined && <span>{tr("Выносливость", "Stamina")}: {c.stamina ?? c.maxStamina} / {c.maxStamina}</span>}
+                <span>{c.faction === "ally" ? tr("Союзник", "Ally") : tr("Противник", "Enemy")}</span>
               </div>
-              <CardDetailModal open={editingParticipant === c.id} onClose={() => setEditingParticipant(null)} title={c.name} className="scene-ui table-dialog" wide>
+              <CardDetailModal open={editingParticipant === c.id} onClose={() => setEditingParticipant(null)} title={creatureDisplayName(c.sourceId, c.name, locale)} className="scene-ui table-dialog" wide>
                 <fieldset disabled={busy}>
               <div className="table-stack">
                 <div className="scene-grid">
                   <label>
-                    Имя
+                    {tr("Имя", "Name")}
                     <input
                       className="input"
                       value={c.name}
@@ -99,7 +102,7 @@ export function SceneEditor({
                     />
                   </label>
                   <label>
-                    Группа
+                    {tr("Группа", "Group")}
                     <input
                       className="input"
                       value={monsterGroupName(c.group)}
@@ -109,7 +112,7 @@ export function SceneEditor({
                     />
                   </label>
                   <label>
-                    Организация
+                    {tr("Организация", "Organization")}
                     <input
                       className="input"
                       value={c.organization}
@@ -119,7 +122,7 @@ export function SceneEditor({
                     />
                   </label>
                   <label>
-                    Сторона
+                    {tr("Сторона", "Side")}
                     <select
                       className="select"
                       value={c.faction}
@@ -129,12 +132,12 @@ export function SceneEditor({
                         })
                       }
                     >
-                      <option value="enemy">Противник</option>
-                      <option value="ally">Союзник</option>
+                      <option value="enemy">{tr("Противник", "Enemy")}</option>
+                      <option value="ally">{tr("Союзник", "Ally")}</option>
                     </select>
                   </label>
                   <label>
-                    Капитан
+                    {tr("Капитан", "Captain")}
                     <select
                       className="select"
                       value={c.captainId ?? ""}
@@ -144,7 +147,7 @@ export function SceneEditor({
                         })
                       }
                     >
-                      <option value="">Нет</option>
+                      <option value="">{tr("Нет", "None")}</option>
                       {draft.combatants
                         .filter((x) => x.id !== c.id)
                         .map((x) => (
@@ -166,13 +169,13 @@ export function SceneEditor({
                     <label key={key}>
                       {
                         [
-                          "Количество",
+                          tr("Количество", "Quantity"),
                           /миньон|minion/i.test(c.organization)
-                            ? "Запас отряда"
-                            : "Выносливость",
-                          "Максимум",
-                          "Временная выносливость",
-                          "БЦ",
+                            ? tr("Запас отряда", "Squad stamina")
+                            : tr("Выносливость", "Stamina"),
+                          tr("Максимум", "Maximum"),
+                          tr("Временная выносливость", "Temporary stamina"),
+                          tr("БЦ", "EV"),
                         ][i]
                       }
                       <input
@@ -204,11 +207,11 @@ export function SceneEditor({
                         combatant(c.id, { revealed: e.target.checked })
                       }
                     />{" "}
-                    Раскрыт игрокам
+                    {tr("Раскрыт игрокам", "Revealed to players")}
                   </label>
                 </div>
                 <label>
-                  Заметки
+                  {tr("Заметки", "Notes")}
                   <textarea
                     className="textarea"
                     value={c.notes ?? ""}
@@ -219,7 +222,7 @@ export function SceneEditor({
                 </fieldset>
               </CardDetailModal>
                 <div className="scene-actions">
-                  <Button size="sm" variant="ghost" icon="edit" iconOnly onClick={() => setEditingParticipant(c.id)}>{`Изменить участника ${index + 1}: ${c.name}`}</Button>
+                  <Button size="sm" variant="ghost" icon="edit" iconOnly onClick={() => setEditingParticipant(c.id)}>{`${tr("Изменить участника", "Edit participant")} ${index + 1}: ${c.name}`}</Button>
                   <Button
                     size="sm"
                     variant="ghost"
@@ -239,7 +242,7 @@ export function SceneEditor({
                     }
                     iconOnly
                   >
-                    {`Добавить копию участника ${index + 1}: ${c.name}`}
+                    {`${tr("Добавить копию участника", "Duplicate participant")} ${index + 1}: ${c.name}`}
                   </Button>
                   <Button
                     size="sm"
@@ -258,7 +261,7 @@ export function SceneEditor({
                     }
                     iconOnly
                   >
-                    {`Удалить участника ${index + 1}: ${c.name}`}
+                    {`${tr("Удалить участника", "Remove participant")} ${index + 1}: ${c.name}`}
                   </Button>
                 </div>
             </section>
@@ -282,7 +285,7 @@ export function SceneEditor({
     }}>
       {renderLayout?.(draft, update)}
       <SceneEditorHeader onBack={onCancel}>
-          <Button disabled={busy} iconOnly icon="close" onClick={onCancel}>Отмена</Button>
+          <Button disabled={busy} iconOnly icon="close" onClick={onCancel}>{tr("Отмена", "Cancel")}</Button>
           {onSaveTemplate && (
             <Button
               onClick={() => onSaveTemplate(normalizeScene(draft))}
@@ -290,7 +293,7 @@ export function SceneEditor({
               icon="bookmark"
               iconOnly
             >
-              В библиотеку
+              {tr("В библиотеку", "Save to library")}
             </Button>
           )}
           <Button iconOnly icon="save"
@@ -300,15 +303,15 @@ export function SceneEditor({
             }
             onClick={() => onSave(normalizeScene(draft))}
           >
-            Сохранить
+            {tr("Сохранить", "Save")}
           </Button>
       </SceneEditorHeader>
       <fieldset disabled={busy}>
         <section className="scene-editor-section" aria-labelledby="scene-description-title">
-          <header><h3 id="scene-description-title">Описание</h3></header>
+          <header><h3 id="scene-description-title">{tr("Описание", "Description")}</h3></header>
         <div className="scene-grid scene-description-identity">
           <label>
-            Название
+            {tr("Название", "Name")}
             <input
               className="input"
               value={draft.name}
@@ -316,10 +319,10 @@ export function SceneEditor({
             />
           </label>
         <label>
-          Цель
+          {tr("Цель", "Objective")}
           <input
             className="input"
-            placeholder="Что нужно сделать героям?"
+            placeholder={tr("Что нужно сделать героям?", "What must the heroes do?")}
             value={draft.objective}
             onChange={(e) => update({ objective: e.target.value })}
           />
@@ -329,7 +332,7 @@ export function SceneEditor({
           <div className="scene-grid">
             {" "}
             <label>
-              Описание
+              {tr("Описание", "Description")}
               <textarea
                 className="textarea"
                 value={draft.description}
@@ -337,7 +340,7 @@ export function SceneEditor({
               />
             </label>
             <label>
-              Заметки ведущего
+              {tr("Заметки ведущего", "Director notes")}
               <textarea
                 className="textarea"
                 value={draft.directorNotes ?? ""}
@@ -352,19 +355,19 @@ export function SceneEditor({
             checked={draft.published}
             onChange={(e) => update({ published: e.target.checked })}
           />{" "}
-          Опубликовать сцену
+          {tr("Опубликовать сцену", "Publish scene")}
         </label>
         </section>
         {draft.kind === "encounter" && (
           <section className="scene-editor-section scene-budget-section" aria-labelledby="scene-budget-title">
-            <header><h3 id="scene-budget-title">Сложность и бюджет</h3></header>
+            <header><h3 id="scene-budget-title">{tr("Сложность и бюджет", "Difficulty and budget")}</h3></header>
             <div className="table-stack">
               <div className="scene-grid scene-party-inputs">
                 <label>
-                  Герои и помощники
+                  {tr("Герои и помощники", "Heroes and allies")}
                   <input
                     className="input"
-                    aria-label="Число героев и союзных помощников"
+                    aria-label={tr("Число героев и союзных помощников", "Number of heroes and allied retainers")}
                     type="number"
                     min={1}
                     max={20}
@@ -385,7 +388,7 @@ export function SceneEditor({
                   />
                 </label>
                 <label>
-                  Уровень группы
+                  {tr("Уровень группы", "Party level")}
                   <input
                     className="input"
                     type="number"
@@ -402,7 +405,7 @@ export function SceneEditor({
                   />
                 </label>
                 <label>
-                  Средние Победы
+                  {tr("Средние Победы", "Average victories")}
                   <input
                     className="input"
                     type="number"
@@ -415,9 +418,9 @@ export function SceneEditor({
                 </label>
               </div>
               {budget && <div className="scene-budget-summary">
-                <span>Сила группы <strong>{budget.strength}</strong></span>
-                <span>Стандартный бой <strong>до {budget.standardMax} БЦ</strong></span>
-                <span>Трудный бой <strong>до {budget.hardMax} БЦ</strong></span>
+                <span>{tr("Сила группы", "Party strength")} <strong>{budget.strength}</strong></span>
+                <span>{tr("Стандартный бой", "Standard encounter")} <strong>{tr("до", "up to")} {budget.standardMax} {tr("БЦ", "EV")}</strong></span>
+                <span>{tr("Трудный бой", "Hard encounter")} <strong>{tr("до", "up to")} {budget.hardMax} {tr("БЦ", "EV")}</strong></span>
                 <span className="table-badge">{budget.difficulty}</span>
               </div>}
               {budget && <SceneBudgetBar cost={budget.cost} standardMax={budget.standardMax} hardMax={budget.hardMax} />}
@@ -425,26 +428,26 @@ export function SceneEditor({
           </section>
         )}
         <div className="scene-actions scene-add-actions">
-          <Button icon="plus" onClick={() => setCatalogTab("monster")}>Добавить участников</Button>
-          <Button icon="plus" onClick={() => setCatalogTab("terrain")}>Добавить местность</Button>
+          <Button icon="plus" onClick={() => setCatalogTab("monster")}>{tr("Добавить участников", "Add participants")}</Button>
+          <Button icon="plus" onClick={() => setCatalogTab("terrain")}>{tr("Добавить местность", "Add terrain")}</Button>
         </div>
         {draft.combatants.some((c) => !terrainIds.has(c.sourceId ?? "")) && <section className="scene-editor-section" aria-labelledby="scene-enemies-title">
-          <header><h3 id="scene-enemies-title">Участники</h3></header>
+          <header><h3 id="scene-enemies-title">{tr("Участники", "Participants")}</h3></header>
           {renderParticipants(draft.combatants.filter((c) => !terrainIds.has(c.sourceId ?? "")))}
         </section>}
         {draft.combatants.some((c) => terrainIds.has(c.sourceId ?? "")) && <section className="scene-editor-section" aria-labelledby="scene-complications-title">
-          <header><h3 id="scene-complications-title">Осложнения</h3></header>
+          <header><h3 id="scene-complications-title">{tr("Осложнения", "Complications")}</h3></header>
           {renderParticipants(draft.combatants.filter((c) => terrainIds.has(c.sourceId ?? "")))}
         </section>}
         {draft.kind !== "encounter" && <SceneChallengeSettings scene={draft} heroes={partyLevels.length || 5} onChange={setDraft} />}
         <CounterSection className="table-disclosure">
-          {draft.kind === "encounter" ? <h3>Счётчики</h3> : <summary>Дополнительные счётчики и их видимость</summary>}
+          {draft.kind === "encounter" ? <h3>{tr("Счётчики", "Counters")}</h3> : <summary>{tr("Дополнительные счётчики и их видимость", "Additional counters and visibility")}</summary>}
           <div className="table-stack">
             {draft.counters.map((c) => (
               <Card key={c.id} className="scene-counter-editor">
                 <div className="scene-grid">
                   <label>
-                    Название
+                    {tr("Название", "Name")}
                     <input
                       className="input"
                       value={c.name}
@@ -458,7 +461,7 @@ export function SceneEditor({
                     />
                   </label>
                   <label>
-                    Значение
+                    {tr("Значение", "Value")}
                     <input
                       className="input"
                       type="number"
@@ -476,7 +479,7 @@ export function SceneEditor({
                     />
                   </label>
                   <label>
-                    Максимум
+                    {tr("Максимум", "Maximum")}
                     <input
                       className="input"
                       type="number"
@@ -513,7 +516,7 @@ export function SceneEditor({
                         })
                       }
                     />{" "}
-                    Открытый
+                    {tr("Открытый", "Public")}
                   </label>
                 </div>
                 <div className="scene-actions">
@@ -526,7 +529,7 @@ export function SceneEditor({
                   icon="trash"
                   iconOnly
                 >
-                  Удалить
+                  {tr("Удалить", "Delete")}
                 </Button>
                 </div>
               </Card>
@@ -548,12 +551,12 @@ export function SceneEditor({
               icon="plus"
               iconOnly
             >
-              Добавить счётчик
+              {tr("Добавить счётчик", "Add counter")}
             </Button>
           </div>
         </CounterSection>
       </fieldset>
-      <CardDetailModal open={catalogTab !== null} onClose={() => setCatalogTab(null)} title={catalogTab === "terrain" ? "Добавить местность" : "Добавить участников"} headerActions={draft.kind === "encounter" && budget ? <SceneBudgetBar cost={budget.cost} standardMax={budget.standardMax} hardMax={budget.hardMax} floatingEnabled={false} /> : undefined} className="scene-ui scene-catalog-modal" wide footer={<div className="scene-catalog-footer">{catalogTab === "monster" && <div className="scene-actions scene-add-actions"><Button icon="plus" onClick={() => { const c = combatantFromSeed(); setDraft((old) => ({ ...old, combatants: [...old.combatants, c] })); setCatalogTab(null); setEditingParticipant(c.id); }}>Добавить вручную</Button></div>}<div ref={setCatalogActionHost} /></div>}>
+      <CardDetailModal open={catalogTab !== null} onClose={() => setCatalogTab(null)} title={catalogTab === "terrain" ? tr("Добавить местность", "Add terrain") : tr("Добавить участников", "Add participants")} headerActions={draft.kind === "encounter" && budget ? <SceneBudgetBar cost={budget.cost} standardMax={budget.standardMax} hardMax={budget.hardMax} floatingEnabled={false} /> : undefined} className="scene-ui scene-catalog-modal" wide footer={<div className="scene-catalog-footer">{catalogTab === "monster" && <div className="scene-actions scene-add-actions"><Button icon="plus" onClick={() => { const c = combatantFromSeed(); setDraft((old) => ({ ...old, combatants: [...old.combatants, c] })); setCatalogTab(null); setEditingParticipant(c.id); }}>{tr("Добавить вручную", "Add manually")}</Button></div>}<div ref={setCatalogActionHost} /></div>}>
         <fieldset disabled={busy}>
           {catalogTab && <SceneCatalog key={catalogTab} kind={catalogTab} onAdd={add} actionHost={catalogActionHost} forecast={draft.kind === "encounter" ? (seed) => encounterBudget({ ...draft, combatants: [...draft.combatants, combatantFromSeed({ ...seed, maxStamina: 0 })] }, levels, victories) : undefined} />}
 

@@ -1,19 +1,20 @@
 import type { CatalogEntry } from "../rules/consumer-data";
 import { echelon } from "./progression";
 
-/** Отделяет вступление титула и условие, которое карточка показывает отдельно. */
-export function catalogTitleText(entry: Pick<CatalogEntry, "kind" | "markdown" | "prerequisite">) {
-  if (entry.kind !== "title") return { flavor: "", body: entry.markdown };
-  const paragraphs = entry.markdown.trim().split(/\n\s*\n/);
-  const flavor = /^\*(?!\*)[\s\S]+\*$/.test(paragraphs[0] ?? "")
-    ? paragraphs.shift()!
-    : "";
-  const body = paragraphs.filter((paragraph) => !(
-    entry.prerequisite &&
-    paragraph.startsWith("**Предварительное условие:**") &&
-    paragraph.slice("**Предварительное условие:**".length).trim() === entry.prerequisite.trim()
-  )).join("\n\n");
-  return { flavor, body };
+export function catalogEditionText(entry: CatalogEntry, language: "ru" | "en") {
+  const english = language === "en" && Boolean(entry.originalDescription?.trim());
+  const source = english ? entry.originalDescription! : entry.markdown;
+  // Only lift complete metadata paragraphs; leave all other prose in order.
+  const paragraphs = source.trim().split(/\n\s*\n/);
+  const flavor = ["title", "treasure"].includes(entry.kind) && /^\*(?!\*)[\s\S]+\*$/.test(paragraphs[0] ?? "")
+    ? paragraphs.shift()! : "";
+  const prerequisitePrefix = english ? "**Prerequisite:**" : "**Предварительное условие:**";
+  const prerequisiteIndex = entry.kind === "title" ? paragraphs.findIndex(p => p.startsWith(prerequisitePrefix)) : -1;
+  const prerequisite = prerequisiteIndex >= 0
+    ? paragraphs.splice(prerequisiteIndex, 1)[0].slice(prerequisitePrefix.length).trim()
+    : english ? "" : entry.prerequisite;
+  const body = paragraphs.join("\n\n");
+  return { flavor, prerequisite, body };
 }
 
 export function catalogAccent(entry?: Pick<CatalogEntry, "kind" | "category" | "echelon">, level?: number): string | undefined {
@@ -31,8 +32,9 @@ export function treasureEquipmentKind(entry?: Pick<CatalogEntry, "kind" | "categ
   return "other";
 }
 
-export function catalogLevelSections(markdown: string) {
-  const matches = [...markdown.matchAll(/^\*\*(\d+)-й уровень:\*\*/gm)];
+export function catalogLevelSections(markdown: string, language: "ru" | "en" = "ru") {
+  const heading = language === "en" ? /\*\*(\d+)(?:st|nd|rd|th) Level:\*\*/gi : /\*\*(\d+)-й уровень:\*\*/g;
+  const matches = [...markdown.matchAll(heading)];
   return {
     introduction: matches.length ? markdown.slice(0, matches[0].index).trim() : markdown,
     levels: matches.map((match, index) => ({

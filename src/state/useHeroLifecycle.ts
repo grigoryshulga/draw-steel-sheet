@@ -1,3 +1,5 @@
+import { useLocale } from "../i18n/locale";
+import { storageMessage } from "../i18n/storage-messages";
 import { transitionClassMechanics } from "../lib/class-mechanics";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Character, CharacterSummary } from "../types";
@@ -53,6 +55,7 @@ export function useHeroLifecycle({
   onActivate,
   beforeSignOut,
 }: UseHeroLifecycleOptions) {
+  const { locale, t } = useLocale();
   const scope = useStorageScope();
   const repository = useMemo(() => getCharacterRepository(scope), [scope]);
   const { listCharacters, loadCharacter, saveCharacter, deleteCharacter: deleteCharacterRequest } = repository;
@@ -248,7 +251,7 @@ export function useHeroLifecycle({
       if (options.openSheet) navigate("sheet");
     } catch (error) {
       notify(
-        error instanceof Error ? error.message : "Не удалось загрузить героя",
+        storageMessage(error instanceof Error ? error.message : "Не удалось загрузить героя", locale),
         "error",
       );
     }
@@ -274,7 +277,7 @@ export function useHeroLifecycle({
       setCharacters((prev) => sortSummaries([toSummary(doc), ...prev]));
       activateCharacter(doc);
       navigate("sheet");
-      notify(`Герой «${doc.name}» создан`, "success");
+      notify(t(`Герой «${doc.name}» создан`, `Created hero “${doc.name}”`), "success");
     });
   };
 
@@ -289,7 +292,7 @@ export function useHeroLifecycle({
         const copy: Character = {
           ...source,
           id: makeId(),
-          name: `${source.name} — копия`,
+          name: t(`${source.name} — копия`, `${source.name} — copy`),
           // Файл портрета принадлежит исходному герою; копия начинает без него.
           avatar: undefined,
           createdAt: now,
@@ -298,11 +301,11 @@ export function useHeroLifecycle({
         const saved = await saveCharacter(copy);
         setCharacters((prev) => sortSummaries([toSummary(saved), ...prev]));
         activateCharacter(saved);
-        notify("Создана копия героя", "success");
+        notify(t("Создана копия героя", "Hero duplicated"), "success");
       });
     } catch (error) {
       notify(
-        error instanceof Error ? error.message : "Не удалось скопировать",
+        storageMessage(error instanceof Error ? error.message : "Не удалось скопировать", locale),
         "error",
       );
     }
@@ -324,11 +327,11 @@ export function useHeroLifecycle({
           activateCharacter(replacement);
           if (!replacement) navigate("sheet");
         }
-        notify("Персонаж удалён", "success");
+        notify(t("Персонаж удалён", "Hero deleted"), "success");
       });
     } catch (error) {
       notify(
-        error instanceof Error ? error.message : "Не удалось удалить",
+        storageMessage(error instanceof Error ? error.message : "Не удалось удалить", locale),
         "error",
       );
       throw error;
@@ -342,10 +345,10 @@ export function useHeroLifecycle({
           ? characterRef.current
           : await loadCharacter(id);
       downloadJson(`${safeFilename(doc.name)}.draw-steel.json`, doc);
-      notify("JSON сохранён", "success");
+      notify(t("JSON сохранён", "JSON saved"), "success");
     } catch (error) {
       notify(
-        error instanceof Error ? error.message : "Не удалось экспортировать",
+        storageMessage(error instanceof Error ? error.message : "Не удалось экспортировать", locale),
         "error",
       );
     }
@@ -359,11 +362,11 @@ export function useHeroLifecycle({
         setCharacters((prev) => sortSummaries([toSummary(saved), ...prev]));
         activateCharacter(saved);
         navigate("sheet");
-        notify(`Импортирован герой «${saved.name}»`, "success");
+        notify(t(`Импортирован герой «${saved.name}»`, `Imported hero “${saved.name}”`), "success");
       });
     } catch (error) {
       notify(
-        error instanceof Error ? error.message : "Не удалось импортировать",
+        storageMessage(error instanceof Error ? error.message : "Не удалось импортировать", locale),
         "error",
       );
     }
@@ -413,9 +416,9 @@ export function useHeroLifecycle({
     character,
     characterRef,
     booting,
-    bootError,
+    bootError: storageMessage(bootError, locale),
     saveStatus,
-    saveError,
+    saveError: storageMessage(saveError, locale),
     changingCharacter,
     autosave,
     update,

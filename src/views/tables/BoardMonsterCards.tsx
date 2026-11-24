@@ -1,10 +1,12 @@
+import { creatureCategory, creatureDisplayName } from "./table-display";
+import { useLocale } from "../../i18n/locale";
 import { useState } from "react";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { Icon } from "../../components/Icons";
 import { Button } from "../../components/ui";
 import { damageCombatant, healthLabel, normalizeScene } from "../../lib/tables/scenes";
 import type { SceneCombatant, TableCombat, TableScene } from "../../lib/tables/types";
-import { SceneCombatantCard, SceneRuleDialog, SceneStaminaFields, sceneCombatantSource, turnNames } from "./SceneCombatantCard";
+import { SceneCombatantCard, SceneRuleDialog, SceneStaminaFields, sceneCombatantSource } from "./SceneCombatantCard";
 import { SharedHeroStaminaBar, type SendTableCommand } from "./TableMembers";
 
 function turnOf(combat: TableCombat | undefined, unit: SceneCombatant): SceneCombatant["turn"] {
@@ -20,6 +22,8 @@ export function BoardMonsterCards({ scene, combat, director, busy, error, comman
   error: string;
   command: SendTableCommand;
 }) {
+  const { t: tr, locale } = useLocale();
+  const turns = { ready: tr("Готов", "Ready"), active: tr("Ходит", "Taking turn"), done: tr("Ход завершён", "Turn complete") };
   const [hovered, setHovered] = useState<string>();
   const [viewing, setViewing] = useState<{ id: string; details: boolean }>();
   const [damageTarget, setDamageTarget] = useState<string>();
@@ -39,22 +43,23 @@ export function BoardMonsterCards({ scene, combat, director, busy, error, comman
   };
 
   return <>
-    <div className="board-monsters" role="group" aria-label={scene.kind === "encounter" ? "Участники боя" : "Участники сцены"}>
+    <div className="board-monsters" role="group" aria-label={scene.kind === "encounter" ? tr("Участники боя", "Encounter participants") : tr("Участники сцены", "Scene participants")}>
       {visible.map(unit => {
+        const displayName = creatureDisplayName(unit.sourceId, unit.name, locale);
         const turn = turnOf(combat, unit);
         const canStart = combat?.side === "enemies" && !combat.active && turn === "ready" && unit.health !== "defeated";
-        const action = turn === "active" ? "Завершить ход" : "Начать ход";
+        const action = turn === "active" ? tr("Завершить ход", "End turn") : tr("Начать ход", "Start turn");
         const stamina = unit.stamina !== undefined && unit.maxStamina
           ? { current: unit.stamina, max: unit.maxStamina, temp: unit.temporaryStamina ?? 0 } : undefined;
         const editingDamage = director && damageTarget === unit.id;
-        const health = healthLabel(unit.health);
-        const state = stamina ? `Выносливость: ${stamina.current} из ${stamina.max}` : health;
+        const health = tr(healthLabel(unit.health), ({ healthy: "Healthy", hurt: "Hurt", winded: "Winded", defeated: "Defeated" })[unit.health]);
+        const state = stamina ? `${tr("Выносливость", "Stamina")}: ${stamina.current} ${tr("из", "of")} ${stamina.max}` : health;
         const hidden = director && !unit.revealed;
         const conditions = unit.conditions.filter(condition => director || condition.public);
         const organization = [
-          unit.organization,
-          unit.count && unit.count > 1 ? `${unit.count} в отряде` : "",
-          unit.faction === "ally" ? "Союзник" : "",
+          creatureCategory(unit.organization, locale),
+          unit.count && unit.count > 1 ? `${unit.count} ${tr("в отряде", "in squad")}` : "",
+          unit.faction === "ally" ? tr("Союзник", "Ally") : "",
         ].filter(Boolean).join(" · ");
         const staminaBar = stamina && <span className="board-seat-stamina" aria-hidden="true">
           <SharedHeroStaminaBar stamina={stamina} decorative />
@@ -76,11 +81,11 @@ export function BoardMonsterCards({ scene, combat, director, busy, error, comman
             }}>
             <div className="board-monster-compact">
               <div className="board-monster-header">
-                <button type="button" className="board-monster-summary" aria-haspopup="dialog" title={unit.name}
-                  aria-label={`${unit.name}. ${state}. ${turnNames[turn]}${hidden ? ". Скрыт от игроков" : ""}`}
+                <button type="button" className="board-monster-summary" aria-haspopup="dialog" title={displayName}
+                  aria-label={`${displayName}. ${state}. ${turns[turn]}${hidden ? tr(". Скрыт от игроков", ". Hidden from players") : ""}`}
                   onClick={() => { setDamageTarget(undefined); setViewing({ id: unit.id, details: false }); }}>
                   <span className="board-monster-heading">
-                    <span className="board-monster-name">{unit.name}</span>
+                    <span className="board-monster-name">{displayName}</span>
                     {turn === "done" && <Icon name="check" className="scene-turn-check" size={15} aria-hidden="true" />}
                   </span>
                   {!stamina ? <span className="scene-health" data-health={unit.health}>{health}</span> : !director && staminaBar}
@@ -88,12 +93,12 @@ export function BoardMonsterCards({ scene, combat, director, busy, error, comman
                 {director && <Button className="board-monster-visibility" size="sm" iconOnly variant="ghost"
                   icon={hidden ? "eye-off" : "eye"} aria-pressed={unit.revealed} disabled={busy}
                   onClick={() => change(unit.id, { revealed: !unit.revealed })}>
-                  {`${hidden ? "Показать игрокам" : "Скрыть от игроков"}: ${unit.name}`}
+                  {`${hidden ? tr("Показать игрокам", "Show to players") : tr("Скрыть от игроков", "Hide from players")}: ${displayName}`}
                 </Button>}
               </div>
               {director && stamina && <button type="button" className="board-monster-hp" disabled={busy}
-                aria-label={`Нанести урон: ${unit.name}. ${state}`} aria-expanded={editingDamage}
-                title="Нанести урон" onClick={() => setDamageTarget(editingDamage ? undefined : unit.id)}>
+                aria-label={`${tr("Нанести урон", "Deal damage")}: ${displayName}. ${state}`} aria-expanded={editingDamage}
+                title={tr("Нанести урон", "Deal damage")} onClick={() => setDamageTarget(editingDamage ? undefined : unit.id)}>
                 {staminaBar}
               </button>}
             </div>
@@ -115,17 +120,17 @@ export function BoardMonsterCards({ scene, combat, director, busy, error, comman
                     }
                   }}>
                     <input autoFocus className="input" name="damage" type="number" min={1} max={Number.MAX_SAFE_INTEGER} step={1} required
-                      inputMode="numeric" enterKeyHint="done" placeholder="Урон" aria-label={`Урон: ${unit.name}`} />
-                    <Button size="sm" variant="soft" icon="check" iconOnly type="submit" disabled={busy}>Применить урон</Button>
+                      inputMode="numeric" enterKeyHint="done" placeholder={tr("Урон", "Damage")} aria-label={`${tr("Урон", "Damage")}: ${displayName}`} />
+                    <Button size="sm" variant="soft" icon="check" iconOnly type="submit" disabled={busy}>{tr("Применить урон", "Apply damage")}</Button>
                   </form>}
                   {organization && <span>{organization}</span>}
                   {unit.group && <span className="muted">{unit.group}</span>}
                   {stamina && <span className="scene-health" data-health={unit.health}>
-                    {health}{stamina.temp > 0 && ` · +${stamina.temp} врем.`}
+                    {health}{stamina.temp > 0 && ` · +${stamina.temp} ${tr("врем.", "temp.")}`}
                   </span>}
                   {director && <span className="board-monster-reaction">
                     <Icon name="spark" size={14} />
-                    {unit.reactionUsed ? "Реакция потрачена" : "Реакция доступна"}
+                    {unit.reactionUsed ? tr("Реакция потрачена", "Reaction used") : tr("Реакция доступна", "Reaction available")}
                   </span>}
                   {conditions.length > 0 && <span className="scene-condition-chips">
                     {conditions.map(condition => <span key={condition.id} className="table-badge">
@@ -138,7 +143,7 @@ export function BoardMonsterCards({ scene, combat, director, busy, error, comman
           </div>
           {director && combat && (turn === "active" || canStart) && (
             <Button className="board-monster-action" size="sm" variant={turn === "active" ? "primary" : "soft"}
-              aria-label={`${action}: ${unit.name}`} disabled={busy}
+              aria-label={`${action}: ${displayName}`} disabled={busy}
               onClick={() => void command(turn === "active" ? "combat-end-turn" : "combat-start-turn", {
                 sceneId: scene.id, combatId: combat.id, side: "enemies", id: unit.id,
               })}>
@@ -151,11 +156,11 @@ export function BoardMonsterCards({ scene, combat, director, busy, error, comman
     {viewedUnit && (statBlock && !viewing?.details ? (
       <SceneRuleDialog source={statBlock} onClose={() => setViewing(undefined)} error={error}
         stamina={inlineStamina ? {
-          label: statBlock.minion ? "Выносливость отряда" : undefined,
+          squad: statBlock.minion,
           value: <SceneStaminaFields unit={viewedUnit} busy={busy} onChange={patch => change(viewedUnit.id, patch)} />,
         } : undefined}
         footer={<Button size="sm" variant="ghost"
-          onClick={() => setViewing({ id: viewedUnit.id, details: true })}>Управление участником</Button>} />
+          onClick={() => setViewing({ id: viewedUnit.id, details: true })}>{tr("Управление участником", "Manage participant")}</Button>} />
     ) : (
       <CardDetailModal open title={viewedUnit.name} onClose={() => setViewing(undefined)}
         className="scene-ui table-dialog">

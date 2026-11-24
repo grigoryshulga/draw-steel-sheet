@@ -19,7 +19,20 @@
       ],
       "originalId": "mcdm.heroes.v1/kit/cloak-and-dagger",
       "originalName": "Cloak and Dagger",
-      "originalDescription": "Providing throwable light weapons and light armor easily concealed by a cloak to confuse your enemies, the Cloak and Dagger kit makes you more mobile while increasing the effectiveness of your short-range strikes."
+      "originalDescription": "Providing throwable light weapons and light armor easily concealed by a cloak to confuse your enemies, the Cloak and Dagger kit makes you more mobile while increasing the effectiveness of your short-range strikes.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishEdition": {
+        "kind": "source",
+        "title": "Cloak and Dagger",
+        "blocks": [
+          {
+            "type": "entity",
+            "ref": "kit.cloak-and-dagger"
+          }
+        ]
+      }
     }
   ],
   "entities": [
@@ -34,7 +47,17 @@
       },
       "originalId": "mcdm.heroes.v1/kit/cloak-and-dagger",
       "originalName": "Cloak and Dagger",
-      "originalDescription": "Providing throwable light weapons and light armor easily concealed by a cloak to confuse your enemies, the Cloak and Dagger kit makes you more mobile while increasing the effectiveness of your short-range strikes.\n\n##### Equipment\n\nYou wear light armor and wield one or two light weapons.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +2\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Ranged Damage Bonus:** +1/+1/+1\n\n**Ranged Distance Bonus:** +5\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Fade\n\n*A stab, and a few quick, careful steps back.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 10**       | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage; you can shift 1 square\n- **12-16:** 6 + M or A damage; you can shift up to 2 squares\n- **17+:** 8 + M or A damage; you can shift up to 3 squares"
+      "originalDescription": "Providing throwable light weapons and light armor easily concealed by a cloak to confuse your enemies, the Cloak and Dagger kit makes you more mobile while increasing the effectiveness of your short-range strikes.\n\n##### Equipment\n\nYou wear light armor and wield one or two light weapons.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +2\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Ranged Damage Bonus:** +1/+1/+1\n\n**Ranged Distance Bonus:** +5\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Fade\n\n*A stab, and a few quick, careful steps back.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 10**       | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage; you can shift 1 square\n- **12-16:** 6 + M or A damage; you can shift up to 2 squares\n- **17+:** 8 + M or A damage; you can shift up to 3 squares",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishSignatures": [
+        {
+          "ref": "feature.ability.cloak-and-dagger.fade",
+          "start": 515,
+          "end": 967
+        }
+      ]
     },
     {
       "id": "feature.ability.cloak-and-dagger.fade",
@@ -93,7 +116,59 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.cloak-and-dagger/fade",
       "originalName": "Fade",
-      "originalDescription": "*A stab, and a few quick, careful steps back.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 10**       | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage; you can shift 1 square\n- **12-16:** 6 + M or A damage; you can shift up to 2 squares\n- **17+:** 8 + M or A damage; you can shift up to 3 squares"
+      "originalDescription": "*A stab, and a few quick, careful steps back.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 10**       | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage; you can shift 1 square\n- **12-16:** 6 + M or A damage; you can shift up to 2 squares\n- **17+:** 8 + M or A damage; you can shift up to 3 squares",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A stab, and a few quick, careful steps back.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            },
+            " or ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might or Agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + M or A"
+              },
+              "effect": "you can shift 1 square"
+            },
+            {
+              "damage": {
+                "value": "6 + M or A"
+              },
+              "effect": "you can shift up to 2 squares"
+            },
+            {
+              "damage": {
+                "value": "8 + M or A"
+              },
+              "effect": "you can shift up to 3 squares"
+            }
+          ]
+        }
+      }
     }
   ]
 }

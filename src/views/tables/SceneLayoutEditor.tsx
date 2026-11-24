@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { EMPTY_BOARD } from "../../lib/tables/board";
 import type { BoardGrid, BoardMaterial, BoardStroke, SceneLayout, TableSnapshot } from "../../lib/tables/types";
 import { TableBoard } from "./TableBoard";
@@ -8,6 +9,7 @@ export function SceneLayoutEditor({ table, layout, busy, onChange }: {
   busy: boolean;
   onChange: (layout: SceneLayout) => void;
 }) {
+  const { t: tr } = useLocale();
   const current = layout ?? {
     tableId: table.id, background: null, grid: EMPTY_BOARD.grid, materials: [],
   };
@@ -21,7 +23,7 @@ export function SceneLayoutEditor({ table, layout, busy, onChange }: {
       case "board-draw": next = { ...current, strokes: [...(current.strokes ?? []), payload.stroke as BoardStroke] }; break;
       case "board-undo-stroke": next = { ...current, strokes: current.strokes?.slice(0, -1) }; break;
       case "board-show":
-        if (materials.length >= 32) throw new Error("На сцене помещаются 32 материала");
+        if (materials.length >= 32) throw new Error(tr("На сцене помещаются 32 материала", "A scene can contain 32 materials"));
         next = { ...current, materials: [...materials, payload as unknown as BoardMaterial] };
         break;
       case "board-move": next = { ...current, materials: materials.map(material => material.id === payload.id

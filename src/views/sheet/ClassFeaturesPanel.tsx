@@ -1,3 +1,6 @@
+import { useLocalizedData } from "../../i18n/use-localized-data";
+import { loadBuilderOptions } from "../../rules/consumer-english-reference";
+import { useLocale } from "../../i18n/locale";
 import { Fragment, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -23,7 +26,12 @@ import { useApp } from "../../state/AppContext";
 import "./ClassFeaturesPanel.css";
 
 /** Подпись кнопки отметки: «раз за схватку» получают, остальные — используют. */
-function markLabel(item: FeatureSheetItem): string {
+function markLabel(item: FeatureSheetItem, english: boolean): string {
+  if (english) {
+    if (!item.trigger) return "Mark";
+    if (item.trigger.used) return "Clear";
+    return item.trigger.frequency === "encounter" ? "gained" : "used";
+  }
   if (!item.trigger) return "Отметить";
   if (item.trigger.used) return "Снять";
   return item.trigger.frequency === "encounter" ? "получено" : "использовано";
@@ -34,6 +42,7 @@ function markLabel(item: FeatureSheetItem): string {
  * Действия идут через журнал игры, поэтому их можно отменить в истории.
  */
 export function RoundEncounterControls({ className = "" }: { className?: string }) {
+  const { t } = useLocale();
   const { character, performGameAction } = useApp();
   const runtime = currentRuntime(character);
   return (
@@ -42,17 +51,17 @@ export function RoundEncounterControls({ className = "" }: { className?: string 
         size="sm"
         variant="soft"
         onClick={() => performGameAction({ kind: "round" })}
-        title="Новый раунд: номер растёт, отметки триггеров раунда снимаются"
+        title={t("Новый раунд: номер растёт, отметки триггеров раунда снимаются", "Start the next round and reset round triggers")}
       >
-        Новый раунд · {runtime.round}
+        {t("Новый раунд", "New round")} · {runtime.round}
       </Button>
       <Button
         size="sm"
         variant="ghost"
         onClick={() => performGameAction({ kind: "encounter" })}
-        title="Новая схватка: номер растёт, все отметки триггеров снимаются"
+        title={t("Новая схватка: номер растёт, все отметки триггеров снимаются", "Start the next encounter and reset all triggers")}
       >
-        Новая схватка · {runtime.encounter}
+        {t("Новая схватка", "New encounter")} · {runtime.encounter}
       </Button>
     </div>
   );
@@ -87,6 +96,7 @@ function Badges({ item }: { item: FeatureSheetItem }) {
 }
 
 export function FeatureTriggerButton({ item }: { item: FeatureSheetItem }) {
+  const { t, locale } = useLocale();
   const { performGameAction } = useApp();
   const trigger = item.trigger;
   if (!trigger) return null;
@@ -95,7 +105,7 @@ export function FeatureTriggerButton({ item }: { item: FeatureSheetItem }) {
       size="sm"
       variant={trigger.used ? "ghost" : "soft"}
       aria-pressed={trigger.used}
-      aria-label={`${trigger.used ? "Снять отметку" : "Отметить срабатывание"}: ${trigger.label}`}
+      aria-label={`${trigger.used ? t("Снять отметку", "Clear mark") : t("Отметить срабатывание", "Mark trigger")}: ${trigger.label}`}
       onClick={() =>
         performGameAction({
           kind: "trigger",
@@ -105,13 +115,14 @@ export function FeatureTriggerButton({ item }: { item: FeatureSheetItem }) {
       }
       title={trigger.label}
     >
-      {markLabel(item)}
+      {markLabel(item, locale === "en")}
     </Button>
   );
 }
 
 /** Одна особенность: название, числа механики, бейджи и отметка триггера. */
 function FeatureRow({ item }: { item: FeatureSheetItem }) {
+  const { t, locale } = useLocale();
   const trigger = item.trigger;
   return (
     <article
@@ -120,29 +131,29 @@ function FeatureRow({ item }: { item: FeatureSheetItem }) {
     >
       <div className="cf-item-head">
         <div className="cf-item-title">
-          <strong className="cf-item-name">{item.name}</strong>
-          <span className="cf-item-level mono">{item.level} ур.</span>
+          <strong className="cf-item-name">{locale === "en" ? item.originalName || item.name : item.name}</strong>
+          <span className="cf-item-level mono">{t(`${item.level} ур.`, `level ${item.level}`)}</span>
         </div>
         {trigger && <FeatureTriggerButton item={item} />}
       </div>
       {item.summary && !item.summaryFromDescription && <p className="cf-item-summary">{item.summary}</p>}
       {trigger && (
         <p className="cf-item-trigger-detail">
-          <span className="cf-item-note-label">Условие:</span> {trigger.detail}
+          <span className="cf-item-note-label">{t("Условие:", "Condition:")}</span> {trigger.detail}
         </p>
       )}
       {item.notes && (
         <section className="cf-item-notes">
-          <h3>Примечание</h3>
+          <h3>{t("Примечание", "Note")}</h3>
           <p>{item.notes}</p>
         </section>
       )}
       {item.detail && (
         <section className="cf-item-detail">
-          <h3>Текст особенности</h3>
+          <h3>{t("Текст особенности", "Feature text")}</h3>
           <div className="cf-item-markdown">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {item.detail}
+              {locale === "en" ? item.originalDescription || item.detail : item.detail}
             </ReactMarkdown>
           </div>
         </section>
@@ -151,8 +162,8 @@ function FeatureRow({ item }: { item: FeatureSheetItem }) {
       {trigger?.used && trigger.count > 1 && (
         <span className="cf-item-note">
           {trigger.frequency === "encounter"
-            ? `отмечено в этой схватке: ${trigger.count}`
-            : `отмечено в этом раунде: ${trigger.count}`}
+            ? t(`отмечено в этой схватке: ${trigger.count}`, `Marked this encounter: ${trigger.count}`)
+            : t(`отмечено в этом раунде: ${trigger.count}`, `Marked this round: ${trigger.count}`)}
         </span>
       )}
     </article>
@@ -169,6 +180,7 @@ function CategoryGroup({
   open: boolean;
   onToggle: () => void;
 }) {
+  const { t } = useLocale();
   const triggers = group.features.filter((item) => item.trigger && !item.trigger.used)
     .length;
   return (
@@ -183,10 +195,10 @@ function CategoryGroup({
         onClick={onToggle}
       >
         <Icon name={open ? "chevron-down" : "chevron-right"} size={14} />
-        <span className="cf-group-title">{group.title}</span>
+        <span className="cf-group-title">{t(group.title, { ancestry: "Signature trait", class: "Class", subclass: "Subclass", resource: "Resource", choice: "Choice", trigger: "Trigger" }[group.key])}</span>
         <span className="cf-group-count mono">{group.features.length}</span>
         {triggers > 0 && (
-          <span className="cf-group-triggers" title="Доступные срабатывания">
+          <span className="cf-group-triggers" title={t("Доступные срабатывания", "Available triggers")}>
             {triggers}
           </span>
         )}
@@ -205,7 +217,10 @@ function CategoryGroup({
 
 /** Выборы особенностей класса: аспект, традиция, молитва, домены. */
 export function ClassFeatureChoices() {
+  const { locale, t } = useLocale();
   const { character, update } = useApp();
+  const options = useLocalizedData(locale, loadBuilderOptions)?.[character.className ?? ""];
+  const label = (value: string) => locale === "en" ? options?.[value]?.name ?? choiceLabels[value] ?? value : value;
   // Домен Цензора и пару доменов Проводника редактируем в шапке героя,
   // чтобы не дублировать один и тот же выбор в двух местах.
   const choices = classFeatureChoicesForSheet(character).filter(
@@ -236,16 +251,16 @@ export function ClassFeatureChoices() {
             const state = featureSheetChoiceState(choice);
             return (
               <label className="cf-choice" key={choice.group}>
-                <span className="cf-choice-label">{choice.label}</span>
+                <span className="cf-choice-label">{label(choice.label)}</span>
                 <Select
                   value={state.selectedOption}
-                  aria-label={`${choice.label}: выберите вариант`}
+                  aria-label={t(`${choice.label}: выберите вариант`, `Choose an option for ${label(choice.label)}`)}
                   onChange={(event) => selectChoice(choice.group, event.target.value)}
                 >
-                  <option value="">Не выбран</option>
+                  <option value="">{t("Не выбран", "Not selected")}</option>
                   {choice.options.map((option) => (
                     <option key={option} value={option}>
-                      {choice.optionLabels?.[option] ?? groupOptionLabel(choice.group, option)}
+                      {label(choice.optionLabels?.[option] ?? groupOptionLabel(choice.group, option))}
                     </option>
                   ))}
                 </Select>
@@ -264,7 +279,7 @@ export function ClassFeatureChoices() {
         <div className="cf-choices">
           <p className="cf-item-note">{conduitState.legacyWarning}</p>
           <Button size="sm" variant="soft" onClick={() => update((current) => confirmConduitLegacyRewardsReviewed(current))}>
-            Я проверил награды
+            {t("Я проверил награды", "I reviewed the rewards")}
           </Button>
         </div>
       )}
@@ -274,6 +289,7 @@ export function ClassFeatureChoices() {
 
 /** Номер раунда и схватки, доступные срабатывания. */
 export function ClassFeatureRuntimeStatus() {
+  const { t } = useLocale();
   const { character } = useApp();
   const groups = classFeatureGroupsForSheet(character);
   const triggers = triggerBadgeCounts(character);
@@ -284,11 +300,11 @@ export function ClassFeatureRuntimeStatus() {
   return (
     <div className="cf-status">
       <span>
-        Раунд {runtime.round} · схватка {runtime.encounter}
+        {t(`Раунд ${runtime.round} · схватка ${runtime.encounter}`, `Round ${runtime.round} · encounter ${runtime.encounter}`)}
       </span>
       {hasTriggers && (
         <span className={triggers > 0 ? "cf-status-triggers is-live" : "cf-status-triggers"}>
-          {triggers > 0 ? `Доступно срабатываний: ${triggers}` : "Все срабатывания отмечены"}
+          {triggers > 0 ? t(`Доступно срабатываний: ${triggers}`, `Available triggers: ${triggers}`) : t("Все срабатывания отмечены", "All triggers marked")}
         </span>
       )}
     </div>
@@ -301,6 +317,7 @@ export function ClassFeatureRuntimeStatus() {
  * панель оставлена как самостоятельная сборка тех же частей.
  */
 export function ClassFeatureMechanicsPanel() {
+  const { t } = useLocale();
   const { character } = useApp();
   const groups = classFeatureGroupsForSheet(character);
   // Уровни больше не делят панель: карточки идут секциями по категориям.
@@ -327,7 +344,7 @@ export function ClassFeatureMechanicsPanel() {
   if (categoryGroups.length === 0) return null;
 
   return (
-    <section className="cf-sheet" aria-label="Особенности класса по категориям">
+    <section className="cf-sheet" aria-label={t("Особенности класса по категориям", "Class features by category")}>
       <ClassFeatureChoices />
       <ClassFeatureRuntimeStatus />
       <div className="cf-groups">
@@ -343,6 +360,12 @@ export function ClassFeatureMechanicsPanel() {
     </section>
   );
 }
+
+const choiceLabels: Record<string, string> = {
+  "Аспект": "Aspect", "Орден": "Order", "Домен": "Domain", "Традиция": "Tradition",
+  "Доктрина": "Doctrine", "Коллегия": "College", "Труппа": "Troupe", "Специализация": "Specialization",
+  "Иммунитет Расцветающего святого": "Blooming Saint immunity", "Порча 10": "Corruption 10", "Святой 10": "Holy 10",
+};
 
 function groupOptionLabel(group: string, option: string): string {
   if (group === "conduit.prayer" || group === "conduit.sanctuary") {

@@ -1,4 +1,7 @@
 import type { ReactNode } from "react";
+import { useRuleLanguage } from "../i18n/locale";
+import { EnglishHeroAbility } from "./rules/EnglishHeroAbility";
+import { useAbilityOriginal } from "./abilityOriginal";
 import { CharacteristicGlyphText } from "./CharacteristicGlyph";
 import type { Ability, Character } from "../types";
 import { AbilityCardFrame } from "./rules/AbilityCardFrame";
@@ -10,15 +13,19 @@ import {
 import { abilityCardView } from "./rules/abilityCardView";
 import "./AbilityCard.css";
 
-function AbilityContent({ ability, view, full, showCalculations = false }: {
+function AbilityContent({ ability, view, full, showCalculations = false, original }: {
   ability: Ability;
   view: AbilitySheetView;
   full: boolean;
   showCalculations?: boolean;
+  original?: Ability;
 }) {
+  if (original) return <EnglishHeroAbility original={original} base={view} full={full} showCalculations={showCalculations} />;
+  const triggerText = ability.trigger;
   return <>
-    {ability.trigger && (
-      <p className="sheet-ability-trigger-text"><strong>Триггер:</strong> <CharacteristicGlyphText text={ability.trigger} /></p>
+    {full && view.flavor && <p className="sheet-ability-detail-flavor"><CharacteristicGlyphText text={view.flavor} /></p>}
+    {triggerText && (
+      <p className="sheet-ability-trigger-text"><strong>Триггер:</strong> <CharacteristicGlyphText text={triggerText} /></p>
     )}
     <AbilityBody view={view} full={full} showCalculations={showCalculations} />
   </>;
@@ -33,11 +40,14 @@ export function AbilityCardContent({ ability, character, showName = false, showC
   showCalculations?: boolean;
 }) {
   const view = abilityCardView(ability, character);
+  const original = useAbilityOriginal(ability);
+  const { language } = useRuleLanguage(ability.originalId || ability.id, original?.originalDescription);
+  const english = language === "en" ? original : undefined;
   return (
-    <div className="ability-card-content">
-      {showName && <strong className="ability-card-content-name">{ability.name}</strong>}
-      <AbilityTags view={view} />
-      <AbilityContent ability={ability} view={view} full showCalculations={showCalculations} />
+    <div className="ability-card-content" lang={language}>
+      {showName && <strong className="ability-card-content-name">{language === "en" ? original?.originalName || ability.name : ability.name}</strong>}
+      <AbilityTags view={view} language={language} />
+      <AbilityContent ability={ability} original={english} view={view} full showCalculations={showCalculations} />
     </div>
   );
 }
@@ -45,6 +55,8 @@ export function AbilityCardContent({ ability, character, showName = false, showC
 export interface AbilityCardProps {
   ability: Ability;
   character: Character;
+  /** Direct, unmodified catalog projection. */
+  canonical?: boolean;
   /** Происхождение из подкласса: «Орден», «Домен», «Доктрина» и т. п. */
   origin?: { label: string; value?: string } | null;
   onOpen?: () => void;
@@ -66,6 +78,7 @@ export interface AbilityCardProps {
 export function AbilityCard({
   ability,
   character,
+  canonical = false,
   origin,
   onOpen,
   openOnCardClick = false,
@@ -81,13 +94,18 @@ export function AbilityCard({
   // Расчёты листа живут в `abilityCardView`: общая презентация получает
   // готовые значения и не знает, есть ли у читателя герой.
   const view = abilityCardView(ability, character, origin);
+  const original = useAbilityOriginal(ability, canonical);
+  const { language } = useRuleLanguage(ability.originalId || ability.id, original?.originalDescription);
+  const english = language === "en" ? original : undefined;
 
   return (
     <AbilityCardFrame
-      title={ability.name || "Без названия"}
-      titleText={ability.name || "Без названия"}
-      tags={<AbilityTags view={view} />}
+      title={(language === "en" && original?.originalName) || ability.name || "Без названия"}
+      titleText={(language === "en" && original?.originalName) || ability.name || "Без названия"}
+      tags={<AbilityTags view={view} language={language} />}
       headerAction={headerAction}
+      language={language}
+      lang={language}
       actionType={ability.actionType}
       kind={ability.kind}
       full={full}
@@ -101,7 +119,7 @@ export function AbilityCard({
       openOnCardClick={openOnCardClick}
       keyboardTarget="title"
     >
-      <AbilityContent ability={ability} view={view} full={full} />
+      <AbilityContent ability={ability} original={english} view={view} full={full} />
 
       {details}
 

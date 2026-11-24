@@ -1,3 +1,5 @@
+import { resourceLabel } from "../../i18n/resource-language";
+import { useLocale } from "../../i18n/locale";
 import { useId, useState } from "react";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { Button } from "../../components/ui";
@@ -10,19 +12,20 @@ export function DramaSourcesDialog({ gains, value, onClose, onSave }: {
   onClose: () => void;
   onSave: (value: Character["dramaSources"]) => void;
 }) {
+  const { t, locale } = useLocale();
   const formId = useId();
   const [hidden, setHidden] = useState(() => new Set(value?.hidden));
   const [note, setNote] = useState(value?.note ?? "");
-  return <CardDetailModal open title="Источники Драмы" onClose={onClose}
-    footer={<Button type="submit" form={formId} variant="primary">Сохранить</Button>}>
+  return <CardDetailModal open title={t("Источники Драмы", "Drama sources")} onClose={onClose}
+    footer={<Button type="submit" form={formId} variant="primary">{t("Сохранить", "Save")}</Button>}>
     <form id={formId} className="drama-sources-form" onSubmit={event => {
       event.preventDefault();
       const text = note.trim();
       onSave(hidden.size || text ? { hidden: [...hidden], note: text } : undefined);
     }}>
-      <p className="muted">Отметьте источники, которые хотите видеть на листе. Правила начисления Драмы действуют для всех источников.</p>
+      <p className="muted">{t("Отметьте источники, которые хотите видеть на листе. Правила начисления Драмы действуют для всех источников.", "Select the sources to show on the sheet. Drama gain rules apply to every source.")}</p>
       {gains.length > 0 && <fieldset className="drama-sources-list">
-        <legend className="sr-only">Источники на листе</legend>
+        <legend className="sr-only">{t("Источники на листе", "Sources on sheet")}</legend>
         {gains.map(gain => <label key={gain.tag}>
           <input type="checkbox" checked={!hidden.has(gain.tag)} onChange={event => {
             const visible = event.currentTarget.checked;
@@ -33,11 +36,11 @@ export function DramaSourcesDialog({ gains, value, onClose, onSave }: {
               return next;
             });
           }} />
-          {gain.label}
+          {resourceLabel(gain.label, locale)}
         </label>)}
       </fieldset>}
       <label className="field">
-        <span className="field-label">Личная заметка</span>
+        <span className="field-label">{t("Личная заметка", "Personal note")}</span>
         <textarea className="textarea" rows={3} maxLength={1000} value={note}
           onChange={event => setNote(event.currentTarget.value)} />
       </label>

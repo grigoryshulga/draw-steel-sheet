@@ -1,7 +1,11 @@
+import { englishCalculation } from "../../i18n/ability-messages";
 import type { Ability, Character } from "../../types";
 import {
   abilityDistance,
-  abilityForcedMovementLine,
+  abilityDistanceModifiers,
+  abilityForcedMovement,
+  abilityHasForcedMovement,
+  forcedMovementSummary,
 } from "../../lib/character-calculations";
 import { characteristicShort, evaluateAbilityDamage, TIER_ROLL_RANGES } from "../../lib/rules";
 import { actionLabel, actionShort } from "../../data/actions";
@@ -28,9 +32,8 @@ export function abilityCardView(
   origin?: AbilityOrigin | null,
 ): AbilitySheetView {
   const requirements = abilityTierRequirements(ability, character);
-  const alternatives = requirements
-    ? ability.rollCharacteristics.filter((key) => key !== requirements.characteristic).map(characteristicShort)
-    : [];
+  const alternativeKeys = requirements ? ability.rollCharacteristics.filter((key) => key !== requirements.characteristic) : [];
+  const alternatives = alternativeKeys.map(characteristicShort);
   const bonus = requirements
     ? `${requirements.totalBonus >= 0 ? "+" : "−"}${Math.abs(requirements.totalBonus)}`
     : "—";
@@ -42,30 +45,41 @@ export function abilityCardView(
     ? [requirements.characteristic, ...ability.rollCharacteristics.filter((key) => key !== requirements.characteristic)]
       .flatMap((key) => {
         const calculation = abilityRollBreakdown(ability, character, { characteristic: key });
-        return calculation ? [{
+        return calculation ? [englishCalculation({
           ...calculation,
           note: "Преимущества, помехи и поправки к отдельному броску задаются в окне броска.",
-        }] : [];
+        })] : [];
       })
     : [];
+  const distanceModifiers = abilityDistanceModifiers(ability, character);
+  const movement = abilityHasForcedMovement(ability) ? abilityForcedMovement(ability, character) : undefined;
+  const englishCharacteristics = { might: "M", agility: "A", reason: "R", intuition: "I", presence: "P" } as const;
   return {
     ...abilitySheetBase(ability),
     origin,
     trigger: ability.trigger,
     roll: requirements ? { characteristic: requirements.characteristic, bonus: requirements.totalBonus } : null,
     rollCalculations,
+    cardModifiers: {
+      distance: distanceModifiers,
+      roll: bonus,
+      rollTitle: requirements
+        ? `${englishCharacteristics[requirements.characteristic]} ${bonus}${alternativeKeys.length ? ", also " + alternativeKeys.map(key => englishCharacteristics[key]).join(" or ") : ""}`
+        : undefined,
+      forcedMovement: movement ? forcedMovementSummary(movement, "en") : "",
+    },
     facts: [
-      { label: "Действие", value: actionShort(ability.actionType), title: `Тип действия: ${actionLabel(ability.actionType)}` },
+      { id: "action", label: "Действие", value: actionShort(ability.actionType), title: `Тип действия: ${actionLabel(ability.actionType)}` },
       {
-        label: "Дист.",
-        value: abilityDistance(ability, character),
+        id: "distance", label: "Дист.",
+        value: abilityDistance(ability, character, distanceModifiers),
         title: "Дистанция",
       },
-      { label: "Цель", value: ability.target, title: "Цель" },
-      { label: "Бросок", value: rollValue, title: rollTitle },
+      { id: "target", label: "Цель", value: ability.target, title: "Цель" },
+      { id: "roll", label: "Бросок", value: rollValue, title: rollTitle },
     ],
     tiers: visibleAbilityTiers(ability).map((tier) => {
-      const damage = tier.damage ? evaluateAbilityDamage(ability, tier.tier, character) : undefined;
+      const damage = tier.damage ? evaluateAbilityDamage(ability, tier.tier, character, 0, true) : undefined;
       return {
         tier: tier.tier,
         range: TIER_ROLL_RANGES[tier.tier],
@@ -73,13 +87,14 @@ export function abilityCardView(
         damage: damage
           ? {
               value: damage.display,
+              englishValue: damage.englishDisplay,
               type: inferDamageType(ability, tier.effect),
-              calculations: damage.calculations,
+              calculations: damage.calculations?.map(englishCalculation),
             }
           : undefined,
         effect: tier.effect,
       };
     }),
-    forcedMovement: abilityForcedMovementLine(ability, character),
+    forcedMovement: movement ? forcedMovementSummary(movement) : "",
   };
 }

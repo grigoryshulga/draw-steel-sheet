@@ -4,6 +4,7 @@ import { CHARACTERISTICS } from "./rule-display";
 
 export interface CalculationTerm {
   label: string;
+  englishLabel?: string;
   value: number | string;
   kind?: "base";
 }
@@ -11,6 +12,9 @@ export interface CalculationTerm {
 /** Display data shared by cards and roll results; every term belongs to the actual calculation. */
 export interface CalculationBreakdown {
   label: string;
+  englishLabel?: string;
+  englishNote?: string;
+  englishFormula?: string;
   formula?: string;
   total: string;
   terms: CalculationTerm[];

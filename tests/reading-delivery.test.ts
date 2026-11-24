@@ -19,13 +19,13 @@ describe("compact reading delivery", () => {
   });
 
   it("preserves the reference list and search fields without builder choices", () => {
-    expect(REFERENCE_PREVIEW.ancestries).toEqual(CANONICAL_BUILDER_DATA.ancestries.map(({ articleId, name, summary, signature }) => ({ articleId, name, summary, signature })));
-    expect(REFERENCE_PREVIEW.careers).toEqual(CANONICAL_BUILDER_DATA.careers.map(({ articleId, name, benefits }) => ({ articleId, name, benefits })));
-    expect(REFERENCE_PREVIEW.classes).toEqual(CANONICAL_BUILDER_DATA.classes.map(({ name, summary, basics }) => ({ name, summary, basics })));
+    expect(REFERENCE_PREVIEW.ancestries).toEqual(CANONICAL_BUILDER_DATA.ancestries.map(({ articleId, name, summary, signature, originalName, originalId }) => ({ articleId, name, summary, signature, originalName, originalId })));
+    expect(REFERENCE_PREVIEW.careers).toEqual(CANONICAL_BUILDER_DATA.careers.map(({ articleId, name, benefits, originalName, originalId }) => ({ articleId, name, benefits, originalName, originalId })));
+    expect(REFERENCE_PREVIEW.classes).toEqual(CANONICAL_BUILDER_DATA.classes.map(({ name, summary, basics, originalName, originalId }) => ({ name, summary, basics, originalName, originalId })));
     expect(REFERENCE_PREVIEW.kits).toEqual(CANONICAL_KITS.flatMap((kit) => [kit, ...(kit.variants ?? [])]).map((kit) => ({
       id: kit.id, name: kit.name, summary: kit.summary, equipment: kit.equipment,
       signatureAbility: kit.signatureAbility, familyId: kit.familyId ?? "",
-      animalForm: kit.animalForm ?? "", storm: kit.storm ?? "", damageType: kit.damageType ?? "", originalName: kit.originalName ?? "",
+      animalForm: kit.animalForm ?? "", storm: kit.storm ?? "", damageType: kit.damageType ?? "", originalName: kit.originalName ?? "", originalId: kit.originalId ?? "",
     })));
     expect(REFERENCE_PREVIEW.kits.every((kit) => !("growingFerocity" in kit) && !("originalDescription" in kit))).toBe(true);
   });
@@ -37,14 +37,17 @@ describe("compact reading delivery", () => {
 
   it("ships each complete article with exactly its referenced entities", () => {
     const manifest = read("manifest.json") as RuleManifest;
-    const packs = new Map(manifest.articles.map((entry) => [entry.packId, read(`packs/${entry.packId}.json`) as RulePack]));
+    const packIds = new Set(manifest.articles.map(entry => entry.packId));
+    const packs = new Map([...packIds].map(id => [id, read(`packs/${id}.json`) as RulePack]));
     const entities = new Map([...packs.values()].flatMap((pack) => pack.entities.map((entity) => [entity.id, entity] as const)));
     for (const entry of manifest.articles) {
       const single = read(`articles/${entry.id}.json`);
       const original = packs.get(entry.packId)!.articles.find((article) => article.id === entry.id)!;
       expect(single.articles, entry.id).toEqual([original]);
-      const refs = [...new Set(original.blocks.filter((block) => block.type === "entity").map((block) => block.ref))];
-      expect(single.entities, entry.id).toEqual(refs.map((id) => entities.get(id)));
+      const refs = [...new Set([...original.blocks, ...(original.englishEdition?.blocks ?? [])].filter((block) => block.type === "entity").map((block) => block.ref))];
+      const signatures = refs.flatMap(id => entities.get(id)?.englishSignatures?.map(signature => signature.ref) ?? []);
+      const expected = [...new Set([...refs, ...signatures])];
+      expect(single.entities, entry.id).toEqual(expected.map(id => entities.get(id)));
     }
   });
 });

@@ -1,16 +1,20 @@
+import { useLocale } from "../i18n/locale";
 import type { ItemEffect } from "../types";
 import { Button } from "./ui";
 import { ITEM_EFFECT_LABELS, normalizeItemEffects } from "../lib/item-effects";
 import "./ItemEffectsEditor.css";
 
+const ENGLISH_EFFECTS: Record<ItemEffect["field"], string> = { stamina: "Stamina", recoveries: "Recoveries", speed: "Speed", stability: "Stability", disengage: "Disengage", save: "Saving throw", rolledDamage: "Rolled damage", freeStrikeDamage: "Free strike damage" };
+
 export function ItemEffectsSummary({ effects }: { effects: ItemEffect[] }) {
+  const { locale } = useLocale();
   const valid = normalizeItemEffects(effects);
   if (!valid.length) return null;
   return (
     <ul className="item-effects-summary">
       {valid.map((effect, index) => (
         <li key={index}>
-          {ITEM_EFFECT_LABELS[effect.field]}: {effect.value > 0 ? "+" : ""}
+          {locale === "en" ? ENGLISH_EFFECTS[effect.field] : ITEM_EFFECT_LABELS[effect.field]}: {effect.value > 0 ? "+" : ""}
           {effect.value}
         </li>
       ))}
@@ -27,6 +31,7 @@ export function ItemEffectsEditor({
   onChange: (effects: ItemEffect[]) => void;
   disabled?: boolean;
 }) {
+  const { locale, t } = useLocale();
   const valid = normalizeItemEffects(effects);
   return (
     <div className="item-effects-editor">
@@ -34,7 +39,7 @@ export function ItemEffectsEditor({
         <div className="item-effects-row" key={index}>
           <select
             className="select"
-            aria-label={`Показатель бонуса ${index + 1}`}
+            aria-label={t(`Показатель бонуса ${index + 1}`, `Bonus statistic ${index + 1}`)}
             disabled={disabled}
             value={effect.field}
             onChange={(event) =>
@@ -52,13 +57,13 @@ export function ItemEffectsEditor({
           >
             {Object.entries(ITEM_EFFECT_LABELS).map(([field, label]) => (
               <option key={field} value={field}>
-                {label}
+                {locale === "en" ? ENGLISH_EFFECTS[field as ItemEffect["field"]] : label}
               </option>
             ))}
           </select>
           <input
             className="input"
-            aria-label={`Значение бонуса ${index + 1}`}
+            aria-label={t(`Значение бонуса ${index + 1}`, `Bonus value ${index + 1}`)}
             type="number"
             min={-100}
             max={100}
@@ -79,11 +84,11 @@ export function ItemEffectsEditor({
             icon="trash"
             iconOnly
             variant="ghost"
-            aria-label={`Удалить бонус: ${ITEM_EFFECT_LABELS[effect.field]}`}
+            aria-label={t(`Удалить бонус: ${ITEM_EFFECT_LABELS[effect.field]}`, `Remove bonus: ${ENGLISH_EFFECTS[effect.field]}`)}
             disabled={disabled}
             onClick={() => onChange(valid.filter((_, i) => i !== index))}
           >
-            Удалить
+            {t("Удалить", "Remove")}
           </Button>
         </div>
       ))}
@@ -94,7 +99,7 @@ export function ItemEffectsEditor({
         disabled={disabled || valid.length >= 16}
         onClick={() => onChange([...valid, { field: "stamina", value: 0 }])}
       >
-        Добавить бонус
+        {t("Добавить бонус", "Add bonus")}
       </Button>
     </div>
   );

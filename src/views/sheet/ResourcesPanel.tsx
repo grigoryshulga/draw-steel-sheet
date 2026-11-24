@@ -1,3 +1,5 @@
+import { resourceAmount, resourceFrequency, resourceHelpLine, resourceLabel, resourceName as displayResourceName } from "../../i18n/resource-language";
+import { useLocale } from "../../i18n/locale";
 import { lazy, Suspense, useState, type ReactNode } from "react";
 import { HelpTooltip } from "../../components/HelpTooltip";
 import { Button, NumberInput, Panel } from "../../components/ui";
@@ -21,7 +23,8 @@ import "./ResourcesPanel.css";
 const DramaSourcesDialog = lazy(() => import("./DramaSourcesDialog").then(module => ({ default: module.DramaSourcesDialog })));
 
 function HelpTip({ label, lines }: { label: string; lines: string[] }) {
-  return <HelpTooltip label={`${label}: памятка`}><ul className="resource-help-lines">{lines.map((line) => <li key={line}>{line}</li>)}</ul></HelpTooltip>;
+  const { t } = useLocale();
+  return <HelpTooltip label={t(`${label}: памятка`, `${label}: help`)}><ul className="resource-help-lines">{lines.map((line) => <li key={line}>{line}</li>)}</ul></HelpTooltip>;
 }
 
 /** Строка ресурса: число правится по месту, ±1 — кнопками, максимум — рядом. */
@@ -47,6 +50,7 @@ function ResourceRow({
   /** Памятка, скрытая под «?» */
   help?: string[];
 }) {
+  const { t } = useLocale();
   const { readOnly } = useApp();
   const top = max ?? limit;
   const pct = max ? clamp((value / max) * 100, 0, 100) : 0;
@@ -69,14 +73,14 @@ function ResourceRow({
               variant="ghost"
               iconOnly
               icon="minus"
-              aria-label={`${label}: уменьшить`}
+              aria-label={t(`${label}: уменьшить`, `Decrease ${label}`)}
               disabled={value <= min}
               onClick={() => onValue(value - 1)}
             />
             <input
               className="vital-big vital-current-input is-small numeric"
               inputMode={min < 0 ? "text" : "numeric"}
-              aria-label={`${label}: текущее значение`}
+              aria-label={t(`${label}: текущее значение`, `Current ${label}`)}
               key={value}
               defaultValue={value}
               onFocus={(event) => event.currentTarget.select()}
@@ -110,7 +114,7 @@ function ResourceRow({
                     value={max}
                     min={0}
                     max={99}
-                    label={`${label}: максимум`}
+                    label={t(`${label}: максимум`, `${label}: maximum`)}
                     className="vital-max-input"
                     onChange={onMax}
                   />
@@ -123,7 +127,7 @@ function ResourceRow({
               variant="ghost"
               iconOnly
               icon="plus"
-              aria-label={`${label}: увеличить`}
+              aria-label={t(`${label}: увеличить`, `Increase ${label}`)}
               disabled={value >= top}
               onClick={() => onValue(value + 1)}
             />
@@ -158,30 +162,32 @@ function ResourceGains({
   actions?: ReactNode;
   note?: string;
 }) {
+  const { t, locale } = useLocale();
   const { performGameAction, readOnly } = useApp();
   if (gains.length === 0 && !actions && !note) return null;
   return (
     <section className="resource-gains">
       <div className="resource-gains-heading">
-        <h3 className="resource-gains-title">{title}</h3>
+        <h3 className="resource-gains-title">{title === "Откуда капает" ? t(title, "Resource gains") : title}</h3>
         {actions}
       </div>
       {gains.length > 0 && <ul className="resource-gains-list">
         {gains.map((gain) => {
           // «= Победы» уже равенство, плюс к нему не ставится.
-          const amountText = gain.amount.startsWith("=")
-            ? gain.amount
-            : `+${gain.amount}`;
+          const displayLabel = resourceLabel(gain.label, locale);
+          const frequency = resourceFrequency(gain.frequency, locale);
+          const amount = resourceAmount(gain.amount, locale);
+          const amountText = amount.startsWith("=") ? amount : `+${amount}`;
           return (
             <li
               key={gain.tag}
               className={`resource-gain${gain.used ? " is-used" : ""}`}
             >
-              <span className="resource-gain-event">{gain.label}</span>
+              <span className="resource-gain-event">{displayLabel}</span>
               <span className="resource-gain-meta numeric">
                 {amountText}
                 {" · "}
-                {gain.frequency}
+                {frequency}
               </span>
               {!readOnly && <Button
                 size="sm"
@@ -189,8 +195,8 @@ function ResourceGains({
                 icon="check"
                 iconOnly
                 aria-pressed={gain.used}
-                aria-label={`${gain.used ? "Снять отметку" : "Отметить прибавку"}: ${gain.label}`}
-                title={`${gain.label}: ${amountText} (${gain.frequency})`}
+                aria-label={`${gain.used ? t("Снять отметку", "Clear mark") : t("Отметить прибавку", "Mark gain")}: ${displayLabel}`}
+                title={`${displayLabel}: ${amountText} (${frequency})`}
                 onClick={() =>
                   performGameAction({
                     kind: "trigger",
@@ -210,11 +216,13 @@ function ResourceGains({
 
 /** Ресурсы боя, независимые от здоровья и восстановлений. */
 export function ResourcesPanel() {
+  const { t, locale } = useLocale();
   const { character, performGameAction, readOnly, update } = useApp();
   const [editDrama, setEditDrama] = useState(false);
   const ownDrama = character.className === "Трубадур" && !readOnly;
   const drama = ownDrama ? character.dramaSources : undefined;
-  const resourceName = heroicResourceName(character.className);
+  const rawResourceName = heroicResourceName(character.className);
+  const resourceName = displayResourceName(rawResourceName, locale);
   const gains = resourceGainLabels(character).filter((gain) =>
     !(gain.tag === "start-of-turn" && ["Проводник", "Элементалист"].includes(character.className)),
   );
@@ -225,48 +233,48 @@ export function ResourcesPanel() {
     performGameAction({ kind: "resource", resource, value });
 
   return (
-    <Panel title="Ресурсы героя" icon="spark" className="resources-panel">
+    <Panel title={t("Ресурсы героя", "Hero Resources")} icon="spark" className="resources-panel">
       <div className="hero-resources-grid">
         <ResourceRow
           label={resourceName}
           min={heroicResourceFloor(character)}
-          help={heroicResourceHelp(character)}
+          help={heroicResourceHelp(character).map(line => resourceHelpLine(line, locale))}
           value={character.heroicResource.current}
           onValue={(value) => set("heroicResource", value)}
         />
         <ResourceGains gains={drama ? gains.filter(gain => !drama.hidden.includes(gain.tag)) : gains}
           note={drama?.note}
           actions={ownDrama && <Button size="sm" variant="ghost" icon="settings" iconOnly
-            onClick={() => setEditDrama(true)}>Настроить источники Драмы</Button>} />
+            onClick={() => setEditDrama(true)}>{t("Настроить источники Драмы", "Configure Drama sources")}</Button>} />
 
         {epicName && (
           <>
             <ResourceRow
-              label={epicName}
+              label={displayResourceName(epicName, locale)}
               value={character.epic}
               onValue={(value) => set("epic", value)}
             />
-            <ResourceGains gains={epicGains} title="Откуда капает: эпический пул" />
+            <ResourceGains gains={epicGains} title={t("Откуда капает: эпический пул", "Resource gains: epic pool")} />
           </>
         )}
 
         <ResourceRow
-          label="Всплески"
-          help={SURGES_HELP}
+          label={t("Всплески", "Surges")}
+          help={locale === "en" ? ["Spend up to 3 surges on rolled damage; each adds damage equal to your highest characteristic.", "Or spend 2 surges to increase potency against one target by 1 (maximum +1 per target).", "Spent surges are consumed; remaining surges are lost at the end of combat."] : SURGES_HELP}
           value={character.surges}
           onValue={(value) => set("surges", value)}
           extra={
             character.surges > 0 && (
               <span className="chip chip-static chip-accent">
-                +{surgeDamageTotal(character, character.surges)} урона
+                +{surgeDamageTotal(character, character.surges)} {t("урона", "damage")}
               </span>
             )
           }
         />
 
         {!readOnly && <ResourceRow
-          label="Жетоны героя"
-          help={HERO_TOKENS_HELP}
+          label={t("Жетоны героя", "Hero tokens")}
+          help={locale === "en" ? ["Hero tokens are shared by the group. The session starts with one per hero; the Director can award more for risky heroic actions and successful tests with rewards.", "Spend 1 token to gain 2 surges.", "Spend 1 token to succeed on a failed saving throw.", "Spend 1 token to reroll a test; use the new result.", "Spend 2 tokens on your turn or before taking damage to regain stamina equal to your recovery value.", "Spend at most one token per turn or test. Unused tokens are lost at session end unless the Director decides otherwise."] : HERO_TOKENS_HELP}
           value={character.heroTokens}
           onValue={(value) => set("heroTokens", value)}
         />}

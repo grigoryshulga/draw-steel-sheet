@@ -79,7 +79,64 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
       "originalName": "9th-Level Features",
-      "originalDescription": "As a 9th-level censor, you gain the following features."
+      "originalDescription": "As a 9th-level censor, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "9th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 9th-level censor, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-9.improved-implement-of-wrath"
+          },
+          {
+            "type": "markdown",
+            "text": "## 9th-Level Order Ability\n\nYour censor order grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Exorcist Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-9.banish"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-9.terror-manifest"
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Oracle Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-9.blessing-and-a-curse"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-9.fulfill-your-destiny"
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Paragon Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-9.apostate"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-9.edict-of-unyielding-resolve"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -94,7 +151,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-9/improved-implement-of-wrath",
       "originalName": "Improved Implement of Wrath",
-      "originalDescription": "The weapon you target with your Implement of Wrath feature gains the following additional benefits:\n\n- The weapon's wielder and each ally adjacent to them gain a +2 bonus to saving throws.\n- At the end of each of the weapon wielder's turns, each ally adjacent to the wielder makes a saving throw against each effect on them that is ended by a saving throw.\n- The weapon's wielder has corruption immunity 10."
+      "originalDescription": "The weapon you target with your Implement of Wrath feature gains the following additional benefits:\n\n- The weapon's wielder and each ally adjacent to them gain a +2 bonus to saving throws.\n- At the end of each of the weapon wielder's turns, each ally adjacent to the wielder makes a saving throw against each effect on them that is ended by a saving throw.\n- The weapon's wielder has corruption immunity 10.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-9.9th-level-order-ability",
@@ -107,7 +167,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-9/9th-level-order-ability",
       "originalName": "9th-Level Order Ability",
-      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.\n\n##### 9th-Level Exorcist Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Oracle Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Paragon Abilities\n\nChoose one of the following abilities."
+      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-9.exorcist-abilities",
@@ -120,7 +183,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Exorcist Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-9.banish",
@@ -177,7 +243,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/banish",
       "originalName": "Banish",
-      "originalDescription": "*You sever the target's tenuous connection to the world.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; P < WEAK, the target is banished (save ends)\n- **12-16:** 8 + M damage; P < AVERAGE, the target is banished (save ends)\n- **17+:** 11 + M damage; P < STRONG, the target is banished (save ends)\n\n**Effect:** This ability gains an edge against demons, devils, undead, and creatures not native to your current world. If you know the target's true name, this ability has a double edge. While banished, the target is sent to another manifold in the timescape and removed from the encounter map. A banished target can do nothing but make saving throws, and takes 10 holy damage each time they do so. If the target is reduced to 0 Stamina while banished, they are lost to the timescape."
+      "originalDescription": "*You sever the target's tenuous connection to the world.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 5 + M damage; P < WEAK, the target is banished (save ends)\n- **12-16:** 8 + M damage; P < AVERAGE, the target is banished (save ends)\n- **17+:** 11 + M damage; P < STRONG, the target is banished (save ends)\n\n**Effect:** This ability gains an edge against demons, devils, undead, and creatures not native to your current world. If you know the target's true name, this ability has a double edge. While banished, the target is sent to another manifold in the timescape and removed from the encounter map. A banished target can do nothing but make saving throws, and takes 10 holy damage each time they do so. If the target is reduced to 0 Stamina while banished, they are lost to the timescape.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You sever the target's tenuous connection to the world.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "5 + M"
+              },
+              "effect": "P < WEAK, the target is banished (save ends)"
+            },
+            {
+              "damage": {
+                "value": "8 + M"
+              },
+              "effect": "P < AVERAGE, the target is banished (save ends)"
+            },
+            {
+              "damage": {
+                "value": "11 + M"
+              },
+              "effect": "P < STRONG, the target is banished (save ends)"
+            }
+          ]
+        },
+        "effect": "This ability gains an edge against demons, devils, undead, and creatures not native to your current world. If you know the target's true name, this ability has a double edge. While banished, the target is sent to another manifold in the timescape and removed from the encounter map. A banished target can do nothing but make saving throws, and takes 10 holy damage each time they do so. If the target is reduced to 0 Stamina while banished, they are lost to the timescape."
+      }
     },
     {
       "id": "feature.ability.censor.level-9.terror-manifest",
@@ -234,7 +348,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/terror-manifest",
       "originalName": "Terror Manifest",
-      "originalDescription": "*\"I know what you fear.\"*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 10 + P psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 13 + P psychic damage; P < STRONG, frightened (save ends)\n\n**Effect:** While frightened this way, if a target who is a leader or solo creature is winded, they take an extra 25 psychic damage. If a target frightened this way is not a leader or solo creature and is winded, they are reduced to 0 Stamina."
+      "originalDescription": "*\"I know what you fear.\"*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 + P psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 10 + P psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 13 + P psychic damage; P < STRONG, frightened (save ends)\n\n**Effect:** While frightened this way, if a target who is a leader or solo creature is winded, they take an extra 25 psychic damage. If a target frightened this way is not a leader or solo creature and is winded, they are reduced to 0 Stamina.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "\"I know what you fear.\"",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "7 + P",
+                "type": "psychic"
+              },
+              "effect": "P < WEAK, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "10 + P",
+                "type": "psychic"
+              },
+              "effect": "P < AVERAGE, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "13 + P",
+                "type": "psychic"
+              },
+              "effect": "P < STRONG, frightened (save ends)"
+            }
+          ]
+        },
+        "effect": "While frightened this way, if a target who is a leader or solo creature is winded, they take an extra 25 psychic damage. If a target frightened this way is not a leader or solo creature and is winded, they are reduced to 0 Stamina."
+      }
     },
     {
       "id": "feature.censor.level-9.oracle-abilities",
@@ -247,7 +412,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Oracle Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-9.blessing-and-a-curse",
@@ -301,7 +469,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/blessing-and-a-curse",
       "originalName": "Blessing and a Curse",
-      "originalDescription": "*The gods bless and damn in equal measure.*\n\n| **Magic, Ranged**  |       **Triggered** |\n|--------------------|--------------------:|\n| **📏 Ranged 10**   | **🎯 One creature** |\n\n**Trigger:** The target makes a power roll.\n\n**Effect:** The target obtains a tier 1 or tier 3 outcome on their power roll (your choice). You can then choose another target within distance, who obtains the opposite outcome on their next power roll."
+      "originalDescription": "*The gods bless and damn in equal measure.*\n\n| **Magic, Ranged**  |       **Triggered** |\n|--------------------|--------------------:|\n| **📏 Ranged 10**   | **🎯 One creature** |\n\n**Trigger:** The target makes a power roll.\n\n**Effect:** The target obtains a tier 1 or tier 3 outcome on their power roll (your choice). You can then choose another target within distance, who obtains the opposite outcome on their next power roll.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The gods bless and damn in equal measure.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "trigger": "The target makes a power roll.",
+        "effect": "The target obtains a tier 1 or tier 3 outcome on their power roll (your choice). You can then choose another target within distance, who obtains the opposite outcome on their next power roll."
+      }
     },
     {
       "id": "feature.ability.censor.level-9.fulfill-your-destiny",
@@ -355,7 +547,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/fulfill-your-destiny",
       "originalName": "Fulfill Your Destiny",
-      "originalDescription": "*You have looked at various futures, and only this one works.*\n\n| **Magic, Ranged**  |   **Triggered** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   | **🎯 One ally** |\n\n**Trigger:** You or another hero ends their turn.\n\n**Effect:** The target takes their turn after the triggering hero, and immediately removes all conditions and negative effects on themself. During their turn, the target has a double edge on power rolls."
+      "originalDescription": "*You have looked at various futures, and only this one works.*\n\n| **Magic, Ranged**  |   **Triggered** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   | **🎯 One ally** |\n\n**Trigger:** You or another hero ends their turn.\n\n**Effect:** The target takes their turn after the triggering hero, and immediately removes all conditions and negative effects on themself. During their turn, the target has a double edge on power rolls.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You have looked at various futures, and only this one works.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "trigger": "You or another hero ends their turn.",
+        "effect": "The target takes their turn after the triggering hero, and immediately removes all conditions and negative effects on themself. During their turn, the target has a double edge on power rolls."
+      }
     },
     {
       "id": "feature.censor.level-9.paragon-abilities",
@@ -368,7 +584,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Paragon Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-9.apostate",
@@ -425,7 +644,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/apostate",
       "originalName": "Apostate",
-      "originalDescription": "*You channel holy energy to seal an enemy's fate.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 13 + M holy damage\n- **12-16:** 19 + M holy damage\n- **17+:** 26 + M holy damage\n\n**Effect:** Until the end of the encounter or until you are dying, the target has damage weakness 10."
+      "originalDescription": "*You channel holy energy to seal an enemy's fate.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 13 + M holy damage\n- **12-16:** 19 + M holy damage\n- **17+:** 26 + M holy damage\n\n**Effect:** Until the end of the encounter or until you are dying, the target has damage weakness 10.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You channel holy energy to seal an enemy's fate.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "13 + M",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "19 + M",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "26 + M",
+                "type": "holy"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, the target has damage weakness 10."
+      }
     },
     {
       "id": "feature.ability.censor.level-9.edict-of-unyielding-resolve",
@@ -479,7 +749,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-9/edict-of-unyielding-resolve",
       "originalName": "Edict of Unyielding Resolve",
-      "originalDescription": "*You and your allies are clad in shimmering armor.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 2 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target who starts their turn in the area gains 10 temporary Stamina."
+      "originalDescription": "*You and your allies are clad in shimmering armor.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 2 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target who starts their turn in the area gains 10 temporary Stamina.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You and your allies are clad in shimmering armor.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "2 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, each target who starts their turn in the area gains 10 temporary Stamina."
+      }
     }
   ]
 }

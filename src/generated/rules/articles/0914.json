@@ -19,7 +19,20 @@
       ],
       "originalId": "mcdm.heroes.v1/kit/arcane-archer",
       "originalName": "Arcane Archer",
-      "originalDescription": "The Arcane Archer kit allows you to combine magic and ranged weapon strikes. Your lack of armor keeps you mobile, and your magic makes your arrows explode to devastate your foes."
+      "originalDescription": "The Arcane Archer kit allows you to combine magic and ranged weapon strikes. Your lack of armor keeps you mobile, and your magic makes your arrows explode to devastate your foes.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishEdition": {
+        "kind": "source",
+        "title": "Arcane Archer",
+        "blocks": [
+          {
+            "type": "entity",
+            "ref": "kit.arcane-archer"
+          }
+        ]
+      }
     }
   ],
   "entities": [
@@ -34,7 +47,17 @@
       },
       "originalId": "mcdm.heroes.v1/kit/arcane-archer",
       "originalName": "Arcane Archer",
-      "originalDescription": "The Arcane Archer kit allows you to combine magic and ranged weapon strikes. Your lack of armor keeps you mobile, and your magic makes your arrows explode to devastate your foes.\n\n##### Equipment\n\nYou wear no armor and wield a bow.\n\n##### Kit Bonuses\n\n**Speed Bonus:** +1\n\n**Ranged Damage Bonus:** +2/+2/+2\n\n**Ranged Distance Bonus:** +10\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Exploding Arrow\n\n*Your ammunition explodes with magical energy.*\n\n| **Magic, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Ranged 15**                  | **🎯 One creature or object** |\n\n**Power Roll + Agility, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + A, R, I, or P fire damage\n- **12-16:** 7 + A, R, I, or P fire damage\n- **17+:** 10 + A, R, I, or P fire damage\n\n**Effect:** One creature or object of your choice within 2 squares of the target takes fire damage equal to the characteristic score used for this ability's power roll."
+      "originalDescription": "The Arcane Archer kit allows you to combine magic and ranged weapon strikes. Your lack of armor keeps you mobile, and your magic makes your arrows explode to devastate your foes.\n\n##### Equipment\n\nYou wear no armor and wield a bow.\n\n##### Kit Bonuses\n\n**Speed Bonus:** +1\n\n**Ranged Damage Bonus:** +2/+2/+2\n\n**Ranged Distance Bonus:** +10\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Exploding Arrow\n\n*Your ammunition explodes with magical energy.*\n\n| **Magic, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Ranged 15**                  | **🎯 One creature or object** |\n\n**Power Roll + Agility, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + A, R, I, or P fire damage\n- **12-16:** 7 + A, R, I, or P fire damage\n- **17+:** 10 + A, R, I, or P fire damage\n\n**Effect:** One creature or object of your choice within 2 squares of the target takes fire damage equal to the characteristic score used for this ability's power roll.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishSignatures": [
+        {
+          "ref": "feature.ability.arcane-archer.exploding-arrow",
+          "start": 390,
+          "end": 1028
+        }
+      ]
     },
     {
       "id": "feature.ability.arcane-archer.exploding-arrow",
@@ -95,7 +118,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.arcane-archer/exploding-arrow",
       "originalName": "Exploding Arrow",
-      "originalDescription": "*Your ammunition explodes with magical energy.*\n\n| **Magic, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Ranged 15**                  | **🎯 One creature or object** |\n\n**Power Roll + Agility, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + A, R, I, or P fire damage\n- **12-16:** 7 + A, R, I, or P fire damage\n- **17+:** 10 + A, R, I, or P fire damage\n\n**Effect:** One creature or object of your choice within 2 squares of the target takes fire damage equal to the characteristic score used for this ability's power roll."
+      "originalDescription": "*Your ammunition explodes with magical energy.*\n\n| **Magic, Ranged, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Ranged 15**                  | **🎯 One creature or object** |\n\n**Power Roll + Agility, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + A, R, I, or P fire damage\n- **12-16:** 7 + A, R, I, or P fire damage\n- **17+:** 10 + A, R, I, or P fire damage\n\n**Effect:** One creature or object of your choice within 2 squares of the target takes fire damage equal to the characteristic score used for this ability's power roll.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your ammunition explodes with magical energy.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 15
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility, Reason, Intuition, or Presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "5 + A, R, I, or P",
+                "type": "fire"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7 + A, R, I, or P",
+                "type": "fire"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "10 + A, R, I, or P",
+                "type": "fire"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "One creature or object of your choice within 2 squares of the target takes fire damage equal to the characteristic score used for this ability's power roll."
+      }
     }
   ]
 }

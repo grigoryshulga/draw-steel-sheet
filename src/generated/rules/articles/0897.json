@@ -31,7 +31,36 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#7th-level-features",
       "originalName": "7th-Level Features",
-      "originalDescription": "As a 7th-level elementalist, you gain the following features."
+      "originalDescription": "As a 7th-level elementalist, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "7th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 7th-level elementalist, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-7.characteristic-increase"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-7.mantle-of-quintessence"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-7.surging-essence"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-7.skill"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -46,7 +75,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-7/characteristic-increase",
       "originalName": "Characteristic Increase",
-      "originalDescription": "Each of your characteristic scores increases by 1, to a maximum of 4."
+      "originalDescription": "Each of your characteristic scores increases by 1, to a maximum of 4.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-7.mantle-of-quintessence",
@@ -59,7 +91,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-7/mantle-of-quintessence",
       "originalName": "Mantle of Quintessence",
-      "originalDescription": "Your Mantle of Essence feature no longer requires essence.\n\nAdditionally, your Mantle of Essence now radiates magic that creates a calming air. Creatures in the area of the mantle's aura have their starting patience increased by 1 (to a maximum of 5) during any negotiation. While in the area, you and any ally gain an edge on tests that use the Handle Animals skill. If you have 5 or more Victories, the bonus to patience increases to 2 and tests that use the Handle Animals skill have a double edge."
+      "originalDescription": "Your Mantle of Essence feature no longer requires essence.\n\nAdditionally, your Mantle of Essence now radiates magic that creates a calming air. Creatures in the area of the mantle's aura have their starting patience increased by 1 (to a maximum of 5) during any negotiation. While in the area, you and any ally gain an edge on tests that use the Handle Animals skill. If you have 5 or more Victories, the bonus to patience increases to 2 and tests that use the Handle Animals skill have a double edge.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-7.surging-essence",
@@ -72,7 +107,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-7/surging-essence",
       "originalName": "Surging Essence",
-      "originalDescription": "When you gain essence at the start of each of your turns during combat, you gain 3 essence instead of 2."
+      "originalDescription": "When you gain essence at the start of each of your turns during combat, you gain 3 essence instead of 2.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-7.skill",
@@ -85,7 +123,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-7/skill",
       "originalName": "Skill",
-      "originalDescription": "You gain one skill of your choice."
+      "originalDescription": "You gain one skill of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ]
 }

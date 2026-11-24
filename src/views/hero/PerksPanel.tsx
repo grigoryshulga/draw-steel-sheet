@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useState } from "react";
 import { Icon } from "../../components/Icons";
 import { Button, Chip, EmptyState, Field, Modal, Panel, Select, TextInput } from "../../components/ui";
@@ -16,11 +17,16 @@ import { useApp } from "../../state/AppContext";
 import type { Character, Perk, PerkType, SelectedPerk } from "../../types";
 import "./PerksPanel.css";
 
-function typeLabel(type: PerkType): string {
-  return PERK_TYPE_META[type].label;
+function typeLabel(type: PerkType, english = false): string {
+  const names: Record<PerkType, string> = { crafting: "Crafting", exploration: "Exploration", interpersonal: "Interpersonal", intrigue: "Intrigue", lore: "Lore", supernatural: "Supernatural" };
+  return english ? names[type] : PERK_TYPE_META[type].label;
+}
+function slotTitle(slot: PerkSlot, english: boolean): string {
+  return english ? slot.source === "career" ? "Career" : `Class · level ${slot.level}` : slot.title;
 }
 
 export function PerksPanel() {
+  const { locale, t } = useLocale();
   const { character, update, notify } = useApp();
   const slots = perkSlots(character);
   const [pickerSlot, setPickerSlot] = useState<PerkSlot | null>(null);
@@ -47,7 +53,7 @@ export function PerksPanel() {
       ],
     }));
     setPickerSlot(null);
-    notify(`Перк «${perk.name}» выбран`, "success");
+    notify(t(`Перк «${perk.name}» выбран`, `Selected perk “${perk.originalName || perk.name}”`), "success");
   };
 
   const detailPerk = detail
@@ -56,7 +62,7 @@ export function PerksPanel() {
 
   return (
     <Panel
-      title="Перки"
+      title={t("Перки", "Perks")}
       icon="spark"
       actions={
         <Chip tone={selectedCount === slots.length ? "accent" : "default"}>
@@ -86,7 +92,7 @@ export function PerksPanel() {
                 }}
               >
                 <header className="card-header sheet-perk-head">
-                  <span className="eyebrow">{slot.title}</span>
+                  <span className="eyebrow">{slotTitle(slot, locale === "en")}</span>
                 </header>
                 <button
                   type="button"
@@ -94,7 +100,7 @@ export function PerksPanel() {
                   onClick={() => setPickerSlot(slot)}
                 >
                   <Icon name="plus" size={16} aria-hidden="true" />
-                  <span className="sheet-perk-empty-title">Выбрать перк</span>
+                  <span className="sheet-perk-empty-title">{t("Выбрать перк", "Choose perk")}</span>
                 </button>
               </article>
             );
@@ -103,13 +109,13 @@ export function PerksPanel() {
           return (
             <PerkCard
               key={slot.key}
-              eyebrow={slot.title}
-              name={selected.name}
+              eyebrow={slotTitle(slot, locale === "en")}
+              name={locale === "en" && perk?.name === selected.name && perk.originalName ? perk.originalName : selected.name}
               type={selected.type}
               summary={
-                perk?.summary ??
+                (locale === "en" && perk?.originalDescription && (!selected.summary || selected.summary === perk.summary) ? perk.originalDescription : selected.summary) ?? perk?.summary ??
                 selected.summary ??
-                "Описание перка недоступно."
+                t("Описание перка недоступно.", "Perk description unavailable.")
               }
               onOpen={() => setDetail({ slot, selected })}
             />
@@ -132,7 +138,7 @@ export function PerksPanel() {
         name={detail?.selected.name ?? ""}
         perkId={detail?.selected.perkId}
         type={detail?.selected.type}
-        eyebrow={detail?.slot.title}
+        eyebrow={detail ? slotTitle(detail.slot, locale === "en") : undefined}
         summary={detail?.selected.summary ?? detailPerk?.summary}
         description={detail?.selected.description}
         action={
@@ -144,7 +150,7 @@ export function PerksPanel() {
                 setDetail(null);
               }}
             >
-              Заменить
+              {t("Заменить", "Replace")}
             </Button>
           ) : undefined
         }
@@ -165,6 +171,7 @@ function PerkPicker({
   onClose: () => void;
   onChoose: (perk: Perk) => void;
 }) {
+  const { locale, t } = useLocale();
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<PerkType | "all">("all");
   const [previewId, setPreviewId] = useState("");
@@ -174,7 +181,7 @@ function PerkPicker({
   const filtered = eligible.filter((perk) => {
     if (typeFilter !== "all" && perk.type !== typeFilter) return false;
     if (!needle) return true;
-    return `${perk.name} ${perk.summary} ${typeLabel(perk.type)}`.toLowerCase().includes(needle);
+    return `${perk.name} ${perk.originalName ?? ""} ${perk.summary} ${typeLabel(perk.type, locale === "en")}`.toLowerCase().includes(needle);
   });
   const preview = filtered.find((perk) => perk.id === previewId) ?? filtered[0];
   const previewUsed = preview ? isPerkUsed(character, preview.id, slot) : false;
@@ -186,21 +193,21 @@ function PerkPicker({
       wide
       title={
         <span className="perk-picker-title">
-          {slot.title}
+          {slotTitle(slot, locale === "en")}
         </span>
       }
       footer={
         <>
           <span className="grow" />
           <Button iconOnly icon="close" variant="ghost" onClick={onClose}>
-            Отмена
+            {t("Отмена", "Cancel")}
           </Button>
           <Button
             variant="primary"
             disabled={!preview || previewUsed}
             onClick={() => preview && onChoose(preview)}
           >
-            {previewUsed ? "Уже выбран" : "Выбрать перк"}
+            {previewUsed ? t("Уже выбран", "Already selected") : t("Выбрать перк", "Choose perk")}
           </Button>
         </>
       }
@@ -209,20 +216,20 @@ function PerkPicker({
         <TextInput
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Поиск перка…"
-          aria-label="Поиск перка"
+          placeholder={t("Поиск перка…", "Search perks…")}
+          aria-label={t("Поиск перка", "Search perks")}
         />
         {slot.allowedTypes.length > 1 && (
-          <Field label="Тип">
+          <Field label={t("Тип", "Type")}>
             <Select
               value={typeFilter}
-              aria-label="Тип перка"
+              aria-label={t("Тип перка", "Perk type")}
               onChange={(event) => setTypeFilter(event.target.value as PerkType | "all")}
             >
-              <option value="all">Все доступные</option>
+              <option value="all">{t("Все доступные", "All available")}</option>
               {slot.allowedTypes.map((type) => (
                 <option key={type} value={type}>
-                  {typeLabel(type)}
+                  {typeLabel(type, locale === "en")}
                 </option>
               ))}
             </Select>
@@ -231,7 +238,7 @@ function PerkPicker({
       </div>
 
       {filtered.length === 0 ? (
-        <EmptyState icon="search" title="Ничего не найдено" />
+        <EmptyState icon="search" title={t("Ничего не найдено", "Nothing found")} />
       ) : (
         <div className="perk-picker-body">
           <div className="perk-picker-list">
@@ -246,11 +253,11 @@ function PerkPicker({
                   onClick={() => setPreviewId(perk.id)}
                 >
                   <span className="perk-option-top">
-                    <span className="perk-option-name">{perk.name}</span>
-                    {used && <span className="perk-used">в листе</span>}
+                    <span className="perk-option-name">{locale === "en" && perk.originalName ? perk.originalName : perk.name}</span>
+                    {used && <span className="perk-used">{t("в листе", "On sheet")}</span>}
                   </span>
-                  <span className="perk-option-meta">{typeLabel(perk.type)}</span>
-                  <span className="perk-option-summary">{perk.summary}</span>
+                  <span className="perk-option-meta">{typeLabel(perk.type, locale === "en")}</span>
+                  <span className="perk-option-summary">{locale === "en" && perk.originalDescription ? perk.originalDescription : perk.summary}</span>
                 </button>
               );
             })}
@@ -259,17 +266,17 @@ function PerkPicker({
           <aside className="perk-picker-preview">
             {preview ? (
               <>
-                <h3>{preview.name}</h3>
+                <h3>{locale === "en" && preview.originalName ? preview.originalName : preview.name}</h3>
                 <div className="hstack wrap">
                   <Chip tone={PERK_TYPE_META[preview.type].tone}>
-                    {typeLabel(preview.type)}
+                    {typeLabel(preview.type, locale === "en")}
                   </Chip>
-                  {previewUsed && <Chip tone="yellow">Уже выбран в другом слоте</Chip>}
+                  {previewUsed && <Chip tone="yellow">{t("Уже выбран в другом слоте", "Already selected in another slot")}</Chip>}
                 </div>
                 <PerkRulesText perkId={preview.id} fallback={preview.summary} />
               </>
             ) : (
-              <EmptyState icon="book" title="Выберите перк" />
+              <EmptyState icon="book" title={t("Выберите перк", "Choose a perk")} />
             )}
           </aside>
         </div>

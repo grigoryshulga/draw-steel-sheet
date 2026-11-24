@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useState } from "react";
 import { Button, Panel, Select } from "../../components/ui";
 import {
@@ -14,6 +15,7 @@ const INACTIVE: ConditionState = { active: false, ends: "save" };
 
 /** Состояния героя: активные карточки и форма наложения. */
 export function ConditionsPanel() {
+  const { t, locale } = useLocale();
   const { character, patch, notify, readOnly } = useApp();
   const [newCondition, setNewCondition] = useState("");
   const [newEnd, setNewEnd] = useState<ConditionEnd>("save");
@@ -26,7 +28,7 @@ export function ConditionsPanel() {
   const entries = CONDITIONS.map((condition) => {
     const state = character.conditions[condition.key] ?? INACTIVE;
     const endLabel = CONDITION_END_OPTIONS.find((option) => option.key === state.ends)?.label ?? state.ends;
-    return { ...condition, state, endLabel };
+    return { ...condition, label: locale === "en" ? condition.originalName || condition.label : condition.label, summary: locale === "en" ? condition.originalDescription || condition.summary : condition.summary, state, endLabel: locale === "en" ? ({ save: "Save ends", "end-turn": "End of turn", "next-turn": "End of next turn", encounter: "End of encounter", "until-removed": "Until removed" } as const)[state.ends] : endLabel };
   });
   const active = entries.filter((entry) => entry.state.active);
   const inactive = entries.filter((entry) => !entry.state.active);
@@ -52,17 +54,17 @@ export function ConditionsPanel() {
     const d10 = Math.floor(Math.random() * 10) + 1;
     const total = d10 + saveBonus;
     const passed = total >= SAVE_ENDS_TARGET;
-    const resultText = `d10 ${d10} + бонус ${saveBonus} = ${total}; нужно ${SAVE_ENDS_TARGET}+`;
+    const resultText = t(`d10 ${d10} + бонус ${saveBonus} = ${total}; нужно ${SAVE_ENDS_TARGET}+`, `d10 ${d10} + bonus ${saveBonus} = ${total}; requires ${SAVE_ENDS_TARGET}+`);
     setLastSaveRoll((current) => ({ ...current, [key]: resultText }));
     if (passed) {
       setCondition(key, { ...state, active: false });
       notify(
-        `Спасбросок против «${label}»: ${resultText} — состояние снято`,
+        t(`Спасбросок против «${label}»: ${resultText} — состояние снято`, `Save against “${label}”: ${resultText} — condition removed`),
         "success",
       );
     } else {
       notify(
-        `Спасбросок против «${label}»: ${resultText} — состояние остаётся`,
+        t(`Спасбросок против «${label}»: ${resultText} — состояние остаётся`, `Save against “${label}”: ${resultText} — condition remains`),
         "info",
       );
     }
@@ -70,14 +72,14 @@ export function ConditionsPanel() {
 
   return (
     <Panel
-      title="Состояния"
+      title={t("Состояния", "Conditions")}
       icon="warning"
       className={`conditions-panel${compact ? " is-compact" : ""}`}
       actions={(
         <>
           {saveBonus !== 0 && (
             <span className="chip chip-static chip-accent" title={saveSources || undefined}>
-              Спасбросок {saveBonus > 0 ? "+" : "−"}{Math.abs(saveBonus)}
+              {t("Спасбросок", "Saving throw")} {saveBonus > 0 ? "+" : "−"}{Math.abs(saveBonus)}
             </span>
           )}
           {active.length > 0 && (
@@ -87,22 +89,22 @@ export function ConditionsPanel() {
               title={compact ? "Развернуть карточки" : "Свернуть карточки до заголовков"}
               onClick={() => setCompact((value) => !value)} />
           )}
-          <span className="condition-count" aria-label={`Активных состояний: ${active.length}`}>{active.length}</span>
+          <span className="condition-count" aria-label={t(`Активных состояний: ${active.length}`, `Active conditions: ${active.length}`)}>{active.length}</span>
         </>
       )}
       dense
     >
       <div className="conditions-active">
         {active.length === 0 ? (
-          <p className="conditions-empty">Нет активных состояний.</p>
+          <p className="conditions-empty">{t("Нет активных состояний.", "No active conditions.")}</p>
         ) : (
           <div className="condition-active-list">
             {active.map((entry) => (
               <article className="condition-card" key={entry.key}>
                 <header className="condition-card-head">
                   <h3
-                    title={`Оканчивается: ${entry.endLabel}`}
-                    aria-label={`${entry.label}. Оканчивается: ${entry.endLabel}`}
+                    title={t(`Оканчивается: ${entry.endLabel}`, `Ends: ${entry.endLabel}`)}
+                    aria-label={t(`${entry.label}. Оканчивается: ${entry.endLabel}`, `${entry.label}. Ends: ${entry.endLabel}`)}
                   >
                     {entry.label}
                   </h3>
@@ -113,21 +115,21 @@ export function ConditionsPanel() {
                       icon="dice"
                       iconOnly
                       disabled={entry.state.ends !== "save"}
-                      aria-label={`Спасбросок против состояния: ${entry.label}`}
+                      aria-label={t(`Спасбросок против состояния: ${entry.label}`, `Save against condition: ${entry.label}`)}
                       onClick={() => rollSave(entry.key, entry.label, entry.state)}
                       title={entry.state.ends !== "save"
-                        ? "Доступно для состояния до спасброска"
+                        ? t("Доступно для состояния до спасброска", "Available for save-ends conditions")
                         : lastSaveRoll[entry.key]
-                          ? `Последний бросок: ${lastSaveRoll[entry.key]}`
-                          : `Спасбросок: d10 + бонус ${saveBonus} ≥ ${SAVE_ENDS_TARGET}`}
+                          ? t(`Последний бросок: ${lastSaveRoll[entry.key]}`, `Last roll: ${lastSaveRoll[entry.key]}`)
+                          : t(`Спасбросок: d10 + бонус ${saveBonus} ≥ ${SAVE_ENDS_TARGET}`, `Save: d10 + bonus ${saveBonus} ≥ ${SAVE_ENDS_TARGET}`)}
                     />
                     <Button
                       size="sm"
                       variant="ghost"
                       icon="close"
                       iconOnly
-                      aria-label={`Снять состояние: ${entry.label}`}
-                      title={`Снять состояние: ${entry.label}`}
+                      aria-label={t(`Снять состояние: ${entry.label}`, `Remove condition: ${entry.label}`)}
+                      title={t(`Снять состояние: ${entry.label}`, `Remove condition: ${entry.label}`)}
                       onClick={() => deactivate(entry.key, entry.state)}
                     />
                   </>}
@@ -146,15 +148,15 @@ export function ConditionsPanel() {
 
       {!readOnly && <div className="conditions-inactive">
         <div className="conditions-block-head">
-          <span className="eyebrow">Наложить</span>
+          <span className="eyebrow">{t("Наложить", "Apply")}</span>
         </div>
         {inactive.length === 0 ? (
-          <p className="conditions-empty small muted">Все состояния уже активны.</p>
+          <p className="conditions-empty small muted">{t("Все состояния уже активны.", "All conditions are active.")}</p>
         ) : (
           <div className="conditions-add-row">
             <Select
               value={selectedKey}
-              aria-label="Выберите состояние"
+              aria-label={t("Выберите состояние", "Choose condition")}
               onChange={(event) => setNewCondition(event.target.value)}
             >
               {inactive.map((entry) => (
@@ -165,12 +167,12 @@ export function ConditionsPanel() {
             </Select>
             <Select
               value={newEnd}
-              aria-label="Когда оканчивается новое состояние"
+              aria-label={t("Когда оканчивается новое состояние", "When the condition ends")}
               onChange={(event) => setNewEnd(event.target.value as ConditionEnd)}
             >
               {CONDITION_END_OPTIONS.map((option) => (
                 <option key={option.key} value={option.key}>
-                  {option.label}
+                  {locale === "en" ? ({ save: "Save ends", "end-turn": "End of turn", "next-turn": "End of next turn", encounter: "End of encounter", "until-removed": "Until removed" } as const)[option.key] : option.label}
                 </option>
               ))}
             </Select>
@@ -178,8 +180,8 @@ export function ConditionsPanel() {
               icon="plus"
               iconOnly
               variant="soft"
-              aria-label="Наложить выбранное состояние"
-              title="Наложить выбранное состояние"
+              aria-label={t("Наложить выбранное состояние", "Apply selected condition")}
+              title={t("Наложить выбранное состояние", "Apply selected condition")}
               disabled={!selectedEntry}
               onClick={() => {
                 if (selectedEntry) activate(selectedEntry.key);

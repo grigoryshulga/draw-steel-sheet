@@ -1,3 +1,5 @@
+import { SiteLanguageSwitch } from "../components/LanguageSwitch";
+import { useLocale } from "../i18n/locale";
 import { lazy, Suspense, useEffect } from "react";
 import { Icon } from "../components/Icons";
 import { SiteLogo } from "../components/SiteLogo";
@@ -30,6 +32,7 @@ export function GuestApp({
   tab: string;
   onSignIn: () => void;
 }) {
+  const { t } = useLocale();
   useEffect(() => {
     const theme = resolveTheme(THEMES, readThemeChoice());
     if (theme) applyTheme(theme);
@@ -38,28 +41,29 @@ export function GuestApp({
   return (
     <div className="app">
       <header className="rail">
-        <div className="brand" title="Достать листы!">
+        <div className="brand" title={t("Достать листы!", "Dostat Listy!")}>
           <SiteLogo variant="mark" />
         </div>
-        <nav className="rail-nav" aria-label="Разделы">
+        <nav className="rail-nav" aria-label={t("Разделы", "Sections")}>
           <button
             type="button"
             className="rail-link is-active"
             aria-current="page"
           >
             <Icon name="library" />
-            <span>Кодекс</span>
+            <span>{t("Кодекс", "Codex")}</span>
           </button>
         </nav>
         <div className="topbar-right">
+          <SiteLanguageSwitch />
           <Button variant="soft" size="sm" icon="sheet" onClick={onSignIn}>
-            Войти
+            {t("Войти", "Sign in")}
           </Button>
         </div>
       </header>
       <div className="main">
         <main className="content" id="main-content" tabIndex={-1}>
-          <Suspense fallback={<LoadingScreen label="Загрузка библиотеки" />}>
+          <Suspense fallback={<LoadingScreen label={t("Загрузка библиотеки", "Loading the library")} />}>
             {tab === "codex" ? <CodexView /> : <ReferenceView />}
           </Suspense>
         </main>

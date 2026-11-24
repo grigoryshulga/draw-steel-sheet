@@ -1,3 +1,6 @@
+import { englishCalculation } from "../../i18n/ability-messages";
+import { usePrintedAbility } from "../../components/rules/usePrintedAbility";
+import { useLocale } from "../../i18n/locale";
 import { useMemo, useRef, useState } from "react";
 import type { Ability, Character, CharacteristicKey } from "../../types";
 import {
@@ -36,6 +39,8 @@ export interface AbilityRollPanelProps {
   ability: Ability;
   character: Character;
   showCalculations?: boolean;
+  language?: "ru" | "en";
+  printedAbilityId?: string;
 }
 
 function RollMarks({
@@ -74,7 +79,11 @@ function RollMarks({
 }
 
 /** Rolls are previews. Only applying the action changes resources, once per operation. */
-export function AbilityRollPanel({ ability, character, showCalculations = false }: AbilityRollPanelProps) {
+export function AbilityRollPanel({ ability, character, showCalculations = false, language, printedAbilityId }: AbilityRollPanelProps) {
+  const context = useLocale();
+  const locale = language ?? context.locale;
+  const t = (ru: string, en: string) => locale === "en" ? en : ru;
+  const { card } = usePrintedAbility(printedAbilityId ?? ability.id);
   const { performGameAction, undoGameAction, gameHistory } = useApp();
   const characteristics = ability.rollCharacteristics;
   const hasRoll = characteristics.length > 0;
@@ -108,7 +117,7 @@ export function AbilityRollPanel({ ability, character, showCalculations = false 
     appliedEntry &&
     !isUndone &&
     gameHistory.find((entry) => !entry.undone)?.id === appliedEntry.id &&
-    !undoReason(character, appliedEntry);
+    !undoReason(character, appliedEntry, locale);
   const effective = effectiveCharacteristics(character);
   const rollCalculation = abilityRollBreakdown(ability, character, {
     characteristic: charKey,
@@ -148,10 +157,12 @@ export function AbilityRollPanel({ ability, character, showCalculations = false 
           result.tier,
           character,
           surges,
+          locale === "en",
         )
       : null;
   const surgeBonus = surgeDamageTotal(character, surges);
-  const surgeFinal = damage?.display;
+  const surgeFinal = locale === "en" ? damage?.englishDisplay ?? damage?.display : damage?.display;
+  const printedTier = result && locale === "en" ? card?.roll?.tiers[result.tier - 1] : undefined;
   const canUseSurges = Boolean(damage);
   const canDealDamage = hasRoll && ability.tiers.some((item) => item.damage.trim() !== "");
   const action: GameAction = {
@@ -170,13 +181,14 @@ export function AbilityRollPanel({ ability, character, showCalculations = false 
         ", тир " +
         result.tier +
         "." +
-        (damage ? " Урон: " + surgeFinal + "." : "")
+        (damage ? " Урон: " + damage.display + "." : "")
       : hasRoll
         ? undefined
         : "Без броска.",
   };
-  const preview = previewGameAction(character, action);
-  const resourceName = heroicResourceName(character.className);
+  const preview = previewGameAction(character, action, locale);
+  const rawResourceName = heroicResourceName(character.className);
+  const resourceName = t(rawResourceName, ({ "Героический ресурс": "Heroic resource", "Свирепость": "Ferocity", "Дисциплина": "Discipline", "Эссенция": "Essence", "Благочестие": "Piety", "Фокус": "Focus", "Ясность": "Clarity", "Прозрение": "Insight", "Драма": "Drama", "Гнев": "Wrath" } as Record<string, string>)[rawResourceName] || rawResourceName);
   const roll = () => {
     if (appliedRef.current) return;
     if (source === "physical") setDice([...manualDice]);
@@ -205,48 +217,48 @@ export function AbilityRollPanel({ ability, character, showCalculations = false 
   };
 
   return (
-    <section className="ability-roll-panel" aria-label={hasRoll ? "Бросок силы" : "Применение способности"}>
+    <section className="ability-roll-panel" aria-label={hasRoll ? t("Бросок силы", "Power roll") : t("Применение способности", "Use ability")}>
       <header className="ability-roll-header">
-        <h3 className="ability-roll-heading">{hasRoll ? "Бросок силы" : "Применение"}</h3>
+        <h3 className="ability-roll-heading">{hasRoll ? t("Бросок силы", "Power roll") : t("Применение", "Use")}</h3>
         {rollCalculation && <strong className="ability-roll-bonus">{rollCalculation.total}</strong>}
         <span className="ability-roll-resource">
-          {resourceName}: {character.heroicResource.current} · расход {waiveCost ? 0 : ability.resourceCost + additionalCost}
+          {resourceName}: {character.heroicResource.current} · {t("расход", "cost")} {waiveCost ? 0 : ability.resourceCost + additionalCost}
         </span>
       </header>
 
-      {showCalculations && rollCalculation && <CalculationInline calculations={[rollCalculation]} base="2d10" />}
+      {showCalculations && rollCalculation && <CalculationInline language={locale} calculations={[locale === "en" ? englishCalculation(rollCalculation) : rollCalculation]} base="2d10" />}
 
       <fieldset className="ability-use-settings" disabled={applied}>
-        <legend className="sr-only">Параметры применения способности</legend>
+        <legend className="sr-only">{t("Параметры применения способности", "Ability use settings")}</legend>
         {hasRoll && (
           <>
             <div className="ability-roll-choices">
               <div className="ability-roll-choice">
-                <span className="field-label">Кубики</span>
+                <span className="field-label">{t("Кубики", "Dice")}</span>
                 <div className="ability-roll-source">
                   <Toggle
                     checked={source === "digital"}
-                    label="Бросок в приложении"
+                    label={t("Бросок в приложении", "Roll in app")}
                     onChange={(digital) => {
                       setSource(digital ? "digital" : "physical");
                       setDice(null);
                     }}
                   />
-                  <span>{source === "digital" ? "В приложении" : "Вручную"}</span>
+                  <span>{source === "digital" ? t("В приложении", "In app") : t("Вручную", "Manual")}</span>
                 </div>
               </div>
               {characteristics.length > 1 && (
                 <div className="ability-roll-choice">
-                  <span className="field-label">Характеристика</span>
-                  <div className="abil-chips" role="group" aria-label="Характеристика броска">
+                  <span className="field-label">{t("Характеристика", "Characteristic")}</span>
+                  <div className="abil-chips" role="group" aria-label={t("Характеристика броска", "Roll characteristic")}>
                     {characteristics.map((key) => (
                       <Chip
                         key={key}
                         active={charKey === key}
                         onClick={() => setCharKey(key)}
-                        title={CHARACTERISTICS.find((item) => item.key === key)?.label}
+                        title={locale === "en" ? ({ might: "Might", agility: "Agility", reason: "Reason", intuition: "Intuition", presence: "Presence" } as const)[key] : CHARACTERISTICS.find((item) => item.key === key)?.label}
                       >
-                        <CharacteristicGlyph characteristic={key} />
+                        <CharacteristicGlyph characteristic={key} language={locale} />
                         {effective[key]}
                       </Chip>
                     ))}
@@ -258,12 +270,12 @@ export function AbilityRollPanel({ ability, character, showCalculations = false 
             {source === "physical" && (
               <div className="ability-roll-dice-inputs">
                 {[0, 1].map((index) => (
-                  <Field key={index} label={"Кубик " + (index + 1) + " (d10)"}>
+                  <Field key={index} label={t(`Кубик ${index + 1} (d10)`, `Die ${index + 1} (d10)`)}>
                     <NumberInput
                       value={manualDice[index]}
                       min={1}
                       max={10}
-                      label={"Кубик " + (index + 1)}
+                      label={t(`Кубик ${index + 1}`, `Die ${index + 1}`)}
                       onChange={(value) => {
                         setManualDice((previous) => index === 0 ? [value, previous[1]] : [previous[0], value]);
                         setDice(null);
@@ -275,30 +287,30 @@ export function AbilityRollPanel({ ability, character, showCalculations = false 
             )}
 
             <div className="ability-roll-modifiers">
-              <RollMarks label="Преимущества" one="одно преимущество" two="два преимущества" value={edges} onChange={setEdges} tone="advantage" />
-              <RollMarks label="Помехи" one="одна помеха" two="две помехи" value={banes} onChange={setBanes} tone="bane" />
+              <RollMarks label={t("Преимущества", "Edges")} one={t("одно преимущество", "one edge")} two={t("два преимущества", "two edges")} value={edges} onChange={setEdges} tone="advantage" />
+              <RollMarks label={t("Помехи", "Banes")} one={t("одна помеха", "one bane")} two={t("две помехи", "two banes")} value={banes} onChange={setBanes} tone="bane" />
             </div>
 
             <div className="ability-roll-numbers">
-              <Field label="Бонус к броску">
-                <NumberInput value={bonus} onChange={setBonus} min={-10} max={20} label="Дополнительный бонус броска" />
-                <span className="small muted">Дополнительно к характеристике и бонусу способности.</span>
+              <Field label={t("Бонус к броску", "Roll bonus")}>
+                <NumberInput value={bonus} onChange={setBonus} min={-10} max={20} label={t("Дополнительный бонус броска", "Additional roll bonus")} />
+                <span className="small muted">{t("Дополнительно к характеристике и бонусу способности.", "Added to the characteristic and ability bonus.")}</span>
               </Field>
               {canDealDamage && (
-                <fieldset className="ability-roll-surge" disabled={!canUseSurges} title={!canUseSurges ? "Всплески доступны после результата с уроном" : undefined}>
-                  <legend className="sr-only">Всплески к урону</legend>
-                  <Field label={`Всплески · ${character.surges}`}>
-                    <Stepper value={canUseSurges ? surges : 0} onChange={setSurges} min={0} max={Math.min(3, character.surges)} label="Всплески для способности" />
+                <fieldset className="ability-roll-surge" disabled={!canUseSurges} title={!canUseSurges ? t("Всплески доступны после результата с уроном", "Surges are available after a damaging result") : undefined}>
+                  <legend className="sr-only">{t("Всплески к урону", "Surges for damage")}</legend>
+                  <Field label={t(`Всплески · ${character.surges}`, `Surges · ${character.surges}`)}>
+                    <Stepper value={canUseSurges ? surges : 0} onChange={setSurges} min={0} max={Math.min(3, character.surges)} label={t("Всплески для способности", "Surges for ability")} />
                   </Field>
                 </fieldset>
               )}
             </div>
             {ability.keywords.includes("Ближний") && ability.keywords.includes("Дальний") && (
               <div className="ability-roll-choice">
-                <span className="field-label">Способ атаки</span>
-                <div className="abil-chips" role="group" aria-label="Способ атаки">
-                  <Chip active={weaponMode === "melee"} onClick={() => setWeaponMode("melee")}>Ближний бой</Chip>
-                  <Chip active={weaponMode === "ranged"} onClick={() => setWeaponMode("ranged")}>Дальний бой</Chip>
+                <span className="field-label">{t("Способ атаки", "Attack mode")}</span>
+                <div className="abil-chips" role="group" aria-label={t("Способ атаки", "Attack mode")}>
+                  <Chip active={weaponMode === "melee"} onClick={() => setWeaponMode("melee")}>{t("Ближний бой", "Melee")}</Chip>
+                  <Chip active={weaponMode === "ranged"} onClick={() => setWeaponMode("ranged")}>{t("Дальний бой", "Ranged")}</Chip>
                 </div>
               </div>
             )}
@@ -306,55 +318,55 @@ export function AbilityRollPanel({ ability, character, showCalculations = false 
         )}
 
         <section className="ability-use-notes">
-          <h3>Дополнительный расход</h3>
-          <Field label={`Дополнительно потратить: ${resourceName}`}>
-            <NumberInput value={additionalCost} onChange={setAdditionalCost} min={0} max={9999} label="Дополнительный расход ресурса" />
+          <h3>{t("Дополнительный расход", "Additional cost")}</h3>
+          <Field label={t(`Дополнительно потратить: ${resourceName}`, `Additional ${resourceName} to spend`)}>
+            <NumberInput value={additionalCost} onChange={setAdditionalCost} min={0} max={9999} label={t("Дополнительный расход ресурса", "Additional resource cost")} />
           </Field>
-          <p className="small muted">Для усилений и других расходов из текста способности.</p>
+          <p className="small muted">{t("Для усилений и других расходов из текста способности.", "For enhancements and other costs in the ability text.")}</p>
           {(ability.resourceCost > 0 || additionalCost > 0) && (
             <label className="ability-use-exception">
               <input type="checkbox" checked={waiveCost} onChange={(event) => setWaiveCost(event.target.checked)} />
-              Без расхода ресурса (исключение)
+              {t("Без расхода ресурса (исключение)", "Waive resource cost (exception)")}
             </label>
           )}
         </section>
       </fieldset>
 
       {(result || !hasRoll) && (
-        <div className="abil-roll-result" aria-live="polite" data-tier={result?.tier} title={result ? `Тир ${result.tier}` : undefined}>
+        <div className="abil-roll-result" aria-live="polite" data-tier={result?.tier} title={result ? t(`Тир ${result.tier}`, `Tier ${result.tier}`) : undefined}>
           {!hasRoll ? (
-            <p className="muted">Способность применяется без броска.</p>
+            <p className="muted">{t("Способность применяется без броска.", "This ability is used without a roll.")}</p>
           ) : result && (
             <>
               <div className="abil-roll-dice">
                 <span className="abil-die mono">{result.die1}</span>
                 <span className="abil-die mono">{result.die2}</span>
                 <div className="abil-roll-nums">
-                  <span className="small muted">Натуральный: {result.natural}</span>
-                  <strong className="mono">Итог: {result.total}</strong>
+                  <span className="small muted">{t("Натуральный", "Natural")}: {result.natural}</span>
+                  <strong className="mono">{t("Итог", "Total")}: {result.total}</strong>
                 </div>
-                <span className="sr-only">Тир {result.tier}</span>
+                <span className="sr-only">{t(`Тир ${result.tier}`, `Tier ${result.tier}`)}</span>
               </div>
               {(result.crit || result.note) && (
                 <div className="abil-roll-badges">
-                  {result.crit && <span className="abil-crit-badge">Критическое попадание!</span>}
-                  {result.note && <span className="abil-note-badge">{result.note}</span>}
+                  {result.crit && <span className="abil-crit-badge">{t("Критическое попадание!", "Critical hit!")}</span>}
+                  {result.note && <span className="abil-note-badge">{locale === "en" ? ({ "Двойное преимущество: +1 тир": "Double edge: +1 tier", "Двойная помеха: −1 тир": "Double bane: −1 tier", "Преимущество: +2": "Edge: +2", "Помеха: −2": "Bane: −2" } as Record<string, string>)[result.note] ?? result.note : result.note}</span>}
                 </div>
               )}
               <div className="abil-roll-outcome">
                 {damage && (
                   <div className="abil-damage">
                     <div className="abil-damage-row">
-                      <span className="abil-block-label">Урон</span>
-                      <strong className="abil-damage-value mono" title={tier?.damage}>{surgeFinal}</strong>
+                      <span className="abil-block-label">{t("Урон", "Damage")}</span>
+                      <strong className="abil-damage-value mono" title={printedTier?.damage?.value ?? tier?.damage}>{surgeFinal}</strong>
                     </div>
                     {surges > 0 && (
-                      <p className="small muted">Включено {surges} × {surgeDamage(character)} = +{surgeBonus} от всплесков.</p>
+                      <p className="small muted">{t(`Включено ${surges} × ${surgeDamage(character)} = +${surgeBonus} от всплесков.`, `Includes ${surges} × ${surgeDamage(character)} = +${surgeBonus} from surges.`)}</p>
                     )}
-                    {showCalculations && <CalculationInline calculations={damage.calculations ?? []} />}
+                    {showCalculations && <CalculationInline language={locale} calculations={locale === "en" ? (damage.calculations ?? []).map(calc => ({ ...englishCalculation(calc), englishFormula: printedTier?.damage?.value })) : damage.calculations ?? []} />}
                   </div>
                 )}
-                {tier?.effect && <RichText characteristicGlyphs text={tier.effect} className="abil-tier-effect" />}
+                {(printedTier?.effect ?? tier?.effect) && <RichText characteristicGlyphs={locale === "ru"} text={printedTier?.effect ?? tier!.effect} className="abil-tier-effect" />}
               </div>
             </>
           )}
@@ -363,19 +375,19 @@ export function AbilityRollPanel({ ability, character, showCalculations = false 
 
       {(applied || !preview.ok) && (
         <div className={"ability-use-preview " + (applied ? "is-applied" : "")} role="status">
-          <strong>{isUndone ? "Применение отменено" : applied ? "Применено" : "Нельзя применить"}</strong>
+          <strong>{isUndone ? t("Применение отменено", "Use undone") : applied ? t("Применено", "Applied") : t("Нельзя применить", "Cannot apply")}</strong>
           <p>{applied ? receipt : preview.ok ? preview.detail : preview.reason}</p>
         </div>
       )}
       {!applied && (ability.resourceCost + additionalCost > 0 || surges > 0) && (
-        <p className="ability-roll-hint">Ресурсы спишутся после нажатия «Применить».</p>
+        <p className="ability-roll-hint">{t("Ресурсы спишутся после нажатия «Применить».", "Resources are spent after selecting Apply.")}</p>
       )}
 
       <div className="abil-roll-footer">
         {applied ? (
           <>
-            {canUndo && <Button variant="ghost" onClick={undoGameAction}>Отменить применение</Button>}
-            <Button variant="soft" onClick={newUse}>Новое применение</Button>
+            {canUndo && <Button variant="ghost" onClick={undoGameAction}>{t("Отменить применение", "Undo use")}</Button>}
+            <Button variant="soft" onClick={newUse}>{t("Новое применение", "New use")}</Button>
           </>
         ) : (
           <>
@@ -384,15 +396,15 @@ export function AbilityRollPanel({ ability, character, showCalculations = false 
                 variant={result ? "soft" : "primary"}
                 icon={source === "digital" && result ? "refresh" : "dice"}
                 iconOnly={source === "digital" && !!result}
-                aria-label={source === "digital" && result ? "Перебросить 2d10" : undefined}
-                title={source === "digital" && result ? "Перебросить 2d10" : undefined}
+                aria-label={source === "digital" && result ? t("Перебросить 2d10", "Reroll 2d10") : undefined}
+                title={source === "digital" && result ? t("Перебросить 2d10", "Reroll 2d10") : undefined}
                 onClick={roll}
               >
-                {source === "physical" ? "Рассчитать" : "Бросить 2d10"}
+                {source === "physical" ? t("Рассчитать", "Calculate") : t("Бросить 2d10", "Roll 2d10")}
               </Button>
             )}
             <Button variant="primary" onClick={apply} disabled={(hasRoll && !result) || !preview.ok}>
-              Применить
+              {t("Применить", "Apply")}
             </Button>
           </>
         )}

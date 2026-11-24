@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useRef, useState } from "react";
 import { useMediaQuery } from "../../lib/hooks";
 import { CardDetailModal } from "../../components/CardDetailModal";
@@ -32,6 +33,7 @@ export function SceneTracker({
   combat?: TableCombat;
   onCombat?: (type: string, payload: Record<string, unknown>) => void;
 }) {
+  const { t: tr } = useLocale();
   const [editingNotes, setEditingNotes] = useState(false);
   const [managementOpen, setManagementOpen] = useState(false);
   const [initiative, setInitiative] = useState<CombatSide>(scene.initiative);
@@ -58,8 +60,8 @@ export function SceneTracker({
       reactionUsed: false,
     }));
   const notesButton = <Button icon="sheet" iconOnly={!live} size="sm" variant="ghost"
-    onClick={() => { setManagementOpen(false); setEditingNotes(true); }}>Заметки ведущего</Button>;
-  const visibilityLabel = scene.published ? "Скрыть сцену от игроков" : "Опубликовать сцену";
+    onClick={() => { setManagementOpen(false); setEditingNotes(true); }}>{tr("Заметки ведущего", "Director notes")}</Button>;
+  const visibilityLabel = scene.published ? tr("Скрыть сцену от игроков", "Hide scene from players") : tr("Опубликовать сцену", "Publish scene");
   const visibilityButton = <Button iconOnly={!live} icon={scene.published ? "eye-off" : "eye"}
     size="sm" variant="ghost" disabled={busy} aria-label={visibilityLabel} aria-pressed={!live ? scene.published : undefined}
     onClick={() => { setManagementOpen(false); change({ published: !scene.published }); }}>{visibilityLabel}</Button>;
@@ -72,13 +74,13 @@ export function SceneTracker({
           disabled={busy}
           onClick={() => { setManagementOpen(false); change({ status: "prepared" }); }}
         >
-          Приостановить
+          {tr("Приостановить", "Pause")}
         </Button>
       )}
       {scene.kind !== "encounter" && scene.combatants.length > 0 && (
         <Button size="sm" icon="refresh" iconOnly={!live && !narrow} disabled={busy}
           onClick={() => { setManagementOpen(false); change({ combatants: resetTurns() }); }}>
-          Сбросить ходы и реакции
+          {tr("Сбросить ходы и реакции", "Reset turns and reactions")}
         </Button>
       )}
       {scene.status !== "finished" && (
@@ -90,7 +92,7 @@ export function SceneTracker({
           onClick={() => {
             if (
               confirm(
-                "Завершить сцену? Её можно будет продолжить позднее.",
+                tr("Завершить сцену? Её можно будет продолжить позднее.", "End this scene? You can resume it later."),
               )
             ) {
               setManagementOpen(false);
@@ -98,7 +100,7 @@ export function SceneTracker({
             }
           }}
         >
-          Завершить сцену
+          {tr("Завершить сцену", "End scene")}
         </Button>
       )}
       {scene.kind === "encounter" && (
@@ -114,17 +116,17 @@ export function SceneTracker({
             });
           }}
         >
-          Правила Раздора
+          {tr("Правила Раздора", "Malice rules")}
         </Button>
       )}
     </div>
   );
   const maliceControl = live ? (
     <div className="scene-live-malice">
-      <span>Раздор</span>
+      <span>{tr("Раздор", "Malice")}</span>
       <fieldset disabled={busy}>
         <NumberInput className="tiny-num" value={scene.malice ?? 0}
-          label="Раздор" min={0} max={1_000_000_000} integer
+          label={tr("Раздор", "Malice")} min={0} max={1_000_000_000} integer
           onChange={value => { maliceDraft.current = value; }}
           onBlur={() => change({ malice: maliceDraft.current })}
           onCommit={value => change({ malice: value })} />
@@ -132,8 +134,8 @@ export function SceneTracker({
     </div>
   ) : (
     <label className="scene-inline-number">
-      Раздор
-      <input className="input" aria-label="Раздор" type="number" min="0" disabled={busy}
+      {tr("Раздор", "Malice")}
+      <input className="input" aria-label={tr("Раздор", "Malice")} type="number" min="0" disabled={busy}
         key={`malice-${scene.malice}`} defaultValue={scene.malice ?? 0}
         onBlur={event => change({ malice: Number(event.target.value) })} />
     </label>
@@ -146,35 +148,35 @@ export function SceneTracker({
           {director && onCombat && (
             <Button size="sm" variant="soft" disabled={busy}
               onClick={() => onCombat("combat-next-round", { sceneId: scene.id, combatId: combat.id })}>
-              Новый раунд
+              {tr("Новый раунд", "New round")}
             </Button>
           )}
         </>
       ) : director && onCombat ? (
         <>
-          <Select aria-label="Кто начинает бой" value={initiative} disabled={busy}
+          <Select aria-label={tr("Кто начинает бой", "Who starts the encounter")} value={initiative} disabled={busy}
             onChange={event => setInitiative(event.target.value as CombatSide)}>
-            <option value="heroes">Начинают игроки</option>
-            <option value="enemies">Начинает ведущий</option>
+            <option value="heroes">{tr("Начинают игроки", "Players start")}</option>
+            <option value="enemies">{tr("Начинает ведущий", "Director starts")}</option>
           </Select>
           <Button size="sm" variant="primary" disabled={busy}
             onClick={() => onCombat("combat-start", { sceneId: scene.id, initiative })}>
-            Начать бой
+            {tr("Начать бой", "Start encounter")}
           </Button>
         </>
-      ) : onCombat && <span className="muted">Ведущий выбирает инициативу</span>}
+      ) : onCombat && <span className="muted">{tr("Ведущий выбирает инициативу", "Director chooses initiative")}</span>}
       {director && !live && maliceControl}
     </div>
   );
   const counterList = (editable: boolean) => counters.length > 0 && (
-    <div className="scene-counters" aria-label="Счётчики сцены">
+    <div className="scene-counters" aria-label={tr("Счётчики сцены", "Scene counters")}>
       {counters.map((c) => (
         <div className="scene-counter" key={c.id}>
           <div>
             <strong>{c.name}</strong>
             {director && (!live || !c.public) && (
               <span className="muted">
-                {c.public ? "Общий" : "Только ведущему"}
+                {c.public ? tr("Общий", "Shared") : tr("Только ведущему", "Director only")}
               </span>
             )}
           </div>
@@ -188,8 +190,8 @@ export function SceneTracker({
                 disabled={busy || c.value <= 0}
                 icon="minus"
                 iconOnly
-                title={`Уменьшить: ${c.name}`}
-                aria-label={`Уменьшить: ${c.name}`}
+                title={`${tr("Уменьшить", "Decrease")}: ${c.name}`}
+                aria-label={`${tr("Уменьшить", "Decrease")}: ${c.name}`}
                 onClick={() =>
                   change({
                     counters: scene.counters.map((x) =>
@@ -198,7 +200,7 @@ export function SceneTracker({
                   })
                 }
               >
-                Уменьшить
+                {tr("Уменьшить", "Decrease")}
               </Button>
             )}
             <strong>
@@ -212,8 +214,8 @@ export function SceneTracker({
                 disabled={busy || (c.max !== undefined && c.value >= c.max)}
                 icon="plus"
                 iconOnly
-                title={`Увеличить: ${c.name}`}
-                aria-label={`Увеличить: ${c.name}`}
+                title={`${tr("Увеличить", "Increase")}: ${c.name}`}
+                aria-label={`${tr("Увеличить", "Increase")}: ${c.name}`}
                 onClick={() =>
                   change({
                     counters: scene.counters.map((x) =>
@@ -222,7 +224,7 @@ export function SceneTracker({
                   })
                 }
               >
-                Увеличить
+                {tr("Увеличить", "Increase")}
               </Button>
             )}
           </div>
@@ -238,12 +240,12 @@ export function SceneTracker({
   const roster = showRoster && (
     <>
       <div className="table-section-heading">
-        <h3>Участники <span className="muted">{visible.length}</span></h3>
-        {director && <span className="muted small">Раскрыто: {visible.filter((c) => c.revealed).length}</span>}
+        <h3>{tr("Участники", "Participants")} <span className="muted">{visible.length}</span></h3>
+        {director && <span className="muted small">{tr("Раскрыто", "Revealed")}: {visible.filter((c) => c.revealed).length}</span>}
       </div>
       {!visible.length && (
         <p className="table-empty">
-          {director ? "Добавьте существ в подготовке сцены." : "Ведущий пока не раскрыл участников сцены."}
+          {director ? tr("Добавьте существ в подготовке сцены.", "Add creatures when preparing the scene.") : tr("Ведущий пока не раскрыл участников сцены.", "The Director has not revealed any participants.")}
         </p>
       )}
       <div className="scene-roster">
@@ -276,14 +278,14 @@ export function SceneTracker({
             <span className="table-badge">
               {
                 {
-                  encounter: "Бой",
-                  negotiation: "Переговоры",
-                  montage: "Монтаж",
+                  encounter: tr("Бой", "Encounter"),
+                  negotiation: tr("Переговоры", "Negotiation"),
+                  montage: tr("Монтаж", "Montage"),
                 }[scene.kind]
               }{" "}
               ·{" "}
               {
-                { prepared: "На паузе", active: "Идёт", finished: "Завершена" }[
+                { prepared: tr("На паузе", "Paused"), active: tr("Идёт", "Active"), finished: tr("Завершена", "Finished") }[
                   scene.status
                 ]
               }
@@ -293,9 +295,9 @@ export function SceneTracker({
           {director && (
             <div className="scene-actions">
               {notesButton}
-              {narrow && <Button icon="more" iconOnly size="sm" variant="ghost" onClick={() => setManagementOpen(true)}>Управление сценой</Button>}
+              {narrow && <Button icon="more" iconOnly size="sm" variant="ghost" onClick={() => setManagementOpen(true)}>{tr("Управление сценой", "Scene management")}</Button>}
               <span className="scene-visibility-status">
-                {scene.published ? "Видна игрокам" : "Скрыта от игроков"}
+                {scene.published ? tr("Видна игрокам", "Visible to players") : tr("Скрыта от игроков", "Hidden from players")}
               </span>
               {visibilityButton}
             </div>
@@ -304,7 +306,7 @@ export function SceneTracker({
       )}
       {live ? <>
         {director && <Button icon="more" iconOnly size="sm" className="scene-live-manage"
-          onClick={() => setManagementOpen(true)}>Управление сценой</Button>}
+          onClick={() => setManagementOpen(true)}>{tr("Управление сценой", "Scene management")}</Button>}
         {scene.kind === "encounter" && <>
           <SceneCombatStatus table={table} combat={combat} />
           {(director || !combat) && toolbar}
@@ -313,9 +315,9 @@ export function SceneTracker({
         {challenge}
       </> : <>
         {director && !scene.published && (
-          <p className="muted small">Сцена скрыта от игроков. Раскрытые участники появятся после публикации.</p>
+          <p className="muted small">{tr("Сцена скрыта от игроков. Раскрытые участники появятся после публикации.", "The scene is hidden. Revealed participants appear after publication.")}</p>
         )}
-        {scene.objective && <p className="scene-objective"><strong>Цель:</strong> {scene.objective}</p>}
+        {scene.objective && <p className="scene-objective"><strong>{tr("Цель", "Objective")}:</strong> {scene.objective}</p>}
         {scene.description && <p className="table-prose muted">{scene.description}</p>}
         {scene.kind === "encounter" && toolbar}
         {counterList(director && !challenge)}
@@ -324,10 +326,10 @@ export function SceneTracker({
       </>}
       {director && (
         <>
-          <CardDetailModal open={editingNotes} onClose={() => setEditingNotes(false)} title="Заметки ведущего" className="table-dialog">
+          <CardDetailModal open={editingNotes} onClose={() => setEditingNotes(false)} title={tr("Заметки ведущего", "Director notes")} className="table-dialog">
             {error && <p role="alert">{error}</p>}
             <label>
-              Заметки ведущего
+              {tr("Заметки ведущего", "Director notes")}
               <textarea
                 className="textarea"
                 disabled={busy}
@@ -338,7 +340,7 @@ export function SceneTracker({
             </label>
           </CardDetailModal>
             {!live && !narrow && managementControls}
-            <CardDetailModal open={(live || narrow) && managementOpen} onClose={() => setManagementOpen(false)} title="Управление сценой" className="table-dialog scene-management-modal">
+            <CardDetailModal open={(live || narrow) && managementOpen} onClose={() => setManagementOpen(false)} title={tr("Управление сценой", "Scene management")} className="table-dialog scene-management-modal">
               {error && <p role="alert">{error}</p>}
               {live && scene.kind === "encounter" && maliceControl}
               {managementControls}

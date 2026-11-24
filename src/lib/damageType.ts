@@ -29,6 +29,16 @@ const DAMAGE_TYPES: DamageType[] = [
   { key: "sonic", label: "Звук", pattern: /(звук|громов|акустич)/i },
 ];
 
+/** The director source prints the damage type in the tier itself. */
+export function printedDamageType(label: string, language: "ru" | "en") {
+  if (language === "en") return damageTypeByKey(label.toLowerCase().split(/\s+/)[0]);
+  return DAMAGE_TYPES.find(type => type.pattern.test(label));
+}
+
+export function damageTypeByKey(key?: string) {
+  return DAMAGE_TYPES.find(type => type.key === key);
+}
+
 /** Типы урона для ручных записей: значение хранится так же, как в эффектах. */
 export const DAMAGE_TYPE_OPTIONS: ReadonlyArray<{ value: string; label: string }> =
   DAMAGE_TYPES.map((type) => ({

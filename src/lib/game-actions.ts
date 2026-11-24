@@ -1,3 +1,7 @@
+import { basicActionSource } from "../data/templates";
+import { localizeGameMessage } from "../i18n/game-messages";
+import type { Locale } from "../i18n/locale";
+export { localizeGameMessage } from "../i18n/game-messages";
 import { recordElementalistDamage } from "./class-mechanics/routines-magic";
 import { previewClassMechanic, transitionClassMechanics, type ClassMechanicAction } from "./class-mechanics";
 import type { Character, CharacterRuntime, StormwightForm } from "../types";
@@ -399,7 +403,24 @@ function previewBaseGameAction(
 }
 
 /** One transaction keeps state, resource changes and undo in sync. */
-export function previewGameAction(character: Character, action: GameAction): ActionPreview {
+function present(result: ActionPreview, locale: Locale, character?: Character, action?: GameAction): ActionPreview {
+  if (!result.ok) return { ...result, reason: localizeGameMessage(result.reason, locale) };
+  let label = localizeGameMessage(result.label, locale);
+  let detail = localizeGameMessage(result.detail, locale);
+  if (locale === "en" && character && action?.kind === "ability") {
+    const ability = character.abilities.find(item => item.id === action.abilityId)
+      ?? ancestryAbilityEntries(character).find(entry => entry.ability.id === action.abilityId)?.ability
+      ?? missingClassFeatureAbilities(character).find(item => item.id === action.abilityId);
+    if (ability?.name === result.label) label = basicActionSource(ability)?.name || ability.originalName?.trim() || result.label;
+  }
+  if (locale === "en" && character && action?.kind === "class-mechanic") {
+    const feature = activeClassFeatures(character).find(item => item.description === result.detail && item.originalDescription?.trim());
+    if (feature?.originalDescription) detail = feature.originalDescription;
+  }
+  return { ...result, label, detail };
+}
+
+function previewCanonicalGameAction(character: Character, action: GameAction): ActionPreview {
   // Capture an attained threshold before spending the resource.
   const before = action.kind === "turn-start" || action.kind === "turn-end"
     ? character : transitionClassMechanics(character, "resource-change");
@@ -413,6 +434,10 @@ export function previewGameAction(character: Character, action: GameAction): Act
   }
   if (action.kind !== "turn-end") next = transitionClassMechanics(next, "resource-change");
   return { ...result, next };
+}
+
+export function previewGameAction(character: Character, action: GameAction, locale: Locale = "ru"): ActionPreview {
+  return present(previewCanonicalGameAction(character, action), locale, character, action);
 }
 
 const values = (c: Character) => ({
@@ -463,6 +488,8 @@ export interface GameHistoryEntry {
   characterId: string;
   label: string;
   detail: string;
+  /** Catalog identity and authored name at the time this session entry was created. */
+  detailAbility?: Pick<Character["abilities"][number], "id" | "originalId" | "name">;
   at: number;
   undone: boolean;
   changes: { key: ValueKey; before: number; after: number }[];
@@ -479,7 +506,7 @@ function withoutRuntime(character: Character): Character {
   return copy;
 }
 
-export function undoReason(
+function canonicalUndoReason(
   character: Character,
   entry: GameHistoryEntry,
 ): string | undefined {
@@ -511,6 +538,11 @@ export function undoReason(
     return "Максимум ресурса изменился. Используйте ручную коррекцию.";
 }
 
+export function undoReason(character: Character, entry: GameHistoryEntry, locale: Locale = "ru"): string | undefined {
+  const reason = canonicalUndoReason(character, entry);
+  return reason === undefined ? undefined : localizeGameMessage(reason, locale);
+}
+
 /** Keeps a session journal and idempotent receipts; never restores a whole character snapshot. */
 export function createGameSession() {
   let history: GameHistoryEntry[] = [];
@@ -525,10 +557,11 @@ export function createGameSession() {
       character: Character,
       action: GameAction,
       id: string,
+      locale: Locale = "ru",
     ): ActionPreview {
-      if (receipts.has(id)) return invalid("Это действие уже применено");
-      const result = previewGameAction(character, action);
-      if (!result.ok) return result;
+      if (receipts.has(id)) return present(invalid("Это действие уже применено"), locale);
+      const result = previewCanonicalGameAction(character, action);
+      if (!result.ok) return present(result, locale);
       const before = values(character);
       const after = values(result.next);
       const changes = (Object.keys(before) as ValueKey[])
@@ -536,12 +569,16 @@ export function createGameSession() {
         .map((key) => ({ key, before: before[key], after: after[key] }));
       const runtimeChanged =
         runtimeKey(character.runtime) !== runtimeKey(result.next.runtime);
+      const mechanic = action.kind === "class-mechanic" ? action.action : undefined;
+      const referencedAbility = mechanic && (mechanic.kind === "troubadour-select" || mechanic.kind === "elementalist-sustain")
+        ? character.abilities.find(ability => ability.id === mechanic.abilityId) : undefined;
       history = [
         {
           id,
           characterId: character.id,
           label: result.label,
           detail: result.detail,
+          ...(referencedAbility && { detailAbility: { id: referencedAbility.id, name: referencedAbility.name, originalId: referencedAbility.originalId } }),
           at: Date.now(),
           undone: false,
           changes,
@@ -559,13 +596,13 @@ export function createGameSession() {
         ...history,
       ].slice(0, 30);
       receipts.add(id);
-      return result;
+      return present(result, locale, character, action);
     },
-    undo(character: Character): ActionPreview {
+    undo(character: Character, locale: Locale = "ru"): ActionPreview {
       const entry = history.find((item) => !item.undone);
-      if (!entry) return invalid("Нет действий для отмены");
-      const reason = undoReason(character, entry);
-      if (reason) return invalid(reason);
+      if (!entry) return present(invalid("Нет действий для отмены"), locale);
+      const reason = canonicalUndoReason(character, entry);
+      if (reason) return present(invalid(reason), locale);
       const restored = values(character);
       for (const change of entry.changes) restored[change.key] = change.before;
       const next: Character = {
@@ -597,12 +634,12 @@ export function createGameSession() {
       history = history.map((item) =>
         item.id === entry.id ? { ...item, undone: true } : item,
       );
-      return {
+      return present({
         ok: true,
         label: `Отменено: ${entry.label}`,
         detail: entry.detail,
         next: reverted,
-      };
+      }, locale);
     },
   };
 }

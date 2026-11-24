@@ -83,7 +83,72 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
       "originalName": "8th-Level Features",
-      "originalDescription": "As an 8th-level troubadour, you gain the following features."
+      "originalDescription": "As an 8th-level troubadour, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "8th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As an 8th-level troubadour, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-8.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 8th-Level Class Act Feature\n\nYour troubadour class act grants you a feature, as shown on the 8th-Level Class Act Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 8th-Level Class Act Features Table\n\n| Class Act | Feature         |\n|-----------|-----------------|\n| Auteur    | Deleted Scene   |\n| Duelist   | Masterwork      |\n| Virtuoso  | Crowd Favorites |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-8.crowd-favorites"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-8.moonlight-sonata"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-8.radical-fantasia"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-8.deleted-scene"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-8.masterwork"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-8.11-drama-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-8.dramatic-reveal"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-8.power-ballad"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-8.saved-in-the-edit"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-8.the-show-must-go-on"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -98,7 +163,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one perk of your choice."
+      "originalDescription": "You gain one perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-8.8th-level-class-act-feature",
@@ -111,7 +179,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/8th-level-class-act-feature",
       "originalName": "8th-Level Class Act Feature",
-      "originalDescription": "Your troubadour class act grants you a feature, as shown on the 8th-Level Class Act Features table.\n\n###### 8th-Level Class Act Features Table\n\n| Class Act | Feature         |\n|-----------|-----------------|\n| Auteur    | Deleted Scene   |\n| Duelist   | Masterwork      |\n| Virtuoso  | Crowd Favorites |"
+      "originalDescription": "Your troubadour class act grants you a feature, as shown on the 8th-Level Class Act Features table.\n\n###### 8th-Level Class Act Features Table\n\n| Class Act | Feature         |\n|-----------|-----------------|\n| Auteur    | Deleted Scene   |\n| Duelist   | Masterwork      |\n| Virtuoso  | Crowd Favorites |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-8.crowd-favorites",
@@ -124,7 +195,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/crowd-favorites",
       "originalName": "Crowd Favorites",
-      "originalDescription": "You have the following performance abilities, which are usable with your Routines feature."
+      "originalDescription": "You have the following performance abilities, which are usable with your Routines feature.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-8.moonlight-sonata",
@@ -179,7 +253,27 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/moonlight-sonata",
       "originalName": "Moonlight Sonata",
-      "originalDescription": "*Music pours out of your heart, filling the area with the utmost delicacy and without damper.*\n\n| **Area, Magic, Performance** |                **No action** |\n|------------------------------|-----------------------------:|\n| **📏 5 aura**                | **🎯 Each ally in the area** |\n\n**Effect:** While this performance is active, each target who is dead can choose to continue taking turns after death. On each of their turns, a target can move and use either a main action or a maneuver, but can't spend Recoveries or use triggered actions. At the end of the encounter, each target who chose to take turns this way turns to dust and blows away."
+      "originalDescription": "*Music pours out of your heart, filling the area with the utmost delicacy and without damper.*\n\n| **Area, Magic, Performance** |                **No action** |\n|------------------------------|-----------------------------:|\n| **📏 5 aura**                | **🎯 Each ally in the area** |\n\n**Effect:** While this performance is active, each target who is dead can choose to continue taking turns after death. On each of their turns, a target can move and use either a main action or a maneuver, but can't spend Recoveries or use triggered actions. At the end of the encounter, each target who chose to take turns this way turns to dust and blows away.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Music pours out of your heart, filling the area with the utmost delicacy and without damper.",
+        "facts": {
+          "action": "No action",
+          "distance": [
+            "5 aura"
+          ],
+          "target": "Each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Performance"
+          ]
+        },
+        "effect": "While this performance is active, each target who is dead can choose to continue taking turns after death. On each of their turns, a target can move and use either a main action or a maneuver, but can't spend Recoveries or use triggered actions. At the end of the encounter, each target who chose to take turns this way turns to dust and blows away."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-8.radical-fantasia",
@@ -234,7 +328,27 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/radical-fantasia",
       "originalName": "Radical Fantasia",
-      "originalDescription": "*𝅘𝅥𝅮♪Viras, my Viras, will you hold their hands as they cryyy—aaaiigh?♪*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area ignores difficult terrain, and any ability they use that imposes forced movement gains a +2 bonus to the forced movement distance until the end of their turn. Additionally, once per combat round, each target can use a triggered action as a free triggered action."
+      "originalDescription": "*𝅘𝅥𝅮♪Viras, my Viras, will you hold their hands as they cryyy—aaaiigh?♪*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area ignores difficult terrain, and any ability they use that imposes forced movement gains a +2 bonus to the forced movement distance until the end of their turn. Additionally, once per combat round, each target can use a triggered action as a free triggered action.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "𝅘𝅥𝅮♪Viras, my Viras, will you hold their hands as they cryyy—aaaiigh?♪",
+        "facts": {
+          "action": "No action",
+          "distance": [
+            "5 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Performance"
+          ]
+        },
+        "effect": "While this performance is active, each target who starts their turn in the area ignores difficult terrain, and any ability they use that imposes forced movement gains a +2 bonus to the forced movement distance until the end of their turn. Additionally, once per combat round, each target can use a triggered action as a free triggered action."
+      }
     },
     {
       "id": "feature.troubadour.level-8.deleted-scene",
@@ -247,7 +361,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/deleted-scene",
       "originalName": "Deleted Scene",
-      "originalDescription": "Whenever a creature within distance of your Dramatic Monologue ability makes a power roll, you can spend 1 drama as a free triggered action to use Dramatic Monologue, targeting only one creature."
+      "originalDescription": "Whenever a creature within distance of your Dramatic Monologue ability makes a power roll, you can spend 1 drama as a free triggered action to use Dramatic Monologue, targeting only one creature.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-8.masterwork",
@@ -260,7 +377,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/masterwork",
       "originalName": "Masterwork",
-      "originalDescription": "Choose one of your signature abilities and name it after yourself. You always have this ability available, even if it is sourced from a kit you switch out. Whenever you use this ability, you gain an edge and 1 surge that you can use only on this ability.\n\nAdditionally, when your named signature ability is the last ability you use in an encounter, you can immediately use the Hear Ye, Hear Ye! effect of your Zeitgeist feature to tell tales of your exploits after the encounter ends."
+      "originalDescription": "Choose one of your signature abilities and name it after yourself. You always have this ability available, even if it is sourced from a kit you switch out. Whenever you use this ability, you gain an edge and 1 surge that you can use only on this ability.\n\nAdditionally, when your named signature ability is the last ability you use in an encounter, you can immediately use the Hear Ye, Hear Ye! effect of your Zeitgeist feature to tell tales of your exploits after the encounter ends.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-8.11-drama-ability",
@@ -273,7 +393,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-8/11-drama-ability",
       "originalName": "11-Drama Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 drama to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 drama to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-8.dramatic-reveal",
@@ -326,7 +449,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/dramatic-reveal",
       "originalName": "Dramatic Reveal",
-      "originalDescription": "*A little stage trickery, and where once stood a foe, now stands a friend!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever you reduce a creature to 0 Stamina using an ability, you can use a free triggered action to teleport an ally within distance of that ability into the creature's space in a plume of rose petals. You or the teleported ally can then make a melee free strike."
+      "originalDescription": "*A little stage trickery, and where once stood a foe, now stands a friend!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever you reduce a creature to 0 Stamina using an ability, you can use a free triggered action to teleport an ally within distance of that ability into the creature's space in a plume of rose petals. You or the teleported ally can then make a melee free strike.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A little stage trickery, and where once stood a foe, now stands a friend!",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter, whenever you reduce a creature to 0 Stamina using an ability, you can use a free triggered action to teleport an ally within distance of that ability into the creature's space in a plume of rose petals. You or the teleported ally can then make a melee free strike."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-8.power-ballad",
@@ -380,7 +521,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/power-ballad",
       "originalName": "Power Ballad",
-      "originalDescription": "*A song for the brokenhearted wraps itself around the target and blossoms into a ward of thorns.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** Until the end of the encounter, whenever the target takes damage while winded, they can use a free triggered action to deal half the damage they took to the source of the damage."
+      "originalDescription": "*A song for the brokenhearted wraps itself around the target and blossoms into a ward of thorns.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** Until the end of the encounter, whenever the target takes damage while winded, they can use a free triggered action to deal half the damage they took to the source of the damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A song for the brokenhearted wraps itself around the target and blossoms into a ward of thorns.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "Until the end of the encounter, whenever the target takes damage while winded, they can use a free triggered action to deal half the damage they took to the source of the damage."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-8.saved-in-the-edit",
@@ -433,7 +597,29 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/saved-in-the-edit",
       "originalName": "Saved in the Edit",
-      "originalDescription": "*You shout a word of power that allows you to rewrite reality to your whims.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever you deal rolled damage to a creature or object, or enable a creature to spend a Recovery, you can use a free triggered action to give that creature or object one of the following effects until the start of your next turn. If this ability is triggered by multiple targets taking damage or multiple creatures spending Recoveries simultaneously, each target receives the same effect:\n\n- The target has damage weakness equal to your Presence score against any magic, psionic, or weapon ability.\n- The target has damage immunity equal to your Presence score.\n- The target has a bonus to stability and a penalty to speed equal to your Presence score.\n- The target has a bonus to speed and a penalty to stability equal to your Presence score."
+      "originalDescription": "*You shout a word of power that allows you to rewrite reality to your whims.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, whenever you deal rolled damage to a creature or object, or enable a creature to spend a Recovery, you can use a free triggered action to give that creature or object one of the following effects until the start of your next turn. If this ability is triggered by multiple targets taking damage or multiple creatures spending Recoveries simultaneously, each target receives the same effect:\n\n- The target has damage weakness equal to your Presence score against any magic, psionic, or weapon ability.\n- The target has damage immunity equal to your Presence score.\n- The target has a bonus to stability and a penalty to speed equal to your Presence score.\n- The target has a bonus to speed and a penalty to stability equal to your Presence score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "- The target has damage weakness equal to your Presence score against any magic, psionic, or weapon ability.\n- The target has damage immunity equal to your Presence score.\n- The target has a bonus to stability and a penalty to speed equal to your Presence score.\n- The target has a bonus to speed and a penalty to stability equal to your Presence score."
+          }
+        ],
+        "flavor": "You shout a word of power that allows you to rewrite reality to your whims.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter, whenever you deal rolled damage to a creature or object, or enable a creature to spend a Recovery, you can use a free triggered action to give that creature or object one of the following effects until the start of your next turn. If this ability is triggered by multiple targets taking damage or multiple creatures spending Recoveries simultaneously, each target receives the same effect:"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-8.the-show-must-go-on",
@@ -490,7 +676,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-8/the-show-must-go-on",
       "originalName": "The Show Must Go On",
-      "originalDescription": "*You shine a bright light on the players on the stage and compel them to finish the performance.*\n\n| **Area, Magic, Ranged** | **Maneuver**                  |\n|-------------------------|-------------------------------|\n| **📏 5 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 6 damage; P < WEAK, the target can't willingly leave the area (EoT)\n- **12-16:** 8 damage; P < AVERAGE, the target can't willingly leave the area (save ends)\n- **17+:** 12 damage; the target can't willingly leave the area (EoT); if P < STRONG, they can't willingly leave the area (save ends)\n\n**Effect:** Each ally within distance can't obtain lower than a tier 2 outcome on the next test they make before the start of your next turn."
+      "originalDescription": "*You shine a bright light on the players on the stage and compel them to finish the performance.*\n\n| **Area, Magic, Ranged** | **Maneuver**                  |\n|-------------------------|-------------------------------|\n| **📏 5 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 6 damage; P < WEAK, the target can't willingly leave the area (EoT)\n- **12-16:** 8 damage; P < AVERAGE, the target can't willingly leave the area (save ends)\n- **17+:** 12 damage; the target can't willingly leave the area (EoT); if P < STRONG, they can't willingly leave the area (save ends)\n\n**Effect:** Each ally within distance can't obtain lower than a tier 2 outcome on the next test they make before the start of your next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You shine a bright light on the players on the stage and compel them to finish the performance.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "5 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6"
+              },
+              "effect": "P < WEAK, the target can't willingly leave the area (EoT)"
+            },
+            {
+              "damage": {
+                "value": "8"
+              },
+              "effect": "P < AVERAGE, the target can't willingly leave the area (save ends)"
+            },
+            {
+              "damage": {
+                "value": "12"
+              },
+              "effect": "the target can't willingly leave the area (EoT); if P < STRONG, they can't willingly leave the area (save ends)"
+            }
+          ]
+        },
+        "effect": "Each ally within distance can't obtain lower than a tier 2 outcome on the next test they make before the start of your next turn."
+      }
     }
   ]
 }

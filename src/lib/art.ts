@@ -14,6 +14,11 @@ export interface ArtAsset {
   articleIds: string[];
 }
 
+export function artworkCredit(art: ArtAsset, locale: "ru" | "en"): string {
+  if (locale === "ru") return art.credit;
+  return art.origin === "official" ? "© MCDM Productions, LLC · adapted with AI" : "Created for this character sheet with AI";
+}
+
 export const ART_ASSETS = raw as ArtAsset[];
 const normalized = (name: string) =>
   name.trim().toLocaleLowerCase("ru").replace(/ё/g, "е");

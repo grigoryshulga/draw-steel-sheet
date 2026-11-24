@@ -55,7 +55,44 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
       "originalName": "3rd-Level Features",
-      "originalDescription": "As a 3rd-level conduit, you gain the following features."
+      "originalDescription": "As a 3rd-level conduit, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "3rd-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 3rd-level conduit, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-3.minor-miracle"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-3.7-piety-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-3.fear-of-the-gods"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-3.saints-raiment"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-3.soul-siphon"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-3.words-of-wrath-and-grace"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -70,7 +107,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-3/minor-miracle",
       "originalName": "Minor Miracle",
-      "originalDescription": "As a respite activity, you can perform a religious ritual and beseech the gods to restore a dead creature to life. You must have at least half the creature's remains, and they must have died within the last 24 hours from an effect that isn't age related. The creature's soul must be willing to return to life for the ritual to work. If they are not willing, you instinctively understand that as you start the respite activity and can cease it immediately.\n\nA creature with a willing soul returns to life at the end of the respite with full Stamina and half their Recoveries. You regain only half your Recoveries at the end of the respite."
+      "originalDescription": "As a respite activity, you can perform a religious ritual and beseech the gods to restore a dead creature to life. You must have at least half the creature's remains, and they must have died within the last 24 hours from an effect that isn't age related. The creature's soul must be willing to return to life for the ritual to work. If they are not willing, you instinctively understand that as you start the respite activity and can cease it immediately.\n\nA creature with a willing soul returns to life at the end of the respite with full Stamina and half their Recoveries. You regain only half your Recoveries at the end of the respite.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-3.7-piety-ability",
@@ -83,7 +123,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-3/7-piety-ability",
       "originalName": "7-Piety Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 piety to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 piety to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-3.fear-of-the-gods",
@@ -140,7 +183,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-3/fear-of-the-gods",
       "originalName": "Fear of the Gods",
-      "originalDescription": "*Your divine magic makes a creature appear as what your enemies fear most.*\n\n| **Area, Magic, Ranged**  |               **Main action** |\n|--------------------------|------------------------------:|\n| **📏 5 cube within 10**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 6 psychic damage; I < WEAK, frightened (save ends)\n- **12-16:** 9 psychic damage; I < AVERAGE, frightened (save ends)\n- **17+:** 13 psychic damage; I < STRONG, frightened (save ends)\n\n**Effect:** Each target is frightened of you or a creature you choose within distance."
+      "originalDescription": "*Your divine magic makes a creature appear as what your enemies fear most.*\n\n| **Area, Magic, Ranged**  |               **Main action** |\n|--------------------------|------------------------------:|\n| **📏 5 cube within 10**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 6 psychic damage; I < WEAK, frightened (save ends)\n- **12-16:** 9 psychic damage; I < AVERAGE, frightened (save ends)\n- **17+:** 13 psychic damage; I < STRONG, frightened (save ends)\n\n**Effect:** Each target is frightened of you or a creature you choose within distance.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your divine magic makes a creature appear as what your enemies fear most.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "5 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6",
+                "type": "psychic"
+              },
+              "effect": "I < WEAK, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "9",
+                "type": "psychic"
+              },
+              "effect": "I < AVERAGE, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "13",
+                "type": "psychic"
+              },
+              "effect": "I < STRONG, frightened (save ends)"
+            }
+          ]
+        },
+        "effect": "Each target is frightened of you or a creature you choose within distance."
+      }
     },
     {
       "id": "feature.ability.conduit.level-3.saints-raiment",
@@ -194,7 +288,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-3/saints-raiment",
       "originalName": "Saint's Raiment",
-      "originalDescription": "*An ally becomes the wearer of an empowered golden cloak.*\n\n| **Magic, Ranged**         |    **Maneuver** |\n|---------------------------|----------------:|\n| **📏 Ranged 10**          | **🎯 One ally** |\n\n**Effect:** The target gains 20 temporary Stamina and 3 surges."
+      "originalDescription": "*An ally becomes the wearer of an empowered golden cloak.*\n\n| **Magic, Ranged**         |    **Maneuver** |\n|---------------------------|----------------:|\n| **📏 Ranged 10**          | **🎯 One ally** |\n\n**Effect:** The target gains 20 temporary Stamina and 3 surges.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "An ally becomes the wearer of an empowered golden cloak.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "The target gains 20 temporary Stamina and 3 surges."
+      }
     },
     {
       "id": "feature.ability.conduit.level-3.soul-siphon",
@@ -251,7 +368,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-3/soul-siphon",
       "originalName": "Soul Siphon",
-      "originalDescription": "*A beam of energy connects a foe to a friend, draining life from one to heal the other.*\n\n| **Magic, Ranged, Strike** |  **Main action** |\n|---------------------------|-----------------:|\n| **📏 Ranged 10**          | **🎯 One enemy** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 7 + I corruption damage\n- **12-16:** 10 + I corruption damage\n- **17+:** 15 + I corruption damage\n\n**Effect:** One ally within distance can spend any number of Recoveries."
+      "originalDescription": "*A beam of energy connects a foe to a friend, draining life from one to heal the other.*\n\n| **Magic, Ranged, Strike** |  **Main action** |\n|---------------------------|-----------------:|\n| **📏 Ranged 10**          | **🎯 One enemy** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 7 + I corruption damage\n- **12-16:** 10 + I corruption damage\n- **17+:** 15 + I corruption damage\n\n**Effect:** One ally within distance can spend any number of Recoveries.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A beam of energy connects a foe to a friend, draining life from one to heal the other.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One enemy",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "7 + I",
+                "type": "corruption"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "10 + I",
+                "type": "corruption"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "15 + I",
+                "type": "corruption"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "One ally within distance can spend any number of Recoveries."
+      }
     },
     {
       "id": "feature.ability.conduit.level-3.words-of-wrath-and-grace",
@@ -307,7 +475,53 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-3/words-of-wrath-and-grace",
       "originalName": "Words of Wrath and Grace",
-      "originalDescription": "*Your saint grants your enemies a vision of pain and fills your allies with healing energy.*\n\n| **Area, Magic**  |               **Main action** |\n|------------------|------------------------------:|\n| **📏 5 burst**   | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 holy damage\n- **12-16:** 5 holy damage\n- **17+:** 7 holy damage\n\n**Effect:** Each ally in the area can spend a Recovery."
+      "originalDescription": "*Your saint grants your enemies a vision of pain and fills your allies with healing energy.*\n\n| **Area, Magic**  |               **Main action** |\n|------------------|------------------------------:|\n| **📏 5 burst**   | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 holy damage\n- **12-16:** 5 holy damage\n- **17+:** 7 holy damage\n\n**Effect:** Each ally in the area can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your saint grants your enemies a vision of pain and fills your allies with healing energy.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "5 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7",
+                "type": "holy"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "Each ally in the area can spend a Recovery."
+      }
     }
   ]
 }

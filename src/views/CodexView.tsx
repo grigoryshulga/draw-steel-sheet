@@ -34,7 +34,11 @@ import {
   type RuleSearchOptions,
 } from "../rules/search";
 import { RuleArticleContent } from "../components/rules/RuleArticle";
-import { RuleMarkdown } from "../components/rules/RuleMarkdown";
+import { ArticleLanguageScope, useArticleLanguage, useLocale } from "../i18n/locale";
+import { ArticleLanguageSwitch } from "../components/LanguageSwitch";
+import { englishArticleHeadings } from "../components/rules/reader-headings";
+import { readerLabel } from "../components/rules/reader-labels";
+import { loadEnglishArticleTitles } from "../rules/repository";
 
 const ArticleCatalogActions = lazy(() =>
   import("../components/ArticleCatalogActions").then((module) => ({
@@ -64,10 +68,6 @@ type ArticleContent =
   | { status: "ready"; entryId: string; data: LoadedArticle }
   | { status: "error"; entryId: string; message: string };
 
-function headingLabel(title: string): string {
-  return title.replace(/\*\*/g, "").trim();
-}
-
 function isEmptyArticle(article: RuleArticle): boolean {
   return article.blocks.every(
     (block) => block.type === "markdown" && !block.text.trim(),
@@ -79,6 +79,14 @@ function errorMessage(error: unknown): string {
 }
 
 export function CodexView() {
+  const { locale, t } = useLocale();
+  const [englishTitles, setEnglishTitles] = useState<Record<string, string>>({});
+  useEffect(() => { if (locale === "en") loadEnglishArticleTitles().then(setEnglishTitles).catch(() => {}); }, [locale]);
+  const displayTitle = (id: string, fallback: string) => locale === "en" ? englishTitles[id] || fallback : fallback;
+  const displayGroup = (name: string) => {
+    const matching = ruleIndex.find(item => item.title === name && englishTitles[item.id]);
+    return matching && locale === "en" ? englishTitles[matching.id] : readerLabel(name, locale);
+  };
   const compact = useMediaQuery("(max-width: 850px)");
   const [chaptersOpen, setChaptersOpen] = useState(false);
   const [location, setLocation] = useState(readCodexLocation);
@@ -90,9 +98,8 @@ export function CodexView() {
   const [content, setContent] = useState<ArticleContent>({ status: "idle" });
   const [attempt, setAttempt] = useState(0);
   // Полный поисковый корпус приходит отдельным чанком только при первом поиске.
-  const [searchCorpus, setSearchCorpus] = useState<RuleSearchIndex | null>(
-    null,
-  );
+  const [corpusState, setCorpusState] = useState<{ locale: "ru" | "en"; data: RuleSearchIndex }>();
+  const searchCorpus = corpusState?.locale === locale ? corpusState.data : null;
   const [searchStatus, setSearchStatus] = useState<
     "idle" | "loading" | "ready" | "error"
   >("idle");
@@ -120,11 +127,14 @@ export function CodexView() {
   const position = entry
     ? siblings.findIndex((item) => item.id === entry.id)
     : -1;
-  const headings = entry?.headings ?? [];
+  const russianHeadings = entry?.headings ?? [];
   const loaded =
     content.status === "ready" && content.entryId === entryId
       ? content.data
       : undefined;
+  const articleEnglishAvailable = Boolean(loaded && (loaded.article.englishEdition || loaded.article.originalDescription?.trim() || Object.values(loaded.entities).some(entity => entity.originalDescription?.trim())));
+  const { language: articleLanguage, setLanguage: setArticleLanguage } = useArticleLanguage(entryId, articleEnglishAvailable);
+  const headings = articleLanguage === "en" && loaded ? englishArticleHeadings(loaded.article, loaded.entities) : russianHeadings;
   const failure =
     content.status === "error" && content.entryId === entryId
       ? content
@@ -147,11 +157,11 @@ export function CodexView() {
     let active = true;
     setSearchStatus("loading");
     setSearchFailure("");
-    loadRuleSearchIndex().then(
+    loadRuleSearchIndex(locale).then(
       (index) => {
         // Поздний ответ на прежний запрос не должен перезаписать новый.
         if (!active || !sequencer.current.isCurrent(token)) return;
-        setSearchCorpus(index);
+        setCorpusState({ locale, data: index });
         setSearchStatus("ready");
       },
       (error: unknown) => {
@@ -163,7 +173,7 @@ export function CodexView() {
     return () => {
       active = false;
     };
-  }, [needle, searchCorpus, searchAttempt]);
+  }, [needle, searchCorpus, searchAttempt, locale]);
 
   const searchMatches = useMemo(
     () =>
@@ -192,7 +202,11 @@ export function CodexView() {
     [onlyBookmarks, bookmarks],
   );
   const resultEntries = needle
-    ? searchMatches.map((match) => match.entry)
+    ? [...searchMatches.map((match) => match.entry), ...ruleIndex.filter((item) =>
+        locale === "en" && englishTitles[item.id] && normalizeSearchText(englishTitles[item.id]).includes(needle)
+        && (!chapter || item.chapter === chapter) && (!group || item.group === group)
+        && (!onlyBookmarks || bookmarks.includes(item.id))
+        && !searchMatches.some((match) => match.entry.id === item.id))]
     : bookmarkEntries;
   const excerptById = useMemo(
     () =>
@@ -250,6 +264,11 @@ export function CodexView() {
     const target = location.heading
       ? document.getElementById(location.heading)
       : document.getElementById(entry ? "codex-article" : "codex-catalog");
+    let parent = target?.parentElement;
+    while (parent) {
+      if (parent instanceof HTMLDetailsElement) parent.open = true;
+      parent = parent.parentElement;
+    }
     target?.scrollIntoView({ block: "start" });
   }, [location, entry, loaded]);
   const open = (id: string) => {
@@ -262,20 +281,21 @@ export function CodexView() {
     size="sm"
     icon="bookmark"
     iconOnly
-    aria-label={bookmarks.includes(entry.id) ? "Удалить закладку" : "Добавить закладку"}
+    aria-label={bookmarks.includes(entry.id) ? t("Удалить закладку", "Remove bookmark") : t("Добавить закладку", "Add bookmark")}
     variant={bookmarks.includes(entry.id) ? "soft" : "ghost"}
     aria-pressed={bookmarks.includes(entry.id)}
     onClick={() => toggleBookmark(entry.id)}
-  >{bookmarks.includes(entry.id) ? "В закладках" : "В закладки"}</Button>;
+  >{bookmarks.includes(entry.id) ? t("В закладках", "Bookmarked") : t("В закладки", "Bookmark")}</Button>;
 
   return (
+    <ArticleLanguageScope language={articleLanguage}>
     <div className="codex-view">
-      <LibraryHeader title="Книга правил" />
+      <LibraryHeader title={t("Книга правил", "Rulebook")} />
       <div className="codex-layout">
-        <aside className="codex-nav" aria-label="Разделы Кодекса">
+        <aside className="codex-nav" aria-label={t("Разделы Кодекса", "Codex sections")}>
           <SearchInput
-            aria-label="Поиск по всему Кодексу"
-            placeholder="Найти правило…"
+            aria-label={t("Поиск по всему Кодексу", "Search the Codex")}
+            placeholder={t("Найти правило…", "Find a rule…")}
             value={query}
             shortcut
             onValueChange={(value) => {
@@ -289,7 +309,7 @@ export function CodexView() {
               variant={!onlyBookmarks ? "soft" : "ghost"}
               onClick={() => browse()}
             >
-              Все главы
+              {t("Все главы", "All chapters")}
             </Button>
             <Button
               size="sm"
@@ -300,11 +320,11 @@ export function CodexView() {
                 window.location.hash = catalogLink();
               }}
             >
-              Закладки {bookmarks.length || ""}
+              {t("Закладки", "Bookmarks")} {bookmarks.length || ""}
             </Button>
           </div>
-          {compact && <Button size="sm" variant="ghost" aria-expanded={chaptersOpen} aria-controls="codex-chapter-tree" onClick={() => setChaptersOpen(!chaptersOpen)}>{chaptersOpen ? "Свернуть главы" : "Все главы и разделы"}</Button>}
-          <nav id="codex-chapter-tree" aria-label="Оглавление" hidden={compact && !chaptersOpen} onClick={(event) => {
+          {compact && <Button size="sm" variant="ghost" aria-expanded={chaptersOpen} aria-controls="codex-chapter-tree" onClick={() => setChaptersOpen(!chaptersOpen)}>{chaptersOpen ? t("Свернуть главы", "Collapse chapters") : t("Все главы и разделы", "All chapters and sections")}</Button>}
+          <nav id="codex-chapter-tree" aria-label={t("Оглавление", "Contents")} hidden={compact && !chaptersOpen} onClick={(event) => {
             if (!(event.target as HTMLElement).closest("a")) return;
             setChaptersOpen(false);
             window.setTimeout(() => document.querySelector<HTMLElement>(".codex-main")?.focus({ preventScroll: true }), 0);
@@ -314,7 +334,7 @@ export function CodexView() {
               href={catalogLink()}
               onClick={() => browse()}
             >
-              Оглавление
+              {t("Оглавление", "Contents")}
             </a>
             {readingParts.map((part, partIndex) => (
               <div className="codex-part" key={part.id}>
@@ -322,11 +342,11 @@ export function CodexView() {
                   <span className="codex-part-number" aria-hidden="true">
                     {ROMAN[partIndex] ?? partIndex + 1}
                   </span>
-                  {part.title}
+                  {readerLabel(part.title, locale)}
                 </p>
                 {part.chapters.map((c) => (
                   <details key={c} open={chapter === c} className="codex-tree-chapter">
-                    <summary>{bookChapterNumber(c)}. {c.replace(/^\d+\.\s*/, "")}</summary>
+                    <summary>{bookChapterNumber(c)}. {readerLabel(c.replace(/^\d+\.\s*/, ""), locale)}</summary>
                     <div className="codex-tree-children">
                       {[
                         ...new Set(
@@ -347,7 +367,7 @@ export function CodexView() {
                               entry?.id === article.id ? "page" : undefined
                             }
                           >
-                            {article.title}
+                            {displayTitle(article.id, article.title)}
                           </a>
                         ));
                         return g && groups.length > 1 ? (
@@ -355,7 +375,7 @@ export function CodexView() {
                             key={g}
                             open={chapter === c && group === g}
                           >
-                            <summary>{g}</summary>
+                            <summary>{displayGroup(g)}</summary>
                             <div className="codex-tree-children">
                               {links}
                             </div>
@@ -372,7 +392,7 @@ export function CodexView() {
                     key={extra.id}
                     open={extra.articleIds.includes(entryId)}
                   >
-                    <summary>{extra.title}</summary>
+                    <summary>{readerLabel(extra.title, locale)}</summary>
                     <div className="codex-tree-children">
                       {extra.articleIds.map((id) => (
                         <a
@@ -380,7 +400,7 @@ export function CodexView() {
                           href={codexArticleHref(id)}
                           aria-current={entry?.id === id ? "page" : undefined}
                         >
-                          {articleTitle(id)}
+                          {displayTitle(id, articleTitle(id))}
                         </a>
                       ))}
                     </div>
@@ -389,7 +409,7 @@ export function CodexView() {
               </div>
             ))}
             <a className="codex-nav-reference" href="#/reference/">
-              Справочник: классы, каталоги, глоссарий <Icon name="arrow-right" size={16} />
+              {t("Справочник: классы, каталоги, глоссарий", "Reference: classes, catalogs, glossary")} <Icon name="arrow-right" size={16} />
             </a>
           </nav>
           <a
@@ -398,7 +418,7 @@ export function CodexView() {
             target="_blank"
             rel="noreferrer"
           >
-            Исходный перевод ↗
+            {t("Исходный перевод", "Source translation")} ↗
           </a>
         </aside>
         <div className="codex-main" tabIndex={-1}>
@@ -409,41 +429,45 @@ export function CodexView() {
                 size="sm"
                 icon="arrow-left"
                 iconOnly
-                aria-label="К оглавлению"
+                aria-label={t("К оглавлению", "Back to contents")}
                 onClick={() => {
                   browse();
                 }}
               >
-                <Icon name="arrow-left" size={16} /> К оглавлению
+                <Icon name="arrow-left" size={16} /> {t("К оглавлению", "Back to contents")}
               </Button>
-              <article id="codex-article" className="codex-article">
-                <nav className="codex-breadcrumb" aria-label="Путь статьи">
-                  <a href={catalogLink()} onClick={() => browse()}>
-                    Оглавление
-                  </a>
-                  <span>/</span>
-                  <a
-                    href={catalogLink(chapter)}
-                    onClick={() => browse(chapter)}
-                  >
-                    {chapter.replace(/^\d+\.\s*/, "")}
-                  </a>
-                  {group && (
-                    <>
-                      <span>/</span>
-                      <a
-                        href={catalogLink(chapter, group)}
-                        onClick={() => browse(chapter, group)}
-                      >
-                        {group}
-                      </a>
-                    </>
-                  )}
-                </nav>
+              <article id="codex-article" className="codex-article" lang={articleLanguage}>
+                <div className="codex-article-tools">
+                  <nav className="codex-breadcrumb" aria-label={t("Путь статьи", "Article path")}>
+                    <a href={catalogLink()} onClick={() => browse()}>
+                      {t("Оглавление", "Contents")}
+                    </a>
+                    <span>/</span>
+                    <a
+                      href={catalogLink(chapter)}
+                      onClick={() => browse(chapter)}
+                    >
+                      {readerLabel(chapter.replace(/^\d+\.\s*/, ""), articleLanguage)}
+                    </a>
+                    {group && (
+                      <>
+                        <span>/</span>
+                        <a
+                          href={catalogLink(chapter, group)}
+                          onClick={() => browse(chapter, group)}
+                        >
+                          {displayGroup(group)}
+                        </a>
+                      </>
+                    )}
+                  </nav>
+                  {articleEnglishAvailable && <ArticleLanguageSwitch language={articleLanguage} setLanguage={setArticleLanguage} />}
+                  {loaded && !articleEnglishAvailable && locale === "en" && <span className="muted small" lang="en">Russian text only</span>}
+                </div>
                 {(!creatureSheet || !loaded) && <header className="codex-article-head">
                   <div>
-                    <h1>{entry.title}</h1>
-                    {loaded?.article.originalName && (
+                    <h1>{articleLanguage === "en" ? loaded?.article.englishEdition?.title || loaded?.article.originalName || englishTitles[entry.id] || entry.title : entry.title}</h1>
+                    {articleLanguage === "ru" && loaded?.article.originalName && (
                       <p className="codex-original-title">
                         {loaded.article.originalName}
                       </p>
@@ -453,13 +477,13 @@ export function CodexView() {
                 </header>}
                 {headings.length > 0 && (
                   <section className="codex-inline-toc">
-                    <h3>В этой статье · {headings.length}</h3>
+                    <h3>{articleLanguage === "en" ? "In this article" : "В этой статье"} · {headings.length}</h3>
                     {headings.map((heading, i) => (
                       <a
                         key={`${heading.id}-${i}`}
                         href={`#/codex/${entry.id}/${encodeURIComponent(heading.id)}`}
                       >
-                        {headingLabel(heading.title)}
+                        {heading.title.replace(/\*\*/g, "").trim()}
                       </a>
                     ))}
                   </section>
@@ -470,25 +494,24 @@ export function CodexView() {
                   </Suspense>
                 )}
                 {loading && (
-                  <ReadingSkeleton label="Загружаем статью…" />
+                  <ReadingSkeleton label={t("Загружаем статью…", "Loading article…")} />
                 )}
                 {failure && (
                   <div className="codex-state codex-state-error" role="alert">
-                    <h2>Не удалось загрузить статью</h2>
+                    <h2>{t("Не удалось загрузить статью", "Could not load article")}</h2>
                     <p>
-                      Проверьте подключение и попробуйте снова. Если ошибка
-                      повторяется, откройте другую статью Кодекса.
+                      {t("Проверьте подключение и попробуйте снова. Если ошибка повторяется, откройте другую статью Кодекса.", "Check your connection and try again, or open another article.")}
                     </p>
                     <p className="muted small">{failure.message}</p>
                     <Button size="sm" onClick={() => setAttempt((n) => n + 1)}>
-                      Повторить
+                      {t("Повторить", "Retry")}
                     </Button>
                   </div>
                 )}
                 {loaded &&
-                  (isEmptyArticle(loaded.article) ? (
+                  (isEmptyArticle(loaded.article) && !(articleLanguage === "en" && loaded.article.originalDescription) ? (
                     <p className="muted" role="status">
-                      Эта статья пока не заполнена в исходном переводе.
+                      {t("Эта статья пока не заполнена в исходном переводе.", "This article is empty in the source translation.")}
                     </p>
                   ) : (
                     <RuleArticleContent
@@ -498,26 +521,14 @@ export function CodexView() {
                       headingActions={creatureSheet ? bookmarkAction : undefined}
                     />
                   ))}
-                {loaded?.article.originalDescription && (
-                  <section className="codex-original">
-                    <h3>Оригинал (English)</h3>
-                    <div className="codex-original-text">
-                      <RuleMarkdown
-                        text={loaded.article.originalDescription}
-                        articleId={loaded.article.id}
-                      />
-                    </div>
-                  </section>
-                )}
                 {loaded && entry.id === "0701" && (
                   <section
                     className="codex-class-overview"
                     aria-labelledby="codex-class-overview-title"
                   >
-                    <h2 id="codex-class-overview-title">Десять классов</h2>
+                    <h2 id="codex-class-overview-title">{t("Десять классов", "Ten classes")}</h2>
                     <p className="muted">
-                      Полные описания с особенностями, способностями и всеми
-                      десятью уровнями — в Справочнике.
+                      {t("Полные описания с особенностями, способностями и всеми десятью уровнями — в Справочнике.", "Find full descriptions, features, abilities and all ten levels in the Reference.")}
                     </p>
                     <div className="codex-class-grid">
                       {classLandings.map((landing) => (
@@ -526,9 +537,9 @@ export function CodexView() {
                           key={landing.classId}
                           href={classLandingHref(landing.slug)}
                         >
-                          <strong>{landing.name}</strong>
+                          <strong>{readerLabel(landing.name, articleLanguage)}</strong>
                           <span className="muted">
-                            {landing.levelArticleIds.length} уровней
+                            {landing.levelArticleIds.length} {t("уровней", "levels")}
                           </span>
                         </a>
                       ))}
@@ -541,10 +552,10 @@ export function CodexView() {
                       size="sm"
                       icon="arrow-left"
                       iconOnly
-                      aria-label={`Предыдущая статья: ${siblings[position - 1].title}`}
+                      aria-label={`${t("Предыдущая статья", "Previous article")}: ${displayTitle(siblings[position - 1].id, siblings[position - 1].title)}`}
                       onClick={() => open(siblings[position - 1].id)}
                     >
-                      <Icon name="arrow-left" size={16} /> {siblings[position - 1].title}
+                      <Icon name="arrow-left" size={16} /> {displayTitle(siblings[position - 1].id, siblings[position - 1].title)}
                     </Button>
                   )}
                   {position < siblings.length - 1 && (
@@ -552,10 +563,10 @@ export function CodexView() {
                       size="sm"
                       icon="chevron-right"
                       iconOnly
-                      aria-label={`Следующая статья: ${siblings[position + 1].title}`}
+                      aria-label={`${t("Следующая статья", "Next article")}: ${displayTitle(siblings[position + 1].id, siblings[position + 1].title)}`}
                       onClick={() => open(siblings[position + 1].id)}
                     >
-                      {siblings[position + 1].title} <Icon name="arrow-right" size={16} />
+                      {displayTitle(siblings[position + 1].id, siblings[position + 1].title)} <Icon name="arrow-right" size={16} />
                     </Button>
                   )}
                 </footer>
@@ -563,13 +574,12 @@ export function CodexView() {
             </>
           ) : missingArticle ? (
             <div className="codex-state codex-state-missing" role="alert">
-              <h2>Статья не найдена</h2>
+              <h2>{t("Статья не найдена", "Article not found")}</h2>
               <p>
-                Возможно, ссылка устарела или содержит опечатку. Вернитесь к
-                оглавлению и выберите статью заново.
+                {t("Возможно, ссылка устарела или содержит опечатку. Вернитесь к оглавлению и выберите статью заново.", "This link may be outdated or mistyped. Return to the contents and choose an article.")}
               </p>
               <Button size="sm" onClick={() => browse()}>
-                К оглавлению
+                {t("К оглавлению", "Back to contents")}
               </Button>
             </div>
           ) : (
@@ -578,25 +588,25 @@ export function CodexView() {
                 <div>
                   <span className="eyebrow">
                     {needle
-                      ? "По всему Кодексу"
+                      ? t("По всему Кодексу", "Across the Codex")
                       : onlyBookmarks
-                        ? "Ваша библиотека"
-                        : "Библиотека правил"}
+                        ? t("Ваша библиотека", "Your library")
+                        : t("Библиотека правил", "Rules library")}
                   </span>
                   <h2>
                     {needle
-                      ? "Результаты поиска"
+                      ? t("Результаты поиска", "Search results")
                       : onlyBookmarks
-                        ? "Закладки"
-                        : group ||
-                          chapter.replace(/^\d+\.\s*/, "") ||
-                          "Оглавление"}
+                        ? t("Закладки", "Bookmarks")
+                        : displayGroup(group) ||
+                          readerLabel(chapter.replace(/^\d+\.\s*/, ""), locale) ||
+                          t("Оглавление", "Contents")}
                   </h2>
                   {(needle || onlyBookmarks) && (
                     <p className="muted" role="status">
                       {searchPending
-                        ? "Ищем по всему Кодексу…"
-                        : `Найдено статей: ${resultEntries.length}`}
+                        ? t("Ищем по всему Кодексу…", "Searching the Codex…")
+                        : `${t("Найдено статей", "Articles found")}: ${resultEntries.length}`}
                     </p>
                   )}
                 </div>
@@ -605,38 +615,37 @@ export function CodexView() {
                     href={catalogLink(group ? chapter : "")}
                     onClick={() => browse(group ? chapter : "")}
                   >
-                    <Icon name="arrow-left" size={16} /> {group ? "К главе" : "Оглавление"}
+                    <Icon name="arrow-left" size={16} /> {group ? t("К главе", "Back to chapter") : t("Оглавление", "Contents")}
                   </a>
                 )}
               </div>
               {searchPending && (
-                <ReadingSkeleton label="Загружаем полный текст правил для поиска…" />
+                <ReadingSkeleton label={t("Загружаем полный текст правил для поиска…", "Loading rules search…")} />
               )}
               {searchFailed && (
                 <div
                   className="codex-state codex-state-error codex-state-search"
                   role="alert"
                 >
-                  <h2>Не удалось загрузить поиск</h2>
+                  <h2>{t("Не удалось загрузить поиск", "Could not load search")}</h2>
                   <p>
-                    Браузер не получил поисковый индекс. Проверьте подключение
-                    и попробуйте снова — чтение статей работает без него.
+                    {t("Браузер не получил поисковый индекс. Проверьте подключение и попробуйте снова — чтение статей работает без него.", "The search index could not be loaded. Check your connection and try again; articles remain available.")}
                   </p>
                   <p className="muted small">{searchFailure}</p>
                   <Button
                     size="sm"
                     onClick={() => setSearchAttempt((n) => n + 1)}
                   >
-                    Повторить поиск
+                    {t("Повторить поиск", "Retry search")}
                   </Button>
                 </div>
               )}
               {showEmptyState && (
                 <EmptyState
                   icon={onlyBookmarks && !needle ? "bookmark" : "search"}
-                  title={onlyBookmarks && !needle ? "Здесь будут ваши закладки" : "Ничего не найдено"}
-                  text={onlyBookmarks && !needle ? "Откройте статью и нажмите «В закладки»." : "Попробуйте другое название или более короткий запрос."}
-                  action={needle ? <Button onClick={() => setQuery("")}>Сбросить поиск</Button> : undefined}
+                  title={onlyBookmarks && !needle ? t("Здесь будут ваши закладки", "Your bookmarks will appear here") : t("Ничего не найдено", "Nothing found")}
+                  text={onlyBookmarks && !needle ? t("Откройте статью и нажмите «В закладки».", "Open an article and select Bookmark.") : t("Попробуйте другое название или более короткий запрос.", "Try another title or a shorter search.")}
+                  action={needle ? <Button onClick={() => setQuery("")}>{t("Сбросить поиск", "Clear search")}</Button> : undefined}
                 />
               )}
               {!needle && !onlyBookmarks && (
@@ -645,15 +654,15 @@ export function CodexView() {
                     <section className="codex-recent" aria-labelledby="codex-recent-title">
                       <header>
                         <h3 id="codex-recent-title">
-                          <Icon name="history" size={18} aria-hidden="true" /> Недавно открытые
+                          <Icon name="history" size={18} aria-hidden="true" /> {t("Недавно открытые", "Recently opened")}
                         </h3>
                         <Button
                           size="sm"
                           variant="ghost"
                           icon="close"
                           iconOnly
-                          aria-label="Очистить историю чтения"
-                          title="Очистить историю чтения"
+                          aria-label={t("Очистить историю чтения", "Clear reading history")}
+                          title={t("Очистить историю чтения", "Clear reading history")}
                           onClick={clearHistory}
                         />
                       </header>
@@ -661,8 +670,8 @@ export function CodexView() {
                         {recentEntries.map((article) => (
                           <a key={article.id} href={codexArticleHref(article.id)}>
                             <span>
-                              <strong>{article.title}</strong>
-                              <small>{article.chapter.replace(/^\d+\.\s*/, "")}</small>
+                              <strong>{displayTitle(article.id, article.title)}</strong>
+                              <small>{readerLabel(article.chapter.replace(/^\d+\.\s*/, ""), locale)}</small>
                             </span>
                             <Icon name="arrow-right" size={16} aria-hidden="true" />
                           </a>
@@ -672,8 +681,7 @@ export function CodexView() {
                   )}
                   <a className="codex-reference-banner" href="#/reference/">
                     <span>
-                      <strong>Справочник</strong> — классы, происхождения,
-                      карьеры, комплекты, перки, каталоги наград и глоссарий
+                      <strong>{t("Справочник", "Reference")}</strong> — {t("классы, происхождения, карьеры, комплекты, перки, каталоги наград и глоссарий", "classes, ancestries, careers, kits, perks, rewards and glossary")}
                     </span>
                     <Icon name="arrow-right" size={16} />
                   </a>
@@ -684,9 +692,9 @@ export function CodexView() {
                     >
                       <div className="codex-part-head">
                         <span className="eyebrow">
-                          Часть {ROMAN[partIndex] ?? partIndex + 1}
+                          {t("Часть", "Part")} {ROMAN[partIndex] ?? partIndex + 1}
                         </span>
-                        <h2>{part.title}</h2>
+                        <h2>{readerLabel(part.title, locale)}</h2>
                       </div>
                       <div className="codex-collections">
                         {part.chapters.map((name) => {
@@ -703,11 +711,11 @@ export function CodexView() {
                           return (
                             <section className="codex-collection" key={name}>
                               <span className="eyebrow">
-                                Глава {String(bookChapterNumber(name)).padStart(2, "0")}
+                                {t("Глава", "Chapter")} {String(bookChapterNumber(name)).padStart(2, "0")}
                               </span>
                               <h3>
                                 <a href={catalogLink(name)}>
-                                  {name.replace(/^\d+\.\s*/, "")}
+                                  {readerLabel(name.replace(/^\d+\.\s*/, ""), locale)}
                                 </a>
                               </h3>
                               {sections.length ? (
@@ -717,10 +725,10 @@ export function CodexView() {
                                 >
                                   {sections.slice(0, 3).map((section) => (
                                     <a
-                                      key={section}
+                                      key={displayGroup(section)}
                                       href={catalogLink(name, section)}
                                     >
-                                      {section}
+                                      {displayGroup(section)}
                                     </a>
                                   ))}
                                 </nav>
@@ -728,7 +736,7 @@ export function CodexView() {
                                 <p>
                                   {entries
                                     .slice(0, 3)
-                                    .map((article) => article.title)
+                                    .map((article) => displayTitle(article.id, article.title))
                                     .join(" · ")}
                                 </p>
                               )}
@@ -737,16 +745,16 @@ export function CodexView() {
                         })}
                         {part.extras.map((extra) => (
                           <section className="codex-collection" key={extra.id}>
-                            <span className="eyebrow">Подборка</span>
+                            <span className="eyebrow">{t("Подборка", "Collection")}</span>
                             <h3>
                               <a href={codexArticleHref(extra.articleIds[0])}>
-                                {extra.title}
+                                {readerLabel(extra.title, locale)}
                               </a>
                             </h3>
                             <p>
                               {extra.articleIds
                                 .slice(0, 3)
-                                .map((id) => articleTitle(id))
+                                .map((id) => displayTitle(id, articleTitle(id)))
                                 .join(" · ")}
                             </p>
                           </section>
@@ -760,7 +768,7 @@ export function CodexView() {
                 <PaginatedResults
                   key={JSON.stringify([needle, onlyBookmarks, chapter, group, bookmarks])}
                   items={resultEntries}
-                  label="Статьи"
+                  label={t("Статьи", "Articles")}
                 >
                   {(pageItems) => (
                     <div className="codex-results">
@@ -773,10 +781,10 @@ export function CodexView() {
                             href={codexArticleHref(article.id)}
                           >
                             <span className="eyebrow">
-                              {article.chapter}
-                              {article.group && ` / ${article.group}`}
+                              {readerLabel(article.chapter, locale)}
+                              {article.group && ` / ${displayGroup(article.group)}`}
                             </span>
-                            <h3>{article.title}</h3>
+                            <h3>{displayTitle(article.id, article.title)}</h3>
                             {needle && <p>{excerpt}…</p>}
                           </a>
                         );
@@ -789,8 +797,8 @@ export function CodexView() {
           )}
         </div>
         {entry && headings.length > 0 && (
-          <nav className="codex-toc" aria-label="В этой статье">
-            <span className="eyebrow">В этой статье</span>
+          <nav className="codex-toc" aria-label={articleLanguage === "en" ? "In this article" : "В этой статье"}>
+            <span className="eyebrow">{articleLanguage === "en" ? "In this article" : "В этой статье"}</span>
             {headings.map((heading, i) => (
               <a
                 key={`${heading.id}-${i}`}
@@ -800,12 +808,13 @@ export function CodexView() {
                 }
                 href={`#/codex/${entry.id}/${encodeURIComponent(heading.id)}`}
               >
-                {headingLabel(heading.title)}
+                {heading.title.replace(/\*\*/g, "").trim()}
               </a>
             ))}
           </nav>
         )}
       </div>
     </div>
+    </ArticleLanguageScope>
   );
 }

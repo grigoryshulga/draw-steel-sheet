@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useMemo, useState } from "react";
 import type {
   Ability,
@@ -56,6 +57,7 @@ export function AbilityPicker({
   onCreateOwn,
   onOpenTemplates,
 }: AbilityPickerProps) {
+  const { t, locale } = useLocale();
   const [query, setQuery] = useState("");
   const [source, setSource] = useState<SourceFilter>("all");
   const [classFilter, setClassFilter] = useState("all");
@@ -97,6 +99,7 @@ export function AbilityPicker({
       if (needle) {
         const haystack = [
           entry.name,
+          entry.originalName || "",
           entry.keywords.join(" "),
           entry.flavor,
           entry.effect,
@@ -140,19 +143,19 @@ export function AbilityPicker({
       title={
         <span className="abil-picker-title">
           <Icon name="book" size={18} />
-          Каталог способностей
+          {t("Каталог способностей", "Ability catalog")}
         </span>
       }
       footer={
         <div className="abil-picker-footer">
           {onOpenTemplates && (
             <Button variant="ghost" icon="sword" onClick={onOpenTemplates}>
-              Базовые действия
+              {t("Базовые действия", "Basic actions")}
             </Button>
           )}
           {onCreateOwn && (
             <Button variant="ghost" icon="plus" onClick={onCreateOwn}>
-              Создать свою
+              {t("Создать свою", "Create custom")}
             </Button>
           )}
           <span className="grow" />
@@ -162,7 +165,7 @@ export function AbilityPicker({
             disabled={!selected}
             onClick={add}
           >
-            {selectedOwned ? "Добавить ещё" : "Добавить в лист"}
+            {selectedOwned ? t("Добавить ещё", "Add another") : t("Добавить в лист", "Add to sheet")}
           </Button>
         </div>
       }
@@ -173,7 +176,7 @@ export function AbilityPicker({
           <TextInput
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Поиск по названию или эффекту…"
+            placeholder={t("Поиск по названию или эффекту…", "Search name or effect…")}
           />
         </div>
         <div className="abil-chips">
@@ -183,16 +186,16 @@ export function AbilityPicker({
               active={source === item.key}
               onClick={() => setSource(item.key)}
             >
-              {item.label}
+              {locale === "en" ? ({ all: "All", class: "Classes", kit: "Kits", basic: "Basic" } as const)[item.key] : item.label}
             </Chip>
           ))}
         </div>
         <Select
           value={classFilter}
           onChange={(event) => setClassFilter(event.target.value)}
-          aria-label="Класс"
+          aria-label={t("Класс", "Class")}
         >
-          <option value="all">Все классы</option>
+          <option value="all">{t("Все классы", "All classes")}</option>
           {classOptions.map((name) => (
             <option key={name} value={name}>
               {name}
@@ -202,12 +205,12 @@ export function AbilityPicker({
         <Select
           value={level}
           onChange={(event) => setLevel(event.target.value)}
-          aria-label="Уровень"
+          aria-label={t("Уровень", "Level")}
         >
-          <option value="all">Любой уровень</option>
+          <option value="all">{t("Любой уровень", "Any level")}</option>
           {Array.from({ length: 10 }, (_, index) => index + 1).map((value) => (
             <option key={value} value={value}>
-              Уровень {value}
+              {t("Уровень", "Level")} {value}
             </option>
           ))}
         </Select>
@@ -216,12 +219,12 @@ export function AbilityPicker({
           onChange={(event) =>
             setActionFilter(event.target.value as "all" | ActionType)
           }
-          aria-label="Тип действия"
+          aria-label={t("Тип действия", "Action type")}
         >
-          <option value="all">Любое действие</option>
+          <option value="all">{t("Любое действие", "Any action")}</option>
           {ACTION_TYPES.map((type) => (
             <option key={type.key} value={type.key}>
-              {type.label}
+              {locale === "en" ? ({ main: "Main action", maneuver: "Maneuver", move: "Move action", trigger: "Triggered action", "free-trigger": "Free triggered action", "free-maneuver": "Free maneuver", none: "No action" } as const)[type.key] : type.label}
             </option>
           ))}
         </Select>
@@ -230,12 +233,12 @@ export function AbilityPicker({
           onChange={(event) =>
             setKindFilter(event.target.value as "all" | AbilityKind)
           }
-          aria-label="Вид"
+          aria-label={t("Вид", "Kind")}
         >
-          <option value="all">Любой вид</option>
+          <option value="all">{t("Любой вид", "Any kind")}</option>
           {ABILITY_KINDS.map((kind) => (
             <option key={kind.key} value={kind.key}>
-              {kind.label}
+              {locale === "en" ? ({ signature: "Signature", heroic: "Heroic", "free-strike": "Free strike", other: "Other" } as const)[kind.key] : kind.label}
             </option>
           ))}
         </Select>
@@ -244,8 +247,8 @@ export function AbilityPicker({
       {ABILITY_COMPENDIUM.length === 0 ? (
         <EmptyState
           icon="book"
-          title="Каталог пуст"
-          text="Записи способностей ещё не загружены."
+          title={t("Каталог пуст", "Catalog is empty")}
+          text={t("Записи способностей ещё не загружены.", "Ability entries have not loaded yet.")}
         />
       ) : (
         <div className="abil-picker-body">
@@ -253,8 +256,8 @@ export function AbilityPicker({
             {filtered.length === 0 && (
               <EmptyState
                 icon="search"
-                title="Ничего не найдено"
-                text="Смягчите фильтры или поиск."
+                title={t("Ничего не найдено", "Nothing found")}
+                text={t("Смягчите фильтры или поиск.", "Try different filters or search terms.")}
               />
             )}
             {filtered.map((entry) => {
@@ -268,14 +271,14 @@ export function AbilityPicker({
                   onClick={() => setSelectedId(entry.id)}
                 >
                   <span className="abil-picker-item-name">
-                    {entry.name}
+                    {locale === "en" && entry.originalDescription ? entry.originalName || entry.name : entry.name}
                     {isOwned && (
-                      <span className="abil-owned-badge">в листе</span>
+                      <span className="abil-owned-badge">{t("в листе", "on sheet")}</span>
                     )}
                   </span>
                   <span className="abil-picker-item-meta">
-                    {entry.className} · ур. {entry.level} ·{" "}
-                    {actionShort(entry.actionType)} · {kindLabel(entry.kind)}
+                    {entry.className} · {t("ур.", "level")} {entry.level} ·{" "}
+                    {locale === "en" ? entry.actionType : actionShort(entry.actionType)} · {locale === "en" ? entry.kind : kindLabel(entry.kind)}
                   </span>
                 </button>
               );
@@ -286,6 +289,7 @@ export function AbilityPicker({
             {selected ? (
               <AbilityCard
                 ability={selected}
+                canonical
                 character={character}
                 full
                 className="abil-picker-card"
@@ -293,8 +297,8 @@ export function AbilityPicker({
             ) : (
               <EmptyState
                 icon="book"
-                title="Выберите способность"
-                text="Превью появится справа."
+                title={t("Выберите способность", "Choose an ability")}
+                text={t("Превью появится справа.", "A preview will appear here.")}
               />
             )}
           </aside>

@@ -1,3 +1,4 @@
+import { useLocale } from "../i18n/locale";
 import { useRef, type ChangeEvent } from "react";
 import { Button } from "../components/ui";
 import { Icon } from "../components/Icons";
@@ -12,21 +13,21 @@ export interface WelcomeViewProps {
   busy?: boolean;
 }
 
-const STEPS = [
+const welcomeSteps = (t: (ru: string, en: string) => string) => [
   {
     icon: "plus" as const,
-    title: "Создайте героя",
-    description: "Соберите героя по шагам или начните с пустого листа.",
+    title: t("Создайте героя", "Create your hero"),
+    description: t("Соберите героя по шагам или начните с пустого листа.", "Build a hero step by step or start with a blank sheet."),
   },
   {
     icon: "sheet" as const,
-    title: "Играйте с листом",
-    description: "Отмечайте ресурсы, способности, снаряжение и записи журнала.",
+    title: t("Играйте с листом", "Play from your sheet"),
+    description: t("Отмечайте ресурсы, способности, снаряжение и записи журнала.", "Track resources, abilities, equipment, and journal entries."),
   },
   {
     icon: "book" as const,
-    title: "Держите правила под рукой",
-    description: "Открывайте Кодекс, когда понадобится уточнить правило.",
+    title: t("Держите правила под рукой", "Keep the rules handy"),
+    description: t("Открывайте Кодекс, когда понадобится уточнить правило.", "Look up a rule in the Codex during play."),
   },
 ];
 
@@ -36,6 +37,7 @@ export function WelcomeView({
   onOpenCodex,
   busy = false,
 }: WelcomeViewProps) {
+  const { t } = useLocale();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (event: ChangeEvent<HTMLInputElement>) => {
@@ -50,11 +52,10 @@ export function WelcomeView({
       <div className="welcome-frame">
         <div className="welcome-hero">
           <SiteLogo variant="wordmark" className="site-logo--welcome" />
-          <p className="welcome-kicker">ВАШЕ ПРИКЛЮЧЕНИЕ В DRAW STEEL</p>
-          <h1 id="welcome-title">Время создать героя</h1>
+          <p className="welcome-kicker">{t("ВАШЕ ПРИКЛЮЧЕНИЕ В DRAW STEEL", "YOUR DRAW STEEL ADVENTURE")}</p>
+          <h1 id="welcome-title">{t("Время создать героя", "Time to create a hero")}</h1>
           <p className="welcome-lead">
-            Соберите лист для игры, вернитесь к нему в любой момент и держите
-            нужные правила рядом.
+            {t("Соберите лист для игры, вернитесь к нему в любой момент и держите нужные правила рядом.", "Build your character sheet, return to it between sessions, and keep the rules you need close at hand.")}
           </p>
 
           <div className="welcome-actions">
@@ -65,7 +66,7 @@ export function WelcomeView({
               disabled={busy}
               onClick={onCreate}
             >
-              Создать героя
+              {t("Создать героя", "Create a hero")}
             </Button>
             <Button
               size="lg"
@@ -73,22 +74,21 @@ export function WelcomeView({
               disabled={busy}
               onClick={() => fileInputRef.current?.click()}
             >
-              Импортировать JSON
+              {t("Импортировать JSON", "Import JSON")}
             </Button>
             <input
               ref={fileInputRef}
               className="welcome-file-input"
               type="file"
               accept=".json,application/json"
-              aria-label="Выберите файл героя в формате JSON"
+              aria-label={t("Выберите файл героя в формате JSON", "Choose a character JSON file")}
               disabled={busy}
               onChange={handleFile}
             />
           </div>
           <p className="welcome-save-note">
             <Icon name="cloud" size={15} />
-            Изменения сохраняются автоматически. Статус сохранения виден рядом с
-            именем героя.
+            {t("Изменения сохраняются автоматически. Статус сохранения виден рядом с именем героя.", "Changes are saved automatically. Check the save status beside your hero’s name.")}
           </p>
         </div>
 
@@ -98,11 +98,11 @@ export function WelcomeView({
             aria-labelledby="welcome-steps-title"
           >
             <h2 id="welcome-steps-title">
-              Всё нужное для игры — в одном месте
+              {t("Всё нужное для игры — в одном месте", "Everything you need to play")}
             </h2>
             <ol>
-              {STEPS.map((step, index) => (
-                <li key={step.title}>
+              {welcomeSteps(t).map((step, index) => (
+                <li key={step.icon}>
                   <span className="welcome-step-icon" aria-hidden="true">
                     <Icon name={step.icon} size={17} />
                   </span>
@@ -123,8 +123,8 @@ export function WelcomeView({
               <Icon name="book" size={19} />
             </span>
             <div>
-              <h2>Правила всегда рядом</h2>
-              <p>Ищите термины и разделы в Кодексе, не покидая лист.</p>
+              <h2>{t("Правила всегда рядом", "Rules at the table")}</h2>
+              <p>{t("Ищите термины и разделы в Кодексе, не покидая лист.", "Look up terms and rulebook sections in the Codex.")}</p>
               <Button
                 variant="ghost"
                 size="sm"
@@ -132,16 +132,15 @@ export function WelcomeView({
                 disabled={busy}
                 onClick={onOpenCodex}
               >
-                Открыть Кодекс
+                {t("Открыть Кодекс", "Open the Codex")}
               </Button>
             </div>
           </aside>
         </div>
-        <aside className="welcome-brand-credit" aria-label="О совместимости">
+        <aside className="welcome-brand-credit" aria-label={t("О совместимости", "Compatibility")}>
           <DrawSteelLogo className="draw-steel-logo--credit" />
           <p>
-            Неофициальный инструмент для листов персонажей Draw Steel. Не
-            связан с MCDM Productions и не одобрен компанией.
+            {t("Неофициальный инструмент для листов персонажей Draw Steel. Не связан с MCDM Productions и не одобрен компанией.", "An unofficial character sheet for Draw Steel. Unaffiliated with and unendorsed by MCDM Productions.")}
           </p>
         </aside>
       </div>

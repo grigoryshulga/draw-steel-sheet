@@ -1,3 +1,5 @@
+import { storageMessage } from "../i18n/storage-messages";
+import { useLocale } from "../i18n/locale";
 import { useState } from "react";
 import type { CharacterPersistenceState } from "../lib/persistence/offline-repository";
 import { useAccount } from "../state/StorageScope";
@@ -19,6 +21,7 @@ export function PersistenceStatus({
   download: (id: string, version: "local" | "server") => void;
   allowSignOut: () => void;
 }) {
+  const { t, locale } = useLocale();
   const account = useAccount();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -29,7 +32,7 @@ export function PersistenceStatus({
     try {
       await action();
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Не удалось сохранить");
+      setError(cause instanceof Error ? cause.message : t("Не удалось сохранить", "Couldn’t save"));
     } finally {
       setBusy(false);
     }
@@ -45,42 +48,41 @@ export function PersistenceStatus({
       {(needsAttention || history.length > 0) && (
         <section
           className="save-error-banner persistence-status"
-          aria-label="Сохранение героев"
+          aria-label={t("Сохранение героев", "Hero saves")}
         >
           <div>
             {state.localError ? (
               <p role="alert">
-                <strong>Правки пока только в открытой вкладке.</strong>{" "}
-                {state.localError} Скачайте копию перед закрытием.
+                <strong>{t("Правки пока только в открытой вкладке.", "Your changes are only in this tab.")}</strong>{" "}
+                {storageMessage(state.localError, locale)} {t("Скачайте копию перед закрытием.", "Download a copy before closing.")}
               </p>
             ) : state.pendingCount > 0 ? (
               <p role="status">
-                На устройстве сохранены правки: {state.pendingCount}.{" "}
+                {t("На устройстве сохранены правки:", "Edits saved on this device:")} {state.pendingCount}.{" "}
                 {state.conflicts.length
-                  ? "Нужно выбрать версию героя."
-                  : "Синхронизируем при восстановлении связи."}
+                  ? t("Нужно выбрать версию героя.", "Choose which version of the hero to use.")
+                  : t("Синхронизируем при восстановлении связи.", "Changes will sync when you reconnect.")}
               </p>
             ) : (
               state.status === "offline" && (
                 <p role="status">
-                  Нет связи. Открыт сохранённый на этом устройстве лист.
+                  {t("Нет связи. Открыт сохранённый на этом устройстве лист.", "You’re offline. This sheet was saved on this device.")}
                 </p>
               )
             )}
-            {error && <p role="alert">{error}</p>}
+            {error && <p role="alert">{storageMessage(error, locale)}</p>}
             {state.conflicts.map((record) => (
               <div key={record.id}>
-                <h3>Две версии: {record.document.name}</h3>
+                <h3>{t("Две версии:", "Two versions:")} {record.document.name}</h3>
                 <p>
-                  На устройстве:{" "}
-                  {new Date(record.editedAt).toLocaleString("ru")}. На сервере:{" "}
+                  {t("На устройстве:", "On this device:")}{" "}
+                  {new Date(record.editedAt).toLocaleString(locale)}. {t("На сервере:", "On the server:")}{" "}
                   {record.conflict?.server
                     ? new Date(record.conflict.server.updatedAt).toLocaleString(
-                        "ru",
+                        locale,
                       )
-                    : "герой удалён"}
-                  . Выбор заменит текущий лист; обе копии останутся доступны
-                  ниже.
+                    : t("герой удалён", "hero deleted")}
+                  . {t("Выбор заменит текущий лист; обе копии останутся доступны ниже.", "Your choice replaces the current sheet. Both copies remain available below.")}
                 </p>
                 <div className="hstack wrap">
                   <Button
@@ -89,7 +91,7 @@ export function PersistenceStatus({
                       void run(() => resolve(record.id, "keep-local"))
                     }
                   >
-                    Сохранить мою версию
+                    {t("Сохранить мою версию", "Keep my version")}
                   </Button>
                   <Button
                     disabled={busy}
@@ -97,14 +99,14 @@ export function PersistenceStatus({
                       void run(() => resolve(record.id, "use-server"))
                     }
                   >
-                    Взять серверную версию
+                    {t("Взять серверную версию", "Use server version")}
                   </Button>
                 </div>
               </div>
             ))}
             {state.recoveries.length > 0 && (
               <section>
-                <h3>Скачать сохранённые копии</h3>
+                <h3>{t("Скачать сохранённые копии", "Download saved copies")}</h3>
                 {state.recoveries
                   .filter(
                     (record) => record.state === "pending" || record.conflict,
@@ -113,14 +115,14 @@ export function PersistenceStatus({
                     <div className="hstack wrap" key={record.id}>
                       <span>
                         {record.document.name} ·{" "}
-                        {new Date(record.editedAt).toLocaleString("ru")}
+                        {new Date(record.editedAt).toLocaleString(locale)}
                       </span>
                       <Button onClick={() => download(record.id, "local")}>
-                        Моя копия
+                        {t("Моя копия", "My copy")}
                       </Button>
                       {record.conflict?.server && (
                         <Button onClick={() => download(record.id, "server")}>
-                          Серверная копия
+                          {t("Серверная копия", "Server copy")}
                         </Button>
                       )}
                     </div>
@@ -130,7 +132,7 @@ export function PersistenceStatus({
           </div>
           {(state.pendingCount > 0 || state.localError) && (
             <Button icon="refresh" iconOnly disabled={busy} onClick={() => void run(retry)}>
-              Повторить сохранение
+              {t("Повторить сохранение", "Retry save")}
             </Button>
           )}
         </section>
@@ -138,10 +140,10 @@ export function PersistenceStatus({
       <Modal
         open={Boolean(account?.pendingSignOut)}
         onClose={() => account?.cancelSignOut?.()}
-        title="Остались несинхронизированные правки"
+        title={t("Остались несинхронизированные правки", "You have unsynced changes")}
         footer={
           <>
-            <Button onClick={() => account?.cancelSignOut?.()}>Остаться</Button>
+            <Button onClick={() => account?.cancelSignOut?.()}>{t("Остаться", "Stay signed in")}</Button>
             <Button
               disabled={Boolean(account?.pendingSignOut?.localError)}
               onClick={() => {
@@ -149,20 +151,17 @@ export function PersistenceStatus({
                 account?.signOut();
               }}
             >
-              Выйти, сохранив правки на устройстве
+              {t("Выйти, сохранив правки на устройстве", "Sign out and keep edits on this device")}
             </Button>
           </>
         }
       >
         <p>
-          Правки привязаны к этому аккаунту. Они будут отправлены после
-          следующего входа с этого устройства. Очистка данных браузера удалит
-          локальные копии.
+          {t("Правки привязаны к этому аккаунту. Они будут отправлены после следующего входа с этого устройства. Очистка данных браузера удалит локальные копии.", "Your changes belong to this account and will sync the next time you sign in on this device. Clearing browser data deletes local copies.")}
         </p>
         {account?.pendingSignOut?.localError && (
           <p role="alert">
-            Хранилище устройства недоступно. Сначала скачайте копии героев или
-            повторите сохранение.
+            {t("Хранилище устройства недоступно. Сначала скачайте копии героев или повторите сохранение.", "Device storage is unavailable. Download your heroes or retry saving first.")}
           </p>
         )}
         {state.recoveries
@@ -172,7 +171,7 @@ export function PersistenceStatus({
               key={record.id}
               onClick={() => download(record.id, "local")}
             >
-              Скачать: {record.document.name}
+              {t("Скачать:", "Download:")} {record.document.name}
             </Button>
           ))}
       </Modal>

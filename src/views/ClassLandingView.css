@@ -594,3 +594,20 @@
 .class-hero:has(.class-hero-bookmark) .class-hero-credit {
   top: calc(var(--space-5) + 40px);
 }
+
+.class-hero > .rule-reader-language {
+  position: absolute;
+  inset-block-start: var(--space-5);
+  inset-inline-end: var(--space-5);
+  z-index: 2;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-xs);
+  background: var(--surface);
+}
+.class-hero:has(.class-hero-bookmark) > .rule-reader-language {
+  inset-inline-end: calc(var(--space-5) + 44px);
+}
+.class-hero:has(> .rule-reader-language) .class-hero-credit {
+  top: auto;
+  bottom: var(--space-4);
+}

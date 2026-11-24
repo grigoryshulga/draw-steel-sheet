@@ -1,0 +1,90 @@
+{
+  "Помощь в атаке": {
+    "id": "basic.aid-attack",
+    "name": "Aid Attack",
+    "description": "A creature who uses the Aid Attack maneuver chooses an enemy adjacent to them. The next ability roll an ally makes against that enemy before the start of the aiding creature's next turn gains an edge.",
+    "action": "Maneuver",
+    "distance": "Melee 1",
+    "summary": "A creature who uses the Aid Attack maneuver chooses an enemy adjacent to them. The next ability roll an ally makes against that enemy before the start of the aiding creature's next turn gains an edge."
+  },
+  "Передышка": {
+    "id": "basic.catch-breath",
+    "name": "Catch Breath",
+    "description": "A creature who uses the Catch Breath maneuver spends a Recovery and regains Stamina equal to their recovery value. (See below for Stamina. See Recoveries in Chapter 1: The Basics.)\n\nA creature who is dying (see Dying and Death in Stamina below) can't use the Catch Breath maneuver, but other creatures can help them spend Recoveries in other ways.",
+    "action": "Maneuver",
+    "distance": "Self",
+    "summary": "A creature who uses the Catch Breath maneuver spends a Recovery and regains Stamina equal to their recovery value. (See below for Stamina. See Recoveries in Chapter 1: The Basics.)"
+  },
+  "Ускользание": {
+    "id": "feature.ability.common.escape-grab",
+    "name": "Escape Grab",
+    "description": "| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** No effect.\n- **12-16:** You can escape the grab, but if you do, a creature who has you grabbed can make a melee free strike against you before you are no longer grabbed.\n- **17+:** You are no longer grabbed.\n\n**Effect:** You take a bane on this maneuver if your size is smaller than the size of the creature, object, or effect that has you grabbed.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition.",
+    "action": "Maneuver",
+    "distance": "Self",
+    "summary": "Power Roll + Might or Agility"
+  },
+  "Захват": {
+    "id": "feature.ability.common.grab",
+    "name": "Grab",
+    "description": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** No effect.\n- **12-16:** You can grab the target, but if you do, the target can make a melee free strike against you before they are grabbed.\n- **17+:** The target is grabbed by you.\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score.\n\nUnless otherwise indicated, a creature can grab only one creature at a time.\n\nSee Conditions in Chapter 5: Classes for information on the grabbed condition.",
+    "action": "Maneuver",
+    "distance": "Melee 1",
+    "summary": "Power Roll + Might"
+  },
+  "Отталкивание": {
+    "id": "feature.ability.common.knockback",
+    "name": "Knockback",
+    "description": "| **Melee, Weapon** |        **Maneuver** |\n|-------------------|--------------------:|\n| **📏 Melee 1**    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3\n\n**Effect:** You can usually target only creatures of your size or smaller. If your Might score is 2 or higher, you can target any creature with a size equal to or less than your Might score.",
+    "action": "Maneuver",
+    "distance": "Melee 1",
+    "summary": "Power Roll + Might"
+  },
+  "Рывок": {
+    "id": "basic.charge",
+    "name": "Charge",
+    "description": "When a creature takes the Charge main action, they move up to their speed in a straight line, then make a melee free strike (see Free Strikes below) against a target when they end their move. If the creature has an ability with the Charge keyword, they can use that ability against the target instead of a free strike.\n\nA creature can't move through difficult terrain or shift when they charge. They can fly or burrow as part of the Charge main action if they have that movement available to them, but they can't climb or swim while charging unless they can automatically use that movement at full speed.",
+    "action": "Main action",
+    "distance": "Your speed",
+    "summary": "When a creature takes the Charge main action, they move up to their speed in a straight line, then make a melee free strike (see Free Strikes below) against a target when they end their move. If the creature has an ability with the Charge keyword, they can use that ability against the target instead of a free strike."
+  },
+  "Защита": {
+    "id": "basic.defend",
+    "name": "Defend",
+    "description": "When a creature takes the Defend main action, ability rolls made against them have a double bane until the start of their next turn. Additionally, you have a double edge on tests when called for to resist environmental effects or a creature's traits or abilities. A creature gains no benefit from this action while another creature is taunted by them (see Conditions in Chapter 5: Classes).",
+    "action": "Main action",
+    "distance": "Self",
+    "summary": "When a creature takes the Defend main action, ability rolls made against them have a double bane until the start of their next turn. Additionally, you have a double edge on tests when called for to resist environmental effects or a creature's traits or abilities. A creature gains no benefit from this action while another creature is taunted by them (see Conditions in Chapter 5: Classes)."
+  },
+  "Лечение": {
+    "id": "basic.heal",
+    "name": "Heal",
+    "description": "A creature who uses the Heal main action employs medicine or inspiring words to make an adjacent creature feel better and stay in the fight. The target creature can spend a Recovery to regain Stamina, or can make a saving throw against one effect they are suffering that is ended by a saving throw.",
+    "action": "Main action",
+    "distance": "Melee 1",
+    "summary": "A creature who uses the Heal main action employs medicine or inspiring words to make an adjacent creature feel better and stay in the fight. The target creature can spend a Recovery to regain Stamina, or can make a saving throw against one effect they are suffering that is ended by a saving throw."
+  },
+  "Свободный удар ближнего боя": {
+    "id": "feature.ability.common.melee-weapon-free-strike",
+    "name": "Melee Weapon Free Strike",
+    "description": "| **Charge, Melee, Strike, Weapon**  |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 2 + M or A damage\n- **12-16:** 5 + M or A damage\n- **17+:** 7 + M or A damage",
+    "action": "Main action",
+    "distance": "Melee 1",
+    "summary": "Power Roll + Might or Agility"
+  },
+  "Свободный удар дальнего боя": {
+    "id": "feature.ability.common.ranged-weapon-free-strike",
+    "name": "Ranged Weapon Free Strike",
+    "description": "| **Ranged, Strike, Weapon**  |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Ranged 5**             | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 2 + M or A damage\n- **12-16:** 4 + M or A damage\n- **17+:** 6 + M or A damage",
+    "action": "Main action",
+    "distance": "Ranged 5",
+    "summary": "Power Roll + Might or Agility"
+  },
+  "Атака по возможности": {
+    "id": "basic.opportunity-attack",
+    "name": "Opportunity Attack",
+    "description": "Whenever a creature has an enemy adjacent to them and the enemy willingly moves to a space that isn't adjacent to the creature without shifting, the creature can take advantage of that movement to quickly make a melee free strike against the enemy as a free triggered action. This is called an opportunity attack.\n\nIf a creature has a bane or double bane on the power roll against the enemy, they can't make an opportunity attack.",
+    "action": "Free triggered action",
+    "distance": "Melee 1",
+    "summary": "Whenever a creature has an enemy adjacent to them and the enemy willingly moves to a space that isn't adjacent to the creature without shifting, the creature can take advantage of that movement to quickly make a melee free strike against the enemy as a free triggered action. This is called an opportunity attack."
+  }
+}

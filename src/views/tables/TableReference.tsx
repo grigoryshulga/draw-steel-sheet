@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useLayoutEffect, useRef, useState, type MouseEvent, type RefObject } from "react";
 import { Button } from "../../components/ui";
 import { RuleArticleReader } from "../../components/rules/RuleArticleReader";
@@ -6,6 +7,7 @@ import { LibraryLocationContext } from "../../lib/library-location";
 import { CatalogView } from "../CatalogView";
 
 export function TableReference({ scrollRoot }: { scrollRoot: RefObject<HTMLElement | null> }) {
+  const { t: tr } = useLocale();
   const [catalogHash, setCatalogHash] = useState("#/reference/");
   const [articleId, setArticleId] = useState("");
   const previousScroll = useRef(0);
@@ -59,7 +61,7 @@ export function TableReference({ scrollRoot }: { scrollRoot: RefObject<HTMLEleme
 
   return <section className="table-reference" onClick={followLink}>
     <div hidden={!!articleId}>
-      <h2>Справочник</h2>
+      <h2>{tr("Справочник", "Reference")}</h2>
       <LibraryLocationContext.Provider value={catalogHash}>
         <CatalogView embedded={{ navigate: navigateCatalog, scrollRoot }} />
       </LibraryLocationContext.Provider>
@@ -71,7 +73,7 @@ export function TableReference({ scrollRoot }: { scrollRoot: RefObject<HTMLEleme
           scrollRoot.current?.scrollTo({ top: previousScroll.current });
           articleSource.current?.focus({ preventScroll: true });
         });
-      }}>К справочнику</Button>
+      }}>{tr("К справочнику", "Open reference")}</Button>
       <RuleArticleReader articleId={articleId} />
     </section>}
   </section>;

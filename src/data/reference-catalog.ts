@@ -85,6 +85,8 @@ const PERK_ARTICLE_BY_TYPE: Record<PerkType, string> = {
 };
 
 export interface CatalogBrowserEntry {
+  originalId?: string;
+  originalName?: string;
   id: string;
   name: string;
   /** Надпись над названием: категория, тип перка или буква глоссария. */
@@ -111,7 +113,7 @@ function directorEntries(section: 'monsters' | 'retainers' | 'terrain'): Catalog
     const d = article.director;
     const summary = [d?.level !== undefined ? `Уровень ${d.level}` : '', d?.organization, d?.role,
       d?.ev ? `БЦ ${d.ev.replace(/for (?:four|4) minions/gi, "за 4 миньонов")}` : '', d?.size ? `Размер ${d.size}` : ''].filter(Boolean).join(' · ');
-    return { id: article.id, articleId: article.id, name: article.title, eyebrow: article.group,
+    return { id: article.id, articleId: article.id, name: article.title, originalName: d?.originalName, eyebrow: article.group,
       echelon: null, summary, search: [article.title, d?.originalName, article.group, summary, ...(d?.keywords ?? [])].join(' '), director: d };
   }).sort((a, b) => a.name.localeCompare(b.name, 'ru'));
 }
@@ -140,7 +142,7 @@ const careerByArticle = new Map(
 function consumerEntries(kind: CatalogEntry["kind"]): CatalogBrowserEntry[] {
   return CATALOG.filter((entry) => entry.kind === kind).map((entry) => ({
     id: entry.id,
-    name: entry.name,
+    name: entry.name, originalId: entry.originalId, originalName: entry.originalName,
     eyebrow: entry.category,
     echelon: entry.echelon,
     summary: entry.summary,
@@ -168,6 +170,7 @@ function ancestryEntries(): CatalogBrowserEntry[] {
         eyebrow: "",
         echelon: null,
         summary,
+        originalId: ancestry?.originalId, originalName: ancestry?.originalName,
         search: [name, summary, ancestry?.signature ?? ""].join(" "),
         articleId,
       },
@@ -187,6 +190,7 @@ function careerEntries(): CatalogBrowserEntry[] {
         eyebrow: "",
         echelon: null,
         summary: plainSummary(benefits),
+        originalId: career?.originalId, originalName: career?.originalName,
         search: [name, benefits].join(" "),
         articleId,
       },
@@ -207,12 +211,13 @@ function kitEntries(): CatalogBrowserEntry[] {
         eyebrow: "",
         echelon: null,
         summary: kit?.summary ?? "",
+        originalId: kit?.originalId, originalName: kit?.originalName,
         search: [name, kit?.summary ?? "", kit?.equipment ?? ""].join(" "),
         articleId,
       },
       ...REFERENCE_PREVIEW.kits.filter((variant) => variant.familyId === kit?.id).map((variant) => ({
         id: variant.id,
-        name: variant.name,
+        name: variant.name, originalId: variant.originalId, originalName: variant.originalName,
         eyebrow: `${name} · ${variant.animalForm}`,
         echelon: null,
         summary: variant.summary,
@@ -228,7 +233,7 @@ function kitEntries(): CatalogBrowserEntry[] {
 function perkEntries(): CatalogBrowserEntry[] {
   return PERK_COMPENDIUM.map((perk) => ({
     id: perk.id,
-    name: perk.name,
+    name: perk.name, originalId: perk.originalId, originalName: perk.originalName,
     eyebrow: PERK_TYPE_META[perk.type].label,
     echelon: null,
     summary: perk.summary,
@@ -242,6 +247,7 @@ function glossaryEntries(): CatalogBrowserEntry[] {
   return GLOSSARY.map((entry) => ({
     id: entry.id,
     name: entry.name,
+    originalName: entry.originalName,
     eyebrow: entry.letter,
     echelon: null,
     summary: plainSummary(entry.markdown),
@@ -258,7 +264,7 @@ function classEntries(): CatalogBrowserEntry[] {
     const summary = data?.summary ?? "";
     return {
       id: landing.slug,
-      name: landing.name,
+      name: landing.name, originalId: data?.originalId, originalName: data?.originalName,
       eyebrow: "",
       echelon: null,
       summary,
@@ -288,7 +294,7 @@ const ENTRY_BUILDERS: Partial<
 const ENTRIES = new Map<CatalogSectionId, CatalogBrowserEntry[]>(
   CATALOG_SECTIONS.map((section) => [
     section.id,
-    ENTRY_BUILDERS[section.id]?.() ?? [],
+    (ENTRY_BUILDERS[section.id]?.() ?? []).map(entry => ({ ...entry, search: [entry.originalName, entry.search].filter(Boolean).join(" ") })),
   ]),
 );
 

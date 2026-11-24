@@ -1,3 +1,5 @@
+import { useArticleLanguage, ArticleLanguageScope, useArticleLocale, useLocale } from "../../i18n/locale";
+import { ArticleLanguageSwitch } from "../LanguageSwitch";
 import { useEffect, useState } from "react";
 import {
   loadRuleArticle,
@@ -19,6 +21,7 @@ export function RuleArticleReader({
   articleId: string;
   entityName?: string;
 }) {
+  const { t } = useLocale();
   const [result, setResult] = useState<{
     id: string;
     data?: LoadedRuleArticle;
@@ -53,8 +56,8 @@ export function RuleArticleReader({
   if (result.error)
     return (
       <div role="alert">
-        <p>{result.error}</p>
-        <Button onClick={() => setAttempt((n) => n + 1)}>Повторить</Button>
+        <p>{t(result.error, "Could not load this rule. Check your connection and try again.")}</p>
+        <Button onClick={() => setAttempt((n) => n + 1)}>{t("Повторить", "Retry")}</Button>
       </div>
     );
   const entity =
@@ -62,11 +65,27 @@ export function RuleArticleReader({
       ? Object.values(result.data.entities).find((entry) => entry.name === entityName)
         ?? Object.values(result.data.entities).flatMap((entry) => kitVariantEntity(entry, entityName) ?? [])[0]
       : undefined;
-  if (entity) return <RuleEntityView entity={entity} withAnchor={false} />;
-  return result.data ? (
-    <RuleArticleContent
-      article={result.data.article}
-      entities={result.data.entities}
-    />
-  ) : null;
+  return result.data ? <ReaderContent data={result.data} entity={entity} /> : null;
+}
+
+export function ReaderContent({ data, entity }: { data: LoadedRuleArticle; entity?: import("../../rules/schema").RuleEntity }) {
+  const inherited = useArticleLocale();
+  const available = Boolean(entity ? entity.englishEdition : data.article.englishEdition) || Boolean((entity ? entity.originalDescription : data.article.originalDescription)?.trim()) ||
+    (!entity && Object.values(data.entities).some((item) => item.originalDescription?.trim()));
+  const { language, setLanguage } = useArticleLanguage(entity?.id ?? data.article.id, available);
+  const languageSwitch = available && inherited === null
+    ? <ArticleLanguageSwitch language={language} setLanguage={setLanguage} />
+    : undefined;
+  const hasStatblockHeading = data.article.director?.recordType === "statblock";
+  return <ArticleLanguageScope language={language}>
+    <div className="rule-reader" lang={language}>
+      {entity ? <RuleEntityView entity={entity} entities={data.entities} withAnchor={false} headingActions={languageSwitch} /> : <>
+        {!hasStatblockHeading && <header className="rule-reader-heading">
+          <h2>{language === "en" ? data.article.englishEdition?.title || data.article.originalName || data.article.title : data.article.title}</h2>
+          {languageSwitch}
+        </header>}
+        <RuleArticleContent article={data.article} entities={data.entities} headingActions={hasStatblockHeading ? languageSwitch : undefined} />
+      </>}
+    </div>
+  </ArticleLanguageScope>;
 }

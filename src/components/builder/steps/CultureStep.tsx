@@ -1,15 +1,17 @@
+import { useLocale } from "../../../i18n/locale";
 import { BUILDER_DATA as data } from "../../../lib/character-builder";
 import { SkillPicker } from "../../SkillPicker";
 import { BuilderSelection } from "../BuilderSelection";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function CultureStep({ part }: { part: string }) {
+  const { locale, t: tr } = useLocale();
   const { draft, patch, skillSlots, ancestrySkills } = useBuilderStep();
   if (part === "skills")
     return (
       <SkillPicker
         hideTitle
-        label="Навыки культуры"
+        label={tr("Навыки культуры", "Culture skills")}
         slots={skillSlots.culture}
         values={draft.cultureSkills}
         prior={ancestrySkills}
@@ -23,7 +25,7 @@ export function CultureStep({ part }: { part: string }) {
     <>
       <BuilderSelection
         key={key}
-        label={["Окружение", "Организация", "Воспитание"][i]}
+        label={locale === "en" ? ["Environment", "Organization", "Upbringing"][i] : ["Окружение", "Организация", "Воспитание"][i]}
         options={data.cultures[key].map((o) => ({
           name: o.name,
           articleId: o.articleId,

@@ -7,6 +7,9 @@ import {
 import { Button, Select, TextInput } from "../ui";
 import { SearchInput } from "../ui/SearchInput";
 import "./DirectorReference.css";
+import { loadEnglishReference } from "../../rules/consumer-english-reference";
+import { useLocalizedData } from "../../i18n/use-localized-data";
+import { useLocale } from "../../i18n/locale";
 
 export function DirectorFilters({
   entries,
@@ -21,6 +24,8 @@ export function DirectorFilters({
   value: Filters;
   onChange: (value: Filters) => void;
 }) {
+  const { t, locale } = useLocale();
+  const reference = useLocalizedData(locale, loadEnglishReference);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const fieldsId = useId();
   const set = (field: keyof Filters, next: string) =>
@@ -45,10 +50,10 @@ export function DirectorFilters({
     <>
       {(
         [
-          ["role", "Роль", "role"],
-          ["organization", "Организация / тип", "organization"],
-          ["keyword", "Ключевое слово", "keywords"],
-          ["size", "Размер", "size"],
+          ["role", t("Роль", "Role"), "role"],
+          ["organization", t("Организация / тип", "Organization / type"), "organization"],
+          ["keyword", t("Ключевое слово", "Keyword"), "keywords"],
+          ["size", t("Размер", "Size"), "size"],
         ] as const
       ).map(([field, label, dataField]) => {
         const options = choices(dataField);
@@ -59,23 +64,23 @@ export function DirectorFilters({
               value={value[field]}
               onChange={(event) => set(field, event.target.value)}
             >
-              <option value="">Все</option>
+              <option value="">{t("Все", "All")}</option>
               {options.map((option) => (
-                <option key={option}>{option}</option>
+                <option key={option} value={option}>{reference?.labels[option] ?? option}</option>
               ))}
             </Select>
           </label>
         ) : null;
       })}
       <fieldset>
-        <legend>Уровень</legend>
+        <legend>{t("Уровень", "Level")}</legend>
         <div className="director-range">
           <TextInput
             type="number"
             min="0"
             max="11"
-            placeholder="От"
-            aria-label="Минимальный уровень"
+            placeholder={t("От", "Min")}
+            aria-label={t("Минимальный уровень", "Minimum level")}
             value={value.minLevel}
             onChange={(event) => set("minLevel", event.target.value)}
           />
@@ -83,35 +88,35 @@ export function DirectorFilters({
             type="number"
             min="0"
             max="11"
-            placeholder="До"
-            aria-label="Максимальный уровень"
+            placeholder={t("До", "Max")}
+            aria-label={t("Максимальный уровень", "Maximum level")}
             value={value.maxLevel}
             onChange={(event) => set("maxLevel", event.target.value)}
           />
         </div>
       </fieldset>
       <fieldset>
-        <legend>Боевая ценность (БЦ)</legend>
+        <legend>{t("Боевая ценность (БЦ)", "Encounter Value (EV)")}</legend>
         <div className="director-range">
           <TextInput
             type="number"
             min="0"
-            placeholder="От"
-            aria-label="Минимальная боевая ценность"
+            placeholder={t("От", "Min")}
+            aria-label={t("Минимальная боевая ценность", "Minimum encounter value")}
             value={value.minEv}
             onChange={(event) => set("minEv", event.target.value)}
           />
           <TextInput
             type="number"
             min="0"
-            placeholder="До"
-            aria-label="Максимальная боевая ценность"
+            placeholder={t("До", "Max")}
+            aria-label={t("Максимальная боевая ценность", "Maximum encounter value")}
             value={value.maxEv}
             onChange={(event) => set("maxEv", event.target.value)}
           />
         </div>
         {entries.some((entry) => entry.director?.section === "terrain") && (
-          <span>Для местности — стоимость указанного в описании участка.</span>
+          <span>{t("Для местности — стоимость указанного в описании участка.", "For terrain, the value applies to the area described.")}</span>
         )}
       </fieldset>
     </>
@@ -119,22 +124,22 @@ export function DirectorFilters({
   return (
     <div className="director-filters">
       <div className="director-query">
-        <span>Название или ключевое слово</span>
+        <span>{t("Название или ключевое слово", "Name or keyword")}</span>
         <SearchInput
-          aria-label="Название или ключевое слово"
+          aria-label={t("Название или ключевое слово", "Name or keyword")}
           value={value.query}
-          placeholder="По-русски или по-английски…"
+          placeholder={t("По-русски или по-английски…", "In English or Russian…")}
           onValueChange={(query) => set("query", query)}
           shortcut={searchShortcut}
           canClear={Object.values(value).some(Boolean)}
-          clearLabel="Сбросить фильтры"
+          clearLabel={t("Сбросить фильтры", "Clear filters")}
           onClear={() => onChange(emptyDirectorFilters)}
         />
       </div>
       {compact ? (
         <section className="director-filter-disclosure">
           <Button icon="filter" aria-expanded={filtersOpen} aria-controls={fieldsId} onClick={() => setFiltersOpen((current) => !current)}>
-            Фильтры{activeFilters ? ` · ${activeFilters} активно` : ""}
+            {t("Фильтры", "Filters")}{activeFilters ? ` · ${activeFilters}` : ""}
           </Button>
           <div id={fieldsId} className="director-filter-fields" hidden={!filtersOpen}>{fields}</div>
         </section>

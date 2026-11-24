@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useState, type FormEvent } from "react";
 import { Icon } from "../../components/Icons";
 import {
@@ -25,6 +26,10 @@ import "./DamageTraits.css";
 
 /** Сколько чипов помещается в шапке до сводки «+N». */
 const VISIBLE_TRAITS = 3;
+const EN_DAMAGE: Record<string, string> = { урон: "Damage (all types)", кислота: "Acid", холод: "Cold", порча: "Corruption", огонь: "Fire", святой: "Holy", молния: "Lightning", яд: "Poison", психический: "Psychic", звук: "Sonic" };
+function traitDisplay(trait: Pick<SheetDamageTrait, "kind" | "type" | "value">, english: boolean) {
+  return english ? `${trait.kind === "immunity" ? "Immunity" : "Weakness"}: ${EN_DAMAGE[trait.type.toLowerCase()] || trait.type} ${trait.value}` : damageTraitText(trait);
+}
 
 /**
  * Иммунитеты и уязвимости в шапке «Здоровья»: компактные чипы и кнопка
@@ -32,6 +37,7 @@ const VISIBLE_TRAITS = 3;
  * записи хранятся в персонаже. Оба вида — напоминания, расчёт урона не меняют.
  */
 export function DamageTraits() {
+  const { t, locale } = useLocale();
   const { character, readOnly } = useApp();
   const [open, setOpen] = useState(false);
   const traits = damageTraitsForSheet(character);
@@ -41,21 +47,21 @@ export function DamageTraits() {
   if (readOnly && traits.length === 0) return null;
 
   return (
-    <div className="damage-traits" role="group" aria-label="Иммунитеты и уязвимости">
+    <div className="damage-traits" role="group" aria-label={t("Иммунитеты и уязвимости", "Immunities and weaknesses")}>
       {visible.map((trait) => (
         <button
           key={trait.id}
           type="button"
           className={`damage-trait is-${trait.kind}`}
-          title={`${damageTraitText(trait)} — ${trait.source}`}
-          aria-label={`${damageTraitText(trait)}. Источник: ${trait.source}`}
+          title={`${traitDisplay(trait, locale === "en")} — ${trait.source}`}
+          aria-label={t(`${damageTraitText(trait)}. Источник: ${trait.source}`, `${traitDisplay(trait, true)}. Source: ${trait.source}`)}
           onClick={() => setOpen(true)}
         >
           <Icon
             name={trait.kind === "immunity" ? "shield" : "warning"}
             size={12}
           />
-          <span className="damage-trait-type">{trait.type}</span>
+          <span className="damage-trait-type">{locale === "en" ? EN_DAMAGE[trait.type.toLowerCase()] || trait.type : trait.type}</span>
           <span className="damage-trait-value">{trait.value}</span>
         </button>
       ))}
@@ -63,8 +69,8 @@ export function DamageTraits() {
         <button
           type="button"
           className="damage-trait-more"
-          title={`Ещё ${hidden}. Показать все`}
-          aria-label={`Показать все иммунитеты и уязвимости: ещё ${hidden}`}
+          title={t(`Ещё ${hidden}. Показать все`, `${hidden} more. Show all`)}
+          aria-label={t(`Показать все иммунитеты и уязвимости: ещё ${hidden}`, `Show all immunities and weaknesses: ${hidden} more`)}
           onClick={() => setOpen(true)}
         >
           +{hidden}
@@ -73,12 +79,12 @@ export function DamageTraits() {
       {!readOnly && <button
         type="button"
         className="damage-trait-add"
-        title="Добавить иммунитет или уязвимость"
-        aria-label="Добавить иммунитет или уязвимость"
+        title={t("Добавить иммунитет или уязвимость", "Add immunity or weakness")}
+        aria-label={t("Добавить иммунитет или уязвимость", "Add immunity or weakness")}
         onClick={() => setOpen(true)}
       >
         <Icon name="shield" size={14} />
-        <span>Иммунитеты и уязвимости</span>
+        <span>{t("Иммунитеты и уязвимости", "Immunities and weaknesses")}</span>
       </button>}
       <DamageTraitsDialog open={open} onClose={() => setOpen(false)} />
     </div>
@@ -92,6 +98,7 @@ function TraitRow({
   trait: SheetDamageTrait;
   onRemove?: (id: string) => void;
 }) {
+  const { t, locale } = useLocale();
   return (
     <li className="damage-trait-row">
       <span className={`damage-trait-row-icon is-${trait.kind}`}>
@@ -101,7 +108,7 @@ function TraitRow({
         />
       </span>
       <div className="damage-trait-row-body">
-        <p className="damage-trait-row-title">{damageTraitText(trait)}</p>
+        <p className="damage-trait-row-title">{traitDisplay(trait, locale === "en")}</p>
         <p className="damage-trait-row-source">{trait.source}</p>
       </div>
       {onRemove && (
@@ -110,8 +117,8 @@ function TraitRow({
           size="sm"
           icon="trash"
           iconOnly
-          aria-label={`Удалить: ${damageTraitText(trait)}`}
-          title="Удалить запись"
+          aria-label={t(`Удалить: ${damageTraitText(trait)}`, `Remove: ${traitDisplay(trait, true)}`)}
+          title={t("Удалить запись", "Remove entry") }
           onClick={() => onRemove(trait.id)}
         />
       )}
@@ -126,6 +133,7 @@ function DamageTraitsDialog({
   open: boolean;
   onClose: () => void;
 }) {
+  const { t, locale } = useLocale();
   const { character, update, readOnly } = useApp();
   const traits = damageTraitsForSheet(character);
   const automatic = traits.filter((trait) => trait.automatic);
@@ -152,77 +160,77 @@ function DamageTraitsDialog({
     <Modal
       open={open}
       onClose={onClose}
-      title="Иммунитеты и уязвимости"
+      title={t("Иммунитеты и уязвимости", "Immunities and weaknesses") }
       className="damage-traits-dialog"
     >
       <p className="damage-traits-hint small muted">
-        Записи показываются как напоминание и не меняют расчёт урона.
+        {t("Записи показываются как напоминание и не меняют расчёт урона.", "These entries are reminders and do not change damage calculations.")}
       </p>
 
       {!readOnly && <form className="damage-trait-form" onSubmit={add}>
-        <h3 className="eyebrow">Новая запись</h3>
-        <div className="damage-trait-kinds" role="group" aria-label="Вид записи">
+        <h3 className="eyebrow">{t("Новая запись", "New entry")}</h3>
+        <div className="damage-trait-kinds" role="group" aria-label={t("Вид записи", "Entry kind") }>
           <Chip
             active={kind === "immunity"}
             tone="green"
             onClick={() => setKind("immunity")}
           >
-            Иммунитет
+            {t("Иммунитет", "Immunity")}
           </Chip>
           <Chip
             active={kind === "weakness"}
             tone="red"
             onClick={() => setKind("weakness")}
           >
-            Уязвимость
+            {t("Уязвимость", "Weakness")}
           </Chip>
         </div>
         <div className="damage-trait-form-row">
-          <Field label="Тип">
+          <Field label={t("Тип", "Type") }>
             <Select
               value={type}
               autoFocus
-              aria-label="Тип урона"
+              aria-label={t("Тип урона", "Damage type") }
               onChange={(event) => setType(event.currentTarget.value)}
             >
               {DAMAGE_TRAIT_TYPES.map((option) => (
                 <option key={option.value} value={option.value}>
-                  {option.label}
+                  {locale === "en" ? EN_DAMAGE[option.value] || option.label : option.label}
                 </option>
               ))}
             </Select>
           </Field>
-          <Field label="Значение">
+          <Field label={t("Значение", "Value") }>
             <NumberInput
               value={value}
               min={1}
               max={999}
               showButtons={false}
-              label="Значение иммунитета или уязвимости"
+              label={t("Значение иммунитета или уязвимости", "Immunity or weakness value") }
               className="damage-trait-value-input"
               onChange={setValue}
             />
           </Field>
         </div>
-        <Field label="Источник или заметка">
+        <Field label={t("Источник или заметка", "Source or note") }>
           <TextInput
             value={note}
             maxLength={140}
-            placeholder="Например, сценарий или временный эффект"
-            aria-label="Источник или заметка"
+            placeholder={t("Например, сценарий или временный эффект", "For example, a scenario or temporary effect") }
+            aria-label={t("Источник или заметка", "Source or note") }
             onChange={(event) => setNote(event.currentTarget.value)}
           />
         </Field>
         <div className="damage-trait-form-actions">
           <Button iconOnly type="submit" variant="primary" icon="plus" disabled={!canAdd}>
-            Добавить
+            {t("Добавить", "Add")}
           </Button>
         </div>
       </form>}
 
       {automatic.length > 0 && (
         <section className="damage-traits-section">
-          <h3 className="eyebrow">Из особенностей</h3>
+          <h3 className="eyebrow">{t("Из особенностей", "From features")}</h3>
           <ul className="damage-traits-list">
             {automatic.map((trait) => (
               <TraitRow key={trait.id} trait={trait} />
@@ -232,7 +240,7 @@ function DamageTraitsDialog({
       )}
 
       {(!readOnly || manual.length > 0) && <section className="damage-traits-section">
-        <h3 className="eyebrow">Добавлено вручную</h3>
+        <h3 className="eyebrow">{t("Добавлено вручную", "Added manually")}</h3>
         {manual.length > 0 ? (
           <ul className="damage-traits-list">
             {manual.map((trait) => (
@@ -241,7 +249,7 @@ function DamageTraitsDialog({
           </ul>
         ) : (
           <p className="damage-traits-empty small muted">
-            Пока ничего не добавлено.
+            {t("Пока ничего не добавлено.", "Nothing added yet.")}
           </p>
         )}
       </section>}

@@ -3,8 +3,10 @@ import { Children, isValidElement, type ReactNode } from 'react';
 interface SlotProps {
   children?: ReactNode;
   'data-director-slot'?: string;
+  'data-director-field'?: string;
   'data-range'?: string;
   'data-tier'?: string;
+  'data-damage-type'?: string;
 }
 export const markdownElements = (children: ReactNode) => Children.toArray(children).filter(isValidElement<SlotProps>);
 export const markdownSlot = (children: ReactNode, slot: string) => markdownElements(children).find(child => child.props['data-director-slot'] === slot)?.props.children;

@@ -95,7 +95,84 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
       "originalName": "2nd-Level Features",
-      "originalDescription": "As a 2nd-level fury, you gain the following features."
+      "originalDescription": "As a 2nd-level fury, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "2nd-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 2nd-level fury, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-2.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 2nd-Level Aspect Feature\n\nYour primordial aspect grants you a feature, as shown on the 2nd-Level Aspect Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 2nd-Level Aspect Features Table\n\n| Aspect     | Feature           |\n|------------|-------------------|\n| Berserker  | Unstoppable Force |\n| Reaver     | Inescapable Wrath |\n| Stormwight | Tooth and Claw    |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-2.inescapable-wrath"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-2.tooth-and-claw"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-2.unstoppable-force"
+          },
+          {
+            "type": "markdown",
+            "text": "## 2nd-Level Aspect Ability\n\nYour primordial aspect grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Berserker Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-2.special-delivery"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-2.wrecking-ball"
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Reaver Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-2.death-death"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-2.phalanx-breaker"
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Stormwight Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-2.apex-predator"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-2.visceral-roar"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -110,7 +187,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-2/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one crafting, exploration, or intrigue perk of your choice. See Chapter 7: Perks."
+      "originalDescription": "You gain one crafting, exploration, or intrigue perk of your choice. See Chapter 7: Perks.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-2.2nd-level-aspect-feature",
@@ -123,7 +203,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-2/2nd-level-aspect-feature",
       "originalName": "2nd-Level Aspect Feature",
-      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 2nd-Level Aspect Features table.\n\n###### 2nd-Level Aspect Features Table\n\n| Aspect     | Feature           |\n|------------|-------------------|\n| Berserker  | Unstoppable Force |\n| Reaver     | Inescapable Wrath |\n| Stormwight | Tooth and Claw    |"
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 2nd-Level Aspect Features table.\n\n###### 2nd-Level Aspect Features Table\n\n| Aspect     | Feature           |\n|------------|-------------------|\n| Berserker  | Unstoppable Force |\n| Reaver     | Inescapable Wrath |\n| Stormwight | Tooth and Claw    |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-2.inescapable-wrath",
@@ -136,7 +219,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-2/inescapable-wrath",
       "originalName": "Inescapable Wrath",
-      "originalDescription": "You have a bonus to speed equal to your Agility score, and you ignore difficult terrain."
+      "originalDescription": "You have a bonus to speed equal to your Agility score, and you ignore difficult terrain.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-2.tooth-and-claw",
@@ -149,7 +235,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-2/tooth-and-claw",
       "originalName": "Tooth and Claw",
-      "originalDescription": "At the end of each of your turns, each enemy adjacent to you takes damage equal to your Might score."
+      "originalDescription": "At the end of each of your turns, each enemy adjacent to you takes damage equal to your Might score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-2.unstoppable-force",
@@ -162,7 +251,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-2/unstoppable-force",
       "originalName": "Unstoppable Force",
-      "originalDescription": "Whenever you use the Charge main action, you can use a strike signature ability or a strike heroic ability instead of a free strike. Additionally, you can jump as part of your charge."
+      "originalDescription": "Whenever you use the Charge main action, you can use a strike signature ability or a strike heroic ability instead of a free strike. Additionally, you can jump as part of your charge.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-2.2nd-level-aspect-ability",
@@ -175,7 +267,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-2/2nd-level-aspect-ability",
       "originalName": "2nd-Level Aspect Ability",
-      "originalDescription": "Your primordial aspect grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Berserker Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Reaver Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Stormwight Ability\n\nChoose one of the following abilities."
+      "originalDescription": "Your primordial aspect grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-2.berserker-ability",
@@ -188,7 +283,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Berserker Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.fury.level-2.special-delivery",
@@ -242,7 +340,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/special-delivery",
       "originalName": "Special Delivery",
-      "originalDescription": "*You ready?*\n\n| **Melee, Weapon** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Melee 1**    | **🎯 One willing ally** |\n\n**Effect:** You vertically push the target up to 4 squares. This forced movement ignores the target's stability, and the target takes no damage from colliding with creatures or objects. At the end of this movement, the target can make a free strike that deals extra damage equal to your Might score."
+      "originalDescription": "*You ready?*\n\n| **Melee, Weapon** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Melee 1**    | **🎯 One willing ally** |\n\n**Effect:** You vertically push the target up to 4 squares. This forced movement ignores the target's stability, and the target takes no damage from colliding with creatures or objects. At the end of this movement, the target can make a free strike that deals extra damage equal to your Might score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You ready?",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One willing ally",
+          "keywords": [
+            "Melee",
+            "Weapon"
+          ]
+        },
+        "effect": "You vertically push the target up to 4 squares. This forced movement ignores the target's stability, and the target takes no damage from colliding with creatures or objects. At the end of this movement, the target can make a free strike that deals extra damage equal to your Might score."
+      }
     },
     {
       "id": "feature.ability.fury.level-2.wrecking-ball",
@@ -298,7 +419,41 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/wrecking-ball",
       "originalName": "Wrecking Ball",
-      "originalDescription": "*It's easier to destroy than to create. Much easier, in fact!*\n\n| **Melee, Weapon**      | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** You move up to your speed in a straight line. During this movement, you can move through mundane structures, including walls, which are difficult terrain for you. You automatically destroy each square of structure you move through and leave behind a square of difficult terrain.\n\nAdditionally, you make one power roll that targets each enemy you move adjacent to during this movement.\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3"
+      "originalDescription": "*It's easier to destroy than to create. Much easier, in fact!*\n\n| **Melee, Weapon**      | **Maneuver** |\n|------------------------|-------------:|\n| **📏 Self; see below** |  **🎯 Self** |\n\n**Effect:** You move up to your speed in a straight line. During this movement, you can move through mundane structures, including walls, which are difficult terrain for you. You automatically destroy each square of structure you move through and leave behind a square of difficult terrain.\n\nAdditionally, you make one power roll that targets each enemy you move adjacent to during this movement.\n\n**Power Roll + Might:**\n\n- **≤11:** Push 1\n- **12-16:** Push 2\n- **17+:** Push 3",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "It's easier to destroy than to create. Much easier, in fact!",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self; see below"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Melee",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** You move up to your speed in a straight line. During this movement, you can move through mundane structures, including walls, which are difficult terrain for you. You automatically destroy each square of structure you move through and leave behind a square of difficult terrain.\n\nAdditionally, you make one power roll that targets each enemy you move adjacent to during this movement.",
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "effect": "Push 1"
+            },
+            {
+              "effect": "Push 2"
+            },
+            {
+              "effect": "Push 3"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.fury.level-2.reaver-ability",
@@ -311,7 +466,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Reaver Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.fury.level-2.death-death",
@@ -368,7 +526,54 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/death-death",
       "originalName": "Death... Death!",
-      "originalDescription": "*Your unbridled rage strikes terror in their hearts.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; P < WEAK, dazed and frightened (save ends)\n- **12-16:** 5 + M damage; P < AVERAGE, dazed and frightened (save ends)\n- **17+:** 8 + M damage; P < STRONG, dazed and frightened (save ends)"
+      "originalDescription": "*Your unbridled rage strikes terror in their hearts.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 3 + M damage; P < WEAK, dazed and frightened (save ends)\n- **12-16:** 5 + M damage; P < AVERAGE, dazed and frightened (save ends)\n- **17+:** 8 + M damage; P < STRONG, dazed and frightened (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your unbridled rage strikes terror in their hearts.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + M"
+              },
+              "effect": "P < WEAK, dazed and frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "5 + M"
+              },
+              "effect": "P < AVERAGE, dazed and frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "8 + M"
+              },
+              "effect": "P < STRONG, dazed and frightened (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.fury.level-2.phalanx-breaker",
@@ -424,7 +629,50 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/phalanx-breaker",
       "originalName": "Phalanx-Breaker",
-      "originalDescription": "*Organizing your forces like feckless creatures of Law. Pitiful.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies you move adjacent to during this shift.\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; A < WEAK, dazed (save ends)\n- **12-16:** 4 damage; A < AVERAGE, dazed (save ends)\n- **17+:** 6 damage; A < STRONG, dazed (save ends)"
+      "originalDescription": "*Organizing your forces like feckless creatures of Law. Pitiful.*\n\n| **Melee, Weapon**      | **Main action** |\n|------------------------|----------------:|\n| **📏 Self; see below** |     **🎯 Self** |\n\n**Effect:** You shift up to your speed and make one power roll that targets up to three enemies you move adjacent to during this shift.\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; A < WEAK, dazed (save ends)\n- **12-16:** 4 damage; A < AVERAGE, dazed (save ends)\n- **17+:** 6 damage; A < STRONG, dazed (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Organizing your forces like feckless creatures of Law. Pitiful.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self; see below"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Melee",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** You shift up to your speed and make one power roll that targets up to three enemies you move adjacent to during this shift.",
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2"
+              },
+              "effect": "A < WEAK, dazed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "4"
+              },
+              "effect": "A < AVERAGE, dazed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "6"
+              },
+              "effect": "A < STRONG, dazed (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.fury.level-2.stormwight-ability",
@@ -437,7 +685,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Stormwight Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.fury.level-2.apex-predator",
@@ -494,7 +745,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/apex-predator",
       "originalName": "Apex Predator",
-      "originalDescription": "*I will hunt you down.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; I < WEAK, slowed (save ends)\n- **12-16:** 6 damage; I < AVERAGE, slowed (save ends)\n- **17+:** 10 damage; I < STRONG, slowed (save ends)\n\n**Effect:** The target can't be hidden from you for 24 hours. Until the end of the encounter, whenever the target willingly moves, you can use a free triggered action to move."
+      "originalDescription": "*I will hunt you down.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 4 damage; I < WEAK, slowed (save ends)\n- **12-16:** 6 damage; I < AVERAGE, slowed (save ends)\n- **17+:** 10 damage; I < STRONG, slowed (save ends)\n\n**Effect:** The target can't be hidden from you for 24 hours. Until the end of the encounter, whenever the target willingly moves, you can use a free triggered action to move.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "I will hunt you down.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4"
+              },
+              "effect": "I < WEAK, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "6"
+              },
+              "effect": "I < AVERAGE, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "10"
+              },
+              "effect": "I < STRONG, slowed (save ends)"
+            }
+          ]
+        },
+        "effect": "The target can't be hidden from you for 24 hours. Until the end of the encounter, whenever the target willingly moves, you can use a free triggered action to move."
+      }
     },
     {
       "id": "feature.ability.fury.level-2.visceral-roar",
@@ -550,7 +849,50 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-2/visceral-roar",
       "originalName": "Visceral Roar",
-      "originalDescription": "*The sound of the storm within you staggers your opponents.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; push 1; M < WEAK, dazed (save ends)\n- **12-16:** 5 damage; push 2; M < AVERAGE, dazed (save ends)\n- **17+:** 7 damage; push 3; M < STRONG, dazed (save ends)\n\n**Effect:** This ability deals your primordial damage type (see Stormwight Kits)."
+      "originalDescription": "*The sound of the storm within you staggers your opponents.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 2 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Might:**\n\n- **≤11:** 2 damage; push 1; M < WEAK, dazed (save ends)\n- **12-16:** 5 damage; push 2; M < AVERAGE, dazed (save ends)\n- **17+:** 7 damage; push 3; M < STRONG, dazed (save ends)\n\n**Effect:** This ability deals your primordial damage type (see Stormwight Kits).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The sound of the storm within you staggers your opponents.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "2 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2"
+              },
+              "effect": "push 1; M < WEAK, dazed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "5"
+              },
+              "effect": "push 2; M < AVERAGE, dazed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "7"
+              },
+              "effect": "push 3; M < STRONG, dazed (save ends)"
+            }
+          ]
+        },
+        "effect": "This ability deals your primordial damage type (see Stormwight Kits)."
+      }
     }
   ]
 }

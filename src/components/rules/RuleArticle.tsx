@@ -1,3 +1,7 @@
+import { articleBlocks } from "./article-blocks";
+import { headingId } from "../../lib/codex";
+import { useLocalizedData } from "../../i18n/use-localized-data";
+import { loadEnglishArticleTitles } from "../../rules/repository";
 import { Icon } from "../Icons";
 import { CreatureTabs } from "./CreatureTabs";
 import { codexArticleHref } from "../../rules/codex-navigation";
@@ -8,8 +12,10 @@ import { ArtworkFigure } from "../Artwork";
 import { RuleEntityView } from "./RuleEntity";
 import { RuleMarkdown } from "./RuleMarkdown";
 import "./RuleArticle.css";
+import { useArticleLocale, useLocale } from "../../i18n/locale";
 
 function RuleReferenceFallback({ reference }: { reference: string }) {
+  const { t } = useLocale();
   return (
     <aside
       className="rule-reference-unresolved"
@@ -18,7 +24,7 @@ function RuleReferenceFallback({ reference }: { reference: string }) {
       role="note"
     >
       <span className="rule-reference-unresolved-label">
-        Правило не загружено
+        {t("Правило не загружено", "Rule unavailable")}
       </span>
       <code>{reference}</code>
     </aside>
@@ -47,39 +53,36 @@ export function RuleArticleContent({
   headingOffset?: number;
   headingActions?: ReactNode;
 }) {
-  const leadIndex = article.blocks.findIndex((block) =>
-    block.type === "markdown"
-      ? block.text.trim().length > 0
-      : Boolean(entities[block.ref]),
-  );
+  const { locale } = useLocale();
+  const english = (useArticleLocale() ?? locale) === "en";
+  const relatedTitles = useLocalizedData(english && article.related?.length ? "en" : "ru", loadEnglishArticleTitles);
+  const edition = english ? article.englishEdition : undefined;
+  const blocks = articleBlocks(article, entities, english);
+  const leadIndex = blocks.findIndex(({ block }) => block.type === "markdown" ? Boolean(block.text.trim()) : Boolean(entities[block.ref]));
   const creatureTabs = article.director?.section === "monsters" && article.director.recordType === "statblock";
   return (
     <div className="rule-article" data-rule-article={article.id}>
-      {article.director && article.originalName && article.blocks[leadIndex]?.type === 'markdown' && <p className="director-original-name" lang="en">{article.originalName}</p>}
-      {creatureTabs ? <CreatureTabs key={article.id} article={article} entities={entities} headingLevel={2 + headingOffset} headingActions={headingActions} /> : article.blocks.map((block, index) => {
+      {edition && edition.kind !== "source" && <p className="muted small" role="note">{article.originalCoverage?.reason === "homebrew" ? "Campaign homebrew · English translation" : "Editorial material · English translation"}</p>}
+      {english && !edition && article.originalCoverage?.status === "excerpt" && <p className="muted small" role="note">{article.originalCoverage.reason === "table-order-differs"
+        ? "The English and Russian d100 tables list complications in different orders. Use the same edition when looking up a roll."
+        : "English source · completeness unverified"}</p>}
+      {!english && article.director && article.originalName && blocks[leadIndex]?.block.type === 'markdown' && <p className="director-original-name" lang="en">{article.originalName}</p>}
+      {creatureTabs ? <CreatureTabs key={article.id} article={article} entities={entities} headingLevel={2 + headingOffset} headingActions={headingActions} /> : blocks.map(({ block, russianText }, index) => {
         const isLead = index === leadIndex;
         if (block.type === "markdown") {
           if (!block.text.trim()) return null;
-          if (!isLead || !art) {
-            return (
-              <RuleMarkdown
-                key={`markdown-${index}`}
-                text={block.text}
-                articleId={article.id}
-                headingOffset={headingOffset}
-              />
-            );
+          const englishIds = new Set([...block.text.matchAll(/^#{1,6}\s+(.+)$/gm)].map(match => headingId(match[1])));
+          const previousIds = new Set([...(russianText ?? "").matchAll(/^#{1,6}\s+(.+)$/gm)].map(match => headingId(match[1])));
+          const russianFallback = english && /[а-яё]/i.test(block.text) && !edition && !russianText;
+          if (!(isLead && art) && !russianFallback && previousIds.size === 0) {
+            return <RuleMarkdown key={`markdown-${index}`} text={block.text} sourceLocale={english ? "en" : "ru"} articleId={article.id} headingOffset={headingOffset} />;
           }
-          return (
-            <div className="rule-article-lead" key={`markdown-${index}`}>
-              <ArtworkFigure art={art} className="codex-article-art" />
-              <RuleMarkdown
-                text={block.text}
-                articleId={article.id}
-                headingOffset={headingOffset}
-              />
-            </div>
-          );
+          return <div key={`markdown-${index}`} className={isLead && art ? "rule-article-lead" : undefined}>
+            {[...previousIds].filter(id => id && !englishIds.has(id)).map(id => <span key={id} id={id} />)}
+            {isLead && art && <ArtworkFigure art={art} className="codex-article-art" />}
+            {russianFallback && <p className="muted small" lang="en">Russian source text</p>}
+            <RuleMarkdown text={block.text} sourceLocale={english && !russianFallback ? "en" : "ru"} articleId={article.id} headingOffset={headingOffset} />
+          </div>;
         }
         const entity = entities[block.ref];
         if (!entity) {
@@ -94,6 +97,7 @@ export function RuleArticleContent({
           <RuleEntityView
             key={`${block.ref}-${index}`}
             entity={entity}
+            entities={entities}
             art={isLead ? art : undefined}
             onOpen={onOpenEntity ? () => onOpenEntity(entity) : undefined}
             headingLevel={2 + headingOffset + (article.chapter.startsWith("04.") && entity.kind === "feature" ? 1 : 0)}
@@ -101,14 +105,14 @@ export function RuleArticleContent({
           />
         );
       })}
-      {article.director?.recordType === 'monster' && <a className="catalog-source" href={`#/catalog/monsters/group:${article.director.groupSlug}`}>Все существа группы «{article.title}» <Icon name="arrow-right" size={16} /></a>}
+      {article.director?.recordType === 'monster' && <a className="catalog-source" href={`#/catalog/monsters/group:${article.director.groupSlug}`}>{english ? `All creatures in ${article.originalName || article.title}` : `Все существа группы «${article.title}»`} <Icon name="arrow-right" size={16} /></a>}
       {!!article.related?.length && <section className="director-related">
-        <h3>Связанные правила и существа · {article.related.length}</h3>
-        <ul>{article.related.map(item => <li key={item.id}><a href={codexArticleHref(item.id)}>{item.title}</a></li>)}</ul>
+        <h3>{english ? "Related rules and creatures" : "Связанные правила и существа"} · {article.related.length}</h3>
+        <ul>{article.related.map(item => <li key={item.id}><a href={codexArticleHref(item.id)}>{relatedTitles?.[item.id] || item.title}</a></li>)}</ul>
       </section>}
       {article.director && article.originalId && <a className="catalog-source"
         href={`https://github.com/SteelCompendium/data-unified/blob/${article.director.sourceRevision}/en/books/monsters/md/${article.director.sourcePath.replace(/\.json$/, '.md')}`}
-        target="_blank" rel="noreferrer">Источник · Draw Steel: Monsters (EN) ↗</a>}
+        target="_blank" rel="noreferrer">{english ? "Source" : "Источник"} · Draw Steel: Monsters (EN) ↗</a>}
     </div>
   );
 }

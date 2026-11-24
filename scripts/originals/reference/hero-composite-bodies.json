@@ -1,0 +1,33 @@
+{
+  "source": {
+    "repository": "https://github.com/SteelCompendium/data-unified",
+    "revision": "bdb12093b1d07bf8674453796eac907a09dd7dd3",
+    "path": "en/books/heroes/md-linked"
+  },
+  "bodies": {
+    "mcdm.heroes.v1/feature.trait.dragon-knight/draconian-pride": {
+      "body": "You have the following [signature ability](../../../rule/combat/signature-ability.md).\n\n## Draconian Pride\n\n*You let loose a mighty roar to shake your foes' spirits.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 1 [burst](../../../rule/combat/burst.md)**  | **🎯 Each enemy in the area** |\n\n**[Power Roll](../../../rule/dice/power-roll.md) + [Might](../../../rule/character/might.md) or [Presence](../../../rule/character/presence.md):**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage; [push](../../../movement/forced-movement.md) 1\n- **17+:** 7 damage; [push](../../../movement/forced-movement.md) 2",
+      "nestedIds": [
+        "mcdm.heroes.v1/feature.ability.dragon-knight/draconian-pride"
+      ]
+    },
+    "mcdm.heroes.v1/feature.trait.dragon-knight/dragon-breath": {
+      "body": "You have the following [signature ability](../../../rule/combat/signature-ability.md).\n\n## Dragon Breath\n\n*A furious exhalation of energy washes over your foes.*\n\n| **Area, Magic**        |               **Main action** |\n|------------------------|------------------------------:|\n| **📏 3 [cube](../../../rule/combat/cube.md) within 1** | **🎯 Each enemy in the area** |\n\n**[Power Roll](../../../rule/dice/power-roll.md) + [Might](../../../rule/character/might.md) or [Presence](../../../rule/character/presence.md):**\n\n- **≤11:** 2 damage\n- **12-16:** 4 damage\n- **17+:** 6 damage\n\n**Effect:** You choose the ability's [damage type](../../../rule/damage/damage-type.md) from acid, cold, corruption, fire, lightning, or poison.",
+      "nestedIds": [
+        "mcdm.heroes.v1/feature.ability.dragon-knight/dragon-breath"
+      ]
+    },
+    "mcdm.heroes.v1/feature.trait.revenant/vengeance-mark": {
+      "body": "As a maneuver, you place a magic sigil on a creature within 10 squares. When you place a sigil, you decide where it appears on the creature's body, and whether the sigil is visible to only you or to all creatures.\n\nYou always know the direction to the exact location of a creature who bears one of your sigils and is on the same world. You can have a number of active sigils equal to your level, and can remove a sigil from a creature at will (no action required). If you already have the maximum number of sigils activated and you place a new one, your oldest sigil disappears with no other effect.\n\nAdditionally, you have the following [signature ability](../../../rule/combat/signature-ability.md). [Signature abilities](../../../rule/combat/signature-ability.md) can be used at will.\n\n## Detonate Sigil\n\n*A magic sigil you placed on a creature explodes with energy.*\n\n| **Magic, [Ranged](../../../rule/combat/ranged.md), [Strike](../../../rule/combat/strike.md)** |                        **Main action** |\n|---------------------------|---------------------------------------:|\n| **📏 [Ranged](../../../rule/combat/ranged.md) 10**          | **🎯 One creature bearing your sigil** |\n\n**[Power Roll](../../../rule/dice/power-roll.md) + [Reason](../../../rule/character/reason.md), [Intuition](../../../rule/character/intuition.md), or [Presence](../../../rule/character/presence.md):**\n\n- **≤11:** 3 + R, I, or P damage; [slide](../../../movement/forced-movement.md) 1\n- **12-16:** 5 + R, I, or P damage; [slide](../../../movement/forced-movement.md) 2\n- **17+:** 7 + R, I, or P damage; [slide](../../../movement/forced-movement.md) 3\n\n**Effect:** The sigil disappears from the creature.",
+      "nestedIds": [
+        "mcdm.heroes.v1/feature.ability.revenant/detonate-sigil"
+      ]
+    },
+    "mcdm.heroes.v1/feature.trait.wode-elf/the-wode-defends": {
+      "body": "You have the following [signature ability](../../../rule/combat/signature-ability.md). [Signature abilities](../../../rule/combat/signature-ability.md) can be used at will.\n\n## The Wode Defends\n\n*Thorny vines erupt from every surface and attempt to bind your foe.*\n\n| **Magic, [Ranged](../../../rule/combat/ranged.md), [Strike](../../../rule/combat/strike.md)** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 [Ranged](../../../rule/combat/ranged.md) 10**          |           **🎯 One creature** |\n\n**[Power Roll](../../../rule/dice/power-roll.md) + [Might](../../../rule/character/might.md) or [Agility](../../../rule/character/agility.md):**\n\n- **≤11:** 2 + M or A damage; A < WEAK, [slowed](../../../condition/slowed.md) (save ends)\n- **12-16:** 3 + M or A damage; A < AVERAGE, [slowed](../../../condition/slowed.md) (save ends)\n- **17+:** 5 + M or A damage; A < STRONG, [restrained](../../../condition/restrained.md) (save ends)",
+      "nestedIds": [
+        "mcdm.heroes.v1/feature.ability.wode-elf/the-wode-defends"
+      ]
+    }
+  }
+}

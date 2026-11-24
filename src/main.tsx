@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { LocaleProvider, readLocale } from "./i18n/locale";
 import App from "./App";
 import "./styles/base.css";
 import "./styles/components.css";
@@ -10,12 +11,13 @@ import "./components/AbilityCard.css";
 // Apply all theme tokens before the first React render, including the auth page.
 applyTheme(resolveTheme(THEMES, readThemeChoice()));
 
+document.documentElement.lang = readLocale();
 const root = document.getElementById("root");
 if (!root) throw new Error("Не найден корневой элемент #root");
 
 createRoot(root).render(
   <StrictMode>
-    <App />
+    <LocaleProvider><App /></LocaleProvider>
   </StrictMode>,
 );
 

@@ -22,6 +22,8 @@ import { stormwightFeatures } from "./stormwight-features";
 
 /** Активная особенность класса: то, что лист показывает герою прямо сейчас. */
 export interface ActiveClassFeature {
+  originalName?: string;
+  originalDescription?: string;
   id: string;
   name: string;
   level: number;
@@ -367,6 +369,8 @@ export function activeClassFeatures(character: Character): ActiveClassFeature[] 
       active.push({
         id: feature.id,
         name: feature.name,
+        originalName: feature.originalName,
+        originalDescription: feature.originalDescription,
         level: conduitComplementLevel(feature, character) ?? feature.level,
         className: feature.className,
         ...(feature.keyedBy ? { keyedBy: feature.keyedBy } : {}),

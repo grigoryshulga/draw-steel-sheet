@@ -91,7 +91,72 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
       "originalName": "6th-Level Features",
-      "originalDescription": "As a 6th-level null, you gain the following features."
+      "originalDescription": "As a 6th-level null, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "6th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 6th-level null, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-6.elemental-absorption"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-6.elemental-buffer"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-6.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 6th-Level Tradition Ability\n\nYour null tradition grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Chronokinetic Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-6.interphase"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-6.phase-step"
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Cryokinetic Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-6.ice-pillars"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-6.wall-of-ice"
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Metakinetic Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-6.gravitic-charge"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-6.iron-body"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -106,7 +171,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-6/elemental-absorption",
       "originalName": "Elemental Absorption",
-      "originalDescription": "Whenever you use your Inertial Shield triggered action, you gain immunity to acid, cold, corruption, fire, lightning, poison, and sonic damage equal to your Intuition score against the triggering damage."
+      "originalDescription": "Whenever you use your Inertial Shield triggered action, you gain immunity to acid, cold, corruption, fire, lightning, poison, and sonic damage equal to your Intuition score against the triggering damage.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-6.elemental-buffer",
@@ -119,7 +187,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-6/elemental-buffer",
       "originalName": "Elemental Buffer",
-      "originalDescription": "Whenever you reduce acid, cold, corruption, fire, lightning, poison, or sonic damage with damage immunity, you gain 2 surges that can be used only to increase the damage of your next strike."
+      "originalDescription": "Whenever you reduce acid, cold, corruption, fire, lightning, poison, or sonic damage with damage immunity, you gain 2 surges that can be used only to increase the damage of your next strike.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-6.perk",
@@ -132,7 +203,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-6/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice."
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-6.6th-level-tradition-ability",
@@ -145,7 +219,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-6/6th-level-tradition-ability",
       "originalName": "6th-Level Tradition Ability",
-      "originalDescription": "Your null tradition grants your choice of one of two heroic abilities.\n\n##### 6th-Level Chronokinetic Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Cryokinetic Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Metakinetic Abilities\n\nChoose one of the following abilities."
+      "originalDescription": "Your null tradition grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-6.chronokinetic-abilities",
@@ -158,7 +235,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Chronokinetic Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-6.interphase",
@@ -211,7 +291,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-6/interphase",
       "originalName": "Interphase",
-      "originalDescription": "*You slip into a faster timestream to act more quickly.*\n\n| **Psionic** | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You can use up to three signature abilities, each of which gains an edge."
+      "originalDescription": "*You slip into a faster timestream to act more quickly.*\n\n| **Psionic** | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You can use up to three signature abilities, each of which gains an edge.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You slip into a faster timestream to act more quickly.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Psionic"
+          ]
+        },
+        "effect": "You can use up to three signature abilities, each of which gains an edge."
+      }
     },
     {
       "id": "feature.ability.null.level-6.phase-step",
@@ -268,7 +366,51 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-6/phase-step",
       "originalName": "Phase Step",
-      "originalDescription": "*You weaken your connection to this manifold, allowing you to move through and damage enemies.*\n\n| **Melee, Psionic, Weapon** | **Main action** |\n|----------------------------|----------------:|\n| **📏 Self; see below**     |     **🎯 Self** |\n\n**Effect:** You can shift up to your speed, and squares occupied by enemies or objects are not difficult terrain for this shift. You make one power roll that targets each enemy you moved through during this shift.\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 damage; M < WEAK, dazed\n- **12-16:** 8 damage; M < AVERAGE, dazed\n- **17+:** 12 damage; M < STRONG, dazed"
+      "originalDescription": "*You weaken your connection to this manifold, allowing you to move through and damage enemies.*\n\n| **Melee, Psionic, Weapon** | **Main action** |\n|----------------------------|----------------:|\n| **📏 Self; see below**     |     **🎯 Self** |\n\n**Effect:** You can shift up to your speed, and squares occupied by enemies or objects are not difficult terrain for this shift. You make one power roll that targets each enemy you moved through during this shift.\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 damage; M < WEAK, dazed\n- **12-16:** 8 damage; M < AVERAGE, dazed\n- **17+:** 12 damage; M < STRONG, dazed",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You weaken your connection to this manifold, allowing you to move through and damage enemies.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self; see below"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** You can shift up to your speed, and squares occupied by enemies or objects are not difficult terrain for this shift. You make one power roll that targets each enemy you moved through during this shift.",
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6"
+              },
+              "effect": "M < WEAK, dazed"
+            },
+            {
+              "damage": {
+                "value": "8"
+              },
+              "effect": "M < AVERAGE, dazed"
+            },
+            {
+              "damage": {
+                "value": "12"
+              },
+              "effect": "M < STRONG, dazed"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.null.level-6.cryokinetic-abilities",
@@ -281,7 +423,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Cryokinetic Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-6.ice-pillars",
@@ -337,7 +482,45 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-6/ice-pillars",
       "originalName": "Ice Pillars",
-      "originalDescription": "*Pillars of ice erupt from the ground and launch your foes into the air.*\n\n| **Psionic, Ranged** |                   **Main action** |\n|---------------------|----------------------------------:|\n| **📏 Ranged 10**    | **🎯 Three creatures or objects** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** Vertical slide 6\n- **12-16:** Vertical slide 8\n- **17+:** Vertical slide 10\n\n**Effect:** The pillars vanish as soon as the effects of the forced movement are resolved."
+      "originalDescription": "*Pillars of ice erupt from the ground and launch your foes into the air.*\n\n| **Psionic, Ranged** |                   **Main action** |\n|---------------------|----------------------------------:|\n| **📏 Ranged 10**    | **🎯 Three creatures or objects** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** Vertical slide 6\n- **12-16:** Vertical slide 8\n- **17+:** Vertical slide 10\n\n**Effect:** The pillars vanish as soon as the effects of the forced movement are resolved.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Pillars of ice erupt from the ground and launch your foes into the air.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Three creatures or objects",
+          "keywords": [
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "effect": "Vertical slide 6"
+            },
+            {
+              "effect": "Vertical slide 8"
+            },
+            {
+              "effect": "Vertical slide 10"
+            }
+          ]
+        },
+        "effect": "The pillars vanish as soon as the effects of the forced movement are resolved."
+      }
     },
     {
       "id": "feature.ability.null.level-6.wall-of-ice",
@@ -392,7 +575,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-6/wall-of-ice",
       "originalName": "Wall of Ice",
-      "originalDescription": "*You create a wall of ice.*\n\n| **Area, Psionic, Ranged** | **Main action** |\n|---------------------------|----------------:|\n| **📏 10 wall within 10**  |  **🎯 Special** |\n\n**Effect:** You can place this wall in occupied squares, sliding each creature in the area into the nearest unoccupied space of your choice. The wall remains until the end of the encounter or until you are dying. The wall's squares are treated as stone squares for the purpose of damage, and you and allies can move freely through the wall. Each enemy who enters a square adjacent to the wall and has M < AVERAGE is slowed (save ends). Each enemy who is force moved into the wall and has M < AVERAGE is restrained (save ends)."
+      "originalDescription": "*You create a wall of ice.*\n\n| **Area, Psionic, Ranged** | **Main action** |\n|---------------------------|----------------:|\n| **📏 10 wall within 10**  |  **🎯 Special** |\n\n**Effect:** You can place this wall in occupied squares, sliding each creature in the area into the nearest unoccupied space of your choice. The wall remains until the end of the encounter or until you are dying. The wall's squares are treated as stone squares for the purpose of damage, and you and allies can move freely through the wall. Each enemy who enters a square adjacent to the wall and has M < AVERAGE is slowed (save ends). Each enemy who is force moved into the wall and has M < AVERAGE is restrained (save ends).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You create a wall of ice.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "10 wall within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Special",
+          "keywords": [
+            "Area",
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "effect": "You can place this wall in occupied squares, sliding each creature in the area into the nearest unoccupied space of your choice. The wall remains until the end of the encounter or until you are dying. The wall's squares are treated as stone squares for the purpose of damage, and you and allies can move freely through the wall. Each enemy who enters a square adjacent to the wall and has M < AVERAGE is slowed (save ends). Each enemy who is force moved into the wall and has M < AVERAGE is restrained (save ends)."
+      }
     },
     {
       "id": "feature.null.level-6.metakinetic-abilities",
@@ -405,7 +612,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Metakinetic Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-6.gravitic-charge",
@@ -460,7 +670,40 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-6/gravitic-charge",
       "originalName": "Gravitic Charge",
-      "originalDescription": "*You channel your discipline into momentum that defies gravity.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** Vertical slide 5\n- **12-16:** Vertical slide 7\n- **17+:** Vertical slide 9\n\n**Effect:** This movement ignores stability. If you slide into another creature, you resolve damage to both of you as if your force movement had ended, but you keep moving through that creature's space."
+      "originalDescription": "*You channel your discipline into momentum that defies gravity.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** Vertical slide 5\n- **12-16:** Vertical slide 7\n- **17+:** Vertical slide 9\n\n**Effect:** This movement ignores stability. If you slide into another creature, you resolve damage to both of you as if your force movement had ended, but you keep moving through that creature's space.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You channel your discipline into momentum that defies gravity.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Psionic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "effect": "Vertical slide 5"
+            },
+            {
+              "effect": "Vertical slide 7"
+            },
+            {
+              "effect": "Vertical slide 9"
+            }
+          ]
+        },
+        "effect": "This movement ignores stability. If you slide into another creature, you resolve damage to both of you as if your force movement had ended, but you keep moving through that creature's space."
+      }
     },
     {
       "id": "feature.ability.null.level-6.iron-body",
@@ -513,7 +756,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-6/iron-body",
       "originalName": "Iron Body",
-      "originalDescription": "*You focus until your body becomes as hard as iron.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 20 temporary Stamina. Additionally, until the end of the encounter, your stability gains a bonus equal to your Intuition score."
+      "originalDescription": "*You focus until your body becomes as hard as iron.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 20 temporary Stamina. Additionally, until the end of the encounter, your stability gains a bonus equal to your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You focus until your body becomes as hard as iron.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Psionic"
+          ]
+        },
+        "effect": "You gain 20 temporary Stamina. Additionally, until the end of the encounter, your stability gains a bonus equal to your Intuition score."
+      }
     }
   ]
 }

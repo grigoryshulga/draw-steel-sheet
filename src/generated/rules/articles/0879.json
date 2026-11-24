@@ -79,7 +79,64 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
       "originalName": "9th-Level Features",
-      "originalDescription": "As a 9th-level troubadour, you gain the following features."
+      "originalDescription": "As a 9th-level troubadour, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "9th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 9th-level troubadour, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-9.roar-of-the-crowd"
+          },
+          {
+            "type": "markdown",
+            "text": "## 9th-Level Class Act Ability\n\nYour troubadour class act grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Auteur Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-9.epic"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-9.rising-tension"
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Duelist Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-9.expert-fencer"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-9.renegotiated-contract"
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Virtuoso Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-9.jam-session"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-9.melt-their-faces"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -94,7 +151,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-9/roar-of-the-crowd",
       "originalName": "Roar of the Crowd",
-      "originalDescription": "You are empowered by your audience, near and far. You can't be made frightened, and if you are prone, you can stand up as a free maneuver.\n\nAdditionally, whenever you spend a Recovery, you can forgo regaining Stamina to invoke the roar of an invisible applauding audience. You and each ally within 3 squares of you gains temporary Stamina equal to 10 + the number of active bonds from your Scene Partner feature + either your Victories or the number of players in your game (whichever is higher)."
+      "originalDescription": "You are empowered by your audience, near and far. You can't be made frightened, and if you are prone, you can stand up as a free maneuver.\n\nAdditionally, whenever you spend a Recovery, you can forgo regaining Stamina to invoke the roar of an invisible applauding audience. You and each ally within 3 squares of you gains temporary Stamina equal to 10 + the number of active bonds from your Scene Partner feature + either your Victories or the number of players in your game (whichever is higher).",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-9.9th-level-class-act-ability",
@@ -107,7 +167,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-9/9th-level-class-act-ability",
       "originalName": "9th-Level Class Act Ability",
-      "originalDescription": "Your troubadour class act grants your choice of one of two heroic abilities.\n\n##### 9th-Level Auteur Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Duelist Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Virtuoso Abilities\n\nChoose one of the following abilities."
+      "originalDescription": "Your troubadour class act grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-9.auteur-abilities",
@@ -120,7 +183,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Auteur Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-9.epic",
@@ -177,7 +243,51 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-9/epic",
       "originalName": "Epic",
-      "originalDescription": "*Your story tells a tale of the villain's waning power and how the heroes rose to the occasion to stop them.*\n\n| **Magic, Melee, Ranged**    |        **Maneuver** |\n|-----------------------------|--------------------:|\n| **📏 Melee 1 or ranged 10** | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** The target takes a bane on ability rolls (save ends).\n- **12-16:** The target has a double bane on ability rolls (save ends).\n- **17+:** The target has a double bane on power rolls (save ends).\n\n**Effect:** Choose one ally within distance. While the target is affected by this ability, each time they use an ability, that ally can make a free strike against them after the ability is resolved."
+      "originalDescription": "*Your story tells a tale of the villain's waning power and how the heroes rose to the occasion to stop them.*\n\n| **Magic, Melee, Ranged**    |        **Maneuver** |\n|-----------------------------|--------------------:|\n| **📏 Melee 1 or ranged 10** | **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** The target takes a bane on ability rolls (save ends).\n- **12-16:** The target has a double bane on ability rolls (save ends).\n- **17+:** The target has a double bane on power rolls (save ends).\n\n**Effect:** Choose one ally within distance. While the target is affected by this ability, each time they use an ability, that ally can make a free strike against them after the ability is resolved.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your story tells a tale of the villain's waning power and how the heroes rose to the occasion to stop them.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            },
+            " or ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "effect": "The target takes a bane on ability rolls (save ends)."
+            },
+            {
+              "effect": "The target has a double bane on ability rolls (save ends)."
+            },
+            {
+              "effect": "The target has a double bane on power rolls (save ends)."
+            }
+          ]
+        },
+        "effect": "Choose one ally within distance. While the target is affected by this ability, each time they use an ability, that ally can make a free strike against them after the ability is resolved."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-9.rising-tension",
@@ -231,7 +341,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-9/rising-tension",
       "originalName": "Rising Tension",
-      "originalDescription": "*You narrate the tension of the scene and put all hope into your protagonist to turn things around.*\n\n| **Magic, Ranged** |    **Maneuver** |\n|-------------------|----------------:|\n| **📏 Ranged 10**  | **🎯 One ally** |\n\n**Effect:** The target gains 3 of their Heroic Resource, has a double edge on a power roll of their choice made during their next turn, is no longer slowed or weakened if they were before, and can immediately take their turn after yours if they have not taken their turn already this round."
+      "originalDescription": "*You narrate the tension of the scene and put all hope into your protagonist to turn things around.*\n\n| **Magic, Ranged** |    **Maneuver** |\n|-------------------|----------------:|\n| **📏 Ranged 10**  | **🎯 One ally** |\n\n**Effect:** The target gains 3 of their Heroic Resource, has a double edge on a power roll of their choice made during their next turn, is no longer slowed or weakened if they were before, and can immediately take their turn after yours if they have not taken their turn already this round.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You narrate the tension of the scene and put all hope into your protagonist to turn things around.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "The target gains 3 of their Heroic Resource, has a double edge on a power roll of their choice made during their next turn, is no longer slowed or weakened if they were before, and can immediately take their turn after yours if they have not taken their turn already this round."
+      }
     },
     {
       "id": "feature.troubadour.level-9.duelist-abilities",
@@ -244,7 +377,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Duelist Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-9.expert-fencer",
@@ -302,7 +438,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-9/expert-fencer",
       "originalName": "Expert Fencer",
-      "originalDescription": "*If you can land the strike, the crowd goes wild.*\n\n| **Charge, Melee, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 3**                    | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 15 + A damage\n- **12-16:** 21 + A damage\n- **17+:** 28 + A damage; M < STRONG, bleeding (save ends)\n\n**Effect:** This ability can't obtain better than a tier 2 outcome unless the target is at maximum distance. If you obtain a tier 3 outcome with a natural 17 or higher, you gain 3 surges that you can use immediately."
+      "originalDescription": "*If you can land the strike, the crowd goes wild.*\n\n| **Charge, Melee, Strike, Weapon** |               **Main action** |\n|-----------------------------------|------------------------------:|\n| **📏 Melee 3**                    | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 15 + A damage\n- **12-16:** 21 + A damage\n- **17+:** 28 + A damage; M < STRONG, bleeding (save ends)\n\n**Effect:** This ability can't obtain better than a tier 2 outcome unless the target is at maximum distance. If you obtain a tier 3 outcome with a natural 17 or higher, you gain 3 surges that you can use immediately.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "If you can land the strike, the crowd goes wild.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 3
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Charge",
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "15 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "21 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "28 + A"
+              },
+              "effect": "M < STRONG, bleeding (save ends)"
+            }
+          ]
+        },
+        "effect": "This ability can't obtain better than a tier 2 outcome unless the target is at maximum distance. If you obtain a tier 3 outcome with a natural 17 or higher, you gain 3 surges that you can use immediately."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-9.renegotiated-contract",
@@ -359,7 +544,46 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-9/renegotiated-contract",
       "originalName": "Renegotiated Contract",
-      "originalDescription": "*No, no. You don't die until the sequel.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** Add your current Stamina to your target's current Stamina, then you have half that total Stamina and the target has the remainder. If either of you would gain more Stamina this way than their Stamina maximum, the difference in Stamina between what that creature would gain and their maximum is gained by the other creature. Neither of you can gain more Stamina than your maximum this way. You then make a power roll.\n\n**Power Roll + Presence:**\n\n- **≤11:** You and the target can each end one effect on yourselves that is ended by a saving throw or that ends at the end of your turns.\n- **12-16:** You and the target can end any effects on yourselves that are ended by a saving throw or that end at the end of your turns.\n- **17+:** You can choose any of the current effects on you and the target that are ended by a saving throw or that end at the end of your turns, apply the chosen effects to the target, and end the rest."
+      "originalDescription": "*No, no. You don't die until the sequel.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** Add your current Stamina to your target's current Stamina, then you have half that total Stamina and the target has the remainder. If either of you would gain more Stamina this way than their Stamina maximum, the difference in Stamina between what that creature would gain and their maximum is gained by the other creature. Neither of you can gain more Stamina than your maximum this way. You then make a power roll.\n\n**Power Roll + Presence:**\n\n- **≤11:** You and the target can each end one effect on yourselves that is ended by a saving throw or that ends at the end of your turns.\n- **12-16:** You and the target can end any effects on yourselves that are ended by a saving throw or that end at the end of your turns.\n- **17+:** You can choose any of the current effects on you and the target that are ended by a saving throw or that end at the end of your turns, apply the chosen effects to the target, and end the rest.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "No, no. You don't die until the sequel.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** Add your current Stamina to your target's current Stamina, then you have half that total Stamina and the target has the remainder. If either of you would gain more Stamina this way than their Stamina maximum, the difference in Stamina between what that creature would gain and their maximum is gained by the other creature. Neither of you can gain more Stamina than your maximum this way. You then make a power roll.",
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "effect": "You and the target can each end one effect on yourselves that is ended by a saving throw or that ends at the end of your turns."
+            },
+            {
+              "effect": "You and the target can end any effects on yourselves that are ended by a saving throw or that end at the end of your turns."
+            },
+            {
+              "effect": "You can choose any of the current effects on you and the target that are ended by a saving throw or that end at the end of your turns, apply the chosen effects to the target, and end the rest."
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.troubadour.level-9.virtuoso-abilities",
@@ -372,7 +596,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Virtuoso Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-9.jam-session",
@@ -428,7 +655,53 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-9/jam-session",
       "originalName": "Jam Session",
-      "originalDescription": "*Your jam session creates new genres that compel everyone to get up and move.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 5 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 8 sonic damage\n- **12-16:** 11 sonic damage\n- **17+:** 15 sonic damage\n\n**Effect:** Each creature within distance gains a +5 bonus to speed until the end of their next turn. While under this effect, each target must use their full movement during their turn."
+      "originalDescription": "*Your jam session creates new genres that compel everyone to get up and move.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 5 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 8 sonic damage\n- **12-16:** 11 sonic damage\n- **17+:** 15 sonic damage\n\n**Effect:** Each creature within distance gains a +5 bonus to speed until the end of their next turn. While under this effect, each target must use their full movement during their turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your jam session creates new genres that compel everyone to get up and move.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "5 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "8",
+                "type": "sonic"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "11",
+                "type": "sonic"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "15",
+                "type": "sonic"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "Each creature within distance gains a +5 bonus to speed until the end of their next turn. While under this effect, each target must use their full movement during their turn."
+      }
     },
     {
       "id": "feature.ability.troubadour.level-9.melt-their-faces",
@@ -486,7 +759,64 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-9/melt-their-faces",
       "originalName": "Melt Their Faces",
-      "originalDescription": "*The power of music rips through the reality around the target and blows them away.*\n\n| **Magic, Melee, Ranged, Strike** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 10**      | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 12 + P sonic damage; push 5\n- **12-16:** 16 + P sonic damage; push 10\n- **17+:** 22 + P sonic damage; push 15\n\n**Effect:** Forced movement from this ability ignores stability."
+      "originalDescription": "*The power of music rips through the reality around the target and blows them away.*\n\n| **Magic, Melee, Ranged, Strike** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 10**      | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 12 + P sonic damage; push 5\n- **12-16:** 16 + P sonic damage; push 10\n- **17+:** 22 + P sonic damage; push 15\n\n**Effect:** Forced movement from this ability ignores stability.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The power of music rips through the reality around the target and blows them away.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            },
+            " or ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "12 + P",
+                "type": "sonic"
+              },
+              "effect": "push 5"
+            },
+            {
+              "damage": {
+                "value": "16 + P",
+                "type": "sonic"
+              },
+              "effect": "push 10"
+            },
+            {
+              "damage": {
+                "value": "22 + P",
+                "type": "sonic"
+              },
+              "effect": "push 15"
+            }
+          ]
+        },
+        "effect": "Forced movement from this ability ignores stability."
+      }
     }
   ]
 }

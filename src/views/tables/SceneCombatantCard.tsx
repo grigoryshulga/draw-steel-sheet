@@ -1,3 +1,5 @@
+import { creatureCategory, creatureDisplayName } from "./table-display";
+import { useArticleLocale, useLocale } from "../../i18n/locale";
 import { lazy, Suspense, useState, type ReactNode } from "react";
 import { CardDetailModal } from "../../components/CardDetailModal";
 import { Icon } from "../../components/Icons";
@@ -30,23 +32,24 @@ export function SceneRuleDialog({ source, onClose, stamina, footer, error }: {
   footer?: ReactNode;
   error?: string;
 }) {
+  const { t, locale } = useLocale();
   return (
   <CardDetailModal
     open={!!source}
     onClose={onClose}
-    title={source?.name ?? "Правила"}
+    title={source ? creatureDisplayName(source.id, source.name, locale) : t("Правила", "Rules")}
     footer={footer}
     wide
     className="table-dialog"
   >
     {error && <p role="alert">{error}</p>}
     {source && (
-      <Suspense fallback={<p>Загрузка статблока…</p>}>
+      <Suspense fallback={<p>{t("Загрузка статблока…", "Loading stat block…")}</p>}>
         {source.minion && (
           <p className="muted small">
             {stamina
-              ? "Выносливость указана для всего отряда. Остальные показатели относятся к одному миньону."
-              : "Показатели одного миньона. В трекере указан общий запас выносливости отряда; состав отмечается вручную."}
+              ? t("Выносливость указана для всего отряда. Остальные показатели относятся к одному миньону.", "Stamina is for the whole squad. Other stats are for one minion.")
+              : t("Показатели одного миньона. В трекере указан общий запас выносливости отряда; состав отмечается вручную.", "Stats are for one minion. The tracker shows the squad’s total stamina; track its members manually.")}
           </p>
         )}
         <DirectorStaminaContext value={stamina}>
@@ -63,6 +66,9 @@ export function SceneStaminaFields({ unit, busy, onChange }: {
   busy: boolean;
   onChange: (patch: Partial<SceneCombatant>) => Promise<TableSnapshot | null> | undefined;
 }) {
+  const { locale } = useLocale();
+  const language = useArticleLocale() ?? locale;
+  const t = (ru: string, en: string) => language === "en" ? en : ru;
   const limit = 1_000_000_000;
   const field = (key: "stamina" | "maxStamina" | "temporaryStamina", label: string, max = limit) => {
     const current = unit[key] ?? 0;
@@ -89,13 +95,13 @@ export function SceneStaminaFields({ unit, busy, onChange }: {
   return (
     <fieldset className="scene-statblock-stamina" disabled={busy}>
       <div className="scene-stamina-pool">
-        {field("stamina", "Текущая выносливость", unit.maxStamina)}
+        {field("stamina", t("Текущая выносливость", "Current stamina"), unit.maxStamina)}
         <span aria-hidden="true">/</span>
-        {field("maxStamina", "Максимум выносливости")}
+        {field("maxStamina", t("Максимум выносливости", "Maximum stamina"))}
       </div>
       <label className="scene-stamina-temp">
-        Временная
-        {field("temporaryStamina", "Временная выносливость")}
+        {t("Временная", "Temporary")}
+        {field("temporaryStamina", t("Временная выносливость", "Temporary stamina"))}
       </label>
     </fieldset>
   );
@@ -115,11 +121,14 @@ export function SceneCombatantCard({
   showStamina?: boolean;
   onOpenStatBlock?: () => void;
 }) {
+  const { t, locale } = useLocale();
+  const displayName = creatureDisplayName(c.sourceId, c.name, locale);
+  const labels = { ready: t("Готов", "Ready"), active: t("Ходит", "Taking turn"), done: t("Ход завершён", "Turn complete") };
   const [editing, setEditing] = useState(false);
   const [source, setSource] = useState<SceneRuleSource | null>(null);
   return <>
   <Card
-    aria-label={`Участник: ${c.name}`}
+    aria-label={`${t("Участник", "Participant")}: ${displayName}`}
     onKeyDown={(event) => {
       if (event.key === "Enter" && event.target instanceof HTMLInputElement && event.target.type !== "checkbox") {
         event.preventDefault();
@@ -130,27 +139,27 @@ export function SceneCombatantCard({
   >
     <div className="scene-combatant-heading">
       <div className="scene-identity">
-        {!inDialog && <h4>{c.name}{turn === "done" && <Icon name="check" className="scene-turn-check" size={15} aria-label="Ход завершён" />}</h4>}
+        {!inDialog && <h4>{displayName}{turn === "done" && <Icon name="check" className="scene-turn-check" size={15} aria-label={t("Ход завершён", "Turn complete")} />}</h4>}
         <span className="scene-health" data-health={c.health}>
-          {healthLabel(c.health)}
+          {t(healthLabel(c.health), ({ healthy: "Healthy", hurt: "Hurt", winded: "Winded", defeated: "Defeated" })[c.health])}
         </span>
         {director && (
           <span className="muted small">
             {[
-              c.organization,
-              c.count && c.count > 1 ? `${c.count} в отряде` : null,
-              c.faction === "ally" ? "Союзник" : null,
+              creatureCategory(c.organization, locale),
+              c.count && c.count > 1 ? `${c.count} ${t("в отряде", "in squad")}` : null,
+              c.faction === "ally" ? t("Союзник", "Ally") : null,
             ]
               .filter(Boolean)
               .join(" · ")}
           </span>
         )}
-        {director && <span className="scene-visibility-status">{published && c.revealed ? "Виден игрокам" : c.revealed ? "Раскрыт · сцена скрыта" : "Скрыт от игроков"}</span>}
+        {director && <span className="scene-visibility-status">{published && c.revealed ? t("Виден игрокам", "Visible to players") : c.revealed ? t("Раскрыт · сцена скрыта", "Revealed · scene hidden") : t("Скрыт от игроков", "Hidden from players")}</span>}
       </div>
       <div className="scene-actions">
         {director ? (
           <>
-            <Button icon="settings" iconOnly size="sm" variant="ghost" onClick={() => setEditing(true)} aria-label={`Настройки: ${c.name}`} title={`Настройки: ${c.name}`}>Настройки участника</Button>
+            <Button icon="settings" iconOnly size="sm" variant="ghost" onClick={() => setEditing(true)} aria-label={`${t("Настройки", "Settings")}: ${displayName}`} title={`${t("Настройки", "Settings")}: ${displayName}`}>{t("Настройки участника", "Participant settings")}</Button>
             <Button
               size="sm"
               variant="ghost"
@@ -158,15 +167,15 @@ export function SceneCombatantCard({
               aria-pressed={c.revealed}
               iconOnly
               icon={c.revealed ? "eye-off" : "eye"}
-              title={`${c.revealed ? "Скрыть" : "Раскрыть"}: ${c.name}`}
-              aria-label={`${c.revealed ? "Скрыть" : "Раскрыть"}: ${c.name}`}
+              title={`${c.revealed ? t("Скрыть", "Hide") : t("Раскрыть", "Reveal")}: ${displayName}`}
+              aria-label={`${c.revealed ? t("Скрыть", "Hide") : t("Раскрыть", "Reveal")}: ${displayName}`}
               onClick={() => onChange({ revealed: !c.revealed })}
             >
-              {c.revealed ? "Скрыть" : "Раскрыть"}
+              {c.revealed ? t("Скрыть", "Hide") : t("Раскрыть", "Reveal")}
             </Button>
           </>
         ) : (
-          <span className="scene-turn-label">{turnNames[turn]}</span>
+          <span className="scene-turn-label">{labels[turn]}</span>
         )}
       </div>
     </div>
@@ -175,11 +184,11 @@ export function SceneCombatantCard({
         {showStamina && c.stamina !== undefined && (
           <label className="scene-inline-number">
             {/миньон|minion/i.test(c.organization)
-              ? "Запас отряда"
-              : "Выносливость"}
+              ? t("Запас отряда", "Squad stamina")
+              : t("Выносливость", "Stamina")}
             <input
               className="input"
-              aria-label={`Выносливость: ${c.name}`}
+              aria-label={`${t("Выносливость", "Stamina")}: ${displayName}`}
               type="number"
               min="0"
               disabled={busy}
@@ -194,7 +203,7 @@ export function SceneCombatantCard({
         )}
         {showStamina && (c.temporaryStamina ?? 0) > 0 && (
           <span className="table-badge">
-            +{c.temporaryStamina} врем.
+            +{c.temporaryStamina} {t("врем.", "temp.")}
           </span>
         )}
         <Button
@@ -202,23 +211,23 @@ export function SceneCombatantCard({
           variant="ghost"
           aria-disabled={busy}
           aria-pressed={c.reactionUsed}
-          aria-label={`${c.reactionUsed ? "Вернуть реакцию" : "Отметить реакцию"}: ${c.name}`}
+          aria-label={`${c.reactionUsed ? t("Вернуть реакцию", "Restore reaction") : t("Отметить реакцию", "Mark reaction used")}: ${displayName}`}
           onClick={() =>
             onChange({ reactionUsed: !c.reactionUsed })
           }
         >
-          {c.reactionUsed ? "Вернуть реакцию" : "Отметить реакцию"}
+          {c.reactionUsed ? t("Вернуть реакцию", "Restore reaction") : t("Отметить реакцию", "Mark reaction used")}
         </Button>
         {c.sourceId && (
           <Button iconOnly
             size="sm"
             variant="ghost"
             icon="book"
-            aria-label={`Открыть статблок: ${c.name}`}
-            title={`Открыть статблок: ${c.name}`}
+            aria-label={`${t("Открыть статблок", "Open stat block")}: ${displayName}`}
+            title={`${t("Открыть статблок", "Open stat block")}: ${displayName}`}
             onClick={onOpenStatBlock ?? (() => setSource(sceneCombatantSource(c)))}
           >
-            Статблок
+            {t("Статблок", "Stat block")}
           </Button>
         )}
       </div>
@@ -231,13 +240,13 @@ export function SceneCombatantCard({
             <span className="table-badge" key={x.id}>
               {x.name}
               {x.ends && ` · ${x.ends}`}
-              {director && !x.public && " · скрыто"}
+              {director && !x.public && t(" · скрыто", " · hidden")}
             </span>
           ))}
       </div>
     )}
     {director && (
-      <CardDetailModal open={editing} onClose={() => setEditing(false)} title={`Состояния и настройки: ${c.name}`} className="scene-ui table-dialog" wide>
+      <CardDetailModal open={editing} onClose={() => setEditing(false)} title={`${t("Состояния и настройки", "Conditions and settings")}: ${displayName}`} className="scene-ui table-dialog" wide>
         {error && <p role="alert">{error}</p>}
         <fieldset disabled={busy}>
           {(showStamina || !inDialog) && <div className="scene-grid">
@@ -245,7 +254,7 @@ export function SceneCombatantCard({
               (key, i) => (
                 <label key={key}>
                   {
-                    ["Максимум выносливости", "Временная выносливость"][
+                    [t("Максимум выносливости", "Maximum stamina"), t("Временная выносливость", "Temporary stamina")][
                       i
                     ]
                   }
@@ -263,7 +272,7 @@ export function SceneCombatantCard({
               ),
             )}
             {!inDialog && <label>
-              Ход
+              {t("Ход", "Turn")}
               <select
                 className="select"
                 value={c.turn}
@@ -273,7 +282,7 @@ export function SceneCombatantCard({
                   })
                 }
               >
-                {Object.entries(turnNames).map(([value, label]) => (
+                {Object.entries(labels).map(([value, label]) => (
                   <option key={value} value={value}>
                     {label}
                   </option>
@@ -284,7 +293,7 @@ export function SceneCombatantCard({
           {c.conditions.map((condition) => (
             <div className="scene-condition-row" key={condition.id}>
               <label>
-                Состояние
+                {t("Состояние", "Condition")}
                 <input
                   className="input"
                   key={condition.name}
@@ -304,7 +313,7 @@ export function SceneCombatantCard({
                 />
               </label>
               <label>
-                Окончание
+                {t("Окончание", "Ends")}
                 <input
                   className="input"
                   key={condition.ends}
@@ -334,14 +343,14 @@ export function SceneCombatantCard({
                     })
                   }
                 />
-                Видно игрокам
+                {t("Видно игрокам", "Visible to players")}
               </label>
               <Button
                 size="sm"
                 variant="ghost"
                 icon="trash"
                 iconOnly
-                aria-label={`Удалить состояние: ${condition.name}`}
+                aria-label={`${t("Удалить состояние", "Remove condition")}: ${condition.name}`}
                 onClick={() =>
                   onChange({
                     conditions: c.conditions.filter(
@@ -371,11 +380,11 @@ export function SceneCombatantCard({
                 })
               }
             >
-              Добавить состояние
+              {t("Добавить состояние", "Add condition")}
             </Button>
           </div>
           <label>
-            Заметки ведущего о существе
+            {t("Заметки ведущего о существе", "Director notes about this creature")}
             <textarea
               className="textarea"
               key={c.notes}

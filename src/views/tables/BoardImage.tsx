@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { memo, useEffect, useState } from "react";
 import { tableRepository } from "../../lib/tables/repository";
 
@@ -9,6 +10,7 @@ export const BoardImage = memo(function BoardImage({ tableId, assetId, label, ba
   onOpen?: () => void;
   onAspectRatio?: (assetId: string, ratio: number) => void;
 }) {
+  const { t: tr } = useLocale();
   const [url, setUrl] = useState("");
   const [failed, setFailed] = useState(false);
   const [retry, setRetry] = useState(0);
@@ -27,7 +29,7 @@ export const BoardImage = memo(function BoardImage({ tableId, assetId, label, ba
       setUrl("");
       setFailed(false);
       setRetry(value => value + 1);
-    }}>Повторить загрузку изображения</button>;
+    }}>{tr("Повторить загрузку изображения", "Retry loading image")}</button>;
   }
   if (!url) return null;
   const image = <img className={background ? "board-backdrop" : "board-image"}

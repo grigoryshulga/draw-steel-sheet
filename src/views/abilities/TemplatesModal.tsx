@@ -1,3 +1,5 @@
+import { basicActionEditions } from "../../rules/consumer-basic-actions";
+import { useLocale } from "../../i18n/locale";
 import { useMemo } from "react";
 import type { Ability } from "../../types";
 import { actionShort, kindLabel } from "../../data/actions";
@@ -14,6 +16,7 @@ export interface TemplatesModalProps {
 
 /** Быстрое добавление базовых действий (главы 13.09–13.11). */
 export function TemplatesModal({ existing, onClose, onAdd }: TemplatesModalProps) {
+  const { t, locale } = useLocale();
   const owned = useMemo(() => {
     const set = new Set<string>();
     for (const ability of existing) set.add(ownershipKey(ability.name, ability.source));
@@ -28,41 +31,43 @@ export function TemplatesModal({ existing, onClose, onAdd }: TemplatesModalProps
       title={
         <span className="abil-templates-title">
           <Icon name="sword" size={18} />
-          Базовые действия
+          {t("Базовые действия", "Basic actions")}
         </span>
       }
     >
       {BASIC_ABILITIES.length === 0 ? (
-        <EmptyState icon="sword" title="Шаблоны недоступны" />
+        <EmptyState icon="sword" title={t("Шаблоны недоступны", "Templates unavailable")} />
       ) : (
         <div className="abil-templates-list">
           {BASIC_ABILITIES.map((template, index) => {
+            const edition = locale === "en" ? basicActionEditions[template.name] : undefined;
+            const name = edition?.name ?? template.name;
             const isOwned = owned.has(ownershipKey(template.name, template.source));
             return (
               <div className="abil-template-row" key={index}>
                 <div className="abil-template-text">
                   <span className="abil-template-name">
-                    {template.name}
-                    {isOwned && <span className="abil-owned-badge">в листе</span>}
+                    {name}
+                    {isOwned && <span className="abil-owned-badge">{t("в листе", "on sheet")}</span>}
                   </span>
                   <span className="abil-template-meta">
-                    <Chip tone={kindTone(template.kind)}>{kindLabel(template.kind)}</Chip>
-                    <span className="mono">{actionShort(template.actionType)}</span>
-                    <span className="muted small">{template.distance}</span>
+                    <Chip tone={kindTone(template.kind)}>{kindLabel(template.kind, locale)}</Chip>
+                    <span className="mono">{edition?.action ?? actionShort(template.actionType)}</span>
+                    <span className="muted small">{edition?.distance ?? template.distance}</span>
                   </span>
                   <span className="muted small">
-                    {template.rollCharacteristics.length > 0
+                    {edition?.summary ?? (template.rollCharacteristics.length > 0
                       ? `Бросок: ${rollSummary(template)}`
-                      : template.effect || "—"}
+                      : template.effect || "—")}
                   </span>
                 </div>
                 <Button
                   size="sm"
                   icon="plus"
                   onClick={() => onAdd(abilityFromTemplate(template))}
-                  aria-label={`Добавить: ${template.name}`}
+                  aria-label={t(`Добавить: ${name}`, `Add: ${name}`)}
                 >
-                  Добавить
+                  {t("Добавить", "Add")}
                 </Button>
               </div>
             );

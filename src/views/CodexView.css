@@ -804,3 +804,11 @@
 #codex-chapter-tree summary:hover { color: var(--accent); background: var(--accent-soft); }
 #codex-chapter-tree summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 #codex-chapter-tree details[open] > summary { color: var(--accent); }
+
+.codex-article-tools {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.codex-article-tools .article-language { align-self: baseline; }

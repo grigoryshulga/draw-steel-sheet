@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useEffect, useRef, type InputHTMLAttributes } from "react";
 import { Icon } from "../Icons";
 import "./SearchInput.css";
@@ -19,11 +20,13 @@ export function SearchInput({
   shortcut = false,
   onClear,
   canClear = Boolean(value),
-  clearLabel = "Очистить поиск",
+  clearLabel: suppliedClearLabel,
   className = "",
   onKeyDown,
   ...props
 }: SearchInputProps) {
+  const { t } = useLocale();
+  const clearLabel = suppliedClearLabel ?? t("Очистить поиск", "Clear search");
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => {
     if (!shortcut) return;
@@ -83,7 +86,7 @@ export function SearchInput({
           <Icon name="close" size={16} aria-hidden="true" />
         </button>
       ) : shortcut ? (
-        <kbd className="search-field-shortcut" aria-hidden="true" title="Нажмите /, чтобы начать поиск">/</kbd>
+        <kbd className="search-field-shortcut" aria-hidden="true" title={t("Нажмите /, чтобы начать поиск", "Press / to search")}>/</kbd>
       ) : null}
     </div>
   );

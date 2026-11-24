@@ -14,3 +14,5 @@ const projection = libraryJson as ConsumerLibraryProjection;
 
 export const CANONICAL_CATALOG: CatalogEntry[] = projection.catalog;
 export const CANONICAL_GLOSSARY: GlossaryEntry[] = projection.glossary;
+
+export { loadGlossaryDefinitions } from "./consumer-english-reference";

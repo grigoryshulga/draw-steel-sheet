@@ -67,7 +67,60 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
       "originalName": "5th-Level Features",
-      "originalDescription": "As a 5th-level null, you gain the following features."
+      "originalDescription": "As a 5th-level null, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "5th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 5th-level null, you gain the following features."
+          },
+          {
+            "type": "markdown",
+            "text": "## 5th-Level Tradition Feature\n\nYour null tradition grants you a feature, as shown on the 5th-Level Tradition Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 5th-Level Tradition Features Table\n\n| Tradition     | Feature            |\n|---------------|--------------------|\n| Chronokinetic | Instant Action     |\n| Cryokinetic   | Chilling Readiness |\n| Metakinetic   | Inertial Fulcrum   |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-5.chilling-readiness"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-5.inertial-fulcrum"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-5.instant-action"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-5.9-discipline-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-5.anticipating-strike"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-5.iron-grip"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-5.phase-leap"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-5.synaptic-reset"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -82,7 +135,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-5/5th-level-tradition-feature",
       "originalName": "5th-Level Tradition Feature",
-      "originalDescription": "Your null tradition grants you a feature, as shown on the 5th-Level Tradition Features table.\n\n###### 5th-Level Tradition Features Table\n\n| Tradition     | Feature            |\n|---------------|--------------------|\n| Chronokinetic | Instant Action     |\n| Cryokinetic   | Chilling Readiness |\n| Metakinetic   | Inertial Fulcrum   |"
+      "originalDescription": "Your null tradition grants you a feature, as shown on the 5th-Level Tradition Features table.\n\n###### 5th-Level Tradition Features Table\n\n| Tradition     | Feature            |\n|---------------|--------------------|\n| Chronokinetic | Instant Action     |\n| Cryokinetic   | Chilling Readiness |\n| Metakinetic   | Inertial Fulcrum   |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-5.chilling-readiness",
@@ -95,7 +151,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-5/chilling-readiness",
       "originalName": "Chilling Readiness",
-      "originalDescription": "You steel yourself for imminent danger by tapping into your body's cold energy. At the start of any combat, you gain a number of surges equal to your Victories."
+      "originalDescription": "You steel yourself for imminent danger by tapping into your body's cold energy. At the start of any combat, you gain a number of surges equal to your Victories.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-5.inertial-fulcrum",
@@ -108,7 +167,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-5/inertial-fulcrum",
       "originalName": "Inertial Fulcrum",
-      "originalDescription": "Whenever you use an ability to reduce damage dealt to you or to reduce the distance of forced movement imposed upon you, you can deal damage to one enemy in the area of your Null Field ability equal to your Intuition score."
+      "originalDescription": "Whenever you use an ability to reduce damage dealt to you or to reduce the distance of forced movement imposed upon you, you can deal damage to one enemy in the area of your Null Field ability equal to your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-5.instant-action",
@@ -121,7 +183,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-5/instant-action",
       "originalName": "Instant Action",
-      "originalDescription": "If you're not surprised at the start of your first turn in combat, you gain an edge on ability rolls and gain 2 surges. If you are surprised, you can spend 3 discipline to no longer be surprised and gain the benefits of this feature."
+      "originalDescription": "If you're not surprised at the start of your first turn in combat, you gain an edge on ability rolls and gain 2 surges. If you are surprised, you can spend 3 discipline to no longer be surprised and gain the benefits of this feature.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-5.9-discipline-ability",
@@ -134,7 +199,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-5/9-discipline-ability",
       "originalName": "9-Discipline Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 discipline to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 discipline to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-5.anticipating-strike",
@@ -192,7 +260,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-5/anticipating-strike",
       "originalName": "Anticipating Strike",
-      "originalDescription": "*You suddenly strike an enemy, then grab them in a psionically enhanced grip.*\n\n| **Melee, Psionic, Strike, Weapon** |  **Free triggered** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Trigger:** The target moves or uses a main action.\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; I < WEAK, restrained (save ends)\n- **12-16:** 10 + A damage; I < AVERAGE, restrained (save ends)\n- **17+:** 13 + A damage; I < STRONG, restrained (save ends)\n\n**Effect:** This strike resolves before the triggering movement or main action."
+      "originalDescription": "*You suddenly strike an enemy, then grab them in a psionically enhanced grip.*\n\n| **Melee, Psionic, Strike, Weapon** |  **Free triggered** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Trigger:** The target moves or uses a main action.\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage; I < WEAK, restrained (save ends)\n- **12-16:** 10 + A damage; I < AVERAGE, restrained (save ends)\n- **17+:** 13 + A damage; I < STRONG, restrained (save ends)\n\n**Effect:** This strike resolves before the triggering movement or main action.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You suddenly strike an enemy, then grab them in a psionically enhanced grip.",
+        "facts": {
+          "action": "Free triggered",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "trigger": "The target moves or uses a main action.",
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "7 + A"
+              },
+              "effect": "I < WEAK, restrained (save ends)"
+            },
+            {
+              "damage": {
+                "value": "10 + A"
+              },
+              "effect": "I < AVERAGE, restrained (save ends)"
+            },
+            {
+              "damage": {
+                "value": "13 + A"
+              },
+              "effect": "I < STRONG, restrained (save ends)"
+            }
+          ]
+        },
+        "effect": "This strike resolves before the triggering movement or main action."
+      }
     },
     {
       "id": "feature.ability.null.level-5.iron-grip",
@@ -250,7 +368,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-5/iron-grip",
       "originalName": "Iron Grip",
-      "originalDescription": "*You grab the target with supernatural force.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 + A damage; A < WEAK, grabbed\n- **12-16:** 14 + A damage; A < AVERAGE, grabbed\n- **17+:** 18 + A damage; A < STRONG, grabbed\n\n**Effect:** While grabbed this way, the target takes a bane on the Escape Grab maneuver. Each time they use that maneuver, they take damage equal to twice your Agility score."
+      "originalDescription": "*You grab the target with supernatural force.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 10 + A damage; A < WEAK, grabbed\n- **12-16:** 14 + A damage; A < AVERAGE, grabbed\n- **17+:** 18 + A damage; A < STRONG, grabbed\n\n**Effect:** While grabbed this way, the target takes a bane on the Escape Grab maneuver. Each time they use that maneuver, they take damage equal to twice your Agility score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You grab the target with supernatural force.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "10 + A"
+              },
+              "effect": "A < WEAK, grabbed"
+            },
+            {
+              "damage": {
+                "value": "14 + A"
+              },
+              "effect": "A < AVERAGE, grabbed"
+            },
+            {
+              "damage": {
+                "value": "18 + A"
+              },
+              "effect": "A < STRONG, grabbed"
+            }
+          ]
+        },
+        "effect": "While grabbed this way, the target takes a bane on the Escape Grab maneuver. Each time they use that maneuver, they take damage equal to twice your Agility score."
+      }
     },
     {
       "id": "feature.ability.null.level-5.phase-leap",
@@ -303,7 +470,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-5/phase-leap",
       "originalName": "Phase Leap",
-      "originalDescription": "*You leap beyond reality, leaving an afterimage of yourself.*\n\n| **Psionic** |    **Move** |\n|-------------|------------:|\n| **📏 Self** | **🎯 Self** |\n\n**Effect:** You jump up to your speed without provoking opportunity attacks. Until the end of your next turn, a static afterimage of you remains in the space you left, and any enemy adjacent to your afterimage takes a bane on ability rolls. You can use your abilities from your own space or from the space of your afterimage as if you were still there. Additionally, if your Null Field ability is active, your afterimage also projects the aura from that ability, which you control as if you were in the afterimage's space."
+      "originalDescription": "*You leap beyond reality, leaving an afterimage of yourself.*\n\n| **Psionic** |    **Move** |\n|-------------|------------:|\n| **📏 Self** | **🎯 Self** |\n\n**Effect:** You jump up to your speed without provoking opportunity attacks. Until the end of your next turn, a static afterimage of you remains in the space you left, and any enemy adjacent to your afterimage takes a bane on ability rolls. You can use your abilities from your own space or from the space of your afterimage as if you were still there. Additionally, if your Null Field ability is active, your afterimage also projects the aura from that ability, which you control as if you were in the afterimage's space.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You leap beyond reality, leaving an afterimage of yourself.",
+        "facts": {
+          "action": "Move",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Psionic"
+          ]
+        },
+        "effect": "You jump up to your speed without provoking opportunity attacks. Until the end of your next turn, a static afterimage of you remains in the space you left, and any enemy adjacent to your afterimage takes a bane on ability rolls. You can use your abilities from your own space or from the space of your afterimage as if you were still there. Additionally, if your Null Field ability is active, your afterimage also projects the aura from that ability, which you control as if you were in the afterimage's space."
+      }
     },
     {
       "id": "feature.ability.null.level-5.synaptic-reset",
@@ -357,7 +542,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-5/synaptic-reset",
       "originalName": "Synaptic Reset",
-      "originalDescription": "*You expand your nullifying power to mitigate harmful effects.*\n\n| **Area, Psionic** |                          **Maneuver** |\n|-------------------|--------------------------------------:|\n| **📏 3 burst**    | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can end any conditions or effects on themself, and gains 5 temporary Stamina for each condition or effect removed."
+      "originalDescription": "*You expand your nullifying power to mitigate harmful effects.*\n\n| **Area, Psionic** |                          **Maneuver** |\n|-------------------|--------------------------------------:|\n| **📏 3 burst**    | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can end any conditions or effects on themself, and gains 5 temporary Stamina for each condition or effect removed.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You expand your nullifying power to mitigate harmful effects.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "3 burst"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Psionic"
+          ]
+        },
+        "effect": "Each target can end any conditions or effects on themself, and gains 5 temporary Stamina for each condition or effect removed."
+      }
     }
   ]
 }

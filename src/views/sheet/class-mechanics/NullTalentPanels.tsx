@@ -1,3 +1,6 @@
+import { loadRuleArticle } from "../../../rules/repository";
+import { useLocale } from "../../../i18n/locale";
+import { useLocalizedData } from "../../../i18n/use-localized-data";
 import { useState } from "react";
 import { heroicResourceFloor } from "../../../lib/game-actions";
 import { Button, Panel, Select, TextInput } from "../../../components/ui";
@@ -12,7 +15,18 @@ import {
   type NullTalentAction,
 } from "../../../lib/class-mechanics/null-talent";
 
+const loadNullOriginal = async () => Object.values((await loadRuleArticle("0811")).entities);
+
+export function masteryOriginalText(entities: { id: string; originalDescription?: string }[], subclass: string, threshold: number): string | undefined {
+  const tradition = subclass.includes("Хронокинетик") ? "chronokinetic" : subclass.includes("Криокинетик") ? "cryokinetic" : subclass.includes("Метакинетик") ? "metakinetic" : undefined;
+  const text = entities.find(entity => entity.id === `feature.null.level-1.${tradition}-mastery`)?.originalDescription;
+  return text?.split("\n").map(line => line.split("|").map(cell => cell.trim())).find(cells => new RegExp(`^${threshold}(?:\\s|$)`).test(cells[1] || ""))?.[2];
+}
+
 export function NullPanels() {
+  const { t, locale } = useLocale();
+  const original = useLocalizedData(locale, loadNullOriginal);
+  const enhancementLabel = (value: string) => t(value, ({ "Гравитационное разрушение": "Gravitic Disruption", "Инерционный якорь": "Inertial Anchor", "Синаптический разрыв": "Synaptic Break" } as Record<string, string>)[value] || value);
   const { character, performGameAction } = useApp();
   const state = nullState(character),
     rows = nullMastery(character);
@@ -24,101 +38,89 @@ export function NullPanels() {
   return (
     <>
       <Panel
-        title="Мастерство дисциплины"
+        title={t("Мастерство дисциплины", "Discipline mastery")}
         className="class-mechanics-panel"
         bodyClassName="class-mechanics-stack"
         actions={
-          <MechanicDetails title="Мастерство дисциплины">
+          <MechanicDetails title={t("Мастерство дисциплины", "Discipline mastery")}>
             <p>
-              Достигнутые преимущества сохраняются до конца своего хода, даже
-              после траты дисциплины. Высшие пороги заменяют соответствующие
-              низшие.
+              {t("Достигнутые преимущества сохраняются до конца своего хода, даже после траты дисциплины. Высшие пороги заменяют соответствующие низшие.", "Earned benefits last until the end of your turn, even after spending discipline. Higher thresholds replace the corresponding lower ones.")}
             </p>
             {rows.map((row) => (
               <section key={row.threshold}>
                 <h3>
-                  {row.threshold} дисциплины · уровень {row.level}
+                  {t(`${row.threshold} дисциплины · уровень ${row.level}`, `${row.threshold} discipline · level ${row.level}`)}
                 </h3>
-                <p>{row.text}</p>
+                <p>{(locale === "en" && original && masteryOriginalText(original, character.subclass, row.threshold)) || row.text}</p>
               </section>
             ))}
           </MechanicDetails>
         }
       >
         <p className="class-mechanics-note">
-          Сейчас {character.heroicResource.current} · для мастерства{" "}
-          {nullDiscipline(character)} до конца хода
+          {t(`Сейчас ${character.heroicResource.current} · для мастерства ${nullDiscipline(character)} до конца хода`, `Current ${character.heroicResource.current} · mastery ${nullDiscipline(character)} until end of turn`)}
         </p>
         {!rows.length && (
-          <p className="class-mechanics-note">Выберите традицию Нуля.</p>
+          <p className="class-mechanics-note">{t("Выберите традицию Нуля.", "Choose a Null tradition.")}</p>
         )}
         <div className="class-mechanics-thresholds">
           {rows.map((row) => (
             <MechanicDetails
               key={row.threshold}
-              title={`Мастерство: ${row.threshold} дисциплины`}
+              title={t(`Мастерство: ${row.threshold} дисциплины`, `Mastery: ${row.threshold} discipline`)}
               className={`class-mechanics-threshold ${row.active ? "is-active" : character.level < row.level ? "is-locked" : ""}`}
               label={
                 <>
                   <strong>{row.threshold}</strong>
                   <small>
                     {row.active
-                      ? "Действует"
+                      ? t("Действует", "Active")
                       : character.level < row.level
-                        ? `${row.level} ур.`
+                        ? t(`${row.level} ур.`, `level ${row.level}`)
                         : row.replaced
-                          ? "Заменено"
+                          ? t("Заменено", "Replaced")
                           : "—"}
                   </small>
                 </>
               }
             >
-              <p>{row.text}</p>
-              <p className="muted">Доступно с {row.level}-го уровня.</p>
+              <p>{(locale === "en" && original && masteryOriginalText(original, character.subclass, row.threshold)) || row.text}</p>
+              <p className="muted">{t(`Доступно с ${row.level}-го уровня.`, `Available at level ${row.level}.`)}</p>
             </MechanicDetails>
           ))}
         </div>
       </Panel>
       <Panel
-        title="Поле нуля"
+        title={t("Поле нуля", "Null field")}
         className="class-mechanics-panel"
         bodyClassName="class-mechanics-stack"
         actions={
-          <MechanicDetails title="Поле нуля">
+          <MechanicDetails title={t("Поле нуля", "Null field")}>
             <p>
-              Маневр, аура 1. Каждый враг в области уменьшает свои потенциалы на
-              1. Поле сохраняется вне боя, пока вы не выключите его или не
-              окажетесь при смерти.
+              {t("Маневр, аура 1. Каждый враг в области уменьшает свои потенциалы на 1. Поле сохраняется вне боя, пока вы не выключите его или не окажетесь при смерти.", "Maneuver, aura 1. Each enemy in the area reduces their potencies by 1. The field persists outside combat until you turn it off or are dying.")}
             </p>
             {character.level >= 4 && (
               <p>
-                В бою поле удаляет временные сверхъестественные эффекты
-                местности вашего уровня или ниже и подавляет постоянные, пока
-                перекрывает их.
+                {t("В бою поле удаляет временные сверхъестественные эффекты местности вашего уровня или ниже и подавляет постоянные, пока перекрывает их.", "In combat, the field removes temporary supernatural terrain effects of your level or lower and suppresses permanent effects while overlapping them.")}
               </p>
             )}
             {character.level >= 10 && (
               <p>
-                В начале боя можно потратить 1 порядок: размер ауры +1 до конца
-                встречи. Отметьте расход порядка в ресурсах.
+                {t("В начале боя можно потратить 1 порядок: размер ауры +1 до конца встречи. Отметьте расход порядка в ресурсах.", "At the start of combat, spend 1 order to increase aura size by 1 until the encounter ends. Record the order spent in resources.")}
               </p>
             )}
             <p>
-              Раз в свой ход: 1 дисциплина за усиление до начала следующего
-              своего хода.
+              {t("Раз в свой ход: 1 дисциплина за усиление до начала следующего своего хода.", "Once on your turn, spend 1 discipline for an enhancement until the start of your next turn.")}
             </p>
             <ul>
               <li>
-                Гравитационное разрушение: при первом уроне цели за ход можно
-                швырнуть её до 2 клеток.
+                {t("Гравитационное разрушение: при первом уроне цели за ход можно швырнуть её до 2 клеток.", "Gravitic Disruption: the first time you damage a target on a turn, you can vertical push them up to 2 squares.")}
               </li>
               <li>
-                Инерционный якорь: цель, начинающая ход в поле, не может
-                смещаться.
+                {t("Инерционный якорь: цель, начинающая ход в поле, не может смещаться.", "Inertial Anchor: a target starting their turn in the field cannot shift.")}
               </li>
               <li>
-                Синаптический разрыв: потенциал способности против цели с
-                потенциалом увеличивается на 1.
+                {t("Синаптический разрыв: потенциал способности против цели с потенциалом увеличивается на 1.", "Synaptic Break: increase an ability’s potency by 1 against a target with potency.")}
               </li>
             </ul>
           </MechanicDetails>
@@ -127,8 +129,8 @@ export function NullPanels() {
         <div className="class-mechanics-summary">
           <span>
             {state.fieldActive
-              ? "Активно · аура 1 · потенциалы −1"
-              : "Выключено"}
+              ? t("Активно · аура 1 · потенциалы −1", "Active · aura 1 · potency −1")
+              : t("Выключено", "Off")}
           </span>
           <Button
             size="sm"
@@ -136,25 +138,25 @@ export function NullPanels() {
               act({ kind: "null-field", active: !state.fieldActive })
             }
           >
-            {state.fieldActive ? "Выключить" : "Включить"}
+            {state.fieldActive ? t("Выключить", "Turn off") : t("Включить", "Turn on")}
           </Button>
         </div>
         {state.enhancement && (
           <p className="class-mechanics-note" role="status">
-            {state.enhancement} · до начала следующего хода
+            {enhancementLabel(state.enhancement)} · {t("до начала следующего хода", "until the start of your next turn")}
           </p>
         )}
         {state.fieldActive && (
           <div className="class-mechanics-row">
             <Select
-              aria-label="Усиление Поля нуля"
+              aria-label={t("Усиление Поля нуля", "Null field enhancement")}
               value={enhancement}
               onChange={(e) =>
                 setEnhancement(e.target.value as typeof enhancement)
               }
             >
               {NULL_ENHANCEMENTS.map((v) => (
-                <option key={v}>{v}</option>
+                <option key={v} value={v}>{enhancementLabel(v)}</option>
               ))}
             </Select>
             <Button
@@ -166,7 +168,7 @@ export function NullPanels() {
               }
               onClick={() => act({ kind: "null-enhance", enhancement })}
             >
-              Усилить · 1
+              {t("Усилить · 1", "Enhance · 1")}
             </Button>
           </div>
         )}
@@ -175,6 +177,7 @@ export function NullPanels() {
   );
 }
 export function TalentPanel() {
+  const { t } = useLocale();
   const { character, performGameAction } = useApp();
   const [text, setText] = useState("");
   const state = talentState(character),
@@ -187,20 +190,16 @@ export function TalentPanel() {
       : 0;
   return (
     <Panel
-      title="Ясность и возбужденность"
+      title={t("Ясность и возбужденность", "Clarity and strain")}
       className="class-mechanics-panel"
       bodyClassName="class-mechanics-stack"
       actions={
-        <MechanicDetails title="Ясность и возбужденность">
+        <MechanicDetails title={t("Ясность и возбужденность", "Clarity and strain")}>
           <p>
-            При ясности ниже нуля вы в состоянии возбужденности. Минимальная
-            ясность: {heroicResourceFloor(character)}. В конце своего хода вы
-            получаете урон за каждое отрицательное очко ясности. Он применяется
-            один раз при завершении хода.
+            {t(`При ясности ниже нуля вы в состоянии возбужденности. Минимальная ясность: ${heroicResourceFloor(character)}. В конце своего хода вы получаете урон за каждое отрицательное очко ясности. Он применяется один раз при завершении хода.`, `Below zero clarity you are strained. Minimum clarity: ${heroicResourceFloor(character)}. At the end of your turn, take damage for each negative clarity point, once when the turn ends.`)}
           </p>
           <p>
-            Последствия способностей заканчиваются по своим условиям.
-            Возвращение ясности к нулю и конец боя не снимают их автоматически.
+            {t("Последствия способностей заканчиваются по своим условиям. Возвращение ясности к нулю и конец боя не снимают их автоматически.", "Ability consequences end according to their conditions. Returning clarity to zero or ending combat does not remove them automatically.")}
           </p>
         </MechanicDetails>
       }
@@ -211,9 +210,9 @@ export function TalentPanel() {
             strained ? "class-mechanics-warning" : "class-mechanics-note"
           }
         >
-          {strained ? "Возбужденность" : "Возбужденности нет"}
+          {strained ? t("Возбужденность", "Strained") : t("Возбужденности нет", "Not strained")}
         </span>
-        <strong>{damage} урона в конце хода</strong>
+        <strong>{t(`${damage} урона в конце хода`, `${damage} damage at end of turn`)}</strong>
       </div>
       {character.level >= 10 && (
         <label>
@@ -224,13 +223,13 @@ export function TalentPanel() {
               act({ kind: "talent-waive-strain", waive: e.target.checked })
             }
           />{" "}
-          Не получать урон за отрицательную ясность
+          {t("Не получать урон за отрицательную ясность", "Do not take damage from negative clarity")}
         </label>
       )}
       {state.consequences.map((consequence, index) => (
         <div className="class-mechanics-item" key={`${index}-${consequence}`}>
           <MechanicDetails
-            title="Последствие возбужденности"
+            title={t("Последствие возбужденности", "Strained consequence")}
             label={consequence}
           >
             <p>{consequence}</p>
@@ -240,15 +239,15 @@ export function TalentPanel() {
             variant="ghost"
             icon="close"
             iconOnly
-            aria-label={`Завершить последствие: ${consequence}`}
+            aria-label={t(`Завершить последствие: ${consequence}`, `End consequence: ${consequence}`)}
             onClick={() => act({ kind: "talent-consequence-remove", index })}
           />
         </div>
       ))}
       <div className="class-mechanics-row">
         <TextInput
-          aria-label="Последствие возбужденности"
-          placeholder="Последствие и срок"
+          aria-label={t("Последствие возбужденности", "Strained consequence")}
+          placeholder={t("Последствие и срок", "Consequence and duration")}
           maxLength={500}
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -257,7 +256,7 @@ export function TalentPanel() {
           size="sm"
           icon="plus"
           iconOnly
-          aria-label="Добавить последствие"
+          aria-label={t("Добавить последствие", "Add consequence")}
           disabled={!text.trim() || state.consequences.length >= 50}
           onClick={() => {
             if (act({ kind: "talent-consequence-add", text })) setText("");

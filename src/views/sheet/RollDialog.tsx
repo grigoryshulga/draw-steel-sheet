@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { Button, Modal } from "../../components/ui";
 import type { RollConfig, RollEntry } from "../../lib/roll";
 import { PowerRollPanel } from "./PowerRollPanel";
@@ -19,6 +20,7 @@ export function RollDialog({
   lastRoll: RollEntry | null;
   log: RollEntry[];
 }) {
+  const { t } = useLocale();
   return (
     <>
       <Button
@@ -26,13 +28,13 @@ export function RollDialog({
         variant="soft"
         icon="dice"
         iconOnly
-        aria-label={open ? "Закрыть бросок силы" : "Открыть бросок силы"}
-        title={open ? "Закрыть бросок силы" : "Открыть бросок силы"}
+        aria-label={open ? t("Закрыть бросок силы", "Close power roll") : t("Открыть бросок силы", "Open power roll")}
+        title={open ? t("Закрыть бросок силы", "Close power roll") : t("Открыть бросок силы", "Open power roll")}
         onClick={onToggle}
         aria-haspopup="dialog"
         aria-expanded={open}
       />
-      <Modal open={open} onClose={onClose} title="Бросок силы">
+      <Modal open={open} onClose={onClose} title={t("Бросок силы", "Power Roll")}>
         <PowerRollPanel onRoll={onRoll} lastRoll={lastRoll} log={log} />
       </Modal>
     </>

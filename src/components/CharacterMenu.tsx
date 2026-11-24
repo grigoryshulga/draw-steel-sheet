@@ -1,3 +1,5 @@
+import { classPreset } from "../data/classes";
+import { useLocale } from "../i18n/locale";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { useOutsideClick } from "../lib/hooks";
 import { useMenuKeyboard } from "../lib/useMenuKeyboard";
@@ -23,6 +25,8 @@ export function CharacterMenu({
   /** Статус сохранения — стоит прямо рядом с именем. */
   saveIndicator?: ReactNode;
 }) {
+  const { t } = useLocale();
+  const classLabel = (name: string) => t(name, classPreset(name)?.originalName || name);
   const menuId = useId();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -44,7 +48,7 @@ export function CharacterMenu({
         className="char-switch-btn"
         onClick={() => setOpen((value) => !value)}
         disabled={disabled}
-        aria-label={`Герой: ${character.name || "Без имени"}. Сменить героя`}
+        aria-label={t(`Герой: ${character.name || "Без имени"}. Сменить героя`, `Hero: ${character.name || "Unnamed hero"}. Switch hero`)}
         aria-controls={open ? menuId : undefined}
         aria-haspopup="menu"
         aria-expanded={open}
@@ -53,16 +57,16 @@ export function CharacterMenu({
         <span className="char-switch-text">
           <span className="char-switch-name-row">
             <span className="char-switch-name">
-              {character.name || "Без имени"}
+              {character.name || t("Без имени", "Unnamed hero")}
             </span>
           </span>
           <span className="char-switch-meta">
             {[
-              character.className,
-              character.level ? `${character.level} ур.` : "",
+              classLabel(character.className),
+              character.level ? t(`${character.level} ур.`, `Level ${character.level}`) : "",
             ]
               .filter(Boolean)
-              .join(" · ") || "Герой без класса"}
+              .join(" · ") || t("Герой без класса", "Hero without a class")}
           </span>
         </span>
         <Icon name="chevron-down" size={15} className="chevron" />
@@ -74,11 +78,11 @@ export function CharacterMenu({
           className="popover char-popover"
           id={menuId}
           role="menu"
-          aria-label="Мои герои"
+          aria-label={t("Мои герои", "My heroes")}
           ref={menuRef}
           onKeyDown={onMenuKeyDown}
         >
-          <div className="menu-label" aria-hidden="true">Мои герои · {characters.length}</div>
+          <div className="menu-label" aria-hidden="true">{t("Мои герои", "My heroes")} · {characters.length}</div>
           <div className="char-list">
             {characters.map((item) => (
               <button
@@ -97,9 +101,9 @@ export function CharacterMenu({
                 <span className="char-list-text">
                   <span className="char-list-name">{item.name}</span>
                   <span className="char-list-meta">
-                    {[item.className, item.level ? `${item.level} ур.` : ""]
+                    {[classLabel(item.className), item.level ? t(`${item.level} ур.`, `Level ${item.level}`) : ""]
                       .filter(Boolean)
-                      .join(" · ") || "Без класса"}
+                      .join(" · ") || t("Без класса", "No class")}
                   </span>
                 </span>
                 {item.id === character.id && <Icon name="check" size={15} />}
@@ -118,7 +122,7 @@ export function CharacterMenu({
             role="menuitem"
           >
             <Icon name="plus" size={16} className="menu-icon" />
-            <span>Новый герой</span>
+            <span>{t("Новый герой", "New hero")}</span>
           </button>
           <button
             type="button"
@@ -130,7 +134,7 @@ export function CharacterMenu({
             role="menuitem"
           >
             <Icon name="users" size={16} className="menu-icon" />
-            <span>Все персонажи</span>
+            <span>{t("Все персонажи", "All characters")}</span>
           </button>
         </div>
       )}

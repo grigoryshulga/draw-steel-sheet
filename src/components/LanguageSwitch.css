@@ -1,0 +1,47 @@
+.article-language {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  flex-shrink: 0;
+  white-space: nowrap;
+  line-height: var(--leading-tight);
+}
+
+.article-language button {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  min-height: 28px;
+  min-width: 28px;
+  padding: var(--space-1);
+  font: inherit;
+  font-size: var(--text-xs);
+}
+
+.article-language-separator { color: var(--muted); font-size: var(--text-xs); }
+
+.article-language button[aria-pressed="true"] {
+  color: var(--fg-bright);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.article-language button:hover, .article-language button:focus-visible {
+  color: var(--accent);
+}
+
+@media (pointer: coarse) {
+  .article-language button { min-height: 44px; min-width: 36px; }
+}
+
+.rule-reader-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.rule-reader-heading h2 { min-width: 0; }
+.rule-reader .article-language { align-self: center; }

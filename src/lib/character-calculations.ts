@@ -191,12 +191,14 @@ export function abilityKitDamageBonus(
 /** Printed kit damage is removed before applying the currently selected profile. */
 export interface KitDamageContribution extends FeatureContribution {
   includedInFormula?: boolean;
+  englishName?: string;
 }
 
 export function abilityKitDamageContributions(
   ability: Ability,
   character: Character,
   tier: number,
+  includeEnglish = false,
 ): KitDamageContribution[] {
   if (!character.automation?.enabled) return [];
   if (!ability.keywords.some((k) => k.toLowerCase() === "оружие")) return [];
@@ -223,56 +225,42 @@ export function abilityKitDamageContributions(
     ...(embeddedKit && embeddedValue ? [{
       sourceId: embeddedKit.id,
       sourceName: `Встроенный бонус: ${embeddedKit.name}`,
+      ...(includeEnglish ? { englishName: `Included bonus: ${embeddedKit.originalName ?? embeddedKit.name}` } : {}),
       value: -embeddedValue,
       includedInFormula: true,
     }] : []),
     ...(bonus ? [{
       sourceId: bonus.kit.id,
       sourceName: `Комплект: ${bonus.kit.name}`,
+      ...(includeEnglish ? { englishName: `Kit: ${bonus.kit.originalName ?? bonus.kit.name}` } : {}),
       value: Number(bonus.value.split("/")[tier - 1]?.replace("+", "")) || 0,
     }] : []),
   ];
 }
 
-export function abilityDistance(
-  ability: Ability,
-  character: Character,
-): string {
-  if (!character.automation?.enabled) return ability.distance;
+export function abilityDistanceModifiers(ability: Ability, character: Character) {
+  if (!character.automation?.enabled) return { melee: 0, ranged: 0, within: 0 };
   const weapon = ability.keywords.includes("Оружие");
-  const formDistance = weapon ? stormwightFormState(character)?.meleeDistanceBonus ?? 0 : 0;
-  // Ranged class features never extend a selected melee mode (see feature-modifiers).
-  const featureDistance = featureAbilityDistanceBonus(ability, character);
-  if (!weapon && !featureDistance) return ability.distance;
-  const embeddedKit = abilitySourceKit(ability);
-  const distance = ability.distance.replace(
-    /(ближний|дальний)\s+(\d+)/gi,
-    (_match, kind: string, amount: string) => {
-      const label = kind.toLowerCase() === "ближний" ? "Ближний" : "Дальний";
-      // Each ranged alternative is adjusted on its own; areas and melee parts keep their size.
-      const kit = weapon
-        ? kitBonus(character, `расстоянию (${label})`) -
-          (Number(
-            embeddedKit?.bonuses
-              .find((b) => b.label === `расстоянию (${label})`)
-              ?.value.replace("+", ""),
-          ) || 0)
-        : 0;
-      const feature = label === "Дальний" ? featureDistance : 0;
-      const form = label === "Ближний" ? formDistance : 0;
-      return `${kind} ${Number(amount) + kit + feature + form}`;
-    },
-  );
-  // An area prints its size and its placement range as one line (`Куб 3 в пределах 10`).
-  // Only the placement range is a distance: the area size stays as printed.
-  if (featureDistance && !/(ближний|дальний)\s+\d+/i.test(ability.distance)) {
-    return distance.replace(
-      /(в\s+пределах)\s+(\d+)/gi,
-      (match, _prefix: string, amount: string) =>
-        match.replace(/\d+$/, String(Number(amount) + featureDistance)),
-    );
+  const feature = featureAbilityDistanceBonus(ability, character);
+  const embedded = weapon ? abilitySourceKit(ability) : undefined;
+  const kit = (mode: string) => {
+    if (!weapon) return 0;
+    const label = `расстоянию (${mode})`;
+    const printed = Number(embedded?.bonuses.find(bonus => bonus.label === label)?.value) || 0;
+    return kitBonus(character, label) - printed;
+  };
+  const form = weapon ? stormwightFormState(character)?.meleeDistanceBonus ?? 0 : 0;
+  return { melee: kit("Ближний") + form, ranged: kit("Дальний") + feature, within: feature };
+}
+
+export function abilityDistance(ability: Ability, character: Character, delta = abilityDistanceModifiers(ability, character)): string {
+  if (!character.automation?.enabled) return ability.distance;
+  if (/(ближний|дальний)\s+\d+/i.test(ability.distance)) {
+    return ability.distance.replace(/(ближний|дальний)\s+(\d+)/gi, (_match, kind: string, amount: string) =>
+      `${kind} ${Number(amount) + (kind.toLowerCase() === "ближний" ? delta.melee : delta.ranged)}`);
   }
-  return distance;
+  return ability.distance.replace(/(в\s+пределах)\s+(\d+)/gi, (match, _kind: string, amount: string) =>
+    match.replace(/\d+$/, String(Number(amount) + delta.within)));
 }
 
 /** Прибавки к принудительному движению от активных особенностей героя. */
@@ -318,11 +306,12 @@ const FORCED_MOVEMENT_LABELS: readonly (readonly [
  */
 export function forcedMovementSummary(
   movement: AbilityForcedMovement,
+  language: "ru" | "en" = "ru",
 ): string {
   return FORCED_MOVEMENT_LABELS.filter(([key]) => movement[key] !== 0)
     .map(
       ([key, label]) =>
-        `${label} ${movement[key] > 0 ? "+" : "−"}${Math.abs(movement[key])}`,
+        `${language === "en" ? ({ push: "Push", pull: "Pull", slide: "Slide" } as const)[key] : label} ${movement[key] > 0 ? "+" : "−"}${Math.abs(movement[key])}`,
     )
     .join(" · ");
 }

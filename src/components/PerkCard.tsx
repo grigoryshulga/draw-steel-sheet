@@ -1,4 +1,7 @@
 import type { ReactNode } from "react";
+import { useLocale, useRuleLanguage } from "../i18n/locale";
+import { lazy, Suspense } from "react";
+const RuleText = lazy(() => import("./RuleText").then((module) => ({ default: module.RuleText })));
 import { PERK_TYPE_META } from "../data/perks";
 import type { PerkType } from "../types";
 import { Card, CardHeader, CardTitle, Chip } from "./ui";
@@ -10,6 +13,9 @@ export interface PerkCardProps {
   name: string;
   type?: PerkType | null;
   summary?: string;
+  ruleId?: string;
+  originalDescription?: string;
+  originalName?: string;
   /** Карточка участвует в выборе: клик выбирает её. */
   onSelect?: () => void;
   selected?: boolean;
@@ -31,6 +37,9 @@ export function PerkCard({
   name,
   type,
   summary,
+  ruleId,
+  originalDescription,
+  originalName,
   onSelect,
   selected = false,
   onOpen,
@@ -38,7 +47,10 @@ export function PerkCard({
   banded = false,
   className = "",
 }: PerkCardProps) {
+  const { t, locale } = useLocale();
   const meta = type ? PERK_TYPE_META[type] : null;
+  const { language, available } = useRuleLanguage(ruleId || name, originalDescription);
+  const displayName = language === "en" ? originalName || name : name;
   return (
     <Card
       className={`sheet-perk-card is-filled${banded ? " is-banded" : ""}${className ? ` ${className}` : ""}`}
@@ -49,18 +61,18 @@ export function PerkCard({
       onOpen={onOpen}
     >
       <CardHeader className="sheet-perk-head" eyebrow={eyebrow} reserveSpace>
-        {meta && <Chip tone={meta.tone}>{meta.short}</Chip>}
+        {meta && <Chip tone={meta.tone}>{locale === "en" && type ? ({ crafting: "Crafting", exploration: "Exploration", interpersonal: "Interpersonal", intrigue: "Intrigue", lore: "Lore", supernatural: "Supernatural" } as const)[type] : meta.short}</Chip>}
       </CardHeader>
       <CardTitle
         as="h3"
-        title={name}
+        title={displayName}
         className={banded ? "card-band" : undefined}
         onOpen={onOpen}
-        openLabel={`Открыть перк: ${name}`}
+        openLabel={t(`Открыть перк: ${name}`, `Open perk: ${displayName}`)}
       >
-        {name}
+        {displayName}
       </CardTitle>
-      {summary && <p className="sheet-perk-summary">{summary}</p>}
+      {language === "en" && available ? <Suspense fallback={null}><RuleText text={originalDescription!} sourceLocale="en" /></Suspense> : summary && <p className="sheet-perk-summary">{summary}</p>}
       {footerAction && (
         <div
           className="sheet-perk-card-actions"

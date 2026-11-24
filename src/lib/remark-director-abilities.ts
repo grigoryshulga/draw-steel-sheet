@@ -1,8 +1,9 @@
 import type { Root, RootContent, Blockquote, Paragraph, PhrasingContent, Nodes, Table, List } from 'mdast';
-import { ACTION_TYPES } from '../data/actions';
+import { printedDamageType } from './damageType.ts';
+import { ACTION_TYPES } from '../data/actions.ts';
 
 const ICON_TITLE = /^[\s🗡🏹⭐️❗️☠️🔳❇️👤🌀⚔️❕]+$/u;
-const TIER_LABELS = [/^(?:≤\s*11|11 или меньше):/, /^12\s*[-–]\s*16:/, /^(?:17\+|17 и выше):/];
+const TIER_LABELS = [/^(?:≤\s*11|11 или меньше|11 or lower):/i, /^12\s*[-–]\s*16:/i, /^(?:17\+|17 и выше|17 or higher):/i];
 
 export function directorText(node: Nodes): string {
   return 'value' in node ? node.value : 'children' in node ? node.children.map(directorText).join('') : '';
@@ -49,15 +50,15 @@ function factTable(node: RootContent, followsTitle = false): node is Table {
   // action too; villain actions have a dash in the table directly below the title.
   return (directorText(values.children[0]).includes('📏') && directorText(values.children[1]).includes('🎯'))
     || actionType(action) !== 'none'
-    || (followsTitle && /^(?:[-—]|Без действия)$/i.test(action));
+    || (followsTitle && /^(?:[-—]|Без действия|No action)$/i.test(action));
 }
 
 function actionType(value: string): string {
   const text = value.toLowerCase().replaceAll('ё', 'е');
-  if (/триггер|по условию|ответное действие/.test(text)) return /свобод|бесплат/.test(text) ? 'free-trigger' : 'trigger';
-  if (/маневр/.test(text)) return /свобод|бесплат/.test(text) ? 'free-maneuver' : 'maneuver';
-  if (/основное действие/.test(text)) return 'main';
-  if (/движени/.test(text)) return 'move';
+  if (/триггер|по условию|ответное действие|triggered action|trigger/.test(text)) return /свобод|бесплат|free/.test(text) ? 'free-trigger' : 'trigger';
+  if (/маневр|maneuver/.test(text)) return /свобод|бесплат|free/.test(text) ? 'free-maneuver' : 'maneuver';
+  if (/основное действие|main action/.test(text)) return 'main';
+  if (/движени|move action/.test(text)) return 'move';
   return 'none';
 }
 
@@ -67,9 +68,9 @@ function tierList(node: RootContent): node is List {
 }
 
 /** Only isolate unambiguous printed damage. Mixed/conditional damage stays full prose. */
-const DAMAGE = /^(\d+(?:\s*\+\s*(?:\d+(?:d\d+)?|[МЛРИП]))?)\s+((?:урона(?:\s+(?:кислотой|холодом|порчей|огн[её]м|молнией|ядом|звуком))?|(?:психического|святого|огненного|кислотного|звукового)\s+урона))(?=\s*(?:;|$))/iu;
+const DAMAGE = /^(\d+(?:\s*\+\s*(?:\d+(?:d\d+)?|[МЛРИПMARIP]))?)\s+((?:урона(?:\s+(?:кислотой|холодом|порчей|огн[её]м|молнией|ядом|звуком))?|(?:психического|святого|огненного|кислотного|звукового)\s+урона|(?:(?:acid|cold|corruption|fire|lightning|poison|sonic|psychic|holy)\s+)?damage))(?=\s*(?:;|$))/iu;
 
-function renderTiers(list: List): Blockquote {
+function renderTiers(list: List, language: 'ru' | 'en'): Blockquote {
   return container('tiers', list.children.map((item, index) => {
     const first = item.children[0];
     if (first?.type !== 'paragraph') throw new Error('A power-roll tier must start with text');
@@ -77,6 +78,7 @@ function renderTiers(list: List): Blockquote {
     const label = plain.match(TIER_LABELS[index])![0];
     const start = label.length + (plain.slice(label.length).match(/^\s*/)?.[0].length ?? 0);
     const damage = plain.slice(start).match(DAMAGE);
+    const damageType = damage && printedDamageType(damage[2], language);
     const body = sliceInline(first.children, start);
     const delimiter = damage ? plain.slice(start + damage[0].length).match(/^[;\s]+/)?.[0].length ?? 0 : 0;
     return container('tier', [
@@ -85,56 +87,56 @@ function renderTiers(list: List): Blockquote {
       inlineSlot('damage-label', damage ? sliceInline(body, damage[1].length + 1, damage[0].length) : []),
       inlineSlot('effect', damage ? sliceInline(body, damage[0].length + delimiter) : body),
       ...item.children.slice(1),
-    ], { 'data-tier': String(index + 1), 'data-range': label.replace(/:$/, '') });
-  }));
+    ], { 'data-tier': String(index + 1), 'data-range': label.replace(/:$/, ''), ...(damageType && { 'data-damage-type': damageType.key }) });
+  }), { 'data-language': language });
 }
 
-function facts(table: Table): Blockquote {
+function facts(table: Table, language: 'ru' | 'en'): Blockquote {
   const [header, values] = table.children;
   const fields = [
-    ['Действие', header.children[1]], ['Дист.', values.children[0]],
-    ['Цель', values.children[1]], ['Ключевые слова', header.children[0]],
+    ['action', header.children[1]], ['distance', values.children[0]],
+    ['target', values.children[1]], ['keywords', header.children[0]],
   ] as const;
   return container('facts', fields.filter(([label, cell]) =>
-    !(['Действие', 'Ключевые слова'].includes(label) && /^\s*[-—]\s*$/.test(directorText(cell))),
+    !(['action', 'keywords'].includes(label) && /^\s*[-—]\s*$/.test(directorText(cell))),
   ).map(([label, cell]) => {
     // The glyph is represented by the shared fact icon; links remain rich text.
     const leading = directorText(cell).match(/^[📏🎯\s]+/u)?.[0].length ?? 0;
     return inlineSlot(label, sliceInline(cell.children, leading));
-  }));
+  }), { 'data-language': language });
 }
 
-function card(nodes: Blockquote['children']): Blockquote | undefined {
+function card(nodes: Blockquote['children'], language: 'ru' | 'en'): Blockquote | undefined {
   const title = titleParts(nodes[0]);
   const table = nodes.find((node, index): node is Table => factTable(node, index === 1));
   if (!title || (!title.icon && !table)) return undefined;
   const plain = title.content.map(directorText).join('');
   const suffix = plain.match(/\s+\(([^()]*)\)$/);
-  const hasMeta = suffix && /раздор|знаковая|ключевая способность|столкновение|действие злодея/i.test(suffix[1]);
+  const hasMeta = suffix && /раздор|знаковая|ключевая способность|столкновение|действие злодея|malice|signature ability|encounter|villain action/i.test(suffix[1]);
   const meta = hasMeta ? suffix[1] : '';
   const nameEnd = hasMeta ? suffix.index! : plain.length;
-  const kind = /действие злодея/i.test(meta) ? 'villain'
-    : /раздор/i.test(meta) ? 'malice'
-    : /знаковая|ключевая способность/i.test(meta) ? 'signature'
-    : /столкновение/i.test(meta) ? 'encounter'
+  const kind = /действие злодея|villain action/i.test(meta) ? 'villain'
+    : /раздор|malice/i.test(meta) ? 'malice'
+    : /знаковая|ключевая способность|signature ability/i.test(meta) ? 'signature'
+    : /столкновение|encounter/i.test(meta) ? 'encounter'
     : !table && title.icon.includes('⭐') ? 'trait' : 'other';
   const action = table ? actionType(directorText(table.children[0].children[1])) : kind === 'trait' ? 'passive' : 'none';
   const result = container('card', [
     inlineSlot('name', sliceInline(title.content, 0, nameEnd)),
     inlineSlot('badge', hasMeta ? sliceInline(title.content, plain.length - meta.length - 1, plain.length - 1) : []),
     ...nodes.slice(1).map(node => {
-      if (node === table) return facts(table);
-      if (tierList(node)) return renderTiers(node);
+      if (node === table) return facts(table, language);
+      if (tierList(node)) return renderTiers(node, language);
       if (node.type === 'paragraph') {
         const label = directorText(node.children[0]);
         return { ...node, data: { hProperties: { className: [
-          /^(?:Триггер|Условие):/i.test(label) ? 'sheet-ability-trigger-text'
-            : /^Бросок силы/i.test(label) ? 'director-ability-roll' : 'director-ability-prose',
+          /^(?:Триггер|Условие|Trigger):/i.test(label) ? 'sheet-ability-trigger-text'
+            : /^(?:Бросок силы|Power Roll)/i.test(label) ? 'director-ability-roll' : 'director-ability-prose',
         ] } } };
       }
       return node;
     }),
-  ], { 'data-action': action, 'data-kind': kind, 'data-name': plain.slice(0, nameEnd), 'data-cost': kind === 'malice' ? meta : '' });
+  ], { 'data-action': action, 'data-kind': kind, 'data-name': plain.slice(0, nameEnd), 'data-cost': kind === 'malice' ? meta : '', 'data-language': language });
   result.data!.hName = 'section';
   return result;
 }
@@ -155,14 +157,14 @@ function groupKey(node: RootContent): string {
 }
 
 /** Group adjacent cards only: level headings and explanatory prose are boundaries. */
-function groupCards(nodes: RootContent[]): RootContent[] {
+function groupCards(nodes: RootContent[], language: 'ru' | 'en'): RootContent[] {
   const result: RootContent[] = [];
   let run: RootContent[] = [];
   const flush = () => {
     if (!run.length) return;
     const groups = GROUPS.flatMap(group => {
       const items = run.filter(node => groupKey(node) === group.key);
-      return items.length ? [container('ability-group', items, { 'data-action': group.key, 'data-label': group.label })] : [];
+      return items.length ? [container('ability-group', items, { 'data-action': group.key, 'data-label': language === 'en' ? ({ main: 'Main actions', maneuver: 'Maneuvers', move: 'Move actions', trigger: 'Triggered actions', 'free-trigger': 'Free triggered actions', 'free-maneuver': 'Free maneuvers', malice: 'Malice', villain: 'Villain actions', passive: 'Traits', none: 'Other abilities' } as Record<string, string>)[group.key] ?? group.label : group.label })] : [];
     });
     result.push(container('ability-groups', groups));
     run = [];
@@ -178,7 +180,8 @@ function groupCards(nodes: RootContent[]): RootContent[] {
 /** Monsters uses icon-prefixed headings even for traits and table-free Malice.
  * Keep prose, ordering and all nested rules; never build a lossy hero Ability.
  */
-export function remarkDirectorAbilities() {
+export function remarkDirectorAbilities(options?: { language?: 'ru' | 'en' }) {
+  const language = options?.language ?? 'ru';
   return (tree: Root) => {
     function visit(nodes: RootContent[]): RootContent[] {
       // A few exported abilities put the icon/title immediately before the
@@ -207,14 +210,14 @@ export function remarkDirectorAbilities() {
           if (starts[0] > 0) result.push({ ...node, children: node.children.slice(0, starts[0]) });
           starts.forEach((start, index) => {
             const children = node.children.slice(start, starts[index + 1]);
-            result.push(card(children) ?? { ...node, children });
+            result.push(card(children, language) ?? { ...node, children });
           });
           return result;
         }
-        const converted = card(node.children);
+        const converted = card(node.children, language);
         return [converted ?? { ...node, children: visit(node.children) as Blockquote['children'] }];
       });
-      return groupCards(convertedNodes);
+      return groupCards(convertedNodes, language);
     }
     tree.children = visit(tree.children);
   };

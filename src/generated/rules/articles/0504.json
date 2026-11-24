@@ -39,7 +39,44 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/background#upbringing",
       "originalName": "Upbringing",
-      "originalDescription": "Your culture's upbringing aspect is a more specific and personal part of your hero's story, describing how you were raised within your culture. Were you trained to become the newest archmage in a secret order of wizards, or to be a sword-wielding bodyguard who protected that arcane organization? Did you learn to delve deep into mines looking for ore in a mountain kingdom, or did you build machines meant to dig faster and deeper than any person could alone? Whatever your culture, your upbringing makes you special within that culture.\n\nPick your upbringing aspect from the following list: academic, creative, labor, lawless, martial, or noble. You gain skill options from your chosen aspect."
+      "originalDescription": "Your culture's upbringing aspect is a more specific and personal part of your hero's story, describing how you were raised within your culture. Were you trained to become the newest archmage in a secret order of wizards, or to be a sword-wielding bodyguard who protected that arcane organization? Did you learn to delve deep into mines looking for ore in a mountain kingdom, or did you build machines meant to dig faster and deeper than any person could alone? Whatever your culture, your upbringing makes you special within that culture.\n\nPick your upbringing aspect from the following list: academic, creative, labor, lawless, martial, or noble. You gain skill options from your chosen aspect.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "Upbringing",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "Your culture's upbringing aspect is a more specific and personal part of your hero's story, describing how you were raised within your culture. Were you trained to become the newest archmage in a secret order of wizards, or to be a sword-wielding bodyguard who protected that arcane organization? Did you learn to delve deep into mines looking for ore in a mountain kingdom, or did you build machines meant to dig faster and deeper than any person could alone? Whatever your culture, your upbringing makes you special within that culture.\n\nPick your upbringing aspect from the following list: academic, creative, labor, lawless, martial, or noble. You gain skill options from your chosen aspect."
+          },
+          {
+            "type": "entity",
+            "ref": "culture.academic"
+          },
+          {
+            "type": "entity",
+            "ref": "culture.creative"
+          },
+          {
+            "type": "entity",
+            "ref": "culture.labor"
+          },
+          {
+            "type": "entity",
+            "ref": "culture.lawless"
+          },
+          {
+            "type": "entity",
+            "ref": "culture.martial"
+          },
+          {
+            "type": "entity",
+            "ref": "culture.noble"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -54,7 +91,10 @@
       },
       "originalId": "mcdm.heroes.v1/culture/academic",
       "originalName": "Academic",
-      "originalDescription": "Your hero was raised by people who collect, study, and share books and other records. Some academics focus on one area of study, such as a college for wizards dedicated to the study of magic, or a church that teaches the word of one deity. People in an academic culture learn how to wield the power that is knowledge.\n\n**Skill Options:** One skill from the lore skill group. (*Quick Build:* History.)"
+      "originalDescription": "Your hero was raised by people who collect, study, and share books and other records. Some academics focus on one area of study, such as a college for wizards dedicated to the study of magic, or a church that teaches the word of one deity. People in an academic culture learn how to wield the power that is knowledge.\n\n**Skill Options:** One skill from the lore skill group. (*Quick Build:* History.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "culture.creative",
@@ -67,7 +107,10 @@
       },
       "originalId": "mcdm.heroes.v1/culture/creative",
       "originalName": "Creative",
-      "originalDescription": "A hero with a creative upbringing was raised among folk who create art or other works valuable enough to trade. A creative culture might produce fine art such as dance, music, or sculpture, or more practical wares such as wagons, weapons, tools, or buildings. People in such cultures learn the value of quality crafting and attention to detail.\n\n**Skill Options:** The Music or Perform skill (from the interpersonal skill group), or one skill from the crafting group. (*Quick Build:* Perform.)"
+      "originalDescription": "A hero with a creative upbringing was raised among folk who create art or other works valuable enough to trade. A creative culture might produce fine art such as dance, music, or sculpture, or more practical wares such as wagons, weapons, tools, or buildings. People in such cultures learn the value of quality crafting and attention to detail.\n\n**Skill Options:** The Music or Perform skill (from the interpersonal skill group), or one skill from the crafting group. (*Quick Build:* Perform.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "culture.labor",
@@ -80,7 +123,10 @@
       },
       "originalId": "mcdm.heroes.v1/culture/labor",
       "originalName": "Labor",
-      "originalDescription": "Your hero came of age in a culture where people labored for a living. They might have been cultivators, typically raising crops or livestock on a farm. They might have harvested natural resources, whether by hunting, trapping, logging, or mining. Or they might have excelled at manual labor tied to settlement and trade, such as construction, carting, loading cargo, and so forth. People with a labor upbringing know the value of hard work.\n\n**Skill Options:** The Blacksmithing skill (from the crafting skill group), the Handle Animals skill (from the interpersonal group), or a skill from the exploration group. (*Quick Build:* Lift.)"
+      "originalDescription": "Your hero came of age in a culture where people labored for a living. They might have been cultivators, typically raising crops or livestock on a farm. They might have harvested natural resources, whether by hunting, trapping, logging, or mining. Or they might have excelled at manual labor tied to settlement and trade, such as construction, carting, loading cargo, and so forth. People with a labor upbringing know the value of hard work.\n\n**Skill Options:** The Blacksmithing skill (from the crafting skill group), the Handle Animals skill (from the interpersonal group), or a skill from the exploration group. (*Quick Build:* Lift.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "culture.lawless",
@@ -93,7 +139,10 @@
       },
       "originalId": "mcdm.heroes.v1/culture/lawless",
       "originalName": "Lawless",
-      "originalDescription": "Your hero grew up among folk who performed activities that other people—whether within or outside their culture—considered unlawful. A band of pirates, a guild of assassins, or an organization of spies all commit unlawful acts for money. And under tyranny, people engaged in rebellion are often considered lawless in their actions and activities. People brought up in a lawless culture typically don't mind breaking the rules when it suits them—and are good at making sure no one finds out they did.\n\n**Skill Options:** One skill from the intrigue skill group. (*Quick Build:* Sneak.)"
+      "originalDescription": "Your hero grew up among folk who performed activities that other people—whether within or outside their culture—considered unlawful. A band of pirates, a guild of assassins, or an organization of spies all commit unlawful acts for money. And under tyranny, people engaged in rebellion are often considered lawless in their actions and activities. People brought up in a lawless culture typically don't mind breaking the rules when it suits them—and are good at making sure no one finds out they did.\n\n**Skill Options:** One skill from the intrigue skill group. (*Quick Build:* Sneak.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "culture.martial",
@@ -106,7 +155,10 @@
       },
       "originalId": "mcdm.heroes.v1/culture/martial",
       "originalName": "Martial",
-      "originalDescription": "A hero with a martial upbringing was raised by warriors. These might have been the soldiers of an established army, a band of mercenaries, a guild of monster-slaying adventurers, or any other folk whose lives revolve around combat. Heroes with a martial upbringing are always ready for a fight—and they know how to finish that fight.\n\n**Skill Options:** One of the following: Blacksmithing or Fletching from the crafting skill group; Climb, Endurance, or Ride from the exploration group; Intimidate from the interpersonal group; Alertness or Track from the intrigue group; or Monsters or Strategy from the lore skill group (*Quick Build:* Intimidate.)"
+      "originalDescription": "A hero with a martial upbringing was raised by warriors. These might have been the soldiers of an established army, a band of mercenaries, a guild of monster-slaying adventurers, or any other folk whose lives revolve around combat. Heroes with a martial upbringing are always ready for a fight—and they know how to finish that fight.\n\n**Skill Options:** One of the following: Blacksmithing or Fletching from the crafting skill group; Climb, Endurance, or Ride from the exploration group; Intimidate from the interpersonal group; Alertness or Track from the intrigue group; or Monsters or Strategy from the lore skill group (*Quick Build:* Intimidate.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "culture.noble",
@@ -119,7 +171,10 @@
       },
       "originalId": "mcdm.heroes.v1/culture/noble",
       "originalName": "Noble",
-      "originalDescription": "Your hero grew up among leaders who rule over others and play the games of politics to maintain power. Many families are nobles by birthright, but some cultures have noble titles earned through deeds or popularity. Whatever the case, heroes with this background understand why the whispered words in the right ear can sometimes be more powerful than any army.\n\n**Skill Options:** One skill from the interpersonal skill group. (*Quick Build:* Lead.)\n\n> **But I Really Want Alertness**\n>\n> If the culture you create doesn't grant a skill that you want, check with your Director about modifying what the culture's aspects offer. For instance, you can easily make the case that a culture with the noble upbringing aspect should give a character access to the Alertness skill, given that living among those who covet your power means always being aware of your surroundings."
+      "originalDescription": "Your hero grew up among leaders who rule over others and play the games of politics to maintain power. Many families are nobles by birthright, but some cultures have noble titles earned through deeds or popularity. Whatever the case, heroes with this background understand why the whispered words in the right ear can sometimes be more powerful than any army.\n\n**Skill Options:** One skill from the interpersonal skill group. (*Quick Build:* Lead.)\n\n> **But I Really Want Alertness**\n>\n> If the culture you create doesn't grant a skill that you want, check with your Director about modifying what the culture's aspects offer. For instance, you can easily make the case that a culture with the noble upbringing aspect should give a character access to the Alertness skill, given that living among those who covet your power means always being aware of your surroundings.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ]
 }

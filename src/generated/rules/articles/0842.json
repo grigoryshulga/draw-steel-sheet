@@ -99,7 +99,84 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
       "originalName": "2nd-Level Features",
-      "originalDescription": "As a 2nd-level tactician, you gain the following features."
+      "originalDescription": "As a 2nd-level tactician, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "2nd-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 2nd-level tactician, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-2.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 2nd-Level Doctrine Feature\n\nYour tactical doctrine grants you a feature, as shown on the 2nd-Level Doctrine Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 2nd-Level Doctrine Features Table\n\n| Doctrine                    | Feature              |\n|-----------------------------|----------------------|\n| Insurgent                   | Infiltration Tactics |\n| Mastermind                  | Goaded               |\n| Vanguard                    | Melee Superiority    |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-2.goaded"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-2.infiltration-tactics"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-2.melee-superiority"
+          },
+          {
+            "type": "markdown",
+            "text": "## 2nd-Level Doctrine Ability\n\nYour tactical doctrine grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Insurgent Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-2.fog-of-war"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-2.try-me-instead"
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Mastermind Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-2.ive-got-your-back"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-2.targets-of-opportunity"
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Vanguard Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-2.no-dying-on-my-watch"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-2.squad-on-me"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -114,7 +191,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-2/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice. See Chapter 7: Perks."
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice. See Chapter 7: Perks.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-2.2nd-level-doctrine-feature",
@@ -127,7 +207,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-2/2nd-level-doctrine-feature",
       "originalName": "2nd-Level Doctrine Feature",
-      "originalDescription": "Your tactical doctrine grants you a feature, as shown on the 2nd-Level Doctrine Features table.\n\n###### 2nd-Level Doctrine Features Table\n\n| Doctrine                    | Feature              |\n|-----------------------------|----------------------|\n| Insurgent                   | Infiltration Tactics |\n| Mastermind                  | Goaded               |\n| Vanguard                    | Melee Superiority    |"
+      "originalDescription": "Your tactical doctrine grants you a feature, as shown on the 2nd-Level Doctrine Features table.\n\n###### 2nd-Level Doctrine Features Table\n\n| Doctrine                    | Feature              |\n|-----------------------------|----------------------|\n| Insurgent                   | Infiltration Tactics |\n| Mastermind                  | Goaded               |\n| Vanguard                    | Melee Superiority    |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-2.goaded",
@@ -140,7 +223,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-2/goaded",
       "originalName": "Goaded",
-      "originalDescription": "You have learned to leverage your marked foes' psychology and goad them into acting before they're tactically ready. Whenever a creature marked by you uses a strike that targets you or any ally within your line of effect, you can use a free triggered action to change one target of the strike to you or another ally within your line of effect. The new target must be within distance of the ability and within line of effect of the creature using it."
+      "originalDescription": "You have learned to leverage your marked foes' psychology and goad them into acting before they're tactically ready. Whenever a creature marked by you uses a strike that targets you or any ally within your line of effect, you can use a free triggered action to change one target of the strike to you or another ally within your line of effect. The new target must be within distance of the ability and within line of effect of the creature using it.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-2.infiltration-tactics",
@@ -153,7 +239,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-2/infiltration-tactics",
       "originalName": "Infiltration Tactics",
-      "originalDescription": "You have trained your squad to work together, stay silent, and wait for the opportune time to strike. Whenever you or any ally within 10 squares of you becomes hidden, that creature gains 1 surge."
+      "originalDescription": "You have trained your squad to work together, stay silent, and wait for the opportune time to strike. Whenever you or any ally within 10 squares of you becomes hidden, that creature gains 1 surge.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-2.melee-superiority",
@@ -166,7 +255,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-2/melee-superiority",
       "originalName": "Melee Superiority",
-      "originalDescription": "After constant drills, you can more accurately anticipate an enemy's plan and thwart their attempts to move across the battlefield. Whenever you make an opportunity attack, the target's speed is reduced to 0 until the end of the current turn.\n\n**Mark Benefit:** When a creature marked by you attempts to move or shift within distance of your melee free strike, you can use a free triggered action and spend 2 focus to make a melee free strike against that creature."
+      "originalDescription": "After constant drills, you can more accurately anticipate an enemy's plan and thwart their attempts to move across the battlefield. Whenever you make an opportunity attack, the target's speed is reduced to 0 until the end of the current turn.\n\n**Mark Benefit:** When a creature marked by you attempts to move or shift within distance of your melee free strike, you can use a free triggered action and spend 2 focus to make a melee free strike against that creature.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-2.2nd-level-doctrine-ability",
@@ -179,7 +271,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-2/2nd-level-doctrine-ability",
       "originalName": "2nd-Level Doctrine Ability",
-      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Insurgent Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Mastermind Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Vanguard Ability\n\nChoose one of the following abilities."
+      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-2.insurgent-ability",
@@ -192,7 +287,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Insurgent Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-2.fog-of-war",
@@ -245,7 +343,33 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/fog-of-war",
       "originalName": "Fog of War",
-      "originalDescription": "*Your unorthodox strategy causes enemies to lash out in fear, heedless of who they might be attacking.*\n\n| **Ranged**       |         **Maneuver** |\n|------------------|---------------------:|\n| **📏 Ranged 10** | **🎯 Two creatures** |\n\n**Effect:** Each target is marked by you, and must immediately make a free strike against a creature of your choice within 5 squares of them.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to force that target to make a free strike against a creature of your choice within 5 squares of them."
+      "originalDescription": "*Your unorthodox strategy causes enemies to lash out in fear, heedless of who they might be attacking.*\n\n| **Ranged**       |         **Maneuver** |\n|------------------|---------------------:|\n| **📏 Ranged 10** | **🎯 Two creatures** |\n\n**Effect:** Each target is marked by you, and must immediately make a free strike against a creature of your choice within 5 squares of them.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to force that target to make a free strike against a creature of your choice within 5 squares of them.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to force that target to make a free strike against a creature of your choice within 5 squares of them."
+          }
+        ],
+        "flavor": "Your unorthodox strategy causes enemies to lash out in fear, heedless of who they might be attacking.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Two creatures",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "effect": "Each target is marked by you, and must immediately make a free strike against a creature of your choice within 5 squares of them."
+      }
     },
     {
       "id": "feature.ability.tactician.level-2.try-me-instead",
@@ -302,7 +426,51 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/try-me-instead",
       "originalName": "Try Me Instead",
-      "originalDescription": "*\"Try picking on someone my size.\"*\n\n| **Melee, Strike, Weapon** | **Main action** |\n|---------------------------|----------------:|\n| **📏 Self; see below**    |     **🎯 Self** |\n\n**Effect:** You shift up to your speed directly toward an ally, ending adjacent to them, then swapping locations with that ally as long as you can fit into each other's spaces. The ally can spend a Recovery, and you can make the following weapon strike with a distance of melee 1 against a creature.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; R < WEAK, frightened (save ends)\n- **12-16:** 3 + R damage; R < AVERAGE, frightened (save ends)\n- **17+:** 4 + R damage; R < STRONG, frightened (save ends)"
+      "originalDescription": "*\"Try picking on someone my size.\"*\n\n| **Melee, Strike, Weapon** | **Main action** |\n|---------------------------|----------------:|\n| **📏 Self; see below**    |     **🎯 Self** |\n\n**Effect:** You shift up to your speed directly toward an ally, ending adjacent to them, then swapping locations with that ally as long as you can fit into each other's spaces. The ally can spend a Recovery, and you can make the following weapon strike with a distance of melee 1 against a creature.\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; R < WEAK, frightened (save ends)\n- **12-16:** 3 + R damage; R < AVERAGE, frightened (save ends)\n- **17+:** 4 + R damage; R < STRONG, frightened (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "\"Try picking on someone my size.\"",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self; see below"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** You shift up to your speed directly toward an ally, ending adjacent to them, then swapping locations with that ally as long as you can fit into each other's spaces. The ally can spend a Recovery, and you can make the following weapon strike with a distance of melee 1 against a creature.",
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2 + R"
+              },
+              "effect": "R < WEAK, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "3 + R"
+              },
+              "effect": "R < AVERAGE, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "4 + R"
+              },
+              "effect": "R < STRONG, frightened (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.tactician.level-2.mastermind-ability",
@@ -315,7 +483,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Mastermind Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-2.ive-got-your-back",
@@ -372,7 +543,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/ive-got-your-back",
       "originalName": "I've Got Your Back",
-      "originalDescription": "*Your enemy will think twice about attacking your friend.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R damage; taunted (EoT)\n- **12-16:** 9 + R damage; taunted (EoT)\n- **17+:** 12 + R damage; taunted (EoT)\n\n**Effect:** One ally adjacent to the target can spend a Recovery."
+      "originalDescription": "*Your enemy will think twice about attacking your friend.*\n\n| **Ranged, Strike, Weapon** |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 5**            | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 5 + R damage; taunted (EoT)\n- **12-16:** 9 + R damage; taunted (EoT)\n- **17+:** 12 + R damage; taunted (EoT)\n\n**Effect:** One ally adjacent to the target can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your enemy will think twice about attacking your friend.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 5
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "5 + R"
+              },
+              "effect": "taunted (EoT)"
+            },
+            {
+              "damage": {
+                "value": "9 + R"
+              },
+              "effect": "taunted (EoT)"
+            },
+            {
+              "damage": {
+                "value": "12 + R"
+              },
+              "effect": "taunted (EoT)"
+            }
+          ]
+        },
+        "effect": "One ally adjacent to the target can spend a Recovery."
+      }
     },
     {
       "id": "feature.ability.tactician.level-2.targets-of-opportunity",
@@ -425,7 +644,33 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/targets-of-opportunity",
       "originalName": "Targets of Opportunity",
-      "originalDescription": "*You point out easy targets to your friends, allowing them to include more enemies in their attacks.*\n\n| **Ranged**      |         **Maneuver** |\n|-----------------|---------------------:|\n| **📏 Ranged 5** | **🎯 Two creatures** |\n\n**Effect:** Each target is marked by you, and you gain two surges.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to add one additional target to the strike."
+      "originalDescription": "*You point out easy targets to your friends, allowing them to include more enemies in their attacks.*\n\n| **Ranged**      |         **Maneuver** |\n|-----------------|---------------------:|\n| **📏 Ranged 5** | **🎯 Two creatures** |\n\n**Effect:** Each target is marked by you, and you gain two surges.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to add one additional target to the strike.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to add one additional target to the strike."
+          }
+        ],
+        "flavor": "You point out easy targets to your friends, allowing them to include more enemies in their attacks.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 5
+            }
+          ],
+          "target": "Two creatures",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "effect": "Each target is marked by you, and you gain two surges."
+      }
     },
     {
       "id": "feature.tactician.level-2.vanguard-ability",
@@ -438,7 +683,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Vanguard Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-2.no-dying-on-my-watch",
@@ -495,7 +743,47 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/no-dying-on-my-watch",
       "originalName": "No Dying on My Watch",
-      "originalDescription": "*You prioritize saving an ally over your own safety.*\n\n| **Ranged, Strike, Weapon** |    **Triggered** |\n|----------------------------|-----------------:|\n| **📏 Ranged 5**            | **🎯 One enemy** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** You move up to your speed toward the triggering ally, ending this movement adjacent to them or in the nearest square if you can't reach an adjacent square. The triggering ally can spend a Recovery and gains 5 temporary Stamina for each enemy you came adjacent to during the move. You then make a power roll against the target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, the target is frightened of the triggering ally (save ends)\n- **12-16:** R < AVERAGE, the target is frightened of the triggering ally (save ends)\n- **17+:** R < STRONG, the target is frightened of the triggering ally (save ends)"
+      "originalDescription": "*You prioritize saving an ally over your own safety.*\n\n| **Ranged, Strike, Weapon** |    **Triggered** |\n|----------------------------|-----------------:|\n| **📏 Ranged 5**            | **🎯 One enemy** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** You move up to your speed toward the triggering ally, ending this movement adjacent to them or in the nearest square if you can't reach an adjacent square. The triggering ally can spend a Recovery and gains 5 temporary Stamina for each enemy you came adjacent to during the move. You then make a power roll against the target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, the target is frightened of the triggering ally (save ends)\n- **12-16:** R < AVERAGE, the target is frightened of the triggering ally (save ends)\n- **17+:** R < STRONG, the target is frightened of the triggering ally (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You prioritize saving an ally over your own safety.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 5
+            }
+          ],
+          "target": "One enemy",
+          "keywords": [
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "trigger": "The target deals damage to an ally.",
+        "beforeRoll": "**Effect:** You move up to your speed toward the triggering ally, ending this movement adjacent to them or in the nearest square if you can't reach an adjacent square. The triggering ally can spend a Recovery and gains 5 temporary Stamina for each enemy you came adjacent to during the move. You then make a power roll against the target.",
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "effect": "R < WEAK, the target is frightened of the triggering ally (save ends)"
+            },
+            {
+              "effect": "R < AVERAGE, the target is frightened of the triggering ally (save ends)"
+            },
+            {
+              "effect": "R < STRONG, the target is frightened of the triggering ally (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.tactician.level-2.squad-on-me",
@@ -548,7 +836,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-2/squad-on-me",
       "originalName": "Squad! On Me!",
-      "originalDescription": "*Together we are invincible!*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 1 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the start of your next turn, each target has a bonus to stability equal to your Might score. Additionally, each target gains 2 surges."
+      "originalDescription": "*Together we are invincible!*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 1 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the start of your next turn, each target has a bonus to stability equal to your Might score. Additionally, each target gains 2 surges.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Together we are invincible!",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "1 burst"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area"
+          ]
+        },
+        "effect": "Until the start of your next turn, each target has a bonus to stability equal to your Might score. Additionally, each target gains 2 surges."
+      }
     }
   ]
 }

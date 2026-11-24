@@ -79,7 +79,64 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
       "originalName": "9th-Level Features",
-      "originalDescription": "As a 9th-level tactician, you gain the following features."
+      "originalDescription": "As a 9th-level tactician, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "9th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 9th-level tactician, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-9.grandmaster-of-arms"
+          },
+          {
+            "type": "markdown",
+            "text": "## 9th-Level Doctrine Ability\n\nYour tactical doctrine grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Insurgent Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-9.squad-hit-and-run"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-9.their-lack-of-focus-is-their-undoing"
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Mastermind Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-9.blot-out-the-sun"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-9.counterstrategy"
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Vanguard Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-9.no-escape"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-9.that-one-is-mine"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -94,7 +151,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-9/grandmaster-of-arms",
       "originalName": "Grandmaster of Arms",
-      "originalDescription": "Your expertise with weapons has grown to true mastery. Whenever you use a signature ability from one of your equipped kits or make a free strike using a weapon from one of your equipped kits, you automatically obtain a tier 3 outcome on the power roll. You can still roll to determine if you score a critical hit."
+      "originalDescription": "Your expertise with weapons has grown to true mastery. Whenever you use a signature ability from one of your equipped kits or make a free strike using a weapon from one of your equipped kits, you automatically obtain a tier 3 outcome on the power roll. You can still roll to determine if you score a critical hit.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-9.9th-level-doctrine-ability",
@@ -107,7 +167,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-9/9th-level-doctrine-ability",
       "originalName": "9th-Level Doctrine Ability",
-      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.\n\n##### 9th-Level Insurgent Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Mastermind Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Vanguard Abilities\n\nChoose one of the following abilities."
+      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-9.insurgent-abilities",
@@ -120,7 +183,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Insurgent Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-9.squad-hit-and-run",
@@ -173,7 +239,29 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/squad-hit-and-run",
       "originalName": "Squad! Hit and Run!",
-      "originalDescription": "*I had to pry this secret from the shadow colleges.*\n\n| **Ranged**       |            **Main action** |\n|------------------|---------------------------:|\n| **📏 Ranged 10** | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 2 surges, and can use a free triggered action to use a signature ability that gains an edge. After resolving their ability, each target can shift up to 2 squares and become hidden even if they have no cover or concealment, or if they are observed."
+      "originalDescription": "*I had to pry this secret from the shadow colleges.*\n\n| **Ranged**       |            **Main action** |\n|------------------|---------------------------:|\n| **📏 Ranged 10** | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 2 surges, and can use a free triggered action to use a signature ability that gains an edge. After resolving their ability, each target can shift up to 2 squares and become hidden even if they have no cover or concealment, or if they are observed.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "I had to pry this secret from the shadow colleges.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self and two allies",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "effect": "Each target gains 2 surges, and can use a free triggered action to use a signature ability that gains an edge. After resolving their ability, each target can shift up to 2 squares and become hidden even if they have no cover or concealment, or if they are observed."
+      }
     },
     {
       "id": "feature.ability.tactician.level-9.their-lack-of-focus-is-their-undoing",
@@ -230,7 +318,46 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/their-lack-of-focus-is-their-undoing",
       "originalName": "Their Lack of Focus Is Their Undoing",
-      "originalDescription": "*You trick your enemies into attacking each other and leave them confused by the aftermath.*\n\n| **Magic, Ranged, Weapon** |      **Main action** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Effect:** Each target uses a signature ability against one or more targets of your choosing, with each ability automatically obtaining a tier 3 outcome on the power roll. After resolving the targets' abilities, you make a power roll against each original target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, dazed (save ends)\n- **12-16:** R < AVERAGE, dazed (save ends)\n- **17+:** R < STRONG, dazed (save ends)"
+      "originalDescription": "*You trick your enemies into attacking each other and leave them confused by the aftermath.*\n\n| **Magic, Ranged, Weapon** |      **Main action** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Effect:** Each target uses a signature ability against one or more targets of your choosing, with each ability automatically obtaining a tier 3 outcome on the power roll. After resolving the targets' abilities, you make a power roll against each original target.\n\n**Power Roll + Might:**\n\n- **≤11:** R < WEAK, dazed (save ends)\n- **12-16:** R < AVERAGE, dazed (save ends)\n- **17+:** R < STRONG, dazed (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You trick your enemies into attacking each other and leave them confused by the aftermath.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Three enemies",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** Each target uses a signature ability against one or more targets of your choosing, with each ability automatically obtaining a tier 3 outcome on the power roll. After resolving the targets' abilities, you make a power roll against each original target.",
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "effect": "R < WEAK, dazed (save ends)"
+            },
+            {
+              "effect": "R < AVERAGE, dazed (save ends)"
+            },
+            {
+              "effect": "R < STRONG, dazed (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.tactician.level-9.mastermind-abilities",
@@ -243,7 +370,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Mastermind Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-9.blot-out-the-sun",
@@ -296,7 +426,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/blot-out-the-sun",
       "originalName": "Blot Out the Sun!",
-      "originalDescription": "*What makes a good soldier? The ability to fire four shots a minute in any weather.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can make a ranged free strike that gains an edge against any enemy marked by you within distance of their ranged free strike. A target ignores banes and double banes when making this strike."
+      "originalDescription": "*What makes a good soldier? The ability to fire four shots a minute in any weather.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target can make a ranged free strike that gains an edge against any enemy marked by you within distance of their ranged free strike. A target ignores banes and double banes when making this strike.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "What makes a good soldier? The ability to fire four shots a minute in any weather.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "3 burst"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area"
+          ]
+        },
+        "effect": "Each target can make a ranged free strike that gains an edge against any enemy marked by you within distance of their ranged free strike. A target ignores banes and double banes when making this strike."
+      }
     },
     {
       "id": "feature.ability.tactician.level-9.counterstrategy",
@@ -347,7 +495,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/counterstrategy",
       "originalName": "Counterstrategy",
-      "originalDescription": "*I've identified a way to negate their strengths.*\n\n| **-**       | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You gain 6 surges. Until the end of the encounter or until you are dying, whenever the Director spends Malice (see *Draw Steel: Monsters*), choose yourself or one ally within 10 squares. The chosen character gains 2 of their Heroic Resource."
+      "originalDescription": "*I've identified a way to negate their strengths.*\n\n| **-**       | **Main action** |\n|-------------|----------------:|\n| **📏 Self** |     **🎯 Self** |\n\n**Effect:** You gain 6 surges. Until the end of the encounter or until you are dying, whenever the Director spends Malice (see *Draw Steel: Monsters*), choose yourself or one ally within 10 squares. The chosen character gains 2 of their Heroic Resource.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Effect:** You gain 6 surges. Until the end of the encounter or until you are dying, whenever the Director spends Malice (see *Draw Steel: Monsters*), choose yourself or one ally within 10 squares. The chosen character gains 2 of their Heroic Resource."
+          }
+        ],
+        "flavor": "I've identified a way to negate their strengths.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": []
+        }
+      }
     },
     {
       "id": "feature.tactician.level-9.vanguard-abilities",
@@ -360,7 +527,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Vanguard Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-9.no-escape",
@@ -418,7 +588,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/no-escape",
       "originalName": "No Escape",
-      "originalDescription": "*Nothing will stop you from reaching your foe.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n| --------------------------------- | ------------------: |\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** If you use this ability as part of the Charge main action, enemies' spaces don't count as difficult terrain for your movement. Additionally, if you move through any creature's space, you can slide that creature 1 square out of the path of your charge."
+      "originalDescription": "*Nothing will stop you from reaching your foe.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n| --------------------------------- | ------------------: |\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Effect:** You mark the target.\n\n**Power Roll + Might:**\n\n- **≤11:** 11 + M damage\n- **12-16:** 16 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** If you use this ability as part of the Charge main action, enemies' spaces don't count as difficult terrain for your movement. Additionally, if you move through any creature's space, you can slide that creature 1 square out of the path of your charge.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Nothing will stop you from reaching your foe.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Charge",
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** You mark the target.",
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "11 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "16 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "21 + M"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "If you use this ability as part of the Charge main action, enemies' spaces don't count as difficult terrain for your movement. Additionally, if you move through any creature's space, you can slide that creature 1 square out of the path of your charge."
+      }
     },
     {
       "id": "feature.ability.tactician.level-9.that-one-is-mine",
@@ -476,7 +696,62 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-9/that-one-is-mine",
       "originalName": "That One Is Mine!",
-      "originalDescription": "*You focus on making an enemy irrelevant.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Effect:** The target is marked by you.\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 17 + M damage\n\n**Effect:** Until the end of the encounter or until you are dying, you can use a signature or heroic ability instead of a free strike against any target marked by you."
+      "originalDescription": "*You focus on making an enemy irrelevant.*\n\n| **Melee, Ranged, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 One creature** |\n\n**Effect:** The target is marked by you.\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 17 + M damage\n\n**Effect:** Until the end of the encounter or until you are dying, you can use a signature or heroic ability instead of a free strike against any target marked by you.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You focus on making an enemy irrelevant.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            },
+            " or ranged ",
+            {
+              "mode": "ranged",
+              "value": 5
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** The target is marked by you.",
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "8 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "13 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "17 + M"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, you can use a signature or heroic ability instead of a free strike against any target marked by you."
+      }
     }
   ]
 }

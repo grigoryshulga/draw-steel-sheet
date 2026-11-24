@@ -10,11 +10,13 @@ import { RuleMarkdown } from "./rules/RuleMarkdown";
 export function RuleText({
   text,
   articleId,
+  sourceLocale,
   sharedAbilityCards = false,
 }: {
   text: string;
+  sourceLocale?: "ru" | "en";
   articleId?: string;
   sharedAbilityCards?: boolean;
 }) {
-  return <RuleMarkdown text={text} articleId={articleId} sharedAbilityCards={sharedAbilityCards} />;
+  return <RuleMarkdown text={text} sourceLocale={sourceLocale} articleId={articleId} sharedAbilityCards={sharedAbilityCards} />;
 }

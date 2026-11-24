@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import type { CSSProperties, DragEvent, ReactNode } from "react";
 import { Button } from "../../components/ui";
@@ -43,6 +44,7 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
   sceneHud?: ReactNode;
   draft?: boolean;
 }) {
+  const { t: tr } = useLocale();
   const board = table.board ?? EMPTY_BOARD;
   const director = table.actorId === table.ownerId;
   const editable = director && !table.archived;
@@ -164,8 +166,8 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
 
   const showText = async (text: string, point: BoardPoint, title?: string) => {
     if (!text.trim() || blocked) return false;
-    if (board.materials.length >= 32) { setError("На полотне уже 32 материала."); return false; }
-    if (text.length > 50000) { setError("Текст должен содержать до 50 000 символов."); return false; }
+    if (board.materials.length >= 32) { setError(tr("На полотне уже 32 материала.", "The board already has 32 materials.")); return false; }
+    if (text.length > 50000) { setError(tr("Текст должен содержать до 50 000 символов.", "Text must be at most 50,000 characters.")); return false; }
     setError("");
     const { x, y, ...settings } = startPlacement("text", point);
     return !!(await command("board-show", {
@@ -177,17 +179,17 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
 
   const showImage = async (request: PendingImage) => {
     if (blocked || working.current) return;
-    if (request.point && board.materials.length >= 32) { setError("На полотне уже 32 материала."); return; }
+    if (request.point && board.materials.length >= 32) { setError(tr("На полотне уже 32 материала.", "The board already has 32 materials.")); return; }
     working.current = true;
     setError("");
     setUploading(true);
     setUpload(null);
     try {
       const { file, id, point } = request;
-      if (!(AVATAR_MIME_TYPES as readonly string[]).includes(file.type)) throw new Error("Подойдёт PNG, JPEG или WebP.");
-      if (file.size > BOARD_IMAGE_MAX || file.size === 0) throw new Error("Выберите непустое изображение размером до 8 МиБ.");
+      if (!(AVATAR_MIME_TYPES as readonly string[]).includes(file.type)) throw new Error(tr("Подойдёт PNG, JPEG или WebP.", "Use a PNG, JPEG, or WebP image."));
+      if (file.size > BOARD_IMAGE_MAX || file.size === 0) throw new Error(tr("Выберите непустое изображение размером до 8 МиБ.", "Choose a nonempty image up to 8 MiB."));
       const image = await prepareWebp(file, 3840, 3840, BOARD_IMAGE_MAX);
-      if (image.size > BOARD_IMAGE_MAX) throw new Error("Изображение превышает 8 МиБ после обработки.");
+      if (image.size > BOARD_IMAGE_MAX) throw new Error(tr("Изображение превышает 8 МиБ после обработки.", "The processed image exceeds 8 MiB."));
       await tableRepository.uploadBoardImage(table.id, id, image);
       if (!mounted.current) return;
       const { x, y, ...settings } = startPlacement("image", point);
@@ -198,7 +200,7 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
       else if (mounted.current) setDialog(null);
     } catch (problem) {
       if (mounted.current) {
-        setError(problem instanceof Error ? problem.message : "Не удалось показать изображение");
+        setError(problem instanceof Error ? problem.message : tr("Не удалось показать изображение", "Could not display the image"));
         setUpload(request);
       }
     } finally {
@@ -262,18 +264,18 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
       <div className="board-material-content">{children}</div>
       {editable && <div className="board-material-tools">
         {kind !== "counter" && <Button size="sm" icon="eye" iconOnly variant="ghost"
-          onClick={() => setSelected(item.reference.id)}>{kind === "image" ? "Открыть изображение" : "Открыть текст"}</Button>}
+          onClick={() => setSelected(item.reference.id)}>{kind === "image" ? tr("Открыть изображение", "Open image") : tr("Открыть текст", "Open text")}</Button>}
         <button type="button" className="board-drag-handle" data-board-move={key} disabled={blocked || locked}
-          aria-label={`Переместить: ${item.title}`} title="Перетащите или используйте стрелки"><Icon name="move" size={16} /></button>
+          aria-label={`${tr("Переместить", "Move")}: ${item.title}`} title={tr("Перетащите или используйте стрелки", "Drag or use the arrow keys")}><Icon name="move" size={16} /></button>
         {!item.overlay && <Button size="sm" iconOnly icon="table" variant={snap ? "soft" : "ghost"} aria-pressed={snap} disabled={blocked || locked}
-          onClick={() => void place({ key, placement: alignBoardItem({ ...placement, snap: !snap }, board.grid) })}>Привязать к сетке</Button>}
+          onClick={() => void place({ key, placement: alignBoardItem({ ...placement, snap: !snap }, board.grid) })}>{tr("Привязать к сетке", "Snap to grid")}</Button>}
         <Button size="sm" iconOnly icon="lock" variant={locked ? "soft" : "ghost"} aria-pressed={!!locked} disabled={blocked}
-          onClick={() => void place({ key, placement: { ...rawPlacement, locked: !locked } })}>Закрепить на месте</Button>
-        <Button size="sm" iconOnly icon="close" variant="ghost" disabled={blocked} onClick={() => remove(key)}>Убрать с полотна</Button>
+          onClick={() => void place({ key, placement: { ...rawPlacement, locked: !locked } })}>{tr("Закрепить на месте", "Lock in place")}</Button>
+        <Button size="sm" iconOnly icon="close" variant="ghost" disabled={blocked} onClick={() => remove(key)}>{tr("Убрать с полотна", "Remove from board")}</Button>
       </div>}
       {editable && !locked && edges.map(edge => <button key={edge} type="button" disabled={blocked}
         className={`board-resize-handle is-${edge}`} data-board-move={key} data-board-resize={edge}
-        tabIndex={edge === "se" ? 0 : -1} aria-label={`Изменить размер: ${item.title}`} />)}
+        tabIndex={edge === "se" ? 0 : -1} aria-label={`${tr("Изменить размер", "Resize")}: ${item.title}`} />)}
     </div>;
   };
 
@@ -290,8 +292,8 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
       aria-pressed={board.grid.enabled} disabled={blocked} onClick={() => {
         if (dialog === "grid") setDialog(null);
         void command("board-grid", { ...board.grid, enabled: !board.grid.enabled });
-      }}>Сетка</Button>
-    {toolsOpen && board.grid.enabled && <select className="board-grid-size" aria-label="Размер клетки" title="Размер клетки"
+      }}>{tr("Сетка", "Grid")}</Button>
+    {toolsOpen && board.grid.enabled && <select className="board-grid-size" aria-label={tr("Размер клетки", "Grid size")} title={tr("Размер клетки", "Grid size")}
       value={board.grid.size} disabled={blocked || dialog === "grid"}
       onChange={event => void command("board-grid", { ...board.grid, size: Number(event.currentTarget.value) })}>
       {[...new Set([...gridSizes, board.grid.size])].sort((a, b) => a - b).map(size =>
@@ -301,13 +303,13 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
       disabled={blocked} onClick={() => {
         setGridPreview({ ...board.grid, enabled: true });
         setDialog(dialog === "grid" ? null : "grid");
-      }}>Настройки сетки</Button>
+      }}>{tr("Настройки сетки", "Grid settings")}</Button>
   </>;
 
-  const gridPanel = dialog === "grid" && <aside className="board-grid-panel" aria-label="Настройки сетки">
+  const gridPanel = dialog === "grid" && <aside className="board-grid-panel" aria-label={tr("Настройки сетки", "Grid settings")}>
     <div className="board-add-panel-header">
-      <h3>Сетка</h3>
-      <Button size="sm" icon="close" iconOnly variant="ghost" onClick={() => setDialog(null)}>Закрыть настройки сетки</Button>
+      <h3>{tr("Сетка", "Grid")}</h3>
+      <Button size="sm" icon="close" iconOnly variant="ghost" onClick={() => setDialog(null)}>{tr("Закрыть настройки сетки", "Close grid settings")}</Button>
     </div>
     <BoardGridForm grid={{ ...board.grid, enabled: true }} busy={blocked} onPreview={setGridPreview} onSave={async next => {
       const result = await command("board-grid", { ...next });
@@ -316,20 +318,20 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
     }} />
   </aside>;
 
-  const textPanel = dialog === "text" && <aside className="board-add-panel" aria-label="Добавить текст">
+  const textPanel = dialog === "text" && <aside className="board-add-panel" aria-label={tr("Добавить текст", "Add text")}>
     <div className="board-add-panel-header">
-      <h3>Добавить текст</h3>
-      <Button size="sm" icon="close" iconOnly variant="ghost" onClick={() => setDialog(null)}>Закрыть добавление</Button>
+      <h3>{tr("Добавить текст", "Add text")}</h3>
+      <Button size="sm" icon="close" iconOnly variant="ghost" onClick={() => setDialog(null)}>{tr("Закрыть добавление", "Close add panel")}</Button>
     </div>
     <form onSubmit={async event => {
       event.preventDefault();
       if (await showText(newText, camera.position.current)) { setNewText(""); setDialog(null); }
     }}>
-      <label>Текст<textarea className="input" autoFocus required maxLength={50000} value={newText} onChange={event => setNewText(event.target.value)} /></label>
-      <Button type="submit" variant="primary" disabled={blocked || !newText.trim()}>Добавить текст</Button>
+      <label>{tr("Текст", "Text")}<textarea className="input" autoFocus required maxLength={50000} value={newText} onChange={event => setNewText(event.target.value)} /></label>
+      <Button type="submit" variant="primary" disabled={blocked || !newText.trim()}>{tr("Добавить текст", "Add text")}</Button>
     </form>
     {table.materials.length > 0 && <div className="board-material-library">
-      <h3>Материалы стола</h3>
+      <h3>{tr("Материалы стола", "Table materials")}</h3>
       {table.materials.map(material => <Button key={material.id} size="sm" variant="ghost" disabled={blocked} draggable={!blocked}
         onDragStart={event => {
           event.dataTransfer.setData(MATERIAL_DROP, material.id);
@@ -341,7 +343,7 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
     </div>}
   </aside>;
 
-  return <section className={`table-board${draft ? " is-draft-board" : ""}`} aria-label={draft ? "Оформление сцены" : "За столом"}>
+  return <section className={`table-board${draft ? " is-draft-board" : ""}`} aria-label={draft ? tr("Оформление сцены", "Scene layout") : tr("За столом", "At the table")}>
     {editable && <div className={`board-toolbar${toolsOpen ? " is-expanded" : ""}`} onKeyDown={event => {
       if (event.key !== "Escape" || !toolsOpen) return;
       const trigger = dialog === "grid" ? ".board-grid-settings" : dialog === "text" ? ".board-add-text" : ".board-toolbar-toggle";
@@ -351,37 +353,37 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
     }}>
       <Button size="sm" icon={toolsOpen ? "close" : "edit"} iconOnly className="board-toolbar-toggle"
         aria-expanded={toolsOpen} aria-controls={toolsId} onClick={toggleTools}>
-        {toolsOpen ? "Свернуть инструменты сцены" : "Открыть инструменты сцены"}
+        {toolsOpen ? tr("Свернуть инструменты сцены", "Close scene tools") : tr("Открыть инструменты сцены", "Open scene tools")}
       </Button>
-      <div id={toolsId} className="board-toolbar-strip" role="group" aria-label="Инструменты сцены" hidden={!toolsOpen}>
+      <div id={toolsId} className="board-toolbar-strip" role="group" aria-label={tr("Инструменты сцены", "Scene tools")} hidden={!toolsOpen}>
         {toolsOpen && <>
-          <div className="board-tool-group" role="group" aria-label="Элементы полотна">
-            <Button size="sm" icon="plus" iconOnly variant="ghost" disabled={blocked} onClick={() => setDialog("counter")}>Добавить счётчик</Button>
+          <div className="board-tool-group" role="group" aria-label={tr("Элементы полотна", "Board elements")}>
+            <Button size="sm" icon="plus" iconOnly variant="ghost" disabled={blocked} onClick={() => setDialog("counter")}>{tr("Добавить счётчик", "Add counter")}</Button>
             <Button size="sm" icon="sheet" iconOnly variant="ghost" className="board-add-text" disabled={blocked}
-              aria-expanded={dialog === "text"} onClick={() => setDialog(dialog === "text" ? null : "text")}>Добавить текст</Button>
+              aria-expanded={dialog === "text"} onClick={() => setDialog(dialog === "text" ? null : "text")}>{tr("Добавить текст", "Add text")}</Button>
             <Button size="sm" icon="image" iconOnly variant="ghost" disabled={blocked}
-              onClick={() => imageInput.current?.click()}>Добавить картинку</Button>
+              onClick={() => imageInput.current?.click()}>{tr("Добавить картинку", "Add image")}</Button>
             <div className="board-background-actions">
               <Button size="sm" icon="palette" iconOnly variant="ghost" disabled={blocked}
-                onClick={() => backgroundInput.current?.click()}>Задать фон</Button>
+                onClick={() => backgroundInput.current?.click()}>{tr("Задать фон", "Set background")}</Button>
               {board.background && <Button size="sm" icon="undo" iconOnly variant="ghost" className="board-background-reset"
-                disabled={blocked} onClick={() => void command("board-background", { assetId: null })}>Сбросить фон</Button>}
+                disabled={blocked} onClick={() => void command("board-background", { assetId: null })}>{tr("Сбросить фон", "Reset background")}</Button>}
             </div>
           </div>
-          <div className="board-tool-group board-brush-controls" role="group" aria-label="Рисование">
+          <div className="board-tool-group board-brush-controls" role="group" aria-label={tr("Рисование", "Drawing")}>
             <Button size="sm" icon="brush" iconOnly variant={drawing.painting ? "soft" : "ghost"} aria-pressed={drawing.painting}
-              onClick={() => { setActive(""); drawing.toggle(); }}>Рисовать на полотне</Button>
+              onClick={() => { setActive(""); drawing.toggle(); }}>{tr("Рисовать на полотне", "Draw on board")}</Button>
             {drawing.painting && <>
-              <input type="color" aria-label="Цвет кисти" title="Цвет кисти"
+              <input type="color" aria-label={tr("Цвет кисти", "Brush color")} title={tr("Цвет кисти", "Brush color")}
                 value={drawing.color} onChange={event => drawing.setColor(event.currentTarget.value)} />
-              <input type="range" aria-label="Толщина кисти" title="Толщина кисти" min={1} max={BOARD_BRUSH_MAX} value={drawing.thickness}
+              <input type="range" aria-label={tr("Толщина кисти", "Brush width")} title={tr("Толщина кисти", "Brush width")} min={1} max={BOARD_BRUSH_MAX} value={drawing.thickness}
                 onChange={event => drawing.setThickness(event.currentTarget.valueAsNumber)} />
-              <output aria-label="Толщина кисти в пикселях">{drawing.thickness}</output>
+              <output aria-label={tr("Толщина кисти в пикселях", "Brush width in pixels")}>{drawing.thickness}</output>
               <Button size="sm" icon="undo" iconOnly variant="ghost" disabled={blocked || !!drawing.pending || !strokes.length}
-                onClick={drawing.undo}>Отменить последний штрих</Button>
+                onClick={drawing.undo}>{tr("Отменить последний штрих", "Undo last stroke")}</Button>
             </>}
           </div>
-          <div className="board-tool-group" role="group" aria-label="Сетка полотна">{gridButtons}</div>
+          <div className="board-tool-group" role="group" aria-label={tr("Сетка полотна", "Board grid")}>{gridButtons}</div>
         </>}
       </div>
       {toolsOpen && gridPanel}
@@ -394,31 +396,31 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
       }
     }}>
       <Button size="sm" icon="expand" iconOnly className="board-view-toggle" aria-expanded={cameraOpen}
-        onClick={() => setCameraOpen(open => !open)}>Камера сцены</Button>
-      <div className="board-toolbar-group board-view-controls" role="group" aria-label="Камера сцены">
-        {camera.following && <span className="board-view-status" role="status">Обзор ведущего</span>}
-        <Button size="sm" icon="minus" iconOnly disabled={cameraDisabled || zoom <= 1} onClick={() => moveZoom(0.8)}>Уменьшить масштаб</Button>
-        <Button size="sm" icon="plus" iconOnly disabled={cameraDisabled || zoom >= 4} onClick={() => moveZoom(1.25)}>Увеличить масштаб</Button>
+        onClick={() => setCameraOpen(open => !open)}>{tr("Камера сцены", "Scene camera")}</Button>
+      <div className="board-toolbar-group board-view-controls" role="group" aria-label={tr("Камера сцены", "Scene camera")}>
+        {camera.following && <span className="board-view-status" role="status">{tr("Обзор ведущего", "Director’s view")}</span>}
+        <Button size="sm" icon="minus" iconOnly disabled={cameraDisabled || zoom <= 1} onClick={() => moveZoom(0.8)}>{tr("Уменьшить масштаб", "Zoom out")}</Button>
+        <Button size="sm" icon="plus" iconOnly disabled={cameraDisabled || zoom >= 4} onClick={() => moveZoom(1.25)}>{tr("Увеличить масштаб", "Zoom in")}</Button>
         <Button size="sm" icon="expand" iconOnly disabled={cameraDisabled || (zoom === 1 && !canSwitchFit)}
           onClick={restoreFill ? () => setContainedBackground(undefined) : fitWholeBoard}>
-          {restoreFill ? "Заполнить фоном полотно" : "Уместить полотно"}
+          {restoreFill ? tr("Заполнить фоном полотно", "Fill board with background") : tr("Уместить полотно", "Fit board")}
         </Button>
         {editable && !draft && <Button size="sm" icon={camera.shared.control ? "pause" : "play"} aria-pressed={!!camera.shared.control}
           disabled={!camera.ready || camera.changing} onClick={() => void camera.lead(!camera.shared.control)}>
-          {camera.shared.control ? "Вернуть управление" : "Вести обзор"}
+          {camera.shared.control ? tr("Вернуть управление", "Take back control") : tr("Вести обзор", "Lead view")}
         </Button>}
       </div>
     </div>
     {(uploading || error || camera.error || showRetry || drawing.pending || (drawing.painting && drawing.full)) && (
       <div className="board-status">
-        {uploading && <span role="status">Загрузка изображения…</span>}
+        {uploading && <span role="status">{tr("Загрузка изображения…", "Uploading image…")}</span>}
         {error && <span role="alert">{error}</span>}
         {camera.error && <span role="alert">{camera.error}</span>}
-        {showRetry && editable && <Button size="sm" disabled={blocked} onClick={() => void showImage(upload)}>Повторить загрузку</Button>}
-        {drawing.painting && drawing.full && <span role="status">На сцене {BOARD_STROKE_MAX} штрихов. Можно отменить последний.</span>}
+        {showRetry && editable && <Button size="sm" disabled={blocked} onClick={() => void showImage(upload)}>{tr("Повторить загрузку", "Retry upload")}</Button>}
+        {drawing.painting && drawing.full && <span role="status">{tr(`На сцене ${BOARD_STROKE_MAX} штрихов. Можно отменить последний.`, `There are ${BOARD_STROKE_MAX} strokes. You can undo the last one.`)}</span>}
         {drawing.pending && editable && <>
-          <Button size="sm" disabled={busy || uploading} onClick={drawing.retry}>Повторить сохранение рисунка</Button>
-          {!needsRetry && <Button size="sm" variant="ghost" onClick={drawing.discard}>Сбросить несохранённое изменение</Button>}
+          <Button size="sm" disabled={busy || uploading} onClick={drawing.retry}>{tr("Повторить сохранение рисунка", "Retry saving drawing")}</Button>
+          {!needsRetry && <Button size="sm" variant="ghost" onClick={drawing.discard}>{tr("Сбросить несохранённое изменение", "Discard unsaved change")}</Button>}
         </>}
       </div>
     )}
@@ -427,7 +429,7 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
         ref={stage}
         className={`board-stage${dropTarget ? " is-drop-target" : ""}${gestures.panning ? " is-panning" : ""}${drawing.painting ? " is-drawing" : ""}`}
         tabIndex={0}
-        aria-label="Полотно стола"
+        aria-label={tr("Полотно стола", "Table board")}
         onKeyDown={event => {
           if (event.key === "Delete" && active && editable && !blocked &&
               !(event.target as Element).closest("input, textarea, select, [contenteditable]")) {
@@ -530,13 +532,13 @@ export function TableBoard({ table, command, busy, needsRetry, openHero, sceneHu
           ? <MarkdownPreview text={currentMaterial.text} images={false} />
           : <p className="board-reading-text">{currentMaterial.text}</p>}
     </CardDetailModal>}
-    {editable && <input type="file" accept={AVATAR_ACCEPT} ref={backgroundInput} hidden aria-label="Изображение фона"
+    {editable && <input type="file" accept={AVATAR_ACCEPT} ref={backgroundInput} hidden aria-label={tr("Изображение фона", "Background image")}
       onChange={event => {
         const file = event.currentTarget.files?.[0];
         event.currentTarget.value = "";
         if (file) void showImage({ file, id: crypto.randomUUID() });
       }} />}
-    {editable && <input type="file" accept={AVATAR_ACCEPT} ref={imageInput} hidden aria-label="Файл изображения"
+    {editable && <input type="file" accept={AVATAR_ACCEPT} ref={imageInput} hidden aria-label={tr("Файл изображения", "Image file")}
       onChange={event => {
         const file = event.currentTarget.files?.[0];
         event.currentTarget.value = "";

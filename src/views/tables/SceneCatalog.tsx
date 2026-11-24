@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "../../lib/hooks";
 import { createPortal } from "react-dom";
@@ -25,7 +26,10 @@ export function SceneCatalog({ kind, onAdd, actionHost, forecast, busy = false }
   forecast?: (seed: Omit<MonsterSeed, "maxStamina">) => { cost: number; hardMax: number } | null;
   busy?: boolean;
 }) {
+  const { t: tr, locale } = useLocale();
   const catalog = CATALOG[kind];
+  const listLabel = { monster: tr("Противники из справочника", "Creatures from reference"), terrain: tr("Местность из справочника", "Terrain from reference"), retainer: tr("Помощники из справочника", "Retainers from reference") }[kind];
+  const addLabel = { monster: tr("Добавить в сражение", "Add to encounter"), terrain: tr("Добавить осложнение", "Add complication"), retainer: tr("Добавить спутника", "Add companion") }[kind];
   const listFade = useScrollFade();
   const narrow = useMediaQuery("(max-width: 800px)");
   const [previewOpen, setPreviewOpen] = useState(false);
@@ -43,6 +47,7 @@ export function SceneCatalog({ kind, onAdd, actionHost, forecast, busy = false }
   const all = searchMonsterSeeds("", { kind });
   const seedIds = new Set(all.map((s) => s.sourceId));
   const entries = catalogSectionEntries(catalog.section).filter((e) => seedIds.has(e.articleId ?? e.id));
+  const displayName = (seed: Omit<MonsterSeed, "maxStamina">) => locale === "en" ? entries.find(entry => (entry.articleId ?? entry.id) === seed.sourceId)?.originalName || seed.name : seed.name;
   const matchingIds = new Set(entries.filter((e) => matchesDirectorFilters(e, deferredFilters)).map((e) => e.articleId ?? e.id));
   const results = all.filter((s) => matchingIds.has(s.sourceId));
   const pages = Math.max(1, Math.ceil(results.length / 10));
@@ -56,11 +61,11 @@ export function SceneCatalog({ kind, onAdd, actionHost, forecast, busy = false }
     setLoading(true); setError(""); setFailedId(""); setAdded("");
     try {
       const seed = await loadMonsterSeed(id);
-      if (await onAdd(seed) !== false) setAdded(`Добавлено: ${seed.name}`);
+      if (await onAdd(seed) !== false) setAdded(`${tr("Добавлено", "Added")}: ${displayName(seed)}`);
     }
     catch {
-      const name = all.find((entry) => entry.sourceId === id)?.name ?? "запись";
-      setError(`Не удалось добавить «${name}». Проверьте соединение и повторите попытку.`);
+      const name = all.find((entry) => entry.sourceId === id)?.name ?? tr("запись", "entry");
+      setError(tr(`Не удалось добавить «${name}». Проверьте соединение и повторите попытку.`, `Could not add “${name}”. Check your connection and try again.`));
       setFailedId(id);
     }
     finally { setLoading(false); }
@@ -70,26 +75,26 @@ export function SceneCatalog({ kind, onAdd, actionHost, forecast, busy = false }
     <div className="scene-catalog-filter-area" hidden={narrow && previewOpen}>
       <DirectorFilters compact={narrow} entries={entries} value={filters} onChange={(next) => { setFilters(next); reset(); }} />
     </div>
-    {error && <div className="scene-catalog-error" role="alert"><p>{error}</p><Button size="sm" icon="refresh" disabled={loading} onClick={() => void addEntry(failedId)}>Повторить</Button><Button size="sm" onClick={() => { setError(""); setFailedId(""); }}>Закрыть сообщение</Button></div>}
+    {error && <div className="scene-catalog-error" role="alert"><p>{error}</p><Button size="sm" icon="refresh" disabled={loading} onClick={() => void addEntry(failedId)}>{tr("Повторить", "Retry")}</Button><Button size="sm" onClick={() => { setError(""); setFailedId(""); }}>{tr("Закрыть сообщение", "Dismiss message")}</Button></div>}
     {actionHost ? createPortal(feedback, actionHost) : feedback}
     {active ? <div className="scene-catalog-browser">
       <div className="scene-catalog-list" hidden={narrow && previewOpen}>
-        <nav ref={listFade.ref} className={`scroll-fade${listFade.more ? " has-more" : ""}`} tabIndex={0} aria-label={catalog.list}>
+        <nav ref={listFade.ref} className={`scroll-fade${listFade.more ? " has-more" : ""}`} tabIndex={0} aria-label={listLabel}>
           {shown.map((s) => <div className="scene-catalog-choice" data-selected={active.sourceId === s.sourceId || undefined} key={s.sourceId}>
-            <button type="button" aria-current={active.sourceId === s.sourceId ? "true" : undefined} onClick={() => { setSelected(s.sourceId); setPreviewOpen(true); }}><strong>{s.name}</strong><span>{s.level} ур.{kind !== "retainer" && ` · ${s.encounterValue} БЦ`}{s.role ? ` · ${s.role}` : ""}</span></button>
-            <Button size="sm" variant="ghost" icon="plus" iconOnly disabled={loading || busy} aria-label={`Добавить: ${s.name}`} title={`Добавить: ${s.name}`} onClick={() => void addEntry(s.sourceId)}>Добавить</Button>
+            <button type="button" aria-current={active.sourceId === s.sourceId ? "true" : undefined} onClick={() => { setSelected(s.sourceId); setPreviewOpen(true); }}><strong>{displayName(s)}</strong><span>{tr(`${s.level} ур.`, `Level ${s.level}`)}{kind !== "retainer" && ` · ${s.encounterValue} ${tr("БЦ", "EV")}`}{s.role ? ` · ${s.role}` : ""}</span></button>
+            <Button size="sm" variant="ghost" icon="plus" iconOnly disabled={loading || busy} aria-label={`${tr("Добавить", "Add")}: ${displayName(s)}`} title={`${tr("Добавить", "Add")}: ${displayName(s)}`} onClick={() => void addEntry(s.sourceId)}>{tr("Добавить", "Add")}</Button>
           </div>)}
         </nav>
         {pages > 1 && <div className="scene-catalog-pages">
-          <Button iconOnly icon="chevron-left" size="sm" disabled={!current} onClick={() => { setPage(current - 1); setSelected(""); }}>Предыдущая страница</Button><span>{current + 1} / {pages}</span><Button iconOnly icon="chevron-right" size="sm" disabled={current + 1 === pages} onClick={() => { setPage(current + 1); setSelected(""); }}>Следующая страница</Button>
+          <Button iconOnly icon="chevron-left" size="sm" disabled={!current} onClick={() => { setPage(current - 1); setSelected(""); }}>{tr("Предыдущая страница", "Previous page")}</Button><span>{current + 1} / {pages}</span><Button iconOnly icon="chevron-right" size="sm" disabled={current + 1 === pages} onClick={() => { setPage(current + 1); setSelected(""); }}>{tr("Следующая страница", "Next page")}</Button>
         </div>}
       </div>
       <div className="scene-catalog-preview" hidden={narrow && !previewOpen}>
-        {narrow && <div className="scene-catalog-preview-heading"><Button icon="arrow-left" onClick={() => { setPreviewOpen(false); requestAnimationFrame(() => listFade.ref.current?.querySelector<HTMLButtonElement>('[aria-current="true"]')?.focus()); }}>К списку</Button><h3 className="sr-only" ref={previewHeading} tabIndex={-1}>{active.name}</h3></div>}
+        {narrow && <div className="scene-catalog-preview-heading"><Button icon="arrow-left" onClick={() => { setPreviewOpen(false); requestAnimationFrame(() => listFade.ref.current?.querySelector<HTMLButtonElement>('[aria-current="true"]')?.focus()); }}>{tr("К списку", "Back to list")}</Button><h3 className="sr-only" ref={previewHeading} tabIndex={-1}>{displayName(active)}</h3></div>}
 
         <RuleArticleReader key={active.sourceId} articleId={active.sourceId} />
-        {actionHost && createPortal(<div className="scene-catalog-add"><span className="scene-catalog-selected">Выбрано: <strong>{active.name}</strong></span>{projected && <span className="scene-catalog-forecast" data-over-budget={projected.cost > projected.hardMax || undefined}>После добавления: {projected.cost} БЦ{projected.cost > projected.hardMax ? ` · Превышение лимита: ${projected.cost - projected.hardMax} БЦ` : ""}</span>}<Button icon="plus" variant="primary" disabled={loading || busy} aria-label={`${catalog.add}: ${active.name}`} onClick={() => void addEntry(active.sourceId)}>{loading ? "Добавляем…" : catalog.add}</Button></div>, actionHost)}
+        {actionHost && createPortal(<div className="scene-catalog-add"><span className="scene-catalog-selected">{tr("Выбрано", "Selected")}: <strong>{displayName(active)}</strong></span>{projected && <span className="scene-catalog-forecast" data-over-budget={projected.cost > projected.hardMax || undefined}>{tr("После добавления", "After adding")}: {projected.cost} {tr("БЦ", "EV")}{projected.cost > projected.hardMax ? ` · ${tr("Превышение лимита", "Over limit")}: ${projected.cost - projected.hardMax} ${tr("БЦ", "EV")}` : ""}</span>}<Button icon="plus" variant="primary" disabled={loading || busy} aria-label={`${addLabel}: ${displayName(active)}`} onClick={() => void addEntry(active.sourceId)}>{loading ? tr("Добавляем…", "Adding…") : addLabel}</Button></div>, actionHost)}
       </div>
-    </div> : <p className="table-empty">Ничего не найдено. Измените запрос или фильтры.</p>}
+    </div> : <p className="table-empty">{tr("Ничего не найдено. Измените запрос или фильтры.", "Nothing found. Change the search or filters.")}</p>}
   </div>;
 }

@@ -2,13 +2,18 @@ import { Icon } from "../Icons";
 import { remarkDirectorView, type DirectorView } from "../../lib/remark-director-view";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import type { PluggableList } from "unified";
-import { memo, Children, isValidElement, type ReactNode } from "react";
+import { expandCreatureTree, type PrintedCreatureTree } from "../../rules/creature-tree";
+import type { PluggableList, Processor } from "unified";
+import { useLocalizedData } from "../../i18n/use-localized-data";
+import { loadEnglishReference, loadGlossaryDefinitions } from "../../rules/consumer-english-reference";
+import { plainSummary } from "../../lib/library-utils";
+import { useState, memo, Children, isValidElement, type ReactNode } from "react";
 import { catalogEntryLink } from "../../lib/library-utils";
 import { CATALOG_LINK_BY_HEADING, GLOSSARY_TOOLTIP_BY_ID } from "../../rules/consumer-reading";
 import { headingId } from "../../lib/codex";
 import {
   remarkAbilityBlocks,
+  remarkEnglishEmbeddedAbilities,
   remarkAbilityCardRemainder,
   type AbilityCardRemainderOptions,
 } from "../../lib/remark-ability-blocks";
@@ -32,8 +37,21 @@ function plain(node: ReactNode): string {
     .join("");
 }
 
+function EnglishTermLink({ href, id, name, children }: { href: string; id: string; name: string; children: ReactNode }) {
+  const [requested, setRequested] = useState(false);
+  const dictionary = useLocalizedData(requested ? "en" : "ru", loadGlossaryDefinitions);
+  const description = dictionary?.[id];
+  return <a href={href} className="rule-reference has-tip" onFocus={() => setRequested(true)} onMouseEnter={() => setRequested(true)}>
+    {children}
+    {description && <span className="rule-tip" role="tooltip"><strong>{name}</strong>{plainSummary(description)}</span>}
+  </a>;
+}
+
 export interface RuleMarkdownProps {
   text: string;
+  printedCreature?: PrintedCreatureTree;
+  omitFirstHeading?: boolean;
+  sourceLocale?: "ru" | "en";
   /** Статья источника: по ней подбирается ссылка «Карточка в каталоге». */
   articleId?: string;
   className?: string;
@@ -63,6 +81,16 @@ export const headingTag = (level: number) =>
     | "h5"
     | "h6";
 
+// ReactMarkdown still supplies the safe HTML renderer and the glossary link
+// components. Compiled editions enter the pipeline after source recognition.
+function remarkPrintedCreature(this: Processor, tree: PrintedCreatureTree, omitFirstHeading: boolean) {
+  this.parser = () => {
+    const root = expandCreatureTree(tree);
+    if (omitFirstHeading && root.children[0]?.type === "heading") root.children.shift();
+    return root;
+  };
+}
+
 /**
  * Единый низкоуровневый рендер правилского Markdown.
  *
@@ -73,6 +101,9 @@ export const headingTag = (level: number) =>
  */
 export const RuleMarkdown = memo(function RuleMarkdown({
   text,
+  printedCreature,
+  omitFirstHeading = false,
+  sourceLocale,
   articleId,
   className = "rule-text",
   headingOffset = 0,
@@ -86,7 +117,18 @@ export const RuleMarkdown = memo(function RuleMarkdown({
     typeof abilityCardRemainder === "object"
       ? abilityCardRemainder
       : undefined;
-  const plugins: PluggableList = abilityCardRemainder
+  const reference = useLocalizedData(sourceLocale === "en" && text.includes("scc.v1:") ? "en" : "ru", loadEnglishReference);
+  const englishPlugins: PluggableList = [
+    remarkGfm, remarkDirectorBlocks, remarkEnglishEmbeddedAbilities,
+    [remarkDirectorAbilities, { language: "en" }], [remarkDirectorView, { mode: directorMode }],
+    [remarkRuleLinks, { english: true, targets: reference?.links }],
+  ];
+  const plugins: PluggableList = printedCreature ? [
+    remarkGfm, [remarkPrintedCreature, printedCreature, omitFirstHeading],
+    [remarkDirectorView, { mode: directorMode }],
+    ...(sourceLocale === "en" ? [] : [remarkRuleFields]),
+    [remarkRuleLinks, { english: sourceLocale === "en", targets: reference?.links }],
+  ] : sourceLocale === "en" ? englishPlugins : abilityCardRemainder
     ? [
         remarkGfm,
         [remarkAbilityCardRemainder, remainder],
@@ -101,7 +143,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
         components={{
           section: ({ node, children, ...props }) => directorAbilityElement(node, children) ?? <section {...props}>{children}</section>,
           div: ({ node, children, ...props }) => node?.properties['data-director-stats']
-            ? <DirectorStatBlock heading={directorHeading} headingActions={directorHeadingActions}>{children}</DirectorStatBlock>
+            ? <DirectorStatBlock language={sourceLocale} heading={directorHeading} headingActions={directorHeadingActions}>{children}</DirectorStatBlock>
             : directorAbilityElement(node, children) ?? <div {...props}>{children}</div>,
           h1: ({ children }) => {
             const Heading = headingTag(2 + headingOffset);
@@ -129,7 +171,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
                     className="rule-catalog-link"
                     href={catalogEntryLink(entry)}
                   >
-                    Карточка в каталоге · Добавить герою <Icon name="arrow-right" size={16} />
+                    {sourceLocale === "en" ? "Catalog card · Add to hero" : "Карточка в каталоге · Добавить герою"} <Icon name="arrow-right" size={16} />
                   </a>
                 )}
               </>
@@ -160,6 +202,7 @@ export const RuleMarkdown = memo(function RuleMarkdown({
             const term = glossaryPrefix
               ? GLOSSARY_TOOLTIP_BY_ID.get(decodeURIComponent(href!.slice(glossaryPrefix.length)))
               : undefined;
+            if (term && sourceLocale === "en") return <EnglishTermLink href={href!} id={term.id} name={term.english}>{children}</EnglishTermLink>;
             if (term)
               return (
                 <a

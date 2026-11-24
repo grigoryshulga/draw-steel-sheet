@@ -91,7 +91,96 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#4th-level-features",
       "originalName": "4th-Level Features",
-      "originalDescription": "As a 4th-level conduit, you gain the following features."
+      "originalDescription": "As a 4th-level conduit, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "4th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 4th-level conduit, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-4.blessed-domain"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-4.characteristic-increase"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-4.perk"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-4.skill"
+          },
+          {
+            "type": "markdown",
+            "text": "## 4th-Level Domain Feature\n\nChoose one of your domains. You gain a domain feature for that domain, as shown on the 4th-Level Conduit Domain Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 4th-Level Conduit Domain Features Table\n\n| Domain     | Feature                     |\n|------------|-----------------------------|\n| Creation   | Improved Hands of the Maker |\n| Death      | Seance                      |\n| Fate       | Oracular Warning            |\n| Knowledge  | Saint's Epiphany            |\n| Life       | Blessing of Life            |\n| Love       | Invocation of the Heart     |\n| Nature     | Wode Road                   |\n| Protection | Impervious Touch            |\n| Storm      | Windwalk                    |\n| Sun        | Light of Revelation         |\n| Trickery   | Blessing of Secrets         |\n| War        | Improved Sanctified Weapon  |"
+          },
+          {
+            "type": "markdown",
+            "text": "#### Blessing of Life\n\nYour divine presence causes those you deem worthy to recover quickly from a fight. Whenever an ally within distance of your Healing Grace ability regains Stamina, they regain additional Stamina equal to your Intuition score."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Blessing of Secrets\n\nYou have the following ability."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-4.blessing-of-secrets"
+          },
+          {
+            "type": "markdown",
+            "text": "#### Impervious Touch\n\nAs a maneuver, you can touch an object with a size equal to your Intuition score or smaller and place a protective spell on it. The object has immunity all to untyped damage. You can maintain this spell on a number of objects equal to your Intuition score, and you can end the spell on any object at any time (no action required).\n\nAdditionally, you can place this spell on a building or vehicle (or a similar structure with the Director's approval) that is of a size larger than your Intuition score. You can place the spell on only one such target at a time, and you can maintain the spell on a larger target and a number of objects equal to your Intuition score simultaneously."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Improved Hands of the Maker\n\nWhen you use your Hands of the Maker ability, you can create a mundane object that is size 2 or smaller."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Improved Sanctified Weapon\n\nThe weapon improved by your Sanctified Weapon feature grants a +3 bonus to rolled damage instead of +1."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Invocation of the Heart\n\nAs a main action, you forge a bond of love and friendship with a willing creature you touch. While this bond is active, you can telepathically speak with the creature over any distance, including across different worlds. Additionally, while this bond is active, you can attempt to assist the creature with any test they make regardless of their proximity to you. You can maintain only one bond at a time, and you can end a bond at any time (no action required)."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Light of Revelation\n\nAs a maneuver, you make your body shine brightly, illuminating your space and each square within 5 squares. This light shines through any darkness. Hidden creatures in the area are automatically revealed, and creatures in the light, including you, can't hide. While this feature is active, you gain an edge on tests made to notice hidden objects and entrances and to detect supernatural illusions."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Oracular Warning\n\nEach time you finish a respite, you can share the vague dreams of the future granted to you by the gods with allies who finished the respite with you. These premonitions help you and your allies stay alive, granting each of you temporary Stamina equal to 10 + your level that lasts until you finish a respite."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Seance\n\nYou can commune with a network of spirits. As a respite activity, you speak the name of a creature who died and isn't undead. If the creature's spirit is free and willing to speak with you, they appear and you can have a conversation with them. During this time, the creature responds to you as they would have in life. If the creature isn't free or willing to appear, you can speak another name or choose another respite activity."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Saint's Epiphany\n\nAt the start of a respite, you can inspire yourself or another creature taking the same respite with divine knowledge. If the target makes a project roll during this respite, they can add 1d10 plus your Intuition score to the roll."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Windwalk\n\nWhile you have 5 or more Victories, you can fly. If you can already fly, you have a +2 bonus to speed while flying instead."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Wode Road\n\nAs a main action, you touch a living tree and make it part of a divine transportation network. You can maintain a number of trees in your network equal to your Intuition score. Whenever you touch any tree in your network, you can use a main action to teleport yourself and any willing creatures within 10 squares of you to a tree in your network on the same world. If a tree in your network dies, it is no longer part of the network. You can remove a tree from your network no matter your distance from it, including across different worlds (no action required)."
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -106,7 +195,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-4/blessed-domain",
       "originalName": "Blessed Domain",
-      "originalDescription": "Whenever you gain piety from a domain effect, you gain 1 additional piety."
+      "originalDescription": "Whenever you gain piety from a domain effect, you gain 1 additional piety.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.characteristic-increase",
@@ -119,7 +211,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-4/characteristic-increase",
       "originalName": "Characteristic Increase",
-      "originalDescription": "Your Intuition score increases to 3. Additionally, you can increase one of your characteristic scores by 1, to a maximum of 3."
+      "originalDescription": "Your Intuition score increases to 3. Additionally, you can increase one of your characteristic scores by 1, to a maximum of 3.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.perk",
@@ -132,7 +227,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-4/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one perk of your choice."
+      "originalDescription": "You gain one perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.skill",
@@ -145,7 +243,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-4/skill",
       "originalName": "Skill",
-      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests."
+      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature",
@@ -158,7 +259,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-4/4th-level-domain-feature",
       "originalName": "4th-Level Domain Feature",
-      "originalDescription": "Choose one of your domains. You gain a domain feature for that domain, as shown on the 4th-Level Conduit Domain Features table.\n\n###### 4th-Level Conduit Domain Features Table\n\n| Domain     | Feature                     |\n|------------|-----------------------------|\n| Creation   | Improved Hands of the Maker |\n| Death      | Seance                      |\n| Fate       | Oracular Warning            |\n| Knowledge  | Saint's Epiphany            |\n| Life       | Blessing of Life            |\n| Love       | Invocation of the Heart     |\n| Nature     | Wode Road                   |\n| Protection | Impervious Touch            |\n| Storm      | Windwalk                    |\n| Sun        | Light of Revelation         |\n| Trickery   | Blessing of Secrets         |\n| War        | Improved Sanctified Weapon  |\n\n###### Blessing of Life\n\nYour divine presence causes those you deem worthy to recover quickly from a fight. Whenever an ally within distance of your Healing Grace ability regains Stamina, they regain additional Stamina equal to your Intuition score.\n\n###### Blessing of Secrets\n\nYou have the following ability.\n\n###### Impervious Touch\n\nAs a maneuver, you can touch an object with a size equal to your Intuition score or smaller and place a protective spell on it. The object has immunity all to untyped damage. You can maintain this spell on a number of objects equal to your Intuition score, and you can end the spell on any object at any time (no action required).\n\nAdditionally, you can place this spell on a building or vehicle (or a similar structure with the Director's approval) that is of a size larger than your Intuition score. You can place the spell on only one such target at a time, and you can maintain the spell on a larger target and a number of objects equal to your Intuition score simultaneously.\n\n###### Improved Hands of the Maker\n\nWhen you use your Hands of the Maker ability, you can create a mundane object that is size 2 or smaller.\n\n###### Improved Sanctified Weapon\n\nThe weapon improved by your Sanctified Weapon feature grants a +3 bonus to rolled damage instead of +1.\n\n###### Invocation of the Heart\n\nAs a main action, you forge a bond of love and friendship with a willing creature you touch. While this bond is active, you can telepathically speak with the creature over any distance, including across different worlds. Additionally, while this bond is active, you can attempt to assist the creature with any test they make regardless of their proximity to you. You can maintain only one bond at a time, and you can end a bond at any time (no action required).\n\n###### Light of Revelation\n\nAs a maneuver, you make your body shine brightly, illuminating your space and each square within 5 squares. This light shines through any darkness. Hidden creatures in the area are automatically revealed, and creatures in the light, including you, can't hide. While this feature is active, you gain an edge on tests made to notice hidden objects and entrances and to detect supernatural illusions.\n\n###### Oracular Warning\n\nEach time you finish a respite, you can share the vague dreams of the future granted to you by the gods with allies who finished the respite with you. These premonitions help you and your allies stay alive, granting each of you temporary Stamina equal to 10 + your level that lasts until you finish a respite.\n\n###### Seance\n\nYou can commune with a network of spirits. As a respite activity, you speak the name of a creature who died and isn't undead. If the creature's spirit is free and willing to speak with you, they appear and you can have a conversation with them. During this time, the creature responds to you as they would have in life. If the creature isn't free or willing to appear, you can speak another name or choose another respite activity.\n\n###### Saint's Epiphany\n\nAt the start of a respite, you can inspire yourself or another creature taking the same respite with divine knowledge. If the target makes a project roll during this respite, they can add 1d10 plus your Intuition score to the roll.\n\n###### Windwalk\n\nWhile you have 5 or more Victories, you can fly. If you can already fly, you have a +2 bonus to speed while flying instead.\n\n###### Wode Road\n\nAs a main action, you touch a living tree and make it part of a divine transportation network. You can maintain a number of trees in your network equal to your Intuition score. Whenever you touch any tree in your network, you can use a main action to teleport yourself and any willing creatures within 10 squares of you to a tree in your network on the same world. If a tree in your network dies, it is no longer part of the network. You can remove a tree from your network no matter your distance from it, including across different worlds (no action required)."
+      "originalDescription": "Choose one of your domains. You gain a domain feature for that domain, as shown on the 4th-Level Conduit Domain Features table.\n\n###### 4th-Level Conduit Domain Features Table\n\n| Domain     | Feature                     |\n|------------|-----------------------------|\n| Creation   | Improved Hands of the Maker |\n| Death      | Seance                      |\n| Fate       | Oracular Warning            |\n| Knowledge  | Saint's Epiphany            |\n| Life       | Blessing of Life            |\n| Love       | Invocation of the Heart     |\n| Nature     | Wode Road                   |\n| Protection | Impervious Touch            |\n| Storm      | Windwalk                    |\n| Sun        | Light of Revelation         |\n| Trickery   | Blessing of Secrets         |\n| War        | Improved Sanctified Weapon  |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.life",
@@ -171,7 +275,10 @@
       },
       "originalId": "",
       "originalName": "Blessing of Life",
-      "originalDescription": "Your divine presence causes those you deem worthy to recover quickly from a fight."
+      "originalDescription": "Your divine presence causes those you deem worthy to recover quickly from a fight. Whenever an ally within distance of your Healing Grace ability regains Stamina, they regain additional Stamina equal to your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.blessing-of-secrets",
@@ -185,7 +292,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-4/blessing-of-secrets",
       "originalName": "Blessing of Secrets",
-      "originalDescription": "*You project an illusory aura that makes you and allies harder to notice.*\n\n| **Area, Magic** |                         **Maneuver**  |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Each creature in the area has a double edge on tests made to hide or sneak. The aura lasts until you end it (no action required) or until a target harms or deals damage to a creature or object."
+      "originalDescription": "*You project an illusory aura that makes you and allies harder to notice.*\n\n| **Area, Magic** |                         **Maneuver**  |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Each creature in the area has a double edge on tests made to hide or sneak. The aura lasts until you end it (no action required) or until a target harms or deals damage to a creature or object.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-4.blessing-of-secrets",
@@ -239,7 +349,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-4/blessing-of-secrets",
       "originalName": "Blessing of Secrets",
-      "originalDescription": "*You project an illusory aura that makes you and allies harder to notice.*\n\n| **Area, Magic** |                         **Maneuver**  |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Each creature in the area has a double edge on tests made to hide or sneak. The aura lasts until you end it (no action required) or until a target harms or deals damage to a creature or object."
+      "originalDescription": "*You project an illusory aura that makes you and allies harder to notice.*\n\n| **Area, Magic** |                         **Maneuver**  |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Each creature in the area has a double edge on tests made to hide or sneak. The aura lasts until you end it (no action required) or until a target harms or deals damage to a creature or object.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You project an illusory aura that makes you and allies harder to notice.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "3 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Each creature in the area has a double edge on tests made to hide or sneak. The aura lasts until you end it (no action required) or until a target harms or deals damage to a creature or object."
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.protection",
@@ -252,7 +381,10 @@
       },
       "originalId": "",
       "originalName": "Impervious Touch",
-      "originalDescription": "As a maneuver, you can touch an object with a size equal to your Intuition score or smaller and place a protective spell on it."
+      "originalDescription": "As a maneuver, you can touch an object with a size equal to your Intuition score or smaller and place a protective spell on it. The object has immunity all to untyped damage. You can maintain this spell on a number of objects equal to your Intuition score, and you can end the spell on any object at any time (no action required).\n\nAdditionally, you can place this spell on a building or vehicle (or a similar structure with the Director's approval) that is of a size larger than your Intuition score. You can place the spell on only one such target at a time, and you can maintain the spell on a larger target and a number of objects equal to your Intuition score simultaneously.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.creation",
@@ -265,7 +397,10 @@
       },
       "originalId": "",
       "originalName": "Improved Hands of the Maker",
-      "originalDescription": "When you use your Hands of the Maker ability, you can create a mundane object that is size 2 or smaller."
+      "originalDescription": "When you use your Hands of the Maker ability, you can create a mundane object that is size 2 or smaller.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.war",
@@ -278,7 +413,10 @@
       },
       "originalId": "",
       "originalName": "Improved Sanctified Weapon",
-      "originalDescription": "The weapon improved by your Sanctified Weapon feature grants a +3 bonus to rolled damage instead of +1."
+      "originalDescription": "The weapon improved by your Sanctified Weapon feature grants a +3 bonus to rolled damage instead of +1.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.love",
@@ -291,7 +429,10 @@
       },
       "originalId": "",
       "originalName": "Invocation of the Heart",
-      "originalDescription": "As a main action, you forge a bond of love and friendship with one willing creature you touch."
+      "originalDescription": "As a main action, you forge a bond of love and friendship with a willing creature you touch. While this bond is active, you can telepathically speak with the creature over any distance, including across different worlds. Additionally, while this bond is active, you can attempt to assist the creature with any test they make regardless of their proximity to you. You can maintain only one bond at a time, and you can end a bond at any time (no action required).",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.sun",
@@ -304,7 +445,10 @@
       },
       "originalId": "",
       "originalName": "Light of Revelation",
-      "originalDescription": "As a maneuver, you make your body shine brightly, illuminating your space and each square within 5 squares until you dismiss the light (no action required)."
+      "originalDescription": "As a maneuver, you make your body shine brightly, illuminating your space and each square within 5 squares. This light shines through any darkness. Hidden creatures in the area are automatically revealed, and creatures in the light, including you, can't hide. While this feature is active, you gain an edge on tests made to notice hidden objects and entrances and to detect supernatural illusions.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.fate",
@@ -317,7 +461,10 @@
       },
       "originalId": "",
       "originalName": "Oracular Warning",
-      "originalDescription": "Each time you finish a respite, you can share the vague dreams of the future granted to you by the gods with allies who finished the respite with you."
+      "originalDescription": "Each time you finish a respite, you can share the vague dreams of the future granted to you by the gods with allies who finished the respite with you. These premonitions help you and your allies stay alive, granting each of you temporary Stamina equal to 10 + your level that lasts until you finish a respite.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.death",
@@ -330,7 +477,10 @@
       },
       "originalId": "",
       "originalName": "Seance",
-      "originalDescription": "You can commune with a network of spirits."
+      "originalDescription": "You can commune with a network of spirits. As a respite activity, you speak the name of a creature who died and isn't undead. If the creature's spirit is free and willing to speak with you, they appear and you can have a conversation with them. During this time, the creature responds to you as they would have in life. If the creature isn't free or willing to appear, you can speak another name or choose another respite activity.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.knowledge",
@@ -343,7 +493,10 @@
       },
       "originalId": "",
       "originalName": "Saint's Epiphany",
-      "originalDescription": "At the start of a respite, you can inspire yourself or another creature taking the same respite with divine knowledge."
+      "originalDescription": "At the start of a respite, you can inspire yourself or another creature taking the same respite with divine knowledge. If the target makes a project roll during this respite, they can add 1d10 plus your Intuition score to the roll.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.storm",
@@ -356,7 +509,10 @@
       },
       "originalId": "",
       "originalName": "Windwalk",
-      "originalDescription": "While you have 5 or more Victories, you can fly."
+      "originalDescription": "While you have 5 or more Victories, you can fly. If you can already fly, you have a +2 bonus to speed while flying instead.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-4.4th-level-domain-feature.nature",
@@ -369,7 +525,10 @@
       },
       "originalId": "",
       "originalName": "Wode Road",
-      "originalDescription": "As a main action, you touch a living tree and make it part of a divine transportation network."
+      "originalDescription": "As a main action, you touch a living tree and make it part of a divine transportation network. You can maintain a number of trees in your network equal to your Intuition score. Whenever you touch any tree in your network, you can use a main action to teleport yourself and any willing creatures within 10 squares of you to a tree in your network on the same world. If a tree in your network dies, it is no longer part of the network. You can remove a tree from your network no matter your distance from it, including across different worlds (no action required).",
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ]
 }

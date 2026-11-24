@@ -1,13 +1,14 @@
+import { useLocale } from "../i18n/locale";
 import type { SaveStatus } from "../state/AppContext";
 import { Icon } from "./Icons";
 
-const SAVE_LABEL: Record<SaveStatus, string> = {
-  idle: "Черновик",
-  pending: "Есть изменения",
-  saving: "Сохранение…",
-  saved: "Сохранено",
-  error: "Не сохранено",
-};
+const saveLabels = (t: (ru: string, en: string) => string): Record<SaveStatus, string> => ({
+  idle: t("Черновик", "Draft"),
+  pending: t("Есть изменения", "Unsaved changes"),
+  saving: t("Сохранение…", "Saving…"),
+  saved: t("Сохранено", "Saved"),
+  error: t("Не сохранено", "Not saved"),
+});
 
 /** Компактный статус сохранения: спиннер, галочка или предупреждение; подробности — в тултипе. */
 export function SaveIndicator({
@@ -17,7 +18,8 @@ export function SaveIndicator({
   status: SaveStatus;
   error: string;
 }) {
-  const label = SAVE_LABEL[status];
+  const { t } = useLocale();
+  const label = saveLabels(t)[status];
   return (
     <span
       className={`save-state is-${status}`}

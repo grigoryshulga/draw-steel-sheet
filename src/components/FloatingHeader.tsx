@@ -1,3 +1,5 @@
+import { SiteLanguageSwitch } from "./LanguageSwitch";
+import { useLocale } from "../i18n/locale";
 import { useLibraryLocation } from "../lib/library-location";
 import { isDirectorSection } from "../navigation";
 import { useRef, useState } from "react";
@@ -13,9 +15,9 @@ import { useAccount } from "../state/StorageScope";
 import "./FloatingHeader.css";
 
 const LIBRARY_OPTIONS = [
-  { id: "codex", label: "Книга правил", icon: "book" },
-  { id: "reference", label: "Справочник", icon: "library" },
-  { id: "director", label: "Ведущему", icon: "book" },
+  { id: "codex", label: "Книга правил", en: "Rulebook", icon: "book" },
+  { id: "reference", label: "Справочник", en: "Reference", icon: "library" },
+  { id: "director", label: "Ведущему", en: "Director", icon: "book" },
 ] as const;
 
 /**
@@ -46,6 +48,7 @@ export function FloatingHeader({
   onNewCharacter: () => void;
   onNavigate: (tab: Tab) => void;
 }) {
+  const { t } = useLocale();
   const heroActive = isHeroTab(tab);
   const codexActive = isLibraryTab(tab);
   const account = useAccount();
@@ -75,7 +78,7 @@ export function FloatingHeader({
   return (
     <header className="floating-header">
       <div className="floating-header-inner">
-        <nav className="floating-header-nav" aria-label="Основные разделы">
+        <nav className="floating-header-nav" aria-label={t("Основные разделы", "Main navigation")}>
           <button
             type="button"
             className={tab === "tables" ? "is-active" : ""}
@@ -83,7 +86,7 @@ export function FloatingHeader({
             onClick={() => onNavigate("tables")}
           >
             <Icon name="tables" size={15} aria-hidden="true" />
-            Столы
+            {t("Столы", "Tables")}
           </button>
           <button
             type="button"
@@ -92,7 +95,7 @@ export function FloatingHeader({
             onClick={() => onNavigate(heroTab)}
           >
             <Icon name="hero" size={15} aria-hidden="true" />
-            Герой
+            {t("Герой", "Hero")}
           </button>
           <div
             className="floating-header-library"
@@ -131,7 +134,7 @@ export function FloatingHeader({
               onClick={() => setLibraryMenuOpen(true)}
             >
               <Icon name="book" size={15} aria-hidden="true" />
-              Кодекс
+              {t("Кодекс", "Codex")}
               <Icon
                 name="chevron-down"
                 size={12}
@@ -146,7 +149,7 @@ export function FloatingHeader({
               <ul
                 id="floating-library-menu"
                 role="listbox"
-                aria-label="Разделы Кодекса"
+                aria-label={t("Разделы Кодекса", "Codex sections")}
               >
                 {LIBRARY_OPTIONS.map((option) => {
                   const selected = librarySection === option.id;
@@ -160,7 +163,7 @@ export function FloatingHeader({
                         onClick={() => selectLibrarySection(option.id)}
                       >
                         <Icon name={option.icon} size={16} aria-hidden="true" />
-                        <span>{option.label}</span>
+                        <span>{t(option.label, option.en)}</span>
                         {selected && (
                           <Icon
                             name="check"
@@ -179,6 +182,7 @@ export function FloatingHeader({
         </nav>
 
         <div className="floating-header-right">
+          <SiteLanguageSwitch />
           {character ? (
             <CharacterMenu
               disabled={busy}
@@ -199,11 +203,11 @@ export function FloatingHeader({
               disabled={busy}
               className="floating-header-create"
               iconOnly
-              aria-label="Новый герой"
-              title="Новый герой"
+              aria-label={t("Новый герой", "New hero")}
+              title={t("Новый герой", "New hero")}
               onClick={onNewCharacter}
             >
-              <span>Новый герой</span>
+              <span>{t("Новый герой", "New hero")}</span>
             </Button>
           )}
           {character ? (
@@ -212,8 +216,8 @@ export function FloatingHeader({
               iconOnly
               size="sm"
               variant={tab === "settings" ? "soft" : "ghost"}
-              aria-label="Настройки"
-              title="Настройки"
+              aria-label={t("Настройки", "Settings")}
+              title={t("Настройки", "Settings")}
               aria-current={tab === "settings" ? "page" : undefined}
               onClick={() => onNavigate("settings")}
             />
@@ -223,8 +227,8 @@ export function FloatingHeader({
               iconOnly
               size="sm"
               variant="ghost"
-              aria-label="Выйти"
-              title={`Выйти (${account.email})`}
+              aria-label={t("Выйти", "Sign out")}
+              title={`${t("Выйти", "Sign out")} (${account.email})`}
               disabled={account.signingOut}
               onClick={account.signOut}
             />

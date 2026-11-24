@@ -13,6 +13,7 @@ vi.mock("react", async (original) => ({
     if (cleanup) harness.cleanups.push(cleanup);
   },
 }));
+vi.mock("../src/i18n/locale", () => ({ useLocale: () => ({ t: (ru: string) => ru }) }));
 import { SearchInput } from "../src/components/ui/SearchInput";
 
 class Target {

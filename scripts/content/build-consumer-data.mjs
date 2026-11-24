@@ -1945,6 +1945,23 @@ export function buildConsumerData({
     builder: builderProjection,
   });
 
+  // Monsters terms missing from the Heroes glossary use their canonical
+  // monster-rule original, matched by exact English name after decoration.
+  const monsterRuleOriginals = new Map(entities.filter((entity) => entity.kind === "monster-rule" && entity.originalName && entity.originalDescription)
+    .map((entity) => [entity.originalName.toLocaleLowerCase("en"), entity.originalDescription]));
+  for (const entry of libraryProjection.glossary) {
+    if (!entry.originalDescription && entry.english) {
+      entry.originalDescription = monsterRuleOriginals.get(entry.english.toLocaleLowerCase("en")) ?? "";
+    }
+  }
+
+  const contextualGlossary = new Set(["glossary.recovery", "glossary.experience", "glossary.summoner", "d3", "d6", "d10", "d100"]);
+  for (const entry of libraryProjection.glossary) {
+    entry.originalCoverage = !entry.originalDescription ? { status: "missing", reason: "source-unavailable" }
+      : contextualGlossary.has(entry.id) ? { status: "excerpt", reason: "unverified-boundary" }
+      : { status: "complete" };
+  }
+
   // Include feature-granted cards in the feature pack so resolving a game
   // action does not pull the entire ability catalog into the workspace.
   for (const feature of featureProjection.features) {
@@ -1981,7 +1998,16 @@ export function buildConsumerData({
     path.join(outDir, "abilities.json"),
     jsonText(abilityProjection),
   );
-  expected.set(path.join(outDir, "library.json"), jsonText(libraryProjection));
+  const definitions = Object.fromEntries(libraryProjection.glossary
+    .filter(entry => entry.originalDescription)
+    .map(entry => [entry.id, entry.originalDescription]));
+  expected.set(path.join(outDir, "glossary-en.json"), jsonText(definitions));
+  expected.set(path.join(outDir, "library.json"), jsonText({
+    ...libraryProjection,
+    glossary: libraryProjection.glossary.map(({ originalDescription, ...entry }) => ({
+      ...entry, originalDescription: "", ...(originalDescription ? { hasEnglishDefinition: true } : {}),
+    })),
+  }));
   expected.set(path.join(outDir, "kits.json"), jsonText(kitProjection));
   expected.set(path.join(outDir, "perks.json"), jsonText(perkProjection));
   expected.set(
@@ -2012,14 +2038,14 @@ export function buildConsumerData({
       id: kit.id, name: kit.name, summary: kit.summary, equipment: kit.equipment,
       signatureAbility: kit.signatureAbility, familyId: kit.familyId ?? "",
       animalForm: kit.animalForm ?? "", storm: kit.storm ?? "", damageType: kit.damageType ?? "",
-      originalName: kit.originalName ?? "",
+      originalName: kit.originalName ?? "", originalId: kit.originalId ?? "",
     })),
-    ancestries: builderProjection.ancestries.map(({ articleId, name, summary, signature }) =>
-      ({ articleId, name, summary, signature })),
-    careers: builderProjection.careers.map(({ articleId, name, benefits }) =>
-      ({ articleId, name, benefits })),
-    classes: builderProjection.classes.map(({ name, summary, basics }) =>
-      ({ name, summary, basics })),
+    ancestries: builderProjection.ancestries.map(({ articleId, name, summary, signature, originalName, originalId }) =>
+      ({ articleId, name, summary, signature, originalName, originalId })),
+    careers: builderProjection.careers.map(({ articleId, name, benefits, originalName, originalId }) =>
+      ({ articleId, name, benefits, originalName, originalId })),
+    classes: builderProjection.classes.map(({ name, summary, basics, originalName, originalId }) =>
+      ({ name, summary, basics, originalName, originalId })),
   }));
 
   expected.set(path.join(outDir, "level-up-grants.json"), jsonText({
@@ -2048,7 +2074,10 @@ export function buildConsumerData({
       }
     }
     for (const file of actualFiles) {
-      if (!expected.has(file)) {
+      // These files are owned and freshness-checked by the separate
+      // English reference projection generator, run after consumer generation.
+      const externalEnglish = new Set(["ability-cards-en.json", "english-reference.json", "ancestry-signatures-en.json", "builder-options-en.json", "sheet-identity-en.json", "basic-actions-en.json"]);
+      if (!expected.has(file) && !externalEnglish.has(path.basename(file))) {
         differences.push(`лишний ${path.relative(root, file)}`);
       }
     }

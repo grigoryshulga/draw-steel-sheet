@@ -1,11 +1,13 @@
+import { useLocale } from "../../i18n/locale";
 import { Button, Chip, Panel } from "../../components/ui";
 import { Icon } from "../../components/Icons";
-import { SKILL_GROUPS, SKILL_GROUP_TONES } from "../../data/skills";
+import { SKILL_GROUPS, SKILL_GROUP_TONES, SKILL_ORIGINALS } from "../../data/skills";
 import { useApp } from "../../state/AppContext";
 import "./SkillsPanel.css";
 
 /** Навыки героя рядом с характеристиками. */
 export function SkillsPanel() {
+  const { t, locale } = useLocale();
   const { character, goTo, readOnly } = useApp();
   const selected = new Set(character.skills);
   const groups = SKILL_GROUPS.map((group) => ({
@@ -16,19 +18,19 @@ export function SkillsPanel() {
   const extras = character.skills.filter((skill) => !known.has(skill));
   return (
     <Panel
-      title="Навыки"
+      title={t("Навыки", "Skills")}
       icon="check"
       className="skills-panel"
       actions={!readOnly && (
-        <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label="Изменить навыки" title="Изменить навыки" onClick={() => goTo("development")} />
+        <Button size="sm" variant="ghost" icon="edit" iconOnly aria-label={t("Изменить навыки", "Edit skills")} title={t("Изменить навыки", "Edit skills")} onClick={() => goTo("development")} />
       )}
     >
       {character.skills.length === 0 ? (
         <div className="skills-empty">
           <Icon name="check" size={20} />
-          {readOnly ? <span className="muted">Нет выбранных навыков.</span> : (
+          {readOnly ? <span className="muted">{t("Нет выбранных навыков.", "No skills selected.")}</span> : (
             <Button size="sm" variant="soft" onClick={() => goTo("development")}>
-              Выбрать навыки
+              {t("Выбрать навыки", "Choose skills")}
             </Button>
           )}
         </div>
@@ -36,11 +38,11 @@ export function SkillsPanel() {
         <div className="sheet-skills">
           {groups.map((group) => (
             <section className="sheet-skill-group" key={group.key}>
-              <span className="eyebrow">{group.label}</span>
+              <span className="eyebrow">{locale === "en" ? ({ crafting: "Crafting", exploration: "Exploration", interpersonal: "Interpersonal", intrigue: "Intrigue", lore: "Lore" } as const)[group.key] : group.label}</span>
               <div className="sheet-skill-chips">
                 {group.items.map((skill) => (
                   <Chip key={skill} tone={SKILL_GROUP_TONES[group.key]}>
-                    {skill}
+                    {locale === "en" ? SKILL_ORIGINALS[skill]?.originalName || skill : skill}
                   </Chip>
                 ))}
               </div>
@@ -48,7 +50,7 @@ export function SkillsPanel() {
           ))}
           {extras.length > 0 && (
             <section className="sheet-skill-group">
-              <span className="eyebrow">Другие</span>
+              <span className="eyebrow">{t("Другие", "Other")}</span>
               <div className="sheet-skill-chips">
                 {extras.map((skill) => (
                   <Chip key={skill}>{skill}</Chip>

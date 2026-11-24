@@ -8,6 +8,8 @@ export function sheetFeatures(character: Character): FeatureSheetItem[] {
     (feature) => ({
       id: feature.id,
       name: feature.name,
+      originalName: feature.originalName,
+      originalDescription: feature.originalDescription,
       level: 1,
       source: `Происхождение · ${feature.ancestryName}`,
       category: "ancestry",

@@ -19,7 +19,20 @@
       ],
       "originalId": "mcdm.heroes.v1/kit/retiarius",
       "originalName": "Retiarius",
-      "originalDescription": "The retiarius is often depicted as a lightly armored warrior with a net in one hand and a trident in the other, and this kit gives you the equipment and fighting technique to make that happen. Tie up your foe with a net and then poke them to death!"
+      "originalDescription": "The retiarius is often depicted as a lightly armored warrior with a net in one hand and a trident in the other, and this kit gives you the equipment and fighting technique to make that happen. Tie up your foe with a net and then poke them to death!",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishEdition": {
+        "kind": "source",
+        "title": "Retiarius",
+        "blocks": [
+          {
+            "type": "entity",
+            "ref": "kit.retiarius"
+          }
+        ]
+      }
     }
   ],
   "entities": [
@@ -34,7 +47,17 @@
       },
       "originalId": "mcdm.heroes.v1/kit/retiarius",
       "originalName": "Retiarius",
-      "originalDescription": "The retiarius is often depicted as a lightly armored warrior with a net in one hand and a trident in the other, and this kit gives you the equipment and fighting technique to make that happen. Tie up your foe with a net and then poke them to death!\n\n##### Equipment\n\nYou wear light armor and wield several ensnaring weapons and a polearm.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Melee Distance Bonus:** +1\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Net and Stab\n\n*The well-thrown net that follows your main attack leaves your foes right where you want them.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 2**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; A < WEAK, slowed (EoT)\n- **12-16:** 6 + M or A damage; A < AVERAGE, slowed (EoT)\n- **17+:** 8 + M or A damage; A < STRONG, restrained (EoT)"
+      "originalDescription": "The retiarius is often depicted as a lightly armored warrior with a net in one hand and a trident in the other, and this kit gives you the equipment and fighting technique to make that happen. Tie up your foe with a net and then poke them to death!\n\n##### Equipment\n\nYou wear light armor and wield several ensnaring weapons and a polearm.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Melee Distance Bonus:** +1\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Net and Stab\n\n*The well-thrown net that follows your main attack leaves your foes right where you want them.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 2**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; A < WEAK, slowed (EoT)\n- **12-16:** 6 + M or A damage; A < AVERAGE, slowed (EoT)\n- **17+:** 8 + M or A damage; A < STRONG, restrained (EoT)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishSignatures": [
+        {
+          "ref": "feature.ability.retiarius.net-and-stab",
+          "start": 529,
+          "end": 1009
+        }
+      ]
     },
     {
       "id": "feature.ability.retiarius.net-and-stab",
@@ -92,7 +115,53 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.retiarius/net-and-stab",
       "originalName": "Net and Stab",
-      "originalDescription": "*The well-thrown net that follows your main attack leaves your foes right where you want them.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 2**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; A < WEAK, slowed (EoT)\n- **12-16:** 6 + M or A damage; A < AVERAGE, slowed (EoT)\n- **17+:** 8 + M or A damage; A < STRONG, restrained (EoT)"
+      "originalDescription": "*The well-thrown net that follows your main attack leaves your foes right where you want them.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 2**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; A < WEAK, slowed (EoT)\n- **12-16:** 6 + M or A damage; A < AVERAGE, slowed (EoT)\n- **17+:** 8 + M or A damage; A < STRONG, restrained (EoT)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The well-thrown net that follows your main attack leaves your foes right where you want them.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 2
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might or Agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + M or A"
+              },
+              "effect": "A < WEAK, slowed (EoT)"
+            },
+            {
+              "damage": {
+                "value": "6 + M or A"
+              },
+              "effect": "A < AVERAGE, slowed (EoT)"
+            },
+            {
+              "damage": {
+                "value": "8 + M or A"
+              },
+              "effect": "A < STRONG, restrained (EoT)"
+            }
+          ]
+        }
+      }
     }
   ]
 }

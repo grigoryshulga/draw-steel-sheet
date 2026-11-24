@@ -1,4 +1,6 @@
+import { useLocale } from "../../i18n/locale";
 import { useRef, useState } from "react";
+import { identityLabel } from "../../rules/consumer-identity-labels";
 import { Icon } from "../../components/Icons";
 import { Select } from "../../components/ui";
 import {
@@ -20,6 +22,8 @@ import { useApp } from "../../state/AppContext";
  * в поп-апе: шапка не растягивается на отдельный блок с полем.
  */
 export function HeaderDomainChoices() {
+  const { locale, t } = useLocale();
+  const label = (value: string) => identityLabel(value, locale, "Проводник");
   const { character, update } = useApp();
   const [draft, setDraft] = useState<[string, string]>(["", ""]);
   const [open, setOpen] = useState(false);
@@ -55,8 +59,8 @@ export function HeaderDomainChoices() {
   if (character.className === "Цензор" && domainOptions.length > 0) {
     const state = domainChoice ? featureSheetChoiceState(domainChoice) : null;
     const currentLabel = domainSelected
-      ? (domainChoice?.optionLabels?.[domainSelected] ?? domainSelected)
-      : "не выбран";
+      ? label(domainChoice?.optionLabels?.[domainSelected] ?? domainSelected)
+      : t("не выбран", "not selected");
     return (
       <div className="sheet-domain-chip-wrap" ref={wrapRef}>
         <button
@@ -65,10 +69,10 @@ export function HeaderDomainChoices() {
           className="sheet-domain-chip"
           aria-haspopup="menu"
           aria-expanded={open}
-          aria-label={`Домен: ${currentLabel}`}
+          aria-label={t(`Домен: ${currentLabel}`, `Domain: ${currentLabel}`)}
           onClick={() => setOpen((value) => !value)}
         >
-          <span className="sheet-domain-chip-label">Домен</span>
+          <span className="sheet-domain-chip-label">{t("Домен", "Domain")}</span>
           <span className="sheet-domain-chip-value">{currentLabel}</span>
           <Icon name="chevron-down" size={12} />
         </button>
@@ -76,11 +80,11 @@ export function HeaderDomainChoices() {
           <div
             className="popover sheet-domain-popover"
             role="menu"
-            aria-label="Домен цензора"
+            aria-label={t("Домен цензора", "Censor domain")}
             ref={menuRef}
             onKeyDown={onMenuKeyDown}
           >
-            <div className="menu-label">Домен цензора</div>
+            <div className="menu-label">{t("Домен цензора", "Censor domain")}</div>
             {domainOptions.map((option) => {
               const active = option === domainSelected;
               return (
@@ -100,7 +104,7 @@ export function HeaderDomainChoices() {
                     setOpen(false);
                   }}
                 >
-                  <span>{domainChoice?.optionLabels?.[option] ?? option}</span>
+                  <span>{label(domainChoice?.optionLabels?.[option] ?? option)}</span>
                   {active && <Icon name="check" size={14} />}
                 </button>
               );
@@ -119,12 +123,12 @@ export function HeaderDomainChoices() {
                     setOpen(false);
                   }}
                 >
-                  <span>Не выбран</span>
+                  <span>{t("Не выбран", "Not selected")}</span>
                 </button>
               </>
             )}
             {state?.warning && (
-              <p className="sheet-domain-warning">{state.warning}</p>
+              <p className="sheet-domain-warning">{locale === "en" ? state.warning.replace(/^Сохранено: (.*)\. Это значение не входит в список доступных вариантов; выберите один из них\.$/, "Saved: $1. This value is not an available option; choose one of the available options.") : state.warning}</p>
             )}
           </div>
         )}
@@ -150,8 +154,8 @@ export function HeaderDomainChoices() {
 
   const domainLabel =
     current[0] && current[1]
-      ? `${current[0]} · ${current[1]}`
-      : current[0] || current[1] || "не выбраны";
+      ? `${label(current[0])} · ${label(current[1])}`
+      : label(current[0] || current[1]) || t("не выбраны", "not selected");
 
   return (
     <div className="sheet-domain-chip-wrap" ref={wrapRef}>
@@ -161,10 +165,10 @@ export function HeaderDomainChoices() {
         className="sheet-domain-chip"
         aria-haspopup="dialog"
         aria-expanded={open}
-        aria-label={`Домены: ${domainLabel}`}
+        aria-label={t(`Домены: ${domainLabel}`, `Domains: ${domainLabel}`)}
         onClick={() => setOpen((value) => !value)}
       >
-        <span className="sheet-domain-chip-label">Домены</span>
+        <span className="sheet-domain-chip-label">{t("Домены", "Domains")}</span>
         <span className="sheet-domain-chip-value">{domainLabel}</span>
         <Icon name="chevron-down" size={12} />
       </button>
@@ -172,36 +176,36 @@ export function HeaderDomainChoices() {
         <div
           className="popover sheet-domain-popover is-form"
           role="dialog"
-          aria-label="Домены Проводника"
+          aria-label={t("Домены Проводника", "Conduit domains")}
           ref={menuRef}
           onKeyDown={onMenuKeyDown}
         >
-          <div className="menu-label">Домены Проводника</div>
+          <div className="menu-label">{t("Домены Проводника", "Conduit domains")}</div>
           {([0, 1] as const).map((index) => (
             <label className="sheet-domain-field" key={index}>
               <span className="eyebrow">
-                {index === 0 ? "Первый домен" : "Второй домен"}
+                {index === 0 ? t("Первый домен", "First domain") : t("Второй домен", "Second domain")}
               </span>
               <Select
                 value={current[index]}
                 aria-label={
                   index === 0
-                    ? "Первый домен Проводника"
-                    : "Второй домен Проводника"
+                    ? t("Первый домен Проводника", "First Conduit domain")
+                    : t("Второй домен Проводника", "Second Conduit domain")
                 }
                 onChange={(event) => change(index, event.target.value)}
               >
-                <option value="">Выберите домен</option>
+                <option value="">{t("Выберите домен", "Choose a domain")}</option>
                 {conduit.domains.map((domain) => (
                   <option key={domain} value={domain}>
-                    {domain}
+                    {label(domain)}
                   </option>
                 ))}
               </Select>
             </label>
           ))}
           {conduit.message && (
-            <p className="sheet-domain-warning">{conduit.message}</p>
+            <p className="sheet-domain-warning">{locale === "en" ? t("", `To restore feature choices, select two different domains in the hero header.${(character.automation?.classFeatureSelections?.["conduit.domain"] || character.subclass)?.trim() ? ` The saved value “${character.automation?.classFeatureSelections?.["conduit.domain"] || character.subclass}” remains unchanged, but does not specify two different known domains.` : " No domain pair was saved."} The abilities list does not confirm skill training.`) : conduit.message}</p>
           )}
         </div>
       )}

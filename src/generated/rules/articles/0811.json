@@ -243,7 +243,188 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
       "originalName": "1st-Level Features",
-      "originalDescription": "As a 1st-level null, you gain the following features."
+      "originalDescription": "As a 1st-level null, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "1st-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 1st-level null, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.null-tradition"
+          },
+          {
+            "type": "markdown",
+            "text": "## Discipline\n\nAs your mastery of your body and tradition grows, it imbues you with a Heroic Resource called discipline."
+          },
+          {
+            "type": "markdown",
+            "text": "### Discipline in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain discipline equal to your Victories. At the start of each of your turns during combat, you gain 2 discipline.\n\nAdditionally, the first time each combat round that an enemy in the area of your Null Field ability (see below) uses a main action, you gain 1 discipline. The first time each combat round that the Director uses an ability that costs Malice (see *Draw Steel: Monsters*), you gain 1 discipline.\n\nYou lose any remaining discipline at the end of the encounter."
+          },
+          {
+            "type": "markdown",
+            "text": "### Discipline Outside of Combat\n\nThough you can't gain discipline outside of combat, you can use your heroic abilities and effects that cost discipline without spending it. Whenever you use an ability or effect outside of combat that costs discipline, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited discipline on its effect, you can use it as if you had spent an amount of discipline equal to your Victories. (Such abilities aren't part of the core rules for the null, but they might appear in future products.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.null-field"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.null-field"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.inertial-shield"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.inertial-shield"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.discipline-mastery"
+          },
+          {
+            "type": "markdown",
+            "text": "### Chronokinetic Mastery\n\nWhenever you use the Inertial Shield ability, you can use the Disengage move action as a free triggered action.\n\nAdditionally, as your discipline grows, your psionic mastery of your body intensifies, granting benefits from the Chronokinetic Mastery table. Benefits are cumulative except where an improved benefit replaces a lesser benefit."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Chronokinetic Mastery Table\n\n| Discipline      | Benefit                                                                                                                                                                                     |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, you can use the Disengage move action as a free triggered action either before or after the maneuver.                                              |\n| 4               | The first time on a turn that you willingly move 1 or more squares as part of an ability, you gain 1 surge.                                                                                 |\n| 6               | You gain an edge on the Grab and Knockback maneuvers.                                                                                                                                       |\n| 8 (4th level)   | The first time on a turn that you willingly move 1 or more squares as part of an ability, you gain 2 surges.                                                                                |\n| 10 (7th level)  | You have a double edge on the Grab and Knockback maneuvers.                                                                                                                                 |\n| 12 (10th level) | Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina. |"
+          },
+          {
+            "type": "markdown",
+            "text": "### Cryokinetic Mastery\n\nWhenever you use your Inertial Shield ability, you can then use the Grab maneuver as a free triggered action.\n\nAdditionally, as your discipline grows, you strengthen the psionic power suffusing you, granting benefits from the Cryokinetic Mastery table. Benefits are cumulative except where an improved benefit replaces a lesser benefit."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Cryokinetic Mastery Table\n\n| Discipline      | Benefit                                                                                                                                                                                           |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, you can target one additional creature. Additionally, whenever you deal untyped damage with a psionic ability, you can change it to cold damage instead. |\n| 4               | The first time on a turn that you grab a creature or an enemy moves 1 or more squares in the area of your Null Field ability, you gain 1 surge.                                                   |\n| 6               | You gain an edge on the Grab and Knockback maneuvers.                                                                                                                                             |\n| 8 (4th level)   | The first time on a turn that you grab a creature or an enemy moves 1 or more squares in the area of your Null Field ability, you gain 2 surges.                                                  |\n| 10 (7th level)  | You have a double edge on the Grab and Knockback maneuvers.                                                                                                                                       |\n| 12 (10th level) | Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina.       |"
+          },
+          {
+            "type": "markdown",
+            "text": "### Metakinetic Mastery\n\nWhenever you use your Inertial Shield ability, you can then use the Knockback maneuver as a free triggered action.\n\nAdditionally, as your discipline grows, your psionic potential is amplified, granting benefits from the Metakinetic Mastery table. Benefits are cumulative except where an improved benefit replaces a lesser benefit."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Metakinetic Mastery Table\n\n| Discipline      | Benefit                                                                                                                                                                                     |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Intuition score.                                                                          |\n| 4               | The first time in a combat round that you take damage or are force moved, you gain 1 surge, even if you resist the effect.                                                                  |\n| 6               | You gain an edge on the Grab and Knockback maneuvers.                                                                                                                                       |\n| 8 (4th level)   | The first time in a combat round that you take damage or are force moved, you gain 2 surges, even if you resist the effect.                                                                 |\n| 10 (7th level)  | You have a double edge on the Grab and Knockback maneuvers.                                                                                                                                 |\n| 12 (10th level) | Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina. |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.null-speed"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.psionic-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.density-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.force-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.speed-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-1.psionic-martial-arts"
+          },
+          {
+            "type": "markdown",
+            "text": "## Null Abilities\n\nYou rely on a unique blend of martial techniques and psionic prowess to take down your foes and defend your allies."
+          },
+          {
+            "type": "markdown",
+            "text": "### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Faster Than the Eye, Inertial Step.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.dance-of-blows"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.faster-than-the-eye"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.inertial-step"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.joint-lock"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.kinetic-strike"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.magnetic-strike"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.phase-inversion-strike"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.pressure-points"
+          },
+          {
+            "type": "markdown",
+            "text": "### Heroic Abilities\n\nYou have mastered a range of heroic abilities, all of them channeled through your discipline."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 3-Discipline Ability\n\nChoose one heroic ability from the following options, each of which costs 3 discipline to use. (*Quick Build:* Chronal Spike.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.chronal-spike"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.psychic-pulse"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.relentless-nemesis"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.stunning-blow"
+          },
+          {
+            "type": "markdown",
+            "text": "#### 5-Discipline Ability\n\nChoose one heroic ability from the following options, each of which costs 5 discipline to use. (*Quick Build:* A Squad Unto Myself.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.arcane-disruptor"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.impart-force"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.phase-strike"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-1.a-squad-unto-myself"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -258,7 +439,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/null-tradition",
       "originalName": "Null Tradition",
-      "originalDescription": "Through extensive physical and psionic training, you have learned to unlock the full potential of your body. As you shape the growth of your power, you choose a null tradition from the following options, each of which grants you a skill. (*Quick Build:* Chronokinetic and the Monsters skill.)\n\n- **Chronokinetic:** Your training unmoors you from temporal reality, allowing you to use the flow of time as another dimension that all things move through. You gain one skill from the lore group.\n- **Cryokinetic:** You can tap into absolute cold, the most essential energy of myriad manifolds, and manifest its effects in your body. You gain one skill from the crafting group.\n- **Metakinetic:** You learn to see through the illusions of the universe to more fully understand your body and its psionic potential. You gain one skill from the exploration group.\n\nYour null tradition is your subclass, and your choice of tradition determines many of the features you'll gain as you gain new levels."
+      "originalDescription": "Through extensive physical and psionic training, you have learned to unlock the full potential of your body. As you shape the growth of your power, you choose a null tradition from the following options, each of which grants you a skill. (*Quick Build:* Chronokinetic and the Monsters skill.)\n\n- **Chronokinetic:** Your training unmoors you from temporal reality, allowing you to use the flow of time as another dimension that all things move through. You gain one skill from the lore group.\n- **Cryokinetic:** You can tap into absolute cold, the most essential energy of myriad manifolds, and manifest its effects in your body. You gain one skill from the crafting group.\n- **Metakinetic:** You learn to see through the illusions of the universe to more fully understand your body and its psionic potential. You gain one skill from the exploration group.\n\nYour null tradition is your subclass, and your choice of tradition determines many of the features you'll gain as you gain new levels.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.discipline",
@@ -271,7 +455,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/discipline",
       "originalName": "Discipline",
-      "originalDescription": "As your mastery of your body and tradition grows, it imbues you with a Heroic Resource called discipline.\n\n##### Discipline in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain discipline equal to your Victories. At the start of each of your turns during combat, you gain 2 discipline.\n\nAdditionally, the first time each combat round that an enemy in the area of your Null Field ability (see below) uses a main action, you gain 1 discipline. The first time each combat round that the Director uses an ability that costs Malice (see *Draw Steel: Monsters*), you gain 1 discipline.\n\nYou lose any remaining discipline at the end of the encounter.\n\n##### Discipline Outside of Combat\n\nThough you can't gain discipline outside of combat, you can use your heroic abilities and effects that cost discipline without spending it. Whenever you use an ability or effect outside of combat that costs discipline, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited discipline on its effect, you can use it as if you had spent an amount of discipline equal to your Victories. (Such abilities aren't part of the core rules for the null, but they might appear in future products.)"
+      "originalDescription": "As your mastery of your body and tradition grows, it imbues you with a Heroic Resource called discipline.\n\n##### Discipline in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain discipline equal to your Victories. At the start of each of your turns during combat, you gain 2 discipline.\n\nAdditionally, the first time each combat round that an enemy in the area of your Null Field ability (see below) uses a main action, you gain 1 discipline. The first time each combat round that the Director uses an ability that costs Malice (see *Draw Steel: Monsters*), you gain 1 discipline.\n\nYou lose any remaining discipline at the end of the encounter.\n\n##### Discipline Outside of Combat\n\nThough you can't gain discipline outside of combat, you can use your heroic abilities and effects that cost discipline without spending it. Whenever you use an ability or effect outside of combat that costs discipline, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited discipline on its effect, you can use it as if you had spent an amount of discipline equal to your Victories. (Such abilities aren't part of the core rules for the null, but they might appear in future products.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.discipline-in-combat",
@@ -284,7 +471,10 @@
       },
       "originalId": "",
       "originalName": "Discipline in Combat",
-      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain discipline equal to your Victories."
+      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain discipline equal to your Victories. At the start of each of your turns during combat, you gain 2 discipline.\n\nAdditionally, the first time each combat round that an enemy in the area of your Null Field ability (see below) uses a main action, you gain 1 discipline. The first time each combat round that the Director uses an ability that costs Malice (see *Draw Steel: Monsters*), you gain 1 discipline.\n\nYou lose any remaining discipline at the end of the encounter.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.discipline-outside-of-combat",
@@ -297,7 +487,10 @@
       },
       "originalId": "",
       "originalName": "Discipline Outside of Combat",
-      "originalDescription": "Though you can't gain discipline outside of combat, you can use your heroic abilities and effects that cost discipline without spending it."
+      "originalDescription": "Though you can't gain discipline outside of combat, you can use your heroic abilities and effects that cost discipline without spending it. Whenever you use an ability or effect outside of combat that costs discipline, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited discipline on its effect, you can use it as if you had spent an amount of discipline equal to your Victories. (Such abilities aren't part of the core rules for the null, but they might appear in future products.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.null-field",
@@ -310,7 +503,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/null-field",
       "originalName": "Null Field",
-      "originalDescription": "You project a psionic field of order around your body, dampening the effects of supernatural abilities harmful to you and your allies."
+      "originalDescription": "You project a psionic field of order around your body, dampening the effects of supernatural abilities harmful to you and your allies.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-1.null-field",
@@ -364,7 +560,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/null-field",
       "originalName": "Null Field",
-      "originalDescription": "*You project an aura that dampens the power of your foes.*\n\n| **Area, Psionic** |                  **Maneuver** |\n|-------------------|------------------------------:|\n| **📏 1 aura**     | **🎯 Each enemy in the area** |\n\n**Effect:** Each target reduces their potencies by 1.\n\nOnce as a free maneuver on each of your turns, you can spend 1 discipline and give your Null Field one of the following additional effects until the start of your next turn:\n\n- Gravitic Disruption: The first time on a turn that a target takes damage, you can slide them up to 2 squares.\n- Inertial Anchor: Any target who starts their turn in the area can't shift.\n- Synaptic Break: Whenever you or any ally uses an ability against a target that has a potency effect, the potency is increased by 1.\n\nThis ability remains active even after an encounter ends. It ends only if you are dying or if you willingly end it (no action required)."
+      "originalDescription": "*You project an aura that dampens the power of your foes.*\n\n| **Area, Psionic** |                  **Maneuver** |\n|-------------------|------------------------------:|\n| **📏 1 aura**     | **🎯 Each enemy in the area** |\n\n**Effect:** Each target reduces their potencies by 1.\n\nOnce as a free maneuver on each of your turns, you can spend 1 discipline and give your Null Field one of the following additional effects until the start of your next turn:\n\n- Gravitic Disruption: The first time on a turn that a target takes damage, you can slide them up to 2 squares.\n- Inertial Anchor: Any target who starts their turn in the area can't shift.\n- Synaptic Break: Whenever you or any ally uses an ability against a target that has a potency effect, the potency is increased by 1.\n\nThis ability remains active even after an encounter ends. It ends only if you are dying or if you willingly end it (no action required).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "Once as a free maneuver on each of your turns, you can spend 1 discipline and give your Null Field one of the following additional effects until the start of your next turn:\n\n- Gravitic Disruption: The first time on a turn that a target takes damage, you can slide them up to 2 squares.\n- Inertial Anchor: Any target who starts their turn in the area can't shift.\n- Synaptic Break: Whenever you or any ally uses an ability against a target that has a potency effect, the potency is increased by 1.\n\nThis ability remains active even after an encounter ends. It ends only if you are dying or if you willingly end it (no action required)."
+          }
+        ],
+        "flavor": "You project an aura that dampens the power of your foes.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "1 aura"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Psionic"
+          ]
+        },
+        "effect": "Each target reduces their potencies by 1."
+      }
     },
     {
       "id": "feature.null.level-1.inertial-shield",
@@ -377,7 +596,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/inertial-shield",
       "originalName": "Inertial Shield",
-      "originalDescription": "Your instincts for danger let you predict attacks before they happen."
+      "originalDescription": "Your instincts for danger let you predict attacks before they happen.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-1.inertial-shield",
@@ -430,7 +652,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/inertial-shield",
       "originalName": "Inertial Shield",
-      "originalDescription": "*You intuit the course of an incoming attack, reducing its effects.*\n\n| **Psionic** | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage.\n\n**Spend 1 Discipline:** The potency of one effect associated with the damage is reduced by 1 for you."
+      "originalDescription": "*You intuit the course of an incoming attack, reducing its effects.*\n\n| **Psionic** | **Triggered** |\n|-------------|--------------:|\n| **📏 Self** |   **🎯 Self** |\n\n**Trigger:** You take damage.\n\n**Effect:** You take half the damage.\n\n**Spend 1 Discipline:** The potency of one effect associated with the damage is reduced by 1 for you.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 1 Discipline:** The potency of one effect associated with the damage is reduced by 1 for you."
+          }
+        ],
+        "flavor": "You intuit the course of an incoming attack, reducing its effects.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Psionic"
+          ]
+        },
+        "trigger": "You take damage.",
+        "effect": "You take half the damage."
+      }
     },
     {
       "id": "feature.null.level-1.discipline-mastery",
@@ -443,7 +688,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/discipline-mastery",
       "originalName": "Discipline Mastery",
-      "originalDescription": "As you advance in your chosen null tradition, you gain certain benefits in combat, including benefits based on the amount of discipline you have. Benefits based on how much discipline you have last until the end of your turn, even if a benefit would become unavailable to you because of the amount of discipline you spend during your turn.\n\nSome Discipline Mastery benefits can be applied only if you are a specific level or higher, with the level of those benefits noted in the tables below."
+      "originalDescription": "As you advance in your chosen null tradition, you gain certain benefits in combat, including benefits based on the amount of discipline you have. Benefits based on how much discipline you have last until the end of your turn, even if a benefit would become unavailable to you because of the amount of discipline you spend during your turn.\n\nSome Discipline Mastery benefits can be applied only if you are a specific level or higher, with the level of those benefits noted in the tables below.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.chronokinetic-mastery",
@@ -456,7 +704,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/chronokinetic-mastery",
       "originalName": "Chronokinetic Mastery",
-      "originalDescription": "Whenever you use the Inertial Shield ability, you can use the Disengage move action as a free triggered action.\n\nAdditionally, as your discipline grows, your psionic mastery of your body intensifies, granting benefits from the Chronokinetic Mastery table. Benefits are cumulative except where an improved benefit replaces a lesser benefit.\n\n###### Chronokinetic Mastery Table\n\n| Discipline      | Benefit                                                                                                                                                                                     |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, you can use the Disengage move action as a free triggered action either before or after the maneuver.                                              |\n| 4               | The first time on a turn that you willingly move 1 or more squares as part of an ability, you gain 1 surge.                                                                                 |\n| 6               | You gain an edge on the Grab and Knockback maneuvers.                                                                                                                                       |\n| 8 (4th level)   | The first time on a turn that you willingly move 1 or more squares as part of an ability, you gain 2 surges.                                                                                |\n| 10 (7th level)  | You have a double edge on the Grab and Knockback maneuvers.                                                                                                                                 |\n| 12 (10th level) | Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina. |"
+      "originalDescription": "Whenever you use the Inertial Shield ability, you can use the Disengage move action as a free triggered action.\n\nAdditionally, as your discipline grows, your psionic mastery of your body intensifies, granting benefits from the Chronokinetic Mastery table. Benefits are cumulative except where an improved benefit replaces a lesser benefit.\n\n###### Chronokinetic Mastery Table\n\n| Discipline      | Benefit                                                                                                                                                                                     |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, you can use the Disengage move action as a free triggered action either before or after the maneuver.                                              |\n| 4               | The first time on a turn that you willingly move 1 or more squares as part of an ability, you gain 1 surge.                                                                                 |\n| 6               | You gain an edge on the Grab and Knockback maneuvers.                                                                                                                                       |\n| 8 (4th level)   | The first time on a turn that you willingly move 1 or more squares as part of an ability, you gain 2 surges.                                                                                |\n| 10 (7th level)  | You have a double edge on the Grab and Knockback maneuvers.                                                                                                                                 |\n| 12 (10th level) | Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina. |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.cryokinetic-mastery",
@@ -469,7 +720,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/cryokinetic-mastery",
       "originalName": "Cryokinetic Mastery",
-      "originalDescription": "Whenever you use your Inertial Shield ability, you can then use the Grab maneuver as a free triggered action.\n\nAdditionally, as your discipline grows, you strengthen the psionic power suffusing you, granting benefits from the Cryokinetic Mastery table. Benefits are cumulative except where an improved benefit replaces a lesser benefit.\n\n###### Cryokinetic Mastery Table\n\n| Discipline      | Benefit                                                                                                                                                                                           |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, you can target one additional creature. Additionally, whenever you deal untyped damage with a psionic ability, you can change it to cold damage instead. |\n| 4               | The first time on a turn that you grab a creature or an enemy moves 1 or more squares in the area of your Null Field ability, you gain 1 surge.                                                   |\n| 6               | You gain an edge on the Grab and Knockback maneuvers.                                                                                                                                             |\n| 8 (4th level)   | The first time on a turn that you grab a creature or an enemy moves 1 or more squares in the area of your Null Field ability, you gain 2 surges.                                                  |\n| 10 (7th level)  | You have a double edge on the Grab and Knockback maneuvers.                                                                                                                                       |\n| 12 (10th level) | Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina.       |"
+      "originalDescription": "Whenever you use your Inertial Shield ability, you can then use the Grab maneuver as a free triggered action.\n\nAdditionally, as your discipline grows, you strengthen the psionic power suffusing you, granting benefits from the Cryokinetic Mastery table. Benefits are cumulative except where an improved benefit replaces a lesser benefit.\n\n###### Cryokinetic Mastery Table\n\n| Discipline      | Benefit                                                                                                                                                                                           |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, you can target one additional creature. Additionally, whenever you deal untyped damage with a psionic ability, you can change it to cold damage instead. |\n| 4               | The first time on a turn that you grab a creature or an enemy moves 1 or more squares in the area of your Null Field ability, you gain 1 surge.                                                   |\n| 6               | You gain an edge on the Grab and Knockback maneuvers.                                                                                                                                             |\n| 8 (4th level)   | The first time on a turn that you grab a creature or an enemy moves 1 or more squares in the area of your Null Field ability, you gain 2 surges.                                                  |\n| 10 (7th level)  | You have a double edge on the Grab and Knockback maneuvers.                                                                                                                                       |\n| 12 (10th level) | Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina.       |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.metakinetic-mastery",
@@ -482,7 +736,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/metakinetic-mastery",
       "originalName": "Metakinetic Mastery",
-      "originalDescription": "Whenever you use your Inertial Shield ability, you can then use the Knockback maneuver as a free triggered action.\n\nAdditionally, as your discipline grows, your psionic potential is amplified, granting benefits from the Metakinetic Mastery table. Benefits are cumulative except where an improved benefit replaces a lesser benefit.\n\n###### Metakinetic Mastery Table\n\n| Discipline      | Benefit                                                                                                                                                                                     |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Intuition score.                                                                          |\n| 4               | The first time in a combat round that you take damage or are force moved, you gain 1 surge, even if you resist the effect.                                                                  |\n| 6               | You gain an edge on the Grab and Knockback maneuvers.                                                                                                                                       |\n| 8 (4th level)   | The first time in a combat round that you take damage or are force moved, you gain 2 surges, even if you resist the effect.                                                                 |\n| 10 (7th level)  | You have a double edge on the Grab and Knockback maneuvers.                                                                                                                                 |\n| 12 (10th level) | Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina. |"
+      "originalDescription": "Whenever you use your Inertial Shield ability, you can then use the Knockback maneuver as a free triggered action.\n\nAdditionally, as your discipline grows, your psionic potential is amplified, granting benefits from the Metakinetic Mastery table. Benefits are cumulative except where an improved benefit replaces a lesser benefit.\n\n###### Metakinetic Mastery Table\n\n| Discipline      | Benefit                                                                                                                                                                                     |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2               | Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Intuition score.                                                                          |\n| 4               | The first time in a combat round that you take damage or are force moved, you gain 1 surge, even if you resist the effect.                                                                  |\n| 6               | You gain an edge on the Grab and Knockback maneuvers.                                                                                                                                       |\n| 8 (4th level)   | The first time in a combat round that you take damage or are force moved, you gain 2 surges, even if you resist the effect.                                                                 |\n| 10 (7th level)  | You have a double edge on the Grab and Knockback maneuvers.                                                                                                                                 |\n| 12 (10th level) | Whenever you force move a target, the forced movement distance gains a bonus equal to your Intuition score. Additionally, whenever you use a heroic ability, you gain 10 temporary Stamina. |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.null-speed",
@@ -495,7 +752,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/null-speed",
       "originalName": "Null Speed",
-      "originalDescription": "The flow of psionic power through you allows you to achieve high velocity. You gain a bonus to speed and to the number of squares you can shift when you take the Disengage move action equal to your Agility score."
+      "originalDescription": "The flow of psionic power through you allows you to achieve high velocity. You gain a bonus to speed and to the number of squares you can shift when you take the Disengage move action equal to your Agility score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.psionic-augmentation",
@@ -508,7 +768,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/psionic-augmentation",
       "originalName": "Psionic Augmentation",
-      "originalDescription": "Your training has turned your body into the perfect psionic weapon, shaping pathways in your mind that enhance your physical form. Choose one of the following augmentations. You can change your augmentation by undergoing a psionic meditation as a respite activity. (*Quick Build:* Speed Augmentation.)"
+      "originalDescription": "Your training has turned your body into the perfect psionic weapon, shaping pathways in your mind that enhance your physical form. Choose one of the following augmentations. You can change your augmentation by undergoing a psionic meditation as a respite activity. (*Quick Build:* Speed Augmentation.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.density-augmentation",
@@ -521,7 +784,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/density-augmentation",
       "originalName": "Density Augmentation",
-      "originalDescription": "You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability."
+      "originalDescription": "You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.force-augmentation",
@@ -534,7 +800,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/force-augmentation",
       "originalName": "Force Augmentation",
-      "originalDescription": "Your damage-dealing psionic abilities gain a +1 bonus to rolled damage."
+      "originalDescription": "Your damage-dealing psionic abilities gain a +1 bonus to rolled damage.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.speed-augmentation",
@@ -547,7 +816,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/speed-augmentation",
       "originalName": "Speed Augmentation",
-      "originalDescription": "You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action."
+      "originalDescription": "You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.psionic-martial-arts",
@@ -560,7 +832,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/psionic-martial-arts",
       "originalName": "Psionic Martial Arts",
-      "originalDescription": "Whenever you use the Knockback or Grab maneuver, you use Intuition instead of Might for the power roll and for determining if you can target creatures larger than you. Additionally, whenever you use the Knockback maneuver, you can choose to slide the target instead of pushing them."
+      "originalDescription": "Whenever you use the Knockback or Grab maneuver, you use Intuition instead of Might for the power roll and for determining if you can target creatures larger than you. Additionally, whenever you use the Knockback maneuver, you can choose to slide the target instead of pushing them.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.null-abilities",
@@ -573,7 +848,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-1/null-abilities",
       "originalName": "Null Abilities",
-      "originalDescription": "You rely on a unique blend of martial techniques and psionic prowess to take down your foes and defend your allies.\n\n##### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Faster Than the Eye, Inertial Step.)\n\n##### Heroic Abilities\n\nYou have mastered a range of heroic abilities, all of them channeled through your discipline.\n\n###### 3-Discipline Ability\n\nChoose one heroic ability from the following options, each of which costs 3 discipline to use. (*Quick Build:* Chronal Spike.)\n\n###### 5-Discipline Ability\n\nChoose one heroic ability from the following options, each of which costs 5 discipline to use. (*Quick Build:* A Squad Unto Myself.)"
+      "originalDescription": "You rely on a unique blend of martial techniques and psionic prowess to take down your foes and defend your allies.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.signature-abilities",
@@ -586,7 +864,10 @@
       },
       "originalId": "",
       "originalName": "Signature Abilities",
-      "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (Quick Build: Faster Than the Eye, Inertial Step.)"
+      "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Faster Than the Eye, Inertial Step.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-1.dance-of-blows",
@@ -643,7 +924,51 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/dance-of-blows",
       "originalName": "Dance of Blows",
-      "originalDescription": "*You strike everywhere at once, tricking an enemy into moving out of position.*\n\n| **Area, Psionic, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 1 burst**            | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 damage\n- **12-16:** 4 damage\n- **17+:** 5 damage\n\n**Effect:** You can slide one adjacent enemy up to a number of squares equal to your Intuition score."
+      "originalDescription": "*You strike everywhere at once, tricking an enemy into moving out of position.*\n\n| **Area, Psionic, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 1 burst**            | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 damage\n- **12-16:** 4 damage\n- **17+:** 5 damage\n\n**Effect:** You can slide one adjacent enemy up to a number of squares equal to your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You strike everywhere at once, tricking an enemy into moving out of position.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "1 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Psionic",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "4"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can slide one adjacent enemy up to a number of squares equal to your Intuition score."
+      }
     },
     {
       "id": "feature.ability.null.level-1.faster-than-the-eye",
@@ -701,7 +1026,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/faster-than-the-eye",
       "originalName": "Faster Than the Eye",
-      "originalDescription": "*You strike so quickly that your hands become a blur.*\n\n| **Melee, Psionic, Strike, Weapon** |                 **Main action** |\n|------------------------------------|--------------------------------:|\n| **📏 Melee 1**                     | **🎯 Two creatures or objects** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** You can deal damage equal to your Agility score to one creature or object adjacent to you."
+      "originalDescription": "*You strike so quickly that your hands become a blur.*\n\n| **Melee, Psionic, Strike, Weapon** |                 **Main action** |\n|------------------------------------|--------------------------------:|\n| **📏 Melee 1**                     | **🎯 Two creatures or objects** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** You can deal damage equal to your Agility score to one creature or object adjacent to you.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You strike so quickly that your hands become a blur.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "Two creatures or objects",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can deal damage equal to your Agility score to one creature or object adjacent to you."
+      }
     },
     {
       "id": "feature.ability.null.level-1.inertial-step",
@@ -759,7 +1133,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/inertial-step",
       "originalName": "Inertial Step",
-      "originalDescription": "*You flit about the battlefield and take an opportunistic strike.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 5 + A damage\n- **12-16:** 7 + A damage\n- **17+:** 10 + A damage\n\n**Effect:** You can shift up to half your speed before or after you make this strike."
+      "originalDescription": "*You flit about the battlefield and take an opportunistic strike.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 5 + A damage\n- **12-16:** 7 + A damage\n- **17+:** 10 + A damage\n\n**Effect:** You can shift up to half your speed before or after you make this strike.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You flit about the battlefield and take an opportunistic strike.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "5 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "10 + A"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can shift up to half your speed before or after you make this strike."
+      }
     },
     {
       "id": "feature.ability.null.level-1.joint-lock",
@@ -817,7 +1240,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/joint-lock",
       "originalName": "Joint Lock",
-      "originalDescription": "*You contort your enemy's body into a stance they struggle to escape from.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, grabbed\n- **12-16:** 7 + A damage; A < AVERAGE, grabbed\n- **17+:** 9 + A damage; A < STRONG, grabbed"
+      "originalDescription": "*You contort your enemy's body into a stance they struggle to escape from.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, grabbed\n- **12-16:** 7 + A damage; A < AVERAGE, grabbed\n- **17+:** 9 + A damage; A < STRONG, grabbed",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You contort your enemy's body into a stance they struggle to escape from.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + A"
+              },
+              "effect": "A < WEAK, grabbed"
+            },
+            {
+              "damage": {
+                "value": "7 + A"
+              },
+              "effect": "A < AVERAGE, grabbed"
+            },
+            {
+              "damage": {
+                "value": "9 + A"
+              },
+              "effect": "A < STRONG, grabbed"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.null.level-1.kinetic-strike",
@@ -875,7 +1346,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/kinetic-strike",
       "originalName": "Kinetic Strike",
-      "originalDescription": "*Your opponent staggers. They cannot ignore you.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; taunted (EoT)\n- **12-16:** 5 + A damage; taunted (EoT), slide 1\n- **17+:** 6 + A damage; taunted (EoT), slide 2"
+      "originalDescription": "*Your opponent staggers. They cannot ignore you.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; taunted (EoT)\n- **12-16:** 5 + A damage; taunted (EoT), slide 1\n- **17+:** 6 + A damage; taunted (EoT), slide 2",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your opponent staggers. They cannot ignore you.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + A"
+              },
+              "effect": "taunted (EoT)"
+            },
+            {
+              "damage": {
+                "value": "5 + A"
+              },
+              "effect": "taunted (EoT), slide 1"
+            },
+            {
+              "damage": {
+                "value": "6 + A"
+              },
+              "effect": "taunted (EoT), slide 2"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.null.level-1.magnetic-strike",
@@ -933,7 +1452,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/magnetic-strike",
       "originalName": "Magnetic Strike",
-      "originalDescription": "*The force of your blow extends past the limits of your body, pulling your enemy closer.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 2**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 5 + A psychic damage; vertical pull 1\n- **12-16:** 8 + A psychic damage; vertical pull 2\n- **17+:** 11 + A psychic damage; vertical pull 3"
+      "originalDescription": "*The force of your blow extends past the limits of your body, pulling your enemy closer.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 2**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 5 + A psychic damage; vertical pull 1\n- **12-16:** 8 + A psychic damage; vertical pull 2\n- **17+:** 11 + A psychic damage; vertical pull 3",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The force of your blow extends past the limits of your body, pulling your enemy closer.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 2
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "5 + A",
+                "type": "psychic"
+              },
+              "effect": "vertical pull 1"
+            },
+            {
+              "damage": {
+                "value": "8 + A",
+                "type": "psychic"
+              },
+              "effect": "vertical pull 2"
+            },
+            {
+              "damage": {
+                "value": "11 + A",
+                "type": "psychic"
+              },
+              "effect": "vertical pull 3"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.null.level-1.phase-inversion-strike",
@@ -991,7 +1561,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/phase-inversion-strike",
       "originalName": "Phase Inversion Strike",
-      "originalDescription": "*You step momentarily out of phase as you pull an enemy through you.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; push 2\n- **12-16:** 6 + A damage; push 4\n- **17+:** 8 + A damage; push 6\n\n**Effect:** Before the push is resolved, you teleport the target to a square adjacent to you and opposite the one they started in. If the target can't be teleported this way, you can't push them."
+      "originalDescription": "*You step momentarily out of phase as you pull an enemy through you.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; push 2\n- **12-16:** 6 + A damage; push 4\n- **17+:** 8 + A damage; push 6\n\n**Effect:** Before the push is resolved, you teleport the target to a square adjacent to you and opposite the one they started in. If the target can't be teleported this way, you can't push them.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You step momentarily out of phase as you pull an enemy through you.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + A"
+              },
+              "effect": "push 2"
+            },
+            {
+              "damage": {
+                "value": "6 + A"
+              },
+              "effect": "push 4"
+            },
+            {
+              "damage": {
+                "value": "8 + A"
+              },
+              "effect": "push 6"
+            }
+          ]
+        },
+        "effect": "Before the push is resolved, you teleport the target to a square adjacent to you and opposite the one they started in. If the target can't be teleported this way, you can't push them."
+      }
     },
     {
       "id": "feature.ability.null.level-1.pressure-points",
@@ -1049,7 +1668,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/pressure-points",
       "originalName": "Pressure Points",
-      "originalDescription": "*You strike at key nerve clusters to leave your foe staggered.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, weakened (save ends)\n- **12-16:** 7 + A damage; A < AVERAGE, weakened (save ends)\n- **17+:** 9 + A damage; A < STRONG, weakened (save ends)"
+      "originalDescription": "*You strike at key nerve clusters to leave your foe staggered.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; A < WEAK, weakened (save ends)\n- **12-16:** 7 + A damage; A < AVERAGE, weakened (save ends)\n- **17+:** 9 + A damage; A < STRONG, weakened (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You strike at key nerve clusters to leave your foe staggered.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + A"
+              },
+              "effect": "A < WEAK, weakened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "7 + A"
+              },
+              "effect": "A < AVERAGE, weakened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "9 + A"
+              },
+              "effect": "A < STRONG, weakened (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.null.level-1.heroic-abilities",
@@ -1062,7 +1729,10 @@
       },
       "originalId": "",
       "originalName": "Heroic Abilities",
-      "originalDescription": "You have mastered a range of heroic abilities, all of them channeled through your discipline."
+      "originalDescription": "You have mastered a range of heroic abilities, all of them channeled through your discipline.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-1.3-discipline-ability",
@@ -1075,7 +1745,10 @@
       },
       "originalId": "",
       "originalName": "3-Discipline Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 discipline to use. (Quick Build: Chronal Spike.)"
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 discipline to use. (*Quick Build:* Chronal Spike.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-1.chronal-spike",
@@ -1133,7 +1806,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/chronal-spike",
       "originalName": "Chronal Spike",
-      "originalDescription": "*You foresee the best moment to strike, then exploit it.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage\n- **12-16:** 10 + A damage\n- **17+:** 13 + A damage\n\n**Effect:** You can shift up to half your speed before or after you make this strike. Additionally, whenever an effect lets you make a free strike or use a signature ability, you can use this ability instead, paying its discipline cost as usual."
+      "originalDescription": "*You foresee the best moment to strike, then exploit it.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 + A damage\n- **12-16:** 10 + A damage\n- **17+:** 13 + A damage\n\n**Effect:** You can shift up to half your speed before or after you make this strike. Additionally, whenever an effect lets you make a free strike or use a signature ability, you can use this ability instead, paying its discipline cost as usual.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You foresee the best moment to strike, then exploit it.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "7 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "10 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "13 + A"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can shift up to half your speed before or after you make this strike. Additionally, whenever an effect lets you make a free strike or use a signature ability, you can use this ability instead, paying its discipline cost as usual."
+      }
     },
     {
       "id": "feature.ability.null.level-1.psychic-pulse",
@@ -1187,7 +1909,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/psychic-pulse",
       "originalName": "Psychic Pulse",
-      "originalDescription": "*A burst of psionic energy interferes with your enemy's synapses.*\n\n| **Area, Psionic** |                  **Maneuver** |\n|-------------------|------------------------------:|\n| **📏 2 burst**    | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes psychic damage equal to twice your Intuition score. Until the start of your next turn, the size of your Null Field ability increases by 1. At the end of your current turn, each enemy in the area of your Null Field ability takes psychic damage equal to your Intuition score."
+      "originalDescription": "*A burst of psionic energy interferes with your enemy's synapses.*\n\n| **Area, Psionic** |                  **Maneuver** |\n|-------------------|------------------------------:|\n| **📏 2 burst**    | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes psychic damage equal to twice your Intuition score. Until the start of your next turn, the size of your Null Field ability increases by 1. At the end of your current turn, each enemy in the area of your Null Field ability takes psychic damage equal to your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A burst of psionic energy interferes with your enemy's synapses.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "2 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Psionic"
+          ]
+        },
+        "effect": "Each target takes psychic damage equal to twice your Intuition score. Until the start of your next turn, the size of your Null Field ability increases by 1. At the end of your current turn, each enemy in the area of your Null Field ability takes psychic damage equal to your Intuition score."
+      }
     },
     {
       "id": "feature.ability.null.level-1.relentless-nemesis",
@@ -1245,7 +1986,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/relentless-nemesis",
       "originalName": "Relentless Nemesis",
-      "originalDescription": "*You strike, and for the next few moments, your enemy can't escape you.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage\n- **12-16:** 8 + A damage\n- **17+:** 12 + A damage\n\n**Effect:** Until the start of your next turn, whenever the target finishes moving or being force moved, you can use a free triggered action to shift up to your speed. You must end this shift adjacent to the target."
+      "originalDescription": "*You strike, and for the next few moments, your enemy can't escape you.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage\n- **12-16:** 8 + A damage\n- **17+:** 12 + A damage\n\n**Effect:** Until the start of your next turn, whenever the target finishes moving or being force moved, you can use a free triggered action to shift up to your speed. You must end this shift adjacent to the target.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You strike, and for the next few moments, your enemy can't escape you.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "8 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "12 + A"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "Until the start of your next turn, whenever the target finishes moving or being force moved, you can use a free triggered action to shift up to your speed. You must end this shift adjacent to the target."
+      }
     },
     {
       "id": "feature.ability.null.level-1.stunning-blow",
@@ -1303,7 +2093,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/stunning-blow",
       "originalName": "Stunning Blow",
-      "originalDescription": "*You focus your psionic technique into a concussive punch.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; I < WEAK, dazed and slowed (save ends)\n- **12-16:** 5 + A damage; I < AVERAGE, dazed and slowed (save ends)\n- **17+:** 7 + A damage; I < STRONG, dazed and slowed (save ends)"
+      "originalDescription": "*You focus your psionic technique into a concussive punch.*\n\n| **Melee, Psionic, Strike, Weapon** |               **Main action** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A damage; I < WEAK, dazed and slowed (save ends)\n- **12-16:** 5 + A damage; I < AVERAGE, dazed and slowed (save ends)\n- **17+:** 7 + A damage; I < STRONG, dazed and slowed (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You focus your psionic technique into a concussive punch.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + A"
+              },
+              "effect": "I < WEAK, dazed and slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "5 + A"
+              },
+              "effect": "I < AVERAGE, dazed and slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "7 + A"
+              },
+              "effect": "I < STRONG, dazed and slowed (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.null.level-1.5-discipline-ability",
@@ -1316,7 +2154,10 @@
       },
       "originalId": "",
       "originalName": "5-Discipline Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 discipline to use. (Quick Build: A Squad Unto Myself.)"
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 discipline to use. (*Quick Build:* A Squad Unto Myself.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-1.arcane-disruptor",
@@ -1374,7 +2215,59 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/arcane-disruptor",
       "originalName": "Arcane Disruptor",
-      "originalDescription": "*Your blow reorders a foe's body, causing pain if they attempt to channel sorcery.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + **A** psychic damage; M < WEAK, weakened (save ends)\n- **12-16:** 12 + **A** psychic damage; M < AVERAGE, weakened (save ends)\n- **17+:** 16 + **A** psychic damage; M < STRONG, weakened (save ends)\n\n**Effect:** While weakened this way, the target takes damage equal to your Intuition score whenever they use a supernatural ability that costs Malice."
+      "originalDescription": "*Your blow reorders a foe's body, causing pain if they attempt to channel sorcery.*\n\n| **Melee, Psionic, Strike, Weapon** |     **Main action** |\n|------------------------------------|--------------------:|\n| **📏 Melee 1**                     | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 8 + **A** psychic damage; M < WEAK, weakened (save ends)\n- **12-16:** 12 + **A** psychic damage; M < AVERAGE, weakened (save ends)\n- **17+:** 16 + **A** psychic damage; M < STRONG, weakened (save ends)\n\n**Effect:** While weakened this way, the target takes damage equal to your Intuition score whenever they use a supernatural ability that costs Malice.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your blow reorders a foe's body, causing pain if they attempt to channel sorcery.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "8 + A",
+                "type": "psychic"
+              },
+              "effect": "M < WEAK, weakened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "12 + A",
+                "type": "psychic"
+              },
+              "effect": "M < AVERAGE, weakened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "16 + A",
+                "type": "psychic"
+              },
+              "effect": "M < STRONG, weakened (save ends)"
+            }
+          ]
+        },
+        "effect": "While weakened this way, the target takes damage equal to your Intuition score whenever they use a supernatural ability that costs Malice."
+      }
     },
     {
       "id": "feature.ability.null.level-1.impart-force",
@@ -1432,7 +2325,47 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/impart-force",
       "originalName": "Impart Force",
-      "originalDescription": "*A single touch from you, and your enemy flies backward.*\n\n| **Melee, Psionic, Strike, Weapon** |                  **Maneuver** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** Push 3\n- **12-16:** Push 5\n- **17+:** Push 7\n\n**Effect:** An object you target must be your size or smaller. You gain an edge on this ability. Additionally, for each square you push the target, they take 1 psychic damage."
+      "originalDescription": "*A single touch from you, and your enemy flies backward.*\n\n| **Melee, Psionic, Strike, Weapon** |                  **Maneuver** |\n|------------------------------------|------------------------------:|\n| **📏 Melee 1**                     | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** Push 3\n- **12-16:** Push 5\n- **17+:** Push 7\n\n**Effect:** An object you target must be your size or smaller. You gain an edge on this ability. Additionally, for each square you push the target, they take 1 psychic damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A single touch from you, and your enemy flies backward.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "effect": "Push 3"
+            },
+            {
+              "effect": "Push 5"
+            },
+            {
+              "effect": "Push 7"
+            }
+          ]
+        },
+        "effect": "An object you target must be your size or smaller. You gain an edge on this ability. Additionally, for each square you push the target, they take 1 psychic damage."
+      }
     },
     {
       "id": "feature.ability.null.level-1.phase-strike",
@@ -1490,7 +2423,59 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/phase-strike",
       "originalName": "Phase Strike",
-      "originalDescription": "*For a moment, your foe slips out of phase with this manifold.*\n\n| **Melee, Psionic, Strike, Weapon** |                           **Main action** |\n|------------------------------------|------------------------------------------:|\n| **📏 Melee 1**                     |                       **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A psychic damage; I < WEAK, the target goes out of phase (save ends)\n- **12-16:** 4 + A psychic damage; I < AVERAGE, the target goes out of phase (save ends)\n- **17+:** 6 + A psychic damage; I < STRONG, the target goes out of phase (save ends)\n\n**Effect:** A target who goes out of phase is slowed, has their stability reduced by 2, and can't obtain a tier 3 outcome on ability rolls."
+      "originalDescription": "*For a moment, your foe slips out of phase with this manifold.*\n\n| **Melee, Psionic, Strike, Weapon** |                           **Main action** |\n|------------------------------------|------------------------------------------:|\n| **📏 Melee 1**                     |                       **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 3 + A psychic damage; I < WEAK, the target goes out of phase (save ends)\n- **12-16:** 4 + A psychic damage; I < AVERAGE, the target goes out of phase (save ends)\n- **17+:** 6 + A psychic damage; I < STRONG, the target goes out of phase (save ends)\n\n**Effect:** A target who goes out of phase is slowed, has their stability reduced by 2, and can't obtain a tier 3 outcome on ability rolls.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "For a moment, your foe slips out of phase with this manifold.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Psionic",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + A",
+                "type": "psychic"
+              },
+              "effect": "I < WEAK, the target goes out of phase (save ends)"
+            },
+            {
+              "damage": {
+                "value": "4 + A",
+                "type": "psychic"
+              },
+              "effect": "I < AVERAGE, the target goes out of phase (save ends)"
+            },
+            {
+              "damage": {
+                "value": "6 + A",
+                "type": "psychic"
+              },
+              "effect": "I < STRONG, the target goes out of phase (save ends)"
+            }
+          ]
+        },
+        "effect": "A target who goes out of phase is slowed, has their stability reduced by 2, and can't obtain a tier 3 outcome on ability rolls."
+      }
     },
     {
       "id": "feature.ability.null.level-1.a-squad-unto-myself",
@@ -1547,7 +2532,51 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-1/a-squad-unto-myself",
       "originalName": "A Squad Unto Myself",
-      "originalDescription": "*You move so quickly, it seems as though an army assaulted your foes.*\n\n| **Area, Psionic, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 2 burst**            | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 damage\n- **12-16:** 9 damage\n- **17+:** 13 damage\n\n**Effect:** You can take the Disengage move action as a free maneuver before or after you use this ability."
+      "originalDescription": "*You move so quickly, it seems as though an army assaulted your foes.*\n\n| **Area, Psionic, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 2 burst**            | **🎯 Each enemy in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 damage\n- **12-16:** 9 damage\n- **17+:** 13 damage\n\n**Effect:** You can take the Disengage move action as a free maneuver before or after you use this ability.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You move so quickly, it seems as though an army assaulted your foes.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "2 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Psionic",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "9"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "13"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can take the Disengage move action as a free maneuver before or after you use this ability."
+      }
     }
   ]
 }

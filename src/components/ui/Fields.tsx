@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useEffect, useRef, useState, type ReactNode, type InputHTMLAttributes, type SelectHTMLAttributes, type TextareaHTMLAttributes, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { Icon } from "../Icons";
 import { normalizeNumberInput, parseNumberInputDraft } from "../../lib/number-input";
@@ -76,6 +77,7 @@ export function NumberInput({
   onKeyDown,
   onCommit,
 }: NumberInputProps) {
+  const { t } = useLocale();
   const [draft, setDraft] = useState(() =>
     Number.isFinite(value) ? String(value) : "",
   );
@@ -119,7 +121,7 @@ export function NumberInput({
         <button
           type="button"
           className="number-counter-btn"
-          aria-label={`${label ?? "Значение"}: уменьшить`}
+          aria-label={`${label ?? t("Значение", "Value")}: ${t("уменьшить", "decrease")}`}
           onClick={() => {
             const next = normalizeNumberInput(value - step, value, min, max, integer);
             setDraft(String(next));
@@ -158,7 +160,7 @@ export function NumberInput({
         <button
           type="button"
           className="number-counter-btn"
-          aria-label={`${label ?? "Значение"}: увеличить`}
+          aria-label={`${label ?? t("Значение", "Value")}: ${t("увеличить", "increase")}`}
           onClick={() => {
             const next = normalizeNumberInput(value + step, value, min, max, integer);
             setDraft(String(next));
@@ -195,6 +197,7 @@ export function Stepper({
   className = "",
   format,
 }: StepperProps) {
+  const { t } = useLocale();
   const clamp = (next: number) => {
     let result = next;
     if (min !== undefined) result = Math.max(min, result);
@@ -210,7 +213,7 @@ export function Stepper({
       {onChange && <button
         type="button"
         className="stepper-btn"
-        aria-label={`${label ?? "Значение"}: уменьшить`}
+        aria-label={`${label ?? t("Значение", "Value")}: ${t("уменьшить", "decrease")}`}
         onClick={() => onChange(clamp(value - step))}
         disabled={min !== undefined && value <= min}
       >
@@ -222,7 +225,7 @@ export function Stepper({
       {onChange && <button
         type="button"
         className="stepper-btn"
-        aria-label={`${label ?? "Значение"}: увеличить`}
+        aria-label={`${label ?? t("Значение", "Value")}: ${t("увеличить", "increase")}`}
         onClick={() => onChange(clamp(value + step))}
         disabled={max !== undefined && value >= max}
       >

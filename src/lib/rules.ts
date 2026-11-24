@@ -167,6 +167,7 @@ export interface EvaluatedDamage {
   dice: string[];
   /** Строка для отображения: "8" или "1d6 + 2". */
   display: string;
+  englishDisplay?: string;
   /** Развёрнутая формула с подставленными характеристиками: "3 + 2". */
   breakdown: string;
   /** Именованные слагаемые для карточки и окна броска, включая оба способа атаки. */
@@ -306,6 +307,7 @@ export function evaluateAbilityDamage(
   tier: number,
   character: Character,
   surges = 0,
+  includeEnglish = false,
 ): EvaluatedDamage {
   if (
     !ability.weaponMode &&
@@ -318,12 +320,14 @@ export function evaluateAbilityDamage(
       tier,
       character,
       surges,
+      includeEnglish,
     );
     const ranged = evaluateAbilityDamage(
       { ...ability, weaponMode: "ranged" },
       tier,
       character,
       surges,
+      includeEnglish,
     );
     const calculations = [
       ...(melee.calculations ?? []).map((calculation) => ({ ...calculation, label: "Ближний бой" })),
@@ -334,6 +338,7 @@ export function evaluateAbilityDamage(
       values: [...melee.values, ...ranged.values],
       dice: [...melee.dice, ...ranged.dice],
       display: `${melee.display} (бл.) · ${ranged.display} (дал.)`,
+      ...(includeEnglish ? { englishDisplay: `${melee.display} (melee) · ${ranged.display} (ranged)` } : {}),
       breakdown: `Ближний: ${melee.breakdown}; дальний: ${ranged.breakdown}`,
       calculations,
     };
@@ -342,7 +347,7 @@ export function evaluateAbilityDamage(
   const base = evaluateDamage(formula, character);
   // No formula means no damage tier: bonuses must not invent damage there.
   if (!formula.trim()) return base;
-  const kit = abilityKitDamageContributions(ability, character, tier);
+  const kit = abilityKitDamageContributions(ability, character, tier, includeEnglish);
   const embedded = kit.find((source) => source.includedInFormula);
   const features = featureAbilityDamageContributions(ability, character);
   const manual = character.damageModifier ?? 0;
@@ -351,7 +356,7 @@ export function evaluateAbilityDamage(
     ...kit,
     ...features,
     ...(manual ? [{ sourceName: "Общий модификатор урона", value: manual }] : []),
-    ...(surge ? [{ sourceName: `Всплески: ${clamp(surges, 0, 3)} × ${surgeDamage(character)}`, value: surge }] : []),
+    ...(surge ? [{ sourceName: `Всплески: ${clamp(surges, 0, 3)} × ${surgeDamage(character)}`, value: surge, ...(includeEnglish ? { englishName: `Surges: ${clamp(surges, 0, 3)} × ${surgeDamage(character)}` } : {}) }] : []),
   ];
   if (!sources.length) return base;
   const bonus = sources.reduce((total, source) => total + source.value, 0);
@@ -377,7 +382,11 @@ export function evaluateAbilityDamage(
             ...term, label: "Базовый урон без комплекта", value: Number(term.value) + embedded.value,
           } : term),
           ...sources.filter((source) => !unembed || source !== embedded)
-            .map((source) => ({ label: source.sourceName, value: source.value })),
+            .map((source) => ({
+              label: source.sourceName,
+              value: source.value,
+              ...("englishName" in source && source.englishName ? { englishLabel: source.englishName } : {}),
+            })),
         ],
         ...(embedded ? {
           note: "Печатная формула уже включает бонус исходного комплекта. Он вычтен из базы, чтобы применить выбранный профиль один раз.",

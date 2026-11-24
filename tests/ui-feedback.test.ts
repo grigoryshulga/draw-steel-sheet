@@ -37,6 +37,19 @@ describe("reader feedback", () => {
     }
     expect(html).toContain("Потратить 1 Свирепости");
   });
+  it("opens only the chosen English Stormwight kit and its shared transformation", () => {
+    const pack = JSON.parse(readFileSync("src/generated/rules/articles/0924.json", "utf8"));
+    const kit: RuleEntity = pack.entities.find((entry: RuleEntity) => entry.id === "kit.stormwight");
+    for (const entry of kit.kitVariants!) {
+      const variant = kitVariantEntity(kit, entry.name)!;
+      const text = variant.originalDescription!;
+      expect(text).toContain(`${variant.originalName} Growing Ferocity Table`);
+      expect(text).toContain("Aspect of the Wild");
+      for (const other of kit.kitVariants!.filter(item => item !== entry)) {
+        expect(text).not.toContain(`${kitVariantEntity(kit, other.name)!.originalName} Growing Ferocity Table`);
+      }
+    }
+  });
   it("shows an ancestry signature heading once, with its trait label", () => {
     const feature = entity("content/rules/entities/feature/ancestry-dyavol/feature.ancestry.devil.signature.serebryanyy-yazyk.json");
     const html = renderToStaticMarkup(createElement(RuleEntityView, { entity: feature, headingLevel: 3 }));

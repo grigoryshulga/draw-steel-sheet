@@ -19,7 +19,20 @@
       ],
       "originalId": "mcdm.heroes.v1/kit/panther",
       "originalName": "Panther",
-      "originalDescription": "If you want a good balance of protection, speed, and damage, the Panther kit is for you. This kit increases your Stamina not by wearing armor, but through the focused battle preparation of body and mind, letting you be fast and mobile while swinging a heavy weapon at your foes."
+      "originalDescription": "If you want a good balance of protection, speed, and damage, the Panther kit is for you. This kit increases your Stamina not by wearing armor, but through the focused battle preparation of body and mind, letting you be fast and mobile while swinging a heavy weapon at your foes.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishEdition": {
+        "kind": "source",
+        "title": "Panther",
+        "blocks": [
+          {
+            "type": "entity",
+            "ref": "kit.panther"
+          }
+        ]
+      }
     }
   ],
   "entities": [
@@ -34,7 +47,17 @@
       },
       "originalId": "mcdm.heroes.v1/kit/panther",
       "originalName": "Panther",
-      "originalDescription": "If you want a good balance of protection, speed, and damage, the Panther kit is for you. This kit increases your Stamina not by wearing armor, but through the focused battle preparation of body and mind, letting you be fast and mobile while swinging a heavy weapon at your foes.\n\n##### Equipment\n\nYou wear no armor and wield a heavy weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +1\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +0/+0/+4\n\n##### Signature Ability\n\n###### Devastating Rush\n\n*The faster you move, the harder you hit.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** You can move up to 3 squares straight toward the target before this strike, which deals extra damage equal to the number of squares you move this way."
+      "originalDescription": "If you want a good balance of protection, speed, and damage, the Panther kit is for you. This kit increases your Stamina not by wearing armor, but through the focused battle preparation of body and mind, letting you be fast and mobile while swinging a heavy weapon at your foes.\n\n##### Equipment\n\nYou wear no armor and wield a heavy weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +1\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +0/+0/+4\n\n##### Signature Ability\n\n###### Devastating Rush\n\n*The faster you move, the harder you hit.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** You can move up to 3 squares straight toward the target before this strike, which deals extra damage equal to the number of squares you move this way.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishSignatures": [
+        {
+          "ref": "feature.ability.panther.devastating-rush",
+          "start": 501,
+          "end": 1046
+        }
+      ]
     },
     {
       "id": "feature.ability.panther.devastating-rush",
@@ -92,7 +115,54 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.panther/devastating-rush",
       "originalName": "Devastating Rush",
-      "originalDescription": "*The faster you move, the harder you hit.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** You can move up to 3 squares straight toward the target before this strike, which deals extra damage equal to the number of squares you move this way."
+      "originalDescription": "*The faster you move, the harder you hit.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 3 + M or A damage\n- **12-16:** 6 + M or A damage\n- **17+:** 13 + M or A damage\n\n**Effect:** You can move up to 3 squares straight toward the target before this strike, which deals extra damage equal to the number of squares you move this way.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The faster you move, the harder you hit.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might or Agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + M or A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "6 + M or A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "13 + M or A"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can move up to 3 squares straight toward the target before this strike, which deals extra damage equal to the number of squares you move this way."
+      }
     }
   ]
 }

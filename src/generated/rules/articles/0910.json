@@ -19,7 +19,20 @@
       ],
       "originalId": "mcdm.heroes.v1/kit/spellsword",
       "originalName": "Spellsword",
-      "originalDescription": "The Spellsword kit combines melee strikes and a little bit of magic, letting you create a warrior who doesn't have to choose between the incantation and the blade."
+      "originalDescription": "The Spellsword kit combines melee strikes and a little bit of magic, letting you create a warrior who doesn't have to choose between the incantation and the blade.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishEdition": {
+        "kind": "source",
+        "title": "Spellsword",
+        "blocks": [
+          {
+            "type": "entity",
+            "ref": "kit.spellsword"
+          }
+        ]
+      }
     }
   ],
   "entities": [
@@ -34,7 +47,17 @@
       },
       "originalId": "mcdm.heroes.v1/kit/spellsword",
       "originalName": "Spellsword",
-      "originalDescription": "The Spellsword kit combines melee strikes and a little bit of magic, letting you create a warrior who doesn't have to choose between the incantation and the blade.\n\n##### Equipment\n\nYou wear light armor and wield a shield and a medium weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +1\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n##### Signature Ability\n\n###### Leaping Lightning\n\n*Lightning jumps from your weapon as you strike to harm a nearby foe.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P lightning damage\n- **12-16:** 8 + M, R, I, or P lightning damage\n- **17+:** 11 + M, R, I, or P lightning damage\n\n**Effect:** A creature or object of your choice within 2 squares of the target takes lightning damage equal to the characteristic score used for this ability's power roll."
+      "originalDescription": "The Spellsword kit combines melee strikes and a little bit of magic, letting you create a warrior who doesn't have to choose between the incantation and the blade.\n\n##### Equipment\n\nYou wear light armor and wield a shield and a medium weapon.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +6 per echelon\n\n**Speed Bonus:** +1\n\n**Stability Bonus:** +1\n\n**Melee Damage Bonus:** +2/+2/+2\n\n##### Signature Ability\n\n###### Leaping Lightning\n\n*Lightning jumps from your weapon as you strike to harm a nearby foe.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P lightning damage\n- **12-16:** 8 + M, R, I, or P lightning damage\n- **17+:** 11 + M, R, I, or P lightning damage\n\n**Effect:** A creature or object of your choice within 2 squares of the target takes lightning damage equal to the characteristic score used for this ability's power roll.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishSignatures": [
+        {
+          "ref": "feature.ability.spellsword.leaping-lightning",
+          "start": 403,
+          "end": 1079
+        }
+      ]
     },
     {
       "id": "feature.ability.spellsword.leaping-lightning",
@@ -95,7 +118,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.spellsword/leaping-lightning",
       "originalName": "Leaping Lightning",
-      "originalDescription": "*Lightning jumps from your weapon as you strike to harm a nearby foe.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P lightning damage\n- **12-16:** 8 + M, R, I, or P lightning damage\n- **17+:** 11 + M, R, I, or P lightning damage\n\n**Effect:** A creature or object of your choice within 2 squares of the target takes lightning damage equal to the characteristic score used for this ability's power roll."
+      "originalDescription": "*Lightning jumps from your weapon as you strike to harm a nearby foe.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   | **🎯 One creature or object** |\n\n**Power Roll + Might, Reason, Intuition, or Presence:**\n\n- **≤11:** 5 + M, R, I, or P lightning damage\n- **12-16:** 8 + M, R, I, or P lightning damage\n- **17+:** 11 + M, R, I, or P lightning damage\n\n**Effect:** A creature or object of your choice within 2 squares of the target takes lightning damage equal to the characteristic score used for this ability's power roll.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Lightning jumps from your weapon as you strike to harm a nearby foe.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might, Reason, Intuition, or Presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "5 + M, R, I, or P",
+                "type": "lightning"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "8 + M, R, I, or P",
+                "type": "lightning"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "11 + M, R, I, or P",
+                "type": "lightning"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "A creature or object of your choice within 2 squares of the target takes lightning damage equal to the characteristic score used for this ability's power roll."
+      }
     }
   ]
 }

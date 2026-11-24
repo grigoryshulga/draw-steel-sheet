@@ -1,3 +1,5 @@
+import { useLocale } from "../i18n/locale";
+import { BUILDER_DATA } from "../lib/character-builder";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Icon } from "../components/Icons";
 import {
@@ -11,13 +13,16 @@ import {
 } from "../components/ui";
 import { ANCESTRIES, CAREERS } from "../data/classes";
 import { HelpTooltip } from "../components/HelpTooltip";
-import { SKILL_GROUPS, SKILL_GROUP_TONES } from "../data/skills";
+import { SKILL_GROUPS, SKILL_GROUP_TONES, SKILL_ORIGINALS } from "../data/skills";
 import { PerksPanel } from "./hero/PerksPanel";
 import { ClassFeaturesPanel } from "./hero/ClassFeaturesPanel";
 import { useApp } from "../state/AppContext";
 import "./HeroView.css";
 
 export function HeroView({ embedded = false }: { embedded?: boolean }) {
+  const { locale, t } = useLocale();
+  const nameFor = (value: string, entries: { name: string; originalName?: string }[]) => locale === "en" ? entries.find((item) => item.name === value)?.originalName || value : value;
+  const groupNames: Record<string, string> = { crafting: "Crafting", exploration: "Exploration", interpersonal: "Interpersonal", intrigue: "Intrigue", lore: "Lore" };
   const { character, update, patch, goTo } = useApp();
   const skills = character.skills;
 
@@ -36,26 +41,26 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
         <header className="page-head">
           <h1 className="page-title">
             <Icon name="hero" size={26} />
-            Герой
+            {t("Герой", "Hero")}
           </h1>
           <div className="page-actions">
             <Button icon="sheet" onClick={() => goTo("sheet")}>
-              К листу
+              {t("К листу", "Back to sheet")}
             </Button>
           </div>
         </header>
       )}
 
-      <Panel title="Личность" icon="hero" dense>
+      <Panel title={t("Личность", "Identity")} icon="hero" dense>
         <div className="hero-identity">
-          <Field label="Имя" className="hero-identity-name">
+          <Field label={t("Имя", "Name")} className="hero-identity-name">
             <TextInput
               value={character.name}
-              placeholder="Имя героя"
+              placeholder={t("Имя героя", "Hero name")}
               onChange={(e) => patch({ name: e.target.value })}
             />
           </Field>
-          <Field label="Происхождение">
+          <Field label={t("Происхождение", "Ancestry")}>
             <Select
               value={character.ancestry}
               onChange={(e) => patch({ ancestry: e.target.value })}
@@ -63,12 +68,12 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
               <option value="">—</option>
               {ANCESTRIES.map((ancestry) => (
                 <option key={ancestry} value={ancestry}>
-                  {ancestry}
+                  {nameFor(ancestry, BUILDER_DATA.ancestries)}
                 </option>
               ))}
             </Select>
           </Field>
-          <Field label="Карьера">
+          <Field label={t("Карьера", "Career")}>
             <Select
               value={character.career}
               onChange={(e) => patch({ career: e.target.value })}
@@ -76,21 +81,21 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
               <option value="">—</option>
               {CAREERS.map((career) => (
                 <option key={career} value={career}>
-                  {career}
+                  {nameFor(career, BUILDER_DATA.careers)}
                 </option>
               ))}
             </Select>
           </Field>
           <div className="hero-identity-build">
             <dl>
-              <div><dt>Класс</dt><dd>{character.className || "Не выбран"}</dd></div>
-              <div><dt>Подкласс</dt><dd>{character.subclass || "Не выбран"}</dd></div>
+              <div><dt>{t("Класс", "Class")}</dt><dd>{nameFor(character.className, BUILDER_DATA.classes) || t("Не выбран", "Not selected")}</dd></div>
+              <div><dt>{t("Подкласс", "Subclass")}</dt><dd>{nameFor(character.subclass, BUILDER_DATA.classes.flatMap((item) => item.subclasses)) || t("Не выбран", "Not selected")}</dd></div>
             </dl>
-            <HelpTooltip label="Как сменить класс или подкласс">
-              <p>Для другого класса или подкласса создайте нового героя. Так способности и особенности будут соответствовать вашему выбору.</p>
+            <HelpTooltip label={t("Как сменить класс или подкласс", "Changing class or subclass")}>
+              <p>{t("Для другого класса или подкласса создайте нового героя. Так способности и особенности будут соответствовать вашему выбору.", "Create a new hero to choose a different class or subclass, so abilities and features match your choice.")}</p>
             </HelpTooltip>
           </div>
-          <Field label="Уровень" className="hero-identity-level">
+          <Field label={t("Уровень", "Level")} className="hero-identity-level">
             <NumberInput
               value={character.level}
               min={1}
@@ -102,7 +107,7 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
       </Panel>
 
       <Panel
-        title="Навыки"
+        title={t("Навыки", "Skills")}
         icon="check"
         actions={
           <Button
@@ -112,7 +117,7 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
             disabled={skills.length === 0}
             onClick={() => patch({ skills: [] })}
           >
-            Снять все навыки
+            {t("Снять все навыки", "Clear all skills")}
           </Button>
         }
       >
@@ -129,7 +134,7 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
                   data-tone={SKILL_GROUP_TONES[group.key]}
                 >
                   <header className="hero-skill-head">
-                    <h3>{group.label}</h3>
+                    <h3>{locale === "en" ? groupNames[group.key] : group.label}</h3>
                     <Chip
                       active={selected > 0}
                       tone={selected > 0 ? "accent" : "default"}
@@ -145,7 +150,7 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
                         active={skills.includes(skill)}
                         onClick={() => toggleSkill(skill)}
                       >
-                        {skill}
+                        {locale === "en" ? SKILL_ORIGINALS[skill]?.originalName || skill : skill}
                       </Chip>
                     ))}
                   </div>
@@ -164,6 +169,7 @@ export function HeroView({ embedded = false }: { embedded?: boolean }) {
 }
 
 function HeroLanguages() {
+  const { t } = useLocale();
   const { character, update } = useApp();
   const languages = character.languages;
   const [draft, setDraft] = useState("");
@@ -185,7 +191,7 @@ function HeroLanguages() {
   return (
     <section className="hero-language-column">
       <header className="hero-skill-head">
-        <h3>Языки</h3>
+        <h3>{t("Языки", "Languages")}</h3>
       </header>
       {languages.length > 0 && (
         <div className="hero-language-list">
@@ -194,13 +200,13 @@ function HeroLanguages() {
               key={language}
               active
               tone="blue"
-              title={`Убрать язык: ${language}`}
+              title={t(`Убрать язык: ${language}`, `Remove language: ${language}`)}
               onClick={() => update((current) => ({
                 ...current,
                 languages: current.languages.filter((item) => item !== language),
               }))}
             >
-              <span className="sr-only">Убрать язык: </span>
+              <span className="sr-only">{t("Убрать язык: ", "Remove language: ")}</span>
               {language}
               <Icon name="close" size={11} aria-hidden="true" />
             </Chip>
@@ -228,13 +234,13 @@ function HeroLanguages() {
             if (!draft.trim() && !event.currentTarget.contains(event.relatedTarget)) setAdding(false);
           }}
         >
-          <TextInput value={draft} placeholder="Новый язык" aria-label="Новый язык" autoFocus
+          <TextInput value={draft} placeholder={t("Новый язык", "New language")} aria-label={t("Новый язык", "New language")} autoFocus
             enterKeyHint="done" onChange={(event) => setDraft(event.target.value)} />
-          <Button type="submit" size="sm" variant="ghost" icon="check" iconOnly disabled={!draft.trim()}>Сохранить язык</Button>
+          <Button type="submit" size="sm" variant="ghost" icon="check" iconOnly disabled={!draft.trim()}>{t("Сохранить язык", "Save language")}</Button>
         </form>
       ) : (
         <div ref={(node) => { addButton.current = node?.querySelector("button") ?? null; }} className="hero-lang-add">
-          <Button type="button" size="sm" variant="ghost" icon="plus" iconOnly onClick={() => setAdding(true)}>Добавить язык</Button>
+          <Button type="button" size="sm" variant="ghost" icon="plus" iconOnly onClick={() => setAdding(true)}>{t("Добавить язык", "Add language")}</Button>
         </div>
       )}
     </section>

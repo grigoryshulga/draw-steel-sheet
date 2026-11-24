@@ -83,7 +83,68 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
       "originalName": "6th-Level Features",
-      "originalDescription": "As a 6th-level tactician, you gain the following features."
+      "originalDescription": "As a 6th-level tactician, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "6th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 6th-level tactician, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-6.master-of-arms"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-6.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 6th-Level Doctrine Ability\n\nYour tactical doctrine grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Insurgent Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-6.coordinated-execution"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-6.panic-in-their-lines"
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Mastermind Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-6.battle-plan"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-6.hustle"
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Vanguard Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-6.instant-retaliation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-6.to-me-squad"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -98,7 +159,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-6/master-of-arms",
       "originalName": "Master of Arms",
-      "originalDescription": "Your expertise with weapons has grown to true mastery. Whenever you use a signature ability from one of your equipped kits or make a free strike using a weapon from one of your equipped kits, you can negate a bane on the power roll or reduce a double bane to a bane."
+      "originalDescription": "Your expertise with weapons has grown to true mastery. Whenever you use a signature ability from one of your equipped kits or make a free strike using a weapon from one of your equipped kits, you can negate a bane on the power roll or reduce a double bane to a bane.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-6.perk",
@@ -111,7 +175,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-6/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice."
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-6.6th-level-doctrine-ability",
@@ -124,7 +191,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-6/6th-level-doctrine-ability",
       "originalName": "6th-Level Doctrine Ability",
-      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.\n\n##### 6th-Level Insurgent Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Mastermind Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Vanguard Abilities\n\nChoose one of the following abilities."
+      "originalDescription": "Your tactical doctrine grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-6.insurgent-abilities",
@@ -137,7 +207,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Insurgent Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-6.coordinated-execution",
@@ -190,7 +263,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/coordinated-execution",
       "originalName": "Coordinated Execution",
-      "originalDescription": "*You direct your ally to make a killing blow.*\n\n| **Ranged**       | **Free triggered** |\n|------------------|-------------------:|\n| **📏 Ranged 10** |    **🎯 One ally** |\n\n**Trigger:** The target uses an ability to deal rolled damage to a creature while hidden.\n\n**Effect:** If the target of the triggering ability is not a leader or solo creature, they are reduced to 0 Stamina. If the target of the triggering ability is a minion, the entire squad is killed. If the target of the triggering ability is a leader or solo creature, the triggering ability's power roll automatically obtains a tier 3 outcome."
+      "originalDescription": "*You direct your ally to make a killing blow.*\n\n| **Ranged**       | **Free triggered** |\n|------------------|-------------------:|\n| **📏 Ranged 10** |    **🎯 One ally** |\n\n**Trigger:** The target uses an ability to deal rolled damage to a creature while hidden.\n\n**Effect:** If the target of the triggering ability is not a leader or solo creature, they are reduced to 0 Stamina. If the target of the triggering ability is a minion, the entire squad is killed. If the target of the triggering ability is a leader or solo creature, the triggering ability's power roll automatically obtains a tier 3 outcome.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You direct your ally to make a killing blow.",
+        "facts": {
+          "action": "Free triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "trigger": "The target uses an ability to deal rolled damage to a creature while hidden.",
+        "effect": "If the target of the triggering ability is not a leader or solo creature, they are reduced to 0 Stamina. If the target of the triggering ability is a minion, the entire squad is killed. If the target of the triggering ability is a leader or solo creature, the triggering ability's power roll automatically obtains a tier 3 outcome."
+      }
     },
     {
       "id": "feature.ability.tactician.level-6.panic-in-their-lines",
@@ -248,7 +344,61 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/panic-in-their-lines",
       "originalName": "Panic in Their Lines",
-      "originalDescription": "*You confuse your foes, causing them to turn on each other.*\n\n| **Melee, Ranged, Strike, Weapon** |      **Main action** |\n|-----------------------------------|---------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 Two creatures** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; slide 1\n- **12-16:** 9 + M damage; slide 3\n- **17+:** 13 + M damage; slide 5\n\n**Effect:** If a target is force moved into another creature, they must make a free strike against that creature."
+      "originalDescription": "*You confuse your foes, causing them to turn on each other.*\n\n| **Melee, Ranged, Strike, Weapon** |      **Main action** |\n|-----------------------------------|---------------------:|\n| **📏 Melee 1 or ranged 5**        | **🎯 Two creatures** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; slide 1\n- **12-16:** 9 + M damage; slide 3\n- **17+:** 13 + M damage; slide 5\n\n**Effect:** If a target is force moved into another creature, they must make a free strike against that creature.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You confuse your foes, causing them to turn on each other.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            },
+            " or ranged ",
+            {
+              "mode": "ranged",
+              "value": 5
+            }
+          ],
+          "target": "Two creatures",
+          "keywords": [
+            "Melee",
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6 + M"
+              },
+              "effect": "slide 1"
+            },
+            {
+              "damage": {
+                "value": "9 + M"
+              },
+              "effect": "slide 3"
+            },
+            {
+              "damage": {
+                "value": "13 + M"
+              },
+              "effect": "slide 5"
+            }
+          ]
+        },
+        "effect": "If a target is force moved into another creature, they must make a free strike against that creature."
+      }
     },
     {
       "id": "feature.tactician.level-6.mastermind-abilities",
@@ -261,7 +411,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Mastermind Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-6.battle-plan",
@@ -314,7 +467,33 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/battle-plan",
       "originalName": "Battle Plan",
-      "originalDescription": "*With new understanding of your foes, you create the perfect plan to win the battle.*\n\n| **Ranged**       |           **Maneuver** |\n|------------------|-----------------------:|\n| **📏 Ranged 10** | **🎯 Three creatures** |\n\n**Effect:** Each target is marked by you. Immediately and until the end of the encounter, the Director tells you if any creatures marked by you have damage immunity or weakness and the value of that immunity or weakness. Additionally, you and each ally within 3 squares of you gains 2 surges.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to make the strike ignore damage immunity and deal extra damage equal to three times your Reason score."
+      "originalDescription": "*With new understanding of your foes, you create the perfect plan to win the battle.*\n\n| **Ranged**       |           **Maneuver** |\n|------------------|-----------------------:|\n| **📏 Ranged 10** | **🎯 Three creatures** |\n\n**Effect:** Each target is marked by you. Immediately and until the end of the encounter, the Director tells you if any creatures marked by you have damage immunity or weakness and the value of that immunity or weakness. Additionally, you and each ally within 3 squares of you gains 2 surges.\n\n**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to make the strike ignore damage immunity and deal extra damage equal to three times your Reason score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Mark Benefit:** Until the end of the encounter, whenever you or any ally makes a strike against a creature marked by you, you can spend 2 focus to make the strike ignore damage immunity and deal extra damage equal to three times your Reason score."
+          }
+        ],
+        "flavor": "With new understanding of your foes, you create the perfect plan to win the battle.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Three creatures",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "effect": "Each target is marked by you. Immediately and until the end of the encounter, the Director tells you if any creatures marked by you have damage immunity or weakness and the value of that immunity or weakness. Additionally, you and each ally within 3 squares of you gains 2 surges."
+      }
     },
     {
       "id": "feature.ability.tactician.level-6.hustle",
@@ -367,7 +546,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/hustle",
       "originalName": "Hustle!",
-      "originalDescription": "*You and your allies coordinate to form a new battle line.*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 2 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** You mark two enemies within 10 squares of you. Each target can shift up to their speed. You and each target gain 2 surges."
+      "originalDescription": "*You and your allies coordinate to form a new battle line.*\n\n| **Area**       |                          **Maneuver** |\n|----------------|--------------------------------------:|\n| **📏 2 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** You mark two enemies within 10 squares of you. Each target can shift up to their speed. You and each target gain 2 surges.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You and your allies coordinate to form a new battle line.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "2 burst"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area"
+          ]
+        },
+        "effect": "You mark two enemies within 10 squares of you. Each target can shift up to their speed. You and each target gain 2 surges."
+      }
     },
     {
       "id": "feature.tactician.level-6.vanguard-abilities",
@@ -380,7 +577,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Vanguard Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-6.instant-retaliation",
@@ -436,7 +636,46 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/instant-retaliation",
       "originalName": "Instant Retaliation",
-      "originalDescription": "*You parry with almost supernatural speed.*\n\n| **Melee, Weapon** | **Free triggered** |\n| ------------------------------------|-------------------:|\n| **📏 Melee 1**                   |    **🎯 One ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** The target takes half the damage. You then make a power roll against the triggering creature.\n\n**Power Roll + Might:**\n\n- **≤11:** A < WEAK, dazed (save ends)\n- **12-16:** A < AVERAGE, dazed (save ends)\n- **17+:** A < STRONG, dazed (save ends)"
+      "originalDescription": "*You parry with almost supernatural speed.*\n\n| **Melee, Weapon** | **Free triggered** |\n| ------------------------------------|-------------------:|\n| **📏 Melee 1**                   |    **🎯 One ally** |\n\n**Trigger:** A creature deals damage to the target.\n\n**Effect:** The target takes half the damage. You then make a power roll against the triggering creature.\n\n**Power Roll + Might:**\n\n- **≤11:** A < WEAK, dazed (save ends)\n- **12-16:** A < AVERAGE, dazed (save ends)\n- **17+:** A < STRONG, dazed (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You parry with almost supernatural speed.",
+        "facts": {
+          "action": "Free triggered",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Melee",
+            "Weapon"
+          ]
+        },
+        "trigger": "A creature deals damage to the target.",
+        "beforeRoll": "**Effect:** The target takes half the damage. You then make a power roll against the triggering creature.",
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "effect": "A < WEAK, dazed (save ends)"
+            },
+            {
+              "effect": "A < AVERAGE, dazed (save ends)"
+            },
+            {
+              "effect": "A < STRONG, dazed (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.tactician.level-6.to-me-squad",
@@ -494,7 +733,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-6/to-me-squad",
       "originalName": "To Me Squad!",
-      "originalDescription": "*You lead your allies in a charge.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability instead of a free strike for the charge\n- **12-16:** 9 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability that gains an edge instead of a free strike for the charge\n- **17+:** 13 + M damage; two allies within 10 squares can use the Charge main action as a free triggered action, and can each use a melee strike signature ability that gains an edge instead of a free strike for the charge\n\n**Effect:** If the target is hit with two or more strikes as part of this ability and they have R < STRONG, they are dazed (save ends). If the target is reduced to 0 Stamina before one or both allies has made their strike, the ally or allies can pick a different target."
+      "originalDescription": "*You lead your allies in a charge.*\n\n| **Charge, Melee, Strike, Weapon** |     **Main action** |\n|-----------------------------------|--------------------:|\n| **📏 Melee 1**                    | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability instead of a free strike for the charge\n- **12-16:** 9 + M damage; one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability that gains an edge instead of a free strike for the charge\n- **17+:** 13 + M damage; two allies within 10 squares can use the Charge main action as a free triggered action, and can each use a melee strike signature ability that gains an edge instead of a free strike for the charge\n\n**Effect:** If the target is hit with two or more strikes as part of this ability and they have R < STRONG, they are dazed (save ends). If the target is reduced to 0 Stamina before one or both allies has made their strike, the ally or allies can pick a different target.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You lead your allies in a charge.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Charge",
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6 + M"
+              },
+              "effect": "one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability instead of a free strike for the charge"
+            },
+            {
+              "damage": {
+                "value": "9 + M"
+              },
+              "effect": "one ally within 10 squares can use the Charge main action as a free triggered action, and can use a melee strike signature ability that gains an edge instead of a free strike for the charge"
+            },
+            {
+              "damage": {
+                "value": "13 + M"
+              },
+              "effect": "two allies within 10 squares can use the Charge main action as a free triggered action, and can each use a melee strike signature ability that gains an edge instead of a free strike for the charge"
+            }
+          ]
+        },
+        "effect": "If the target is hit with two or more strikes as part of this ability and they have R < STRONG, they are dazed (save ends). If the target is reduced to 0 Stamina before one or both allies has made their strike, the ally or allies can pick a different target."
+      }
     }
   ]
 }

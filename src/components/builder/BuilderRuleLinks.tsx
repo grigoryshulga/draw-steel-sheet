@@ -7,17 +7,24 @@ import { classLandingBySlug, codexIndex } from "../../rules/codex-navigation";
 import { GLOSSARY } from "../../data/library";
 import { CardDetailModal } from "../CardDetailModal";
 import { RuleArticleReader } from "../rules/RuleArticleReader";
-import { RuleMarkdown } from "../rules/RuleMarkdown";
+import { GlossaryDefinition } from "../rules/GlossaryDefinition";
+import type { GlossaryEntry } from "../../rules/consumer-data";
+import { useLocale } from "../../i18n/locale";
+import { useLocalizedData } from "../../i18n/use-localized-data";
+import { loadEnglishArticleTitles } from "../../rules/repository";
+import { readerLabel } from "../rules/reader-labels";
 
 type ReferenceTarget = {
   title: string;
   articleId?: string;
-  text?: string;
+  term?: GlossaryEntry;
   entityName?: string;
 };
 
 /** Ссылки внутри правил читаются поверх мастера, сохраняя текущий шаг. */
 export function BuilderRuleLinks({ children }: { children: ReactNode }) {
+  const { t, locale } = useLocale();
+  const titles = useLocalizedData(locale, loadEnglishArticleTitles);
   const [target, setTarget] = useState<ReferenceTarget | null>(null);
   const open = (event: MouseEvent<HTMLDivElement>) => {
     if (
@@ -43,14 +50,14 @@ export function BuilderRuleLinks({ children }: { children: ReactNode }) {
     let next: ReferenceTarget | undefined;
     if (parts[1] === "codex") {
       const article = codexIndex.find((a) => a.id === parts[2]);
-      if (article) next = { title: article.title, articleId: article.id };
+      if (article) next = { title: titles?.[article.id] || article.title, articleId: article.id };
     } else if (parts[1] === "reference" && parts[2] === "class") {
       const [slug, anchor] = (parts[3] ?? "").split("#");
       const landing = classLandingBySlug(slug);
       const level = Number(anchor?.replace("level-", "")) || 1;
       if (landing)
         next = {
-          title: landing.name,
+          title: readerLabel(landing.name, locale),
           articleId:
             landing.levelArticleIds[level - 1] ?? landing.levelArticleIds[0],
         };
@@ -62,10 +69,10 @@ export function BuilderRuleLinks({ children }: { children: ReactNode }) {
       const term = GLOSSARY.find(
         (term) => term.id === (parts[1] === "glossary" ? parts[2] : id),
       );
-      if (term) next = { title: term.name, text: term.markdown };
+      if (term) next = { title: t(term.name, term.english || term.name), term };
       else if (entry?.articleId)
         next = {
-          title: entry.name,
+          title: t(entry.name, entry.originalName || entry.name),
           articleId: entry.articleId,
           entityName: entry.name,
         };
@@ -86,8 +93,8 @@ export function BuilderRuleLinks({ children }: { children: ReactNode }) {
       <CardDetailModal
         open={Boolean(target)}
         onClose={() => setTarget(null)}
-        title={target?.title ?? "Правила"}
-        source="Справочник"
+        title={target?.title ?? t("Правила", "Rules")}
+        source={t("Справочник", "Reference")}
         wide
       >
         {target?.articleId ? (
@@ -96,8 +103,8 @@ export function BuilderRuleLinks({ children }: { children: ReactNode }) {
             articleId={target.articleId}
             entityName={target.entityName}
           />
-        ) : target?.text ? (
-          <RuleMarkdown text={target.text} />
+        ) : target?.term ? (
+          <GlossaryDefinition entry={target.term} />
         ) : null}
       </CardDetailModal>
     </div>

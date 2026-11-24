@@ -1,3 +1,4 @@
+import { basicActionEditions } from "../rules/consumer-basic-actions";
 import type { Ability } from "../types";
 
 export function makeId(): string {
@@ -259,6 +260,12 @@ export const BASIC_ABILITIES: AbilityTemplate[] = [
     notes: "",
   },
 ];
+
+// Old sheets store instance IDs. Match the template separately from the saved ability.
+export function basicActionSource(ability: { source?: string; name: string }) {
+  const template = BASIC_ABILITIES.find(item => item.source === ability.source && item.name === ability.name);
+  if (template) return { template, ...basicActionEditions[template.name] };
+}
 
 export function abilityFromTemplate(template: AbilityTemplate): Ability {
   return {

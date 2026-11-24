@@ -75,4 +75,11 @@ export const ruleReading = {
 export const loadRuleArticle = (id: string): Promise<LoadedRuleArticle> =>
   repository.loadRuleArticle(id);
 export const loadRuleEntity = repository.loadRuleEntity;
-export const loadRuleSearchIndex = repository.loadRuleSearchIndex;
+export const loadRuleSearchIndex = (locale: "ru" | "en" = "ru"): Promise<RuleSearchIndex> =>
+  locale === "en"
+    ? import("../generated/rules/search-en.json").then(module => module.default as RuleSearchIndex)
+    : repository.loadRuleSearchIndex();
+
+export async function loadEnglishArticleTitles(): Promise<Record<string, string>> {
+  return (await import("../generated/rules/english-titles.json")).default;
+}

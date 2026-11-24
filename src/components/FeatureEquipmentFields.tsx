@@ -1,3 +1,4 @@
+import { useLocale } from "../i18n/locale";
 import type { FeatureEquipmentFlags } from "../types";
 import "./FeatureEquipmentFields.css";
 
@@ -12,6 +13,7 @@ export function FeatureEquipmentFields({
   hasKit: boolean;
   automationEnabled?: boolean;
 }) {
+  const { t } = useLocale();
   const flags = {
     lightArmor: value?.lightArmor ?? false,
     lightWeapon: value?.lightWeapon ?? false,
@@ -19,7 +21,7 @@ export function FeatureEquipmentFields({
 
   return (
     <fieldset className="feature-equipment-fields">
-      <legend>Условное снаряжение</legend>
+      <legend>{t("Условное снаряжение", "Conditional equipment")}</legend>
       <label>
         <input
           type="checkbox"
@@ -28,7 +30,7 @@ export function FeatureEquipmentFields({
             onChange({ ...flags, lightArmor: event.currentTarget.checked })
           }
         />
-        <span>Ношу лёгкую броню</span>
+        <span>{t("Ношу лёгкую броню", "Wearing light armor")}</span>
       </label>
       <label>
         <input
@@ -38,16 +40,16 @@ export function FeatureEquipmentFields({
             onChange({ ...flags, lightWeapon: event.currentTarget.checked })
           }
         />
-        <span>Использую лёгкое оружие</span>
+        <span>{t("Использую лёгкое оружие", "Using a light weapon")}</span>
       </label>
       <p className="feature-equipment-note">
-        Эти отметки описывают реальное снаряжение. {hasKit
-          ? "Сейчас выбран комплект: условные бонусы класса недоступны."
-          : "При наличии любого комплекта условные бонусы класса недоступны."}
+        {t("Эти отметки описывают реальное снаряжение.", "These selections describe your actual equipment.")} {hasKit
+          ? t("Сейчас выбран комплект: условные бонусы класса недоступны.", "A kit is selected: conditional class bonuses are unavailable.")
+          : t("При наличии любого комплекта условные бонусы класса недоступны.", "Conditional class bonuses are unavailable while any kit is selected.")}
       </p>
       {!automationEnabled && (
         <p className="feature-equipment-note">
-          Отметки сохраняются, но авторасчёт выключен и не изменит числовые значения.
+          {t("Отметки сохраняются, но авторасчёт выключен и не изменит числовые значения.", "Selections are saved, but automatic calculation is off and will not change numeric values.")}
         </p>
       )}
     </fieldset>

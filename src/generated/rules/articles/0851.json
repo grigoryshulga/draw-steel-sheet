@@ -311,7 +311,232 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
       "originalName": "1st-Level Features",
-      "originalDescription": "As a 1st-level talent, you gain the following features."
+      "originalDescription": "As a 1st-level talent, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "1st-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 1st-level talent, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.talent-tradition"
+          },
+          {
+            "type": "markdown",
+            "text": "## Clarity and Strain\n\nThe focus and precision of your thoughts grant you a Heroic Resource called clarity that empowers your psionic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### Clarity in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain clarity equal to your Victories. At the start of each of your turns during combat, you gain 1d3 clarity.\n\nAdditionally, the first time each combat round that a creature is force moved, you gain 1 clarity.\n\nYou can spend clarity you don't have, pushing that Heroic Resource into negative numbers to a maximum negative value equal to 1 + your Reason score. At the end of each of your turns, you take 1 damage for each negative point of clarity.\n\nWhenever you have clarity below 0, you are strained. Some psionic abilities have additional effects if you are already strained or become strained when you use them. Strained effects can still impact you even after you are no longer strained.\n\nYou lose any remaining clarity or reset any negative clarity at the end of the encounter."
+          },
+          {
+            "type": "markdown",
+            "text": "### Clarity Outside of Combat\n\nThough you can't gain clarity outside of combat, you can use your heroic abilities and effects that cost clarity without spending it. Whenever you use an ability or effect outside of combat that costs clarity, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nAdditionally, whenever you use any ability or effect that costs clarity within 1 minute of using another such ability, you take 1d6 damage and incur any strain effect from using the new ability. Whenever you use an ability with a strain effect outside of combat, you can take 1d6 damage and incur the effect if you don't incur it for other reasons.\n\nWhen you use an ability outside of combat that lets you spend unlimited clarity on its effect, such as Minor Telekinesis, you can use it as if you had spent an amount of clarity equal to your Victories."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.mind-spike"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.mind-spike"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.psionic-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.battle-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.density-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.distance-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.force-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.speed-augmentation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.talent-ward"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.entropy-ward"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.repulsive-ward"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.steel-ward"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.vanishing-ward"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.telepathic-speech"
+          },
+          {
+            "type": "markdown",
+            "text": "## 1st-Level Tradition Features\n\nYour talent tradition grants you two features, as shown on the 1st-Level Tradition Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 1st-Level Tradition Features Table\n\n| Tradition   | Features                         |\n|-------------|----------------------------------|\n| Chronopathy | Accelerate, Again                |\n| Telekinesis | Minor Telekinesis, Repel         |\n| Telepathy   | Feedback Loop, Remote Assistance |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.accelerate"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.accelerate"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.again"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.again"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.feedback-loop"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.feedback-loop"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.minor-telekinesis"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.minor-telekinesis"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.remote-assistance"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.remote-assistance"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.talent.level-1.repel"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.repel"
+          },
+          {
+            "type": "markdown",
+            "text": "## Talent Abilities\n\nYou manifest a variety of psionic powers that let you impact the environment, bolster your allies, and empower yourself. You can choose abilities across different talent traditions or focus on abilities tied to your chosen tradition to dedicate yourself to its power."
+          },
+          {
+            "type": "markdown",
+            "text": "### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Incinerate, Kinetic Grip.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.entropic-bolt"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.hoarfrost"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.incinerate"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.kinetic-grip"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.kinetic-pulse"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.materialize"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.optic-blast"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.spirit-sword"
+          },
+          {
+            "type": "markdown",
+            "text": "### Heroic Abilities\n\nYou know a range of heroic abilities, all of which cost clarity to fuel them."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 3-Clarity Ability\n\nChoose one heroic ability from the following options, each of which costs 3 clarity to use. (*Quick Build:* Choke.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.awe"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.choke"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.precognition"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.smolder"
+          },
+          {
+            "type": "markdown",
+            "text": "#### 5-Clarity Ability\n\nChoose one heroic ability from the following options, each of which costs 5 clarity to use. (*Quick Build:* Inertia Soak.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.flashback"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.inertia-soak"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.iron"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.talent.level-1.perfect-clarity"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -326,7 +551,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/talent-tradition",
       "originalName": "Talent Tradition",
-      "originalDescription": "Psionic abilities are grouped into categories according to their effects, with each category comprising one of many talent traditions:\n\n- **Animapathy** abilities allow you to manipulate, meld, and exchange the souls of living things.\n- **Chronopathy** abilities allow you to view future and past events, and to manipulate time to aid allies and hinder foes.\n- **Cryokinesis** abilities allow you to manifest and manipulate absolute cold to enemies and the environment alike.\n- **Metamorphosis** abilities allow you to strengthen and manipulate your body and the bodies of others to perform preternatural exploits.\n- **Pyrokinesis** abilities allow you to create and manipulate fire by interacting with the potential energy found in all things.\n- **Resopathy** abilities allow you to manipulate matter and space to create, alter, or displace your environment and the creatures and objects in it.\n- **Telekinesis** abilities allow you to physically manipulate creatures and objects.\n- **Telepathy** abilities allow you to communicate with, read, and influence the minds of other creatures.\n\nYou choose a talent tradition from the following options: chronopathy, telekinesis, or telepathy. Your talent tradition is your subclass, and your choice of tradition determines many of the features you'll gain as you gain new levels. (Other talent traditions will be featured in future products.) (*Quick Build:* Telekinesis.)"
+      "originalDescription": "Psionic abilities are grouped into categories according to their effects, with each category comprising one of many talent traditions:\n\n- **Animapathy** abilities allow you to manipulate, meld, and exchange the souls of living things.\n- **Chronopathy** abilities allow you to view future and past events, and to manipulate time to aid allies and hinder foes.\n- **Cryokinesis** abilities allow you to manifest and manipulate absolute cold to enemies and the environment alike.\n- **Metamorphosis** abilities allow you to strengthen and manipulate your body and the bodies of others to perform preternatural exploits.\n- **Pyrokinesis** abilities allow you to create and manipulate fire by interacting with the potential energy found in all things.\n- **Resopathy** abilities allow you to manipulate matter and space to create, alter, or displace your environment and the creatures and objects in it.\n- **Telekinesis** abilities allow you to physically manipulate creatures and objects.\n- **Telepathy** abilities allow you to communicate with, read, and influence the minds of other creatures.\n\nYou choose a talent tradition from the following options: chronopathy, telekinesis, or telepathy. Your talent tradition is your subclass, and your choice of tradition determines many of the features you'll gain as you gain new levels. (Other talent traditions will be featured in future products.) (*Quick Build:* Telekinesis.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.clarity-and-strain",
@@ -339,7 +567,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/clarity-and-strain",
       "originalName": "Clarity and Strain",
-      "originalDescription": "The focus and precision of your thoughts grant you a Heroic Resource called clarity that empowers your psionic abilities.\n\n##### Clarity in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain clarity equal to your Victories. At the start of each of your turns during combat, you gain 1d3 clarity.\n\nAdditionally, the first time each combat round that a creature is force moved, you gain 1 clarity.\n\nYou can spend clarity you don't have, pushing that Heroic Resource into negative numbers to a maximum negative value equal to 1 + your Reason score. At the end of each of your turns, you take 1 damage for each negative point of clarity.\n\nWhenever you have clarity below 0, you are strained. Some psionic abilities have additional effects if you are already strained or become strained when you use them. Strained effects can still impact you even after you are no longer strained.\n\nYou lose any remaining clarity or reset any negative clarity at the end of the encounter.\n\n##### Clarity Outside of Combat\n\nThough you can't gain clarity outside of combat, you can use your heroic abilities and effects that cost clarity without spending it. Whenever you use an ability or effect outside of combat that costs clarity, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nAdditionally, whenever you use any ability or effect that costs clarity within 1 minute of using another such ability, you take 1d6 damage and incur any strain effect from using the new ability. Whenever you use an ability with a strain effect outside of combat, you can take 1d6 damage and incur the effect if you don't incur it for other reasons.\n\nWhen you use an ability outside of combat that lets you spend unlimited clarity on its effect, such as Minor Telekinesis, you can use it as if you had spent an amount of clarity equal to your Victories."
+      "originalDescription": "The focus and precision of your thoughts grant you a Heroic Resource called clarity that empowers your psionic abilities.\n\n##### Clarity in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain clarity equal to your Victories. At the start of each of your turns during combat, you gain 1d3 clarity.\n\nAdditionally, the first time each combat round that a creature is force moved, you gain 1 clarity.\n\nYou can spend clarity you don't have, pushing that Heroic Resource into negative numbers to a maximum negative value equal to 1 + your Reason score. At the end of each of your turns, you take 1 damage for each negative point of clarity.\n\nWhenever you have clarity below 0, you are strained. Some psionic abilities have additional effects if you are already strained or become strained when you use them. Strained effects can still impact you even after you are no longer strained.\n\nYou lose any remaining clarity or reset any negative clarity at the end of the encounter.\n\n##### Clarity Outside of Combat\n\nThough you can't gain clarity outside of combat, you can use your heroic abilities and effects that cost clarity without spending it. Whenever you use an ability or effect outside of combat that costs clarity, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nAdditionally, whenever you use any ability or effect that costs clarity within 1 minute of using another such ability, you take 1d6 damage and incur any strain effect from using the new ability. Whenever you use an ability with a strain effect outside of combat, you can take 1d6 damage and incur the effect if you don't incur it for other reasons.\n\nWhen you use an ability outside of combat that lets you spend unlimited clarity on its effect, such as Minor Telekinesis, you can use it as if you had spent an amount of clarity equal to your Victories.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.clarity-in-combat",
@@ -352,7 +583,10 @@
       },
       "originalId": "",
       "originalName": "Clarity in Combat",
-      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain clarity equal to your Victories."
+      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain clarity equal to your Victories. At the start of each of your turns during combat, you gain 1d3 clarity.\n\nAdditionally, the first time each combat round that a creature is force moved, you gain 1 clarity.\n\nYou can spend clarity you don't have, pushing that Heroic Resource into negative numbers to a maximum negative value equal to 1 + your Reason score. At the end of each of your turns, you take 1 damage for each negative point of clarity.\n\nWhenever you have clarity below 0, you are strained. Some psionic abilities have additional effects if you are already strained or become strained when you use them. Strained effects can still impact you even after you are no longer strained.\n\nYou lose any remaining clarity or reset any negative clarity at the end of the encounter.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.clarity-outside-of-combat",
@@ -365,7 +599,10 @@
       },
       "originalId": "",
       "originalName": "Clarity Outside of Combat",
-      "originalDescription": "Though you can't gain clarity outside of combat, you can use your heroic abilities and effects that cost clarity without spending it."
+      "originalDescription": "Though you can't gain clarity outside of combat, you can use your heroic abilities and effects that cost clarity without spending it. Whenever you use an ability or effect outside of combat that costs clarity, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nAdditionally, whenever you use any ability or effect that costs clarity within 1 minute of using another such ability, you take 1d6 damage and incur any strain effect from using the new ability. Whenever you use an ability with a strain effect outside of combat, you can take 1d6 damage and incur the effect if you don't incur it for other reasons.\n\nWhen you use an ability outside of combat that lets you spend unlimited clarity on its effect, such as Minor Telekinesis, you can use it as if you had spent an amount of clarity equal to your Victories.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.mind-spike",
@@ -378,7 +615,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/mind-spike",
       "originalName": "Mind Spike",
-      "originalDescription": "You have the following ability, which can be used as a ranged free strike."
+      "originalDescription": "You have the following ability, which can be used as a ranged free strike.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.mind-spike",
@@ -436,7 +676,62 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/mind-spike",
       "originalName": "Mind Spike",
-      "originalDescription": "*A telepathic bolt instantly zaps a creature's brain.*\n\n| **Psionic, Ranged**, **Strike, Telepathy** |     **Main action** |\n|--------------------------------------------|--------------------:|\n| **📏 Ranged 10**                           | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R psychic damage\n- **12-16:** 4 + R psychic damage\n- **17+:** 6 + R psychic damage\n\n**Strained:** The target takes an extra 2 psychic damage. You also take 2 psychic damage that can't be reduced in any way."
+      "originalDescription": "*A telepathic bolt instantly zaps a creature's brain.*\n\n| **Psionic, Ranged**, **Strike, Telepathy** |     **Main action** |\n|--------------------------------------------|--------------------:|\n| **📏 Ranged 10**                           | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R psychic damage\n- **12-16:** 4 + R psychic damage\n- **17+:** 6 + R psychic damage\n\n**Strained:** The target takes an extra 2 psychic damage. You also take 2 psychic damage that can't be reduced in any way.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** The target takes an extra 2 psychic damage. You also take 2 psychic damage that can't be reduced in any way."
+          }
+        ],
+        "flavor": "A telepathic bolt instantly zaps a creature's brain.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Psionic",
+            "Ranged",
+            "Strike",
+            "Telepathy"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2 + R",
+                "type": "psychic"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "4 + R",
+                "type": "psychic"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "6 + R",
+                "type": "psychic"
+              },
+              "effect": ""
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.talent.level-1.psionic-augmentation",
@@ -449,7 +744,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/psionic-augmentation",
       "originalName": "Psionic Augmentation",
-      "originalDescription": "Through meditation, you create pathways in your mind that enhance your statistics. Choose one of the following augmentations. You can change your augmentation and ward (see Talent Ward below) by undergoing a psionic meditation as a respite activity. (*Quick Build:*  Force Augmentation.)"
+      "originalDescription": "Through meditation, you create pathways in your mind that enhance your statistics. Choose one of the following augmentations. You can change your augmentation and ward (see Talent Ward below) by undergoing a psionic meditation as a respite activity. (*Quick Build:*  Force Augmentation.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.battle-augmentation",
@@ -462,7 +760,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/battle-augmentation",
       "originalName": "Battle Augmentation",
-      "originalDescription": "You can wear light armor and wield light weapons effectively, even though you don't have a kit. While you wear light armor, you gain a +3 bonus to Stamina, and that bonus increases by 3 at 4th, 7th, and 10th levels. While you wield a light weapon, you gain a +1 damage bonus with weapon abilities, including free strikes. You can use light armor treasures and light weapon treasures.\n\nIf you have a kit, you can't take this augmentation."
+      "originalDescription": "You can wear light armor and wield light weapons effectively, even though you don't have a kit. While you wear light armor, you gain a +3 bonus to Stamina, and that bonus increases by 3 at 4th, 7th, and 10th levels. While you wield a light weapon, you gain a +1 damage bonus with weapon abilities, including free strikes. You can use light armor treasures and light weapon treasures.\n\nIf you have a kit, you can't take this augmentation.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.density-augmentation",
@@ -475,7 +776,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/density-augmentation",
       "originalName": "Density Augmentation",
-      "originalDescription": "You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability."
+      "originalDescription": "You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.distance-augmentation",
@@ -488,7 +792,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/distance-augmentation",
       "originalName": "Distance Augmentation",
-      "originalDescription": "Your ranged psionic abilities gain a +2 bonus to distance."
+      "originalDescription": "Your ranged psionic abilities gain a +2 bonus to distance.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.force-augmentation",
@@ -501,7 +808,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/force-augmentation",
       "originalName": "Force Augmentation",
-      "originalDescription": "Your damage-dealing psionic abilities gain a +1 bonus to rolled damage."
+      "originalDescription": "Your damage-dealing psionic abilities gain a +1 bonus to rolled damage.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.speed-augmentation",
@@ -514,7 +824,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/speed-augmentation",
       "originalName": "Speed Augmentation",
-      "originalDescription": "You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action."
+      "originalDescription": "You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.talent-ward",
@@ -527,7 +840,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/talent-ward",
       "originalName": "Talent Ward",
-      "originalDescription": "Through meditation, you create a ward that protects you. Choose one of the following wards. You can change your ward and psionic augmentation (see above) by undergoing a psionic meditation as a respite activity. (*Quick Build:* Repulsive Ward.)"
+      "originalDescription": "Through meditation, you create a ward that protects you. Choose one of the following wards. You can change your ward and psionic augmentation (see above) by undergoing a psionic meditation as a respite activity. (*Quick Build:* Repulsive Ward.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.entropy-ward",
@@ -540,7 +856,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/entropy-ward",
       "originalName": "Entropy Ward",
-      "originalDescription": "Your ward slows time for your enemies. Whenever a creature deals damage to you, their speed is reduced by an amount equal to your Reason score and they can't use triggered actions until the end of their next turn."
+      "originalDescription": "Your ward slows time for your enemies. Whenever a creature deals damage to you, their speed is reduced by an amount equal to your Reason score and they can't use triggered actions until the end of their next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.repulsive-ward",
@@ -553,7 +872,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/repulsive-ward",
       "originalName": "Repulsive Ward",
-      "originalDescription": "You surround yourself with an invisible ward of telekinetic energy. Whenever an adjacent creature deals damage to you, you can use a free triggered action to push them up to a number of squares equal to your Reason score."
+      "originalDescription": "You surround yourself with an invisible ward of telekinetic energy. Whenever an adjacent creature deals damage to you, you can use a free triggered action to push them up to a number of squares equal to your Reason score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.steel-ward",
@@ -566,7 +888,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/steel-ward",
       "originalName": "Steel Ward",
-      "originalDescription": "Your ward reacts to danger, protecting you from future harm. Whenever you take damage, after the damage resolves, you gain damage immunity equal to your Reason score until the end of your next turn."
+      "originalDescription": "Your ward reacts to danger, protecting you from future harm. Whenever you take damage, after the damage resolves, you gain damage immunity equal to your Reason score until the end of your next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.vanishing-ward",
@@ -579,7 +904,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/vanishing-ward",
       "originalName": "Vanishing Ward",
-      "originalDescription": "Your ward allows you to slip away from threats. Whenever you take damage, you become invisible until the end of your next turn."
+      "originalDescription": "Your ward allows you to slip away from threats. Whenever you take damage, you become invisible until the end of your next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.telepathic-speech",
@@ -592,7 +920,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/telepathic-speech",
       "originalName": "Telepathic Speech",
-      "originalDescription": "You know the Mindspeech language (see Languages in Orden in Chapter 4: Background). Additionally, you can telepathically communicate with any creatures within distance of your Mind Spike ability if they share a language with you and you know of each other. When you communicate with someone this way, they can respond telepathically."
+      "originalDescription": "You know the Mindspeech language (see Languages in Orden in Chapter 4: Background). Additionally, you can telepathically communicate with any creatures within distance of your Mind Spike ability if they share a language with you and you know of each other. When you communicate with someone this way, they can respond telepathically.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.1st-level-tradition-features",
@@ -605,7 +936,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/1st-level-tradition-features",
       "originalName": "1st-Level Tradition Features",
-      "originalDescription": "Your talent tradition grants you two features, as shown on the 1st-Level Tradition Features table.\n\n###### 1st-Level Tradition Features Table\n\n| Tradition   | Features                         |\n|-------------|----------------------------------|\n| Chronopathy | Accelerate, Again                |\n| Telekinesis | Minor Telekinesis, Repel         |\n| Telepathy   | Feedback Loop, Remote Assistance |"
+      "originalDescription": "Your talent tradition grants you two features, as shown on the 1st-Level Tradition Features table.\n\n###### 1st-Level Tradition Features Table\n\n| Tradition   | Features                         |\n|-------------|----------------------------------|\n| Chronopathy | Accelerate, Again                |\n| Telekinesis | Minor Telekinesis, Repel         |\n| Telepathy   | Feedback Loop, Remote Assistance |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.accelerate",
@@ -618,7 +952,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/accelerate",
       "originalName": "Accelerate",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.accelerate",
@@ -672,7 +1009,34 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/accelerate",
       "originalName": "Accelerate",
-      "originalDescription": "*To your ally, it seems as though the world has slowed down.*\n\n| **Psionic, Ranged** |                **Maneuver** |\n|---------------------|----------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one creature** |\n\n**Effect:** The target shifts up to a number of squares equal to your Reason score.\n\n**Spend 2 Clarity:** The target can use a maneuver."
+      "originalDescription": "*To your ally, it seems as though the world has slowed down.*\n\n| **Psionic, Ranged** |                **Maneuver** |\n|---------------------|----------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one creature** |\n\n**Effect:** The target shifts up to a number of squares equal to your Reason score.\n\n**Spend 2 Clarity:** The target can use a maneuver.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 2 Clarity:** The target can use a maneuver."
+          }
+        ],
+        "flavor": "To your ally, it seems as though the world has slowed down.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one creature",
+          "keywords": [
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "effect": "The target shifts up to a number of squares equal to your Reason score."
+      }
     },
     {
       "id": "feature.talent.level-1.again",
@@ -685,7 +1049,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/again",
       "originalName": "Again",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.again",
@@ -739,7 +1106,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/again",
       "originalName": "Again",
-      "originalDescription": "*You step back a split second to see if things play out a little differently.*\n\n| **Psionic, Ranged** |               **Triggered** |\n|---------------------|----------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one creature** |\n\n**Trigger:** The target makes an ability roll.\n\n**Effect:** You can use this ability after seeing the result of the triggering roll. The target must reroll the power roll and use the new roll."
+      "originalDescription": "*You step back a split second to see if things play out a little differently.*\n\n| **Psionic, Ranged** |               **Triggered** |\n|---------------------|----------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one creature** |\n\n**Trigger:** The target makes an ability roll.\n\n**Effect:** You can use this ability after seeing the result of the triggering roll. The target must reroll the power roll and use the new roll.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You step back a split second to see if things play out a little differently.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one creature",
+          "keywords": [
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "trigger": "The target makes an ability roll.",
+        "effect": "You can use this ability after seeing the result of the triggering roll. The target must reroll the power roll and use the new roll."
+      }
     },
     {
       "id": "feature.talent.level-1.feedback-loop",
@@ -752,7 +1143,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/feedback-loop",
       "originalName": "Feedback Loop",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.feedback-loop",
@@ -806,7 +1200,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/feedback-loop",
       "originalName": "Feedback Loop",
-      "originalDescription": "*Creating a brief psychic link between an enemy and their target gives that foe a taste of their own medicine.*\n\n| **Psionic, Ranged** |       **Triggered** |\n|---------------------|--------------------:|\n| **📏 Ranged 10**    | **🎯 One creature** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** The target takes psychic damage equal to half the triggering damage."
+      "originalDescription": "*Creating a brief psychic link between an enemy and their target gives that foe a taste of their own medicine.*\n\n| **Psionic, Ranged** |       **Triggered** |\n|---------------------|--------------------:|\n| **📏 Ranged 10**    | **🎯 One creature** |\n\n**Trigger:** The target deals damage to an ally.\n\n**Effect:** The target takes psychic damage equal to half the triggering damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Creating a brief psychic link between an enemy and their target gives that foe a taste of their own medicine.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "trigger": "The target deals damage to an ally.",
+        "effect": "The target takes psychic damage equal to half the triggering damage."
+      }
     },
     {
       "id": "feature.talent.level-1.minor-telekinesis",
@@ -819,7 +1237,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/minor-telekinesis",
       "originalName": "Minor Telekinesis",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.minor-telekinesis",
@@ -873,7 +1294,34 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/minor-telekinesis",
       "originalName": "Minor Telekinesis",
-      "originalDescription": "*Wisps of psychic energy ripple visibly from your brain as you force the target to move using only your mind.*\n\n| **Psionic, Ranged** |                                 **Maneuver** |\n|---------------------|---------------------------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one size 1 creature or object** |\n\n**Effect:** You slide the target up to a number of squares equal to your Reason score.\n\n**Spend 2+ Clarity:** The size of the creature or object you can target increases by 1 for every 2 clarity spent.\n\n**Spend 3 Clarity:** You can vertical slide the target."
+      "originalDescription": "*Wisps of psychic energy ripple visibly from your brain as you force the target to move using only your mind.*\n\n| **Psionic, Ranged** |                                 **Maneuver** |\n|---------------------|---------------------------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one size 1 creature or object** |\n\n**Effect:** You slide the target up to a number of squares equal to your Reason score.\n\n**Spend 2+ Clarity:** The size of the creature or object you can target increases by 1 for every 2 clarity spent.\n\n**Spend 3 Clarity:** You can vertical slide the target.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 2+ Clarity:** The size of the creature or object you can target increases by 1 for every 2 clarity spent.\n\n**Spend 3 Clarity:** You can vertical slide the target."
+          }
+        ],
+        "flavor": "Wisps of psychic energy ripple visibly from your brain as you force the target to move using only your mind.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one size 1 creature or object",
+          "keywords": [
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "effect": "You slide the target up to a number of squares equal to your Reason score."
+      }
     },
     {
       "id": "feature.talent.level-1.remote-assistance",
@@ -886,7 +1334,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/remote-assistance",
       "originalName": "Remote Assistance",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.remote-assistance",
@@ -940,7 +1391,34 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/remote-assistance",
       "originalName": "Remote Assistance",
-      "originalDescription": "*An ally gains the benefit of your intellect.*\n\n| **Psionic, Ranged** |                  **Maneuver** |\n|---------------------|------------------------------:|\n| **📏 Ranged 10**    | **🎯 One creature or object** |\n\n\n**Effect:** The next ability roll an ally makes against the target before the start of your next turn gains an edge.\n\n**Spend 1 Clarity:** You target one additional creature or object."
+      "originalDescription": "*An ally gains the benefit of your intellect.*\n\n| **Psionic, Ranged** |                  **Maneuver** |\n|---------------------|------------------------------:|\n| **📏 Ranged 10**    | **🎯 One creature or object** |\n\n\n**Effect:** The next ability roll an ally makes against the target before the start of your next turn gains an edge.\n\n**Spend 1 Clarity:** You target one additional creature or object.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 1 Clarity:** You target one additional creature or object."
+          }
+        ],
+        "flavor": "An ally gains the benefit of your intellect.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "effect": "The next ability roll an ally makes against the target before the start of your next turn gains an edge."
+      }
     },
     {
       "id": "feature.talent.level-1.repel",
@@ -953,7 +1431,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/repel",
       "originalName": "Repel",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.repel",
@@ -1007,7 +1488,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/repel",
       "originalName": "Repel",
-      "originalDescription": "*They aren't going anywhere, but you might!*\n\n| **Psionic, Ranged** |           **Triggered** |\n|---------------------|------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage or is force moved.\n\n**Effect:** The target takes half the triggering damage, or the distance of the triggering forced movement is reduced by a number of squares equal to your Reason score. If the target took damage and was force moved, you choose the effect. If the forced movement is reduced to 0 squares, the target can push the source of the forced movement a number of squares equal to your Reason score."
+      "originalDescription": "*They aren't going anywhere, but you might!*\n\n| **Psionic, Ranged** |           **Triggered** |\n|---------------------|------------------------:|\n| **📏 Ranged 10**    | **🎯 Self or one ally** |\n\n**Trigger:** The target takes damage or is force moved.\n\n**Effect:** The target takes half the triggering damage, or the distance of the triggering forced movement is reduced by a number of squares equal to your Reason score. If the target took damage and was force moved, you choose the effect. If the forced movement is reduced to 0 squares, the target can push the source of the forced movement a number of squares equal to your Reason score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "They aren't going anywhere, but you might!",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "trigger": "The target takes damage or is force moved.",
+        "effect": "The target takes half the triggering damage, or the distance of the triggering forced movement is reduced by a number of squares equal to your Reason score. If the target took damage and was force moved, you choose the effect. If the forced movement is reduced to 0 squares, the target can push the source of the forced movement a number of squares equal to your Reason score."
+      }
     },
     {
       "id": "feature.talent.level-1.talent-abilities",
@@ -1020,7 +1525,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.talent.level-1/talent-abilities",
       "originalName": "Talent Abilities",
-      "originalDescription": "You manifest a variety of psionic powers that let you impact the environment, bolster your allies, and empower yourself. You can choose abilities across different talent traditions or focus on abilities tied to your chosen tradition to dedicate yourself to its power.\n\n##### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Incinerate, Kinetic Grip.)\n\n##### Heroic Abilities\n\nYou know a range of heroic abilities, all of which cost clarity to fuel them.\n\n###### 3-Clarity Ability\n\nChoose one heroic ability from the following options, each of which costs 3 clarity to use. (*Quick Build:* Choke.)\n\n###### 5-Clarity Ability\n\nChoose one heroic ability from the following options, each of which costs 5 clarity to use. (*Quick Build:* Inertia Soak.)"
+      "originalDescription": "You manifest a variety of psionic powers that let you impact the environment, bolster your allies, and empower yourself. You can choose abilities across different talent traditions or focus on abilities tied to your chosen tradition to dedicate yourself to its power.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.signature-abilities",
@@ -1033,7 +1541,10 @@
       },
       "originalId": "",
       "originalName": "Signature Abilities",
-      "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (Quick Build: Incinerate, Kinetic Grip.)"
+      "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Incinerate, Kinetic Grip.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.entropic-bolt",
@@ -1091,7 +1602,63 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/entropic-bolt",
       "originalName": "Entropic Bolt",
-      "originalDescription": "*You advance an enemy's age for a moment.*\n\n| **Chronopathy, Psionic, Ranged, Strike** |               **Main action** |\n|------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 + P corruption damage; P < WEAK, slowed (save ends)\n- **12-16:** 3 + P corruption damage; P < AVERAGE, slowed (save ends)\n- **17+:** 5 + P corruption damage; P < STRONG, slowed (save ends)\n\n**Effect:** The target takes an extra 1 corruption damage for each additional time they are targeted by this ability during the encounter.\n\n**Strained:** You gain 1 clarity when you obtain a tier 2 or tier 3 outcome on the power roll."
+      "originalDescription": "*You advance an enemy's age for a moment.*\n\n| **Chronopathy, Psionic, Ranged, Strike** |               **Main action** |\n|------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 + P corruption damage; P < WEAK, slowed (save ends)\n- **12-16:** 3 + P corruption damage; P < AVERAGE, slowed (save ends)\n- **17+:** 5 + P corruption damage; P < STRONG, slowed (save ends)\n\n**Effect:** The target takes an extra 1 corruption damage for each additional time they are targeted by this ability during the encounter.\n\n**Strained:** You gain 1 clarity when you obtain a tier 2 or tier 3 outcome on the power roll.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** You gain 1 clarity when you obtain a tier 2 or tier 3 outcome on the power roll."
+          }
+        ],
+        "flavor": "You advance an enemy's age for a moment.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Chronopathy",
+            "Psionic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2 + P",
+                "type": "corruption"
+              },
+              "effect": "P < WEAK, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "3 + P",
+                "type": "corruption"
+              },
+              "effect": "P < AVERAGE, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "5 + P",
+                "type": "corruption"
+              },
+              "effect": "P < STRONG, slowed (save ends)"
+            }
+          ]
+        },
+        "effect": "The target takes an extra 1 corruption damage for each additional time they are targeted by this ability during the encounter."
+      }
     },
     {
       "id": "feature.ability.talent.level-1.hoarfrost",
@@ -1149,7 +1716,62 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/hoarfrost",
       "originalName": "Hoarfrost",
-      "originalDescription": "*You blast a foe with a pulse of cold energy.*\n\n| **Cryokinesis, Psionic, Ranged**, **Strike** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R cold damage; M < WEAK, slowed (EoT)\n- **12-16:** 4 + R cold damage; M < AVERAGE, slowed (EoT)\n- **17+:** 6 + R cold damage; M < STRONG, slowed (EoT)\n\n**Strained:** You are slowed until the end of your next turn. Additionally, a target slowed by this ability is restrained instead."
+      "originalDescription": "*You blast a foe with a pulse of cold energy.*\n\n| **Cryokinesis, Psionic, Ranged**, **Strike** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R cold damage; M < WEAK, slowed (EoT)\n- **12-16:** 4 + R cold damage; M < AVERAGE, slowed (EoT)\n- **17+:** 6 + R cold damage; M < STRONG, slowed (EoT)\n\n**Strained:** You are slowed until the end of your next turn. Additionally, a target slowed by this ability is restrained instead.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** You are slowed until the end of your next turn. Additionally, a target slowed by this ability is restrained instead."
+          }
+        ],
+        "flavor": "You blast a foe with a pulse of cold energy.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Cryokinesis",
+            "Psionic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2 + R",
+                "type": "cold"
+              },
+              "effect": "M < WEAK, slowed (EoT)"
+            },
+            {
+              "damage": {
+                "value": "4 + R",
+                "type": "cold"
+              },
+              "effect": "M < AVERAGE, slowed (EoT)"
+            },
+            {
+              "damage": {
+                "value": "6 + R",
+                "type": "cold"
+              },
+              "effect": "M < STRONG, slowed (EoT)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.talent.level-1.incinerate",
@@ -1208,7 +1830,64 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/incinerate",
       "originalName": "Incinerate",
-      "originalDescription": "*The air erupts into a column of smokeless flame.*\n\n| **Area, Fire, Psionic, Pyrokinesis, Ranged** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 3 cube within 10**                      | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage\n\n**Effect:** A column of fire remains in the area until the start of your next turn. Each enemy who enters the area for the first time in a combat round or starts their turn there takes 2 fire damage.\n\n**Strained:** The size of the cube increases by 2, but the fire disappears at the end of your turn."
+      "originalDescription": "*The air erupts into a column of smokeless flame.*\n\n| **Area, Fire, Psionic, Pyrokinesis, Ranged** |               **Main action** |\n|----------------------------------------------|------------------------------:|\n| **📏 3 cube within 10**                      | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 fire damage\n- **12-16:** 4 fire damage\n- **17+:** 6 fire damage\n\n**Effect:** A column of fire remains in the area until the start of your next turn. Each enemy who enters the area for the first time in a combat round or starts their turn there takes 2 fire damage.\n\n**Strained:** The size of the cube increases by 2, but the fire disappears at the end of your turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** The size of the cube increases by 2, but the fire disappears at the end of your turn."
+          }
+        ],
+        "flavor": "The air erupts into a column of smokeless flame.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "3 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Fire",
+            "Psionic",
+            "Pyrokinesis",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2",
+                "type": "fire"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "4",
+                "type": "fire"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "6",
+                "type": "fire"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "A column of fire remains in the area until the start of your next turn. Each enemy who enters the area for the first time in a combat round or starts their turn there takes 2 fire damage."
+      }
     },
     {
       "id": "feature.ability.talent.level-1.kinetic-grip",
@@ -1265,7 +1944,49 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/kinetic-grip",
       "originalName": "Kinetic Grip",
-      "originalDescription": "*You lift and hurl your foe away from you.*\n\n| **Psionic, Ranged, Telekinesis** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Ranged 10**                 | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** Slide 2 + R\n- **12-16:** Slide 4 + R\n- **17+:** Slide 6 + R; prone\n\n**Strained:** You must vertical push the target instead of sliding them."
+      "originalDescription": "*You lift and hurl your foe away from you.*\n\n| **Psionic, Ranged, Telekinesis** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Ranged 10**                 | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** Slide 2 + R\n- **12-16:** Slide 4 + R\n- **17+:** Slide 6 + R; prone\n\n**Strained:** You must vertical push the target instead of sliding them.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** You must vertical push the target instead of sliding them."
+          }
+        ],
+        "flavor": "You lift and hurl your foe away from you.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Psionic",
+            "Ranged",
+            "Telekinesis"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "effect": "Slide 2 + R"
+            },
+            {
+              "effect": "Slide 4 + R"
+            },
+            {
+              "effect": "Slide 6 + R; prone"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.talent.level-1.kinetic-pulse",
@@ -1322,7 +2043,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/kinetic-pulse",
       "originalName": "Kinetic Pulse",
-      "originalDescription": "*The force of your mind hurls enemies backward.*\n\n| **Area, Psionic, Telepathy** |               **Main action** |\n|------------------------------|------------------------------:|\n| **📏 1 burst**               | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 psychic damage\n- **12-16:** 5 psychic damage; push 1\n- **17+:** 7 psychic damage; push 2\n\n**Strained:** The size of the burst increases by 2, and you are bleeding until the start of your next turn."
+      "originalDescription": "*The force of your mind hurls enemies backward.*\n\n| **Area, Psionic, Telepathy** |               **Main action** |\n|------------------------------|------------------------------:|\n| **📏 1 burst**               | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 psychic damage\n- **12-16:** 5 psychic damage; push 1\n- **17+:** 7 psychic damage; push 2\n\n**Strained:** The size of the burst increases by 2, and you are bleeding until the start of your next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** The size of the burst increases by 2, and you are bleeding until the start of your next turn."
+          }
+        ],
+        "flavor": "The force of your mind hurls enemies backward.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "1 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Psionic",
+            "Telepathy"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2",
+                "type": "psychic"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5",
+                "type": "psychic"
+              },
+              "effect": "push 1"
+            },
+            {
+              "damage": {
+                "value": "7",
+                "type": "psychic"
+              },
+              "effect": "push 2"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.talent.level-1.materialize",
@@ -1380,7 +2151,60 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/materialize",
       "originalName": "Materialize",
-      "originalDescription": "*You picture an object in your mind and give it form—directly above your opponent's head.*\n\n| **Psionic, Ranged, Resopathy, Strike** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage\n- **12-16:** 5 + R damage\n- **17+:** 8 + R damage\n\n**Effect:** A worthless size 1M object drops onto the target to deal the damage, then rolls into an adjacent unoccupied space of your choice. The object is made of wood, stone, or metal (your choice).\n\n**Strained:** The object explodes after the damage is dealt, and each creature adjacent to the target takes damage equal to your Reason score. You also take damage equal to your Reason score that can't be reduced in any way."
+      "originalDescription": "*You picture an object in your mind and give it form—directly above your opponent's head.*\n\n| **Psionic, Ranged, Resopathy, Strike** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage\n- **12-16:** 5 + R damage\n- **17+:** 8 + R damage\n\n**Effect:** A worthless size 1M object drops onto the target to deal the damage, then rolls into an adjacent unoccupied space of your choice. The object is made of wood, stone, or metal (your choice).\n\n**Strained:** The object explodes after the damage is dealt, and each creature adjacent to the target takes damage equal to your Reason score. You also take damage equal to your Reason score that can't be reduced in any way.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** The object explodes after the damage is dealt, and each creature adjacent to the target takes damage equal to your Reason score. You also take damage equal to your Reason score that can't be reduced in any way."
+          }
+        ],
+        "flavor": "You picture an object in your mind and give it form—directly above your opponent's head.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Psionic",
+            "Ranged",
+            "Resopathy",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + R"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5 + R"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "8 + R"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "A worthless size 1M object drops onto the target to deal the damage, then rolls into an adjacent unoccupied space of your choice. The object is made of wood, stone, or metal (your choice)."
+      }
     },
     {
       "id": "feature.ability.talent.level-1.optic-blast",
@@ -1438,7 +2262,60 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/optic-blast",
       "originalName": "Optic Blast",
-      "originalDescription": "*Your eyes emit rays of powerful enervating force.*\n\n| **Metamorphosis, Psionic, Ranged**, **Strike** |               **Main action** |\n|------------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                               | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; M < WEAK, prone\n- **12-16:** 4 + R damage; M < AVERAGE, prone\n- **17+:** 6 + R damage; M < STRONG, prone\n\n**Effect:** When targeting an object with a solid reflective surface or a creature carrying or wearing such an object (such as a mirror, an unpainted metal shield, or shiny metal plate armor), you can target one additional creature or object within 3 squares of the first target.\n\n**Strained:** You gain 1 surge that you can use immediately, and you take damage equal to your Reason score that can't be reduced in any way."
+      "originalDescription": "*Your eyes emit rays of powerful enervating force.*\n\n| **Metamorphosis, Psionic, Ranged**, **Strike** |               **Main action** |\n|------------------------------------------------|------------------------------:|\n| **📏 Ranged 10**                               | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 + R damage; M < WEAK, prone\n- **12-16:** 4 + R damage; M < AVERAGE, prone\n- **17+:** 6 + R damage; M < STRONG, prone\n\n**Effect:** When targeting an object with a solid reflective surface or a creature carrying or wearing such an object (such as a mirror, an unpainted metal shield, or shiny metal plate armor), you can target one additional creature or object within 3 squares of the first target.\n\n**Strained:** You gain 1 surge that you can use immediately, and you take damage equal to your Reason score that can't be reduced in any way.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** You gain 1 surge that you can use immediately, and you take damage equal to your Reason score that can't be reduced in any way."
+          }
+        ],
+        "flavor": "Your eyes emit rays of powerful enervating force.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Metamorphosis",
+            "Psionic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2 + R"
+              },
+              "effect": "M < WEAK, prone"
+            },
+            {
+              "damage": {
+                "value": "4 + R"
+              },
+              "effect": "M < AVERAGE, prone"
+            },
+            {
+              "damage": {
+                "value": "6 + R"
+              },
+              "effect": "M < STRONG, prone"
+            }
+          ]
+        },
+        "effect": "When targeting an object with a solid reflective surface or a creature carrying or wearing such an object (such as a mirror, an unpainted metal shield, or shiny metal plate armor), you can target one additional creature or object within 3 squares of the first target."
+      }
     },
     {
       "id": "feature.ability.talent.level-1.spirit-sword",
@@ -1496,7 +2373,60 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/spirit-sword",
       "originalName": "Spirit Sword",
-      "originalDescription": "*You form a blade of mind energy and stab your target, invigorating yourself.*\n\n| **Animapathy, Melee, Psionic, Strike** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 Melee 2**                         | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P damage\n- **12-16:** 6 + P damage\n- **17+:** 9 + P damage\n\n**Effect:** You gain 1 surge.\n\n**Strained:** The target takes an extra 3 damage. You also take 3 damage that can't be reduced in any way."
+      "originalDescription": "*You form a blade of mind energy and stab your target, invigorating yourself.*\n\n| **Animapathy, Melee, Psionic, Strike** |               **Main action** |\n|----------------------------------------|------------------------------:|\n| **📏 Melee 2**                         | **🎯 One creature or object** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P damage\n- **12-16:** 6 + P damage\n- **17+:** 9 + P damage\n\n**Effect:** You gain 1 surge.\n\n**Strained:** The target takes an extra 3 damage. You also take 3 damage that can't be reduced in any way.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** The target takes an extra 3 damage. You also take 3 damage that can't be reduced in any way."
+          }
+        ],
+        "flavor": "You form a blade of mind energy and stab your target, invigorating yourself.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 2
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Animapathy",
+            "Melee",
+            "Psionic",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + P"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "6 + P"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "9 + P"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You gain 1 surge."
+      }
     },
     {
       "id": "feature.talent.level-1.heroic-abilities",
@@ -1509,7 +2439,10 @@
       },
       "originalId": "",
       "originalName": "Heroic Abilities",
-      "originalDescription": "You know a range of heroic abilities, all of which cost clarity to fuel them."
+      "originalDescription": "You know a range of heroic abilities, all of which cost clarity to fuel them.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.talent.level-1.3-clarity-ability",
@@ -1522,7 +2455,10 @@
       },
       "originalId": "",
       "originalName": "3-Clarity Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 clarity to use. (Quick Build: Choke.)"
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 clarity to use. (*Quick Build:* Choke.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.awe",
@@ -1580,7 +2516,59 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/awe",
       "originalName": "Awe",
-      "originalDescription": "*You project psionic energy out to a creature and take on a new visage in their mind.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** If you target an ally, they gain temporary Stamina equal to three times your Presence score, and they can end one effect on them that is ended by a saving throw or that ends at the end of their turn. If you target an enemy, you make a power roll.\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P psychic damage; I < WEAK, frightened (save ends)\n- **12-16:** 6 + P psychic damage; I < AVERAGE, frightened (save ends)\n- **17+:** 9 + P psychic damage; I < STRONG, frightened (save ends)"
+      "originalDescription": "*You project psionic energy out to a creature and take on a new visage in their mind.*\n\n| **Psionic, Ranged, Strike, Telepathy** |     **Main action** |\n|----------------------------------------|--------------------:|\n| **📏 Ranged 10**                       | **🎯 One creature** |\n\n**Effect:** If you target an ally, they gain temporary Stamina equal to three times your Presence score, and they can end one effect on them that is ended by a saving throw or that ends at the end of their turn. If you target an enemy, you make a power roll.\n\n**Power Roll + Presence:**\n\n- **≤11:** 3 + P psychic damage; I < WEAK, frightened (save ends)\n- **12-16:** 6 + P psychic damage; I < AVERAGE, frightened (save ends)\n- **17+:** 9 + P psychic damage; I < STRONG, frightened (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You project psionic energy out to a creature and take on a new visage in their mind.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Psionic",
+            "Ranged",
+            "Strike",
+            "Telepathy"
+          ]
+        },
+        "beforeRoll": "**Effect:** If you target an ally, they gain temporary Stamina equal to three times your Presence score, and they can end one effect on them that is ended by a saving throw or that ends at the end of their turn. If you target an enemy, you make a power roll.",
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + P",
+                "type": "psychic"
+              },
+              "effect": "I < WEAK, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "6 + P",
+                "type": "psychic"
+              },
+              "effect": "I < AVERAGE, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "9 + P",
+                "type": "psychic"
+              },
+              "effect": "I < STRONG, frightened (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.talent.level-1.choke",
@@ -1638,7 +2626,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/choke",
       "originalName": "Choke",
-      "originalDescription": "*You crush a foe in a telekinetic grip.*\n\n| **Psionic, Ranged**, **Strike, Telekinesis** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; M < WEAK, slowed (save ends)\n- **12-16:** 5 + R damage; M < AVERAGE, slowed (save ends)\n- **17+:** 8 + R damage; M < STRONG, restrained (save ends)\n\n**Effect:** You can vertical pull the target up to 2 squares. If the target is made restrained by this ability, this forced movement ignores their stability."
+      "originalDescription": "*You crush a foe in a telekinetic grip.*\n\n| **Psionic, Ranged**, **Strike, Telekinesis** |     **Main action** |\n|----------------------------------------------|--------------------:|\n| **📏 Ranged 10**                             | **🎯 One creature** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; M < WEAK, slowed (save ends)\n- **12-16:** 5 + R damage; M < AVERAGE, slowed (save ends)\n- **17+:** 8 + R damage; M < STRONG, restrained (save ends)\n\n**Effect:** You can vertical pull the target up to 2 squares. If the target is made restrained by this ability, this forced movement ignores their stability.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You crush a foe in a telekinetic grip.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Psionic",
+            "Ranged",
+            "Strike",
+            "Telekinesis"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + R"
+              },
+              "effect": "M < WEAK, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "5 + R"
+              },
+              "effect": "M < AVERAGE, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "8 + R"
+              },
+              "effect": "M < STRONG, restrained (save ends)"
+            }
+          ]
+        },
+        "effect": "You can vertical pull the target up to 2 squares. If the target is made restrained by this ability, this forced movement ignores their stability."
+      }
     },
     {
       "id": "feature.ability.talent.level-1.precognition",
@@ -1693,7 +2730,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/precognition",
       "originalName": "Precognition",
-      "originalDescription": "*You give a target a glimpse into the future so that they're ready for what comes next.*\n\n| **Chronopathy, Melee, Psionic** |         **Main action** |\n|---------------------------------|------------------------:|\n| **📏 Melee 2**                  | **🎯 Self or one ally** |\n\n**Effect:** Ability rolls made against the target take a bane until the start of your next turn. Whenever the target takes damage while under this effect, they can use a triggered action to make a free strike against the source of the damage."
+      "originalDescription": "*You give a target a glimpse into the future so that they're ready for what comes next.*\n\n| **Chronopathy, Melee, Psionic** |         **Main action** |\n|---------------------------------|------------------------:|\n| **📏 Melee 2**                  | **🎯 Self or one ally** |\n\n**Effect:** Ability rolls made against the target take a bane until the start of your next turn. Whenever the target takes damage while under this effect, they can use a triggered action to make a free strike against the source of the damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You give a target a glimpse into the future so that they're ready for what comes next.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 2
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Chronopathy",
+            "Melee",
+            "Psionic"
+          ]
+        },
+        "effect": "Ability rolls made against the target take a bane until the start of your next turn. Whenever the target takes damage while under this effect, they can use a triggered action to make a free strike against the source of the damage."
+      }
     },
     {
       "id": "feature.ability.talent.level-1.smolder",
@@ -1751,7 +2812,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/smolder",
       "originalName": "Smolder",
-      "originalDescription": "*Smoke flows from your enemy like tears as their skin begins to blacken and flake.*\n\n| **Psionic, Pyrokinesis, Ranged, Strike** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature** |\n\n**Effect:** Choose the damage type and the weakness for this ability from one of the following: acid, corruption, or fire. The target takes damage before this ability imposes any weakness.\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; R < WEAK, the target has weakness 5 (save ends)\n- **12-16:** 6 + R damage; R < AVERAGE, the target has weakness 5 (save ends)\n- **17+:** 9 + R damage; R < STRONG, the target has weakness equal to 5 + your Reason score (save ends)"
+      "originalDescription": "*Smoke flows from your enemy like tears as their skin begins to blacken and flake.*\n\n| **Psionic, Pyrokinesis, Ranged, Strike** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Ranged 10**                         | **🎯 One creature** |\n\n**Effect:** Choose the damage type and the weakness for this ability from one of the following: acid, corruption, or fire. The target takes damage before this ability imposes any weakness.\n\n**Power Roll + Reason:**\n\n- **≤11:** 3 + R damage; R < WEAK, the target has weakness 5 (save ends)\n- **12-16:** 6 + R damage; R < AVERAGE, the target has weakness 5 (save ends)\n- **17+:** 9 + R damage; R < STRONG, the target has weakness equal to 5 + your Reason score (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Smoke flows from your enemy like tears as their skin begins to blacken and flake.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Psionic",
+            "Pyrokinesis",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "beforeRoll": "**Effect:** Choose the damage type and the weakness for this ability from one of the following: acid, corruption, or fire. The target takes damage before this ability imposes any weakness.",
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + R"
+              },
+              "effect": "R < WEAK, the target has weakness 5 (save ends)"
+            },
+            {
+              "damage": {
+                "value": "6 + R"
+              },
+              "effect": "R < AVERAGE, the target has weakness 5 (save ends)"
+            },
+            {
+              "damage": {
+                "value": "9 + R"
+              },
+              "effect": "R < STRONG, the target has weakness equal to 5 + your Reason score (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.talent.level-1.5-clarity-ability",
@@ -1764,7 +2874,10 @@
       },
       "originalId": "",
       "originalName": "5-Clarity Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 clarity to use. (Quick Build: Inertia Soak.)"
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 clarity to use. (*Quick Build:* Inertia Soak.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.talent.level-1.flashback",
@@ -1819,7 +2932,35 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/flashback",
       "originalName": "Flashback",
-      "originalDescription": "*The target is thrown several seconds back through time and gets to do it all again.*\n\n| **Chronopathy, Psionic, Ranged** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target uses an ability with a base Heroic Resource cost of 7 or lower that they've previously used this round, without needing to spend the base cost. Augmentations to the ability can be paid for as usual.\n\n**Strained:** You take 1d6 damage and are slowed (save ends)."
+      "originalDescription": "*The target is thrown several seconds back through time and gets to do it all again.*\n\n| **Chronopathy, Psionic, Ranged** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target uses an ability with a base Heroic Resource cost of 7 or lower that they've previously used this round, without needing to spend the base cost. Augmentations to the ability can be paid for as usual.\n\n**Strained:** You take 1d6 damage and are slowed (save ends).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** You take 1d6 damage and are slowed (save ends)."
+          }
+        ],
+        "flavor": "The target is thrown several seconds back through time and gets to do it all again.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Chronopathy",
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "effect": "The target uses an ability with a base Heroic Resource cost of 7 or lower that they've previously used this round, without needing to spend the base cost. Augmentations to the ability can be paid for as usual."
+      }
     },
     {
       "id": "feature.ability.talent.level-1.inertia-soak",
@@ -1874,7 +3015,35 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/inertia-soak",
       "originalName": "Inertia Soak",
-      "originalDescription": "*Your psionic energy surrounds the target and pushes everything else away from them.*\n\n| **Psionic, Ranged, Telekinesis** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target ignores difficult terrain and takes no damage from forced movement until the start of your next turn. Whenever the target enters a square while under this effect, they can push one adjacent creature up to a number of squares equal to your Reason score. When pushing an ally, the target can ignore that ally's stability. A creature can only be force moved this way once a turn.\n\n**Strained:** You are weakened (save ends). While you are weakened this way, whenever you are force moved, the forced movement distance gains a +5 bonus."
+      "originalDescription": "*Your psionic energy surrounds the target and pushes everything else away from them.*\n\n| **Psionic, Ranged, Telekinesis** |            **Maneuver** |\n|----------------------------------|------------------------:|\n| **📏 Ranged 10**                 | **🎯 Self or one ally** |\n\n**Effect:** The target ignores difficult terrain and takes no damage from forced movement until the start of your next turn. Whenever the target enters a square while under this effect, they can push one adjacent creature up to a number of squares equal to your Reason score. When pushing an ally, the target can ignore that ally's stability. A creature can only be force moved this way once a turn.\n\n**Strained:** You are weakened (save ends). While you are weakened this way, whenever you are force moved, the forced movement distance gains a +5 bonus.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** You are weakened (save ends). While you are weakened this way, whenever you are force moved, the forced movement distance gains a +5 bonus."
+          }
+        ],
+        "flavor": "Your psionic energy surrounds the target and pushes everything else away from them.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Psionic",
+            "Ranged",
+            "Telekinesis"
+          ]
+        },
+        "effect": "The target ignores difficult terrain and takes no damage from forced movement until the start of your next turn. Whenever the target enters a square while under this effect, they can push one adjacent creature up to a number of squares equal to your Reason score. When pushing an ally, the target can ignore that ally's stability. A creature can only be force moved this way once a turn."
+      }
     },
     {
       "id": "feature.ability.talent.level-1.iron",
@@ -1929,7 +3098,35 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/iron",
       "originalName": "Iron",
-      "originalDescription": "*The target's skin turns to hard, dark metal, impenetrable and dense.*\n\n| **Metamorphosis, Psionic, Ranged** |            **Maneuver** |\n|------------------------------------|------------------------:|\n| **📏 Ranged 10**                   | **🎯 Self or one ally** |\n\n**Effect:** The target's stability increases by an amount equal to your Reason score, and they gain 10 temporary Stamina and 2 surges. This stability increase lasts until the target no longer has temporary Stamina from this ability.\n\n**Strained:** You can't use maneuvers (save ends)."
+      "originalDescription": "*The target's skin turns to hard, dark metal, impenetrable and dense.*\n\n| **Metamorphosis, Psionic, Ranged** |            **Maneuver** |\n|------------------------------------|------------------------:|\n| **📏 Ranged 10**                   | **🎯 Self or one ally** |\n\n**Effect:** The target's stability increases by an amount equal to your Reason score, and they gain 10 temporary Stamina and 2 surges. This stability increase lasts until the target no longer has temporary Stamina from this ability.\n\n**Strained:** You can't use maneuvers (save ends).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** You can't use maneuvers (save ends)."
+          }
+        ],
+        "flavor": "The target's skin turns to hard, dark metal, impenetrable and dense.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Metamorphosis",
+            "Psionic",
+            "Ranged"
+          ]
+        },
+        "effect": "The target's stability increases by an amount equal to your Reason score, and they gain 10 temporary Stamina and 2 surges. This stability increase lasts until the target no longer has temporary Stamina from this ability."
+      }
     },
     {
       "id": "feature.ability.talent.level-1.perfect-clarity",
@@ -1984,7 +3181,35 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.talent.level-1/perfect-clarity",
       "originalName": "Perfect Clarity",
-      "originalDescription": "*You clear the mind of nothing but the goal.*\n\n| **Psionic, Ranged, Telepathy** |            **Maneuver** |\n|--------------------------------|------------------------:|\n| **📏 Ranged 10**               | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target gains a +3 bonus to speed, and they have a double edge on the next power roll they make. If the target obtains a tier 3 outcome on that roll, you gain 1 clarity.\n\n**Strained:** You take 1d6 damage, and you can't use triggered actions (save ends)."
+      "originalDescription": "*You clear the mind of nothing but the goal.*\n\n| **Psionic, Ranged, Telepathy** |            **Maneuver** |\n|--------------------------------|------------------------:|\n| **📏 Ranged 10**               | **🎯 Self or one ally** |\n\n**Effect:** Until the start of your next turn, the target gains a +3 bonus to speed, and they have a double edge on the next power roll they make. If the target obtains a tier 3 outcome on that roll, you gain 1 clarity.\n\n**Strained:** You take 1d6 damage, and you can't use triggered actions (save ends).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Strained:** You take 1d6 damage, and you can't use triggered actions (save ends)."
+          }
+        ],
+        "flavor": "You clear the mind of nothing but the goal.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Psionic",
+            "Ranged",
+            "Telepathy"
+          ]
+        },
+        "effect": "Until the start of your next turn, the target gains a +3 bonus to speed, and they have a double edge on the next power roll they make. If the target obtains a tier 3 outcome on that roll, you gain 1 clarity."
+      }
     }
   ]
 }

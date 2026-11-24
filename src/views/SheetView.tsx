@@ -1,5 +1,6 @@
+import { useLocale } from "../i18n/locale";
 import type { ComponentType, ReactNode } from "react";
-import { lazy, useCallback, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { Icon, type IconName } from "../components/Icons";
 import { Button } from "../components/ui";
 import { onSheetTabRequest } from "../lib/sheet-tabs";
@@ -7,17 +8,13 @@ import { useMediaQuery } from "../lib/hooks";
 import { currentRuntime } from "../lib/runtime";
 import { combatPhaseLabel } from "../lib/tables/combat";
 import type { TableCombatLink } from "../types";
-import type { HeroTab } from "../navigation";
+import { EN_TAB_LABELS, type HeroTab } from "../navigation";
 import { useApp } from "../state/AppContext";
 import { CharacteristicsPanel } from "./sheet/CharacteristicsPanel";
 import { ConditionsPanel } from "./sheet/ConditionsPanel";
 import { HeaderPanel } from "./sheet/HeaderPanel";
-import { SheetAbilitiesPanel } from "./sheet/SheetAbilitiesPanel";
-import { SheetFeaturesPanel } from "./sheet/SheetFeaturesPanel";
-import { SheetPerksPanel } from "./sheet/SheetPerksPanel";
 import { SkillsPanel } from "./sheet/SkillsPanel";
 import { VitalsPanel } from "./sheet/VitalsPanel";
-import { ClassMechanicsPanel } from "./sheet/ClassMechanicsPanel";
 import { ResourcesPanel } from "./sheet/ResourcesPanel";
 import { FuryFerocityTracker } from "./sheet/FuryFerocityTracker";
 import { StormwightFormPanel } from "./sheet/StormwightFormPanel";
@@ -26,6 +23,14 @@ import "./sheet/Workspace.css";
 import "./sheet/SheetLayout.css";
 import "./sheet/SheetFrame.css";
 import "./SheetAtmosphere.css";
+
+const SheetPerksPanel = lazy(() => import("./sheet/SheetPerksPanel").then(module => ({ default: module.SheetPerksPanel })));
+const SheetFeaturesPanel = lazy(() => import("./sheet/SheetFeaturesPanel").then(module => ({ default: module.SheetFeaturesPanel })));
+const ClassMechanicsPanel = lazy(() => import("./sheet/ClassMechanicsPanel").then(module => ({ default: module.ClassMechanicsPanel })));
+
+const SheetAbilitiesPanel = lazy(() =>
+  import("./sheet/SheetAbilitiesPanel").then(module => ({ default: module.SheetAbilitiesPanel })),
+);
 
 const DevelopmentPanel = lazy(() =>
   import("./sheet/DevelopmentPanel").then((module) => ({
@@ -61,6 +66,8 @@ type PanelId =
   | "ferocity"
   | "stormwight-form"
   | "classMechanics";
+
+const combatPhaseEnglish = { ready: "Waiting for turn", active: "Your turn", done: "Turn finished" };
 
 const PANELS: Record<PanelId, ComponentType> = {
   characteristics: CharacteristicsPanel,
@@ -102,7 +109,7 @@ function Blocks({ ids }: { ids: PanelId[] }) {
             className="sheet-block"
             data-panel={id}
           >
-            <Component />
+            {(id === "abilities" || id === "classMechanics" || id === "features" || id === "perks") ? <Suspense fallback={null}><Component /></Suspense> : <Component />}
           </section>
         );
       })}
@@ -121,6 +128,7 @@ function Column({ className, ids }: { className: string; ids: PanelId[] }) {
 type SheetViewProps = { tab: HeroTab; tools?: ReactNode; onDevelopmentDirtyChange?: (dirty: boolean) => void };
 
 function SheetWorkspace({ tab, tools, onDevelopmentDirtyChange }: SheetViewProps) {
+  const { t } = useLocale();
   const { character, performGameAction, goTo } = useApp();
   const [developmentDirty, setDevelopmentDirty] = useState(false);
   const compact = useMediaQuery("(max-width: 700px)");
@@ -133,7 +141,7 @@ function SheetWorkspace({ tab, tools, onDevelopmentDirtyChange }: SheetViewProps
     if (next === tab) return;
     if (tab === "development" && developmentDirty) {
       const leave = window.confirm(
-        "В «Развитии» есть несохранённые выборы. Уйти без сохранения?",
+        t("В «Развитии» есть несохранённые выборы. Уйти без сохранения?", "You have unsaved advancement choices. Leave without saving?"),
       );
       if (!leave) return;
       // Черновик живёт внутри панели и исчезнет вместе с ней: снимаем метку,
@@ -171,7 +179,7 @@ function SheetWorkspace({ tab, tools, onDevelopmentDirtyChange }: SheetViewProps
       <HeaderPanel compact={compact || tab !== "sheet"} />
       <section className="sheet-frame">
         <div className="sheet-frame-head">
-          <nav className="sheet-tablist" aria-label="Разделы героя">
+          <nav className="sheet-tablist" aria-label={t("Разделы героя", "Hero sections")}>
             {SHEET_TABS.map((item) => (
               <button
                 key={item.id}
@@ -181,11 +189,11 @@ function SheetWorkspace({ tab, tools, onDevelopmentDirtyChange }: SheetViewProps
                 onClick={() => switchTab(item.id)}
               >
                 <Icon name={item.icon} size={15} aria-hidden="true" />
-                {item.label}
+                {t(item.label, item.id === "sheet" ? "Sheet" : EN_TAB_LABELS[item.id])}
                 {item.id === "development" && developmentDirty && (
                   <span
                     className="sheet-tab-dot"
-                    aria-label="есть несохранённые выборы"
+                    aria-label={t("есть несохранённые выборы", "unsaved choices")}
                   />
                 )}
               </button>
@@ -196,7 +204,7 @@ function SheetWorkspace({ tab, tools, onDevelopmentDirtyChange }: SheetViewProps
               {tools}
               {runtime.tableCombat ? (
                 <span className="chip" role="status">
-                  Раунд {runtime.tableCombat.round} · {combatPhaseLabel[runtime.tableCombat.phase]}
+                  {t("Раунд", "Round")} {runtime.tableCombat.round} · {t(combatPhaseLabel[runtime.tableCombat.phase], combatPhaseEnglish[runtime.tableCombat.phase])}
                 </span>
               ) : <>
               <Button
@@ -208,21 +216,21 @@ function SheetWorkspace({ tab, tools, onDevelopmentDirtyChange }: SheetViewProps
                   })
                 }
               >
-                {combatActive ? "Конец битвы" : "Начало битвы"}
+                {combatActive ? t("Конец битвы", "End combat") : t("Начало битвы", "Start combat")}
               </Button>
               {combatActive && character.className !== "Неистовый" && (
                 <Button size="sm" variant="soft" onClick={() => performGameAction({ kind: runtime.turnActive ? "turn-end" : "turn-start" })}>
-                  {runtime.turnActive ? "Завершить ход" : "Начать свой ход"}
+                  {runtime.turnActive ? t("Завершить ход", "End turn") : t("Начать свой ход", "Start my turn")}
                 </Button>
               )}
               <Button
                 size="sm"
                 variant="ghost"
                 onClick={() => performGameAction({ kind: "round" })}
-                title="Снять отметки триггеров раунда"
-                aria-label={`Новый раунд: сейчас ${runtime.round}`}
+                title={t("Снять отметки триггеров раунда", "Reset this round’s triggers")}
+                aria-label={t(`Новый раунд: сейчас ${runtime.round}`, `New round: currently ${runtime.round}`)}
               >
-                Новый раунд · {runtime.round}
+                {t("Новый раунд", "New round")} · {runtime.round}
               </Button>
               </>}
             </div>
@@ -232,7 +240,7 @@ function SheetWorkspace({ tab, tools, onDevelopmentDirtyChange }: SheetViewProps
         <div
           className="sheet-frame-body"
           data-view={tab}
-          aria-label={SHEET_TABS.find((item) => item.id === tab)?.label}
+          aria-label={t(SHEET_TABS.find((item) => item.id === tab)!.label, tab === "sheet" ? "Sheet" : EN_TAB_LABELS[tab])}
         >
           {tab === "sheet" && (
             <div className="sheet-layout-host">
@@ -271,6 +279,7 @@ export function SheetReadOnlyView({ sections, combat }: {
   combat?: Pick<TableCombatLink, "round" | "phase">;
 }) {
   const { character } = useApp();
+  const { t } = useLocale();
   const heroShared = sections.includes("hero");
   const developmentShared = sections.includes("development");
   const filter = (ids: PanelId[]) => ids.filter((id) =>
@@ -280,11 +289,11 @@ export function SheetReadOnlyView({ sections, combat }: {
   );
   return <div className="sheet-view sheet-workspace-view shared-sheet-preview" data-hero-shared={heroShared}>
     <div className="shared-sheet-identity">
-      <span>{character.ancestry} · {character.className} · {character.level}-й уровень</span>
+      <span>{character.ancestry} · {character.className} · {t(`${character.level}-й уровень`, `Level ${character.level}`)}</span>
       {combat && <span className="chip" role="status">
-        Раунд {combat.round} · {combat.phase === "active" ? "Ходит" : combatPhaseLabel[combat.phase]}
+        {t("Раунд", "Round")} {combat.round} · {t(combat.phase === "active" ? "Ходит" : combatPhaseLabel[combat.phase], combat.phase === "active" ? "Taking a turn" : combatPhaseEnglish[combat.phase])}
       </span>}
-      <span className="chip">Только просмотр</span>
+      <span className="chip">{t("Только просмотр", "Read only")}</span>
     </div>
     <div className="sheet-layout-host">
       <div className="sheet-layout">
@@ -295,6 +304,6 @@ export function SheetReadOnlyView({ sections, combat }: {
         <Column className="sheet-col-full" ids={filter(FULL_WIDTH)} />
       </div>
     </div>
-    {!heroShared && <p className="muted">Игрок открыл только основные показатели. Остальные разделы листа скрыты.</p>}
+    {!heroShared && <p className="muted">{t("Игрок открыл только основные показатели. Остальные разделы листа скрыты.", "The player shared only basic stats. Other sections of this sheet are private.")}</p>}
   </div>;
 }

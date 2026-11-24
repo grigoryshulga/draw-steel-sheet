@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useId, useRef, useState, type ReactNode } from "react";
 import { pageBounds, RESULTS_PAGE_SIZE } from "../../lib/pagination";
 import { Button } from "./Button";
@@ -7,7 +8,7 @@ import "./PaginatedResults.css";
 export function PaginatedResults<T>({
   items,
   initialIndex = 0,
-  label = "Результаты",
+  label: suppliedLabel,
   children,
 }: {
   items: readonly T[];
@@ -15,6 +16,8 @@ export function PaginatedResults<T>({
   label?: string;
   children: (visible: readonly T[]) => ReactNode;
 }) {
+  const { t, locale } = useLocale();
+  const label = suppliedLabel ?? t("Результаты", "Results");
   const [requestedPage, setPage] = useState(() => Math.floor(Math.max(0, initialIndex) / RESULTS_PAGE_SIZE));
   const { page, pageCount, start, end } = pageBounds(items.length, requestedPage);
   const resultsId = useId();
@@ -32,17 +35,17 @@ export function PaginatedResults<T>({
         tabIndex={-1}
         className="paginated-results-page"
         role="region"
-        aria-label={items.length ? `${label}: ${start + 1}–${end} из ${items.length}` : `${label}: пусто`}
+        aria-label={items.length ? `${label}: ${start + 1}–${end} ${t("из", "of")} ${items.length}` : `${label}: ${t("пусто", "empty")}`}
       >
         {children(items.slice(start, end))}
       </div>
       {pageCount > 1 && (
-        <nav className="results-pagination" aria-label={`Страницы: ${label.toLocaleLowerCase("ru")}`}>
+        <nav className="results-pagination" aria-label={`${t("Страницы", "Pages")}: ${label.toLocaleLowerCase(locale)}`}>
           <Button
             size="sm"
             icon="arrow-left"
             iconOnly
-            aria-label="Предыдущая страница"
+            aria-label={t("Предыдущая страница", "Previous page")}
             aria-controls={resultsId}
             disabled={page === 0}
             onClick={() => changePage(page - 1)}
@@ -52,7 +55,7 @@ export function PaginatedResults<T>({
             size="sm"
             icon="arrow-right"
             iconOnly
-            aria-label="Следующая страница"
+            aria-label={t("Следующая страница", "Next page")}
             aria-controls={resultsId}
             disabled={page === pageCount - 1}
             onClick={() => changePage(page + 1)}

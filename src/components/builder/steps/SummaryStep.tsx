@@ -1,3 +1,7 @@
+import { builderAbilityName, careerIncident, useBuilderNames } from "../choice-language";
+import { BUILDER_DATA } from "../../../lib/character-builder";
+import { useLocale } from "../../../i18n/locale";
+import { englishFlowLabel, englishStages, englishIssue } from "../language";
 import { Icon } from "../../Icons";
 import { perkById } from "../../../data/perks";
 import { CHARACTERISTICS, deriveStats } from "../../../lib/rules";
@@ -5,71 +9,76 @@ import { useBuilderStep } from "../BuilderStepContext";
 import { BUILDER_STAGES } from "../../../lib/builder-flow";
 
 export function SummaryStep() {
+  const { locale, t } = useLocale();
   const { draft, hero, flow, goToFlow } = useBuilderStep();
+  const label = useBuilderNames(locale, draft.className);
+  const domainLabel = useBuilderNames(locale, "Проводник");
+  const career = BUILDER_DATA.careers.find(c => c.name === draft.career);
+  const incidentIndex = career?.incidents.indexOf(draft.incident) ?? -1;
   const derived = deriveStats(hero);
   const featureStep = flow.find((item) => item.step === "class-options" && item.part.startsWith("feature:"));
   const rows = [
-    { label: "Происхождение", value: draft.ancestry, step: "ancestry" },
+    { label: t("Происхождение", "Ancestry"), value: label(draft.ancestry), step: "ancestry" },
     {
-      label: "Черты происхождения",
-      value: draft.traits.join(", "),
+      label: t("Черты происхождения", "Ancestry traits"),
+      value: draft.traits.map(label).join(", "),
       step: "ancestry-options",
     },
     {
-      label: "Культура",
-      value: Object.values(draft.culture).filter(Boolean).join(" · "),
+      label: t("Культура", "Culture"),
+      value: Object.values(draft.culture).filter(Boolean).map(label).join(" · "),
       step: "culture",
     },
-    { label: "Карьера", value: draft.career, step: "career" },
+    { label: t("Карьера", "Career"), value: label(draft.career), step: "career" },
     {
-      label: "Перк",
-      value: perkById(draft.perkId)?.name,
+      label: t("Перк", "Perk"),
+      value: label(perkById(draft.perkId)?.name),
       step: "career-options/perk",
     },
     {
-      label: "Инцидент",
-      value: draft.incident,
+      label: t("Инцидент", "Incident"),
+      value: locale === "en" && career && incidentIndex >= 0 ? Object.values(careerIncident(career, incidentIndex, locale)).join(": ") : draft.incident,
       step: "career-options/incident",
     },
-    { label: "Класс", value: draft.className, step: "class" },
+    { label: t("Класс", "Class"), value: label(draft.className), step: "class" },
     {
-      label: "Подкласс и домены",
-      value: [draft.subclass, draft.domain, draft.conduitDomainFeature]
+      label: t("Подкласс и домены", "Subclass and domains"),
+      value: [...draft.subclass.split(", ").map(label), domainLabel(draft.domain), domainLabel(draft.conduitDomainFeature)]
         .filter(Boolean)
         .join(" · "),
       step: "class-options",
     },
     {
-      label: "Характеристики",
+      label: t("Характеристики", "Characteristics"),
       value: CHARACTERISTICS.map(
-        (c) => `${c.short} ${hero.characteristics[c.key]}`,
+        (c) => `${locale === "en" ? c.key[0].toUpperCase() : c.short} ${hero.characteristics[c.key]}`,
       ).join(" · "),
       step: "class-options/characteristics",
     },
     {
-      label: "Навыки",
-      value: hero.skills.join(", "),
+      label: t("Навыки", "Skills"),
+      value: hero.skills.map(label).join(", "),
       step: "class-options/skills",
     },
     {
-      label: "Особенности",
-      value: Object.values(draft.featureChoices).filter(Boolean).join(", "),
+      label: t("Особенности", "Features"),
+      value: Object.values(draft.featureChoices).filter(Boolean).map(label).join(", "),
       step: featureStep?.id ?? "class-options",
       hidden: !featureStep,
     },
     {
-      label: "Комплекты",
-      value: [draft.kit, draft.secondaryKit].filter(Boolean).join(", "),
+      label: t("Комплекты", "Kits"),
+      value: [draft.kit, draft.secondaryKit].map(label).filter(Boolean).join(", "),
       step: "kit",
     },
     {
-      label: "Способности",
-      value: hero.abilities.map((a) => a.name).join(", "),
+      label: t("Способности", "Abilities"),
+      value: hero.abilities.map((a) => builderAbilityName(a, locale)).join(", "),
       step: "abilities",
     },
     {
-      label: "Имя и личность",
-      value: [draft.name, draft.complication, draft.details]
+      label: t("Имя и личность", "Name and identity"),
+      value: [draft.name, label(draft.complication), draft.details]
         .filter(Boolean)
         .join(" · "),
       step: "details",
@@ -83,21 +92,21 @@ export function SummaryStep() {
   });
   return (
     <>
-      <section className="builder-review-overview" aria-label="Краткая сводка героя">
-        <h3>{draft.name || "Ваш герой"}</h3>
+      <section className="builder-review-overview" aria-label={t("Краткая сводка героя", "Hero overview")}>
+        <h3>{draft.name || t("Ваш герой", "Your hero")}</h3>
         <dl>
-          <div><dt>Происхождение</dt><dd>{draft.ancestry || "Не выбрано"}</dd></div>
-          <div><dt>Карьера</dt><dd>{draft.career || "Не выбрана"}</dd></div>
-          <div><dt>Класс</dt><dd>{[draft.className, draft.subclass].filter(Boolean).join(" · ") || "Не выбран"}</dd></div>
+          <div><dt>{t("Происхождение", "Ancestry")}</dt><dd>{label(draft.ancestry) || t("Не выбрано", "Not selected")}</dd></div>
+          <div><dt>{t("Карьера", "Career")}</dt><dd>{label(draft.career) || t("Не выбрана", "Not selected")}</dd></div>
+          <div><dt>{t("Класс", "Class")}</dt><dd>{[draft.className, ...draft.subclass.split(", ")].map(label).filter(Boolean).join(" · ") || t("Не выбран", "Not selected")}</dd></div>
         </dl>
       </section>
       {missing.length > 0 && (
         <div className="builder-notice">
-          <strong>Осталось завершить: {missing.length}</strong>
-          <p>Следующий шаг: {missing[0].label}.</p>
+          <strong>{t("Осталось завершить", "Choices remaining")}: {missing.length}</strong>
+          <p>{t("Следующий шаг", "Next step")}: {locale === "en" ? englishFlowLabel(missing[0]) : missing[0].label}.</p>
           {[...new Set(missing.map((item) => item.stage))].map((stage) => (
-            <section className="builder-review-group" key={stage} aria-label={BUILDER_STAGES[stage]}>
-              <h4>{BUILDER_STAGES[stage]} <span className="muted">{missing.filter((item) => item.stage === stage).length}</span></h4>
+            <section className="builder-review-group" key={stage} aria-label={locale === "en" ? englishStages[stage] : BUILDER_STAGES[stage]}>
+              <h4>{locale === "en" ? englishStages[stage] : BUILDER_STAGES[stage]} <span className="muted">{missing.filter((item) => item.stage === stage).length}</span></h4>
               {missing.filter((item) => item.stage === stage).map((item) => (
             <button
               className="builder-review-issue"
@@ -105,7 +114,7 @@ export function SummaryStep() {
               key={item.id}
               onClick={() => goToFlow(item.id)}
             >
-              {item.issue.startsWith("Выберите")
+              {locale === "en" ? englishIssue(item.issue) : item.issue.startsWith("Выберите")
                 ? item.issue.replace(/^Выберите:\s*организация\./, "Выберите организацию.").replace(/^Выберите:\s*/, "Выберите ")
                 : `${item.label}: ${item.issue}`} <Icon name="arrow-right" size={16} />
             </button>
@@ -135,24 +144,23 @@ export function SummaryStep() {
               <span>
                 <strong>{row.label}</strong>
                 <span className="builder-review-value">
-                  {row.value || "Не выбрано"}
+                  {row.value || t("Не выбрано", "Not selected")}
                 </span>
               </span>
-              <span className="muted small">Изменить <Icon name="arrow-right" size={16} /></span>
+              <span className="muted small">{t("Изменить", "Edit")} <Icon name="arrow-right" size={16} /></span>
             </button>
           );
         })}
       </div>
       <p>
-        Выносливость {hero.stamina.max} · Скорость {hero.speed} · Устойчивость{" "}
-        {hero.stability} · Восстановления {hero.recoveries.max} ×{" "}
+        {t("Выносливость", "Stamina")} {hero.stamina.max} · {t("Скорость", "Speed")} {hero.speed} · {t("Устойчивость", "Stability")}{" "}
+        {hero.stability} · {t("Восстановления", "Recoveries")} {hero.recoveries.max} ×{" "}
         {derived.recoveryValue}
       </p>
       <section className="builder-reference">
-        <h3>Особые условия и эффекты</h3>
+        <h3>{t("Особые условия и эффекты", "Special conditions and effects")}</h3>
         <p>
-          Условные эффекты и особенности без авторасчёта остаются в тексте
-          правил. Их можно уточнить и дополнить в листе.
+          {t("Условные эффекты и особенности без авторасчёта остаются в тексте правил. Их можно уточнить и дополнить в листе.", "Conditional effects and features without automatic calculation remain in the rules text. You can clarify and add them on the sheet.")}
         </p>
       </section>
     </>

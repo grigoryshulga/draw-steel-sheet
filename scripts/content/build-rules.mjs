@@ -8,7 +8,7 @@
  * `src/generated/rules/packs/<packId>.json`. Устаревшие generated JSON не
  * читаются и не изменяются.
  */
-import { readFileSync, readdirSync, rmSync } from "node:fs";
+import { readFileSync, readdirSync, rmSync, existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -23,6 +23,7 @@ import {
   walkJson,
   writeJsonText,
 } from "./lib/common.mjs";
+import { compileCreatureTree } from "./lib/printed-creature.mjs";
 import { decorateRulesPack } from "./lib/originals.mjs";
 import { prepareDirectorContent, directorIndexMetadata } from "./lib/director-content.mjs";
 
@@ -103,6 +104,12 @@ function validateEntity(entity, file) {
   if (entity.ability !== undefined && typeof entity.ability !== "object") {
     fail(`${file}: ability должен быть объектом`);
   }
+}
+
+// Keep rich bilingual trees compact on disk and in the article download.
+function deliveryPackText(pack) {
+  if (!pack.entities.some(entity => entity.printedCreature)) return jsonText(pack);
+  return JSON.stringify(pack) + "\n";
 }
 
 function renderArticle(article, entities) {
@@ -447,6 +454,27 @@ export function buildRules({
     entities.push(entity);
   }
 
+  // Editorial English is separate from source originals and does not change IDs.
+  const editionFile = path.join(root, "content/english-editions.json");
+  if (existsSync(editionFile) && path.resolve(contentDir) === path.join(root, "content/rules")) {
+    const edition = readJson(editionFile);
+    for (const [id, translated] of Object.entries(edition.entities ?? {})) {
+      const entity = entityById.get(id);
+      if (!entity || typeof translated.name !== "string" || !translated.name.trim() || typeof translated.text !== "string" || !translated.text.trim()) fail(`некорректный английский перевод сущности ${id}`);
+      entity.englishEdition = translated;
+    }
+    for (const [id, translated] of Object.entries(edition.articles ?? {})) {
+      const article = articleById.get(id);
+      if (!article || typeof translated.title !== "string" || !translated.title.trim() || !Array.isArray(translated.blocks)) fail(`некорректный английский перевод статьи ${id}`);
+      for (const block of translated.blocks) {
+        if (block.type === "markdown" && typeof block.text === "string") continue;
+        if (block.type === "entity" && entityById.has(block.ref)) continue;
+        fail(`некорректный блок английского перевода ${id}`);
+      }
+      article.englishEdition = translated;
+    }
+  }
+
   const referenced = new Set();
   for (const article of articles) {
     for (const block of article.blocks) {
@@ -525,7 +553,17 @@ export function buildRules({
     });
   }
 
-  for (const pack of packs.values()) decorateRulesPack(pack);
+  for (const pack of packs.values()) {
+    decorateRulesPack(pack);
+    for (const entity of pack.entities) {
+      if (!entity.director || !["monster", "retainer", "monster-feature"].includes(entity.kind)) continue;
+      const english = entity.englishEdition?.text || entity.originalDescription;
+      entity.printedCreature = {
+        ru: compileCreatureTree(entity.markdown, "ru"),
+        ...(english && { en: compileCreatureTree(english, "en") }),
+      };
+    }
+  }
 
   const manifestEntityMap = {};
   for (const entity of [...entities].sort((a, b) => compareStrings(a.id, b.id))) {
@@ -569,10 +607,38 @@ export function buildRules({
     })),
   }));
   expected.set(path.join(outDir, "search.json"), jsonText(searchIndex));
+  // Separate lazy lookup keeps English titles out of the initial navigation bundle.
+  const englishTitles = Object.fromEntries([...packs.values()]
+    .flatMap((pack) => pack.articles)
+    .filter((article) => (article.englishEdition?.title ?? article.originalName)?.trim())
+    .sort((a, b) => compareStrings(a.id, b.id))
+    .map((article) => [article.id, article.englishEdition?.title ?? article.originalName]));
+  expected.set(path.join(outDir, "english-titles.json"), jsonText(englishTitles));
+  // Article excerpts can be shorter than the translated chapter. Index each
+  // referenced entity as well, keeping the same article IDs for result links.
+  const englishSearch = [...articles].sort((a, b) => compareStrings(a.id, b.id)).map(article => {
+    const passages = new Set();
+    const blocks = article.englishEdition?.blocks ?? article.blocks;
+    if (article.englishEdition?.title) passages.add(article.englishEdition.title);
+    for (const block of blocks) if (block.type === "markdown") {
+      if (article.englishEdition) passages.add(block.text);
+      else if (block.originalText) passages.add(block.originalText);
+    }
+    for (const rule of [article, ...blocks.flatMap(block =>
+      block.type === "entity" ? [entityById.get(block.ref)] : [])]) {
+      if (rule?.englishEdition?.name) passages.add(rule.englishEdition.name);
+      if (rule?.englishEdition?.text) passages.add(rule.englishEdition.text);
+      if (rule?.originalName) passages.add(rule.originalName);
+      if (rule?.originalDescription) passages.add(rule.originalDescription);
+    }
+    return { id: article.id, text: [...passages].join(" ").replace(/\s+/g, " ").trim() };
+  });
+  expected.set(path.join(outDir, "search-en.json"), jsonText({ schemaVersion: 1, articles: englishSearch }));
+
   for (const [packId, pack] of [...packs.entries()].sort((a, b) =>
     compareStrings(a[0], b[0]),
   )) {
-    expected.set(path.join(outDir, "packs", `${packId}.json`), jsonText(pack));
+    expected.set(path.join(outDir, "packs", `${packId}.json`), deliveryPackText(pack));
   }
 
   // A reader needs one article and its referenced entities, not an entire chapter.
@@ -581,10 +647,13 @@ export function buildRules({
     pack.entities.map((entity) => [entity.id, entity])));
   for (const pack of packs.values()) {
     for (const article of pack.articles) {
-      const refs = new Set(article.blocks.filter((block) => block.type === "entity").map((block) => block.ref));
+      const refs = new Set([...article.blocks, ...(article.englishEdition?.blocks ?? [])].filter((block) => block.type === "entity").map((block) => block.ref));
+      for (const ref of refs) {
+        for (const signature of deliveryEntities.get(ref)?.englishSignatures ?? []) refs.add(signature.ref);
+      }
       const entities = [...refs].map((id) => deliveryEntities.get(id));
       if (entities.some((entity) => !entity)) throw new Error(`Missing article entity: ${article.id}`);
-      expected.set(path.join(outDir, "articles", `${article.id}.json`), jsonText({
+      expected.set(path.join(outDir, "articles", `${article.id}.json`), deliveryPackText({
         schemaVersion: 1, articles: [article], entities,
       }));
     }

@@ -1,3 +1,4 @@
+import { useLocale } from "../i18n/locale";
 import { useRef, useState } from "react";
 import { CharacterAvatar } from "../components/CharacterAvatar";
 import { Icon } from "../components/Icons";
@@ -7,7 +8,30 @@ import { useAccount } from "../state/StorageScope";
 import type { ThemeChoice } from "../lib/theme";
 import type { AppTheme, CharacterSummary } from "../types";
 import "./SettingsView.css";
-import { ART_ASSETS } from "../lib/art";
+import { useLocalizedData } from "../i18n/use-localized-data";
+import { loadEnglishArticleTitles } from "../rules/repository";
+import { readerLabel } from "../components/rules/reader-labels";
+import { ART_ASSETS, artworkCredit } from "../lib/art";
+
+const englishThemeNames: Record<string, string> = {
+  "Стальная ночь": "Steel Night",
+  "Тёплый костёр": "Warm Campfire",
+  "Лиловые сумерки": "Lilac Twilight",
+  "Светлый пергамент": "Light Parchment",
+  "Синяя глубина": "Blue Depths",
+  "Вечер с Котучино": "Catppuccin Evening",
+  "Тёмная классика": "Dark Classic",
+  "Светлая классика": "Light Classic",
+  "Обитель некроманта": "Necromancer’s Lair",
+  "Чёрный бархат": "Black Velvet",
+  "Полярная ночь": "Polar Night",
+  "Лунная роза": "Moon Rose",
+  "Неоновый драйв": "Neon Drive",
+  "Медный закат": "Copper Sunset",
+  "Чистый лист": "Blank Page",
+  "Утренний латте": "Morning Latte",
+  "Хвойный лес": "Pine Forest"
+};
 
 export function SettingsView({
   characters,
@@ -34,6 +58,7 @@ export function SettingsView({
   onExport: (id: string) => Promise<void>;
   onImport: (file: File) => Promise<void>;
 }) {
+  const { t, locale } = useLocale();
   const { character, notify } = useApp();
   const account = useAccount();
   const fileRef = useRef<HTMLInputElement>(null);
@@ -42,9 +67,10 @@ export function SettingsView({
   );
   const [busyId, setBusyId] = useState("");
 
+  const titles = useLocalizedData(locale, loadEnglishArticleTitles);
   const activeTheme = themeChoice.name;
 
-  const dateFormat = new Intl.DateTimeFormat("ru-RU", {
+  const dateFormat = new Intl.DateTimeFormat(locale, {
     day: "2-digit",
     month: "short",
     hour: "2-digit",
@@ -69,26 +95,26 @@ export function SettingsView({
       <header className="page-head">
         <h1 className="page-title">
           <Icon name="settings" size={26} />
-          Настройки
+          {t("Настройки", "Settings")}
         </h1>
       </header>
 
       <Panel
-        title="Мои персонажи"
+        title={t("Мои персонажи", "My characters")}
         icon="users"
         actions={
           <Button icon="plus" iconOnly size="sm" variant="soft" onClick={onNew}>
-            Новый герой
+            {t("Новый герой", "New hero")}
           </Button>
         }
       >
         {characters.length === 0 ? (
           <EmptyState
             icon="users"
-            title="Пока ни одного героя"
+            title={t("Пока ни одного героя", "No heroes yet")}
             action={
               <Button icon="plus" variant="primary" onClick={onNew}>
-                Создать героя
+                {t("Создать героя", "Create a hero")}
               </Button>
             }
           />
@@ -109,11 +135,11 @@ export function SettingsView({
                     {item.name}
                   </button>
                   <span className="character-row-meta">
-                    {[item.ancestry, item.className, `${item.level} ур.`]
+                    {[item.ancestry, item.className, t(`${item.level} ур.`, `Level ${item.level}`)]
                       .filter(Boolean)
                       .join(" · ")}
                     {item.updatedAt &&
-                      ` · изменён ${dateFormat.format(new Date(item.updatedAt))}`}
+                      ` · ${t("изменён", "updated")} ${dateFormat.format(new Date(item.updatedAt))}`}
                   </span>
                 </div>
                 <div className="character-row-actions">
@@ -122,19 +148,19 @@ export function SettingsView({
                     variant={item.id === currentId ? "soft" : "ghost"}
                     icon={item.id === currentId ? "check" : "sheet"}
                     iconOnly
-                    aria-label={`Открыть лист: ${item.name}`}
+                    aria-label={t(`Открыть лист: ${item.name}`, `Open sheet: ${item.name}`)}
                     aria-pressed={item.id === currentId}
                     onClick={() => onSelect(item.id)}
                   >
-                    {item.id === currentId ? "Открыт" : "Открыть"}
+                    {item.id === currentId ? t("Открыт", "Open") : t("Открыть", "Open")}
                   </Button>
                   <Button
                     size="sm"
                     variant="ghost"
                     icon="copy"
                     iconOnly
-                    title="Дублировать"
-                    aria-label={`Дублировать ${item.name}`}
+                    title={t("Дублировать", "Duplicate")}
+                    aria-label={t(`Дублировать ${item.name}`, `Duplicate ${item.name}`)}
                     disabled={busyId === item.id}
                     onClick={async () => {
                       setBusyId(item.id);
@@ -150,8 +176,8 @@ export function SettingsView({
                     variant="ghost"
                     icon="download"
                     iconOnly
-                    title="Экспорт JSON"
-                    aria-label={`Экспортировать ${item.name}`}
+                    title={t("Экспорт JSON", "Export JSON")}
+                    aria-label={t(`Экспортировать ${item.name}`, `Export ${item.name}`)}
                     onClick={() => void onExport(item.id)}
                   />
                   <Button
@@ -159,8 +185,8 @@ export function SettingsView({
                     variant="ghost"
                     icon="trash"
                     iconOnly
-                    title="Удалить"
-                    aria-label={`Удалить ${item.name}`}
+                    title={t("Удалить", "Delete")}
+                    aria-label={t(`Удалить ${item.name}`, `Delete ${item.name}`)}
                     disabled={busyId === item.id}
                     onClick={() => setDeleteTarget(item)}
                   />
@@ -172,7 +198,7 @@ export function SettingsView({
       </Panel>
 
       {account && (
-        <Panel title="Аккаунт" icon="users">
+        <Panel title={t("Аккаунт", "Account")} icon="users">
           <div className="settings-account">
             <span className="muted">{account.email}</span>
             <Button
@@ -182,21 +208,21 @@ export function SettingsView({
               disabled={account.signingOut}
               onClick={account.signOut}
             >
-              Выйти
+              {t("Выйти", "Sign out")}
             </Button>
           </div>
         </Panel>
       )}
 
-      <Panel title="Данные" icon="cloud">
+      <Panel title={t("Данные", "Data")} icon="cloud">
         <div className="data-actions">
-          <strong>Резервная копия</strong>
+          <strong>{t("Резервная копия", "Backup")}</strong>
           <div className="hstack wrap">
-            <Button icon="download" iconOnly aria-label="Скачать JSON текущего героя" onClick={() => void onExport(character.id)}>
-              Экспорт текущего
+            <Button icon="download" iconOnly aria-label={t("Скачать JSON текущего героя", "Download this hero as JSON")} onClick={() => void onExport(character.id)}>
+              {t("Экспорт текущего", "Export current hero")}
             </Button>
-            <Button icon="upload" iconOnly aria-label="Импортировать героя из JSON" onClick={() => fileRef.current?.click()}>
-              Импорт JSON
+            <Button icon="upload" iconOnly aria-label={t("Импортировать героя из JSON", "Import a hero from JSON")} onClick={() => fileRef.current?.click()}>
+              {t("Импорт JSON", "Import JSON")}
             </Button>
             <input
               ref={fileRef}
@@ -216,13 +242,13 @@ export function SettingsView({
       <section className="settings-theme-disclosure">
         <h3>
           <Icon name="palette" size={17} />
-          <span>Внешний вид</span>
-          <span className="settings-theme-current">{activeTheme}</span>
+          <span>{t("Внешний вид", "Appearance")}</span>
+          <span className="settings-theme-current">{t(activeTheme, englishThemeNames[activeTheme] || activeTheme)}</span>
 
         </h3>
         <div className="settings-theme-content">
           <p className="settings-theme-description">
-            Выберите цветовую схему. Все варианты подобраны с учётом контрастности текста.
+            {t("Выберите цветовую схему. Все варианты подобраны с учётом контрастности текста.", "Choose a color scheme. Each theme is designed for legible text.")}
           </p>
           <div className="theme-grid">
             {themes.map((theme) => {
@@ -246,8 +272,8 @@ export function SettingsView({
                       ))}
                     </span>
                   </span>
-                  <span className="theme-card-name">{theme.name}</span>
-                  <span className="theme-card-meta">{theme.mode === "light" ? "светлая" : "тёмная"}</span>
+                  <span className="theme-card-name">{t(theme.name, englishThemeNames[theme.name] || theme.name)}</span>
+                  <span className="theme-card-meta">{theme.mode === "light" ? t("светлая", "light") : t("тёмная", "dark")}</span>
                   {active && <Icon name="check" size={15} className="theme-card-check" />}
                 </button>
               );
@@ -256,12 +282,12 @@ export function SettingsView({
         </div>
       </section>
 
-      <Panel title="О листе" icon="book">
+      <Panel title={t("О листе", "About the sheet")} icon="book">
         <div className="about-grid">
           <div>
-            <span className="eyebrow">Правила</span>
+            <span className="eyebrow">{t("Правила", "Rules")}</span>
             <p>
-              Переведённые правила Draw Steel из репозитория{" "}
+              {t("Переведённые правила Draw Steel из репозитория", "Russian Draw Steel rules from")}{" "}
               <a
                 href="https://github.com/grigoryshulga/drawsteel-ru"
                 target="_blank"
@@ -273,46 +299,44 @@ export function SettingsView({
             </p>
           </div>
           <div>
-            <span className="eyebrow">Лист</span>
+            <span className="eyebrow">{t("Лист", "Sheet")}</span>
             <p>
-              Вдохновлён официальным листом MCDM и проектом Forge Steel.
-              Независимый фан-проект, не связанный с MCDM Productions, LLC.
+              {t("Вдохновлён официальным листом MCDM и проектом Forge Steel. Независимый фан-проект, не связанный с MCDM Productions, LLC.", "Inspired by the official MCDM character sheet and Forge Steel. An independent fan project unaffiliated with MCDM Productions, LLC.")}
             </p>
           </div>
           <div>
-            <span className="eyebrow">Иллюстрации</span>
+            <span className="eyebrow">{t("Иллюстрации", "Artwork")}</span>
             <p>
-              Официальная основа: © MCDM Productions, LLC, из{" "}
+              {t("Официальная основа: © MCDM Productions, LLC, из", "Original artwork © MCDM Productions, LLC, from")}{" "}
               <a
                 href="https://www.mcdmproductions.com/press"
                 target="_blank"
                 rel="noreferrer"
               >
-                пресс-материалов MCDM
+                {t("пресс-материалов MCDM", "the MCDM press kit")}
               </a>{" "}
-              и{" "}
+              {t("и", "and")}{" "}
               <a
                 href="https://shop.mcdmproductions.com/products/draw-steel-heroes-pdf"
                 target="_blank"
                 rel="noreferrer"
               >
-                превью книги
+                {t("превью книги", "the book preview")}
               </a>
-              . Иллюстрации адаптированы с AI. Дополнительные арты созданы для
-              листа с AI. Источник каждой иллюстрации указан в Кодексе.
+              {t(". Иллюстрации адаптированы с AI. Дополнительные арты созданы для листа с AI. Источник каждой иллюстрации указан в Кодексе.", ". Artwork was adapted using AI. Additional artwork was created for the sheet using AI. The Codex credits each illustration.")}
             </p>
             <section className="art-credits">
-              <h3>Источники иллюстраций ({ART_ASSETS.length})</h3>
+              <h3>{t("Источники иллюстраций", "Artwork credits")} ({ART_ASSETS.length})</h3>
               <ul>
                 {ART_ASSETS.map((art) => (
                   <li key={`${art.kind}:${art.name}`}>
-                    {art.name} —{" "}
+                    {art.kind === "class" ? readerLabel(art.name, locale) : titles?.[art.articleIds[0]] || art.name} —{" "}
                     {art.sourceUrl ? (
                       <a href={art.sourceUrl} target="_blank" rel="noreferrer">
-                        {art.credit}
+                        {artworkCredit(art, locale)}
                       </a>
                     ) : (
-                      art.credit
+                      artworkCredit(art, locale)
                     )}
                   </li>
                 ))}
@@ -320,7 +344,7 @@ export function SettingsView({
             </section>
           </div>
           <div>
-            <span className="eyebrow">Версия</span>
+            <span className="eyebrow">{t("Версия", "Version")}</span>
             <p className="mono">
               1.0.0 · Draw Steel™ &amp; © 2025 MCDM Productions LLC
             </p>
@@ -331,25 +355,24 @@ export function SettingsView({
       <Modal
         open={deleteTarget !== null}
         onClose={() => setDeleteTarget(null)}
-        title="Удалить персонажа?"
+        title={t("Удалить персонажа?", "Delete character?")}
         footer={
           <>
             <Button variant="ghost" onClick={() => setDeleteTarget(null)}>
-              Отмена
+              {t("Отмена", "Cancel")}
             </Button>
             <Button
               variant="danger"
               icon="trash"
               onClick={() => void confirmDelete()}
             >
-              Удалить навсегда
+              {t("Удалить навсегда", "Delete permanently")}
             </Button>
           </>
         }
       >
         <p>
-          Персонаж <strong>{deleteTarget?.name}</strong> будет удалён с сервера.
-          Сначала можно сделать экспорт JSON — отменить удаление нельзя.
+          <strong>{deleteTarget?.name}</strong> {t("будет удалён с сервера. Сначала можно сделать экспорт JSON — отменить удаление нельзя.", "will be deleted from the server. You can export a backup first. Deletion is permanent.")}
         </p>
         {deleteTarget && (
           <Button
@@ -357,10 +380,10 @@ export function SettingsView({
             icon="download"
             onClick={async () => {
               await onExport(deleteTarget.id);
-              notify("Резервная копия сохранена", "success");
+              notify(t("Резервная копия сохранена", "Backup saved"), "success");
             }}
           >
-            Сначала экспортировать
+            {t("Сначала экспортировать", "Export first")}
           </Button>
         )}
       </Modal>

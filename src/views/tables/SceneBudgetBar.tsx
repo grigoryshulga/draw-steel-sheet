@@ -1,7 +1,9 @@
+import { useLocale } from "../../i18n/locale";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
 
 export function SceneBudgetBar({ cost, standardMax, hardMax, floatingEnabled = true }: { cost: number; standardMax: number; hardMax: number; floatingEnabled?: boolean }) {
+  const { t: tr } = useLocale();
   const anchor = useRef<HTMLDivElement>(null);
   const [floating, setFloating] = useState<{ top: number; left: number; width: number } | null>(null);
   useEffect(() => {
@@ -29,17 +31,17 @@ export function SceneBudgetBar({ cost, standardMax, hardMax, floatingEnabled = t
     measure();
     return () => { cancelAnimationFrame(frame); resize.disconnect(); window.removeEventListener("scroll", schedule, true); window.removeEventListener("resize", schedule); };
   }, [floatingEnabled]);
-  const label = `Потрачено: ${cost} БЦ. ${cost > hardMax ? `Лимит превышен на ${cost - hardMax} БЦ` : standardMax >= cost ? `Осталось до стандартного боя: ${standardMax - cost} БЦ` : `Выше стандартного бюджета на ${cost - standardMax} БЦ`}`;
+  const label = tr(`Потрачено: ${cost} БЦ. ${cost > hardMax ? `Лимит превышен на ${cost - hardMax} БЦ` : standardMax >= cost ? tr(`Осталось до стандартного боя: ${standardMax - cost} БЦ`, `${standardMax - cost} EV left before standard encounter`) : tr(`Выше стандартного бюджета на ${cost - standardMax} БЦ`, `${cost - standardMax} EV over standard budget`)}`, `Spent: ${cost} EV. ${cost > hardMax ? `Over limit by ${cost - hardMax} EV` : standardMax >= cost ? `${standardMax - cost} EV left before standard encounter` : `${cost - standardMax} EV over standard budget`}`);
   const limit = Math.max(1, hardMax);
   const boundary = Math.min(100, standardMax / limit * 100);
   const fill = Math.min(100, Math.max(0, cost / limit * 100));
   const over = cost > hardMax;
-  const meter = <div className={`scene-budget-track${over ? " is-over" : ""}`} role="meter" aria-label={label} aria-valuemin={0} aria-valuemax={limit} aria-valuenow={Math.min(cost, limit)} aria-valuetext={`${cost} БЦ из ${hardMax}. ${over ? `Лимит превышен на ${cost - hardMax} БЦ` : cost > standardMax ? "Трудный бой" : "Стандартный бой"}`} style={{ "--budget-boundary": `${boundary}%`, "--budget-fill": `${fill}%` } as CSSProperties}>
+  const meter = <div className={`scene-budget-track${over ? " is-over" : ""}`} role="meter" aria-label={label} aria-valuemin={0} aria-valuemax={limit} aria-valuenow={Math.min(cost, limit)} aria-valuetext={label} style={{ "--budget-boundary": `${boundary}%`, "--budget-fill": `${fill}%` } as CSSProperties}>
     <span className="scene-budget-track-fill" /><span className="scene-budget-track-divider" />
   </div>;
   return <>
     <div ref={anchor} className="scene-budget-spending">
-      <div><strong>Потрачено: {cost} БЦ</strong><span>{standardMax >= cost ? `Осталось до стандартного боя: ${standardMax - cost} БЦ` : `Выше стандартного бюджета на ${cost - standardMax} БЦ`}</span></div>
+      <div><strong>{tr("Потрачено", "Spent")}: {cost} {tr("БЦ", "EV")}</strong><span>{standardMax >= cost ? tr(`Осталось до стандартного боя: ${standardMax - cost} БЦ`, `${standardMax - cost} EV left before standard encounter`) : tr(`Выше стандартного бюджета на ${cost - standardMax} БЦ`, `${cost - standardMax} EV over standard budget`)}</span></div>
       {meter}
     </div>
     {floating && createPortal(<div className="scene-budget-mini" style={floating} title={label}>{meter}</div>, document.body)}

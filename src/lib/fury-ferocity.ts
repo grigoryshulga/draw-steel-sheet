@@ -10,6 +10,7 @@ export interface FerocityRow {
   threshold: number;
   level: number;
   description: string;
+  originalDescription?: string;
   available: boolean;
   active: boolean;
   retained: boolean;
@@ -42,7 +43,7 @@ export function growingFerocityState(character: Character): GrowingFerocityState
     if (!feature.id.includes("growing-ferocity") || threshold?.name !== "Свирепость") return [];
     const available = feature.level <= character.level;
     const active = available && threshold.value <= effective;
-    return [{ id: feature.id, threshold: threshold.value, level: feature.level, description: feature.description,
+    return [{ id: feature.id, threshold: threshold.value, level: feature.level, description: feature.description, originalDescription: feature.originalDescription,
       available, active, retained: active && threshold.value > current }];
   }).sort((a, b) => a.threshold - b.threshold);
   for (const row of rows) {

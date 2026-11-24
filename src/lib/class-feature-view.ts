@@ -78,6 +78,8 @@ export interface FeatureSheetTrigger {
 }
 
 export interface FeatureSheetItem {
+  originalName?: string;
+  originalDescription?: string;
   id: string;
   name: string;
   level: number;
@@ -896,6 +898,8 @@ function sheetItem(
   return {
     id: feature.id,
     name: feature.name,
+    originalName: feature.originalName,
+    originalDescription: feature.originalDescription,
     level: feature.level,
     category: featureSheetCategory(feature),
     passive: featureIsPassive(feature),

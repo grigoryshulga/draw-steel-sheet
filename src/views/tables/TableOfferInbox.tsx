@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Button, Modal } from "../../components/ui";
 import { useStorageScope } from "../../state/StorageScope";
@@ -44,6 +45,7 @@ export function TableOfferInbox({
   beforeAnswer: () => Promise<void>;
   afterAnswer: () => Promise<void>;
 }) {
+  const { t: tr } = useLocale();
   const scope = useStorageScope();
   const key = `draw-steel:table-offer-answers:v1:${scope}`;
   const [incoming, setIncoming] = useState<Incoming[]>([]);
@@ -115,7 +117,7 @@ export function TableOfferInbox({
               persist();
               if (offer?.status === "pending")
                 setError(
-                  "Эффекты предмета изменились. Ознакомьтесь с новой версией и выберите заново.",
+                  tr("Эффекты предмета изменились. Ознакомьтесь с новой версией и выберите заново.", "The item effects changed. Review the new version and choose again."),
                 );
               continue;
             }
@@ -159,7 +161,7 @@ export function TableOfferInbox({
                   heroName:
                     table.members.find(
                       (member) => member.hero?.id === offer.heroId,
-                    )?.hero?.name ?? "Герой",
+                    )?.hero?.name ?? tr("Герой", "Hero"),
                   offer,
                 });
             }
@@ -208,7 +210,7 @@ export function TableOfferInbox({
       await refreshRef.current();
     } catch {
       setError(
-        "Не удалось сохранить ответ на устройстве. Освободите место и повторите.",
+        tr("Не удалось сохранить ответ на устройстве. Освободите место и повторите.", "Could not save your response on this device. Free some space and try again."),
       );
     } finally {
       setBusy(false);
@@ -219,7 +221,7 @@ export function TableOfferInbox({
     <>
       {incoming.length > 0 && !current && (
         <div className="table-notice table-inbox-notice" role="status">
-          <span>Предложения предметов: {incoming.length}</span>
+          <span>{tr("Предложения предметов", "Item offers")}: {incoming.length}</span>
           <Button iconOnly icon="eye"
             size="sm"
             onClick={() =>
@@ -230,34 +232,34 @@ export function TableOfferInbox({
               })
             }
           >
-            Посмотреть
+            {tr("Посмотреть", "View")}
           </Button>
         </div>
       )}
       {waiting > 0 && (
         <div className="table-notice" role="status">
-          Ответы на предложения ожидают подтверждения сервера: {waiting}.
-          Предметы пока не получены.
+          {tr("Ответы на предложения ожидают подтверждения сервера", "Offer responses await server confirmation")}: {waiting}.
+          {tr("Предметы пока не получены.", "Items have not been received yet.")}
         </div>
       )}
       <Modal
         open={!!current}
         onClose={postpone}
-        title="Вам предложен предмет"
+        title={tr("Вам предложен предмет", "You have an item offer")}
         footer={
           <>
             <Button variant="ghost" onClick={postpone}>
-              Позже
+              {tr("Позже", "Later")}
             </Button>
             <Button disabled={busy} onClick={() => void answer(false)}>
-              Отклонить
+              {tr("Отклонить", "Decline")}
             </Button>
             <Button
               variant="primary"
               disabled={busy}
               onClick={() => void answer(true)}
             >
-              Принять
+              {tr("Принять", "Accept")}
             </Button>
           </>
         }
@@ -265,7 +267,7 @@ export function TableOfferInbox({
         {current && (
           <>
             <p className="muted">
-              {current.heroName} · Стол «{current.tableName}»
+              {current.heroName} · {tr("Стол", "Table")} «{current.tableName}»
             </p>
             <h3>
               {current.offer.item.name} × {current.offer.item.qty}
@@ -279,13 +281,12 @@ export function TableOfferInbox({
             </Suspense>
             {current.offer.item.effects?.map((effect, i) => (
               <p key={i}>
-                {effectNames[effect.field]}: {effect.value > 0 ? "+" : ""}
+                {tr(effectNames[effect.field], ({ stamina: "Stamina", recoveries: "Recoveries", speed: "Speed", stability: "Stability", disengage: "Disengage", save: "Saving throws", rolledDamage: "Rolled damage", freeStrikeDamage: "Free strike damage" } as Record<string, string>)[effect.field] ?? effectNames[effect.field])}: {effect.value > 0 ? "+" : ""}
                 {effect.value}
               </p>
             ))}
             <p>
-              Предмет попадёт в инвентарь указанного героя после подтверждения
-              сервера и не будет экипирован автоматически.
+              {tr("Предмет попадёт в инвентарь указанного героя после подтверждения сервера и не будет экипирован автоматически.", "The item will enter this hero’s inventory after server confirmation and will not be equipped automatically.")}
             </p>
           </>
         )}

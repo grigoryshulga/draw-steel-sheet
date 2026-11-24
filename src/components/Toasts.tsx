@@ -1,3 +1,4 @@
+import { useLocale } from "../i18n/locale";
 import { Icon } from "./Icons";
 
 export interface ToastMessage {
@@ -13,6 +14,7 @@ export function Toasts({
   toasts: ToastMessage[];
   onDismiss: (id: number) => void;
 }) {
+  const { t } = useLocale();
   if (toasts.length === 0) return null;
 
   return (
@@ -37,7 +39,7 @@ export function Toasts({
             type="button"
             className="toast-close"
             onClick={() => onDismiss(toast.id)}
-            aria-label="Скрыть уведомление"
+            aria-label={t("Скрыть уведомление", "Dismiss notification")}
           >
             <Icon name="close" size={14} />
           </button>

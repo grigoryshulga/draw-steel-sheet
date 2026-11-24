@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useRef, useState, type ChangeEvent } from "react";
 import { Icon } from "../../components/Icons";
 import { deleteAvatar, uploadAvatar } from "../../lib/api";
@@ -14,6 +15,7 @@ import "./Portrait.css";
  * кнопку-глиф; у загруженного портрета действия появляются на наведении.
  */
 export function Portrait() {
+  const { t } = useLocale();
   const { character, update, notify } = useApp();
   const inputRef = useRef<HTMLInputElement>(null);
   const [busy, setBusy] = useState(false);
@@ -37,10 +39,10 @@ export function Portrait() {
       update((current) =>
         current.id === targetId ? { ...current, avatar } : current,
       );
-      notify("Портрет обновлён", "success");
+      notify(t("Портрет обновлён", "Portrait updated"), "success");
     } catch (error) {
       notify(
-        error instanceof Error ? error.message : "Не удалось загрузить портрет",
+        error instanceof Error ? error.message : t("Не удалось загрузить портрет", "Could not upload portrait"),
         "error",
       );
     } finally {
@@ -57,10 +59,10 @@ export function Portrait() {
       update((current) =>
         current.id === targetId ? { ...current, avatar: undefined } : current,
       );
-      notify("Портрет удалён", "success");
+      notify(t("Портрет удалён", "Portrait removed"), "success");
     } catch (error) {
       notify(
-        error instanceof Error ? error.message : "Не удалось удалить портрет",
+        error instanceof Error ? error.message : t("Не удалось удалить портрет", "Could not remove portrait"),
         "error",
       );
     } finally {
@@ -82,15 +84,15 @@ export function Portrait() {
     <div className={className} aria-busy={busy}>
       {avatar ? (
         <>
-          <img src={avatar.url} alt={`Портрет: ${character.name}`} />
+          <img src={avatar.url} alt={t(`Портрет: ${character.name}`, `Portrait: ${character.name}`)} />
           <div className="sheet-portrait-actions">
             <button
               type="button"
               className="sheet-portrait-icon-btn"
               onClick={openPicker}
               disabled={busy}
-              aria-label="Изменить портрет"
-              title="Изменить портрет"
+              aria-label={t("Изменить портрет", "Edit portrait")}
+              title={t("Изменить портрет", "Edit portrait")}
             >
               <Icon name="edit" size={15} />
             </button>
@@ -99,8 +101,8 @@ export function Portrait() {
               className="sheet-portrait-icon-btn is-danger"
               onClick={handleRemove}
               disabled={busy}
-              aria-label="Удалить портрет"
-              title="Удалить портрет"
+              aria-label={t("Удалить портрет", "Remove portrait")}
+              title={t("Удалить портрет", "Remove portrait")}
             >
               <Icon name="trash" size={15} />
             </button>
@@ -122,8 +124,8 @@ export function Portrait() {
             className="sheet-portrait-upload"
             onClick={openPicker}
             disabled={busy}
-            aria-label={busy ? "Загрузка портрета" : "Загрузить портрет"}
-            title="Загрузить портрет"
+            aria-label={busy ? t("Загрузка портрета", "Uploading portrait") : t("Загрузить портрет", "Upload portrait")}
+            title={t("Загрузить портрет", "Upload portrait")}
           >
             <Icon name="upload" size={15} />
           </button>

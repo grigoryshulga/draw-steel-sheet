@@ -1,3 +1,5 @@
+import { useLocale } from "../../i18n/locale";
+import { SKILL_ORIGINALS } from "../../data/skills";
 import { useState } from "react";
 import { Button, Chip, Field, NumberInput, Select, Toggle } from "../../components/ui";
 import { TierBadge } from "../../components/TierBadge";
@@ -18,6 +20,7 @@ const timeFormat = new Intl.DateTimeFormat("ru-RU", { hour: "2-digit", minute: "
 /** Панель броска силы: параметры, результат с тирами и сессионный журнал. */
 export function PowerRollPanel({ onRoll, lastRoll, log }: Props) {
   const { character } = useApp();
+  const { t, locale } = useLocale();
   const [key, setKey] = useState<CharacteristicKey>("might");
   const [edges, setEdges] = useState(0);
   const [banes, setBanes] = useState(0);
@@ -47,58 +50,58 @@ export function PowerRollPanel({ onRoll, lastRoll, log }: Props) {
     <div className="roll-panel-content">
       <div className="roll-controls">
         <div className="roll-controls-row">
-          <Field label="Характеристика" className="roll-char-field">
+          <Field label={t("Характеристика", "Characteristic")} className="roll-char-field">
             <Select
               value={key}
-              aria-label="Характеристика броска силы"
+              aria-label={t("Характеристика броска силы", "Power roll characteristic")}
               onChange={(event) => setKey(event.target.value as CharacteristicKey)}
             >
               {CHARACTERISTICS.map((meta) => (
                 <option key={meta.key} value={meta.key}>
-                  {meta.label}
+                  {locale === "en" ? ({ might: "Might", agility: "Agility", reason: "Reason", intuition: "Intuition", presence: "Presence" } as const)[meta.key] : meta.label}
                 </option>
               ))}
             </Select>
           </Field>
-          <span className="chip chip-static chip-accent roll-char-value" title="Значение выбранной характеристики">
+          <span className="chip chip-static chip-accent roll-char-value" title={t("Значение выбранной характеристики", "Selected characteristic value")}>
             {formatBonus(charValue)}
           </span>
         </div>
 
         <div className="roll-modifiers">
           <div className="roll-modifier">
-            <span className="roll-chip-label eyebrow">Преим.</span>
-            <div className="roll-chips" role="group" aria-label="Преимущества">
+            <span className="roll-chip-label eyebrow">{t("Преим.", "Edges")}</span>
+            <div className="roll-chips" role="group" aria-label={t("Преимущества", "Edges")}>
               {[0, 1, 2].map((count) => (
                 <Chip
                   key={count}
                   active={edges === count}
-                  title={count === 0 ? "Без преимущества" : count === 1 ? "Преимущество: +2 к броску" : "Двойное преимущество: +1 тир"}
+                  title={count === 0 ? t("Без преимущества", "No edge") : count === 1 ? t("Преимущество: +2 к броску", "Edge: +2 to roll") : t("Двойное преимущество: +1 тир", "Double edge: +1 tier")}
                   onClick={() => {
                     setEdges(count);
                     if (count > 0) setBanes(0);
                   }}
                 >
-                  {count === 0 ? "нет" : `×${count}`}
+                  {count === 0 ? t("нет", "none") : `×${count}`}
                 </Chip>
               ))}
             </div>
           </div>
 
           <div className="roll-modifier">
-            <span className="roll-chip-label eyebrow">Помеха</span>
-            <div className="roll-chips" role="group" aria-label="Помехи">
+            <span className="roll-chip-label eyebrow">{t("Помеха", "Banes")}</span>
+            <div className="roll-chips" role="group" aria-label={t("Помехи", "Banes")}>
               {[0, 1, 2].map((count) => (
                 <Chip
                   key={count}
                   active={banes === count}
-                  title={count === 0 ? "Без помехи" : count === 1 ? "Помеха: −2 к броску" : "Двойная помеха: −1 тир"}
+                  title={count === 0 ? t("Без помехи", "No bane") : count === 1 ? t("Помеха: −2 к броску", "Bane: −2 to roll") : t("Двойная помеха: −1 тир", "Double bane: −1 tier")}
                   onClick={() => {
                     setBanes(count);
                     if (count > 0) setEdges(0);
                   }}
                 >
-                  {count === 0 ? "нет" : `×${count}`}
+                  {count === 0 ? t("нет", "none") : `×${count}`}
                 </Chip>
               ))}
             </div>
@@ -107,17 +110,17 @@ export function PowerRollPanel({ onRoll, lastRoll, log }: Props) {
 
         <div className="roll-secondary-row">
           {character.skills.length > 0 && (
-            <Field label="Навык (+2)" className="roll-skill-field">
+            <Field label={t("Навык (+2)", "Skill (+2)")} className="roll-skill-field">
               <div className="roll-skill-control">
                 <Select
                   value={skill}
-                  aria-label="Применимый навык"
+                  aria-label={t("Применимый навык", "Applicable skill")}
                   onChange={(event) => setSkill(event.target.value)}
                 >
-                  <option value="">Без навыка</option>
+                  <option value="">{t("Без навыка", "No skill")}</option>
                   {character.skills.map((item) => (
                     <option key={item} value={item}>
-                      {item}
+                      {locale === "en" ? SKILL_ORIGINALS[item]?.originalName || item : item}
                     </option>
                   ))}
                 </Select>
@@ -126,10 +129,10 @@ export function PowerRollPanel({ onRoll, lastRoll, log }: Props) {
             </Field>
           )}
 
-          <Field label="Бонус" className="roll-bonus-field">
+          <Field label={t("Бонус", "Bonus")} className="roll-bonus-field">
             <NumberInput
               value={bonus}
-              label="Числовой бонус к броску"
+              label={t("Числовой бонус к броску", "Roll bonus")}
               className="tiny-num"
               onChange={setBonus}
             />
@@ -138,14 +141,14 @@ export function PowerRollPanel({ onRoll, lastRoll, log }: Props) {
           <div className="roll-main-action">
             <Toggle
               checked={isMainAction}
-              label="Основное действие"
+              label={t("Основное действие", "Main action")}
               onChange={setIsMainAction}
             />
           </div>
         </div>
 
         <Button variant="primary" icon="dice" onClick={roll} className="roll-submit">
-          Бросить 2d10
+          {t("Бросить 2d10", "Roll 2d10")}
         </Button>
       </div>
 
@@ -159,7 +162,7 @@ export function PowerRollPanel({ onRoll, lastRoll, log }: Props) {
               </div>
               <span className="roll-total numeric">{lastRoll.result.total}</span>
               <TierBadge tier={lastRoll.result.tier} size="lg" />
-              {lastRoll.result.crit && <span className="roll-crit">крит</span>}
+              {lastRoll.result.crit && <span className="roll-crit">{t("крит", "critical")}</span>}
             </div>
             <p className="roll-detail mono small">
               {lastRoll.label}: {lastRoll.detail} → {lastRoll.result.total}
@@ -171,14 +174,14 @@ export function PowerRollPanel({ onRoll, lastRoll, log }: Props) {
 
       {log.length > 0 && (
         <div className="roll-log-wrap">
-          <span className="eyebrow">Журнал бросков</span>
+          <span className="eyebrow">{t("Журнал бросков", "Roll history")}</span>
           <ul className="roll-log">
             {log.map((entry) => (
               <li key={entry.id}>
                 <TierBadge tier={entry.result.tier} size="sm" />
                 <span className="roll-log-label">{entry.label}</span>
                 <span className="numeric roll-log-total">{entry.result.total}</span>
-                {entry.result.crit && <span className="roll-crit">крит</span>}
+                {entry.result.crit && <span className="roll-crit">{t("крит", "critical")}</span>}
                 <span className="roll-log-time mono small muted">{timeFormat.format(entry.at)}</span>
               </li>
             ))}

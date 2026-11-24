@@ -91,7 +91,72 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
       "originalName": "6th-Level Features",
-      "originalDescription": "As a 6th-level troubadour, you gain the following features."
+      "originalDescription": "As a 6th-level troubadour, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "6th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 6th-level troubadour, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-6.perk"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.troubadour.level-6.spotlight"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-6.spotlight"
+          },
+          {
+            "type": "markdown",
+            "text": "## 6th-Level Class Act Ability\n\nYour troubadour class act grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Auteur Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-6.heres-how-your-story-ends"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-6.youre-all-my-understudies"
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Duelist Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-6.blood-on-the-stage"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-6.fight-choreography"
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Virtuoso Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-6.feedback"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.troubadour.level-6.legendary-drum-fill"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -106,7 +171,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-6/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice."
+      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-6.spotlight",
@@ -119,7 +187,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-6/spotlight",
       "originalName": "Spotlight",
-      "originalDescription": "You have the following performance ability, which is usable with your Routines feature."
+      "originalDescription": "You have the following performance ability, which is usable with your Routines feature.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-6.spotlight",
@@ -174,7 +245,27 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/spotlight",
       "originalName": "Spotlight",
-      "originalDescription": "*The audience is watching, so you'd better give them a show.*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains 1 of their Heroic Resource. This Heroic Resource disappears at the end of the target's turn if they don't spend it."
+      "originalDescription": "*The audience is watching, so you'd better give them a show.*\n\n| **Area, Magic, Performance** |                         **No action** |\n|------------------------------|--------------------------------------:|\n| **📏 5 aura**                | **🎯 Self and each ally in the area** |\n\n**Effect:** While this performance is active, each target who starts their turn in the area gains 1 of their Heroic Resource. This Heroic Resource disappears at the end of the target's turn if they don't spend it.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The audience is watching, so you'd better give them a show.",
+        "facts": {
+          "action": "No action",
+          "distance": [
+            "5 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Performance"
+          ]
+        },
+        "effect": "While this performance is active, each target who starts their turn in the area gains 1 of their Heroic Resource. This Heroic Resource disappears at the end of the target's turn if they don't spend it."
+      }
     },
     {
       "id": "feature.troubadour.level-6.6th-level-class-act-ability",
@@ -187,7 +278,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.troubadour.level-6/6th-level-class-act-ability",
       "originalName": "6th-Level Class Act Ability",
-      "originalDescription": "Your troubadour class act grants your choice of one of two heroic abilities.\n\n##### 6th-Level Auteur Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Duelist Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Virtuoso Abilities\n\nChoose one of the following abilities."
+      "originalDescription": "Your troubadour class act grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.troubadour.level-6.auteur-abilities",
@@ -200,7 +294,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Auteur Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-6.heres-how-your-story-ends",
@@ -256,7 +353,52 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/heres-how-your-story-ends",
       "originalName": "Here's How Your Story Ends",
-      "originalDescription": "*You give away the ending of this battle, and it's not great for them.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 5 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 5 psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 7 psychic damage; P < STRONG, frightened (save ends)"
+      "originalDescription": "*You give away the ending of this battle, and it's not great for them.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 5 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 2 psychic damage; P < WEAK, frightened (save ends)\n- **12-16:** 5 psychic damage; P < AVERAGE, frightened (save ends)\n- **17+:** 7 psychic damage; P < STRONG, frightened (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You give away the ending of this battle, and it's not great for them.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "5 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2",
+                "type": "psychic"
+              },
+              "effect": "P < WEAK, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "5",
+                "type": "psychic"
+              },
+              "effect": "P < AVERAGE, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "7",
+                "type": "psychic"
+              },
+              "effect": "P < STRONG, frightened (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.troubadour.level-6.youre-all-my-understudies",
@@ -310,7 +452,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/youre-all-my-understudies",
       "originalName": "You're All My Understudies",
-      "originalDescription": "*It's important for everyone to know each other's lines, just in case...*\n\n| **Area, Magic** |                 **Maneuver** |\n|-----------------|-----------------------------:|\n| **📏 5 burst**  | **🎯 Each ally in the area** |\n\n**Effect:** Until the end of the encounter, each target gains the speed bonus, weapon distance bonus, disengage bonus, and stability bonus of your currently equipped kit in addition to their own kit's bonuses."
+      "originalDescription": "*It's important for everyone to know each other's lines, just in case...*\n\n| **Area, Magic** |                 **Maneuver** |\n|-----------------|-----------------------------:|\n| **📏 5 burst**  | **🎯 Each ally in the area** |\n\n**Effect:** Until the end of the encounter, each target gains the speed bonus, weapon distance bonus, disengage bonus, and stability bonus of your currently equipped kit in addition to their own kit's bonuses.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "It's important for everyone to know each other's lines, just in case...",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "5 burst"
+          ],
+          "target": "Each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter, each target gains the speed bonus, weapon distance bonus, disengage bonus, and stability bonus of your currently equipped kit in addition to their own kit's bonuses."
+      }
     },
     {
       "id": "feature.troubadour.level-6.duelist-abilities",
@@ -323,7 +484,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Duelist Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-6.blood-on-the-stage",
@@ -380,7 +544,54 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/blood-on-the-stage",
       "originalName": "Blood on the Stage",
-      "originalDescription": "*It's love and blood or drama and blood. Either way, there's always blood.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage; M < WEAK, bleeding (save ends)\n- **12-16:** 18 + A damage; M < AVERAGE, bleeding (save ends)\n- **17+:** 24 + A damage; bleeding (EoT), or if M < STRONG, bleeding (save ends)"
+      "originalDescription": "*It's love and blood or drama and blood. Either way, there's always blood.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 12 + A damage; M < WEAK, bleeding (save ends)\n- **12-16:** 18 + A damage; M < AVERAGE, bleeding (save ends)\n- **17+:** 24 + A damage; bleeding (EoT), or if M < STRONG, bleeding (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "It's love and blood or drama and blood. Either way, there's always blood.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "12 + A"
+              },
+              "effect": "M < WEAK, bleeding (save ends)"
+            },
+            {
+              "damage": {
+                "value": "18 + A"
+              },
+              "effect": "M < AVERAGE, bleeding (save ends)"
+            },
+            {
+              "damage": {
+                "value": "24 + A"
+              },
+              "effect": "bleeding (EoT), or if M < STRONG, bleeding (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.troubadour.level-6.fight-choreography",
@@ -435,7 +646,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/fight-choreography",
       "originalName": "Fight Choreography",
-      "originalDescription": "*You and your partner make a flashy show of derring-do, then get back to your corners.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You and the target each make a melee free strike that targets each enemy within 3 squares of either of you, dividing the enemies between each of you. You choose which enemies your free strike targets and which enemies the target creature's free strike targets. You then slide the target 5 squares, ignoring stability."
+      "originalDescription": "*You and your partner make a flashy show of derring-do, then get back to your corners.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** You and the target each make a melee free strike that targets each enemy within 3 squares of either of you, dividing the enemies between each of you. You choose which enemies your free strike targets and which enemies the target creature's free strike targets. You then slide the target 5 squares, ignoring stability.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You and your partner make a flashy show of derring-do, then get back to your corners.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "effect": "You and the target each make a melee free strike that targets each enemy within 3 squares of either of you, dividing the enemies between each of you. You choose which enemies your free strike targets and which enemies the target creature's free strike targets. You then slide the target 5 squares, ignoring stability."
+      }
     },
     {
       "id": "feature.troubadour.level-6.virtuoso-abilities",
@@ -448,7 +683,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Virtuoso Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.troubadour.level-6.feedback",
@@ -504,7 +742,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/feedback",
       "originalName": "Feedback",
-      "originalDescription": "*Your music pounds the crowd to the beat until their hearts can't stand it anymore.*\n\n| **Area, Magic**               |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 Three 3 cubes within 1** | **🎯 Each enemy in the area** |\n\n**Effect:** A prone target ignores this ability.\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 sonic damage; P < WEAK, prone\n- **12-16:** 10 sonic damage; P < AVERAGE, prone\n- **17+:** 13 sonic damage; P < STRONG, prone"
+      "originalDescription": "*Your music pounds the crowd to the beat until their hearts can't stand it anymore.*\n\n| **Area, Magic**               |               **Main action** |\n|-------------------------------|------------------------------:|\n| **📏 Three 3 cubes within 1** | **🎯 Each enemy in the area** |\n\n**Effect:** A prone target ignores this ability.\n\n**Power Roll + Presence:**\n\n- **≤11:** 7 sonic damage; P < WEAK, prone\n- **12-16:** 10 sonic damage; P < AVERAGE, prone\n- **17+:** 13 sonic damage; P < STRONG, prone",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your music pounds the crowd to the beat until their hearts can't stand it anymore.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Three 3 cubes within ",
+            {
+              "mode": "within",
+              "value": 1
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "beforeRoll": "**Effect:** A prone target ignores this ability.",
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "7",
+                "type": "sonic"
+              },
+              "effect": "P < WEAK, prone"
+            },
+            {
+              "damage": {
+                "value": "10",
+                "type": "sonic"
+              },
+              "effect": "P < AVERAGE, prone"
+            },
+            {
+              "damage": {
+                "value": "13",
+                "type": "sonic"
+              },
+              "effect": "P < STRONG, prone"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.troubadour.level-6.legendary-drum-fill",
@@ -558,7 +846,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.troubadour.level-6/legendary-drum-fill",
       "originalName": "Legendary Drum Fill",
-      "originalDescription": "*You start a drumroll that roars like thunder with every impact the heroes make.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 4 burst**  | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target gains 1 surge, then gains 1 surge at the start of each combat round until the end of the encounter."
+      "originalDescription": "*You start a drumroll that roars like thunder with every impact the heroes make.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 4 burst**  | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target gains 1 surge, then gains 1 surge at the start of each combat round until the end of the encounter.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You start a drumroll that roars like thunder with every impact the heroes make.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "4 burst"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Each target gains 1 surge, then gains 1 surge at the start of each combat round until the end of the encounter."
+      }
     }
   ]
 }

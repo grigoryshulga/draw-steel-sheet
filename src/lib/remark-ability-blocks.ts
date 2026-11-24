@@ -1,3 +1,4 @@
+import { headingId } from "./codex";
 import type {
   Root,
   Blockquote,
@@ -242,6 +243,50 @@ export function remarkAbilityBlocks() {
       }
     }
     visit(tree.children);
+  };
+}
+
+/**
+ * SCC's English books print embedded hero abilities as a Markdown heading,
+ * optional flavor paragraph and a 2×2 distance/target table. Normalize only
+ * this distinctive shape for the shared director/hero card parser. The empty
+ * anchor keeps the existing heading URL and TOC target stable.
+ */
+export function remarkEnglishEmbeddedAbilities() {
+  return (tree: Root) => {
+    const visit = (nodes: RootContent[]): RootContent[] => {
+      const result: RootContent[] = [];
+      for (let i = 0; i < nodes.length; i++) {
+        const heading = nodes[i];
+        if (heading.type !== "heading") {
+          if (heading.type === "blockquote") heading.children = visit(heading.children) as Blockquote["children"];
+          result.push(heading);
+          continue;
+        }
+        let tableIndex = i + 1;
+        const next = nodes[tableIndex];
+        if (next?.type === "paragraph" && next.children.length === 1 && next.children[0].type === "emphasis") tableIndex++;
+        const table = nodes[tableIndex];
+        if (table?.type !== "table" || table.children.length !== 2 ||
+            table.children.some((row) => row.children.length !== 2) ||
+            !text(table.children[1].children[0]).includes("📏") ||
+            !text(table.children[1].children[1]).includes("🎯")) {
+          result.push(heading);
+          continue;
+        }
+        let end = tableIndex + 1;
+        while (end < nodes.length && nodes[end].type !== "heading") end++;
+        const title: Paragraph = { type: "paragraph", children: [{ type: "strong", children: heading.children }] };
+        const anchor: Paragraph = { type: "paragraph", children: [], data: {
+          hName: "span", hProperties: { id: headingId(text(heading)), className: ["rule-ability-anchor"] },
+        } };
+        const body: Blockquote = { type: "blockquote", children: [title, ...nodes.slice(i + 1, end)] as Blockquote["children"] };
+        result.push(anchor, body);
+        i = end - 1;
+      }
+      return result;
+    };
+    tree.children = visit(tree.children);
   };
 }
 

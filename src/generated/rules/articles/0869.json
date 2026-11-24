@@ -79,7 +79,64 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
       "originalName": "9th-Level Features",
-      "originalDescription": "As a 9th-level shadow, you gain the following features."
+      "originalDescription": "As a 9th-level shadow, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "9th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 9th-level shadow, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-9.gloom-squad"
+          },
+          {
+            "type": "markdown",
+            "text": "## 9th-Level College Ability\n\nYour shadow college grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Black Ash Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-9.cacophony-of-cinders"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-9.demon-door"
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Caustic Alchemy Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-9.chain-reaction"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-9.to-the-stars"
+          },
+          {
+            "type": "markdown",
+            "text": "### 9th-Level Harlequin Mask Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-9.i-am-you"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-9.it-was-me-all-along"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -94,7 +151,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-9/gloom-squad",
       "originalName": "Gloom Squad",
-      "originalDescription": "At the start of each of your turns, you can forgo gaining insight to create 1d6 clones of yourself in unoccupied adjacent spaces. A clone acts on your turn and uses your statistics, except they have 1 Stamina. They are affected by any conditions and effects on you, and last until the start of your next turn. A clone doesn't have insight and can't use the Careful Observation ability, the Umbral Form feature, or any triggered actions. On their turn, a clone has a move action, a maneuver, and a main action that they can use only to make a free strike. While making a free strike, a clone must choose targets that you or another clone aren't also striking.\n\nOutside of combat, you can have one clone active for every 2 Victories you have. If a clone is destroyed, you must wait 1 hour before creating another one."
+      "originalDescription": "At the start of each of your turns, you can forgo gaining insight to create 1d6 clones of yourself in unoccupied adjacent spaces. A clone acts on your turn and uses your statistics, except they have 1 Stamina. They are affected by any conditions and effects on you, and last until the start of your next turn. A clone doesn't have insight and can't use the Careful Observation ability, the Umbral Form feature, or any triggered actions. On their turn, a clone has a move action, a maneuver, and a main action that they can use only to make a free strike. While making a free strike, a clone must choose targets that you or another clone aren't also striking.\n\nOutside of combat, you can have one clone active for every 2 Victories you have. If a clone is destroyed, you must wait 1 hour before creating another one.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-9.9th-level-college-ability",
@@ -107,7 +167,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-9/9th-level-college-ability",
       "originalName": "9th-Level College Ability",
-      "originalDescription": "Your shadow college grants your choice of one of two heroic abilities.\n\n##### 9th-Level Black Ash Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Caustic Alchemy Abilities\n\nChoose one of the following abilities.\n\n##### 9th-Level Harlequin Mask Abilities\n\nChoose one of the following abilities."
+      "originalDescription": "Your shadow college grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-9.black-ash-abilities",
@@ -120,7 +183,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Black Ash Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.shadow.level-9.cacophony-of-cinders",
@@ -177,7 +243,42 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/cacophony-of-cinders",
       "originalName": "Cacophony of Cinders",
-      "originalDescription": "*You tumble through the battle, stabbing foes and teleporting allies.*\n\n| **Magic, Melee, Weapon** | **Main action** |\n|--------------------------|----------------:|\n| **📏 Self; see below**   |     **🎯 Self** |\n\n**Effect:** You shift up to twice your speed, making one power roll that targets each creature you come adjacent to during the shift.\n\n**Power Roll + Agility:**\n\n- **≤11:** An enemy takes 6 damage; an ally can teleport up to 3 squares.\n- **12-16:** An enemy takes 10 damage; an ally can teleport up to 5 squares.\n- **17+:** An enemy takes 14 damage; an ally can teleport up to 7 squares."
+      "originalDescription": "*You tumble through the battle, stabbing foes and teleporting allies.*\n\n| **Magic, Melee, Weapon** | **Main action** |\n|--------------------------|----------------:|\n| **📏 Self; see below**   |     **🎯 Self** |\n\n**Effect:** You shift up to twice your speed, making one power roll that targets each creature you come adjacent to during the shift.\n\n**Power Roll + Agility:**\n\n- **≤11:** An enemy takes 6 damage; an ally can teleport up to 3 squares.\n- **12-16:** An enemy takes 10 damage; an ally can teleport up to 5 squares.\n- **17+:** An enemy takes 14 damage; an ally can teleport up to 7 squares.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You tumble through the battle, stabbing foes and teleporting allies.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self; see below"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** You shift up to twice your speed, making one power roll that targets each creature you come adjacent to during the shift.",
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "effect": "An enemy takes 6 damage; an ally can teleport up to 3 squares."
+            },
+            {
+              "effect": "An enemy takes 10 damage; an ally can teleport up to 5 squares."
+            },
+            {
+              "effect": "An enemy takes 14 damage; an ally can teleport up to 7 squares."
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.shadow.level-9.demon-door",
@@ -235,7 +336,59 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/demon-door",
       "originalName": "Demon Door",
-      "originalDescription": "*You create a temporary portal to allow a massive demonic hand to reach through.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 3**                   | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 13 + A corruption damage; push 3\n- **12-16:** 18 + A corruption damage; push 5\n- **17+:** 25 + A corruption damage; push 7\n\n**Effect:** On a critical hit, the target is grabbed by the demon and pulled through the portal before it closes, never to be seen again."
+      "originalDescription": "*You create a temporary portal to allow a massive demonic hand to reach through.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 3**                   | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 13 + A corruption damage; push 3\n- **12-16:** 18 + A corruption damage; push 5\n- **17+:** 25 + A corruption damage; push 7\n\n**Effect:** On a critical hit, the target is grabbed by the demon and pulled through the portal before it closes, never to be seen again.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You create a temporary portal to allow a massive demonic hand to reach through.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 3
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "13 + A",
+                "type": "corruption"
+              },
+              "effect": "push 3"
+            },
+            {
+              "damage": {
+                "value": "18 + A",
+                "type": "corruption"
+              },
+              "effect": "push 5"
+            },
+            {
+              "damage": {
+                "value": "25 + A",
+                "type": "corruption"
+              },
+              "effect": "push 7"
+            }
+          ]
+        },
+        "effect": "On a critical hit, the target is grabbed by the demon and pulled through the portal before it closes, never to be seen again."
+      }
     },
     {
       "id": "feature.shadow.level-9.caustic-alchemy-abilities",
@@ -248,7 +401,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Caustic Alchemy Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.shadow.level-9.chain-reaction",
@@ -303,7 +459,53 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/chain-reaction",
       "originalName": "Chain Reaction",
-      "originalDescription": "*One explosion, an offense. Three explosions, an assault. Nine explosions, a celebration.*\n\n| **Ranged**       |               **Main action** |\n|------------------|------------------------------:|\n| **📏 Ranged 10** | **🎯 One creature or object** |\n\n**Effect:** Each enemy within 3 squares of the target who is not currently targeted by this ability also becomes targeted by this ability. This effect continues until there are no more available targets. The ability deals acid, fire, or poison damage (your choice).\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 damage\n- **12-16:** 10 damage\n- **17+:** 15 damage"
+      "originalDescription": "*One explosion, an offense. Three explosions, an assault. Nine explosions, a celebration.*\n\n| **Ranged**       |               **Main action** |\n|------------------|------------------------------:|\n| **📏 Ranged 10** | **🎯 One creature or object** |\n\n**Effect:** Each enemy within 3 squares of the target who is not currently targeted by this ability also becomes targeted by this ability. This effect continues until there are no more available targets. The ability deals acid, fire, or poison damage (your choice).\n\n**Power Roll + Agility:**\n\n- **≤11:** 7 damage\n- **12-16:** 10 damage\n- **17+:** 15 damage",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "One explosion, an offense. Three explosions, an assault. Nine explosions, a celebration.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "beforeRoll": "**Effect:** Each enemy within 3 squares of the target who is not currently targeted by this ability also becomes targeted by this ability. This effect continues until there are no more available targets. The ability deals acid, fire, or poison damage (your choice).",
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "7"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "10"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "15"
+              },
+              "effect": ""
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.shadow.level-9.to-the-stars",
@@ -360,7 +562,63 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/to-the-stars",
       "originalName": "To the Stars",
-      "originalDescription": "*You attach your most potent explosive to your foe. Under less pressing circumstances, you're sure you could launch them into orbit.*\n\n| **Melee, Ranged, Strike**   |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 10** | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage; vertical push 8\n- **12-16:** 7 + A fire damage; vertical push 10\n- **17+:** 11 + A fire damage; vertical push 15\n\n**Effect:** The ground beneath a 3-cube area around the target's starting position is difficult terrain."
+      "originalDescription": "*You attach your most potent explosive to your foe. Under less pressing circumstances, you're sure you could launch them into orbit.*\n\n| **Melee, Ranged, Strike**   |               **Main action** |\n|-----------------------------|------------------------------:|\n| **📏 Melee 1 or ranged 10** | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage; vertical push 8\n- **12-16:** 7 + A fire damage; vertical push 10\n- **17+:** 11 + A fire damage; vertical push 15\n\n**Effect:** The ground beneath a 3-cube area around the target's starting position is difficult terrain.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You attach your most potent explosive to your foe. Under less pressing circumstances, you're sure you could launch them into orbit.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            },
+            " or ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + A",
+                "type": "fire"
+              },
+              "effect": "vertical push 8"
+            },
+            {
+              "damage": {
+                "value": "7 + A",
+                "type": "fire"
+              },
+              "effect": "vertical push 10"
+            },
+            {
+              "damage": {
+                "value": "11 + A",
+                "type": "fire"
+              },
+              "effect": "vertical push 15"
+            }
+          ]
+        },
+        "effect": "The ground beneath a 3-cube area around the target's starting position is difficult terrain."
+      }
     },
     {
       "id": "feature.shadow.level-9.harlequin-mask-abilities",
@@ -373,7 +631,10 @@
       },
       "originalId": "",
       "originalName": "9th-Level Harlequin Mask Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.shadow.level-9.i-am-you",
@@ -427,7 +688,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/i-am-you",
       "originalName": "I Am You",
-      "originalDescription": "*Your mask reflects your foe's face. Surely they won't need it much longer.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  |     **🎯 One creature** |\n\n**Effect:** Until the end of the encounter, you gain the target's damage immunities and speed (if they are better than yours), and can use any types of movement they can use. You can also use the target's signature ability, using their bonus for the power roll."
+      "originalDescription": "*Your mask reflects your foe's face. Surely they won't need it much longer.*\n\n| **Magic, Ranged** |            **Maneuver** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  |     **🎯 One creature** |\n\n**Effect:** Until the end of the encounter, you gain the target's damage immunities and speed (if they are better than yours), and can use any types of movement they can use. You can also use the target's signature ability, using their bonus for the power roll.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your mask reflects your foe's face. Surely they won't need it much longer.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "Until the end of the encounter, you gain the target's damage immunities and speed (if they are better than yours), and can use any types of movement they can use. You can also use the target's signature ability, using their bonus for the power roll."
+      }
     },
     {
       "id": "feature.ability.shadow.level-9.it-was-me-all-along",
@@ -484,7 +768,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-9/it-was-me-all-along",
       "originalName": "It Was Me All Along",
-      "originalDescription": "*After everything you've been through together, you twist the blade and make the pain extra personal.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 15 + A damage\n- **12-16:** 21 + A damage\n- **17+:** 28 + A damage\n\n**Effect:** If you are disguised as a creature the target knew using your I'm No Threat ability, this ability deals extra damage equal to three times your Agility score."
+      "originalDescription": "*After everything you've been through together, you twist the blade and make the pain extra personal.*\n\n| **Melee, Strike, Weapon** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 15 + A damage\n- **12-16:** 21 + A damage\n- **17+:** 28 + A damage\n\n**Effect:** If you are disguised as a creature the target knew using your I'm No Threat ability, this ability deals extra damage equal to three times your Agility score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "After everything you've been through together, you twist the blade and make the pain extra personal.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "15 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "21 + A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "28 + A"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "If you are disguised as a creature the target knew using your I'm No Threat ability, this ability deals extra damage equal to three times your Agility score."
+      }
     }
   ]
 }

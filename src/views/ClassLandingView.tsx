@@ -1,3 +1,8 @@
+import { englishClassBasics } from "../rules/english-class-basics";
+import { localizeGameMessage } from "../i18n/game-messages";
+import { useLocale, useArticleLanguage, ArticleLanguageScope, useArticleLocale } from "../i18n/locale";
+import { readerLabel } from "../components/rules/reader-labels";
+import { ArticleLanguageSwitch } from "../components/LanguageSwitch";
 import { Icon } from "../components/Icons";
 import { useEffect, useMemo, useState } from "react";
 import type { CSSProperties } from "react";
@@ -9,7 +14,7 @@ import { RuleMarkdown } from "../components/rules/RuleMarkdown";
 import { Button, Chip } from "../components/ui";
 import { actionLabel, kindLabel } from "../data/actions";
 import { classPreset } from "../data/classes";
-import { artFor } from "../lib/art";
+import { artFor, artworkCredit } from "../lib/art";
 import { CHARACTERISTICS } from "../lib/rule-display";
 import { useCodexBookmarks } from "../lib/codex-bookmarks";
 import { useLibraryLocation } from "../lib/library-location";
@@ -166,7 +171,7 @@ function prepareLevelOne(article: RuleArticle, flavor: string): RuleArticle {
 function basicsSets(markdown: string): string[] {
   const lines = markdown.split("\n");
   const start = lines.findIndex((line) =>
-    /^\*\*Начальные характеристики:\*\*/.test(line.trim()),
+    /^\*\*(?:Начальные характеристики|Starting Characteristics):\*\*/.test(line.trim()),
   );
   if (start === -1) return [];
   const sets: string[] = [];
@@ -182,18 +187,17 @@ function basicsSets(markdown: string): string[] {
 }
 
 function basicsSkills(markdown: string): string {
-  return (
-    /^\*\*Навыки:\*\*\s*([\s\S]*?)(?=\n\*\*[^*\n]+:\*\*|$)/m
-      .exec(markdown)?.[1]
-      .trim() ?? ""
-  );
+  const label = /^\*\*(?:Навыки|Skills):\*\*/m.exec(markdown);
+  if (!label) return "";
+  return markdown.slice(label.index + label[0].length)
+    .split(/\n(?:\*\*[^*\n]+:\*\*|#{1,6}\s)/, 1)[0].trim();
 }
 
 /** Только таблица развития, без её заголовка. */
 function developmentTable(markdown: string): string {
   const lines = markdown.split("\n");
   const start = lines.findIndex((line) =>
-    /^#{2,6}\s+Таблица развития/i.test(line.trim()),
+    /^#{2,6}\s+(?:Таблица развития|.+ Advancement)/i.test(line.trim()),
   );
   if (start === -1) return "";
   let end = start + 1;
@@ -230,7 +234,7 @@ function parseDevelopmentTable(markdown: string): DevelopmentTableData | null {
     line
       .slice(1, -1)
       .split("|")
-      .map((cell) => cell.trim());
+      .map((cell) => cell.trim().replace(/<br\s*\/?>/gi, " "));
   const headers = cellsOf(rows[0]);
   const body = rows
     .slice(1)
@@ -293,17 +297,21 @@ function DevelopmentTable({ data }: { data: DevelopmentTableData }) {
 }
 
 /** Наглядная страница «Основы»: стартовые значения, потенциал, ресурс и таблица. */
-function ClassBasics({
+export function ClassBasics({
   name,
   basics,
   articleId,
+  edition,
 }: {
+  edition?: ReturnType<typeof englishClassBasics>;
   name: string;
   basics: string;
   articleId: string;
 }) {
+  const language = edition ? "en" : "ru";
+  const label = (ru: string, en: string) => edition ? en : ru;
   const preset = classPreset(name);
-  if (!preset) return <RuleMarkdown text={basics} articleId={articleId} />;
+  if (!preset) return <RuleMarkdown sourceLocale={language} text={basics} articleId={articleId} />;
 
   const sets = basicsSets(basics);
   const skills = basicsSkills(basics);
@@ -317,7 +325,7 @@ function ClassBasics({
     <div className="class-basics">
       <div className="class-basics-grid">
         <section className="class-basics-card">
-          <h3>Стартовые характеристики</h3>
+          <h3>{label("Стартовые характеристики", "Starting Characteristics")}</h3>
           <div className="class-basics-chars">
             {Object.entries(preset.starting).map(([key, value]) => {
               const characteristic = CHARACTERISTICS.find(
@@ -327,9 +335,9 @@ function ClassBasics({
                 <span
                   className="class-basics-char"
                   key={key}
-                  title={characteristic?.label}
+                  title={edition ? key : characteristic?.label}
                 >
-                  <CharacteristicGlyph
+                  <CharacteristicGlyph language={language}
                     characteristic={key as CharacteristicKey}
                   />
                   <strong>+{value}</strong>
@@ -340,7 +348,7 @@ function ClassBasics({
           {sets.length > 0 && (
             <>
               <span className="class-basics-label">
-                Остальные — один из наборов
+                {label("Остальные — один из наборов", "Choose one array for your other scores")}
               </span>
               <div className="class-basics-set-list">
                 {sets.map((set, index) => (
@@ -352,71 +360,71 @@ function ClassBasics({
         </section>
 
         <section className="class-basics-card">
-          <h3>Потенциал</h3>
+          <h3>{label("Потенциал", "Potency")}</h3>
           <dl className="class-basics-potency">
             <div>
-              <dt>Слабый</dt>
-              <dd title={potency?.label}>
-                <CharacteristicGlyph characteristic={preset.potency} /> − 2
+              <dt>{label("Слабый", "Weak")}</dt>
+              <dd title={edition ? preset.potency : potency?.label}>
+                <CharacteristicGlyph language={language} characteristic={preset.potency} /> − 2
               </dd>
             </div>
             <div>
-              <dt>Средний</dt>
-              <dd title={potency?.label}>
-                <CharacteristicGlyph characteristic={preset.potency} /> − 1
+              <dt>{label("Средний", "Average")}</dt>
+              <dd title={edition ? preset.potency : potency?.label}>
+                <CharacteristicGlyph language={language} characteristic={preset.potency} /> − 1
               </dd>
             </div>
             <div>
-              <dt>Сильный</dt>
-              <dd title={potency?.label}>
-                <CharacteristicGlyph characteristic={preset.potency} />
+              <dt>{label("Сильный", "Strong")}</dt>
+              <dd title={edition ? preset.potency : potency?.label}>
+                <CharacteristicGlyph language={language} characteristic={preset.potency} />
               </dd>
             </div>
           </dl>
         </section>
 
         <section className="class-basics-card">
-          <h3>Выносливость</h3>
+          <h3>{label("Выносливость", "Stamina")}</h3>
           <div className="class-basics-stats">
             <div>
-              <strong>{preset.staminaBase}</strong>
-              <span>на 1-м уровне</span>
+              <strong>{edition?.stamina ?? preset.staminaBase}</strong>
+              <span>{label("на 1-м уровне", "at 1st level")}</span>
             </div>
             <div>
-              <strong>+{preset.staminaPerLevel}</strong>
-              <span>за уровень</span>
+              <strong>+{edition?.growth ?? preset.staminaPerLevel}</strong>
+              <span>{label("за уровень", "per level")}</span>
             </div>
             <div>
-              <strong>{preset.recoveries}</strong>
-              <span>Восстановлений</span>
+              <strong>{edition?.recoveries ?? preset.recoveries}</strong>
+              <span>{label("Восстановлений", "Recoveries")}</span>
             </div>
           </div>
         </section>
 
         <section className="class-basics-card">
-          <h3>Ресурс</h3>
-          <p className="class-basics-resource">{preset.resource}</p>
-          <p className="muted small">Героический ресурс класса</p>
+          <h3>{label("Ресурс", "Resource")}</h3>
+          <p className="class-basics-resource">{localizeGameMessage(preset.resource, language)}</p>
+          <p className="muted small">{label("Героический ресурс класса", "Heroic resource")}</p>
         </section>
       </div>
 
       {skills && (
         <section className="class-basics-card class-basics-skills">
-          <h3>Навыки</h3>
-          <RuleMarkdown text={skills} articleId={articleId} />
+          <h3>{label("Навыки", "Skills")}</h3>
+          <RuleMarkdown sourceLocale={language} text={skills} articleId={articleId} />
         </section>
       )}
 
       {table ? (
         <section className="class-basics-card class-basics-table">
-          <h3>Таблица развития</h3>
+          <h3>{label("Таблица развития", "Advancement Table")}</h3>
           <DevelopmentTable data={table} />
         </section>
       ) : (
         tableMarkdown && (
           <section className="class-basics-card class-basics-table">
-            <h3>Таблица развития</h3>
-            <RuleMarkdown text={tableMarkdown} articleId={articleId} />
+            <h3>{label("Таблица развития", "Advancement Table")}</h3>
+            <RuleMarkdown sourceLocale={language} text={tableMarkdown} articleId={articleId} />
           </section>
         )
       )}
@@ -439,7 +447,12 @@ export function ClassLandingView({
   creation?: boolean;
 }) {
   const landing = useMemo(() => classLandingBySlug(slug), [slug]);
+  const { t } = useLocale();
   const [state, setState] = useState<LandingState>({ status: "loading" });
+  const available = state.status === "ready" && Boolean(state.classEntity.originalDescription?.trim() || state.levels.some((item) => item.article.originalDescription?.trim() || Object.values(item.entities).some((entity) => entity.originalDescription?.trim())));
+  const inherited = useArticleLocale();
+  const { language, setLanguage } = useArticleLanguage(`class:${slug}`, available);
+  const articleText = (ru: string, en: string) => language === "en" ? en : ru;
   const [attempt, setAttempt] = useState(0);
   const [openedAbility, setOpenedAbility] = useState<RuleEntity | null>(null);
   const { bookmarks, toggleBookmark } = useCodexBookmarks();
@@ -509,6 +522,12 @@ export function ClassLandingView({
       ? (levelOne ? levelArticleBasics(levelOne) : "") ||
         classBasics(state.classEntity.markdown)
       : "";
+  const edition = useMemo(
+    () => language === "en" && state.status === "ready"
+      ? englishClassBasics(state.classEntity.originalDescription ?? "")
+      : undefined,
+    [language, state],
+  );
   const prev = index > 0 ? classLandings[index - 1] : undefined;
   const next =
     index >= 0 && index < classLandings.length - 1
@@ -518,17 +537,16 @@ export function ClassLandingView({
   if (!landing)
     return (
       <div className="class-landing">
-        <nav className="reference-breadcrumb" aria-label="Хлебные крошки">
-          <a href="#/reference/">Справочник</a>
+        <nav className="reference-breadcrumb" aria-label={t("Хлебные крошки", "Breadcrumbs")}>
+          <a href="#/reference/">{t("Справочник", "Reference")}</a>
           <span aria-hidden="true">/</span>
-          <a href="#/catalog/classes">Классы</a>
+          <a href="#/catalog/classes">{t("Классы", "Classes")}</a>
         </nav>
         <div className="codex-results-heading">
           <div>
-            <h2>Класс не найден</h2>
+            <h2>{t("Класс не найден", "Class not found")}</h2>
             <p className="muted">
-              Такого класса нет. Откройте{" "}
-              <a href="#/catalog/classes">список классов</a>.
+              {t("Такого класса нет.", "This class does not exist.")} <a href="#/catalog/classes">{t("Список классов", "Class list")}</a>.
             </p>
           </div>
         </div>
@@ -539,34 +557,37 @@ export function ClassLandingView({
   const bookmarked = bookmarks.includes(landing.classId);
 
   return (
+    <ArticleLanguageScope language={language}>
     <div
       className={`class-landing${embedded ? " class-landing-embedded" : " codex-layout"}`}
       id="class-landing"
+      lang={language}
     >
       <div className="codex-main">
         {!embedded && (
-          <nav className="reference-breadcrumb" aria-label="Хлебные крошки">
-            <a href="#/reference/">Справочник</a>
+          <nav className="reference-breadcrumb" aria-label={t("Хлебные крошки", "Breadcrumbs")}>
+            <a href="#/reference/">{t("Справочник", "Reference")}</a>
             <span aria-hidden="true">/</span>
-            <a href="#/catalog/classes">Классы</a>
+            <a href="#/catalog/classes">{t("Классы", "Classes")}</a>
             <span aria-hidden="true">/</span>
-            <span aria-current="page">{landing.name}</span>
+            <span aria-current="page">{readerLabel(landing.name, language)}</span>
           </nav>
         )}
         <div className="class-hero">
           <img
             src={`/art/classes/heroes/${CLASS_HEROES[slug]?.file ?? slug}.png`}
-            alt={`Арт класса ${landing.name}`}
+            alt={`${t("Арт класса", "Class artwork")}: ${readerLabel(landing.name, language)}`}
             loading="lazy"
             decoding="async"
             style={{
               objectPosition: CLASS_HEROES[slug]?.focus ?? "50% 25%",
             }}
           />
+          {available && inherited === null && <div className="rule-reader-language"><ArticleLanguageSwitch language={language} setLanguage={setLanguage} /></div>}
           <div className="class-hero-text">
-            {!embedded && <p className="eyebrow">Класс</p>}
-            <h1>{landing.name}</h1>
-            {state.status === "ready" && state.classEntity.originalName && (
+            {!embedded && <p className="eyebrow">{articleText("Класс", "Class")}</p>}
+            <h1>{language === "en" && state.status === "ready" ? state.classEntity.originalName || landing.name : landing.name}</h1>
+            {language === "ru" && state.status === "ready" && state.classEntity.originalName && (
               <p className="codex-original-title">
                 {state.classEntity.originalName}
               </p>
@@ -577,16 +598,16 @@ export function ClassLandingView({
               className="class-hero-bookmark"
               icon="bookmark"
               iconOnly
-              aria-label={bookmarked ? "Удалить закладку" : "Добавить закладку"}
+              aria-label={bookmarked ? t("Удалить закладку", "Remove bookmark") : t("Добавить закладку", "Add bookmark")}
               size="sm"
               variant={bookmarked ? "soft" : "ghost"}
               aria-pressed={bookmarked}
               onClick={() => toggleBookmark(landing.classId)}
             >
-              {bookmarked ? "В закладках" : "В закладки"}
+              {bookmarked ? t("В закладках", "Bookmarked") : t("В закладки", "Bookmark")}
             </Button>
           )}
-          {summary && (
+          {language === "ru" && summary && (
             <div className="class-hero-summary">
               <p>{summary}</p>
             </div>
@@ -594,38 +615,37 @@ export function ClassLandingView({
           <span className="class-hero-credit">
             {art?.origin === "official"
               ? "© MCDM Productions, LLC"
-              : art?.credit}
+              : art && artworkCredit(art, language)}
           </span>
         </div>
         <div className="class-landing-body">
         {state.status === "loading" && (
           <div className="codex-state" role="status" aria-live="polite">
             <span className="codex-state-spinner" aria-hidden="true" />
-            <p>Загружаем класс…</p>
+            <p>{t("Загружаем класс…", "Loading class…")}</p>
           </div>
         )}
         {state.status === "error" && (
           <div className="codex-state codex-state-error" role="alert">
-            <h2>Не удалось загрузить класс</h2>
+            <h2>{t("Не удалось загрузить класс", "Could not load class")}</h2>
             <p>
-              Проверьте подключение и попробуйте снова. Если ошибка
-              повторяется, откройте другой класс.
+              {t("Проверьте подключение и попробуйте снова. Если ошибка повторяется, откройте другой класс.", "Check your connection and try again, or open another class.")}
             </p>
             <p className="muted small">{state.message}</p>
             <Button size="sm" onClick={() => setAttempt((n) => n + 1)}>
-              Повторить
+              {t("Повторить", "Retry")}
             </Button>
           </div>
         )}
         {state.status === "ready" && (
           <>
-            <nav className="class-level-picker" aria-label="Раздел класса">
+            <nav className="class-level-picker" aria-label={articleText("Раздел класса", "Class section")}>
               <button
                 type="button"
                 aria-pressed={selectedStep === 0}
                 onClick={() => setSelectedStep(0)}
               >
-                Основы
+                {articleText("Основы", "Basics")}
               </button>
               {state.levels.map((item) => (
                 <button
@@ -641,16 +661,20 @@ export function ClassLandingView({
             {selectedStep === 0 ? (
               <section
                 className="class-landing-level"
-                aria-label="Основы класса"
+                aria-label={articleText("Основы класса", "Class basics")}
               >
-                {basics ? (
+                {edition ? <>
+                  <RuleMarkdown sourceLocale="en" text={edition.introduction} articleId={landing.classId} />
+                  <ClassBasics name={landing.name} basics={edition.basics} edition={edition} articleId={landing.classId} />
+                  {edition.afterword && <RuleMarkdown sourceLocale="en" text={edition.afterword} articleId={landing.classId} />}
+                </> : language === "en" && state.classEntity.originalDescription ? <RuleMarkdown sourceLocale="en" text={state.classEntity.originalDescription} articleId={landing.classId} /> : basics ? (
                   <ClassBasics
                     name={landing.name}
                     basics={basics}
                     articleId={landing.classId}
                   />
                 ) : (
-                  <p className="muted">Раздел «Основы» пока не заполнен.</p>
+                  <p className="muted">{articleText("Раздел «Основы» пока не заполнен.", "Class basics are unavailable.")}</p>
                 )}
               </section>
             ) : (
@@ -667,7 +691,7 @@ export function ClassLandingView({
                       id={`level-${item.level}`}
                       className="class-landing-level"
                     >
-                      <h2>{article.title}</h2>
+                      <h2>{language === "en" ? article.originalName || article.title : article.title}</h2>
                       <RuleArticleContent
                         article={article}
                         entities={item.entities}
@@ -691,9 +715,9 @@ export function ClassLandingView({
                 onClick={() => openClass(prev.slug)}
                 icon="arrow-left"
                 iconOnly
-                aria-label={`Предыдущий класс: ${prev.name}`}
+                aria-label={`${t("Предыдущий класс", "Previous class")}: ${readerLabel(prev.name, language)}`}
               >
-                <Icon name="arrow-left" size={16} /> {prev.name}
+                <Icon name="arrow-left" size={16} /> {readerLabel(prev.name, language)}
               </Button>
             )}
             {next && (
@@ -703,9 +727,9 @@ export function ClassLandingView({
                 onClick={() => openClass(next.slug)}
                 icon="chevron-right"
                 iconOnly
-                aria-label={`Следующий класс: ${next.name}`}
+                aria-label={`${t("Следующий класс", "Next class")}: ${readerLabel(next.name, language)}`}
               >
-                {next.name} <Icon name="arrow-right" size={16} />
+                {readerLabel(next.name, language)} <Icon name="arrow-right" size={16} />
               </Button>
             )}
           </footer>
@@ -713,8 +737,8 @@ export function ClassLandingView({
         </div>
       </div>
       {!embedded && state.status === "ready" && (
-        <nav className="codex-toc" aria-label="Оглавление класса">
-          <span className="eyebrow">На странице</span>
+        <nav className="codex-toc" aria-label={articleText("Оглавление класса", "Class contents")}>
+          <span className="eyebrow">{articleText("На странице", "On this page")}</span>
           <a
             href={`#/reference/class/${slug}`}
             aria-current={selectedStep === 0 ? "location" : undefined}
@@ -723,9 +747,9 @@ export function ClassLandingView({
               setSelectedStep(0);
             }}
           >
-            Основы
+            {articleText("Основы", "Basics")}
           </a>
-          <span className="codex-toc-caption">Уровни</span>
+          <span className="codex-toc-caption">{articleText("Уровни", "Levels")}</span>
           {state.levels.map((item) => (
             <a
               key={item.level}
@@ -738,7 +762,7 @@ export function ClassLandingView({
                 setSelectedStep(item.level);
               }}
             >
-              {item.level}-й уровень
+              {articleText(`${item.level}-й уровень`, `Level ${item.level}`)}
             </a>
           ))}
         </nav>
@@ -750,6 +774,7 @@ export function ClassLandingView({
         />
       )}
     </div>
+    </ArticleLanguageScope>
   );
 }
 
@@ -760,6 +785,7 @@ function ClassAbilityModal({
   entity: RuleEntity;
   onClose: () => void;
 }) {
+  const language = useArticleLocale();
   const ability = entity.ability;
   if (!ability) return null;
   return (
@@ -767,10 +793,10 @@ function ClassAbilityModal({
       open
       onClose={onClose}
       autoHeight
-      title={entity.name}
+      title={language === "en" ? entity.originalName || entity.name : entity.name}
       meta={
         <Chip>
-          {kindLabel(ability.kind)} · {actionLabel(ability.actionType)}
+          {language === "en" ? ability.kind.replaceAll("-", " ") : kindLabel(ability.kind)} · {language === "en" ? ability.actionType.replaceAll("-", " ") : actionLabel(ability.actionType)}
         </Chip>
       }
     >

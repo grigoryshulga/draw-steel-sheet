@@ -51,7 +51,60 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#4th-level-features",
       "originalName": "4th-Level Features",
-      "originalDescription": "As a 4th-level elementalist, you gain the following features."
+      "originalDescription": "As a 4th-level elementalist, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "4th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 4th-level elementalist, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-4.characteristic-increase"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-4.font-of-essence"
+          },
+          {
+            "type": "markdown",
+            "text": "## Mantle of Essence\n\nWhile you have 3 or more essence and are not dying, you exude an aura of magic whose distance is equal to your Reason score. The effects within the area of the aura are based on your specialization, as shown on the Mantle of Essence Specialization Effects table. You can activate and deactivate the aura at will (no action required)."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Mantle of Essence Specialization Effects Table\n\n| Specialization | Feature         |\n|----------------|-----------------|\n| Earth          | Quaking Earth   |\n| Fire           | Burning Grounds |\n| Green          | Flowering Bed   |\n| Void           | Veiling Bed     |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-4.burning-grounds"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-4.flowering-bed"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-4.quaking-earth"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-4.veiling-bed"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-4.perk"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-4.skill"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -66,7 +119,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/characteristic-increase",
       "originalName": "Characteristic Increase",
-      "originalDescription": "Your Reason score increases to 3. Additionally, you can increase one of your characteristic scores by 1, to a maximum of 3."
+      "originalDescription": "Your Reason score increases to 3. Additionally, you can increase one of your characteristic scores by 1, to a maximum of 3.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-4.font-of-essence",
@@ -79,7 +135,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/font-of-essence",
       "originalName": "Font of Essence",
-      "originalDescription": "The first time each combat round that you or a creature within 10 squares takes damage that isn't untyped or holy damage, you gain 2 essence instead of 1."
+      "originalDescription": "The first time each combat round that you or a creature within 10 squares takes damage that isn't untyped or holy damage, you gain 2 essence instead of 1.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-4.mantle-of-essence",
@@ -92,7 +151,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/mantle-of-essence",
       "originalName": "Mantle of Essence",
-      "originalDescription": "While you have 3 or more essence and are not dying, you exude an aura of magic whose distance is equal to your Reason score. The effects within the area of the aura are based on your specialization, as shown on the Mantle of Essence Specialization Effects table. You can activate and deactivate the aura at will (no action required).\n\n###### Mantle of Essence Specialization Effects Table\n\n| Specialization | Feature         |\n|----------------|-----------------|\n| Earth          | Quaking Earth   |\n| Fire           | Burning Grounds |\n| Green          | Flowering Bed   |\n| Void           | Veiling Bed     |"
+      "originalDescription": "While you have 3 or more essence and are not dying, you exude an aura of magic whose distance is equal to your Reason score. The effects within the area of the aura are based on your specialization, as shown on the Mantle of Essence Specialization Effects table. You can activate and deactivate the aura at will (no action required).\n\n###### Mantle of Essence Specialization Effects Table\n\n| Specialization | Feature         |\n|----------------|-----------------|\n| Earth          | Quaking Earth   |\n| Fire           | Burning Grounds |\n| Green          | Flowering Bed   |\n| Void           | Veiling Bed     |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-4.burning-grounds",
@@ -105,7 +167,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/burning-grounds",
       "originalName": "Burning Grounds",
-      "originalDescription": "At the end of each of your turns, each enemy in the area takes fire damage equal to your Reason score."
+      "originalDescription": "At the end of each of your turns, each enemy in the area takes fire damage equal to your Reason score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-4.flowering-bed",
@@ -118,7 +183,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/flowering-bed",
       "originalName": "Flowering Bed",
-      "originalDescription": "At the end of each of your turns, each ally in the area gains temporary Stamina equal to your Reason score."
+      "originalDescription": "At the end of each of your turns, each ally in the area gains temporary Stamina equal to your Reason score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-4.quaking-earth",
@@ -131,7 +199,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/quaking-earth",
       "originalName": "Quaking Earth",
-      "originalDescription": "At the end of each of your turns, you can push each enemy in the area up to a number of squares equal to your Reason score."
+      "originalDescription": "At the end of each of your turns, you can push each enemy in the area up to a number of squares equal to your Reason score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-4.veiling-bed",
@@ -144,7 +215,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/veiling-bed",
       "originalName": "Veiling Bed",
-      "originalDescription": "The area provides concealment for you and your allies."
+      "originalDescription": "The area provides concealment for you and your allies.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-4.perk",
@@ -157,7 +231,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one perk of your choice."
+      "originalDescription": "You gain one perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-4.skill",
@@ -170,7 +247,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-4/skill",
       "originalName": "Skill",
-      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests."
+      "originalDescription": "You gain one skill of your choice. See Skills in Chapter 9: Tests.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ]
 }

@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CharacterAvatar } from "../../components/CharacterAvatar";
 import { HelpTooltip } from "../../components/HelpTooltip";
@@ -18,6 +19,7 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
   busy: boolean;
   openHero?: (id: string) => void;
 }) {
+  const { t: tr } = useLocale();
   const [hovered, setHovered] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
@@ -68,13 +70,13 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
     if (member.role === "player") {
       const resources = hero?.resources;
       const counters: ResourceGlyph[] = resources ? [
-        [resources.heroicResource.name || "Ресурс героя", resources.heroicResource.current, "abilities", "magenta"],
-        ["Восстановления", `${resources.recoveries.current}/${resources.recoveries.max}`, "heart", "cyan"],
-        ["Всплески", resources.surges, "spark", "yellow"],
+        [resources.heroicResource.name || tr("Ресурс героя", "Heroic resource"), resources.heroicResource.current, "abilities", "magenta"],
+        [tr("Восстановления", "Recoveries"), `${resources.recoveries.current}/${resources.recoveries.max}`, "heart", "cyan"],
+        [tr("Всплески", "Surges"), resources.surges, "spark", "yellow"],
         ...Object.entries(resources.additional ?? {}).map(([name, value]): ResourceGlyph => [name, value, "tag", "orange"]),
       ] : [];
       const phase = phaseFor(member);
-      const sheetAction = member.userId === table.actorId && openHero ? "Открыть свой лист" : "Открыть лист";
+      const sheetAction = member.userId === table.actorId && openHero ? tr("Открыть свой лист", "Open your sheet") : tr("Открыть лист", "Open sheet");
       return <div className={`board-seat-details board-player-card${mobile ? " board-seat-details-mobile" : ""}`} data-turn={phase}
         onClick={event => {
           if (hero && event.target instanceof Element && !event.target.closest("button, .help-tooltip-popup")) activatePlayer(member);
@@ -86,13 +88,13 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
           aria-label={`${sheetAction}: ${hero.name}`} />}
         <div className="board-player-footer">
           <strong className="board-player-summary">{hero?.name || member.name}
-            {phase === "done" && <Icon name="check" size={14} className="board-turn-check" aria-label="Ход завершён" />}
+            {phase === "done" && <Icon name="check" size={14} className="board-turn-check" aria-label={tr("Ход завершён", "Turn complete")} />}
           </strong>
           {hero && <div className="board-player-stamina">
             <span aria-hidden="true">{hero.stamina.current}/{hero.stamina.max}{hero.stamina.temp > 0 && ` +${hero.stamina.temp}`}</span>
             <SharedHeroStaminaBar stamina={hero.stamina} />
           </div>}
-          {counters.length > 0 && <div className="board-player-resources" role="group" aria-label="Ресурсы героя">
+          {counters.length > 0 && <div className="board-player-resources" role="group" aria-label={tr("Ресурсы героя", "Hero resources")}>
             {counters.map(([name, value, icon, tone], index) => <HelpTooltip key={`${index}-${name}`}
               className={`board-player-resource is-${tone}`} positionAbove={playerCard} label={`${name}: ${value}`}
               trigger={<><Icon name={icon} size={16} /><span>{value}</span></>}>
@@ -106,12 +108,12 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
       <div className="board-seat-details-header">
         {hero && <CharacterAvatar name={hero.name} url={portraitUrlFor(hero)} showInitials={false}
           className="board-seat-avatar" />}
-        <strong>{member.name}{member.userId === table.actorId && " · вы"}</strong>
+        <strong>{member.name}{member.userId === table.actorId && tr(" · вы", " · you")}</strong>
       </div>
-      {member.role === "director" && <span className="muted">Ведущий</span>}
+      {member.role === "director" && <span className="muted">{tr("Ведущий", "Director")}</span>}
       {hero && <>
         <SharedHeroCard hero={hero} compact />
-        <Button size="sm" icon="book" onClick={() => setViewing({ userId: member.userId, heroId: hero.id })}>Посмотреть лист</Button>
+        <Button size="sm" icon="book" onClick={() => setViewing({ userId: member.userId, heroId: hero.id })}>{tr("Посмотреть лист", "View sheet")}</Button>
       </>}
     </div>;
   };
@@ -146,25 +148,25 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
       >
         {mayAct && combat && member.hero && <Button className="board-turn-action" size="sm"
           variant={phase === "active" ? "primary" : "soft"} disabled={busy}
-          aria-label={`${phase === "active" ? "Завершить ход" : "Начать ход"}: ${label}`}
+          aria-label={`${phase === "active" ? tr("Завершить ход", "End turn") : tr("Начать ход", "Start turn")}: ${label}`}
           onClick={() => void command(phase === "active" ? "combat-end-turn" : "combat-start-turn", {
             sceneId: combat.sceneId, combatId: combat.id, side: "heroes", id: member.userId, heroId: member.hero?.id,
           })}>
-          {phase === "active" ? "Завершить ход" : "Начать ход"}
+          {phase === "active" ? tr("Завершить ход", "End turn") : tr("Начать ход", "Start turn")}
         </Button>}
         <button
           className="board-seat-tab"
           type="button"
           aria-expanded={member.role === "player" && hero ? undefined : expanded}
           data-preview-open={expanded || undefined}
-          aria-label={stamina ? `${member.role === "player" ? "Открыть лист: " : ""}${label}. Выносливость: ${stamina.current} из ${stamina.max}${phase === "done" ? ". Ход завершён" : phase === "active" ? ". Ходит" : ""}` : undefined}
+          aria-label={stamina ? `${member.role === "player" ? tr("Открыть лист: ", "Open sheet: ") : ""}${label}. ${tr("Выносливость", "Stamina")}: ${stamina.current} ${tr("из", "of")} ${stamina.max}${phase === "done" ? tr(". Ход завершён", ". Turn complete") : phase === "active" ? tr(". Ходит", ". Taking turn") : ""}` : undefined}
           onPointerEnter={event => { if (event.pointerType === "mouse") setHovered(member.userId); }}
           onClick={() => {
             if (member.role === "player") activatePlayer(member);
             else if (pinned === member.userId) close();
             else setPinned(member.userId);
           }}
-          title={member.role === "director" ? `${label} · Ведущий` : label}
+          title={member.role === "director" ? `${label} · ${tr("Ведущий", "Director")}` : label}
         >
           {hero && <CharacterAvatar name={hero.name} url={portraitUrlFor(hero)} showInitials={false}
             className="board-seat-thumbnail" />}
@@ -182,10 +184,10 @@ export function BoardMemberCards({ table, command, busy, openHero }: {
     );
   };
   return <>
-    {!isDemo && <div className="board-seats board-seats-director" aria-label="Ведущий">
+    {!isDemo && <div className="board-seats board-seats-director" aria-label={tr("Ведущий", "Director")}>
       {members.filter(member => member.role === "director").map(card)}
     </div>}
-    <div className="board-seats board-seats-players" ref={playerSeats} aria-label="Игроки" onKeyDown={event => {
+    <div className="board-seats board-seats-players" ref={playerSeats} aria-label={tr("Игроки", "Players")} onKeyDown={event => {
       if (event.key === "Escape") {
         event.currentTarget.querySelector<HTMLButtonElement>(".board-seat-tab[data-preview-open]")?.focus();
         close();

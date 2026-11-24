@@ -1,3 +1,5 @@
+import { useLocale } from "../../i18n/locale";
+import { BUILDER_DATA } from "../../lib/character-builder";
 import { lazy, Suspense, useState } from "react";
 import {
   catalogSectionEntries,
@@ -26,6 +28,8 @@ const sections: Partial<Record<ArtKind, CatalogSectionId>> = {
 export interface BuilderSelectionOption {
   id?: string;
   name: string;
+  originalName?: string;
+  originalDescription?: string;
   disabled?: boolean;
   note?: string;
   description?: string;
@@ -54,6 +58,7 @@ export function BuilderSelection({
   selected,
   changesFor,
 }: BuilderSelectionProps) {
+  const { locale, t } = useLocale();
   const { stageChoice } = useBuilderStep();
   const [viewedName, setViewedName] = useState(selected?.name ?? "");
   const viewed =
@@ -65,10 +70,15 @@ export function BuilderSelection({
   const entry = catalogEntries.find((item) =>
     matches(item.name, viewed?.name ?? ""),
   );
-  const listEntries = options.map(
-    (option) =>
-      catalogEntries.find((item) => matches(item.name, option.name)) ?? option,
-  );
+  const originals = [...BUILDER_DATA.ancestries, ...BUILDER_DATA.careers,
+    ...BUILDER_DATA.classes, ...Object.values(BUILDER_DATA.cultures).flat()];
+  const listEntries = options.map((option) => {
+    const catalog = catalogEntries.find((item) => matches(item.name, option.name));
+    const original = originals.find((item) => item.name === option.name);
+    return { ...(catalog ?? option), id: catalog?.id ?? option.id ?? option.name, canonicalName: option.name,
+      name: locale === "en" && (option.originalName || original?.originalName) ? (option.originalName || original?.originalName || option.name) : option.name,
+      ...(locale === "en" ? { summary: undefined } : {}) };
+  });
   const articleId = viewed?.articleId ?? entry?.articleId;
   return (
     <div className={`builder-selection${layout === "tiles" ? " builder-selection--tiles" : ""}`}>
@@ -78,15 +88,15 @@ export function BuilderSelection({
           label={label}
           artKind={kind}
           selectedId={
-            listEntries.find((item) => matches(item.name, viewedName))?.id ??
+            listEntries.find((item) => matches(item.canonicalName, viewedName))?.id ??
             viewedName
           }
           metaFor={(item) =>
-            options.find((option) => matches(option.name, item.name))?.note
+            options.find((option) => matches(option.name, item.canonicalName))?.note
           }
           onSelect={(item) => {
             const option = options.find((option) =>
-              matches(option.name, item.name),
+              matches(option.name, item.canonicalName),
             );
             if (!option) return;
             setViewedName(option.name);
@@ -94,20 +104,20 @@ export function BuilderSelection({
               option.name === selected?.name
                 ? {}
                 : (changesFor(option.name) ?? {}),
-              option.disabled ? option.note || "Этот вариант недоступен." : "",
+              option.disabled ? option.note || t("Этот вариант недоступен.", "This option is unavailable.") : "",
             );
           }}
         />
       </div>
       <section
         className="builder-selection__detail"
-        aria-label={`Описание: ${viewed?.name ?? label}`}
+        aria-label={`${t("Описание", "Description")}: ${viewed?.name ?? label}`}
       >
         {viewed && (
           <>
             <div className="builder-selection__reader">
               {entry?.classSlug ? (
-                <Suspense fallback={<p role="status">Загружаем класс…</p>}>
+                <Suspense fallback={<p role="status">{t("Загружаем класс…", "Loading class…")}</p>}>
                   <ClassReference
                     key={entry.classSlug}
                     slug={entry.classSlug}
@@ -123,10 +133,11 @@ export function BuilderSelection({
                 />
               ) : (
                 <>
-                  <h3 className="builder-selection__title">{viewed.name}</h3>
+                  <h3 className="builder-selection__title">{locale === "en" ? viewed.originalName || viewed.name : viewed.name}</h3>
+                  {locale === "en" && !viewed.originalDescription && viewed.description && <span className="muted small">Russian</span>}
                   <RuleText
                     text={
-                      viewed.description ??
+                      (locale === "en" ? viewed.originalDescription || undefined : undefined) ?? viewed.description ??
                       entry?.summary ??
                       selected?.description ??
                       ""

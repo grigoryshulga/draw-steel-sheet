@@ -1,5 +1,7 @@
+import { useLocale } from "../../i18n/locale";
 import { useEffect, useState } from "react";
 import { CardDetailModal } from "../../components/CardDetailModal";
+import { tableItemError } from "./table-display";
 import { TableLibrary } from "./TableLibrary";
 import { Button, Card, Select } from "../../components/ui";
 import {
@@ -49,6 +51,7 @@ function TradeItemPicker({ label, placeholder, inventory, quantities, onChange }
   quantities: Record<string, number>;
   onChange: (quantities: Record<string, number>) => void;
 }) {
+  const { t: tr } = useLocale();
   const choices = inventory.filter(item => item.qty > 0 && !Object.hasOwn(quantities, item.id));
   const selected = inventory.filter(item => item.qty > 0 && Object.hasOwn(quantities, item.id));
   return <div className="table-trade-picker">
@@ -58,21 +61,21 @@ function TradeItemPicker({ label, placeholder, inventory, quantities, onChange }
         const id = event.currentTarget.value;
         if (id) onChange({ ...quantities, [id]: 1 });
       }}>
-        <option value="">{selected.length ? "Добавить предмет" : placeholder}</option>
-        {choices.map(item => <option key={item.id} value={item.id}>{item.name} · {item.qty} шт.</option>)}
+        <option value="">{selected.length ? tr("Добавить предмет", "Add item") : placeholder}</option>
+        {choices.map(item => <option key={item.id} value={item.id}>{item.name} · {item.qty} {tr("шт.", "pcs.")}</option>)}
       </Select>
     </label>
     {selected.length > 0 && <ul className="table-trade-picks">
       {selected.map(item => <li key={item.id} className="table-trade-pick">
         <span>{item.name}</span>
         <input className="input" type="number" min={1} max={item.qty} step={1} required
-          value={quantities[item.id] || ""} aria-label={`Количество: ${item.name}`}
+          value={quantities[item.id] || ""} aria-label={`${tr("Количество", "Quantity")}: ${item.name}`}
           onChange={event => onChange({ ...quantities, [item.id]: event.currentTarget.valueAsNumber || 0 })} />
         <Button size="sm" icon="close" iconOnly variant="ghost" onClick={() => {
           const remaining = { ...quantities };
           delete remaining[item.id];
           onChange(remaining);
-        }}>{`Убрать из предложения: ${item.name}`}</Button>
+        }}>{`${tr("Убрать из предложения", "Remove from offer")}: ${item.name}`}</Button>
       </li>)}
     </ul>}
   </div>;
@@ -99,6 +102,7 @@ export function TableItems({
   refreshHero: () => Promise<void>;
   commandError?: string;
 }) {
+  const { locale, t: tr } = useLocale();
   const director = table.actorId === table.ownerId;
   const [tab, setTab] = useState<"offers" | "templates">("offers");
   const showingOffers = !director || tab === "offers";
@@ -157,40 +161,40 @@ export function TableItems({
   return (
     <section className="table-stack table-items-panel">
       <div className="table-section-heading">
-        <h2>Предметы и обмен</h2>
+        <h2>{tr("Предметы и обмен", "Items and trade")}</h2>
         <div className="table-actions">
-          {director && <Button icon="plus" variant="primary" disabled={busy || table.archived} onClick={() => { setTemplateId(""); setItem(emptyItem()); setComposing(true); }}>{table.members.some((m) => m.hero) ? "Предложить предмет" : "Создать предмет"}</Button>}
+          {director && <Button icon="plus" variant="primary" disabled={busy || table.archived} onClick={() => { setTemplateId(""); setItem(emptyItem()); setComposing(true); }}>{table.members.some((m) => m.hero) ? tr("Предложить предмет", "Offer item") : tr("Создать предмет", "Create item")}</Button>}
           {!director && own && <Button icon="plus" disabled={busy || table.archived} onClick={() => {
             setTarget(null);
             setOffered({});
             setRequested({});
             setTradingHeroId(own.id);
-          }}>Подарить или обменять</Button>}
+          }}>{tr("Подарить или обменять", "Give or trade")}</Button>}
         </div>
       </div>
-      {director && <div className="table-filter-bar" role="group" aria-label="Разделы предметов">
-        <button type="button" aria-pressed={showingOffers} onClick={() => setTab("offers")}>Предложения</button>
-        <button type="button" aria-pressed={!showingOffers} onClick={() => setTab("templates")}>Заготовки</button>
+      {director && <div className="table-filter-bar" role="group" aria-label={tr("Разделы предметов", "Item sections")}>
+        <button type="button" aria-pressed={showingOffers} onClick={() => setTab("offers")}>{tr("Предложения", "Offers")}</button>
+        <button type="button" aria-pressed={!showingOffers} onClick={() => setTab("templates")}>{tr("Заготовки", "Templates")}</button>
       </div>}
       {error && !composing && !trading && <p role="alert">{error}</p>}
       {table.archived && (
         <p className="table-notice">
-          Предложения и обмен приостановлены до восстановления стола.
+          {tr("Предложения и обмен приостановлены до восстановления стола.", "Offers and trades are paused until the table is restored.")}
         </p>
       )}
       {director && (
-        <CardDetailModal open={composing} onClose={() => setComposing(false)} title={table.members.some((m) => m.hero) ? "Предложить предмет" : "Создать предмет"} className="table-dialog table-item-composer" wide>
+        <CardDetailModal open={composing} onClose={() => setComposing(false)} title={table.members.some((m) => m.hero) ? tr("Предложить предмет", "Offer item") : tr("Создать предмет", "Create item")} className="table-dialog table-item-composer" wide>
           <section className="table-stack">
-            {(error || commandError) && <p role="alert">{error || commandError}</p>}
+            {(error || commandError) && <p role="alert">{tableItemError(error || commandError, locale)}</p>}
             <fieldset disabled={busy || table.archived}>
               <label>
-                Получатель
+                {tr("Получатель", "Recipient")}
                 <select
                   className="select"
                   value={recipient}
                   onChange={(e) => setRecipient(e.target.value)}
                 >
-                  <option value="">Выберите героя</option>
+                  <option value="">{tr("Выберите героя", "Choose a hero")}</option>
                   {table.members
                     .filter((m) => m.hero)
                     .map((m) => (
@@ -202,14 +206,13 @@ export function TableItems({
               </label>
               {!table.members.some((m) => m.hero) && (
                 <p className="muted">
-                  Для предложения нужен участник с активным героем. Пока можно
-                  сохранить заготовку.
+                  {tr("Для предложения нужен участник с активным героем. Пока можно сохранить заготовку.", "An offer needs a participant with an active hero. You can save a template meanwhile.")}
                 </p>
               )}
               <section className="table-disclosure">
-                <h3>Взять из каталога</h3>
+                <h3>{tr("Взять из каталога", "Choose from catalog")}</h3>
                 <label>
-                  Поиск сокровища
+                  {tr("Поиск сокровища", "Search treasures")}
                   <input
                     className="input"
                     type="search"
@@ -247,7 +250,7 @@ export function TableItems({
               </section>
               <div className="table-form-grid table-item-fields">
                 <label>
-                  Название
+                  {tr("Название", "Name")}
                   <input
                     className="input"
                     maxLength={200}
@@ -256,7 +259,7 @@ export function TableItems({
                   />
                 </label>
                 <label>
-                  Категория
+                  {tr("Категория", "Category")}
                   <select
                     className="select"
                     value={item.category}
@@ -269,13 +272,13 @@ export function TableItems({
                   >
                     {Object.entries(CATEGORY_NAMES).map(([value, name]) => (
                       <option key={value} value={value}>
-                        {name}
+                        {tr(name, ({ gear: "Gear", consumable: "Consumable", treasure: "Treasure", trinket: "Trinket", title: "Title" } as Record<string, string>)[value] ?? name)}
                       </option>
                     ))}
                   </select>
                 </label>
                 <label>
-                  Количество
+                  {tr("Количество", "Quantity")}
                   <input
                     className="input"
                     type="number"
@@ -292,10 +295,10 @@ export function TableItems({
                 </label>
               </div>
               <div className="field">
-                <span className="field-label">Описание</span>
+                <span className="field-label">{tr("Описание", "Description")}</span>
                 <MarkdownEditor
                   disabled={busy || table.archived}
-                  aria-label="Описание предмета"
+                  aria-label={tr("Описание предмета", "Item description")}
                   value={item.notes}
                   onChange={(notes) => setItem({ ...item, notes })}
                 />
@@ -303,7 +306,7 @@ export function TableItems({
               <ItemAbilitiesEditor value={item.abilityIds} onChange={(abilityIds) => setItem({ ...item, abilityIds })} disabled={busy} />
               <section className="table-disclosure">
                 <h3>
-                  Бонусы при экипировке{" "}
+                  {tr("Бонусы при экипировке", "Bonuses when equipped")}{" "}
                   <span className="table-badge">
                     {item.effects?.length ?? 0}
                   </span>
@@ -314,15 +317,12 @@ export function TableItems({
                   disabled={busy}
                 />
                 <p className="muted">
-                  Бонусы действуют после экипировки при включённом авторасчёте
-                  листа.
+                  {tr("Бонусы действуют после экипировки при включённом авторасчёте листа.", "Bonuses apply when equipped and automatic calculations are enabled.")}
                 </p>
               </section>
               {templateEffectsChanged && (
                 <p role="status">
-                  Бонусы заготовки изменены. Сохраните её перед отправкой
-                  предложения; ожидающие предложения получат новую версию
-                  эффектов.
+                  {tr("Бонусы заготовки изменены. Сохраните её перед отправкой предложения; ожидающие предложения получат новую версию эффектов.", "Template bonuses changed. Save before sending; pending offers receive the updated effects.")}
                 </p>
               )}
               <div className="table-actions">
@@ -346,12 +346,12 @@ export function TableItems({
                       setError(
                         e instanceof Error
                           ? e.message
-                          : "Не удалось сохранить заготовку",
+                          : tr("Не удалось сохранить заготовку", "Could not save template"),
                       );
                     }
                   }}
                 >
-                  Сохранить заготовку
+                  {tr("Сохранить заготовку", "Save template")}
                 </Button>
                 <Button
                   variant="primary"
@@ -373,7 +373,7 @@ export function TableItems({
                     }
                   }}
                 >
-                  Предложить
+                  {tr("Предложить", "Offer")}
                 </Button>
               </div>
             </fieldset>
@@ -383,8 +383,8 @@ export function TableItems({
       {showingOffers && table.offers.length === 0 && table.trades.length === 0 && (
         <p className="table-empty">
           {director
-            ? "Предложите предмет герою. Он появится в инвентаре после согласия игрока."
-            : "Здесь появятся предложения предметов и обмена."}
+            ? tr("Предложите предмет герою. Он появится в инвентаре после согласия игрока.", "Offer an item to a hero. It enters their inventory when the player accepts.")
+            : tr("Здесь появятся предложения предметов и обмена.", "Item offers and trades will appear here.")}
         </p>
       )}
       {showingOffers && table.offers.length > 0 && <div className="table-card-grid">
@@ -403,21 +403,21 @@ export function TableItems({
                   ?.name ??
                   table.members.find((m) => m.userId === offer.toUserId)
                     ?.name ??
-                  "Игрок"}
+                  tr("Игрок", "Player")}
               </p>
               <span
                 className={`table-badge ${offer.status === "pending" ? "is-active" : ""}`}
               >
                 {
                   {
-                    pending: "Ожидает ответа",
-                    accepted: "Принят",
-                    declined: "Отклонён",
-                    revoked: "Отозван",
+                    pending: tr("Ожидает ответа", "Awaiting response"),
+                    accepted: tr("Принят", "Accepted"),
+                    declined: tr("Отклонён", "Declined"),
+                    revoked: tr("Отозван", "Revoked"),
                   }[offer.status]
                 }
               </span>
-              <div className="table-actions"><Button icon="eye" iconOnly size="sm" variant="ghost" onClick={() => setDetails(offer.item)}>Описание предмета</Button>
+              <div className="table-actions"><Button icon="eye" iconOnly size="sm" variant="ghost" onClick={() => setDetails(offer.item)}>{tr("Описание предмета", "Item description")}</Button>
               {offer.status === "pending" && (
                 <>
                   {offer.toUserId === table.actorId && (
@@ -433,7 +433,7 @@ export function TableItems({
                           })
                         }
                       >
-                        Принять
+                        {tr("Принять", "Accept")}
                       </Button>
                       <Button
                         disabled={busy || table.archived}
@@ -445,7 +445,7 @@ export function TableItems({
                           })
                         }
                       >
-                        Отклонить
+                        {tr("Отклонить", "Decline")}
                       </Button>
                     </>
                   )}
@@ -458,7 +458,7 @@ export function TableItems({
                         void command("revoke-offer", { offerId: offer.id })
                       }
                     >
-                      Отозвать
+                      {tr("Отозвать", "Revoke")}
                     </Button>
                   )}
                 </>
@@ -468,8 +468,8 @@ export function TableItems({
           ))}
       </div>}
       {!director && own && (
-        <CardDetailModal open={trading} onClose={() => setTradingHeroId(null)} title="Подарить или обменять" className="table-dialog" wide>
-          {(error || commandError) && <p role="alert">{error || commandError}</p>}
+        <CardDetailModal open={trading} onClose={() => setTradingHeroId(null)} title={tr("Подарить или обменять", "Give or trade")} className="table-dialog" wide>
+          {(error || commandError) && <p role="alert">{tableItemError(error || commandError, locale)}</p>}
           <form className="table-stack" onSubmit={async event => {
             event.preventDefault();
             if (busy || table.archived || !targetMember?.hero || (!offeredItems.length && !requestedItems.length)) return;
@@ -487,29 +487,29 @@ export function TableItems({
           }}>
             <fieldset disabled={busy || table.archived}>
               <label>
-                Получатель
+                {tr("Получатель", "Recipient")}
                 <Select value={targetMember?.userId ?? ""} required onChange={event => {
                   const member = recipients.find(candidate => candidate.userId === event.currentTarget.value);
                   setTarget(member?.hero ? { userId: member.userId, heroId: member.hero.id } : null);
                   setRequested({});
                 }}>
-                  <option value="">Выберите персонажа</option>
+                  <option value="">{tr("Выберите персонажа", "Choose a character")}</option>
                   {recipients.map(member => <option key={member.userId} value={member.userId}>
                     {member.hero?.name} · {member.name}
                   </option>)}
                 </Select>
               </label>
               <div className="table-form-grid">
-                <TradeItemPicker label="Передаю" placeholder="Выберите предмет"
+                <TradeItemPicker label={tr("Передаю", "I give")} placeholder={tr("Выберите предмет", "Choose an item")}
                   inventory={own.inventory} quantities={offered} onChange={setOffered} />
-                <TradeItemPicker label="Прошу взамен"
-                  placeholder={targetMember?.hero?.sections.inventory === undefined && targetMember ? "Инвентарь закрыт" : "Без ответного предмета"}
+                <TradeItemPicker label={tr("Прошу взамен", "I request")}
+                  placeholder={targetMember?.hero?.sections.inventory === undefined && targetMember ? tr("Инвентарь закрыт", "Inventory is private") : tr("Без ответного предмета", "No item requested")}
                   inventory={targetItems} quantities={requested} onChange={setRequested} />
               </div>
-              <p className="muted small">Предметы перейдут после подтверждения обоими игроками.</p>
+              <p className="muted small">{tr("Предметы перейдут после подтверждения обоими игроками.", "Items transfer after both players confirm.")}</p>
               <Button type="submit" variant="primary"
                 disabled={!targetMember?.hero || (!offeredItems.length && !requestedItems.length)}>
-                {requestedItems.length ? "Предложить обмен" : "Предложить подарок"}
+                {requestedItems.length ? tr("Предложить обмен", "Offer trade") : tr("Предложить подарок", "Offer gift")}
               </Button>
             </fieldset>
           </form>
@@ -518,41 +518,41 @@ export function TableItems({
       {showingOffers && table.trades.map((trade) => (
         <Card key={trade.id} className={`table-trade-card is-${trade.status}`}>
           <h3>
-            Обмен между{" "}
+            {tr("Обмен между", "Trade between")}{" "}
             {table.members.find((m) => m.userId === trade.fromUserId)?.name ??
-              "игроками"}{" "}
-            и{" "}
+              tr("игроками", "players")}{" "}
+            {tr("и", "and")}{" "}
             {table.members.find((m) => m.userId === trade.toUserId)?.name ??
-              "игроком"}
+              tr("игроком", "player")}
           </h3>
           <p>
-            Передаётся:{" "}
+            {tr("Передаётся", "Offered")}:{" "}
             {trade.offered
               .map(
                 (row) =>
-                  `${row.item?.name ?? own?.inventory.find((i) => i.id === row.itemId)?.name ?? inventoryFrom(table.members.find((m) => m.userId === trade.fromUserId)?.hero?.sections.inventory).find((i) => i.id === row.itemId)?.name ?? "Предмет"} × ${row.qty}`,
+                  `${row.item?.name ?? own?.inventory.find((i) => i.id === row.itemId)?.name ?? inventoryFrom(table.members.find((m) => m.userId === trade.fromUserId)?.hero?.sections.inventory).find((i) => i.id === row.itemId)?.name ?? tr("Предмет", "Item")} × ${row.qty}`,
               )
-              .join(", ") || "ничего"}
+              .join(", ") || tr("ничего", "nothing")}
           </p>
           <p>
-            Взамен:{" "}
+            {tr("Взамен", "Requested")}:{" "}
             {trade.requested
               .map(
                 (row) =>
-                  `${row.item?.name ?? own?.inventory.find((i) => i.id === row.itemId)?.name ?? inventoryFrom(table.members.find((m) => m.userId === trade.toUserId)?.hero?.sections.inventory).find((i) => i.id === row.itemId)?.name ?? "Предмет"} × ${row.qty}`,
+                  `${row.item?.name ?? own?.inventory.find((i) => i.id === row.itemId)?.name ?? inventoryFrom(table.members.find((m) => m.userId === trade.toUserId)?.hero?.sections.inventory).find((i) => i.id === row.itemId)?.name ?? tr("Предмет", "Item")} × ${row.qty}`,
               )
-              .join(", ") || "подарок"}
+              .join(", ") || tr("подарок", "gift")}
           </p>
-          <div className="table-actions"><Button icon="eye" iconOnly size="sm" variant="ghost" onClick={() => setTradeDetails(trade)}>Состав и эффекты предметов</Button></div>
+          <div className="table-actions"><Button icon="eye" iconOnly size="sm" variant="ghost" onClick={() => setTradeDetails(trade)}>{tr("Состав и эффекты предметов", "Items and effects")}</Button></div>
           <p>
             {
               {
-                pending: "Ожидает подтверждений",
-                accepted: "Обмен завершён",
-                cancelled: "Отменён",
+                pending: tr("Ожидает подтверждений", "Awaiting confirmations"),
+                accepted: tr("Обмен завершён", "Trade completed"),
+                cancelled: tr("Отменён", "Canceled"),
               }[trade.status]
             }{" "}
-            · Подтверждений: {trade.confirmations.length} / 2
+            · {tr("Подтверждений", "Confirmations")}: {trade.confirmations.length} / 2
           </p>
           {trade.status === "pending" &&
             [trade.fromUserId, trade.toUserId].includes(table.actorId) && (
@@ -563,7 +563,7 @@ export function TableItems({
                     void command("cancel-trade", { tradeId: trade.id })
                   }
                 >
-                  Отменить
+                  {tr("Отменить", "Cancel")}
                 </Button>
                 <Button
                   variant="primary"
@@ -576,7 +576,7 @@ export function TableItems({
                     void send("confirm-trade", { tradeId: trade.id })
                   }
                 >
-                  Подтвердить условия
+                  {tr("Подтвердить условия", "Confirm terms")}
                 </Button>
               </div>
             )}
@@ -588,10 +588,10 @@ export function TableItems({
         setItem({ ...structuredClone(template.item), id: crypto.randomUUID(), equipped: false });
         setComposing(true);
       }} />}
-      <CardDetailModal open={!!tradeDetails} onClose={() => setTradeDetails(null)} title="Состав и эффекты предметов" className="table-dialog" wide>
+      <CardDetailModal open={!!tradeDetails} onClose={() => setTradeDetails(null)} title={tr("Состав и эффекты предметов", "Items and effects")} className="table-dialog" wide>
         {tradeDetails && [...tradeDetails.offered, ...tradeDetails.requested].map((row, index) => row.item && <section key={`${row.itemId}-${index}`} className="table-disclosure"><h3>{row.item.name} × {row.qty}</h3><MarkdownPreview text={row.item.notes} /><ItemEffectsSummary effects={row.item.effects ?? []} /></section>)}
       </CardDetailModal>
-      <CardDetailModal open={!!details} onClose={() => setDetails(null)} title={details?.name ?? "Предмет"} className="table-dialog" wide>
+      <CardDetailModal open={!!details} onClose={() => setDetails(null)} title={details?.name ?? tr("Предмет", "Item")} className="table-dialog" wide>
         {details && <><MarkdownPreview text={details.notes} /><ItemEffectsSummary effects={details.effects ?? []} /></>}
       </CardDetailModal>
     </section>

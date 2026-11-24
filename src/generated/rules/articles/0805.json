@@ -63,7 +63,60 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
       "originalName": "5th-Level Features",
-      "originalDescription": "As a 5th-level fury, you gain the following features."
+      "originalDescription": "As a 5th-level fury, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "5th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 5th-level fury, you gain the following features."
+          },
+          {
+            "type": "markdown",
+            "text": "## 5th-Level Aspect Feature\n\nYour primordial aspect grants you a feature, as shown on the 5th-Level Aspect Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 5th-Level Aspect Features Table\n\n| Aspect     | Feature    |\n|------------|------------|\n| Berserker  | Bounder    |\n| Reaver     | Unfettered |\n| Stormwight | Stormborn  |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-5.bounder"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-5.stormborn"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-5.unfettered"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-5.9-ferocity-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-5.debilitating-strike"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-5.my-turn"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-5.rebounding-storm"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-5.to-stone"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -78,7 +131,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-5/5th-level-aspect-feature",
       "originalName": "5th-Level Aspect Feature",
-      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 5th-Level Aspect Features table.\n\n###### 5th-Level Aspect Features Table\n\n| Aspect     | Feature    |\n|------------|------------|\n| Berserker  | Bounder    |\n| Reaver     | Unfettered |\n| Stormwight | Stormborn  |"
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 5th-Level Aspect Features table.\n\n###### 5th-Level Aspect Features Table\n\n| Aspect     | Feature    |\n|------------|------------|\n| Berserker  | Bounder    |\n| Reaver     | Unfettered |\n| Stormwight | Stormborn  |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-5.bounder",
@@ -91,7 +147,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-5/bounder",
       "originalName": "Bounder",
-      "originalDescription": "Your jump distance and height double (see Movement Types in Chapter 10: Combat). Additionally, when you fall, you reduce the effective height of your fall by a number of squares equal to your jump distance for the purpose of determining damage and whether you land prone (see Falling in Chapter 10). You are not prone after falling and landing on another creature."
+      "originalDescription": "Your jump distance and height double (see Movement Types in Chapter 10: Combat). Additionally, when you fall, you reduce the effective height of your fall by a number of squares equal to your jump distance for the purpose of determining damage and whether you land prone (see Falling in Chapter 10). You are not prone after falling and landing on another creature.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-5.stormborn",
@@ -104,7 +163,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-5/stormborn",
       "originalName": "Stormborn",
-      "originalDescription": "You and each ally within 5 squares of you ignore negative effects from inclement weather, such as banes or environmental damage. Additionally, you can use the Blessing of Fortunate Weather feature as if you were a 1st-level conduit (see 1st-Level Domain Feature in the Conduit section)."
+      "originalDescription": "You and each ally within 5 squares of you ignore negative effects from inclement weather, such as banes or environmental damage. Additionally, you can use the Blessing of Fortunate Weather feature as if you were a 1st-level conduit (see 1st-Level Domain Feature in the Conduit section).",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-5.unfettered",
@@ -117,7 +179,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-5/unfettered",
       "originalName": "Unfettered",
-      "originalDescription": "At the start of your turn, you can end any restrained condition on you. Additionally, you have a double edge on tests made to escape being confined or imprisoned."
+      "originalDescription": "At the start of your turn, you can end any restrained condition on you. Additionally, you have a double edge on tests made to escape being confined or imprisoned.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-5.9-ferocity-ability",
@@ -130,7 +195,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-5/9-ferocity-ability",
       "originalName": "9-Ferocity Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 ferocity to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 ferocity to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.fury.level-5.debilitating-strike",
@@ -187,7 +255,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/debilitating-strike",
       "originalName": "Debilitating Strike",
-      "originalDescription": "*You need just one blow to sabotage your target.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 14 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 20 + M damage; M < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 1 damage for every square they move, including from forced movement."
+      "originalDescription": "*You need just one blow to sabotage your target.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 14 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 20 + M damage; M < STRONG, slowed (save ends)\n\n**Effect:** While slowed this way, the target takes 1 damage for every square they move, including from forced movement.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You need just one blow to sabotage your target.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "10 + M"
+              },
+              "effect": "M < WEAK, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "14 + M"
+              },
+              "effect": "M < AVERAGE, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "20 + M"
+              },
+              "effect": "M < STRONG, slowed (save ends)"
+            }
+          ]
+        },
+        "effect": "While slowed this way, the target takes 1 damage for every square they move, including from forced movement."
+      }
     },
     {
       "id": "feature.ability.fury.level-5.my-turn",
@@ -244,7 +360,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/my-turn",
       "originalName": "My Turn!",
-      "originalDescription": "*You quickly strike back at a foe.*\n\n| **Melee, Strike, Weapon** |             **Free triggered** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            | **🎯 The triggering creature** |\n\n**Trigger:** A creature causes you to be winded or dying, or damages you while you are winded or dying.\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 9 + M damage\n- **17+:** 13 + M damage\n\n**Effect:** You can spend a Recovery."
+      "originalDescription": "*You quickly strike back at a foe.*\n\n| **Melee, Strike, Weapon** |             **Free triggered** |\n|---------------------------|-------------------------------:|\n| **📏 Melee 1**            | **🎯 The triggering creature** |\n\n**Trigger:** A creature causes you to be winded or dying, or damages you while you are winded or dying.\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 9 + M damage\n- **17+:** 13 + M damage\n\n**Effect:** You can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You quickly strike back at a foe.",
+        "facts": {
+          "action": "Free triggered",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "The triggering creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "trigger": "A creature causes you to be winded or dying, or damages you while you are winded or dying.",
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "9 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "13 + M"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can spend a Recovery."
+      }
     },
     {
       "id": "feature.ability.fury.level-5.rebounding-storm",
@@ -301,7 +466,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/rebounding-storm",
       "originalName": "Rebounding Storm",
-      "originalDescription": "*You knock around enemies like playthings.*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 damage; push 3\n- **12-16:** 14 damage; push 5\n- **17+:** 19 damage; push 7\n\n**Effect:** When a target would end this forced movement by colliding with a creature or object, they take damage as usual, then are pushed the remaining distance away from the creature or object in the direction they came from. As long as forced movement remains, this effect continues if the target collides with another creature or object."
+      "originalDescription": "*You knock around enemies like playthings.*\n\n| **Melee, Strike, Weapon** |                 **Main action** |\n|---------------------------|--------------------------------:|\n| **📏 Melee 1**            | **🎯 Two creatures or objects** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 damage; push 3\n- **12-16:** 14 damage; push 5\n- **17+:** 19 damage; push 7\n\n**Effect:** When a target would end this forced movement by colliding with a creature or object, they take damage as usual, then are pushed the remaining distance away from the creature or object in the direction they came from. As long as forced movement remains, this effect continues if the target collides with another creature or object.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You knock around enemies like playthings.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "Two creatures or objects",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "9"
+              },
+              "effect": "push 3"
+            },
+            {
+              "damage": {
+                "value": "14"
+              },
+              "effect": "push 5"
+            },
+            {
+              "damage": {
+                "value": "19"
+              },
+              "effect": "push 7"
+            }
+          ]
+        },
+        "effect": "When a target would end this forced movement by colliding with a creature or object, they take damage as usual, then are pushed the remaining distance away from the creature or object in the direction they came from. As long as forced movement remains, this effect continues if the target collides with another creature or object."
+      }
     },
     {
       "id": "feature.ability.fury.level-5.to-stone",
@@ -359,7 +572,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-5/to-stone",
       "originalName": "To Stone!",
-      "originalDescription": "*You channel the Primordial Chaos into blows that petrify your foe... literally.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 13 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 18 + M damage; M < STRONG, restrained (save ends)\n\n**Effect:** While the target is slowed this way, any other effect that would make the target slowed instead makes them restrained by this ability. Additionally, a creature who fails the saving throw while restrained this way is petrified until they are given a supernatural cure or you choose to reverse the effect (no action required)."
+      "originalDescription": "*You channel the Primordial Chaos into blows that petrify your foe... literally.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; M < WEAK, slowed (save ends)\n- **12-16:** 13 + M damage; M < AVERAGE, slowed (save ends)\n- **17+:** 18 + M damage; M < STRONG, restrained (save ends)\n\n**Effect:** While the target is slowed this way, any other effect that would make the target slowed instead makes them restrained by this ability. Additionally, a creature who fails the saving throw while restrained this way is petrified until they are given a supernatural cure or you choose to reverse the effect (no action required).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You channel the Primordial Chaos into blows that petrify your foe... literally.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "9 + M"
+              },
+              "effect": "M < WEAK, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "13 + M"
+              },
+              "effect": "M < AVERAGE, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "18 + M"
+              },
+              "effect": "M < STRONG, restrained (save ends)"
+            }
+          ]
+        },
+        "effect": "While the target is slowed this way, any other effect that would make the target slowed instead makes them restrained by this ability. Additionally, a creature who fails the saving throw while restrained this way is petrified until they are given a supernatural cure or you choose to reverse the effect (no action required)."
+      }
     }
   ]
 }

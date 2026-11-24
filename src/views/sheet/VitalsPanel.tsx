@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { Icon } from "../../components/Icons";
 import { useEffect, useState } from "react";
 import { Panel, TextInput } from "../../components/ui";
@@ -10,6 +11,7 @@ import { StatBreakdown } from "./StatBreakdown";
 
 /** Здоровье: выносливость, урон, восстановления и отдых. */
 export function VitalsPanel() {
+  const { t } = useLocale();
   const { character, derived, patch, performGameAction, readOnly } = useApp();
   const [maxDraft, setMaxDraft] = useState(String(character.stamina.max));
 
@@ -50,14 +52,14 @@ export function VitalsPanel() {
 
   return (
     <Panel
-      title="Здоровье"
+      title={t("Здоровье", "Health")}
       icon="heart"
       className="vitals-panel"
       actions={
         <>
           <DamageTraits />
           <span className={`status-chip tone-${status.tone}`}>
-            {status.label}
+            {t(status.label, ({ normal: "Ready", winded: "Winded", dying: "Dying", dead: "Dead" } as const)[status.tone])}
           </span>
         </>
       }
@@ -71,8 +73,8 @@ export function VitalsPanel() {
             <input
               className={`${currentClass} vital-current-input`}
               inputMode="numeric"
-              aria-label="Текущая выносливость (исправить значение)"
-              title="Нажмите, чтобы исправить текущее значение"
+              aria-label={t("Текущая выносливость (исправить значение)", "Current stamina (edit)")}
+              title={t("Нажмите, чтобы исправить текущее значение", "Click to edit the current value")}
               key={stamina.current}
               defaultValue={stamina.current}
               onFocus={(event) => event.currentTarget.select()}
@@ -100,7 +102,7 @@ export function VitalsPanel() {
           )}
           <span
             className="vital-max-edit"
-            title={readOnly ? undefined : "Максимум выносливости — измените и нажмите Enter"}
+            title={readOnly ? undefined : t("Максимум выносливости — измените и нажмите Enter", "Edit maximum stamina and press Enter")}
           >
             <span className="vital-max-slash numeric">/</span>
             {readOnly ? (
@@ -109,7 +111,7 @@ export function VitalsPanel() {
               <TextInput
                 value={maxDraft}
                 inputMode="numeric"
-                aria-label="Максимум выносливости"
+                aria-label={t("Максимум выносливости", "Maximum stamina")}
                 className="vital-max-input number-counter-plain numeric"
                 onChange={(event) => setMaxDraft(event.target.value)}
                 onFocus={(event) => event.currentTarget.select()}
@@ -133,22 +135,22 @@ export function VitalsPanel() {
             )}
             {character.automation?.enabled && (
               <StatBreakdown
-                label="максимума выносливости"
+                label={t("максимума выносливости", "maximum Stamina")}
                 breakdown={characterStatBreakdown(character, "stamina")}
               />
             )}
           </span>
           {stamina.temp > 0 && (readOnly ? (
-            <span className="vital-temp mono">+{stamina.temp} врем.</span>
+            <span className="vital-temp mono">+{stamina.temp} {t("врем.", "temp.")}</span>
           ) : (
             <button
               type="button"
               className="vital-temp mono vital-temp-clear"
-              title="Сбросить временную выносливость"
-              aria-label={`Временная выносливость ${stamina.temp}: сбросить`}
+              title={t("Сбросить временную выносливость", "Clear temporary Stamina")}
+              aria-label={t(`Временная выносливость ${stamina.temp}: сбросить`, `Clear ${stamina.temp} temporary Stamina`)}
               onClick={() => patch({ stamina: { ...stamina, temp: 0 } })}
             >
-              +{stamina.temp} врем. <Icon name="close" size={12} />
+              +{stamina.temp} {t("врем.", "temp.")} <Icon name="close" size={12} />
             </button>
           ))}
         </div>
@@ -157,7 +159,7 @@ export function VitalsPanel() {
       <div
         className="meter"
         role="img"
-        aria-label={`Выносливость: ${stamina.current} из ${max}, временная ${stamina.temp}`}
+        aria-label={t(`Выносливость: ${stamina.current} из ${max}, временная ${stamina.temp}`, `Stamina: ${stamina.current} of ${max}, temporary ${stamina.temp}`)}
       >
         <span
           className={`meter-fill tone-${status.tone}`}
@@ -176,7 +178,7 @@ export function VitalsPanel() {
           <span
             className="meter-tick"
             style={{ left: "50%" }}
-            title={`Порог утомления: ${winded}`}
+            title={t(`Порог утомления: ${winded}`, `Winded threshold: ${winded}`)}
           />
         )}
       </div>

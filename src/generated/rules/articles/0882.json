@@ -107,7 +107,96 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
       "originalName": "2nd-Level Features",
-      "originalDescription": "As a 2nd-level censor, you gain the following features."
+      "originalDescription": "As a 2nd-level censor, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "2nd-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 2nd-level censor, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-2.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 2nd-Level Order Features\n\nYour censor order grants you two features, as shown on the 2nd-Level Order Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 2nd-Level Order Features Table\n\n| Order                    | Features                             |\n|--------------------------|--------------------------------------|\n| Exorcist                 | Saint's Vigilance, A Sense for Truth |\n| Oracle                   | It Was Foretold, Judge of Character  |\n| Paragon                  | Lead by Example, Stalwart Icon       |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-2.it-was-foretold"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-2.judge-of-character"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-2.lead-by-example"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-2.saints-vigilance"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-2.a-sense-for-truth"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-2.stalwart-icon"
+          },
+          {
+            "type": "markdown",
+            "text": "## 2nd-Level Order Ability\n\nYour censor order grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Exorcist Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-2.it-is-justice-you-fear"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-2.revelator"
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Oracle Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-2.prescient-grace"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-2.with-my-blessing"
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Paragon Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-2.blessing-of-the-faithful"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-2.sentenced"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -122,7 +211,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-2/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice. See Chapter 7: Perks."
+      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice. See Chapter 7: Perks.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-2.2nd-level-order-features",
@@ -135,7 +227,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-2/2nd-level-order-features",
       "originalName": "2nd-Level Order Features",
-      "originalDescription": "Your censor order grants you two features, as shown on the 2nd-Level Order Features table.\n\n###### 2nd-Level Order Features Table\n\n| Order                    | Features                             |\n|--------------------------|--------------------------------------|\n| Exorcist                 | Saint's Vigilance, A Sense for Truth |\n| Oracle                   | It Was Foretold, Judge of Character  |\n| Paragon                  | Lead by Example, Stalwart Icon       |"
+      "originalDescription": "Your censor order grants you two features, as shown on the 2nd-Level Order Features table.\n\n###### 2nd-Level Order Features Table\n\n| Order                    | Features                             |\n|--------------------------|--------------------------------------|\n| Exorcist                 | Saint's Vigilance, A Sense for Truth |\n| Oracle                   | It Was Foretold, Judge of Character  |\n| Paragon                  | Lead by Example, Stalwart Icon       |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-2.it-was-foretold",
@@ -148,7 +243,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-2/it-was-foretold",
       "originalName": "It Was Foretold",
-      "originalDescription": "Your order has trained you to understand fragments of the visions granted to you by your deity, giving you a momentary advantage in challenging situations. At the start of an encounter, you can take one main action before any other creature and before your first turn. Additionally, whenever the Director calls for a montage test, you can make one free test before the montage begins, which counts as an earned success or failure as usual."
+      "originalDescription": "Your order has trained you to understand fragments of the visions granted to you by your deity, giving you a momentary advantage in challenging situations. At the start of an encounter, you can take one main action before any other creature and before your first turn. Additionally, whenever the Director calls for a montage test, you can make one free test before the montage begins, which counts as an earned success or failure as usual.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-2.judge-of-character",
@@ -161,7 +259,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-2/judge-of-character",
       "originalName": "Judge of Character",
-      "originalDescription": "Your focus on your fragmentary visions grants divine insight into the world and its creatures beyond your usual senses. Whenever you would make an Intuition test, you can make a Presence test instead."
+      "originalDescription": "Your focus on your fragmentary visions grants divine insight into the world and its creatures beyond your usual senses. Whenever you would make an Intuition test, you can make a Presence test instead.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-2.lead-by-example",
@@ -174,7 +275,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-2/lead-by-example",
       "originalName": "Lead by Example",
-      "originalDescription": "Your devotion to your deity allows you to take command of the battlefield, letting your allies benefit from your wisdom. While you are adjacent to a creature, your allies gain the benefits of flanking against that creature. Additionally, your allies gain an edge on tests made to aid other creatures with their tests."
+      "originalDescription": "Your devotion to your deity allows you to take command of the battlefield, letting your allies benefit from your wisdom. While you are adjacent to a creature, your allies gain the benefits of flanking against that creature. Additionally, your allies gain an edge on tests made to aid other creatures with their tests.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-2.saints-vigilance",
@@ -187,7 +291,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-2/saints-vigilance",
       "originalName": "Saint's Vigilance",
-      "originalDescription": "You have honed your ability to detect sin and can use it to find those who hide from justice. Any creature judged by you can't use the Hide maneuver. Additionally, you gain an edge when searching for hidden creatures. If you find a hidden creature, you can use your Judgment ability against them as a free triggered action."
+      "originalDescription": "You have honed your ability to detect sin and can use it to find those who hide from justice. Any creature judged by you can't use the Hide maneuver. Additionally, you gain an edge when searching for hidden creatures. If you find a hidden creature, you can use your Judgment ability against them as a free triggered action.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-2.a-sense-for-truth",
@@ -200,7 +307,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-2/a-sense-for-truth",
       "originalName": "A Sense for Truth",
-      "originalDescription": "You are trained in secret techniques from your order that allow you to discern the truth with supernatural precision. If a creature is of a lower level than you, you automatically know when they are lying, though you don't necessarily know the actual truth behind their lie. Additionally, you gain an edge on tests made to detect lies or hidden motives."
+      "originalDescription": "You are trained in secret techniques from your order that allow you to discern the truth with supernatural precision. If a creature is of a lower level than you, you automatically know when they are lying, though you don't necessarily know the actual truth behind their lie. Additionally, you gain an edge on tests made to detect lies or hidden motives.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-2.stalwart-icon",
@@ -213,7 +323,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-2/stalwart-icon",
       "originalName": "Stalwart Icon",
-      "originalDescription": "You exhibit a small spark of your deity's power, causing creatures to trust or fear you, depending on what you need. You gain an edge on tests made to intimidate or persuade others."
+      "originalDescription": "You exhibit a small spark of your deity's power, causing creatures to trust or fear you, depending on what you need. You gain an edge on tests made to intimidate or persuade others.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-2.2nd-level-order-ability",
@@ -226,7 +339,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-2/2nd-level-order-ability",
       "originalName": "2nd-Level Order Ability",
-      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Exorcist Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Oracle Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Paragon Ability\n\nChoose one of the following abilities."
+      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-2.exorcist-ability",
@@ -239,7 +355,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Exorcist Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-2.it-is-justice-you-fear",
@@ -296,7 +415,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/it-is-justice-you-fear",
       "originalName": "It Is Justice You Fear",
-      "originalDescription": "*I am but a vessel. Your own deeds weigh upon you.*\n\n| **Magic, Ranged, Strike** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Ranged 10**          | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M holy damage; P < WEAK, frightened (save ends)\n- **12-16:** 12 + M holy damage; P < AVERAGE, frightened (save ends)\n- **17+:** 15 + M holy damage; P < STRONG, frightened (save ends)\n\n**Effect:** If the target is already frightened of you or another creature and this ability would frighten them again, they instead take psychic damage equal to twice your Presence score."
+      "originalDescription": "*I am but a vessel. Your own deeds weigh upon you.*\n\n| **Magic, Ranged, Strike** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Ranged 10**          | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M holy damage; P < WEAK, frightened (save ends)\n- **12-16:** 12 + M holy damage; P < AVERAGE, frightened (save ends)\n- **17+:** 15 + M holy damage; P < STRONG, frightened (save ends)\n\n**Effect:** If the target is already frightened of you or another creature and this ability would frighten them again, they instead take psychic damage equal to twice your Presence score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "I am but a vessel. Your own deeds weigh upon you.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "8 + M",
+                "type": "holy"
+              },
+              "effect": "P < WEAK, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "12 + M",
+                "type": "holy"
+              },
+              "effect": "P < AVERAGE, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "15 + M",
+                "type": "holy"
+              },
+              "effect": "P < STRONG, frightened (save ends)"
+            }
+          ]
+        },
+        "effect": "If the target is already frightened of you or another creature and this ability would frighten them again, they instead take psychic damage equal to twice your Presence score."
+      }
     },
     {
       "id": "feature.ability.censor.level-2.revelator",
@@ -350,7 +520,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/revelator",
       "originalName": "Revelator",
-      "originalDescription": "*You channel holy energy to harm unbelievers and reveal those hidden from your judgment.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes holy damage equal to twice your Presence score. Additionally, each hidden target is automatically revealed and can't become hidden again until the start of your next turn. You can then use your Judgment ability against one target as a free triggered action."
+      "originalDescription": "*You channel holy energy to harm unbelievers and reveal those hidden from your judgment.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Effect:** Each target takes holy damage equal to twice your Presence score. Additionally, each hidden target is automatically revealed and can't become hidden again until the start of your next turn. You can then use your Judgment ability against one target as a free triggered action.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You channel holy energy to harm unbelievers and reveal those hidden from your judgment.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "3 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Each target takes holy damage equal to twice your Presence score. Additionally, each hidden target is automatically revealed and can't become hidden again until the start of your next turn. You can then use your Judgment ability against one target as a free triggered action."
+      }
     },
     {
       "id": "feature.censor.level-2.oracle-ability",
@@ -363,7 +552,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Oracle Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-2.prescient-grace",
@@ -417,7 +609,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/prescient-grace",
       "originalName": "Prescient Grace",
-      "originalDescription": "*Gifted by a prescient vision, you warn an ally of an impending attack.*\n\n| **Magic, Ranged** |          **Triggered** |\n|-------------------|-----------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** An enemy within 10 squares starts their turn.\n\n**Effect:** You can spend a Recovery to allow the target to regain Stamina equal to your recovery value. The target can then take their turn immediately before the triggering enemy."
+      "originalDescription": "*Gifted by a prescient vision, you warn an ally of an impending attack.*\n\n| **Magic, Ranged** |          **Triggered** |\n|-------------------|-----------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** An enemy within 10 squares starts their turn.\n\n**Effect:** You can spend a Recovery to allow the target to regain Stamina equal to your recovery value. The target can then take their turn immediately before the triggering enemy.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Gifted by a prescient vision, you warn an ally of an impending attack.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "trigger": "An enemy within 10 squares starts their turn.",
+        "effect": "You can spend a Recovery to allow the target to regain Stamina equal to your recovery value. The target can then take their turn immediately before the triggering enemy."
+      }
     },
     {
       "id": "feature.ability.censor.level-2.with-my-blessing",
@@ -471,7 +687,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/with-my-blessing",
       "originalName": "With My Blessing",
-      "originalDescription": "*A word in prayer, and the gods show the way.*\n\n| **Magic, Ranged** |         **Main action** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** The target can use a free triggered action to use a strike signature ability or a strike heroic ability, and has a double edge on that ability. If a heroic ability is chosen, reduce its Heroic Resource cost by 3 (to a minimum cost of 0)."
+      "originalDescription": "*A word in prayer, and the gods show the way.*\n\n| **Magic, Ranged** |         **Main action** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Effect:** The target can use a free triggered action to use a strike signature ability or a strike heroic ability, and has a double edge on that ability. If a heroic ability is chosen, reduce its Heroic Resource cost by 3 (to a minimum cost of 0).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A word in prayer, and the gods show the way.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "The target can use a free triggered action to use a strike signature ability or a strike heroic ability, and has a double edge on that ability. If a heroic ability is chosen, reduce its Heroic Resource cost by 3 (to a minimum cost of 0)."
+      }
     },
     {
       "id": "feature.censor.level-2.paragon-ability",
@@ -484,7 +723,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Paragon Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-2.blessing-of-the-faithful",
@@ -538,7 +780,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/blessing-of-the-faithful",
       "originalName": "Blessing of the Faithful",
-      "originalDescription": "*The gods reward your faith.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target gains 1 surge at the end of each of your turns."
+      "originalDescription": "*The gods reward your faith.*\n\n| **Area, Magic** |                          **Maneuver** |\n|-----------------|--------------------------------------:|\n| **📏 3 aura**   | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, each target gains 1 surge at the end of each of your turns.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The gods reward your faith.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "3 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, each target gains 1 surge at the end of each of your turns."
+      }
     },
     {
       "id": "feature.ability.censor.level-2.sentenced",
@@ -596,7 +857,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-2/sentenced",
       "originalName": "Sentenced",
-      "originalDescription": "*The shock of your condemnation freezes your enemy in their boots.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; P < WEAK, restrained (save ends)\n- **12-16:** 9 + P damage; P < AVERAGE, restrained (save ends)\n- **17+:** 12 + P damage; P < STRONG, restrained (save ends)\n\n**Effect:** While the target is restrained this way, your abilities that impose forced movement can still move them."
+      "originalDescription": "*The shock of your condemnation freezes your enemy in their boots.*\n\n| **Magic, Melee, Strike, Weapon** |               **Main action** |\n|----------------------------------|------------------------------:|\n| **📏 Melee 1**                   |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; P < WEAK, restrained (save ends)\n- **12-16:** 9 + P damage; P < AVERAGE, restrained (save ends)\n- **17+:** 12 + P damage; P < STRONG, restrained (save ends)\n\n**Effect:** While the target is restrained this way, your abilities that impose forced movement can still move them.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The shock of your condemnation freezes your enemy in their boots.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "5 + P"
+              },
+              "effect": "P < WEAK, restrained (save ends)"
+            },
+            {
+              "damage": {
+                "value": "9 + P"
+              },
+              "effect": "P < AVERAGE, restrained (save ends)"
+            },
+            {
+              "damage": {
+                "value": "12 + P"
+              },
+              "effect": "P < STRONG, restrained (save ends)"
+            }
+          ]
+        },
+        "effect": "While the target is restrained this way, your abilities that impose forced movement can still move them."
+      }
     }
   ]
 }

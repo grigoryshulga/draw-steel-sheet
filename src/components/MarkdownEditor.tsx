@@ -1,3 +1,4 @@
+import { useLocale } from "../i18n/locale";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Editor } from "@tiptap/core";
@@ -39,13 +40,17 @@ interface MarkdownEditorProps {
 
 /** One editable visual document, with Markdown used only at the storage boundary. */
 export function MarkdownEditor({ value, onChange, placeholder = "Начните писать…", className = "", disabled = false, readOnly = false, required = false, toolbarContainer, onFocus, "aria-label": label = "Текст Markdown" }: MarkdownEditorProps) {
+  const { locale, t } = useLocale();
+  const displayLabel = locale === "en" && label === "Текст Markdown" ? "Markdown text" : label;
+  const displayPlaceholder = locale === "en" && placeholder === "Начните писать…" ? "Start writing…" : placeholder;
+  const toolNames: Record<ToolKey, string> = { bold: "Bold (Ctrl+B)", italic: "Italic (Ctrl+I)", strike: "Strikethrough", bulletList: "Bulleted list", orderedList: "Numbered list", taskList: "Task list", blockquote: "Quote", code: "Inline code", codeBlock: "Code block", table: "Insert table", rule: "Horizontal rule" };
   const lastValue = useRef(value);
   const [inserting, setInserting] = useState<"link" | "image" | null>(null);
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
   const [needsLabel, setNeedsLabel] = useState(false);
   const editable = !disabled && !readOnly;
-  const extensions = useMemo(() => markdownExtensions(placeholder), [placeholder]);
+  const extensions = useMemo(() => markdownExtensions(displayPlaceholder), [displayPlaceholder]);
   const editor: Editor | null = useEditor({
     extensions,
     content: value,
@@ -56,7 +61,7 @@ export function MarkdownEditor({ value, onChange, placeholder = "Начните 
     onFocus: () => onFocus?.(),
     editorProps: {
       attributes: {
-        role: "textbox", "aria-label": label, "aria-multiline": "true",
+        role: "textbox", "aria-label": displayLabel, "aria-multiline": "true",
         "aria-required": String(required), "aria-readonly": String(!editable),
         "aria-disabled": String(disabled), class: "markdown-preview markdown-editor-document", spellcheck: "true",
       },
@@ -132,40 +137,40 @@ export function MarkdownEditor({ value, onChange, placeholder = "Начните 
   };
   const unavailable = !editor || !editable;
 
-  const toolbar = <div className="markdown-editor-toolbar" role="group" aria-label={`Форматирование текста: ${label}`} onMouseDown={event => {
+  const toolbar = <div className="markdown-editor-toolbar" role="group" aria-label={t(`Форматирование текста: ${displayLabel}`, `Text formatting: ${displayLabel}`)} onMouseDown={event => {
       if ((event.target as HTMLElement).closest("button")) event.preventDefault();
     }}>
-      <Button icon="undo" iconOnly size="sm" variant="ghost" disabled={unavailable || !state?.undo} onClick={() => editor?.chain().focus().undo().run()}>Отменить ввод (Ctrl+Z)</Button>
-      <Button icon="redo" iconOnly size="sm" variant="ghost" disabled={unavailable || !state?.redo} onClick={() => editor?.chain().focus().redo().run()}>Повторить ввод (Ctrl+Shift+Z)</Button>
-      <Select className="markdown-editor-heading" aria-label="Стиль текста" value={state?.heading ?? 0} disabled={unavailable} onChange={event => {
+      <Button icon="undo" iconOnly size="sm" variant="ghost" disabled={unavailable || !state?.undo} onClick={() => editor?.chain().focus().undo().run()}>{t("Отменить ввод (Ctrl+Z)", "Undo (Ctrl+Z)")}</Button>
+      <Button icon="redo" iconOnly size="sm" variant="ghost" disabled={unavailable || !state?.redo} onClick={() => editor?.chain().focus().redo().run()}>{t("Повторить ввод (Ctrl+Shift+Z)", "Redo (Ctrl+Shift+Z)")}</Button>
+      <Select className="markdown-editor-heading" aria-label={t("Стиль текста", "Text style")} value={state?.heading ?? 0} disabled={unavailable} onChange={event => {
         const level = Number(event.target.value) as 1 | 2 | 3 | 4 | 5 | 6;
         if (level) editor?.chain().focus().setHeading({ level }).run();
         else editor?.chain().focus().setParagraph().run();
       }}>
-        <option value={0}>Обычный текст</option>
-        {[1, 2, 3, 4, 5, 6].map(level => <option key={level} value={level}>Заголовок {level}</option>)}
+        <option value={0}>{t("Обычный текст", "Normal text")}</option>
+        {[1, 2, 3, 4, 5, 6].map(level => <option key={level} value={level}>{t("Заголовок", "Heading")} {level}</option>)}
       </Select>
-      {TOOLS.map(tool => <Button key={tool.key} icon={tool.icon} iconOnly size="sm" variant="ghost" title={tool.label} aria-pressed={tool.key === "rule" || tool.key === "table" ? undefined : state?.active[tool.key] ?? false} disabled={unavailable} onClick={() => command(tool.key)}>{tool.label}</Button>)}
-      <Button icon="link" iconOnly size="sm" variant="ghost" disabled={unavailable} aria-pressed={state?.link ?? false} onClick={() => openInsert("link")}>Добавить или изменить ссылку (Ctrl+K)</Button>
-      {state?.link && <Button icon="close" iconOnly size="sm" variant="ghost" disabled={unavailable} onClick={() => editor?.chain().focus().extendMarkRange("link").unsetLink().run()}>Убрать ссылку</Button>}
-      <Button icon="image" iconOnly size="sm" variant="ghost" disabled={unavailable} onClick={() => openInsert("image")}>Изображение по ссылке</Button>
+      {TOOLS.map(tool => <Button key={tool.key} icon={tool.icon} iconOnly size="sm" variant="ghost" title={locale === "en" ? toolNames[tool.key] : tool.label} aria-pressed={tool.key === "rule" || tool.key === "table" ? undefined : state?.active[tool.key] ?? false} disabled={unavailable} onClick={() => command(tool.key)}>{locale === "en" ? toolNames[tool.key] : tool.label}</Button>)}
+      <Button icon="link" iconOnly size="sm" variant="ghost" disabled={unavailable} aria-pressed={state?.link ?? false} onClick={() => openInsert("link")}>{t("Добавить или изменить ссылку (Ctrl+K)", "Add or edit link (Ctrl+K)")}</Button>
+      {state?.link && <Button icon="close" iconOnly size="sm" variant="ghost" disabled={unavailable} onClick={() => editor?.chain().focus().extendMarkRange("link").unsetLink().run()}>{t("Убрать ссылку", "Remove link")}</Button>}
+      <Button icon="image" iconOnly size="sm" variant="ghost" disabled={unavailable} onClick={() => openInsert("image")}>{t("Изображение по ссылке", "Image from URL")}</Button>
       {state?.table && <span className="markdown-editor-table-tools">
-        <Button size="sm" disabled={unavailable} onClick={() => editor?.chain().focus().addRowAfter().run()}>+ Строка</Button>
-        <Button size="sm" disabled={unavailable} onClick={() => editor?.chain().focus().addColumnAfter().run()}>+ Столбец</Button>
-        <Button size="sm" icon="trash" iconOnly disabled={unavailable} onClick={() => editor?.chain().focus().deleteTable().run()}>Удалить таблицу</Button>
+        <Button size="sm" disabled={unavailable} onClick={() => editor?.chain().focus().addRowAfter().run()}>{t("+ Строка", "+ Row")}</Button>
+        <Button size="sm" disabled={unavailable} onClick={() => editor?.chain().focus().addColumnAfter().run()}>{t("+ Столбец", "+ Column")}</Button>
+        <Button size="sm" icon="trash" iconOnly disabled={unavailable} onClick={() => editor?.chain().focus().deleteTable().run()}>{t("Удалить таблицу", "Delete table")}</Button>
       </span>}
     </div>;
 
   return <div className={`markdown-editor ${className}`.trim()}>
     {toolbarContainer === undefined ? toolbar : toolbarContainer && createPortal(toolbar, toolbarContainer)}
-    {editor ? <EditorContent editor={editor} className="markdown-editor-content" /> : <div className="markdown-editor-loading" role="status" aria-label="Загрузка редактора"><MarkdownPreview text={value} /></div>}
-    <Modal open={inserting !== null} title={inserting === "image" ? "Изображение" : "Ссылка"} onClose={() => setInserting(null)} footer={<>
-      {inserting === "link" && state?.link && <Button variant="ghost" onClick={() => { editor?.chain().focus().extendMarkRange("link").unsetLink().run(); setInserting(null); }}>Убрать ссылку</Button>}
-      <span className="grow" /><Button onClick={() => setInserting(null)}>Отмена</Button>
-      <Button variant="primary" disabled={unavailable || !validEditorUrl(url, inserting === "image")} onClick={insert}>Применить</Button>
+    {editor ? <EditorContent editor={editor} className="markdown-editor-content" /> : <div className="markdown-editor-loading" role="status" aria-label={t("Загрузка редактора", "Loading editor")}><MarkdownPreview text={value} /></div>}
+    <Modal open={inserting !== null} title={inserting === "image" ? t("Изображение", "Image") : t("Ссылка", "Link")} onClose={() => setInserting(null)} footer={<>
+      {inserting === "link" && state?.link && <Button variant="ghost" onClick={() => { editor?.chain().focus().extendMarkRange("link").unsetLink().run(); setInserting(null); }}>{t("Убрать ссылку", "Remove link")}</Button>}
+      <span className="grow" /><Button onClick={() => setInserting(null)}>{t("Отмена", "Cancel")}</Button>
+      <Button variant="primary" disabled={unavailable || !validEditorUrl(url, inserting === "image")} onClick={insert}>{t("Применить", "Apply")}</Button>
     </>}>
-      <Field label="Адрес"><TextInput autoFocus value={url} placeholder="https://…" onChange={event => setUrl(event.target.value)} onKeyDown={event => { if (event.key === "Enter") { event.preventDefault(); insert(); } }} /></Field>
-      {(inserting === "image" || needsLabel) && <Field label={inserting === "image" ? "Описание изображения" : "Текст ссылки"}><TextInput value={description} onChange={event => setDescription(event.target.value)} /></Field>}
+      <Field label={t("Адрес", "URL")}><TextInput autoFocus value={url} placeholder="https://…" onChange={event => setUrl(event.target.value)} onKeyDown={event => { if (event.key === "Enter") { event.preventDefault(); insert(); } }} /></Field>
+      {(inserting === "image" || needsLabel) && <Field label={inserting === "image" ? t("Описание изображения", "Image description") : t("Текст ссылки", "Link text")}><TextInput value={description} onChange={event => setDescription(event.target.value)} /></Field>}
     </Modal>
   </div>;
 }

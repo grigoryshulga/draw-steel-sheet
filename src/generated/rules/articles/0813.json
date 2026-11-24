@@ -59,7 +59,48 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
       "originalName": "3rd-Level Features",
-      "originalDescription": "As a 3rd-level null, you gain the following features."
+      "originalDescription": "As a 3rd-level null, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "3rd-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 3rd-level null, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-3.psionic-leap"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-3.reorder"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.null.level-3.7-discipline-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-3.absorption-field"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-3.molecular-rearrangement-field"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-3.stabilizing-field"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.null.level-3.synapse-field"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -74,7 +115,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-3/psionic-leap",
       "originalName": "Psionic Leap",
-      "originalDescription": "You can long jump and high jump a distance equal to twice your Agility score without needing to make a test."
+      "originalDescription": "You can long jump and high jump a distance equal to twice your Agility score without needing to make a test.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-3.reorder",
@@ -87,7 +131,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-3/reorder",
       "originalName": "Reorder",
-      "originalDescription": "At the start of each of your turns, you can use a free triggered action to end one effect on you that is ended by a saving throw or that ends at the end of your turn. Alternatively, you can grant this benefit to one creature in the area of your Null Field ability."
+      "originalDescription": "At the start of each of your turns, you can use a free triggered action to end one effect on you that is ended by a saving throw or that ends at the end of your turn. Alternatively, you can grant this benefit to one creature in the area of your Null Field ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.null.level-3.7-discipline-ability",
@@ -100,7 +147,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.null.level-3/7-discipline-ability",
       "originalName": "7-Discipline Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 discipline to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 discipline to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.null.level-3.absorption-field",
@@ -153,7 +203,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-3/absorption-field",
       "originalName": "Absorption Field",
-      "originalDescription": "*Your null field absorbs kinetic energy.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, each enemy in the area takes a bane on ability rolls."
+      "originalDescription": "*Your null field absorbs kinetic energy.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, each enemy in the area takes a bane on ability rolls.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your null field absorbs kinetic energy.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Psionic"
+          ]
+        },
+        "effect": "Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, each enemy in the area takes a bane on ability rolls."
+      }
     },
     {
       "id": "feature.ability.null.level-3.molecular-rearrangement-field",
@@ -206,7 +274,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-3/molecular-rearrangement-field",
       "originalName": "Molecular Rearrangement Field",
-      "originalDescription": "*Your enemies' wounds open, your allies' wounds close.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, each enemy who has I < AVERAGE and enters the area for the first time in a combat round or starts their turn there is bleeding (save ends). Each ally who enters the area for the first time in a combat round or starts their turn there gains temporary Stamina equal to your Intuition score."
+      "originalDescription": "*Your enemies' wounds open, your allies' wounds close.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, each enemy who has I < AVERAGE and enters the area for the first time in a combat round or starts their turn there is bleeding (save ends). Each ally who enters the area for the first time in a combat round or starts their turn there gains temporary Stamina equal to your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your enemies' wounds open, your allies' wounds close.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Psionic"
+          ]
+        },
+        "effect": "Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, each enemy who has I < AVERAGE and enters the area for the first time in a combat round or starts their turn there is bleeding (save ends). Each ally who enters the area for the first time in a combat round or starts their turn there gains temporary Stamina equal to your Intuition score."
+      }
     },
     {
       "id": "feature.ability.null.level-3.stabilizing-field",
@@ -259,7 +345,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-3/stabilizing-field",
       "originalName": "Stabilizing Field",
-      "originalDescription": "*You project order, making it harder for your enemies to interfere with you and your allies.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, you ignore difficult terrain and reduce the potency of enemy effects targeting you by 1 for you. You can also use a free triggered action at the start of each of your turns to end one effect on you that is ended by a saving throw or that ends at the end of your turn. Each ally in the area also gains these benefits."
+      "originalDescription": "*You project order, making it harder for your enemies to interfere with you and your allies.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, you ignore difficult terrain and reduce the potency of enemy effects targeting you by 1 for you. You can also use a free triggered action at the start of each of your turns to end one effect on you that is ended by a saving throw or that ends at the end of your turn. Each ally in the area also gains these benefits.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You project order, making it harder for your enemies to interfere with you and your allies.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Psionic"
+          ]
+        },
+        "effect": "Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, you ignore difficult terrain and reduce the potency of enemy effects targeting you by 1 for you. You can also use a free triggered action at the start of each of your turns to end one effect on you that is ended by a saving throw or that ends at the end of your turn. Each ally in the area also gains these benefits."
+      }
     },
     {
       "id": "feature.ability.null.level-3.synapse-field",
@@ -312,7 +416,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.null.level-3/synapse-field",
       "originalName": "Synapse Field",
-      "originalDescription": "*Attacks made by allies in your null field disrupt your enemies' thoughts, causing psychic pain.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, whenever an enemy in the area takes rolled damage, they take extra psychic damage equal to twice your Intuition score."
+      "originalDescription": "*Attacks made by allies in your null field disrupt your enemies' thoughts, causing psychic pain.*\n\n| **Psionic** | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, whenever an enemy in the area takes rolled damage, they take extra psychic damage equal to twice your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Attacks made by allies in your null field disrupt your enemies' thoughts, causing psychic pain.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Psionic"
+          ]
+        },
+        "effect": "Until the end of the encounter, the size of your Null Field ability increases by 1. While the area of that ability is enlarged this way, whenever an enemy in the area takes rolled damage, they take extra psychic damage equal to twice your Intuition score."
+      }
     }
   ]
 }

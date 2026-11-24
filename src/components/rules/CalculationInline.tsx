@@ -2,7 +2,12 @@ import type { CalculationBreakdown, CalculationTerm } from "../../lib/calculatio
 import { Toggle } from "../ui";
 import "./CalculationInline.css";
 
-function termLabel(term: CalculationTerm): string {
+function termLabel(term: CalculationTerm, language: "ru" | "en"): string {
+  if (language === "en") {
+    if (term.kind === "base") return "base";
+    if (term.label === "Кубики урона") return "";
+    return term.englishLabel ?? term.label;
+  }
   if (term.kind === "base") return "база";
   if (term.label === "Кубики урона") return "";
   if (term.label === "Общий модификатор урона") return "общий модификатор";
@@ -18,9 +23,10 @@ function termValue(value: number | string, signed: boolean): string {
 }
 
 /** Formulas stay beside their totals and share the evaluator's named terms. */
-export function CalculationInline({ calculations, base }: {
+export function CalculationInline({ calculations, base, language = "ru" }: {
   calculations: CalculationBreakdown[];
   base?: string;
+  language?: "ru" | "en";
 }) {
   if (!calculations.length) return null;
   return (
@@ -29,14 +35,14 @@ export function CalculationInline({ calculations, base }: {
         <span
           className="calculation-inline-line"
           key={`${calculation.label}-${index}`}
-          title={[calculation.formula && `Исходная формула: ${calculation.formula}`, calculation.note].filter(Boolean).join(". ") || undefined}
+          title={[(language === "en" ? calculation.englishFormula : calculation.formula) && `${language === "en" ? "Original formula" : "Исходная формула"}: ${language === "en" ? calculation.englishFormula : calculation.formula}`, language === "en" ? calculation.englishNote : calculation.note].filter(Boolean).join(". ") || undefined}
         >
-          {calculations.length > 1 && <span className="calculation-inline-label">{calculation.label}: </span>}
+          {calculations.length > 1 && <span className="calculation-inline-label">{language === "en" ? calculation.englishLabel ?? calculation.label : calculation.label}: </span>}
           {base && <span>{base} </span>}
           {calculation.terms.map((term, termIndex) => (
-            <span className="calculation-inline-term" key={`${term.label}-${termIndex}`} title={term.label}>
+            <span className="calculation-inline-term" key={`${term.label}-${termIndex}`} title={language === "en" ? term.englishLabel ?? term.label : term.label}>
               <strong>{termValue(term.value, Boolean(base) || termIndex > 0)}</strong>
-              {termLabel(term) && <> <span>({termLabel(term)})</span></>}{" "}
+              {termLabel(term, language) && <> <span>({termLabel(term, language)})</span></>}{" "}
             </span>
           ))}
           <span className="calculation-inline-total">= {calculation.total}</span>
@@ -46,14 +52,15 @@ export function CalculationInline({ calculations, base }: {
   );
 }
 
-export function CalculationToggle({ checked, onChange }: {
+export function CalculationToggle({ checked, onChange, language = "ru" }: {
   checked: boolean;
+  language?: "ru" | "en";
   onChange: (checked: boolean) => void;
 }) {
   return (
     <label className="calculation-toggle">
-      <Toggle checked={checked} onChange={onChange} label="Показать расчёт" />
-      <span>Показать расчёт</span>
+      <Toggle checked={checked} onChange={onChange} label={language === "en" ? "Show calculation" : "Показать расчёт"} />
+      <span>{language === "en" ? "Show calculation" : "Показать расчёт"}</span>
     </label>
   );
 }

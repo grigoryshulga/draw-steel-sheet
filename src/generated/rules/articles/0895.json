@@ -67,7 +67,64 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
       "originalName": "5th-Level Features",
-      "originalDescription": "As a 5th-level elementalist, you gain the following features."
+      "originalDescription": "As a 5th-level elementalist, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "5th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 5th-level elementalist, you gain the following features."
+          },
+          {
+            "type": "markdown",
+            "text": "## 5th-Level Specialization Feature\n\nYour elemental specialization grants you a feature, as shown on the 5th-Level Elemental Specialization Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 5th-Level Elemental Specialization Features Table\n\n| Specialization | Feature                      |\n|----------------|------------------------------|\n| Earth          | The Mountain Does Not Move   |\n| Fire           | Smoldering Step              |\n| Green          | Hide of Tenfold Shields      |\n| Void           | Pierce the Veil of Substance |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-5.hide-of-tenfold-shields"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-5.the-mountain-does-not-move"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-5.pierce-the-veil-of-substance"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-5.smoldering-step"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-5.9-essence-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.elementalist.level-5.combustion-deferred"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.elementalist.level-5.storm-of-sands"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.elementalist.level-5.subverted-perception-of-space"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.elementalist.level-5.web-of-all-thats-come-before"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -82,7 +139,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/5th-level-specialization-feature",
       "originalName": "5th-Level Specialization Feature",
-      "originalDescription": "Your elemental specialization grants you a feature, as shown on the 5th-Level Elemental Specialization Features table.\n\n###### 5th-Level Elemental Specialization Features Table\n\n| Specialization | Feature                      |\n|----------------|------------------------------|\n| Earth          | The Mountain Does Not Move   |\n| Fire           | Smoldering Step              |\n| Green          | Hide of Tenfold Shields      |\n| Void           | Pierce the Veil of Substance |"
+      "originalDescription": "Your elemental specialization grants you a feature, as shown on the 5th-Level Elemental Specialization Features table.\n\n###### 5th-Level Elemental Specialization Features Table\n\n| Specialization | Feature                      |\n|----------------|------------------------------|\n| Earth          | The Mountain Does Not Move   |\n| Fire           | Smoldering Step              |\n| Green          | Hide of Tenfold Shields      |\n| Void           | Pierce the Veil of Substance |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-5.hide-of-tenfold-shields",
@@ -95,7 +155,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/hide-of-tenfold-shields",
       "originalName": "Hide of Tenfold Shields",
-      "originalDescription": "Your animal forms become hardier. You gain temporary Stamina equal to your level when you enter an animal form in combat, which is added to any temporary Stamina provided by the animal form.\n\nAdditionally, an adjacent ally can use a maneuver to pet you. If they do so, you can lose temporary Stamina down to a minimum of 0. The ally gains temporary Stamina equal to the amount you lost."
+      "originalDescription": "Your animal forms become hardier. You gain temporary Stamina equal to your level when you enter an animal form in combat, which is added to any temporary Stamina provided by the animal form.\n\nAdditionally, an adjacent ally can use a maneuver to pet you. If they do so, you can lose temporary Stamina down to a minimum of 0. The ally gains temporary Stamina equal to the amount you lost.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-5.the-mountain-does-not-move",
@@ -108,7 +171,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/the-mountain-does-not-move",
       "originalName": "The Mountain Does Not Move",
-      "originalDescription": "You stand firm and magnetize your allies to stay grounded. Your stability increases by your level.\n\nAdditionally, whenever an ally within distance of your Hurl Element ability is force moved, you can use a free triggered action to decrease your stability down to a minimum of 0, then increase the ally's stability by an amount equal to the stability you lost. This change lasts until the end of the round."
+      "originalDescription": "You stand firm and magnetize your allies to stay grounded. Your stability increases by your level.\n\nAdditionally, whenever an ally within distance of your Hurl Element ability is force moved, you can use a free triggered action to decrease your stability down to a minimum of 0, then increase the ally's stability by an amount equal to the stability you lost. This change lasts until the end of the round.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-5.pierce-the-veil-of-substance",
@@ -121,7 +187,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/pierce-the-veil-of-substance",
       "originalName": "Pierce the Veil of Substance",
-      "originalDescription": "Solidity is merely a suggestion to you. Mundane barriers that are 1 square thick or less do not block your senses or line of effect. You can only sense or have line of effect past one such barrier at a time.\n\nAdditionally, whenever you use a void ability, you or one ally within distance of the ability can teleport a number of squares equal to your Reason score."
+      "originalDescription": "Solidity is merely a suggestion to you. Mundane barriers that are 1 square thick or less do not block your senses or line of effect. You can only sense or have line of effect past one such barrier at a time.\n\nAdditionally, whenever you use a void ability, you or one ally within distance of the ability can teleport a number of squares equal to your Reason score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-5.smoldering-step",
@@ -134,7 +203,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/smoldering-step",
       "originalName": "Smoldering Step",
-      "originalDescription": "You can use 1 square of movement to walk into an area of fire your size or larger and teleport to any other area of fire your size or larger within 10 squares of the first area.\n\nAdditionally, whenever you use a fire ability or are targeted by an ability that deals fire damage, each enemy adjacent to you takes fire damage equal to your Reason score."
+      "originalDescription": "You can use 1 square of movement to walk into an area of fire your size or larger and teleport to any other area of fire your size or larger within 10 squares of the first area.\n\nAdditionally, whenever you use a fire ability or are targeted by an ability that deals fire damage, each enemy adjacent to you takes fire damage equal to your Reason score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-5.9-essence-ability",
@@ -147,7 +219,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-5/9-essence-ability",
       "originalName": "9-Essence Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 essence to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 essence to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.elementalist.level-5.combustion-deferred",
@@ -205,7 +280,59 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/combustion-deferred",
       "originalName": "Combustion Deferred",
-      "originalDescription": "*Your flames dance from kindling to kindling to kindling.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 8 + R fire damage\n- **12-16:** 13 + R fire damage\n- **17+:** 17 + R fire damage\n\n**Effect:** When the target ends their next turn, or if they drop to 0 Stamina before then, each enemy adjacent to them takes fire damage equal to twice your Reason score. Each affected enemy then gains this same effect."
+      "originalDescription": "*Your flames dance from kindling to kindling to kindling.*\n\n| **Fire, Magic, Ranged, Strike** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 8 + R fire damage\n- **12-16:** 13 + R fire damage\n- **17+:** 17 + R fire damage\n\n**Effect:** When the target ends their next turn, or if they drop to 0 Stamina before then, each enemy adjacent to them takes fire damage equal to twice your Reason score. Each affected enemy then gains this same effect.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your flames dance from kindling to kindling to kindling.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Fire",
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "8 + R",
+                "type": "fire"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "13 + R",
+                "type": "fire"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "17 + R",
+                "type": "fire"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "When the target ends their next turn, or if they drop to 0 Stamina before then, each enemy adjacent to them takes fire damage equal to twice your Reason score. Each affected enemy then gains this same effect."
+      }
     },
     {
       "id": "feature.ability.elementalist.level-5.storm-of-sands",
@@ -263,7 +390,60 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/storm-of-sands",
       "originalName": "Storm of Sands",
-      "originalDescription": "*Dirt and debris swirl into a dark, pulsing hurricane.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The area lasts until the start of your next turn. It is difficult terrain for enemies, and you and your allies have concealment while in the area.\n\n**Persistent 1:** The area remains until the start of your next turn, and you can move it up to 5 squares (no action required). As a maneuver, you can make the power roll again without spending essence."
+      "originalDescription": "*Dirt and debris swirl into a dark, pulsing hurricane.*\n\n| **Area, Earth, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 damage\n- **12-16:** 5 damage\n- **17+:** 7 damage\n\n**Effect:** The area lasts until the start of your next turn. It is difficult terrain for enemies, and you and your allies have concealment while in the area.\n\n**Persistent 1:** The area remains until the start of your next turn, and you can move it up to 5 squares (no action required). As a maneuver, you can make the power roll again without spending essence.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Persistent 1:** The area remains until the start of your next turn, and you can move it up to 5 squares (no action required). As a maneuver, you can make the power roll again without spending essence."
+          }
+        ],
+        "flavor": "Dirt and debris swirl into a dark, pulsing hurricane.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "4 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Earth",
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "The area lasts until the start of your next turn. It is difficult terrain for enemies, and you and your allies have concealment while in the area."
+      }
     },
     {
       "id": "feature.ability.elementalist.level-5.subverted-perception-of-space",
@@ -321,7 +501,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/subverted-perception-of-space",
       "originalName": "Subverted Perception of Space",
-      "originalDescription": "*You rip an enemy's world in twain.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 9 + R corruption damage\n- **12-16:** 10 + R corruption damage; the target has line of effect only to creatures and objects within 4 squares of them until the start of your next turn\n- **17+:** 15 + R corruption damage; the target has line of effect only to adjacent creatures and objects until the start of your next turn"
+      "originalDescription": "*You rip an enemy's world in twain.*\n\n| **Magic, Ranged, Strike, Void** |               **Main action** |\n|---------------------------------|------------------------------:|\n| **📏 Ranged 10**                | **🎯 One creature or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 9 + R corruption damage\n- **12-16:** 10 + R corruption damage; the target has line of effect only to creatures and objects within 4 squares of them until the start of your next turn\n- **17+:** 15 + R corruption damage; the target has line of effect only to adjacent creatures and objects until the start of your next turn",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You rip an enemy's world in twain.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike",
+            "Void"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "9 + R",
+                "type": "corruption"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "10 + R",
+                "type": "corruption"
+              },
+              "effect": "the target has line of effect only to creatures and objects within 4 squares of them until the start of your next turn"
+            },
+            {
+              "damage": {
+                "value": "15 + R",
+                "type": "corruption"
+              },
+              "effect": "the target has line of effect only to adjacent creatures and objects until the start of your next turn"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.elementalist.level-5.web-of-all-thats-come-before",
@@ -379,7 +610,63 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-5/web-of-all-thats-come-before",
       "originalName": "Web of All That's Come Before",
-      "originalDescription": "*Threads you've been weaving through your adventures create a vibrant, pearlescent web.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 3 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 5 corruption damage; A < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain until the start of your next turn. Each enemy who ends their turn in the area is restrained (save ends).\n\n**Persistent 1:** The area remains until the start of your next turn."
+      "originalDescription": "*Threads you've been weaving through your adventures create a vibrant, pearlescent web.*\n\n| **Area, Green, Magic, Ranged** |               **Main action** |\n|--------------------------------|------------------------------:|\n| **📏 4 cube within 10**        | **🎯 Each enemy in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 2 corruption damage; A < WEAK, restrained (save ends)\n- **12-16:** 3 corruption damage; A < AVERAGE, restrained (save ends)\n- **17+:** 5 corruption damage; A < STRONG, restrained (save ends)\n\n**Effect:** The area is difficult terrain until the start of your next turn. Each enemy who ends their turn in the area is restrained (save ends).\n\n**Persistent 1:** The area remains until the start of your next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Persistent 1:** The area remains until the start of your next turn."
+          }
+        ],
+        "flavor": "Threads you've been weaving through your adventures create a vibrant, pearlescent web.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "4 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Green",
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2",
+                "type": "corruption"
+              },
+              "effect": "A < WEAK, restrained (save ends)"
+            },
+            {
+              "damage": {
+                "value": "3",
+                "type": "corruption"
+              },
+              "effect": "A < AVERAGE, restrained (save ends)"
+            },
+            {
+              "damage": {
+                "value": "5",
+                "type": "corruption"
+              },
+              "effect": "A < STRONG, restrained (save ends)"
+            }
+          ]
+        },
+        "effect": "The area is difficult terrain until the start of your next turn. Each enemy who ends their turn in the area is restrained (save ends)."
+      }
     }
   ]
 }

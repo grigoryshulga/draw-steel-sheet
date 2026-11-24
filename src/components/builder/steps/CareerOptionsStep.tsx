@@ -1,3 +1,5 @@
+import { careerIncident } from "../choice-language";
+import { useLocale } from "../../../i18n/locale";
 import { BUILDER_DATA as data } from "../../../lib/character-builder";
 import { careerPerkType, PERK_COMPENDIUM } from "../../../data/perks";
 import { ChoiceCard } from "../../ChoiceCard";
@@ -7,6 +9,7 @@ import { Button } from "../../ui";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function CareerOptionsStep({ part }: { part: string }) {
+  const { locale, t: tr } = useLocale();
   const {
     draft,
     patch,
@@ -24,15 +27,15 @@ export function CareerOptionsStep({ part }: { part: string }) {
       {career ? (
         <>
           <div className="builder-selection-summary">
-            <strong>{career.name}</strong>
+            <strong>{locale === "en" && career.originalName ? career.originalName : career.name}</strong>
             <Button variant="ghost" size="sm" onClick={() => go("career")}>
-              Изменить карьеру
+              {tr("Изменить карьеру", "Change career ").trim()}
             </Button>
           </div>
           {part === "skills" && (
             <SkillPicker
               hideTitle
-              label="Навыки карьеры"
+              label={tr("Навыки карьеры", "Career skills")}
               slots={skillSlots.career}
               values={draft.careerSkills}
               prior={[...ancestrySkills, ...cultureSkills]}
@@ -42,7 +45,7 @@ export function CareerOptionsStep({ part }: { part: string }) {
           {part === "perk" && (
             <>
               <div className="builder-section-head">
-                <h3>Перк карьеры</h3>
+                <h3>{tr("Перк карьеры", "Career perk")}</h3>
               </div>
               <div className="perk-card-grid">
                 {PERK_COMPENDIUM.filter(
@@ -51,10 +54,10 @@ export function CareerOptionsStep({ part }: { part: string }) {
                   <PerkCard
                     banded
                     key={p.id}
-                    eyebrow="Карьера"
-                    name={p.name}
+                    eyebrow={tr("Карьера", "Career")}
+                    name={locale === "en" && p.originalName ? p.originalName : p.name}
                     type={p.type}
-                    summary={p.summary}
+                    summary={locale === "en" && p.originalDescription ? p.originalDescription : p.summary}
                     selected={draft.perkId === p.id}
                     onSelect={() => patch({ perkId: p.id })}
                     onOpen={() => openPerk(p)}
@@ -66,19 +69,15 @@ export function CareerOptionsStep({ part }: { part: string }) {
           {part === "incident" && (
             <>
               <div className="builder-section-head">
-                <h3>Побуждающий инцидент</h3>
+                <h3>{tr("Побуждающий инцидент", "Inciting incident")}</h3>
               </div>
               <div className="builder-choice-grid">
                 {career.incidents.map((incident, i) => {
-                  const colon = incident.indexOf(":");
-                  const title =
-                    colon >= 0 ? incident.slice(0, colon).trim() : incident;
-                  const text =
-                    colon >= 0 ? incident.slice(colon + 1).trim() : "";
+                  const { title, text } = careerIncident(career, i, locale);
                   return (
                     <ChoiceCard
                       key={i}
-                      eyebrow="Инцидент"
+                      eyebrow={tr("Инцидент", "Incident")}
                       title={title}
                       summary={text}
                       selected={draft.incident === incident}
@@ -92,7 +91,7 @@ export function CareerOptionsStep({ part }: { part: string }) {
           )}
         </>
       ) : (
-        <p className="builder-notice">Сначала выберите карьеру.</p>
+        <p className="builder-notice">{tr("Сначала выберите карьеру.", "Choose a career first.")}</p>
       )}
     </>
   );

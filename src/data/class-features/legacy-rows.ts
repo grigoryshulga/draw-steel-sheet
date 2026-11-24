@@ -2745,6 +2745,8 @@ export const CLASS_FEATURE_STRUCTURE: Record<string, ClassFeatureStructure> =
 export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   {
     id: "feature.fury.level-1.growing-ferocity-berserker-2",
+    originalName: "Berserker Growing Ferocity: 2",
+    originalDescription: "Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Might score.",
     className: "Неистовый",
     level: 1,
     name: "Растущая свирепость Берсерка: 2",
@@ -2755,6 +2757,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-1.growing-ferocity-berserker-4",
+    originalName: "Berserker Growing Ferocity: 4",
+    originalDescription: "The first time you push a creature on a turn, you gain 1 surge.",
     className: "Неистовый",
     level: 1,
     name: "Растущая свирепость Берсерка: 4",
@@ -2765,6 +2769,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-1.growing-ferocity-berserker-6",
+    originalName: "Berserker Growing Ferocity: 6",
+    originalDescription: "You gain an edge on Might tests and the Knockback maneuver.",
     className: "Неистовый",
     level: 1,
     name: "Растущая свирепость Берсерка: 6",
@@ -2775,6 +2781,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-4.growing-ferocity-berserker-8",
+    originalName: "Berserker Growing Ferocity: 8",
+    originalDescription: "The first time you push a creature on a turn, you gain 2 surges.",
     className: "Неистовый",
     level: 4,
     name: "Растущая свирепость Берсерка: 8 (4-й уровень)",
@@ -2785,6 +2793,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-7.growing-ferocity-berserker-10",
+    originalName: "Berserker Growing Ferocity: 10",
+    originalDescription: "You have a double edge on Might tests and the Knockback maneuver.",
     className: "Неистовый",
     level: 7,
     name: "Растущая свирепость Берсерка: 10 (7-й уровень)",
@@ -2795,6 +2805,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-10.growing-ferocity-berserker-12",
+    originalName: "Berserker Growing Ferocity: 12",
+    originalDescription: "Whenever you use a heroic ability, you gain 10 temporary Stamina. Additionally, whenever you make a power roll that imposes forced movement on a target, the forced movement distance gains a bonus equal to your Might score.",
     className: "Неистовый",
     level: 10,
     name: "Растущая свирепость Берсерка: 12 (10-й уровень)",
@@ -2805,6 +2817,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-1.growing-ferocity-reaver-2",
+    originalName: "Reaver Growing Ferocity: 2",
+    originalDescription: "Whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Agility score.",
     className: "Неистовый",
     level: 1,
     name: "Растущая свирепость Разорителя: 2",
@@ -2815,6 +2829,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-1.growing-ferocity-reaver-4",
+    originalName: "Reaver Growing Ferocity: 4",
+    originalDescription: "The first time you slide a creature on a turn, you gain 1 surge.",
     className: "Неистовый",
     level: 1,
     name: "Растущая свирепость Разорителя: 4",
@@ -2825,6 +2841,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-1.growing-ferocity-reaver-6",
+    originalName: "Reaver Growing Ferocity: 6",
+    originalDescription: "You gain an edge on Agility tests and the Knockback maneuver.",
     className: "Неистовый",
     level: 1,
     name: "Растущая свирепость Разорителя: 6",
@@ -2835,6 +2853,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-4.growing-ferocity-reaver-8",
+    originalName: "Reaver Growing Ferocity: 8",
+    originalDescription: "The first time you slide a creature on a turn, you gain 2 surges.",
     className: "Неистовый",
     level: 4,
     name: "Растущая свирепость Разорителя: 8 (4-й уровень)",
@@ -2845,6 +2865,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-7.growing-ferocity-reaver-10",
+    originalName: "Reaver Growing Ferocity: 10",
+    originalDescription: "You have a double edge on Agility tests and the Knockback maneuver.",
     className: "Неистовый",
     level: 7,
     name: "Растущая свирепость Разорителя: 10 (7-й уровень)",
@@ -2855,6 +2877,8 @@ export const CLASS_FEATURE_SYNTHETIC_ROWS: GeneratedClassFeature[] = [
   },
   {
     id: "feature.fury.level-10.growing-ferocity-reaver-12",
+    originalName: "Reaver Growing Ferocity: 12",
+    originalDescription: "Whenever you use a heroic ability, you gain 10 temporary Stamina. Additionally, whenever you make a power roll that imposes forced movement on a target, the forced movement distance gains a bonus equal to your Agility score.",
     className: "Неистовый",
     level: 10,
     name: "Растущая свирепость Разорителя: 12 (10-й уровень)",

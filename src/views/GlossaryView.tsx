@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import { GLOSSARY, glossaryLink, matchesLibraryQuery } from "../data/library";
 import { useLibraryLocation } from "../lib/library-location";
-import { RuleText } from "../components/RuleText";
+import { GlossaryDefinition } from "../components/rules/GlossaryDefinition";
 import { Button, TextInput } from "../components/ui";
 import "./CodexView.css";
 import "./LibraryView.css";
+import { useLocale } from "../i18n/locale";
 
 export function GlossaryView() {
+  const { locale, t } = useLocale();
   const [, , id] = useLibraryLocation();
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState("");
-  const letters = [...new Set(GLOSSARY.map((entry) => entry.letter))];
+  const initial = (entry: (typeof GLOSSARY)[number]) => locale === "en" && entry.english ? entry.english[0].toUpperCase() : entry.letter;
+  const letters = [...new Set(GLOSSARY.map(initial))].sort((a, b) => a.localeCompare(b, locale));
+  useEffect(() => setLetter(""), [locale]);
   const selected = GLOSSARY.find((entry) => entry.id === id);
   const results = GLOSSARY.filter(
     (entry) =>
-      (!letter || entry.letter === letter) &&
+      (!letter || initial(entry) === letter) &&
       matchesLibraryQuery(query, entry.name, entry.english, entry.markdown),
   );
   useEffect(() => {
@@ -33,17 +37,17 @@ export function GlossaryView() {
       <div className="glossary-tools">
         <TextInput
           type="search"
-          aria-label="Поиск по глоссарию"
-          placeholder="Например: замедление, slowed, эшелон…"
+          aria-label={t("Поиск по глоссарию", "Search glossary")}
+          placeholder={t("Например: замедление, slowed, эшелон…", "For example: slowed, tier…")}
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
             setLetter("");
           }}
         />
-        <nav className="glossary-alphabet" aria-label="Алфавит">
+        <nav className="glossary-alphabet" aria-label={t("Алфавит", "Alphabet")}>
           <button aria-pressed={!letter} onClick={() => setLetter("")}>
-            Все
+            {t("Все", "All")}
           </button>
           {letters.map((value) => (
             <button
@@ -59,23 +63,23 @@ export function GlossaryView() {
           ))}
         </nav>
       </div>
-      <p className="muted small catalog-count">Найдено: {results.length}</p>
+      <p className="muted small catalog-count">{t("Найдено", "Found")}: {results.length}</p>
       {id && !selected && (
         <p className="muted">
-          Термин по этой ссылке не найден. Воспользуйтесь поиском.
+          {t("Термин по этой ссылке не найден. Воспользуйтесь поиском.", "This term could not be found. Try a search.")}
         </p>
       )}
       {results.length === 0 && (
         <div className="library-empty">
-          <h2>Термин не найден</h2>
-          <p>Попробуйте русское или английское название.</p>
+          <h2>{t("Термин не найден", "Term not found")}</h2>
+          <p>{t("Попробуйте русское или английское название.", "Try the Russian or English name.")}</p>
           <Button
             onClick={() => {
               setQuery("");
               setLetter("");
             }}
           >
-            Показать все
+            {t("Показать все", "Show all")}
           </Button>
         </div>
       )}
@@ -88,13 +92,13 @@ export function GlossaryView() {
           >
             <header>
               <h2>
-                <a href={glossaryLink(entry.id)}>{entry.name}</a>
+                <a href={glossaryLink(entry.id)}>{locale === "en" && entry.english ? entry.english : entry.name}</a>
               </h2>
-              {entry.english && (
+              {entry.english && locale === "ru" && (
                 <span className="glossary-english">{entry.english}</span>
               )}
             </header>
-            <RuleText text={entry.markdown} />
+            <GlossaryDefinition entry={entry} />
           </article>
         ))}
       </div>

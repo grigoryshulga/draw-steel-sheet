@@ -51,7 +51,44 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#9th-level-features",
       "originalName": "9th-Level Features",
-      "originalDescription": "As a 9th-level elementalist, you gain the following features."
+      "originalDescription": "As a 9th-level elementalist, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "9th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 9th-level elementalist, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-9.grand-wyrding"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.elementalist.level-9.new-11-essence-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.elementalist.level-9.earth-rejects-you"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.elementalist.level-9.the-green-defends-its-servants"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.elementalist.level-9.prism"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.elementalist.level-9.unquenchable-fire"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -66,7 +103,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-9/grand-wyrding",
       "originalName": "Grand Wyrding",
-      "originalDescription": "You have mastered the magic of shaping a wyrd, and can use your Wyrding feature as a main action.\n\nAdditionally, when you have 5 or more Victories, choose one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. You have immunity all to that type."
+      "originalDescription": "You have mastered the magic of shaping a wyrd, and can use your Wyrding feature as a main action.\n\nAdditionally, when you have 5 or more Victories, choose one of the following damage types: acid, cold, corruption, fire, lightning, poison, or sonic. You have immunity all to that type.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.elementalist.level-9.new-11-essence-ability",
@@ -79,7 +119,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.elementalist.level-9/new-11-essence-ability",
       "originalName": "New 11-Essence Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 essence to use. Alternatively, you can choose one of the 11-essence abilities you didn't select at 8th level (see 8th-Level Features)."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 essence to use. Alternatively, you can choose one of the 11-essence abilities you didn't select at 8th level (see 8th-Level Features).",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.elementalist.level-9.earth-rejects-you",
@@ -137,7 +180,59 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/earth-rejects-you",
       "originalName": "Earth Rejects You",
-      "originalDescription": "*Everyone and everything gets blown away in an eruption of rocks and debris.*\n\n| **Area, Earth, Magic, Ranged** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 5 cube within 10**        | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage\n- **12-16:** 9 damage\n- **17+:** 13 damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
+      "originalDescription": "*Everyone and everything gets blown away in an eruption of rocks and debris.*\n\n| **Area, Earth, Magic, Ranged** |                          **Main action** |\n|--------------------------------|-----------------------------------------:|\n| **📏 5 cube within 10**        | **🎯 Each enemy and object in the area** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 6 damage\n- **12-16:** 9 damage\n- **17+:** 13 damage\n\n**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Persistent 2:** At the start of your turn, you can use a maneuver to use this ability again without spending essence."
+          }
+        ],
+        "flavor": "Everyone and everything gets blown away in an eruption of rocks and debris.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "5 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each enemy and object in the area",
+          "keywords": [
+            "Area",
+            "Earth",
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "9"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "13"
+              },
+              "effect": ""
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.elementalist.level-9.the-green-defends-its-servants",
@@ -192,7 +287,35 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/the-green-defends-its-servants",
       "originalName": "The Green Defends Its Servants",
-      "originalDescription": "*A luminous green shield shows its true beauty the more it cracks.*\n\n| **Green, Magic, Ranged** |            **Maneuver** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Effect:** You conjure an elemental shield that protects the target until the end of your next turn. While the shield is active, the target can take the Defend main action as a maneuver on each of their turns. The target gains 30 temporary Stamina that lasts until depleted or until the effect ends. If this temporary Stamina disappears, the effect ends and the shield explodes, dealing 10 damage to each enemy within 5 squares of the target.\n\n**Persistent 2:** The effect lasts until the start of your next turn."
+      "originalDescription": "*A luminous green shield shows its true beauty the more it cracks.*\n\n| **Green, Magic, Ranged** |            **Maneuver** |\n|--------------------------|------------------------:|\n| **📏 Ranged 10**         | **🎯 Self or one ally** |\n\n**Effect:** You conjure an elemental shield that protects the target until the end of your next turn. While the shield is active, the target can take the Defend main action as a maneuver on each of their turns. The target gains 30 temporary Stamina that lasts until depleted or until the effect ends. If this temporary Stamina disappears, the effect ends and the shield explodes, dealing 10 damage to each enemy within 5 squares of the target.\n\n**Persistent 2:** The effect lasts until the start of your next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Persistent 2:** The effect lasts until the start of your next turn."
+          }
+        ],
+        "flavor": "A luminous green shield shows its true beauty the more it cracks.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Green",
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "You conjure an elemental shield that protects the target until the end of your next turn. While the shield is active, the target can take the Defend main action as a maneuver on each of their turns. The target gains 30 temporary Stamina that lasts until depleted or until the effect ends. If this temporary Stamina disappears, the effect ends and the shield explodes, dealing 10 damage to each enemy within 5 squares of the target."
+      }
     },
     {
       "id": "feature.ability.elementalist.level-9.prism",
@@ -246,7 +369,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/prism",
       "originalName": "Prism",
-      "originalDescription": "*You split your essence, allowing you to cast multiple effects at once.*\n\n| **Magic, Void** | **Main action** |\n|-----------------|----------------:|\n| **📏 Self**     |     **🎯 Self** |\n\n**Effect:** You use up to three heroic abilities whose essence costs total 11 or less, spending no additional essence beyond the cost of this ability. You can shift up to 2 squares between your use of each ability."
+      "originalDescription": "*You split your essence, allowing you to cast multiple effects at once.*\n\n| **Magic, Void** | **Main action** |\n|-----------------|----------------:|\n| **📏 Self**     |     **🎯 Self** |\n\n**Effect:** You use up to three heroic abilities whose essence costs total 11 or less, spending no additional essence beyond the cost of this ability. You can shift up to 2 squares between your use of each ability.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You split your essence, allowing you to cast multiple effects at once.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic",
+            "Void"
+          ]
+        },
+        "effect": "You use up to three heroic abilities whose essence costs total 11 or less, spending no additional essence beyond the cost of this ability. You can shift up to 2 squares between your use of each ability."
+      }
     },
     {
       "id": "feature.ability.elementalist.level-9.unquenchable-fire",
@@ -304,7 +446,59 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.elementalist.level-9/unquenchable-fire",
       "originalName": "Unquenchable Fire",
-      "originalDescription": "*You let fly a fiery missile braided with pure primal energy.*\n\n| **Fire, Magic, Ranged, Strike** |            **Main action** |\n|---------------------------------|---------------------------:|\n| **📏 Ranged 10**                | **🎯 One enemy or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 13 + R fire damage; I < WEAK, dazed (save ends)\n- **12-16:** 18 + R fire damage; I < AVERAGE, dazed (save ends)\n- **17+:** 25 + R fire damage; I < STRONG, dazed (save ends)\n\n**Effect:** This damage ignores immunity."
+      "originalDescription": "*You let fly a fiery missile braided with pure primal energy.*\n\n| **Fire, Magic, Ranged, Strike** |            **Main action** |\n|---------------------------------|---------------------------:|\n| **📏 Ranged 10**                | **🎯 One enemy or object** |\n\n**Power Roll + Reason:**\n\n- **≤11:** 13 + R fire damage; I < WEAK, dazed (save ends)\n- **12-16:** 18 + R fire damage; I < AVERAGE, dazed (save ends)\n- **17+:** 25 + R fire damage; I < STRONG, dazed (save ends)\n\n**Effect:** This damage ignores immunity.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You let fly a fiery missile braided with pure primal energy.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One enemy or object",
+          "keywords": [
+            "Fire",
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Reason",
+          "characteristic": "reason",
+          "tiers": [
+            {
+              "damage": {
+                "value": "13 + R",
+                "type": "fire"
+              },
+              "effect": "I < WEAK, dazed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "18 + R",
+                "type": "fire"
+              },
+              "effect": "I < AVERAGE, dazed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "25 + R",
+                "type": "fire"
+              },
+              "effect": "I < STRONG, dazed (save ends)"
+            }
+          ]
+        },
+        "effect": "This damage ignores immunity."
+      }
     }
   ]
 }

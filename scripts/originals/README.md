@@ -39,6 +39,10 @@
   - `unmapped-*.json` — английские id и названия для структурных заголовков,
     контейнеров и домашних материалов без отдельного `scc`;
   - `codex-*.json` — статьи Кодекса → разделы английской книги.
+  - `entity-leaves.json`, `entity-intros.json` — проверенные границы отдельных
+    особенностей; `ancestry-intros.json` и `class-aggregates.json` — границы
+    агрегатов. Карты закрепляют хеш русского текста, чтобы изменение правила
+    требовало повторной сверки источника.
 - `scripts/content/lib/originals.mjs` — применяет карты к проекциям
   `src/generated/consumers/*.json` и пакетам `src/generated/rules/packs/*.json`
   внутри `content:build`.

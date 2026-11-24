@@ -67,7 +67,64 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
       "originalName": "8th-Level Features",
-      "originalDescription": "As an 8th-level fury, you gain the following features."
+      "originalDescription": "As an 8th-level fury, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "8th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As an 8th-level fury, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-8.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 8th-Level Aspect Feature\n\nYour primordial aspect grants you a feature, as shown on the 8th-Level Aspect Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 8th-Level Aspect Features Table\n\n| Aspect     | Feature            |\n|------------|--------------------|\n| Berserker  | Strongest There Is |\n| Reaver     | A Step Ahead       |\n| Stormwight | Menagerie          |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-8.menagerie"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-8.a-step-ahead"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-8.strongest-there-is"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-8.11-ferocity-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-8.elemental-ferocity"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-8.overkill"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-8.primordial-rage"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-8.relentless-death"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -82,7 +139,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-8/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one perk of your choice."
+      "originalDescription": "You gain one perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-8.8th-level-aspect-feature",
@@ -95,7 +155,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-8/8th-level-aspect-feature",
       "originalName": "8th-Level Aspect Feature",
-      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 8th-Level Aspect Features table.\n\n###### 8th-Level Aspect Features Table\n\n| Aspect     | Feature            |\n|------------|--------------------|\n| Berserker  | Strongest There Is |\n| Reaver     | A Step Ahead       |\n| Stormwight | Menagerie          |"
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 8th-Level Aspect Features table.\n\n###### 8th-Level Aspect Features Table\n\n| Aspect     | Feature            |\n|------------|--------------------|\n| Berserker  | Strongest There Is |\n| Reaver     | A Step Ahead       |\n| Stormwight | Menagerie          |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-8.menagerie",
@@ -108,7 +171,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-8/menagerie",
       "originalName": "Menagerie",
-      "originalDescription": "You can use all stormwight kits. During a respite, you can choose to swap your stormwight kit and still take another respite activity. Your Nature's Knight feature now lets you automatically sense the presence of animals within 1 mile of you. Additionally, whenever you make a test to track another creature, you can roll three dice and choose which two to use."
+      "originalDescription": "You can use all stormwight kits. During a respite, you can choose to swap your stormwight kit and still take another respite activity. Your Nature's Knight feature now lets you automatically sense the presence of animals within 1 mile of you. Additionally, whenever you make a test to track another creature, you can roll three dice and choose which two to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-8.a-step-ahead",
@@ -121,7 +187,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-8/a-step-ahead",
       "originalName": "A Step Ahead",
-      "originalDescription": "You move with legendary grace. Whenever you make an Agility test, you can roll three dice and choose which two to use. Additionally, whenever you use the Disengage move action, the distance you can shift gains a bonus equal to your Agility score."
+      "originalDescription": "You move with legendary grace. Whenever you make an Agility test, you can roll three dice and choose which two to use. Additionally, whenever you use the Disengage move action, the distance you can shift gains a bonus equal to your Agility score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-8.strongest-there-is",
@@ -134,7 +203,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-8/strongest-there-is",
       "originalName": "Strongest There Is",
-      "originalDescription": "Your strength is unmatched. Whenever you make a Might test, you can roll three dice and choose which two to use. Additionally, whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Might score."
+      "originalDescription": "Your strength is unmatched. Whenever you make a Might test, you can roll three dice and choose which two to use. Additionally, whenever you use the Knockback maneuver, the forced movement distance gains a bonus equal to your Might score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-8.11-ferocity-ability",
@@ -147,7 +219,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-8/11-ferocity-ability",
       "originalName": "11-Ferocity Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 ferocity to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 ferocity to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.fury.level-8.elemental-ferocity",
@@ -200,7 +275,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/elemental-ferocity",
       "originalName": "Elemental Ferocity",
-      "originalDescription": "*Your primordial energy makes for instant retribution.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 10 temporary Stamina. Additionally, choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, whenever an enemy damages you, they take 10 damage of the chosen type. If this damage reduces the enemy to 0 Stamina, you gain 10 temporary Stamina."
+      "originalDescription": "*Your primordial energy makes for instant retribution.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 10 temporary Stamina. Additionally, choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, whenever an enemy damages you, they take 10 damage of the chosen type. If this damage reduces the enemy to 0 Stamina, you gain 10 temporary Stamina.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your primordial energy makes for instant retribution.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "You gain 10 temporary Stamina. Additionally, choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, whenever an enemy damages you, they take 10 damage of the chosen type. If this damage reduces the enemy to 0 Stamina, you gain 10 temporary Stamina."
+      }
     },
     {
       "id": "feature.ability.fury.level-8.overkill",
@@ -258,7 +351,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/overkill",
       "originalName": "Overkill",
-      "originalDescription": "*You strike so no damage is wasted.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** If the target is a minion or is winded but isn't a leader or solo creature, they are reduced to 0 Stamina before this ability's damage is dealt. If the target is killed by this damage, you can deal any damage over what was required to kill them to another creature within 5 squares of the target."
+      "originalDescription": "*You strike so no damage is wasted.*\n\n| **Magic, Melee, Strike, Weapon** |     **Main action** |\n|----------------------------------|--------------------:|\n| **📏 Melee 1**                   | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 6 + M damage\n- **12-16:** 10 + M damage\n- **17+:** 14 + M damage\n\n**Effect:** If the target is a minion or is winded but isn't a leader or solo creature, they are reduced to 0 Stamina before this ability's damage is dealt. If the target is killed by this damage, you can deal any damage over what was required to kill them to another creature within 5 squares of the target.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You strike so no damage is wasted.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "10 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "14 + M"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "If the target is a minion or is winded but isn't a leader or solo creature, they are reduced to 0 Stamina before this ability's damage is dealt. If the target is killed by this damage, you can deal any damage over what was required to kill them to another creature within 5 squares of the target."
+      }
     },
     {
       "id": "feature.ability.fury.level-8.primordial-rage",
@@ -311,7 +453,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/primordial-rage",
       "originalName": "Primordial Rage",
-      "originalDescription": "*Your ferocity manifests into primordial power.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, you can choose one target of any ability you use, with that target taking an extra 15 damage of the chosen type. Additionally, whenever you gain ferocity from taking damage, the source of the damage takes 5 damage of the chosen type."
+      "originalDescription": "*Your ferocity manifests into primordial power.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, you can choose one target of any ability you use, with that target taking an extra 15 damage of the chosen type. Additionally, whenever you gain ferocity from taking damage, the source of the damage takes 5 damage of the chosen type.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your ferocity manifests into primordial power.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "Choose acid, cold, corruption, fire, lightning, poison, or sonic damage. Until the end of the encounter or until you are dying, you can choose one target of any ability you use, with that target taking an extra 15 damage of the chosen type. Additionally, whenever you gain ferocity from taking damage, the source of the damage takes 5 damage of the chosen type."
+      }
     },
     {
       "id": "feature.ability.fury.level-8.relentless-death",
@@ -369,7 +529,43 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-8/relentless-death",
       "originalName": "Relentless Death",
-      "originalDescription": "*You won't escape your fate.*\n\n| **Magic, Melee, Strike, Weapon** | **Main action** |\n|----------------------------------|----------------:|\n| **📏 Self; see below**           |     **🎯 Self** |\n\n**Effect:** You shift up to your speed. Each enemy you move adjacent to during this movement takes damage equal to twice your Might score. Then make one power roll that targets each enemy you move adjacent to during this shift. You gain 1 ferocity for each target who dies as a result of this ability (maximum 11 ferocity).\n\n**Power Roll + Might:**\n\n- **≤11:** Any target whose Stamina is equal to or less than 8 dies.\n- **12-16:** Any target whose Stamina is equal to or less than 11 dies.\n- **17+:** Any target whose Stamina is equal to or less than 17 dies."
+      "originalDescription": "*You won't escape your fate.*\n\n| **Magic, Melee, Strike, Weapon** | **Main action** |\n|----------------------------------|----------------:|\n| **📏 Self; see below**           |     **🎯 Self** |\n\n**Effect:** You shift up to your speed. Each enemy you move adjacent to during this movement takes damage equal to twice your Might score. Then make one power roll that targets each enemy you move adjacent to during this shift. You gain 1 ferocity for each target who dies as a result of this ability (maximum 11 ferocity).\n\n**Power Roll + Might:**\n\n- **≤11:** Any target whose Stamina is equal to or less than 8 dies.\n- **12-16:** Any target whose Stamina is equal to or less than 11 dies.\n- **17+:** Any target whose Stamina is equal to or less than 17 dies.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You won't escape your fate.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self; see below"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "beforeRoll": "**Effect:** You shift up to your speed. Each enemy you move adjacent to during this movement takes damage equal to twice your Might score. Then make one power roll that targets each enemy you move adjacent to during this shift. You gain 1 ferocity for each target who dies as a result of this ability (maximum 11 ferocity).",
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "effect": "Any target whose Stamina is equal to or less than 8 dies."
+            },
+            {
+              "effect": "Any target whose Stamina is equal to or less than 11 dies."
+            },
+            {
+              "effect": "Any target whose Stamina is equal to or less than 17 dies."
+            }
+          ]
+        }
+      }
     }
   ]
 }

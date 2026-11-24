@@ -65,7 +65,8 @@ export function actionShort(type: ActionType): string {
   return ACTION_TYPES.find((item) => item.key === type)?.short ?? type;
 }
 
-export function kindLabel(kind: AbilityKind): string {
+export function kindLabel(kind: AbilityKind, language: "ru" | "en" = "ru"): string {
+  if (language === "en") return { signature: "Signature", heroic: "Heroic", "free-strike": "Free strike", other: "Other" }[kind] ?? kind;
   return ABILITY_KINDS.find((item) => item.key === kind)?.label ?? kind;
 }
 

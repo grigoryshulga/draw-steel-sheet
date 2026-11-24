@@ -250,6 +250,8 @@ const IDENTITY_FIELDS = new Set([
   "originalId",
   "originalName",
   "originalDescription",
+  "originalCoverage", // Source completeness metadata does not change Russian content.
+  "hasEnglishDefinition", // Availability of separately delivered English definitions.
 ]);
 
 /** Английский термин глоссария превращается в `glossary.<slug>`. */

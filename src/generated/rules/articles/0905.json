@@ -19,7 +19,20 @@
       ],
       "originalId": "mcdm.heroes.v1/kit/whirlwind",
       "originalName": "Whirlwind",
-      "originalDescription": "The Whirlwind kit makes effective use of whips, granting you mobility, damage, and reach. If you want to be a fast-moving warrior who lashes foes with a chain or whip, then this is the kit for you."
+      "originalDescription": "The Whirlwind kit makes effective use of whips, granting you mobility, damage, and reach. If you want to be a fast-moving warrior who lashes foes with a chain or whip, then this is the kit for you.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishEdition": {
+        "kind": "source",
+        "title": "Whirlwind",
+        "blocks": [
+          {
+            "type": "entity",
+            "ref": "kit.whirlwind"
+          }
+        ]
+      }
     }
   ],
   "entities": [
@@ -34,7 +47,17 @@
       },
       "originalId": "mcdm.heroes.v1/kit/whirlwind",
       "originalName": "Whirlwind",
-      "originalDescription": "The Whirlwind kit makes effective use of whips, granting you mobility, damage, and reach. If you want to be a fast-moving warrior who lashes foes with a chain or whip, then this is the kit for you.\n\n##### Equipment\n\nYou wear no armor and wield a whip.\n\n##### Kit Bonuses\n\n**Speed Bonus:** +3\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Melee Distance Bonus:** +1\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Extension of My Arm\n\n*When you draw your whip back after an attack, your enemy is drawn ever closer.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 3**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; vertical pull 1\n- **12-16:** 7 + M or A damage; vertical pull 2\n- **17+:** 10 + M or A damage; vertical pull 3"
+      "originalDescription": "The Whirlwind kit makes effective use of whips, granting you mobility, damage, and reach. If you want to be a fast-moving warrior who lashes foes with a chain or whip, then this is the kit for you.\n\n##### Equipment\n\nYou wear no armor and wield a whip.\n\n##### Kit Bonuses\n\n**Speed Bonus:** +3\n\n**Melee Damage Bonus:** +1/+1/+1\n\n**Melee Distance Bonus:** +1\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Extension of My Arm\n\n*When you draw your whip back after an attack, your enemy is drawn ever closer.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 3**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; vertical pull 1\n- **12-16:** 7 + M or A damage; vertical pull 2\n- **17+:** 10 + M or A damage; vertical pull 3",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishSignatures": [
+        {
+          "ref": "feature.ability.whirlwind.extension-of-my-arm",
+          "start": 407,
+          "end": 850
+        }
+      ]
     },
     {
       "id": "feature.ability.whirlwind.extension-of-my-arm",
@@ -92,7 +115,53 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.whirlwind/extension-of-my-arm",
       "originalName": "Extension of My Arm",
-      "originalDescription": "*When you draw your whip back after an attack, your enemy is drawn ever closer.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 3**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; vertical pull 1\n- **12-16:** 7 + M or A damage; vertical pull 2\n- **17+:** 10 + M or A damage; vertical pull 3"
+      "originalDescription": "*When you draw your whip back after an attack, your enemy is drawn ever closer.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 3**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 4 + M or A damage; vertical pull 1\n- **12-16:** 7 + M or A damage; vertical pull 2\n- **17+:** 10 + M or A damage; vertical pull 3",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "When you draw your whip back after an attack, your enemy is drawn ever closer.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 3
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might or Agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + M or A"
+              },
+              "effect": "vertical pull 1"
+            },
+            {
+              "damage": {
+                "value": "7 + M or A"
+              },
+              "effect": "vertical pull 2"
+            },
+            {
+              "damage": {
+                "value": "10 + M or A"
+              },
+              "effect": "vertical pull 3"
+            }
+          ]
+        }
+      }
     }
   ]
 }

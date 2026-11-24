@@ -95,7 +95,84 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#2nd-level-features",
       "originalName": "2nd-Level Features",
-      "originalDescription": "As a 2nd-level shadow, you gain the following features."
+      "originalDescription": "As a 2nd-level shadow, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "2nd-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 2nd-level shadow, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-2.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 2nd-Level College Feature\n\nYour shadow college grants you a feature, as shown on the 2nd-Level College Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 2nd-Level College Features Table\n\n| College                    | Feature          |\n|----------------------------|------------------|\n| Black Ash                  | Burning Ash      |\n| Caustic Alchemy            | Trained Assassin |\n| Harlequin Mask             | Friend!          |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-2.burning-ash"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-2.friend"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.shadow.level-2.trained-assassin"
+          },
+          {
+            "type": "markdown",
+            "text": "## 2nd-Level College Ability\n\nYour shadow college grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Black Ash Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-2.in-a-puff-of-ash"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-2.too-slow"
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Caustic Alchemy Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-2.sticky-bomb"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-2.stink-bomb"
+          },
+          {
+            "type": "markdown",
+            "text": "### 2nd-Level Harlequin Mask Ability\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-2.machinations-of-sound"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.shadow.level-2.so-gullible"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -110,7 +187,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-2/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice. See Chapter 7: Perks."
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice. See Chapter 7: Perks.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-2.2nd-level-college-feature",
@@ -123,7 +203,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-2/2nd-level-college-feature",
       "originalName": "2nd-Level College Feature",
-      "originalDescription": "Your shadow college grants you a feature, as shown on the 2nd-Level College Features table.\n\n###### 2nd-Level College Features Table\n\n| College                    | Feature          |\n|----------------------------|------------------|\n| Black Ash                  | Burning Ash      |\n| Caustic Alchemy            | Trained Assassin |\n| Harlequin Mask             | Friend!          |"
+      "originalDescription": "Your shadow college grants you a feature, as shown on the 2nd-Level College Features table.\n\n###### 2nd-Level College Features Table\n\n| College                    | Feature          |\n|----------------------------|------------------|\n| Black Ash                  | Burning Ash      |\n| Caustic Alchemy            | Trained Assassin |\n| Harlequin Mask             | Friend!          |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-2.burning-ash",
@@ -136,7 +219,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-2/burning-ash",
       "originalName": "Burning Ash",
-      "originalDescription": "The ash you leave behind burns your foes. The first time on a turn that you use a shadow ability to teleport away from or into a space adjacent to an enemy, that enemy takes fire damage equal to your Agility score."
+      "originalDescription": "The ash you leave behind burns your foes. The first time on a turn that you use a shadow ability to teleport away from or into a space adjacent to an enemy, that enemy takes fire damage equal to your Agility score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-2.friend",
@@ -149,7 +235,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-2/friend",
       "originalName": "Friend!",
-      "originalDescription": "Your illusions make your enemies believe you are their friend in critical moments. Whenever an enemy uses an ability or trait that targets multiple allies and you are within distance of the effect, you can choose to be a target of the effect as well.\n\nAdditionally, when you use your I'm No Threat ability, you can take the Disengage move action as part of that ability."
+      "originalDescription": "Your illusions make your enemies believe you are their friend in critical moments. Whenever an enemy uses an ability or trait that targets multiple allies and you are within distance of the effect, you can choose to be a target of the effect as well.\n\nAdditionally, when you use your I'm No Threat ability, you can take the Disengage move action as part of that ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-2.trained-assassin",
@@ -162,7 +251,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-2/trained-assassin",
       "originalName": "Trained Assassin",
-      "originalDescription": "You know just where to cut your enemies. Whenever you make a strike that has no bane or double bane, and that incorporates 1 or more surges, you gain 1 additional surge that you can use only on that strike."
+      "originalDescription": "You know just where to cut your enemies. Whenever you make a strike that has no bane or double bane, and that incorporates 1 or more surges, you gain 1 additional surge that you can use only on that strike.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-2.2nd-level-college-ability",
@@ -175,7 +267,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.shadow.level-2/2nd-level-college-ability",
       "originalName": "2nd-Level College Ability",
-      "originalDescription": "Your shadow college grants your choice of one of two heroic abilities.\n\n##### 2nd-Level Black Ash Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Caustic Alchemy Ability\n\nChoose one of the following abilities.\n\n##### 2nd-Level Harlequin Mask Ability\n\nChoose one of the following abilities."
+      "originalDescription": "Your shadow college grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.shadow.level-2.black-ash-ability",
@@ -188,7 +283,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Black Ash Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.shadow.level-2.in-a-puff-of-ash",
@@ -247,7 +345,61 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/in-a-puff-of-ash",
       "originalName": "In a Puff of Ash",
-      "originalDescription": "*You enchant a strike with your teleportation magic.*\n\n| **Magic, Melee, Ranged, Strike, Weapon** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**               | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; you can teleport the target 1 square\n- **12-16:** 10 + A damage; you can teleport the target up to 3 squares\n- **17+:** 14 + A damage; you can teleport the target up to 5 squares"
+      "originalDescription": "*You enchant a strike with your teleportation magic.*\n\n| **Magic, Melee, Ranged, Strike, Weapon** |     **Main action** |\n|------------------------------------------|--------------------:|\n| **📏 Melee 1 or ranged 5**               | **🎯 One creature** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 6 + A damage; you can teleport the target 1 square\n- **12-16:** 10 + A damage; you can teleport the target up to 3 squares\n- **17+:** 14 + A damage; you can teleport the target up to 5 squares",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You enchant a strike with your teleportation magic.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            },
+            " or ranged ",
+            {
+              "mode": "ranged",
+              "value": 5
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6 + A"
+              },
+              "effect": "you can teleport the target 1 square"
+            },
+            {
+              "damage": {
+                "value": "10 + A"
+              },
+              "effect": "you can teleport the target up to 3 squares"
+            },
+            {
+              "damage": {
+                "value": "14 + A"
+              },
+              "effect": "you can teleport the target up to 5 squares"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.shadow.level-2.too-slow",
@@ -298,7 +450,24 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/too-slow",
       "originalName": "Too Slow",
-      "originalDescription": "*Your foe made a big mistake.*\n\n| **-**                  | **Free triggered** |\n|------------------------|-------------------:|\n| **📏 Self; see below** |        **🎯 Self** |\n\n**Trigger:** You use your In All This Confusion ability.\n\n**Effect:** You ignore any effects associated with the damage that triggered your In All This Confusion ability. Before you teleport, you can make a free strike against a creature who damaged you to trigger In All This Confusion. After you teleport, you can spend a Recovery."
+      "originalDescription": "*Your foe made a big mistake.*\n\n| **-**                  | **Free triggered** |\n|------------------------|-------------------:|\n| **📏 Self; see below** |        **🎯 Self** |\n\n**Trigger:** You use your In All This Confusion ability.\n\n**Effect:** You ignore any effects associated with the damage that triggered your In All This Confusion ability. Before you teleport, you can make a free strike against a creature who damaged you to trigger In All This Confusion. After you teleport, you can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your foe made a big mistake.",
+        "facts": {
+          "action": "Free triggered",
+          "distance": [
+            "Self; see below"
+          ],
+          "target": "Self",
+          "keywords": []
+        },
+        "trigger": "You use your In All This Confusion ability.",
+        "effect": "You ignore any effects associated with the damage that triggered your In All This Confusion ability. Before you teleport, you can make a free strike against a creature who damaged you to trigger In All This Confusion. After you teleport, you can spend a Recovery."
+      }
     },
     {
       "id": "feature.shadow.level-2.caustic-alchemy-ability",
@@ -311,7 +480,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Caustic Alchemy Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.shadow.level-2.sticky-bomb",
@@ -366,7 +538,56 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/sticky-bomb",
       "originalName": "Sticky Bomb",
-      "originalDescription": "*Explosives are best when they're attached to an enemy.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Effect:** You attach a small bomb to a creature. If you are hidden from the creature, they don't notice the bomb and you remain hidden. The creature otherwise notices the bomb and can disarm and remove it as a main action. If they don't, at the end of your next turn, the bomb detonates. When the bomb detonates, you make a power roll targeting each enemy within 2 squares of it.\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage\n- **12-16:** 7 + A fire damage\n- **17+:** 11 + A fire damage"
+      "originalDescription": "*Explosives are best when they're attached to an enemy.*\n\n| **Ranged**       |     **Main action** |\n|------------------|--------------------:|\n| **📏 Ranged 10** | **🎯 One creature** |\n\n**Effect:** You attach a small bomb to a creature. If you are hidden from the creature, they don't notice the bomb and you remain hidden. The creature otherwise notices the bomb and can disarm and remove it as a main action. If they don't, at the end of your next turn, the bomb detonates. When the bomb detonates, you make a power roll targeting each enemy within 2 squares of it.\n\n**Power Roll + Agility:**\n\n- **≤11:** 4 + A fire damage\n- **12-16:** 7 + A fire damage\n- **17+:** 11 + A fire damage",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Explosives are best when they're attached to an enemy.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "beforeRoll": "**Effect:** You attach a small bomb to a creature. If you are hidden from the creature, they don't notice the bomb and you remain hidden. The creature otherwise notices the bomb and can disarm and remove it as a main action. If they don't, at the end of your next turn, the bomb detonates. When the bomb detonates, you make a power roll targeting each enemy within 2 squares of it.",
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4 + A",
+                "type": "fire"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7 + A",
+                "type": "fire"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "11 + A",
+                "type": "fire"
+              },
+              "effect": ""
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.shadow.level-2.stink-bomb",
@@ -422,7 +643,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/stink-bomb",
       "originalName": "Stink Bomb",
-      "originalDescription": "*Putrid yellow gas explodes from a bomb you toss.*\n\n| **Area, Ranged**        |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 poison damage\n- **12-16:** 5 poison damage\n- **17+:** 7 poison damage\n\n**Effect:** The gas remains in the area until the end of the encounter. Any creature who starts their turn in the area and has M < AVERAGE is weakened (save ends)."
+      "originalDescription": "*Putrid yellow gas explodes from a bomb you toss.*\n\n| **Area, Ranged**        |                  **Main action** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** 2 poison damage\n- **12-16:** 5 poison damage\n- **17+:** 7 poison damage\n\n**Effect:** The gas remains in the area until the end of the encounter. Any creature who starts their turn in the area and has M < AVERAGE is weakened (save ends).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Putrid yellow gas explodes from a bomb you toss.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "3 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each creature in the area",
+          "keywords": [
+            "Area",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2",
+                "type": "poison"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5",
+                "type": "poison"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7",
+                "type": "poison"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "The gas remains in the area until the end of the encounter. Any creature who starts their turn in the area and has M < AVERAGE is weakened (save ends)."
+      }
     },
     {
       "id": "feature.shadow.level-2.harlequin-mask-ability",
@@ -435,7 +706,10 @@
       },
       "originalId": "",
       "originalName": "2nd-Level Harlequin Mask Ability",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.shadow.level-2.machinations-of-sound",
@@ -492,7 +766,46 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/machinations-of-sound",
       "originalName": "Machinations of Sound",
-      "originalDescription": "*Illusory sounds make your foes reposition themselves as they cower or investigate the disturbance.*\n\n| **Area, Magic, Ranged** |                     **Maneuver** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** Slide 4\n- **12-16:** Slide 5\n- **17+:** Slide 7\n\n**Effect:** This forced movement ignores stability. Instead, the forced movement is reduced by a number equal to the target's Intuition score."
+      "originalDescription": "*Illusory sounds make your foes reposition themselves as they cower or investigate the disturbance.*\n\n| **Area, Magic, Ranged** |                     **Maneuver** |\n|-------------------------|---------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each creature in the area** |\n\n**Power Roll + Agility:**\n\n- **≤11:** Slide 4\n- **12-16:** Slide 5\n- **17+:** Slide 7\n\n**Effect:** This forced movement ignores stability. Instead, the forced movement is reduced by a number equal to the target's Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Illusory sounds make your foes reposition themselves as they cower or investigate the disturbance.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "3 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each creature in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Agility",
+          "characteristic": "agility",
+          "tiers": [
+            {
+              "effect": "Slide 4"
+            },
+            {
+              "effect": "Slide 5"
+            },
+            {
+              "effect": "Slide 7"
+            }
+          ]
+        },
+        "effect": "This forced movement ignores stability. Instead, the forced movement is reduced by a number equal to the target's Intuition score."
+      }
     },
     {
       "id": "feature.ability.shadow.level-2.so-gullible",
@@ -545,7 +858,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.shadow.level-2/so-gullible",
       "originalName": "So Gullible",
-      "originalDescription": "*When your enemy strikes, you reveal you were in a different place all along.*\n\n| **Magic**            | **Free triggered** |\n|----------------------|-------------------:|\n| **📏 Self**          |        **🎯 Self** |\n\n**Trigger:** Another creature targets you with a strike.\n\n**Effect:** You use your Clever Trick ability with no insight cost against the triggering creature and strike. You can teleport to an unoccupied space within 3 squares of that creature and can make a free strike against them. You can then spend a Recovery."
+      "originalDescription": "*When your enemy strikes, you reveal you were in a different place all along.*\n\n| **Magic**            | **Free triggered** |\n|----------------------|-------------------:|\n| **📏 Self**          |        **🎯 Self** |\n\n**Trigger:** Another creature targets you with a strike.\n\n**Effect:** You use your Clever Trick ability with no insight cost against the triggering creature and strike. You can teleport to an unoccupied space within 3 squares of that creature and can make a free strike against them. You can then spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "When your enemy strikes, you reveal you were in a different place all along.",
+        "facts": {
+          "action": "Free triggered",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "trigger": "Another creature targets you with a strike.",
+        "effect": "You use your Clever Trick ability with no insight cost against the triggering creature and strike. You can teleport to an unoccupied space within 3 squares of that creature and can make a free strike against them. You can then spend a Recovery."
+      }
     }
   ]
 }

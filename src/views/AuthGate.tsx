@@ -1,3 +1,5 @@
+import { SiteLanguageSwitch } from "../components/LanguageSwitch";
+import { useLocale } from "../i18n/locale";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase, supabaseEnabled } from "../lib/supabase";
@@ -17,6 +19,7 @@ export function AuthGate({
   children: ReactNode;
   beforeSignOut?: () => Promise<void>;
 }) {
+  const { t } = useLocale();
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(supabaseEnabled);
   const [signUp, setSignUp] = useState(false);
@@ -52,7 +55,7 @@ export function AuthGate({
       })
       .catch(() => {
         if (!active) return;
-        setError("Не удалось проверить вход. Попробуйте войти снова.");
+        setError(t("Не удалось проверить вход. Попробуйте войти снова.", "Couldn’t verify your session. Sign in again."));
         setLoading(false);
       });
     const { data } = supabase.auth.onAuthStateChange((event, nextSession) => {
@@ -69,6 +72,13 @@ export function AuthGate({
     };
   }, []);
 
+  useEffect(() => {
+    if (supabaseEnabled && !session && !offlineAccount) {
+      document.title = GUEST_TABS.includes(tab) ? t("Кодекс — Достать листы!", "Codex — Dostat Listy!")
+        : t("Вход — Достать листы!", "Sign in — Dostat Listy!");
+    }
+  }, [tab, session, offlineAccount, t]);
+
   if (!supabaseEnabled || !supabase) return children;
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -82,11 +92,11 @@ export function AuthGate({
         : await supabase!.auth.signInWithPassword({ email, password });
       if (result.error) throw result.error;
       if (signUp && !result.data.session) {
-        setMessage("Проверьте почту и подтвердите адрес, чтобы войти.");
+        setMessage(t("Проверьте почту и подтвердите адрес, чтобы войти.", "Check your email and confirm your address to sign in."));
       }
     } catch (cause) {
       setError(
-        cause instanceof Error ? cause.message : "Не удалось выполнить вход",
+        cause instanceof Error ? cause.message : t("Не удалось выполнить вход", "Couldn’t sign in"),
       );
     } finally {
       setSubmitting(false);
@@ -111,7 +121,7 @@ export function AuthGate({
       setError(
         cause instanceof Error
           ? cause.message
-          : "Не удалось выйти. Попробуйте снова.",
+          : t("Не удалось выйти. Попробуйте снова.", "Couldn’t sign out. Try again."),
       );
     } finally {
       setSigningOut(false);
@@ -124,7 +134,7 @@ export function AuthGate({
   if (loading && !user && GUEST_TABS.includes(tab)) {
     return <GuestApp tab={tab} onSignIn={() => setTab("sheet")} />;
   }
-  if (loading && !user) return <LoadingScreen label="Проверяем вход…" hint="Подключаемся к вашим героям" />;
+  if (loading && !user) return <LoadingScreen label={t("Проверяем вход…", "Checking sign-in…")} hint={t("Подключаемся к вашим героям", "Connecting to your heroes")} />;
 
   if (!user && GUEST_TABS.includes(tab)) {
     return <GuestApp tab={tab} onSignIn={() => setTab("sheet")} />;
@@ -134,17 +144,17 @@ export function AuthGate({
     return (
       <main className="auth-page">
         <form className="auth-card" onSubmit={submit}>
+          <SiteLanguageSwitch />
           <SiteLogo variant="mark" className="auth-logo" />
-          <p className="auth-kicker">ДОСТАТЬ ЛИСТЫ!</p>
-          <h1>{signUp ? "Создать аккаунт" : "Вход в Достать листы!"}</h1>
+          <p className="auth-kicker">{t("ДОСТАТЬ ЛИСТЫ!", "DOSTAT LISTY!")}</p>
+          <h1>{signUp ? t("Создать аккаунт", "Create an account") : t("Вход в Достать листы!", "Sign in to Dostat Listy!")}</h1>
           <p className="auth-copy">
-            Листы персонажей для Draw Steel на русском: бои, ресурсы,
-            способности и правила под рукой.{" "}
+            {t("Листы персонажей для Draw Steel: бои, ресурсы, способности и правила под рукой.", "Track combat, resources, and abilities on your Draw Steel character sheet, with the rules close at hand.")}{" "}
             {signUp
-              ? "Создайте аккаунт, чтобы хранить героев."
-              : "Войдите, чтобы вернуться к своим героям."}
+              ? t("Создайте аккаунт, чтобы хранить героев.", "Create an account to save your heroes.")
+              : t("Войдите, чтобы вернуться к своим героям.", "Sign in to return to your heroes.")}
           </p>
-          <label htmlFor="auth-email">Электронная почта</label>
+          <label htmlFor="auth-email">{t("Электронная почта", "Email")}</label>
           <input
             id="auth-email"
             type="email"
@@ -153,7 +163,7 @@ export function AuthGate({
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
-          <label htmlFor="auth-password">Пароль</label>
+          <label htmlFor="auth-password">{t("Пароль", "Password")}</label>
           <div className="auth-password-field">
           <input
             id="auth-password"
@@ -165,9 +175,9 @@ export function AuthGate({
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-          <Button className="auth-password-toggle" icon={showPassword ? "eye-off" : "eye"} iconOnly variant="ghost" aria-label={showPassword ? "Скрыть пароль" : "Показать пароль"} aria-pressed={showPassword} aria-controls="auth-password" onClick={() => setShowPassword(!showPassword)} />
+          <Button className="auth-password-toggle" icon={showPassword ? "eye-off" : "eye"} iconOnly variant="ghost" aria-label={showPassword ? t("Скрыть пароль", "Hide password") : t("Показать пароль", "Show password")} aria-pressed={showPassword} aria-controls="auth-password" onClick={() => setShowPassword(!showPassword)} />
           </div>
-          {signUp && <p id="auth-password-hint" className="muted small">Не менее 8 символов</p>}
+          {signUp && <p id="auth-password-hint" className="muted small">{t("Не менее 8 символов", "At least 8 characters")}</p>}
           {error && (
             <p className="auth-error" role="alert">
               {error}
@@ -180,10 +190,10 @@ export function AuthGate({
           )}
           <button className="auth-submit" type="submit" disabled={submitting}>
             {submitting
-              ? "Подождите…"
+              ? t("Подождите…", "Please wait…")
               : signUp
-                ? "Зарегистрироваться"
-                : "Войти"}
+                ? t("Зарегистрироваться", "Sign up")
+                : t("Войти", "Sign in")}
           </button>
           <button
             className="auth-switch"
@@ -195,14 +205,14 @@ export function AuthGate({
               setMessage("");
             }}
           >
-            {signUp ? "Уже есть аккаунт? Войти" : "Создать аккаунт"}
+            {signUp ? t("Уже есть аккаунт? Войти", "Already have an account? Sign in") : t("Создать аккаунт", "Create an account")}
           </button>
           <button
             className="auth-switch"
             type="button"
             onClick={() => setTab("codex")}
           >
-            Смотреть Кодекс без входа
+            {t("Смотреть Кодекс без входа", "Browse the Codex as a guest")}
           </button>
         </form>
       </main>

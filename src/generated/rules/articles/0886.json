@@ -83,7 +83,68 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#6th-level-features",
       "originalName": "6th-Level Features",
-      "originalDescription": "As a 6th-level censor, you gain the following features."
+      "originalDescription": "As a 6th-level censor, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "6th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 6th-level censor, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-6.implement-of-wrath"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-6.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 6th-Level Order Ability\n\nYour censor order grants your choice of one of two heroic abilities."
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Exorcist Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-6.begone"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-6.pain-of-your-own-making"
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Oracle Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-6.burden-of-evil"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-6.edict-of-peace"
+          },
+          {
+            "type": "markdown",
+            "text": "### 6th-Level Paragon Abilities\n\nChoose one of the following abilities."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-6.congregation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-6.intercede"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -98,7 +159,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-6/implement-of-wrath",
       "originalName": "Implement of Wrath",
-      "originalDescription": "Each time you finish a respite, you can choose one hero's weapon, including your own, to channel supernatural power as an implement of your god's wrath. The weapon becomes magic and gains the following benefits until your next respite:\n\n- Strikes with the weapon deal extra holy damage equal to the wielder's highest characteristic score.\n- Any creature struck by the weapon who has holy weakness and has P < STRONG is frightened and weakened (save ends).\n- Any minion targeted by a strike using the weapon dies. That minion's Stamina maximum is removed from the minion Stamina pool before any damage is applied to the rest of the squad.\n- The weapon's wielder can't be made frightened."
+      "originalDescription": "Each time you finish a respite, you can choose one hero's weapon, including your own, to channel supernatural power as an implement of your god's wrath. The weapon becomes magic and gains the following benefits until your next respite:\n\n- Strikes with the weapon deal extra holy damage equal to the wielder's highest characteristic score.\n- Any creature struck by the weapon who has holy weakness and has P < STRONG is frightened and weakened (save ends).\n- Any minion targeted by a strike using the weapon dies. That minion's Stamina maximum is removed from the minion Stamina pool before any damage is applied to the rest of the squad.\n- The weapon's wielder can't be made frightened.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-6.perk",
@@ -111,7 +175,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-6/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice."
+      "originalDescription": "You gain one interpersonal, lore, or supernatural perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-6.6th-level-order-ability",
@@ -124,7 +191,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-6/6th-level-order-ability",
       "originalName": "6th-Level Order Ability",
-      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.\n\n##### 6th-Level Exorcist Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Oracle Abilities\n\nChoose one of the following abilities.\n\n##### 6th-Level Paragon Abilities\n\nChoose one of the following abilities."
+      "originalDescription": "Your censor order grants your choice of one of two heroic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-6.exorcist-abilities",
@@ -137,7 +207,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Exorcist Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-6.begone",
@@ -193,7 +266,52 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/begone",
       "originalName": "Begone!",
-      "originalDescription": "*You terrify your enemies into retreating, creating chaos in their ranks.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 psychic damage; slide 3\n- **12-16:** 6 psychic damage; slide 5\n- **17+:** 8 psychic damage; slide 7"
+      "originalDescription": "*You terrify your enemies into retreating, creating chaos in their ranks.*\n\n| **Area, Magic** |               **Main action** |\n|-----------------|------------------------------:|\n| **📏 3 burst**  | **🎯 Each enemy in the area** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 4 psychic damage; slide 3\n- **12-16:** 6 psychic damage; slide 5\n- **17+:** 8 psychic damage; slide 7",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You terrify your enemies into retreating, creating chaos in their ranks.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "3 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "4",
+                "type": "psychic"
+              },
+              "effect": "slide 3"
+            },
+            {
+              "damage": {
+                "value": "6",
+                "type": "psychic"
+              },
+              "effect": "slide 5"
+            },
+            {
+              "damage": {
+                "value": "8",
+                "type": "psychic"
+              },
+              "effect": "slide 7"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.censor.level-6.pain-of-your-own-making",
@@ -247,7 +365,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/pain-of-your-own-making",
       "originalName": "Pain of Your Own Making",
-      "originalDescription": "*You reverse the effects from an evildoer.*\n\n| **Magic, Ranged** |      **Free triggered** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** The target gains a condition or effect that is ended by a saving throw or that ends at the end of their turn.\n\n**Effect:** The effect ends on the target and is applied to the creature who imposed the effect on them. That creature also takes damage equal to three times your Presence score."
+      "originalDescription": "*You reverse the effects from an evildoer.*\n\n| **Magic, Ranged** |      **Free triggered** |\n|-------------------|------------------------:|\n| **📏 Ranged 10**  | **🎯 Self or one ally** |\n\n**Trigger:** The target gains a condition or effect that is ended by a saving throw or that ends at the end of their turn.\n\n**Effect:** The effect ends on the target and is applied to the creature who imposed the effect on them. That creature also takes damage equal to three times your Presence score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You reverse the effects from an evildoer.",
+        "facts": {
+          "action": "Free triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "trigger": "The target gains a condition or effect that is ended by a saving throw or that ends at the end of their turn.",
+        "effect": "The effect ends on the target and is applied to the creature who imposed the effect on them. That creature also takes damage equal to three times your Presence score."
+      }
     },
     {
       "id": "feature.censor.level-6.oracle-abilities",
@@ -260,7 +402,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Oracle Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-6.burden-of-evil",
@@ -317,7 +462,45 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/burden-of-evil",
       "originalName": "Burden of Evil",
-      "originalDescription": "*You reveal a vision of your enemies' fate that causes them to scramble as it staggers them.*\n\n| **Magic, Ranged, Strike** |         **Maneuver** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Slide 3; I < WEAK, dazed (save ends)\n- **12-16:** Slide 5; I < AVERAGE, dazed (save ends)\n- **17+:** Slide 7; I < STRONG, dazed (save ends)"
+      "originalDescription": "*You reveal a vision of your enemies' fate that causes them to scramble as it staggers them.*\n\n| **Magic, Ranged, Strike** |         **Maneuver** |\n|---------------------------|---------------------:|\n| **📏 Ranged 10**          | **🎯 Three enemies** |\n\n**Power Roll + Presence:**\n\n- **≤11:** Slide 3; I < WEAK, dazed (save ends)\n- **12-16:** Slide 5; I < AVERAGE, dazed (save ends)\n- **17+:** Slide 7; I < STRONG, dazed (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You reveal a vision of your enemies' fate that causes them to scramble as it staggers them.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Three enemies",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "effect": "Slide 3; I < WEAK, dazed (save ends)"
+            },
+            {
+              "effect": "Slide 5; I < AVERAGE, dazed (save ends)"
+            },
+            {
+              "effect": "Slide 7; I < STRONG, dazed (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.censor.level-6.edict-of-peace",
@@ -371,7 +554,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/edict-of-peace",
       "originalName": "Edict of Peace",
-      "originalDescription": "*You anticipate your foes' moves and deny them.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 3 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever any target takes a triggered action or a free triggered action, that action is negated and the target takes holy damage equal to your Presence score."
+      "originalDescription": "*You anticipate your foes' moves and deny them.*\n\n| **Area, Magic** |                  **Maneuver** |\n|-----------------|------------------------------:|\n| **📏 3 aura**   | **🎯 Each enemy in the area** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever any target takes a triggered action or a free triggered action, that action is negated and the target takes holy damage equal to your Presence score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You anticipate your foes' moves and deny them.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "3 aura"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, whenever any target takes a triggered action or a free triggered action, that action is negated and the target takes holy damage equal to your Presence score."
+      }
     },
     {
       "id": "feature.censor.level-6.paragon-abilities",
@@ -384,7 +586,10 @@
       },
       "originalId": "",
       "originalName": "6th-Level Paragon Abilities",
-      "originalDescription": "Choose one of the following abilities."
+      "originalDescription": "Choose one of the following abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-6.congregation",
@@ -441,7 +646,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/congregation",
       "originalName": "Congregation",
-      "originalDescription": "*You focus your allies' wrath on a chosen foe.*\n\n| **Melee, Strike, Weapon** |   **Main action** |\n|---------------------------|------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage; as a free triggered action, one ally within 10 squares of the target can use a strike signature ability against the target\n- **12-16:** 12 + M damage; as a free triggered action, one ally within 10 squares of the target can use a strike signature ability that gains an edge against the target\n- **17+:** 16 + M damage; as a free triggered action, two allies within 10 squares of the target can each use a strike signature ability that gains an edge against the target\n\n**Effect:** Each ally can shift up to 2 squares and gains 2 surges before making the strike."
+      "originalDescription": "*You focus your allies' wrath on a chosen foe.*\n\n| **Melee, Strike, Weapon** |   **Main action** |\n|---------------------------|------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 8 + M damage; as a free triggered action, one ally within 10 squares of the target can use a strike signature ability against the target\n- **12-16:** 12 + M damage; as a free triggered action, one ally within 10 squares of the target can use a strike signature ability that gains an edge against the target\n- **17+:** 16 + M damage; as a free triggered action, two allies within 10 squares of the target can each use a strike signature ability that gains an edge against the target\n\n**Effect:** Each ally can shift up to 2 squares and gains 2 surges before making the strike.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You focus your allies' wrath on a chosen foe.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "8 + M"
+              },
+              "effect": "as a free triggered action, one ally within 10 squares of the target can use a strike signature ability against the target"
+            },
+            {
+              "damage": {
+                "value": "12 + M"
+              },
+              "effect": "as a free triggered action, one ally within 10 squares of the target can use a strike signature ability that gains an edge against the target"
+            },
+            {
+              "damage": {
+                "value": "16 + M"
+              },
+              "effect": "as a free triggered action, two allies within 10 squares of the target can each use a strike signature ability that gains an edge against the target"
+            }
+          ]
+        },
+        "effect": "Each ally can shift up to 2 squares and gains 2 surges before making the strike."
+      }
     },
     {
       "id": "feature.ability.censor.level-6.intercede",
@@ -495,7 +748,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-6/intercede",
       "originalName": "Intercede",
-      "originalDescription": "*You take your ally's place.*\n\n| **Magic, Ranged** | **Free triggered** |\n|-------------------|-------------------:|\n| **📏 Ranged 10**  |    **🎯 One ally** |\n\n**Trigger:** A creature makes a strike against the target.\n\n**Effect:** The target is unaffected by the strike and you become the target instead, even if you aren't a valid target for it. You take half the damage from the strike, and the target gains 3 surges."
+      "originalDescription": "*You take your ally's place.*\n\n| **Magic, Ranged** | **Free triggered** |\n|-------------------|-------------------:|\n| **📏 Ranged 10**  |    **🎯 One ally** |\n\n**Trigger:** A creature makes a strike against the target.\n\n**Effect:** The target is unaffected by the strike and you become the target instead, even if you aren't a valid target for it. You take half the damage from the strike, and the target gains 3 surges.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You take your ally's place.",
+        "facts": {
+          "action": "Free triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "trigger": "A creature makes a strike against the target.",
+        "effect": "The target is unaffected by the strike and you become the target instead, even if you aren't a valid target for it. You take half the damage from the strike, and the target gains 3 surges."
+      }
     }
   ]
 }

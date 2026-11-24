@@ -29,21 +29,47 @@ for (const term of GLOSSARY) {
     ambiguous.delete(key);
   }
 }
-const pattern = new RegExp(
-  `(?<![\\p{L}\\p{N}])(${[...destinations.keys()]
-    .sort((a, b) => b.length - a.length)
-    .map((word) =>
-      word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/е/g, "[её]"),
-    )
-    .join("|")})(?![\\p{L}\\p{N}])`,
-  "giu",
-);
+const englishTerms = new Map<string, string>();
+for (const term of GLOSSARY) {
+  const name = searchText(term.english.trim());
+  if (name.length >= 4) englishTerms.set(name, glossaryLink(term.id));
+}
 
-/** Exact, unambiguous names only; keep authored links and link each destination once. */
-export function remarkRuleLinks() {
+function wordPattern(names: Iterable<string>) {
+  return new RegExp(
+    `(?<![\\p{L}\\p{N}])(${[...names]
+      .sort((a, b) => b.length - a.length)
+      .map((word) =>
+        word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/е/g, "[её]"),
+      )
+      .join("|")})(?![\\p{L}\\p{N}])`,
+    "giu",
+  );
+}
+const russianPattern = wordPattern(destinations.keys());
+const englishPattern = wordPattern(englishTerms.keys());
+
+/** Resolve links in the pinned SCC edition while the local routing index loads. */
+export function sourceRuleHref(url: string, targets?: Record<string, string>): string | undefined {
+  const match = /^scc\.v1:mcdm\.(heroes|monsters|summoner)\.v1\/([a-z0-9-]+(?:[./][a-z0-9-]+)*)$/.exec(url);
+  if (!match) return;
+  if (targets?.[url]) return targets[url];
+  const path = match[2].replaceAll(".", "/");
+  const term = path.split("/").at(-1)!.replaceAll("-", " ");
+  return englishTerms.get(term) ?? `https://github.com/SteelCompendium/data-unified/blob/bdb12093b1d07bf8674453796eac907a09dd7dd3/en/books/${match[1]}/md-linked/${path}.md`;
+}
+
+/** Keep authored links and link the first mention of each unambiguous rule term. */
+export function remarkRuleLinks(options?: { english?: boolean; targets?: Record<string, string> }) {
+  const pattern = options?.english ? englishPattern : russianPattern;
+  const links = options?.english ? englishTerms : destinations;
   return (tree: Root) => {
     const seen = new Set<string>();
     function visit(node: Nodes) {
+      if (options?.english && node.type === "link") {
+        node.url = sourceRuleHref(node.url, options.targets) ?? node.url;
+        return;
+      }
       if (
         [
           "link",
@@ -86,7 +112,7 @@ export function remarkRuleLinks() {
         }
         let cursor = 0;
         for (const match of child.value.matchAll(pattern)) {
-          const href = destinations.get(searchText(match[0]));
+          const href = links.get(searchText(match[0]));
           if (!href || seen.has(href)) continue;
           if (match.index! > cursor)
             children.push({

@@ -59,7 +59,48 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
       "originalName": "8th-Level Features",
-      "originalDescription": "As an 8th-level conduit, you gain the following features."
+      "originalDescription": "As an 8th-level conduit, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "8th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As an 8th-level conduit, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-8.perk"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-8.8th-level-domain-feature"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-8.11-piety-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-8.arise"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-8.blessing-of-steel"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-8.blessing-of-the-blade"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-8.drag-the-unworthy"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -74,7 +115,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-8/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one perk of your choice."
+      "originalDescription": "You gain one perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-8.8th-level-domain-feature",
@@ -87,7 +131,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-8/8th-level-domain-feature",
       "originalName": "8th-Level Domain Feature",
-      "originalDescription": "You gain the 7th-level domain feature for the domain whose feature you didn't select at that level (see 7th-Level Domain Feature)."
+      "originalDescription": "You gain the 7th-level domain feature for the domain whose feature you didn't select at that level (see 7th-Level Domain Feature).",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-8.11-piety-ability",
@@ -100,7 +147,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-8/11-piety-ability",
       "originalName": "11-Piety Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 piety to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 piety to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-8.arise",
@@ -154,7 +204,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-8/arise",
       "originalName": "Arise!",
-      "originalDescription": "*Your deity rewards you or an ally on the verge of defeat with a miracle burst of strength and resolve.*\n\n| **Magic, Ranged**  |         **Main action** |\n|--------------------|------------------------:|\n| **📏 Ranged 10**   | **🎯 Self or one ally** |\n\n**Effect:** The target can spend any number of Recoveries, can end any effects on them that are ended by a saving throw or that end at the end of their turn, and can stand up if they are prone. Additionally, at the start of each of their turns until the end of the encounter or until they are dying, the target gains 3 surges."
+      "originalDescription": "*Your deity rewards you or an ally on the verge of defeat with a miracle burst of strength and resolve.*\n\n| **Magic, Ranged**  |         **Main action** |\n|--------------------|------------------------:|\n| **📏 Ranged 10**   | **🎯 Self or one ally** |\n\n**Effect:** The target can spend any number of Recoveries, can end any effects on them that are ended by a saving throw or that end at the end of their turn, and can stand up if they are prone. Additionally, at the start of each of their turns until the end of the encounter or until they are dying, the target gains 3 surges.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your deity rewards you or an ally on the verge of defeat with a miracle burst of strength and resolve.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "The target can spend any number of Recoveries, can end any effects on them that are ended by a saving throw or that end at the end of their turn, and can stand up if they are prone. Additionally, at the start of each of their turns until the end of the encounter or until they are dying, the target gains 3 surges."
+      }
     },
     {
       "id": "feature.ability.conduit.level-8.blessing-of-steel",
@@ -208,7 +281,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-8/blessing-of-steel",
       "originalName": "Blessing of Steel",
-      "originalDescription": "*A protective aura defends your allies from harm.*\n\n| **Area, Magic**   |                          **Maneuver** |\n|-------------------|--------------------------------------:|\n| **📏 5 aura**     | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter, any ability roll made against a target takes a bane and each target has damage immunity 5."
+      "originalDescription": "*A protective aura defends your allies from harm.*\n\n| **Area, Magic**   |                          **Maneuver** |\n|-------------------|--------------------------------------:|\n| **📏 5 aura**     | **🎯 Self and each ally in the area** |\n\n**Effect:** Until the end of the encounter, any ability roll made against a target takes a bane and each target has damage immunity 5.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A protective aura defends your allies from harm.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "5 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter, any ability roll made against a target takes a bane and each target has damage immunity 5."
+      }
     },
     {
       "id": "feature.ability.conduit.level-8.blessing-of-the-blade",
@@ -262,7 +354,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-8/blessing-of-the-blade",
       "originalName": "Blessing of the Blade",
-      "originalDescription": "*\"The power of the gods is within you, friends. Allow me to unleash it.\"*\n\n| **Area, Magic**   |                          **Maneuver** |\n|-------------------|--------------------------------------:|\n| **📏 5 aura**     | **🎯 Self and each ally in the area** |\n\n**Effect:** At the end of each of your turns until the end of the encounter or until you are dying, each target gains 3 surges."
+      "originalDescription": "*\"The power of the gods is within you, friends. Allow me to unleash it.\"*\n\n| **Area, Magic**   |                          **Maneuver** |\n|-------------------|--------------------------------------:|\n| **📏 5 aura**     | **🎯 Self and each ally in the area** |\n\n**Effect:** At the end of each of your turns until the end of the encounter or until you are dying, each target gains 3 surges.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "\"The power of the gods is within you, friends. Allow me to unleash it.\"",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "5 aura"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "At the end of each of your turns until the end of the encounter or until you are dying, each target gains 3 surges."
+      }
     },
     {
       "id": "feature.ability.conduit.level-8.drag-the-unworthy",
@@ -319,7 +430,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-8/drag-the-unworthy",
       "originalName": "Drag the Unworthy",
-      "originalDescription": "*You conjure an angel who moves a foe and heals your allies.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 9 + I holy damage; slide 3\n- **12-16:** 13 + I holy damage; slide 4\n- **17+:** 18 + I holy damage; slide 6\n\n**Effect:** Each ally the target comes adjacent to during the forced movement can spend a Recovery."
+      "originalDescription": "*You conjure an angel who moves a foe and heals your allies.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 9 + I holy damage; slide 3\n- **12-16:** 13 + I holy damage; slide 4\n- **17+:** 18 + I holy damage; slide 6\n\n**Effect:** Each ally the target comes adjacent to during the forced movement can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You conjure an angel who moves a foe and heals your allies.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "9 + I",
+                "type": "holy"
+              },
+              "effect": "slide 3"
+            },
+            {
+              "damage": {
+                "value": "13 + I",
+                "type": "holy"
+              },
+              "effect": "slide 4"
+            },
+            {
+              "damage": {
+                "value": "18 + I",
+                "type": "holy"
+              },
+              "effect": "slide 6"
+            }
+          ]
+        },
+        "effect": "Each ally the target comes adjacent to during the forced movement can spend a Recovery."
+      }
     }
   ]
 }

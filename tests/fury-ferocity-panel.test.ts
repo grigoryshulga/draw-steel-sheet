@@ -1,6 +1,8 @@
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { LocaleProvider } from "../src/i18n/locale";
+import { ferocityDescription, ferocitySource } from "../src/views/sheet/ferocity-language";
 import { FuryFerocityTracker } from "../src/views/sheet/FuryFerocityTracker";
 import { createCharacter } from "../src/lib/defaults";
 import { AppContext, type AppContextValue } from "../src/state/AppContext";
@@ -13,7 +15,7 @@ function render(character: Character, readOnly = false) {
     character, readOnly, derived: deriveStats(character), update() {}, patch() {}, performGameAction() { return true; },
     undoGameAction() {}, gameHistory: [], saveStatus: "idle", saveError: "", notify() {}, goTo() {},
   };
-  return renderToStaticMarkup(createElement(AppContext.Provider, { value }, createElement(FuryFerocityTracker)));
+  return renderToStaticMarkup(createElement(LocaleProvider, null, createElement(AppContext.Provider, { value }, createElement(FuryFerocityTracker))));
 }
 
 function fury(): Character {
@@ -64,4 +66,26 @@ describe("блок Растущей свирепости", () => {
     expect(html).toContain("Выбрать комплект");
     expect(html).not.toContain('aria-label="Пороги свирепости"');
   });
+});
+
+
+afterEach(() => vi.unstubAllGlobals());
+it("renders English descriptions and threshold titles for every Stormwight kit", () => {
+  vi.stubGlobal("window", { location: { search: "?lang=en" }, localStorage: { getItem: () => null } });
+  for (const [kit, source] of [["Борен", "Boren · Bear"], ["Корвен", "Corven · Crow"], ["Раден", "Raden · Rat"], ["Вукен", "Vuken · Wolf"]]) {
+    const html = render({ ...fury(), kit });
+    expect(html).toContain(source);
+    expect(html).toContain('aria-label="8 ferocity: Available at level 4"');
+    expect(html).toContain('aria-label="Next threshold"');
+    expect(html).not.toMatch(/title="[^"]*[А-Яа-я]/);
+  }
+  const hero = fury();
+  const retained = render({ ...hero, level: 10, heroicResource: { ...hero.heroicResource, current: 1 }, runtime: { ...currentRuntime(hero), furyTurn: { active: true, peak: 10 } } });
+  expect(retained).toContain('aria-label="4 ferocity: Replaced by threshold 8"');
+  expect(retained).toContain('aria-label="2 ferocity: Retained until end of turn"');
+});
+it("preserves unknown source and descriptions", () => {
+  expect(ferocitySource("Мой аспект", "en")).toBe("Мой аспект");
+  const row = { id: "custom", threshold: 2, level: 1, description: "Мой текст", available: true, active: true, retained: false };
+  expect(ferocityDescription(row, "en")).toBe("Мой текст");
 });

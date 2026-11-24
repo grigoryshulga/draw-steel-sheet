@@ -1,5 +1,6 @@
+import { useLocale } from "../i18n/locale";
 import { useId, useMemo } from "react";
-import { SKILL_GROUPS, SKILL_GROUP_TONES } from "../data/skills";
+import { SKILL_GROUPS, SKILL_GROUP_TONES, SKILL_ORIGINALS } from "../data/skills";
 import { Icon } from "./Icons";
 import type { SkillSlot } from "../data/creation-rules";
 import {
@@ -31,6 +32,17 @@ export function SkillPicker({
   label = "Выбор навыков",
   hideTitle = false,
 }: SkillPickerProps) {
+  const { locale, t } = useLocale();
+  const name = (skill: string) => locale === "en" ? SKILL_ORIGINALS[skill]?.originalName || skill : skill;
+  const groupNames: Record<string, string> = { crafting: "Crafting", exploration: "Exploration", interpersonal: "Interpersonal", intrigue: "Intrigue", lore: "Lore" };
+  const requirementLabel = (label: string) => {
+    if (locale !== "en") return label;
+    const replacement = label.match(/^Любой навык взамен «(.+)»$/);
+    if (replacement) return `Any skill replacing “${name(replacement[1])}”`;
+    const group = SKILL_GROUPS.find((entry) => entry.label === label);
+    if (group) return groupNames[group.key];
+    return name(label);
+  };
   const id = useId();
   const state = useMemo(
     () => resolveSkillSelection(slots, values, prior),
@@ -43,14 +55,14 @@ export function SkillPicker({
   const selectable = useMemo(() => new Set(state.selectable.map(skillKey)), [state.selectable]);
   return (
     <section className="skill-picker" aria-labelledby={`${id}-title`}>
-      <h3 className={hideTitle ? "sr-only" : "skill-picker__title"} id={`${id}-title`}>{label}</h3>
+      <h3 className={hideTitle ? "sr-only" : "skill-picker__title"} id={`${id}-title`}>{locale === "en" && label === "Выбор навыков" ? "Choose skills" : label}</h3>
       {state.required > 0 && <div className="skill-picker__summary">
-        <strong role="status">Выбрано {state.selected.length} из {state.required}</strong>
-        <ul className="skill-picker__requirements" aria-label="Условия выбора навыков">
+        <strong role="status">{t(`Выбрано ${state.selected.length} из ${state.required}`, `Selected ${state.selected.length} of ${state.required}`)}</strong>
+        <ul className="skill-picker__requirements" aria-label={t("Условия выбора навыков", "Skill selection requirements")}>
           {state.requirements.map(({ label, required, selected }, index) => (
             <li key={index}>
-              <span>{label}</span>
-              <span className="numeric">Осталось {required - selected} из {required}</span>
+              <span>{requirementLabel(label)}</span>
+              <span className="numeric">{t(`Осталось ${required - selected} из ${required}`, `${required - selected} of ${required} remaining`)}</span>
             </li>
           ))}
         </ul>
@@ -58,13 +70,13 @@ export function SkillPicker({
 
       {state.automatic.length > 0 ? (
         <p className="skill-picker__automatic-summary">
-          Автоматически получено: {state.automatic.join(", ")} (не входят в выбор)
+          {t("Автоматически получено", "Granted automatically")}: {state.automatic.map(name).join(", ")} {t("(не входят в выбор)", "(do not count toward choices)")}
         </p>
       ) : null}
 
       {slots.length === 0 ? (
         <p className="skill-picker__message">
-          Сначала выберите происхождение, культуру, карьеру или класс, чтобы увидеть доступные навыки.
+          {t("Сначала выберите происхождение, культуру, карьеру или класс, чтобы увидеть доступные навыки.", "Choose an ancestry, culture, career, or class first to see available skills.")}
         </p>
       ) : null}
 
@@ -81,9 +93,9 @@ export function SkillPicker({
               data-tone={SKILL_GROUP_TONES[group.key]}
               key={group.key}
             >
-              <legend className="sr-only">{group.label}</legend>
+              <legend className="sr-only">{locale === "en" ? groupNames[group.key] : group.label}</legend>
               <div className="skill-picker__group-head">
-                <span className="skill-picker__group-name">{group.label}</span>
+                <span className="skill-picker__group-name">{locale === "en" ? groupNames[group.key] : group.label}</span>
 
               </div>
               <div className="skill-picker__chips">
@@ -96,13 +108,13 @@ export function SkillPicker({
                   const locked = isAutomatic || isKnown;
                   const unavailable = !locked && !isSelected && !canAdd;
                   const reason = isAutomatic
-                    ? "Получен автоматически; повторно выбрать нельзя."
+                    ? t("Получен автоматически; повторно выбрать нельзя.", "Granted automatically; cannot be selected again.")
                     : isKnown
-                      ? "Уже известен из предыдущего шага; повторно выбрать нельзя."
+                      ? t("Уже известен из предыдущего шага; повторно выбрать нельзя.", "Already known from an earlier step; cannot be selected again.")
                       : unavailable && state.remaining === 0
-                        ? "Все выборы уже использованы."
+                        ? t("Все выборы уже использованы.", "All choices have been used.")
                         : unavailable
-                          ? "Этот навык нельзя добавить при текущем наборе."
+                          ? t("Этот навык нельзя добавить при текущем наборе.", "This skill cannot be added with the current choices.")
                           : undefined;
                   const checkboxId = `${id}-g${groupIndex}-s${skillIndex}`;
                   const reasonId = `${checkboxId}-reason`;
@@ -123,7 +135,7 @@ export function SkillPicker({
                       />
                       <label htmlFor={checkboxId}>
                         <span className="skill-picker__skill-name">
-                          {skill}
+                          {name(skill)}
                           {isSelected ? <Icon name="check" size={14} aria-hidden="true" /> : null}
                         </span>
                         {reason ? (
@@ -141,7 +153,7 @@ export function SkillPicker({
 
       {state.invalid.length > 0 ? (
         <p className="skill-picker__error" role="alert">
-          В сохранённом выборе есть недопустимые навыки: {state.invalid.join(", ")}. Измените выбор, чтобы исправить его.
+          {t("В сохранённом выборе есть недопустимые навыки", "The saved selection contains invalid skills")}: {state.invalid.map(name).join(", ")}. {t("Измените выбор, чтобы исправить его.", "Change the selection to fix it.")}
         </p>
       ) : null}
     </section>

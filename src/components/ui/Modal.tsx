@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "./Button";
@@ -30,6 +31,7 @@ export function Modal({
   wide = false,
   className = "",
 }: ModalProps) {
+  const { t } = useLocale();
   const titleId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef(onClose);
@@ -98,7 +100,7 @@ export function Modal({
             variant="ghost"
             icon="close"
             iconOnly
-            aria-label="Закрыть"
+            aria-label={t("Закрыть", "Close")}
             onClick={onClose}
           />
         </div>

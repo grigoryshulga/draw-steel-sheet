@@ -1,3 +1,4 @@
+import { useLocale } from "./i18n/locale";
 import {
   Activity,
   lazy,
@@ -30,7 +31,7 @@ import {
 import {
   HERO_TABS,
   TABS,
-  TAB_LABELS,
+  TAB_LABELS, EN_TAB_LABELS,
   isHeroTab,
   type HeroTab,
   type Tab,
@@ -94,6 +95,7 @@ export default function WorkspaceApp({
 }: {
   beforeSignOut: { current: () => Promise<void> };
 }) {
+  const { t, locale } = useLocale();
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [themeChoice, setThemeChoiceState] =
     useState<ThemeChoice>(readThemeChoice);
@@ -191,7 +193,7 @@ export default function WorkspaceApp({
 
   const closeTableHero = () => {
     if (tableSheetDirty.current &&
-        !window.confirm("В «Развитии» есть несохранённые выборы. Закрыть лист без их сохранения?")) return;
+        !window.confirm(t("В «Развитии» есть несохранённые выборы. Закрыть лист без их сохранения?", "You have unsaved advancement choices. Close the sheet and discard them?"))) return;
     const previous = tableSheetFocus.current;
     setTableSheet(null);
     setRollOpen(false);
@@ -217,7 +219,7 @@ export default function WorkspaceApp({
       const current = characterRef.current;
       if (!current || isTransitioning()) return false;
       if (current.runtime?.tableCombat && belongsToTableCombat(action)) return false;
-      const result = gameSession.perform(current, action, operationId);
+      const result = gameSession.perform(current, action, operationId, locale);
       if (!result.ok) {
         notify(result.reason, "error");
         return false;
@@ -227,13 +229,13 @@ export default function WorkspaceApp({
       notify(result.label, "success");
       return true;
     },
-    [characterRef, gameSession, isTransitioning, notify, update],
+    [characterRef, gameSession, isTransitioning, notify, update, locale],
   );
 
   const undoGameAction = useCallback(() => {
     const current = characterRef.current;
     if (!current || isTransitioning()) return;
-    const result = gameSession.undo(current);
+    const result = gameSession.undo(current, locale);
     if (!result.ok) {
       notify(result.reason, "error");
       return;
@@ -241,16 +243,19 @@ export default function WorkspaceApp({
     update(() => result.next);
     setGameHistory(gameSession.entries());
     notify(result.label);
-  }, [characterRef, gameSession, isTransitioning, notify, update]);
+  }, [characterRef, gameSession, isTransitioning, notify, update, locale]);
 
   useEffect(() => {
-    const label = TAB_LABELS[tab as Tab];
+    const label = t(TAB_LABELS[tab as Tab], EN_TAB_LABELS[tab as Tab]);
     document.title =
       tab === "create"
-        ? "Создание героя — Достать листы!"
-        : `${character ? `${character.name} · ` : ""}${label} — Достать листы!`;
+        ? t("Создание героя — Достать листы!", "Create a hero — Dostat Listy!")
+        : `${character ? `${character.name} · ` : ""}${label} — ${t("Достать листы!", "Dostat Listy!")}`;
+  }, [tab, character?.name, t]);
+
+  useEffect(() => {
     if (tab !== "codex" && tab !== "tables") window.scrollTo({ top: 0 });
-  }, [tab, character?.id, character?.name]);
+  }, [tab, character?.id]);
 
   useEffect(() => {
     if (tab !== "create") lastNonCreateTab.current = tab as Tab;
@@ -295,7 +300,7 @@ export default function WorkspaceApp({
     if (booting) {
       return (
         <main className="builder-page builder-page-loading" id="main-content">
-          <LoadingScreen label="Загрузка конструктора" />
+          <LoadingScreen label={t("Загрузка конструктора", "Loading the hero builder")} />
         </main>
       );
     }
@@ -306,7 +311,7 @@ export default function WorkspaceApp({
             <Suspense
               fallback={
                 <div className="builder-page-loading">
-                  <LoadingScreen label="Загрузка конструктора" />
+                  <LoadingScreen label={t("Загрузка конструктора", "Loading the hero builder")} />
                 </div>
               }
             >
@@ -359,16 +364,16 @@ export default function WorkspaceApp({
     {character && saveStatus === "error" && !persistence.pendingCount && !persistence.localError && (
       <section className="save-error-banner" role="alert">
         <div>
-          <strong>Изменения не сохранены</strong>
-          <p>Они остаются в открытом листе. Повторите сохранение или скачайте копию перед закрытием страницы.</p>
+          <strong>{t("Изменения не сохранены", "Changes haven’t been saved")}</strong>
+          <p>{t("Они остаются в открытом листе. Повторите сохранение или скачайте копию перед закрытием страницы.", "Your changes are still in this sheet. Retry saving or download a copy before closing the page.")}</p>
           {saveError && <p className="small muted">{saveError}</p>}
         </div>
         <div className="hstack wrap">
           <Button icon="refresh" iconOnly onClick={() => void autosave.flush().catch(() => undefined)}>
-            Повторить сохранение
+            {t("Повторить сохранение", "Retry save")}
           </Button>
           <Button icon="download" iconOnly onClick={() => void handleExport(character.id)}>
-            Скачать копию
+            {t("Скачать копию", "Download a copy")}
           </Button>
         </div>
       </section>
@@ -385,7 +390,7 @@ export default function WorkspaceApp({
           document.getElementById("main-content")?.focus();
         }}
       >
-        Перейти к содержимому
+        {t("Перейти к содержимому", "Skip to content")}
       </a>
       <FloatingHeader
         tab={tab as Tab}
@@ -401,7 +406,7 @@ export default function WorkspaceApp({
         <div className="main workspace-main" aria-busy={changingCharacter}>
           {changingCharacter && !openTableSheet && (
             <div className="workspace-progress" role="status">
-              Сохраняем и открываем героя…
+              {t("Сохраняем и открываем героя…", "Saving and opening the hero…")}
             </div>
           )}
           <div inert={changingCharacter || !!openTableSheet}>
@@ -419,7 +424,7 @@ export default function WorkspaceApp({
                 <Activity mode={tab === "tables" ? "visible" : "hidden"}>
                   <ViewErrorBoundary onExport={exportActiveHero}>
                     <Suspense
-                      fallback={<LoadingScreen label="Загрузка столов" />}
+                      fallback={<LoadingScreen label={t("Загрузка столов", "Loading tables")} />}
                     >
                       <TablesView
                         state={tables}
@@ -437,10 +442,10 @@ export default function WorkspaceApp({
                 onExport={exportActiveHero}
               >
                 {tab === "tables" ? null : booting && !isLibrary ? (
-                  <LoadingScreen label="Загрузка листа" />
+                  <LoadingScreen label={t("Загрузка листа", "Loading the sheet")} />
                 ) : isLibrary ? (
                   <Suspense
-                    fallback={<LoadingScreen label="Загрузка библиотеки" />}
+                    fallback={<LoadingScreen label={t("Загрузка библиотеки", "Loading the library")} />}
                   >
                     <AppContext.Provider value={contextValue}>
                       {tab === "codex" ? <CodexView /> : <ReferenceView />}
@@ -456,7 +461,7 @@ export default function WorkspaceApp({
                 ) : (
                   <AppContext.Provider key={character.id} value={contextValue}>
                     <Suspense
-                      fallback={<LoadingScreen label="Загрузка раздела" />}
+                      fallback={<LoadingScreen label={t("Загрузка раздела", "Loading section")} />}
                     >
                       {HERO_TABS.includes(tab as HeroTab) && (
                         <SheetView
@@ -489,7 +494,7 @@ export default function WorkspaceApp({
       </div>
 
       {openTableSheet && (
-        <Modal open title="Лист героя" className="table-hero-sheet-modal" onClose={closeTableHero}>
+        <Modal open title={t("Лист героя", "Character sheet")} className="table-hero-sheet-modal" onClose={closeTableHero}>
           {persistenceControls}
           {contextValue?.character.id === openTableSheet.heroId && !changingCharacter ? (
             <ViewErrorBoundary onExport={() => void handleExport(openTableSheet.heroId)}>
@@ -498,13 +503,13 @@ export default function WorkspaceApp({
                 setTableSheet(current => current && { ...current, tab: next });
                 document.querySelector(".table-hero-sheet-modal > .modal-body")?.scrollTo({ top: 0 });
               } }}>
-                <Suspense fallback={<LoadingScreen label="Загрузка листа" />}>
+                <Suspense fallback={<LoadingScreen label={t("Загрузка листа", "Loading the sheet")} />}>
                   <SheetView tab={openTableSheet.tab} tools={openTableSheet.tab === "sheet" ? sheetTools : null}
                     onDevelopmentDirtyChange={trackTableSheetDraft} />
                 </Suspense>
               </AppContext.Provider>
             </ViewErrorBoundary>
-          ) : <LoadingScreen label="Загрузка листа" />}
+          ) : <LoadingScreen label={t("Загрузка листа", "Loading the sheet")} />}
         </Modal>
       )}
 

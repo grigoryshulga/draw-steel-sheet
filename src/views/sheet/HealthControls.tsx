@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { useState } from "react";
 import { Button, NumberInput } from "../../components/ui";
 import { characterStatBreakdown } from "../../lib/character-calculations";
@@ -11,6 +12,7 @@ type AmountKind = "damage" | "heal" | "temporary";
 
 /** Мгновенное управление здоровьем: число, одна кнопка — и готово. Отмена — в истории. */
 export function HealthControls({ onDone }: { onDone?: () => void }) {
+  const { t, locale } = useLocale();
   const { character, derived, performGameAction } = useApp();
   const [draft, setDraft] = useState("");
   const amount = draft === "" ? 0 : Number(draft);
@@ -23,18 +25,18 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
   };
   const apply = (kind: AmountKind) => run({ kind, amount });
   const can = (kind: AmountKind) =>
-    previewGameAction(character, { kind, amount }).ok;
+    previewGameAction(character, { kind, amount }, locale).ok;
 
   const hint = (() => {
     if (!draft) return null;
     const preview = previewGameAction(character, {
       kind: "damage",
       amount,
-    });
+    }, locale);
     const s = character.stamina;
     if (!preview.ok) return preview.reason;
     const next = preview.next.stamina;
-    return `Урон: ${s.current} → ${next.current}${next.temp !== s.temp ? `, врем. ${s.temp} → ${next.temp}` : ""}`;
+    return t(`Урон: ${s.current} → ${next.current}${next.temp !== s.temp ? `, врем. ${s.temp} → ${next.temp}` : ""}`, `Damage: ${s.current} → ${next.current}${next.temp !== s.temp ? `, temp. ${s.temp} → ${next.temp}` : ""}`);
   })();
 
   return (
@@ -44,7 +46,7 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
           className="input health-amount numeric"
           inputMode="numeric"
           placeholder="0"
-          aria-label="Количество"
+          aria-label={t("Количество", "Amount")}
           value={draft}
           onChange={(event) =>
             setDraft(event.target.value.replace(/\D/g, "").slice(0, 4))
@@ -59,7 +61,7 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
           disabled={!can("damage")}
           onClick={() => apply("damage")}
         >
-          Урон
+          {t("Урон", "Damage")}
         </Button>
         <Button
           variant="soft"
@@ -67,15 +69,15 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
           disabled={!can("heal")}
           onClick={() => apply("heal")}
         >
-          Лечение
+          {t("Лечение", "Heal")}
         </Button>
         <Button
           variant="soft"
           disabled={!can("temporary")}
           onClick={() => apply("temporary")}
-          title="Временная выносливость не складывается — берётся большее значение"
+          title={t("Временная выносливость не складывается — берётся большее значение", "Temporary stamina does not stack; use the higher value")}
         >
-          Врем.
+          {t("Врем.", "Temporary")}
         </Button>
         <Button
           variant="soft"
@@ -85,18 +87,18 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
             character.stamina.current >= character.stamina.max
           }
           onClick={() => run({ kind: "recovery" })}
-          title="Потратить восстановление"
+          title={t("Потратить восстановление", "Spend a recovery")}
         >
-          Передышка +{derived.recoveryValue}
+          {t("Передышка", "Catch Breath")} +{derived.recoveryValue}
         </Button>
         {!character.runtime?.tableCombat && <Button
           variant="ghost"
           icon="sun"
           className="health-rest"
           onClick={() => run({ kind: "rest" })}
-          title="Полный отдых: выносливость и восстановления до максимума, ресурс и всплески — в 0"
+          title={t("Полный отдых: выносливость и восстановления до максимума, ресурс и всплески — в 0", "Respite: restore stamina and recoveries, reset resources and surges to 0")}
         >
-          Отдых
+          {t("Отдых", "Respite")}
         </Button>}
       </div>
       {hint && (
@@ -110,11 +112,12 @@ export function HealthControls({ onDone }: { onDone?: () => void }) {
 
 /** Восстановления: тот же вид, что у здоровья, но мельче. */
 export function RecoveriesReadout() {
+  const { t } = useLocale();
   const { character, patch, performGameAction, readOnly } = useApp();
   const { recoveries } = character;
   return (
     <div className="vitals-current health-recoveries-readout">
-      <span className="eyebrow">Восстановления</span>
+      <span className="eyebrow">{t("Восстановления", "Recoveries")}</span>
       {readOnly ? (
         <span className="numeric">{recoveries.current}/{recoveries.max}</span>
       ) : (
@@ -122,7 +125,7 @@ export function RecoveriesReadout() {
           <input
             className="vital-big vital-current-input is-small numeric"
             inputMode="numeric"
-            aria-label="Текущие восстановления"
+            aria-label={t("Текущие восстановления", "Current recoveries")}
             key={recoveries.current}
             defaultValue={recoveries.current}
             onFocus={(event) => event.currentTarget.select()}
@@ -158,7 +161,7 @@ export function RecoveriesReadout() {
               value={recoveries.max}
               min={0}
               max={99}
-              label="Максимум восстановлений"
+              label={t("Максимум восстановлений", "Maximum recoveries")}
               className="vital-max-input"
               showButtons={false}
               onChange={(max) =>
@@ -176,7 +179,7 @@ export function RecoveriesReadout() {
       )}
       {character.automation?.enabled && (
         <StatBreakdown
-          label="восстановлений"
+          label={t("восстановлений", "recoveries")}
           breakdown={characterStatBreakdown(character, "recoveries")}
         />
       )}

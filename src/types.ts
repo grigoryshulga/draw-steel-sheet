@@ -22,6 +22,10 @@ export type AbilityKind = "free-strike" | "signature" | "heroic" | "other";
 
 /** Английский оригинал записи компендиума из SteelCompendium. */
 export interface OriginalFields {
+  originalCoverage?: {
+    status: "complete" | "excerpt" | "missing";
+    reason?: "homebrew" | "editorial" | "source-unavailable" | "unverified-boundary" | "table-order-differs" | "placeholder";
+  };
   originalId?: string;
   originalName?: string;
   originalDescription?: string;

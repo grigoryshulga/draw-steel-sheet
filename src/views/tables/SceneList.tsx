@@ -1,19 +1,10 @@
+import { useLocale } from "../../i18n/locale";
 import { useState, type DragEvent } from "react";
 import { Button, Card } from "../../components/ui";
 import { Icon } from "../../components/Icons";
 import type { TableScene } from "../../lib/tables/types";
 import { MAIN_SCENE_DROP, SCENE_DROP, hasSceneDrag, readSceneDrop, type SceneDrop } from "../../lib/tables/board";
 
-const kinds = {
-  encounter: "Бой",
-  negotiation: "Переговоры",
-  montage: "Монтаж",
-};
-const statuses = {
-  active: "В игре",
-  prepared: "Подготовка",
-  finished: "Завершено",
-};
 export function SceneList({
   scenes,
   currentSceneId,
@@ -41,6 +32,9 @@ export function SceneList({
   onKeep: (scene: TableScene) => void;
   onDelete: (scene: TableScene) => void;
 }) {
+  const { t: tr } = useLocale();
+  const displayKinds = { encounter: tr("Бой", "Encounter"), negotiation: tr("Переговоры", "Negotiation"), montage: tr("Монтаж", "Montage") };
+  const displayStatuses = { active: tr("В игре", "Active"), prepared: tr("Подготовка", "Prepared"), finished: tr("Завершено", "Finished") };
   const [filter, setFilter] = useState("all");
   const [dropTarget, setDropTarget] = useState(false);
   const canSwitch = director && !disabled;
@@ -82,12 +76,12 @@ export function SceneList({
         onDragEnd={() => setDropTarget(false)}
         {...currentSceneDrop(mainIsCurrent)}>
         <h3><Icon name="pin" size={16} />{director
-          ? <button type="button" className="table-title-button" disabled={disabled} onClick={onStartMain}>Главная сцена</button>
-          : "Главная сцена"}</h3>
-        {mainIsCurrent && <span className="table-badge is-active">На полотне</span>}
+          ? <button type="button" className="table-title-button" disabled={disabled} onClick={onStartMain}>{tr("Главная сцена", "Main scene")}</button>
+          : tr("Главная сцена", "Main scene")}</h3>
+        {mainIsCurrent && <span className="table-badge is-active">{tr("На полотне", "On the board")}</span>}
       </Card>
-      <div className="table-filter-bar" aria-label="Фильтр сцен">
-        {Object.entries({ all: "Все", ...statuses }).map(([value, label]) => (
+      <div className="table-filter-bar" aria-label={tr("Фильтр сцен", "Filter scenes")}>
+        {Object.entries({ all: tr("Все", "All"), ...displayStatuses }).map(([value, label]) => (
           <button
             key={value}
             type="button"
@@ -114,8 +108,8 @@ export function SceneList({
             }} onDragEnd={() => setDropTarget(false)} {...currentSceneDrop(current)}>
             <div className="scene-list-identity">
               <div className="scene-list-meta">
-                <span>{kinds[s.kind]}</span>
-                <span>Участников: {s.combatants.length}</span>
+                <span>{displayKinds[s.kind]}</span>
+                <span>{tr("Участников", "Participants")}: {s.combatants.length}</span>
               </div>
               <div className="scene-list-title-row"><h3>
                 <button
@@ -129,7 +123,7 @@ export function SceneList({
               {s.objective && <p className="muted scene-list-description">{s.objective}</p>}
             </div>
                 <span className={`table-badge scene-list-status is-${current ? "active" : s.status}`}>
-                  {current ? "На полотне" : statuses[s.status]}
+                  {current ? tr("На полотне", "On the board") : displayStatuses[s.status]}
                 </span>
 
             <div className="table-actions">
@@ -141,7 +135,7 @@ export function SceneList({
                   iconOnly
                   onClick={() => onStart(s)}
                 >
-                  {`Запустить сцену «${s.name}»`}
+                  {tr(`Запустить сцену «${s.name}»`, `Start scene “${s.name}”`)}
                 </Button>
               )}
               {director && (
@@ -154,9 +148,9 @@ export function SceneList({
                       icon="edit"
                       iconOnly
                     >
-                      {`Изменить сцену «${s.name}»`}
+                      {tr(`Изменить сцену «${s.name}»`, `Edit scene “${s.name}”`)}
                     </Button>
-                    <Button size="sm" variant="ghost" icon="copy" iconOnly disabled={disabled} onClick={() => onCopy(s)}>{`Копировать сцену «${s.name}»`}</Button>
+                    <Button size="sm" variant="ghost" icon="copy" iconOnly disabled={disabled} onClick={() => onCopy(s)}>{tr(`Копировать сцену «${s.name}»`, `Copy scene “${s.name}”`)}</Button>
                     <Button
                       size="sm"
                       variant="ghost"
@@ -164,7 +158,7 @@ export function SceneList({
                       icon="bookmark"
                       iconOnly
                     >
-                      {`Сохранить в библиотеку сцену «${s.name}»`}
+                      {tr(`Сохранить в библиотеку сцену «${s.name}»`, `Save scene to library “${s.name}”`)}
                     </Button>
                     <Button
                       size="sm"
@@ -174,7 +168,7 @@ export function SceneList({
                       icon="trash"
                       iconOnly
                     >
-                      {`Удалить сцену «${s.name}»`}
+                      {tr(`Удалить сцену «${s.name}»`, `Delete scene “${s.name}”`)}
                     </Button>
                 </>
               )}
@@ -186,15 +180,15 @@ export function SceneList({
         <div className="table-empty">
           <strong>
             {scenes.length
-              ? "В этом разделе пока нет сцен"
+              ? tr("В этом разделе пока нет сцен", "No scenes in this section yet")
               : director
-                ? "Всё начинается со сцены"
-                : "Пока нет открытых сцен"}
+                ? tr("Всё начинается со сцены", "Everything starts with a scene")
+                : tr("Пока нет открытых сцен", "No scenes have been shared yet")}
           </strong>
           <p>
             {director
-              ? "Создайте бой, переговоры или монтаж."
-              : "Сцена появится здесь, когда ведущий её опубликует."}
+              ? tr("Создайте бой, переговоры или монтаж.", "Create an encounter, negotiation, or montage.")
+              : tr("Сцена появится здесь, когда ведущий её опубликует.", "The scene will appear here when the Director publishes it.")}
           </p>
         </div>
       )}

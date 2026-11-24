@@ -1,3 +1,5 @@
+import { useLocale } from "../i18n/locale";
+import { englishFlowLabel, englishStages, englishIssue } from "./builder/language";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   buildCharacter,
@@ -62,6 +64,7 @@ export function NewCharacterDialog({
   onClose: () => void;
   onCreate: (character: Character) => Promise<void> | void;
 }) {
+  const { locale, t } = useLocale();
   const scope = useStorageScope();
   const draftKey = scopedStorageKey(BUILDER_DRAFT_KEY, scope);
   const stepKey = scopedStorageKey(BUILDER_STEP_V2_KEY, scope);
@@ -165,7 +168,7 @@ export function NewCharacterDialog({
     const remaining = Object.entries(issues).find(([, issue]) => issue);
     if (!blank && remaining) {
       go(remaining[0] as BuilderStepId);
-      setError(remaining[1]);
+      setError(t(remaining[1], englishIssue(remaining[1])));
       return;
     }
     setBusy(true);
@@ -184,7 +187,7 @@ export function NewCharacterDialog({
         /* no storage */
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Не удалось создать героя");
+      setError(err instanceof Error ? err.message : t("Не удалось создать героя", "Could not create hero"));
     } finally {
       setBusy(false);
     }
@@ -197,7 +200,7 @@ export function NewCharacterDialog({
       pending?.issue,
     );
     if (next.issue) {
-      setError(next.issue);
+      setError(t(next.issue, englishIssue(next.issue)));
       return;
     }
     setDraft(next.draft);
@@ -232,7 +235,7 @@ export function NewCharacterDialog({
       <div className="builder-page-shell">
         <header className="builder-page-head">
           <div className="builder-page-heading">
-            <h1 className="builder-page-title">Создание героя</h1>
+            <h1 className="builder-page-title">{t("Создание героя", "Create a hero")}</h1>
           </div>
           <div className="builder-page-head-actions">
             <Button
@@ -242,13 +245,13 @@ export function NewCharacterDialog({
               onClick={onClose}
               disabled={busy}
             >
-              Продолжить позже
+              {t("Продолжить позже", "Continue later")}
             </Button>
           </div>
         </header>
         <div className="builder-mobile-controls">
           <Select
-            aria-label="Этап создания"
+            aria-label={t("Этап создания", "Creation stage")}
             value={active.stage}
             disabled={busy}
             onChange={(e) => {
@@ -265,16 +268,16 @@ export function NewCharacterDialog({
                 value={stage}
                 disabled={!flow.some((item) => item.stage === stage)}
               >
-                {stage + 1}. {label}
+                {stage + 1}. {locale === "en" ? englishStages[stage] : label}
               </option>
             ))}
           </Select>
-          <Button variant="ghost" icon="hero" iconOnly aria-label="Предпросмотр героя" onClick={() => setPreviewOpen(true)}>
-            Герой
+          <Button variant="ghost" icon="hero" iconOnly aria-label={t("Предпросмотр героя", "Preview hero")} onClick={() => setPreviewOpen(true)}>
+            {t("Герой", "Hero")}
           </Button>
         </div>
         <div className="builder-page-body">
-          <nav className="builder-stage-nav" aria-label="Этапы создания героя">
+          <nav className="builder-stage-nav" aria-label={t("Этапы создания героя", "Hero creation stages")}>
             {BUILDER_STAGES.map((label, stage) => {
               const entries = flow.filter((item) => item.stage === stage);
               const destination =
@@ -288,12 +291,12 @@ export function NewCharacterDialog({
                     onClick={() => destination && goToFlow(destination.id)}
                   >
                     <span>{stage + 1}</span>
-                    {label}
+                    {locale === "en" ? englishStages[stage] : label}
                   </button>
                   {active.stage === stage && entries.length > 1 && (
                     <nav
                       className="builder-substeps"
-                      aria-label="Решения текущего этапа"
+                      aria-label={t("Решения текущего этапа", "Current stage choices")}
                     >
                       {flow
                         .filter((item) => item.stage === active.stage)
@@ -307,7 +310,7 @@ export function NewCharacterDialog({
                             }
                             onClick={() => goToFlow(item.id)}
                           >
-                            {item.label}
+                            {locale === "en" ? englishFlowLabel(item) : item.label}
                           </button>
                         ))}
                     </nav>
@@ -319,7 +322,7 @@ export function NewCharacterDialog({
 
           <div className="builder-content" ref={contentRef}>
             <h2 className="builder-step-title" ref={headingRef} tabIndex={-1}>
-              {active.label}
+              {locale === "en" ? englishFlowLabel(active) : active.label}
             </h2>
             <fieldset className="builder-step-fields" disabled={busy}>
               <BuilderStepProvider key={active.id} value={stepContext}>
@@ -338,13 +341,14 @@ export function NewCharacterDialog({
             </fieldset>
             {((showIssues && active.issue) || error) && (
               <p className="builder-error" role="alert">
-                {error || active.issue}
+                {error || (locale === "en" ? englishIssue(active.issue) : active.issue)}
               </p>
             )}
           </div>
           <div className="builder-preview-rail">
             <BuilderPreview
               hero={hero}
+              draftName={draft.name}
               derived={derived}
               seedAbilities={seed.current.abilities}
               busy={busy}
@@ -362,25 +366,25 @@ export function NewCharacterDialog({
                 onClick={() => goToFlow(flow[position - 1].id)}
                 icon="arrow-left"
                 iconOnly
-                aria-label="Предыдущий шаг"
+                aria-label={t("Предыдущий шаг", "Previous step")}
                 disabled={busy}
               >
-                Назад
+                {t("Назад", "Back")}
               </Button>
             )}
             <Button
               variant="primary"
               icon={step === "summary" ? undefined : "chevron-right"}
               iconOnly={step !== "summary"}
-              aria-label={step === "summary" ? undefined : "Следующий шаг"}
+              aria-label={step === "summary" ? undefined : t("Следующий шаг", "Next step")}
               disabled={busy}
               onClick={() => (step === "summary" ? void submit() : advance())}
             >
               {busy
-                ? "Создание…"
+                ? t("Создание…", "Creating…")
                 : step === "summary"
-                  ? Object.values(issues).some(Boolean) ? "Завершить выборы" : "Создать героя"
-                  : "Далее"}
+                  ? Object.values(issues).some(Boolean) ? t("Завершить выборы", "Complete choices") : t("Создать героя", "Create hero")
+                  : t("Далее", "Next")}
             </Button>
           </div>
         </footer>
@@ -388,10 +392,11 @@ export function NewCharacterDialog({
       <CardDetailModal
         open={previewOpen}
         onClose={() => setPreviewOpen(false)}
-        title="Ваш герой"
+        title={t("Ваш герой", "Your hero")}
       >
         <BuilderPreview
           hero={hero}
+          draftName={draft.name}
           derived={derived}
           seedAbilities={seed.current.abilities}
           busy={busy}
@@ -414,8 +419,8 @@ export function NewCharacterDialog({
       <CardDetailModal
         open={Boolean(traitDetail)}
         onClose={() => setTraitDetail(null)}
-        title={traitDetail?.name ?? "Черта"}
-        source="Черта"
+        title={traitDetail?.name ?? t("Черта", "Trait")}
+        source={t("Черта", "Trait")}
         autoHeight
       >
         {traitDetail && <RuleText text={traitDetail.text} />}
@@ -423,8 +428,8 @@ export function NewCharacterDialog({
       <CardDetailModal
         open={Boolean(incidentDetail)}
         onClose={() => setIncidentDetail(null)}
-        title={incidentDetail?.title ?? "Инцидент"}
-        source="Инцидент"
+        title={incidentDetail?.title ?? t("Инцидент", "Incident")}
+        source={t("Инцидент", "Incident")}
         autoHeight
       >
         {incidentDetail && <p>{incidentDetail.text}</p>}
@@ -432,7 +437,7 @@ export function NewCharacterDialog({
       <CardDetailModal
         open={Boolean(abilityDetail)}
         onClose={() => setAbilityDetail(null)}
-        title="Способность"
+        title={t("Способность", "Ability")}
         wide
       >
         {abilityDetail && (

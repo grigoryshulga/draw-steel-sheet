@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { lazy, Suspense, useState } from "react";
 import { MemberActions } from "./MemberActions";
 import { CardDetailModal } from "../../components/CardDetailModal";
@@ -21,12 +22,13 @@ export function SharedHeroDetails({ hero, portraitUrl, onClose, combat }: {
   onClose: () => void;
   combat?: { round: number; phase: "ready" | "active" | "done" };
 }) {
+  const { t: tr } = useLocale();
   return <CardDetailModal open={!!hero} onClose={onClose} className="table-dialog shared-hero-modal" wide
     title={hero && <span className="shared-hero-title">
       <CharacterAvatar name={hero.name} url={portraitUrl} showInitials={false} />
       <span>{hero.name}</span>
     </span>}>
-    {hero && <Suspense fallback={<p role="status">Загрузка листа…</p>}><SharedHeroSheet hero={hero} combat={combat} /></Suspense>}
+    {hero && <Suspense fallback={<p role="status">{tr("Загрузка листа…", "Loading sheet…")}</p>}><SharedHeroSheet hero={hero} combat={combat} /></Suspense>}
   </CardDetailModal>;
 }
 
@@ -50,11 +52,12 @@ export function SharedHeroStaminaBar({ stamina: { current, max }, decorative = f
   stamina: SharedHero["stamina"];
   decorative?: boolean;
 }) {
+  const { t: tr } = useLocale();
   const value = Math.max(0, Math.min(current, max));
   const width = max > 0 ? value / max * 100 : 0;
   const accessibility = decorative ? { "aria-hidden": true as const } : {
     role: "meter",
-    "aria-label": `Выносливость: ${current} из ${max}`,
+    "aria-label": `${tr("Выносливость", "Stamina")}: ${current} ${tr("из", "of")} ${max}`,
     "aria-valuemin": 0,
     "aria-valuemax": Math.max(1, max),
     "aria-valuenow": value,
@@ -66,12 +69,13 @@ export function SharedHeroStaminaBar({ stamina: { current, max }, decorative = f
 }
 
 export function SharedHeroCard({ hero, compact = false }: { hero: SharedHero; compact?: boolean }) {
+  const { t: tr, locale } = useLocale();
   const resources = hero.resources;
   return (
     <div className={`table-hero${compact ? " is-compact" : " shared-hero-sheet"}`}>
-      {compact && <h3>{hero.name || "Без имени"}</h3>}
+      {compact && <h3>{hero.name || tr("Без имени", "Unnamed")}</h3>}
       <p className="muted">
-        {hero.ancestry} · {hero.className} · Уровень {hero.level}
+        {hero.ancestry} · {hero.className} · {tr("Уровень", "Level")} {hero.level}
       </p>
       <SharedHeroStaminaBar stamina={hero.stamina} />
       <div className="table-vitals">
@@ -79,20 +83,20 @@ export function SharedHeroCard({ hero, compact = false }: { hero: SharedHero; co
           <strong>
             {hero.stamina.current} / {hero.stamina.max}
           </strong>{" "}
-          Выносливость{hero.stamina.temp > 0 && ` (+${hero.stamina.temp})`}
+          {tr("Выносливость", "Stamina")}{hero.stamina.temp > 0 && ` (+${hero.stamina.temp})`}
         </span>
         <span>
           <strong>{resources.heroicResource.current}</strong>{" "}
-          {resources.heroicResource.name || "Ресурс героя"}
+          {resources.heroicResource.name || tr("Ресурс героя", "Heroic resource")}
         </span>
         <span>
           <strong>
             {resources.recoveries.current} / {resources.recoveries.max}
           </strong>{" "}
-          Восстановления
+          {tr("Восстановления", "Recoveries")}
         </span>
         <span>
-          <strong>{resources.surges}</strong> Всплески
+          <strong>{resources.surges}</strong> {tr("Всплески", "Surges")}
         </span>
       </div>
       {Object.entries(resources.additional ?? {}).map(([name, value]) => (
@@ -104,7 +108,10 @@ export function SharedHeroCard({ hero, compact = false }: { hero: SharedHero; co
         {Object.entries(hero.conditions)
           .filter(([, c]) => c.active)
           .map(
-            ([name]) => CONDITIONS.find((c) => c.key === name)?.label ?? name,
+            ([name]) => {
+              const condition = CONDITIONS.find((c) => c.key === name);
+              return locale === "en" ? condition?.originalName || condition?.label || name : condition?.label ?? name;
+            },
           )
           .join(", ")}
       </p>}
@@ -119,11 +126,12 @@ export function HeroVisibilityEditor({
   value: HeroVisibility;
   onChange: (value: HeroVisibility) => void;
 }) {
+  const { t: tr } = useLocale();
+  const sectionEnglish: Record<string, string> = { hero: "Hero", development: "Development", inventory: "Inventory", journal: "Journal", companions: "Companions" };
   return (
     <div className="table-sharing">
       <p>
-        Основные показатели видны всем участникам. Выберите остальные разделы;
-        их свободный текст тоже станет общим.
+        {tr("Основные показатели видны всем участникам. Выберите остальные разделы; их свободный текст тоже станет общим.", "Core stats are visible to everyone. Choose other sections to share, including their free text.")}
       </p>
       <div className="table-checks">
         {Object.entries(SECTION_NAMES).map(([section, label]) => (
@@ -140,11 +148,11 @@ export function HeroVisibilityEditor({
                 })
               }
             />
-            {label}
+            {tr(label, sectionEnglish[section] ?? label)}
           </label>
         ))}
       </div>
-      <p>Личные заметки открываются отдельно:</p>
+      <p>{tr("Личные заметки открываются отдельно:", "Share personal notes separately:")}</p>
       <div className="table-checks">
         {NOTE_SECTIONS.map((note) => (
           <label key={note.key}>
@@ -160,7 +168,7 @@ export function HeroVisibilityEditor({
                 })
               }
             />
-            {note.label}
+            {tr(note.label, ({ story: "Story", contacts: "Contacts", debts: "Debts", secrets: "Secrets", misc: "Miscellaneous" })[note.key])}
           </label>
         ))}
       </div>
@@ -183,6 +191,7 @@ export function TableMemberSettings({
   openHero: (id: string) => void;
   error?: string;
 }) {
+  const { t: tr } = useLocale();
   const director = table.actorId === table.ownerId;
   const [addingHero, setAddingHero] = useState(false);
   const [heroId, setHeroId] = useState("");
@@ -194,30 +203,30 @@ export function TableMemberSettings({
     const players = table.members.filter(member => member.role === "player");
     return (
       <Card className="table-member-settings">
-        <h3>Участники</h3>
+        <h3>{tr("Участники", "Participants")}</h3>
         {players.length ? <ul className="table-member-list">
           {players.map(({ userId, name, hero }) => (
             <li key={userId} className="table-member-row">
               <div className="table-member-identity">
                 <strong>{name}</strong>
-                <span className="muted">{hero?.name ?? "Без героя"}</span>
+                <span className="muted">{hero?.name ?? tr("Без героя", "No hero")}</span>
               </div>
               <MemberActions name={name}>
                 <Button variant="ghost" disabled={disabled} onClick={() => {
-                  if (confirm(`Предложить ${name} роль ведущего?`)) void command("transfer", { userId });
-                }}>Передать роль</Button>
+                  if (confirm(tr(`Предложить ${name} роль ведущего?`, `Offer ${name} the Director role?`))) void command("transfer", { userId });
+                }}>{tr("Передать роль", "Transfer role")}</Button>
                 {hero && <Button variant="ghost" disabled={disabled} onClick={() => {
-                  if (confirm("Убрать героя из стола? Он останется у владельца.")) {
+                  if (confirm(tr("Убрать героя из стола? Он останется у владельца.", "Remove this hero from the table? The owner will keep it."))) {
                     void command("remove-hero", { userId, heroId: hero.id });
                   }
-                }}>Убрать героя</Button>}
+                }}>{tr("Убрать героя", "Remove hero")}</Button>}
                 <Button variant="danger" disabled={disabled} onClick={() => {
-                  if (confirm(`Исключить ${name} из стола?`)) void command("kick", { userId });
-                }}>Исключить</Button>
+                  if (confirm(tr(`Исключить ${name} из стола?`, `Remove ${name} from the table?`))) void command("kick", { userId });
+                }}>{tr("Исключить", "Remove")}</Button>
               </MemberActions>
             </li>
           ))}
-        </ul> : <p className="table-empty">За столом пока нет игроков.</p>}
+        </ul> : <p className="table-empty">{tr("За столом пока нет игроков.", "There are no players at this table yet.")}</p>}
       </Card>
     );
   }
@@ -230,52 +239,51 @@ export function TableMemberSettings({
     {table.transferTo === table.actorId && (
       <Card className="table-member-settings">
         <p>
-          Вам предложили стать ведущим. Ваши герои останутся у вас и будут
-          убраны из этого стола.
+          {tr("Вам предложили стать ведущим. Ваши герои останутся у вас и будут убраны из этого стола.", "You have been offered the Director role. Your heroes remain yours and will be removed from this table.")}
         </p>
         <Button disabled={disabled} onClick={() => void command("accept-transfer")}>
-          Принять роль ведущего
+          {tr("Принять роль ведущего", "Accept Director role")}
         </Button>
       </Card>
     )}
     <Card className="table-member-settings">
-      <h3>Мои герои за столом</h3>
+      <h3>{tr("Мои герои за столом", "My heroes at this table")}</h3>
       {heroIds.length ? <ul className="table-member-list">
         {heroIds.map(id => {
           const active = activeHero?.id === id;
           return <li key={id} className="table-member-row table-owned-hero">
-            <strong>{active ? activeHero.name : characters.find(c => c.id === id)?.name ?? "Герой"}</strong>
+            <strong>{active ? activeHero.name : characters.find(c => c.id === id)?.name ?? tr("Герой", "Hero")}</strong>
             <div className="table-actions">
               {active ? <>
-                <span className="table-badge">Активный герой</span>
+                <span className="table-badge">{tr("Активный герой", "Active hero")}</span>
                 <Button icon="book" iconOnly size="sm" variant="ghost" onClick={() => openHero(id)}>
-                  Открыть свой лист
+                  {tr("Открыть свой лист", "Open your sheet")}
                 </Button>
               </> : (
                 <Button size="sm" disabled={disabled} onClick={() => void command("activate-hero", { heroId: id })}>
-                  Сделать активным
+                  {tr("Сделать активным", "Make active")}
                 </Button>
               )}
               <Button size="sm" icon="settings" iconOnly onClick={() => {
                 setEditing(id);
                 setVisibility(table.visibility[id] ?? DEFAULT_VISIBILITY);
               }}>
-                Доступ к листу
+                {tr("Доступ к листу", "Sheet sharing")}
               </Button>
             </div>
           </li>;
         })}
-      </ul> : <p className="table-empty">У вас пока нет героя за этим столом.</p>}
-      <CardDetailModal open={!!editing} onClose={() => setEditing(null)} title="Доступ к листу" className="table-dialog" wide>
+      </ul> : <p className="table-empty">{tr("У вас пока нет героя за этим столом.", "You have no hero at this table yet.")}</p>}
+      <CardDetailModal open={!!editing} onClose={() => setEditing(null)} title={tr("Доступ к листу", "Sheet sharing")} className="table-dialog" wide>
         {error && <p role="alert">{error}</p>}
         <fieldset disabled={busy}>
           <HeroVisibilityEditor value={visibility} onChange={setVisibility} />
           <div className="table-actions">
-            <Button iconOnly icon="close" onClick={() => setEditing(null)}>Отмена</Button>
+            <Button iconOnly icon="close" onClick={() => setEditing(null)}>{tr("Отмена", "Cancel")}</Button>
             <Button variant="primary" iconOnly icon="save" onClick={async () => {
               if (await command("visibility", { heroId: editing, visibility })) setEditing(null);
             }}>
-              Сохранить доступ
+              {tr("Сохранить доступ", "Save sharing")}
             </Button>
           </div>
         </fieldset>
@@ -283,17 +291,17 @@ export function TableMemberSettings({
       {!table.archived && (
         <div className="table-actions">
           <Button icon="plus" onClick={() => { setVisibility(DEFAULT_VISIBILITY); setAddingHero(true); }}>
-            Добавить героя
+            {tr("Добавить героя", "Add hero")}
           </Button>
         </div>
       )}
-      <CardDetailModal open={addingHero} onClose={() => setAddingHero(false)} title="Добавить героя" className="table-dialog" wide>
+      <CardDetailModal open={addingHero} onClose={() => setAddingHero(false)} title={tr("Добавить героя", "Add hero")} className="table-dialog" wide>
         {error && <p role="alert">{error}</p>}
         <fieldset disabled={busy}>
           <label>
-            Герой
+            {tr("Герой", "Hero")}
             <select className="select" value={heroId} onChange={(event) => setHeroId(event.target.value)}>
-              <option value="">Выберите героя</option>
+              <option value="">{tr("Выберите героя", "Choose a hero")}</option>
               {characters.filter(c => !heroIds.includes(c.id)).map(c => (
                 <option key={c.id} value={c.id}>{c.name}</option>
               ))}
@@ -306,7 +314,7 @@ export function TableMemberSettings({
               setAddingHero(false);
             }
           }}>
-            Добавить за стол
+            {tr("Добавить за стол", "Add to table")}
           </Button>
         </fieldset>
       </CardDetailModal>

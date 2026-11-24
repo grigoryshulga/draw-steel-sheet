@@ -67,7 +67,64 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#8th-level-features",
       "originalName": "8th-Level Features",
-      "originalDescription": "As an 8th-level censor, you gain the following features."
+      "originalDescription": "As an 8th-level censor, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "8th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As an 8th-level censor, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-8.perk"
+          },
+          {
+            "type": "markdown",
+            "text": "## 8th-Level Order Feature\n\nYour censor order grants you a feature, as shown on the 8th-Level Order Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 8th-Level Order Features Table\n\n| Order                    | Feature             |\n|--------------------------|---------------------|\n| Exorcist                 | Demonologist        |\n| Oracle                   | Their Past Revealed |\n| Paragon                  | Vow                 |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-8.demonologist"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-8.their-past-revealed"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-8.vow"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.censor.level-8.11-wrath-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-8.excommunication"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-8.hand-of-the-gods"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-8.pillar-of-holy-fire"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.censor.level-8.your-allies-turn-on-you"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -82,7 +139,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-8/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one perk of your choice."
+      "originalDescription": "You gain one perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-8.8th-level-order-feature",
@@ -95,7 +155,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-8/8th-level-order-feature",
       "originalName": "8th-Level Order Feature",
-      "originalDescription": "Your censor order grants you a feature, as shown on the 8th-Level Order Features table.\n\n###### 8th-Level Order Features Table\n\n| Order                    | Feature             |\n|--------------------------|---------------------|\n| Exorcist                 | Demonologist        |\n| Oracle                   | Their Past Revealed |\n| Paragon                  | Vow                 |"
+      "originalDescription": "Your censor order grants you a feature, as shown on the 8th-Level Order Features table.\n\n###### 8th-Level Order Features Table\n\n| Order                    | Feature             |\n|--------------------------|---------------------|\n| Exorcist                 | Demonologist        |\n| Oracle                   | Their Past Revealed |\n| Paragon                  | Vow                 |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-8.demonologist",
@@ -108,7 +171,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-8/demonologist",
       "originalName": "Demonologist",
-      "originalDescription": "The most esoteric secrets of your order teach you that to defeat your enemy, you must understand them. You treat your Renown as 2 higher than usual when dealing with demons, devils, and other agents of chaos. If you successfully complete a negotiation with one of these creatures, you gain an edge on power rolls made against them and can use your Judgment ability against them as a free triggered action before an encounter begins."
+      "originalDescription": "The most esoteric secrets of your order teach you that to defeat your enemy, you must understand them. You treat your Renown as 2 higher than usual when dealing with demons, devils, and other agents of chaos. If you successfully complete a negotiation with one of these creatures, you gain an edge on power rolls made against them and can use your Judgment ability against them as a free triggered action before an encounter begins.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-8.their-past-revealed",
@@ -121,7 +187,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-8/their-past-revealed",
       "originalName": "Their Past Revealed",
-      "originalDescription": "Your constant fragmentary visions become clearer, and can be honed to understand the past of creatures you interact with. While speaking with any creature, you can make a medium Presence test to see visions from their past. On a success, you see a clear view of any subject related to the creature's past that you wish to understand. On a success with a consequence, you see two visions, one false and one true. On a failure, you lose 2d6 Stamina."
+      "originalDescription": "Your constant fragmentary visions become clearer, and can be honed to understand the past of creatures you interact with. While speaking with any creature, you can make a medium Presence test to see visions from their past. On a success, you see a clear view of any subject related to the creature's past that you wish to understand. On a success with a consequence, you see two visions, one false and one true. On a failure, you lose 2d6 Stamina.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-8.vow",
@@ -134,7 +203,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-8/vow",
       "originalName": "Vow",
-      "originalDescription": "Your words take on the power of your deity, with all the authority that entails. If you convince a creature to take an oath, they can't break it for 7 days. If you take an oath, you can't break it for 7 days."
+      "originalDescription": "Your words take on the power of your deity, with all the authority that entails. If you convince a creature to take an oath, they can't break it for 7 days. If you take an oath, you can't break it for 7 days.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.censor.level-8.11-wrath-ability",
@@ -147,7 +219,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.censor.level-8/11-wrath-ability",
       "originalName": "11-Wrath Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 wrath to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 11 wrath to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.censor.level-8.excommunication",
@@ -204,7 +279,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/excommunication",
       "originalName": "Excommunication",
-      "originalDescription": "*You curse your foe to become a bane to their allies.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; I < WEAK, weakened (save ends)\n- **12-16:** 13 + M damage; I < AVERAGE, weakened (save ends)\n- **17+:** 18 + M damage; I < STRONG, weakened (save ends)\n\n**Effect:** At the end of each of your turns, a target weakened this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them. Additionally, a target weakened this way can't be targeted by their allies' abilities."
+      "originalDescription": "*You curse your foe to become a bane to their allies.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; I < WEAK, weakened (save ends)\n- **12-16:** 13 + M damage; I < AVERAGE, weakened (save ends)\n- **17+:** 18 + M damage; I < STRONG, weakened (save ends)\n\n**Effect:** At the end of each of your turns, a target weakened this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them. Additionally, a target weakened this way can't be targeted by their allies' abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You curse your foe to become a bane to their allies.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "9 + M"
+              },
+              "effect": "I < WEAK, weakened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "13 + M"
+              },
+              "effect": "I < AVERAGE, weakened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "18 + M"
+              },
+              "effect": "I < STRONG, weakened (save ends)"
+            }
+          ]
+        },
+        "effect": "At the end of each of your turns, a target weakened this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them. Additionally, a target weakened this way can't be targeted by their allies' abilities."
+      }
     },
     {
       "id": "feature.ability.censor.level-8.hand-of-the-gods",
@@ -261,7 +384,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/hand-of-the-gods",
       "originalName": "Hand of the Gods",
-      "originalDescription": "*You use your foe as a tool against your enemies.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage\n- **12-16:** 15 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** Until the end of the encounter, while the target is judged by you, you can choose to make them the source of any of your abilities. Additionally, the target counts as an ally for the purpose of flanking."
+      "originalDescription": "*You use your foe as a tool against your enemies.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 10 + M damage\n- **12-16:** 15 + M damage\n- **17+:** 21 + M damage\n\n**Effect:** Until the end of the encounter, while the target is judged by you, you can choose to make them the source of any of your abilities. Additionally, the target counts as an ally for the purpose of flanking.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You use your foe as a tool against your enemies.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "10 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "15 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "21 + M"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "Until the end of the encounter, while the target is judged by you, you can choose to make them the source of any of your abilities. Additionally, the target counts as an ally for the purpose of flanking."
+      }
     },
     {
       "id": "feature.ability.censor.level-8.pillar-of-holy-fire",
@@ -318,7 +489,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/pillar-of-holy-fire",
       "originalName": "Pillar of Holy Fire",
-      "originalDescription": "*Your enemy's guilt fuels a holy flame that burns your foes.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; I < WEAK, dazed (save ends)\n- **12-16:** 13 + M damage; I < AVERAGE, dazed (save ends)\n- **17+:** 18 + M damage; I < STRONG, dazed (save ends)\n\n**Effect:** At the end of each of your turns, a target dazed this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them."
+      "originalDescription": "*Your enemy's guilt fuels a holy flame that burns your foes.*\n\n| **Melee, Strike, Weapon**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Melee 1**             | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage; I < WEAK, dazed (save ends)\n- **12-16:** 13 + M damage; I < AVERAGE, dazed (save ends)\n- **17+:** 18 + M damage; I < STRONG, dazed (save ends)\n\n**Effect:** At the end of each of your turns, a target dazed this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your enemy's guilt fuels a holy flame that burns your foes.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "9 + M"
+              },
+              "effect": "I < WEAK, dazed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "13 + M"
+              },
+              "effect": "I < AVERAGE, dazed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "18 + M"
+              },
+              "effect": "I < STRONG, dazed (save ends)"
+            }
+          ]
+        },
+        "effect": "At the end of each of your turns, a target dazed this way deals holy damage equal to twice your Presence score to each enemy within 2 squares of them."
+      }
     },
     {
       "id": "feature.ability.censor.level-8.your-allies-turn-on-you",
@@ -375,7 +594,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.censor.level-8/your-allies-turn-on-you",
       "originalName": "Your Allies Turn on You!",
-      "originalDescription": "*You turn your enemies' ire to the target.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; I < WEAK, slowed (save ends)\n- **12-16:** 9 + P damage; I < AVERAGE, slowed (save ends)\n- **17+:** 12 + P damage; I < STRONG, slowed (save ends)\n\n**Effect:** While the target is slowed this way, each of their allies who starts their turn within 5 squares of them must use a free maneuver to make a free strike against the target. Additionally, while the target is slowed this way, each of their allies within 5 squares of them who can make a triggered free strike against a different creature must make the free strike against the target instead."
+      "originalDescription": "*You turn your enemies' ire to the target.*\n\n| **Ranged, Strike, Weapon** |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           |           **🎯 One creature** |\n\n**Power Roll + Presence:**\n\n- **≤11:** 5 + P damage; I < WEAK, slowed (save ends)\n- **12-16:** 9 + P damage; I < AVERAGE, slowed (save ends)\n- **17+:** 12 + P damage; I < STRONG, slowed (save ends)\n\n**Effect:** While the target is slowed this way, each of their allies who starts their turn within 5 squares of them must use a free maneuver to make a free strike against the target. Additionally, while the target is slowed this way, each of their allies within 5 squares of them who can make a triggered free strike against a different creature must make the free strike against the target instead.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You turn your enemies' ire to the target.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Ranged",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Presence",
+          "characteristic": "presence",
+          "tiers": [
+            {
+              "damage": {
+                "value": "5 + P"
+              },
+              "effect": "I < WEAK, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "9 + P"
+              },
+              "effect": "I < AVERAGE, slowed (save ends)"
+            },
+            {
+              "damage": {
+                "value": "12 + P"
+              },
+              "effect": "I < STRONG, slowed (save ends)"
+            }
+          ]
+        },
+        "effect": "While the target is slowed this way, each of their allies who starts their turn within 5 squares of them must use a free maneuver to make a free strike against the target. Additionally, while the target is slowed this way, each of their allies within 5 squares of them who can make a triggered free strike against a different creature must make the free strike against the target instead."
+      }
     }
   ]
 }

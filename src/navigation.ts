@@ -52,3 +52,9 @@ export function isLibraryTab(tab: string): tab is LibraryTab {
 export function isDirectorSection(section: string): boolean {
   return ["monsters", "terrain", "retainers"].includes(section);
 }
+
+export const EN_TAB_LABELS: Record<Tab, string> = {
+  sheet: "Hero", development: "Advancement", inventory: "Inventory", notes: "Journal",
+  companions: "Companions", codex: "Codex", reference: "Reference", catalog: "Catalogs",
+  glossary: "Glossary", settings: "Settings", create: "Create a hero", tables: "My tables",
+};

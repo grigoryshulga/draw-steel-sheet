@@ -1,3 +1,5 @@
+import { useLocale } from "../../../i18n/locale";
+import { localizeGameMessage } from "../../../lib/game-actions";
 import { useState } from "react";
 import { CardDetailModal } from "../../../components/CardDetailModal";
 import {
@@ -8,7 +10,7 @@ import {
   TextInput,
 } from "../../../components/ui";
 import { useApp } from "../../../state/AppContext";
-import { AbilityPeek, MechanicDetails } from "./MechanicDetails";
+import { AbilityPeek, MechanicDetails, useMechanicAbilityName } from "./MechanicDetails";
 import {
   elementalistBaseTurnGain,
   elementalistPersistentAbilities,
@@ -25,6 +27,8 @@ import {
 } from "../../../lib/class-mechanics/routines-magic";
 
 export function TroubadourPanel() {
+  const { t, locale } = useLocale();
+  const abilityName = useMechanicAbilityName();
   const { character, performGameAction } = useApp();
   const state = normalizeTroubadourState(character.classMechanics?.troubadour);
   const routines = troubadourRoutines(character);
@@ -50,17 +54,15 @@ export function TroubadourPanel() {
   const unavailable = routineUnavailableReason(character);
   return (
     <Panel
-      title="Выступление"
+      title={t("Выступление", "Routine")}
       className="class-mechanics-panel"
       bodyClassName="class-mechanics-stack"
       actions={
-        <MechanicDetails title="Правила выступления">
+        <MechanicDetails title={t("Правила выступления", "Routine rules")}>
           <p>
-            В начале каждого раунда выберите выступление или продолжайте
-            текущее. Без действия; до конца встречи или потери возможности
-            выступать.
+            {t("В начале каждого раунда выберите выступление или продолжайте текущее. Без действия; до конца встречи или потери возможности выступать.", "At the start of each round, choose a routine or continue the current one. This costs no action and lasts until the encounter ends or you cannot perform.")}
           </p>
-          {medley && <p>«Медли» позволяет вести два выступления одновременно.</p>}
+          {medley && <p>{t("«Медли» позволяет вести два выступления одновременно.", "Medley allows two routines at once.")}</p>}
           <label>
             <input
               type="checkbox"
@@ -72,7 +74,7 @@ export function TroubadourPanel() {
                 })
               }
             />{" "}
-            Герой мёртв или застигнут врасплох
+            {t("Герой мёртв или застигнут врасплох", "Hero is dead or surprised")}
           </label>
         </MechanicDetails>
       }
@@ -81,15 +83,15 @@ export function TroubadourPanel() {
         active.map((ability) => (
           <div className="class-mechanics-item" key={ability.id}>
             <AbilityPeek ability={ability} character={character} />
-            <small>{ability.distance}</small>
+            <small>{locale === "en" ? ability.distance.replace(/^Аура(?=\s|$)/i, "Aura") : ability.distance}</small>
           </div>
         ))
       ) : (
-        <p className="class-mechanics-note">Нет активного выступления</p>
+        <p className="class-mechanics-note">{t("Нет активного выступления", "No active routine")}</p>
       )}
-      {unavailable && <p className="class-mechanics-warning">{unavailable}</p>}
+      {unavailable && <p className="class-mechanics-warning">{localizeGameMessage(unavailable, locale)}</p>}
       <div className="class-mechanics-row">
-        <span className="class-mechanics-note">Смена в начале раунда</span>
+        <span className="class-mechanics-note">{t("Смена в начале раунда", "Change at start of round")}</span>
         <Button
           size="sm"
           onClick={() => {
@@ -98,7 +100,7 @@ export function TroubadourPanel() {
             setEditing(true);
           }}
         >
-          {active.length ? "Сменить" : "Выбрать"}
+          {active.length ? t("Сменить", "Change") : t("Выбрать", "Choose")}
         </Button>
         {active.length > 0 && (
           <Button
@@ -106,14 +108,14 @@ export function TroubadourPanel() {
             variant="ghost"
             onClick={() => send({ kind: "troubadour-stop" })}
           >
-            Прекратить
+            {t("Прекратить", "End")}
           </Button>
         )}
       </div>
       {editing && (
         <CardDetailModal
           open
-          title="Выбрать выступление"
+          title={t("Выбрать выступление", "Choose routine")}
           onClose={() => setEditing(false)}
           footer={
             <Button
@@ -122,14 +124,14 @@ export function TroubadourPanel() {
                 if (send(action)) setEditing(false);
               }}
             >
-              Начать выступление
+              {t("Начать выступление", "Start routine")}
             </Button>
           }
         >
           <div className="class-mechanics-stack">
             {routines.length ? (
               <>
-                <Field label="Выступление героя">
+                <Field label={t("Выступление героя", "Hero routine")}>
                   <Select
                     value={chosen?.id ?? ""}
                     onChange={(e) => {
@@ -139,7 +141,7 @@ export function TroubadourPanel() {
                   >
                     {routines.map((a) => (
                       <option key={a.id} value={a.id}>
-                        {a.name}
+                        {abilityName(a)}
                       </option>
                     ))}
                   </Select>
@@ -148,17 +150,17 @@ export function TroubadourPanel() {
                   <AbilityPeek ability={chosen} character={character} />
                 )}
                 {medley && (
-                  <Field label="Второе выступление · Медли">
+                  <Field label={t("Второе выступление · Медли", "Second routine · Medley")}>
                     <Select
                       value={second}
                       onChange={(e) => setSecond(e.target.value)}
                     >
-                      <option value="">Без второго выступления</option>
+                      <option value="">{t("Без второго выступления", "No second routine")}</option>
                       {routines
                         .filter((a) => a.id !== chosen?.id)
                         .map((a) => (
                           <option key={a.id} value={a.id}>
-                            {a.name}
+                            {abilityName(a)}
                           </option>
                         ))}
                     </Select>
@@ -172,12 +174,11 @@ export function TroubadourPanel() {
               </>
             ) : (
               <p>
-                У героя нет способностей с ключевым словом «Выступление».
-                Добавьте полученные выступления в способности героя.
+                {t("У героя нет способностей с ключевым словом «Выступление». Добавьте полученные выступления в способности героя.", "The hero has no abilities with the Routine keyword. Add learned routines to the hero’s abilities.")}
               </p>
             )}
             {!preview.ok && (
-              <p className="class-mechanics-note">{preview.reason}</p>
+              <p className="class-mechanics-note">{localizeGameMessage(preview.reason, locale)}</p>
             )}
           </div>
         </CardDetailModal>
@@ -187,6 +188,8 @@ export function TroubadourPanel() {
 }
 
 export function ElementalistPanel() {
+  const { t, locale } = useLocale();
+  const abilityName = useMechanicAbilityName();
   const { character, performGameAction } = useApp();
   const state = normalizeElementalistState(
     character.classMechanics?.elementalist,
@@ -209,33 +212,28 @@ export function ElementalistPanel() {
   const threshold = 5 * Math.max(0, character.characteristics.reason);
   return (
     <Panel
-      title="Поддержание магии"
+      title={t("Поддержание магии", "Persistent magic")}
       className="class-mechanics-panel"
       bodyClassName="class-mechanics-stack"
       actions={
-        <MechanicDetails title="Поддержание магии">
+        <MechanicDetails title={t("Поддержание магии", "Persistent magic")}>
           <p>
-            Отмечайте уже применённые способности. Поддержание уменьшает
-            эссенцию в начале вашего хода; первоначальная стоимость оплачивается
-            при применении способности.
+            {t("Отмечайте уже применённые способности. Поддержание уменьшает эссенцию в начале вашего хода; первоначальная стоимость оплачивается при применении способности.", "Mark abilities already used. Maintenance reduces essence at the start of your turn; the initial cost is paid when using the ability.")}
           </p>
           <p>
-            Урон за один ход ≥ {threshold} (5 × Разум) прекращает все
-            поддержания. В конце встречи они также прекращаются.
+            {t(`Урон за один ход ≥ ${threshold} (5 × Разум) прекращает все поддержания. В конце встречи они также прекращаются.`, `Damage of ${threshold} or more in one turn (5 × Reason) ends all persistent effects. They also end at the end of the encounter.`)}
           </p>
           <p>
-            Один удар через панель здоровья проверяется автоматически. Несколько
-            попаданий за один ход существа можно проверить по их сумме отдельно.
+            {t("Один удар через панель здоровья проверяется автоматически. Несколько попаданий за один ход существа можно проверить по их сумме отдельно.", "A single hit entered through health controls is checked automatically. Check the combined damage of multiple hits in one creature’s turn separately.")}
           </p>
           <p>
-            Вне боя поддержание длится число раундов, равное Победам (
-            {character.victories}); длительность ведётся вручную.
+            {t(`Вне боя поддержание длится число раундов, равное Победам (${character.victories}); длительность ведётся вручную.`, `Outside combat, maintenance lasts a number of rounds equal to Victories (${character.victories}); track duration manually.`)}
           </p>
         </MechanicDetails>
       }
     >
       <div className="class-mechanics-summary" aria-live="polite">
-        <span>Эссенция в начале хода</span>
+        <span>{t("Эссенция в начале хода", "Essence at start of turn")}</span>
         <strong>
           {elementalistBaseTurnGain(character)} −{" "}
           {elementalistSustainCost(character)} ={" "}
@@ -251,11 +249,11 @@ export function ElementalistPanel() {
                 {ability ? (
                   <AbilityPeek ability={ability} character={character} />
                 ) : (
-                  <span>Способность удалена</span>
+                  <span>{t("Способность удалена", "Ability removed")}</span>
                 )}
                 <small>
                   {entry.target} · {ability ? persistentCost(ability) : 0}{" "}
-                  эссенции
+                  {t("эссенции", "essence")}
                 </small>
               </div>
               <Button
@@ -263,7 +261,7 @@ export function ElementalistPanel() {
                 variant="ghost"
                 icon="close"
                 iconOnly
-                aria-label={`Прекратить: ${ability?.name ?? entry.target}`}
+                aria-label={t(`Прекратить: ${ability ? abilityName(ability) : entry.target}`, `End: ${ability ? abilityName(ability) : entry.target}`)}
                 onClick={() =>
                   send({
                     kind: "elementalist-stop",
@@ -275,11 +273,11 @@ export function ElementalistPanel() {
           );
         })
       ) : (
-        <p className="class-mechanics-note">Нет активных поддержаний</p>
+        <p className="class-mechanics-note">{t("Нет активных поддержаний", "No active persistent abilities")}</p>
       )}
       <div className="class-mechanics-row">
         <Button size="sm" onClick={() => setEditing(true)}>
-          Добавить
+          {t("Добавить", "Add")}
         </Button>
         {state.sustained.length > 0 && (
           <Button
@@ -287,20 +285,20 @@ export function ElementalistPanel() {
             variant="ghost"
             onClick={() => send({ kind: "elementalist-stop-all" })}
           >
-            Прекратить все
+            {t("Прекратить все", "End all")}
           </Button>
         )}
         <Button size="sm" variant="ghost" onClick={() => setChecking(true)}>
-          Урон за ход
+          {t("Урон за ход", "Damage this turn")}
         </Button>
       </div>
       <p className="class-mechanics-note">
-        Срыв при {threshold}+ урона за один ход
+        {t(`Срыв при ${threshold}+ урона за один ход`, `Ends at ${threshold}+ damage in one turn`)}
       </p>
       {editing && (
         <CardDetailModal
           open
-          title="Добавить поддержание"
+          title={t("Добавить поддержание", "Add persistent ability")}
           onClose={() => setEditing(false)}
           footer={
             <Button
@@ -312,21 +310,21 @@ export function ElementalistPanel() {
                 }
               }}
             >
-              Поддерживать
+              {t("Поддерживать", "Maintain")}
             </Button>
           }
         >
           <div className="class-mechanics-stack">
             {abilities.length ? (
               <>
-                <Field label="Способность с поддержанием">
+                <Field label={t("Способность с поддержанием", "Persistent ability")}>
                   <Select
                     value={chosen?.id ?? ""}
                     onChange={(e) => setSelected(e.target.value)}
                   >
                     {abilities.map((a) => (
                       <option key={a.id} value={a.id}>
-                        {a.name} · {persistentCost(a)} эссенции
+                        {abilityName(a)} · {persistentCost(a)} {t("эссенции", "essence")}
                       </option>
                     ))}
                   </Select>
@@ -334,7 +332,7 @@ export function ElementalistPanel() {
                 {chosen && (
                   <AbilityPeek ability={chosen} character={character} />
                 )}
-                <Field label="Цель или область">
+                <Field label={t("Цель или область", "Target or area")}>
                   <TextInput
                     value={target}
                     maxLength={300}
@@ -343,10 +341,10 @@ export function ElementalistPanel() {
                 </Field>
               </>
             ) : (
-              <p>У героя нет способностей с правилом «Поддержание N».</p>
+              <p>{t("У героя нет способностей с правилом «Поддержание N».", "The hero has no abilities with the Persist N rule.")}</p>
             )}
             {!preview.ok && (
-              <p className="class-mechanics-note">{preview.reason}</p>
+              <p className="class-mechanics-note">{localizeGameMessage(preview.reason, locale)}</p>
             )}
           </div>
         </CardDetailModal>
@@ -354,7 +352,7 @@ export function ElementalistPanel() {
       {checking && (
         <CardDetailModal
           open
-          title="Урон за один ход"
+          title={t("Урон за один ход", "Damage in one turn")}
           onClose={() => setChecking(false)}
           footer={
             <>
@@ -365,7 +363,7 @@ export function ElementalistPanel() {
                     setChecking(false);
                 }}
               >
-                Сбросить проверку
+                {t("Сбросить проверку", "Reset check")}
               </Button>
               <Button
                 disabled={
@@ -383,18 +381,17 @@ export function ElementalistPanel() {
                   }
                 }}
               >
-                Проверить поддержания
+                {t("Проверить поддержания", "Check persistent abilities")}
               </Button>
             </>
           }
         >
           <div className="class-mechanics-stack">
             <p>
-              Сумма попаданий за один ход существа. Проверка прекращает
-              поддержания при {threshold}+ урона, но не меняет Выносливость.
+              {t(`Сумма попаданий за один ход существа. Проверка прекращает поддержания при ${threshold}+ урона, но не меняет Выносливость.`, `Total damage in one creature’s turn. This check ends persistent effects at ${threshold}+ damage but does not change Stamina.`)}
             </p>
-            <p>Последний проверенный урон: {state.damageThisTurn}.</p>
-            <Field label="Суммарный урон за один ход">
+            <p>{t(`Последний проверенный урон: ${state.damageThisTurn}.`, `Last checked damage: ${state.damageThisTurn}.`)}</p>
+            <Field label={t("Суммарный урон за один ход", "Total damage in one turn")}>
               <TextInput
                 type="number"
                 min={1}

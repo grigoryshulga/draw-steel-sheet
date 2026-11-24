@@ -63,7 +63,60 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
       "originalName": "3rd-Level Features",
-      "originalDescription": "As a 3rd-level fury, you gain the following features."
+      "originalDescription": "As a 3rd-level fury, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "3rd-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 3rd-level fury, you gain the following features."
+          },
+          {
+            "type": "markdown",
+            "text": "## 3rd-Level Aspect Feature\n\nYour primordial aspect grants you a feature, as shown on the 3rd-Level Aspect Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 3rd-Level Aspect Features Table\n\n| Aspect                    | Feature                  |\n|---------------------------|--------------------------|\n| Berserker                 | Immovable Object         |\n| Reaver                    | See Through Their Tricks |\n| Stormwight                | Nature's Knight          |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-3.immovable-object"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-3.natures-knight"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-3.see-through-their-tricks"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.fury.level-3.7-ferocity-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-3.demon-unleashed"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-3.face-the-storm"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-3.steelbreaker"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.fury.level-3.you-are-already-dead"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -78,7 +131,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-3/3rd-level-aspect-feature",
       "originalName": "3rd-Level Aspect Feature",
-      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 3rd-Level Aspect Features table.\n\n###### 3rd-Level Aspect Features Table\n\n| Aspect                    | Feature                  |\n|---------------------------|--------------------------|\n| Berserker                 | Immovable Object         |\n| Reaver                    | See Through Their Tricks |\n| Stormwight                | Nature's Knight          |"
+      "originalDescription": "Your primordial aspect grants you a feature, as shown on the 3rd-Level Aspect Features table.\n\n###### 3rd-Level Aspect Features Table\n\n| Aspect                    | Feature                  |\n|---------------------------|--------------------------|\n| Berserker                 | Immovable Object         |\n| Reaver                    | See Through Their Tricks |\n| Stormwight                | Nature's Knight          |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-3.immovable-object",
@@ -91,7 +147,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-3/immovable-object",
       "originalName": "Immovable Object",
-      "originalDescription": "You add your level to your effective size for the purpose of interacting with creatures and objects, including determining whether you can lift an object, are affected by forced movement, and so forth. This has no effect on whether you can be grabbed.\n\nAdditionally, you have a bonus to stability equal to your Might score."
+      "originalDescription": "You add your level to your effective size for the purpose of interacting with creatures and objects, including determining whether you can lift an object, are affected by forced movement, and so forth. This has no effect on whether you can be grabbed.\n\nAdditionally, you have a bonus to stability equal to your Might score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-3.natures-knight",
@@ -104,7 +163,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-3/natures-knight",
       "originalName": "Nature's Knight",
-      "originalDescription": "You can speak with animals and elementals. Additionally, you automatically sense the presence of animals and elementals within 10 squares of you, even if they are hidden.\n\nWhen you are in a negotiation with an animal or elemental, you treat your Renown as 1 higher than usual. This stacks with the increase to your effective Renown in a negotiation with an animal of your type while in animal form (see Stormwight Kits)."
+      "originalDescription": "You can speak with animals and elementals. Additionally, you automatically sense the presence of animals and elementals within 10 squares of you, even if they are hidden.\n\nWhen you are in a negotiation with an animal or elemental, you treat your Renown as 1 higher than usual. This stacks with the increase to your effective Renown in a negotiation with an animal of your type while in animal form (see Stormwight Kits).",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-3.see-through-their-tricks",
@@ -117,7 +179,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-3/see-through-their-tricks",
       "originalName": "See Through Their Tricks",
-      "originalDescription": "You have a double edge on tests made to search for hidden creatures, discern hidden motives, or detect lies. You also have a double edge on tests made to gamble!"
+      "originalDescription": "You have a double edge on tests made to search for hidden creatures, discern hidden motives, or detect lies. You also have a double edge on tests made to gamble!",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.fury.level-3.7-ferocity-ability",
@@ -130,7 +195,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.fury.level-3/7-ferocity-ability",
       "originalName": "7-Ferocity Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 ferocity to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 ferocity to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.fury.level-3.demon-unleashed",
@@ -183,7 +251,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/demon-unleashed",
       "originalName": "Demon Unleashed",
-      "originalDescription": "*Foes tremble at the sight of you.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, each enemy who starts their turn adjacent to you and has P < STRONG is frightened until the end of their turn."
+      "originalDescription": "*Foes tremble at the sight of you.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, each enemy who starts their turn adjacent to you and has P < STRONG is frightened until the end of their turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Foes tremble at the sight of you.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, each enemy who starts their turn adjacent to you and has P < STRONG is frightened until the end of their turn."
+      }
     },
     {
       "id": "feature.ability.fury.level-3.face-the-storm",
@@ -236,7 +322,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/face-the-storm",
       "originalName": "Face the Storm!",
-      "originalDescription": "*Shocked in the face of your naked brutality, your enemy's instincts take over.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, each creature you make a melee strike against who has P < AVERAGE is taunted until the end of their next turn. Additionally, when you use an ability that deals rolled damage against any enemy taunted by you, the ability deals extra damage equal to twice your Might score and increases its potency by 1."
+      "originalDescription": "*Shocked in the face of your naked brutality, your enemy's instincts take over.*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, each creature you make a melee strike against who has P < AVERAGE is taunted until the end of their next turn. Additionally, when you use an ability that deals rolled damage against any enemy taunted by you, the ability deals extra damage equal to twice your Might score and increases its potency by 1.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Shocked in the face of your naked brutality, your enemy's instincts take over.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "Until the end of the encounter or until you are dying, each creature you make a melee strike against who has P < AVERAGE is taunted until the end of their next turn. Additionally, when you use an ability that deals rolled damage against any enemy taunted by you, the ability deals extra damage equal to twice your Might score and increases its potency by 1."
+      }
     },
     {
       "id": "feature.ability.fury.level-3.steelbreaker",
@@ -289,7 +393,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/steelbreaker",
       "originalName": "Steelbreaker",
-      "originalDescription": "*See how useless their weapons are!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 20 temporary Stamina."
+      "originalDescription": "*See how useless their weapons are!*\n\n| **Magic**   | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** You gain 20 temporary Stamina.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "See how useless their weapons are!",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "You gain 20 temporary Stamina."
+      }
     },
     {
       "id": "feature.ability.fury.level-3.you-are-already-dead",
@@ -344,7 +466,31 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.fury.level-3/you-are-already-dead",
       "originalName": "You Are Already Dead",
-      "originalDescription": "*Slash. Walk away.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** If the target is not a leader or solo creature, they are reduced to 0 Stamina at the end of their next turn. If the target is a leader or solo creature, you gain 3 surges and can make a melee free strike against them."
+      "originalDescription": "*Slash. Walk away.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Effect:** If the target is not a leader or solo creature, they are reduced to 0 Stamina at the end of their next turn. If the target is a leader or solo creature, you gain 3 surges and can make a melee free strike against them.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Slash. Walk away.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "effect": "If the target is not a leader or solo creature, they are reduced to 0 Stamina at the end of their next turn. If the target is a leader or solo creature, you gain 3 surges and can make a melee free strike against them."
+      }
     }
   ]
 }

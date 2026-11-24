@@ -75,7 +75,72 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#5th-level-features",
       "originalName": "5th-Level Features",
-      "originalDescription": "As a 5th-level tactician, you gain the following features."
+      "originalDescription": "As a 5th-level tactician, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "5th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 5th-level tactician, you gain the following features."
+          },
+          {
+            "type": "markdown",
+            "text": "## 5th-Level Doctrine Features\n\nYour tactical doctrine grants you two features, as shown on the 5th-Level Doctrine Features table."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 5th-Level Doctrine Features Table\n\n| Doctrine   | Features                         |\n|------------|----------------------------------|\n| Insurgent  | Distracted, Leave No Trace       |\n| Mastermind | Anticipation, I Predicted That   |\n| Vanguard   | Shake It Off, Tactical Offensive |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-5.anticipation"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-5.distracted"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-5.i-predicted-that"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-5.leave-no-trace"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-5.shake-it-off"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-5.tactical-offensive"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-5.9-focus-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-5.squad-gear-check"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-5.squad-remember-your-training"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-5.win-this-day"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-5.youve-still-got-something-left"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -90,7 +155,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-5/5th-level-doctrine-features",
       "originalName": "5th-Level Doctrine Features",
-      "originalDescription": "Your tactical doctrine grants you two features, as shown on the 5th-Level Doctrine Features table.\n\n###### 5th-Level Doctrine Features Table\n\n| Doctrine   | Features                         |\n|------------|----------------------------------|\n| Insurgent  | Distracted, Leave No Trace       |\n| Mastermind | Anticipation, I Predicted That   |\n| Vanguard   | Shake It Off, Tactical Offensive |"
+      "originalDescription": "Your tactical doctrine grants you two features, as shown on the 5th-Level Doctrine Features table.\n\n###### 5th-Level Doctrine Features Table\n\n| Doctrine   | Features                         |\n|------------|----------------------------------|\n| Insurgent  | Distracted, Leave No Trace       |\n| Mastermind | Anticipation, I Predicted That   |\n| Vanguard   | Shake It Off, Tactical Offensive |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-5.anticipation",
@@ -103,7 +171,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-5/anticipation",
       "originalName": "Anticipation",
-      "originalDescription": "You have learned to be more preemptive on the battlefield, thinking more steps ahead than your opponents. You can target two creatures with your Mark ability."
+      "originalDescription": "You have learned to be more preemptive on the battlefield, thinking more steps ahead than your opponents. You can target two creatures with your Mark ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-5.distracted",
@@ -116,7 +187,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-5/distracted",
       "originalName": "Distracted",
-      "originalDescription": "You have mastered the ability to distract your foes, allowing you and your allies to take advantage of their gaps in attention. Whenever you or any ally attempts to hide, any creature marked by you doesn't count as an observer. Additionally, you and your allies can use other allies as cover for the purpose of hiding."
+      "originalDescription": "You have mastered the ability to distract your foes, allowing you and your allies to take advantage of their gaps in attention. Whenever you or any ally attempts to hide, any creature marked by you doesn't count as an observer. Additionally, you and your allies can use other allies as cover for the purpose of hiding.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-5.i-predicted-that",
@@ -129,7 +203,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-5/i-predicted-that",
       "originalName": "I Predicted That",
-      "originalDescription": "Your expertise in history and lore allows you and your allies to outthink rivals in the present day. You and any ally within 10 squares of you gain an edge on Reason tests."
+      "originalDescription": "Your expertise in history and lore allows you and your allies to outthink rivals in the present day. You and any ally within 10 squares of you gain an edge on Reason tests.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-5.leave-no-trace",
@@ -142,7 +219,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-5/leave-no-trace",
       "originalName": "Leave No Trace",
-      "originalDescription": "You and any ally within 10 squares of you can move at full speed while sneaking. Additionally, enemies within 10 squares of you take a bane on tests made to search for you or your allies while any of you are hidden."
+      "originalDescription": "You and any ally within 10 squares of you can move at full speed while sneaking. Additionally, enemies within 10 squares of you take a bane on tests made to search for you or your allies while any of you are hidden.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-5.shake-it-off",
@@ -155,7 +235,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-5/shake-it-off",
       "originalName": "Shake It Off",
-      "originalDescription": "As a free maneuver, you can spend 1d6 Stamina to ignore a consequence from a test, or to end one effect on you that is ended by a saving throw or that ends at the end of your turn. Any ally adjacent to you can also spend Stamina as a free maneuver to gain this benefit."
+      "originalDescription": "As a free maneuver, you can spend 1d6 Stamina to ignore a consequence from a test, or to end one effect on you that is ended by a saving throw or that ends at the end of your turn. Any ally adjacent to you can also spend Stamina as a free maneuver to gain this benefit.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-5.tactical-offensive",
@@ -168,7 +251,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-5/tactical-offensive",
       "originalName": "Tactical Offensive",
-      "originalDescription": "When you use the Charge main action to attack a creature marked by you, you can use a signature or heroic ability with the Melee and Strike keywords instead of a melee free strike."
+      "originalDescription": "When you use the Charge main action to attack a creature marked by you, you can use a signature or heroic ability with the Melee and Strike keywords instead of a melee free strike.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-5.9-focus-ability",
@@ -181,7 +267,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-5/9-focus-ability",
       "originalName": "9-Focus Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 focus to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 9 focus to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-5.squad-gear-check",
@@ -238,7 +327,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/squad-gear-check",
       "originalName": "Squad! Gear Check!",
-      "originalDescription": "*You distract a foe while your allies secure their defensive gear.*\n\n| **Melee, Strike, Weapon** | **Main action**     |\n|---------------------------|---------------------|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 18 + M damage\n\n**Effect:** You and each ally adjacent to the target gain 10 temporary Stamina."
+      "originalDescription": "*You distract a foe while your allies secure their defensive gear.*\n\n| **Melee, Strike, Weapon** | **Main action**     |\n|---------------------------|---------------------|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might:**\n\n- **≤11:** 9 + M damage\n- **12-16:** 13 + M damage\n- **17+:** 18 + M damage\n\n**Effect:** You and each ally adjacent to the target gain 10 temporary Stamina.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You distract a foe while your allies secure their defensive gear.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might",
+          "characteristic": "might",
+          "tiers": [
+            {
+              "damage": {
+                "value": "9 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "13 + M"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "18 + M"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You and each ally adjacent to the target gain 10 temporary Stamina."
+      }
     },
     {
       "id": "feature.ability.tactician.level-5.squad-remember-your-training",
@@ -291,7 +428,29 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/squad-remember-your-training",
       "originalName": "Squad! Remember Your Training!",
-      "originalDescription": "*You remind your allies how to best use their gear.*\n\n| **Ranged**                |                         **Main action** |\n|------------------------------|----------------------------------------:|\n| **📏 Ranged 10**  | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 1 surge and can use a signature ability that has a double edge."
+      "originalDescription": "*You remind your allies how to best use their gear.*\n\n| **Ranged**                |                         **Main action** |\n|------------------------------|----------------------------------------:|\n| **📏 Ranged 10**  | **🎯 Self and two allies** |\n\n**Effect:** Each target gains 1 surge and can use a signature ability that has a double edge.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You remind your allies how to best use their gear.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self and two allies",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "effect": "Each target gains 1 surge and can use a signature ability that has a double edge."
+      }
     },
     {
       "id": "feature.ability.tactician.level-5.win-this-day",
@@ -344,7 +503,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/win-this-day",
       "originalName": "Win This Day!",
-      "originalDescription": "*You inspire your allies to recover and gather their strength.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target gains 2 surges. Additionally, they can spend a Recovery, remove any conditions or effects on them, and stand up if they are prone."
+      "originalDescription": "*You inspire your allies to recover and gather their strength.*\n\n| **Area**       |                       **Main action** |\n|----------------|--------------------------------------:|\n| **📏 3 burst** | **🎯 Self and each ally in the area** |\n\n**Effect:** Each target gains 2 surges. Additionally, they can spend a Recovery, remove any conditions or effects on them, and stand up if they are prone.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You inspire your allies to recover and gather their strength.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "3 burst"
+          ],
+          "target": "Self and each ally in the area",
+          "keywords": [
+            "Area"
+          ]
+        },
+        "effect": "Each target gains 2 surges. Additionally, they can spend a Recovery, remove any conditions or effects on them, and stand up if they are prone."
+      }
     },
     {
       "id": "feature.ability.tactician.level-5.youve-still-got-something-left",
@@ -397,7 +574,29 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-5/youve-still-got-something-left",
       "originalName": "You've Still Got Something Left",
-      "originalDescription": "*You push an ally to use a heroic ability sooner than they otherwise would.*\n\n| **Ranged**       | **Main action** |\n|------------------|----------------:|\n| **📏 Ranged 10** | **🎯 One ally** |\n\n**Effect:** The target uses a heroic ability with the Strike keyword as a free triggered action, and deals extra damage with that ability equal to your Reason score. The ability has its Heroic Resource cost reduced by 1 + your Reason score (minimum cost 0)."
+      "originalDescription": "*You push an ally to use a heroic ability sooner than they otherwise would.*\n\n| **Ranged**       | **Main action** |\n|------------------|----------------:|\n| **📏 Ranged 10** | **🎯 One ally** |\n\n**Effect:** The target uses a heroic ability with the Strike keyword as a free triggered action, and deals extra damage with that ability equal to your Reason score. The ability has its Heroic Resource cost reduced by 1 + your Reason score (minimum cost 0).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You push an ally to use a heroic ability sooner than they otherwise would.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Ranged"
+          ]
+        },
+        "effect": "The target uses a heroic ability with the Strike keyword as a free triggered action, and deals extra damage with that ability equal to your Reason score. The ability has its Heroic Resource cost reduced by 1 + your Reason score (minimum cost 0)."
+      }
     }
   ]
 }

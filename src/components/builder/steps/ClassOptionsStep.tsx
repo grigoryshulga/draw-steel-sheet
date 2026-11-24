@@ -1,3 +1,6 @@
+import { useLocalizedData } from "../../../i18n/use-localized-data";
+import { loadBuilderOptions } from "../../../rules/consumer-english-reference";
+import { useLocale } from "../../../i18n/locale";
 import { BUILDER_DATA as data } from "../../../lib/character-builder";
 import { featureEquipmentRequirements } from "../../../lib/feature-equipment-requirements";
 import { CharacteristicAllocator } from "../../CharacteristicAllocator";
@@ -9,6 +12,7 @@ import { Reference } from "../Reference";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function ClassOptionsStep({ part }: { part: string }) {
+  const { locale, t: tr } = useLocale();
   const {
     draft,
     pendingChanges,
@@ -20,19 +24,20 @@ export function ClassOptionsStep({ part }: { part: string }) {
     careerSkills,
   } = useBuilderStep();
   const classData = data.classes.find((c) => c.name === draft.className);
-  if (!classData) return <p>Сначала выберите класс.</p>;
+  const optionsByClass = useLocalizedData(locale, loadBuilderOptions);
+  const originals = optionsByClass?.[draft.className];
+  if (!classData) return <p>{tr("Сначала выберите класс.", "Choose a class first.")}</p>;
   const domains = draft.subclass.split(", ").filter(Boolean);
   if (part === "subclass") {
     if (draft.className === "Проводник")
       return (
         <>
           <p className="builder-intro">
-            Выберите два разных домена. На следующем шаге выберите, какой из них
-            даст особенность 1-го уровня.
+            {tr("Выберите два разных домена. На следующем шаге выберите, какой из них даст особенность 1-го уровня.", "Choose two different domains. On the next step, choose which grants your level 1 feature.")}
           </p>
           {[0, 1].map((i) => (
             <section key={i}>
-              <Field label={`Домен ${i + 1}`}>
+              <Field label={tr(`Домен ${i + 1}`, `Domain ${i + 1}`)}>
                 <Select
                   value={draft.subclass.split(", ")[i] || ""}
                   onChange={(event) => {
@@ -49,20 +54,20 @@ export function ClassOptionsStep({ part }: { part: string }) {
                     });
                   }}
                 >
-                  <option value="">Выберите домен</option>
+                  <option value="">{tr("Выберите домен", "Choose a domain")}</option>
                   {classData.subclasses
                     .filter((s) => s.name !== draft.subclass.split(", ")[1 - i])
                     .map((s) => (
-                      <option key={s.name}>{s.name}</option>
+                      <option key={s.name} value={s.name}>{locale === "en" && s.originalName ? s.originalName : s.name}</option>
                     ))}
                 </Select>
               </Field>
               <Reference
-                label="Правила домена"
+                label={tr("Правила домена", "Domain rules")}
                 text={
-                  classData.subclasses.find(
+                  originals?.[draft.subclass.split(", ")[i]]?.text || classData.subclasses.find(
                     (s) => s.name === draft.subclass.split(", ")[i],
-                  )?.text ?? ""
+                  )?.text || ""
                 }
               />
             </section>
@@ -72,10 +77,11 @@ export function ClassOptionsStep({ part }: { part: string }) {
     return (
       <BuilderSelection
         key={draft.className}
-        label="Подкласс"
+        label={tr("Подкласс", "Subclass")}
         layout="tiles"
         options={classData.subclasses.map((s) => ({
           name: s.name,
+          originalName: s.originalName, originalDescription: originals?.[s.name]?.text,
           description: s.text,
         }))}
         selected={draft.subclass ? { name: draft.subclass } : null}
@@ -104,8 +110,8 @@ export function ClassOptionsStep({ part }: { part: string }) {
         : draft.domain;
     return (
       <BuilderSelection
-        label="Домен"
-        options={options.map((s) => ({ name: s.name, description: s.text }))}
+        label={tr("Домен", "Domain")}
+        options={options.map((s) => ({ name: s.name, originalName: s.originalName, originalDescription: originals?.[s.name]?.text, description: s.text }))}
         selected={name ? { name } : null}
         changesFor={(name) => ({
           ...(draft.className === "Проводник"
@@ -128,7 +134,7 @@ export function ClassOptionsStep({ part }: { part: string }) {
     return (
       <SkillPicker
         hideTitle
-        label="Навыки класса"
+        label={tr("Навыки класса", "Class skills")}
         slots={skillSlots.class}
         values={draft.classSkills}
         prior={[...ancestrySkills, ...cultureSkills, ...careerSkills]}
@@ -155,12 +161,14 @@ export function ClassOptionsStep({ part }: { part: string }) {
   });
   return (
     <>
-      <Reference text={group.text} label="Как работает этот выбор" />
+      <Reference text={originals?.[group.name]?.text || group.text} label={tr("Как работает этот выбор", "How this choice works")} />
       <BuilderSelection
         key={group.name}
-        label={group.name}
+        label={originals?.[group.name]?.name || group.name}
         options={group.options.map((o) => ({
           name: o.name,
+          originalName: originals?.[o.name]?.name,
+          originalDescription: originals?.[o.name]?.text,
           description: o.text,
         }))}
         selected={chosenName ? { name: chosenName } : null}

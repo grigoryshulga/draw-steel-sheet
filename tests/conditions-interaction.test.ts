@@ -1,3 +1,4 @@
+vi.mock("../src/i18n/locale", () => ({ useLocale: () => ({ locale: "ru", t: (ru: string) => ru }) }));
 import { Children, isValidElement, type ReactElement, type ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { createCharacter } from "../src/lib/defaults";

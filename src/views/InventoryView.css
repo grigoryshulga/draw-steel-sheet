@@ -385,7 +385,12 @@
 .inv-catalog-filters > * { flex: 1; min-width: min(240px, 100%); }
 .inv-catalog-layout { display: grid; grid-template-columns: minmax(230px, 1fr) minmax(0, 2fr); gap: var(--space-8); align-items: start; }
 .inv-catalog-preview { min-width: 0; overflow-wrap: anywhere; }
-.inv-catalog-preview > h3 { margin-bottom: var(--space-7); font: 500 var(--text-2xl)/var(--leading-tight) var(--font-display); }
-@media (max-width: 760px) { .inv-catalog-layout { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) {
+  .inv-catalog-layout { grid-template-columns: minmax(0, 1fr); }
+  .inv-catalog-layout .paginated-results-page {
+    max-block-size: 28dvh;
+    overflow-y: auto;
+  }
+}
 
 .inv-kit-hint { margin: 0; color: var(--muted); font-size: var(--text-md); line-height: var(--leading-normal); }

@@ -28,6 +28,7 @@ export interface CatalogEntry extends OriginalFields {
 }
 
 export interface GlossaryEntry extends OriginalFields {
+  hasEnglishDefinition?: boolean;
   id: string;
   name: string;
   english: string;

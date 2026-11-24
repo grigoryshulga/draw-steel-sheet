@@ -1,13 +1,9 @@
+import { loadEnglishReference } from "../rules/consumer-english-reference";
+import { useLocalizedData } from "../i18n/use-localized-data";
+import { localizedCatalogEntries } from "../components/rules/catalog-language";
 import { isDirectorSection } from "../navigation";
 import { useMediaQuery } from "../lib/hooks";
-import {
-  catalogAccent,
-  catalogLevelSections,
-  catalogTitleText,
-} from "../lib/catalog-presentation";
-import { echelon as levelEchelon } from "../lib/progression";
-import { CatalogRank } from "../components/rules/CatalogRank";
-import { TreasureKind } from "../components/rules/TreasureKind";
+import { CatalogEntryCard } from "../components/rules/CatalogEntryCard";
 import { Icon } from "../components/Icons";
 import {
   Fragment,
@@ -44,9 +40,10 @@ import { Chip, Select, Button, EmptyState } from "../components/ui";
 import { SearchInput } from "../components/ui/SearchInput";
 import { PaginatedResults } from "../components/ui/PaginatedResults";
 import { createLibraryMatcher } from "../lib/library-utils";
+import { GlossaryDefinition } from "../components/rules/GlossaryDefinition";
+import type { GlossaryEntry } from "../rules/consumer-data";
 import { ReferenceList } from "../components/rules/ReferenceList";
-import { RuleArticleReader } from "../components/rules/RuleArticleReader";
-import { RuleMarkdown } from "../components/rules/RuleMarkdown";
+const RuleArticleReader = lazy(() => import("../components/rules/RuleArticleReader").then(module => ({ default: module.RuleArticleReader })));
 import { DirectorFilters } from "../components/rules/DirectorFilters";
 import {
   emptyDirectorFilters,
@@ -55,6 +52,9 @@ import {
 import "./CodexView.css";
 import "./LibraryView.css";
 import "./ReferenceView.css";
+import { useLocale, useArticleLanguage, ArticleLanguageScope, useArticleLocale } from "../i18n/locale";
+import { ArticleLanguageSwitch } from "../components/LanguageSwitch";
+import { sectionTitle } from "../components/rules/reader-labels";
 
 const ClassLandingView = lazy(() =>
   import("./ClassLandingView").then((module) => ({ default: module.ClassLandingView })),
@@ -79,6 +79,8 @@ const ART_KIND_BY_SECTION: Partial<Record<CatalogSectionId, ArtKind>> = {
 export function CatalogView({ embedded }: {
   embedded?: { navigate: (href: string) => void; scrollRoot: RefObject<HTMLElement | null> };
 } = {}) {
+  const { t, locale } = useLocale();
+  const english = useLocalizedData(locale, loadEnglishReference);
   const segments = useLibraryLocation();
   const route = resolveCatalogRoute(segments);
   const { section } = route;
@@ -139,10 +141,10 @@ export function CatalogView({ embedded }: {
   };
 
   const entries = useMemo(
-    () => catalogSectionEntries(section).filter(
+    () => localizedCatalogEntries(catalogSectionEntries(section), locale, english).filter(
       (entry) => !groupSlug || entry.director?.groupSlug === groupSlug,
     ),
-    [section, groupSlug],
+    [section, groupSlug, locale, english],
   );
   const categories = useMemo(() => [...new Set(entries.map((entry) => entry.eyebrow))], [entries]);
   const hasEchelon = entries.some((entry) => entry.echelon);
@@ -200,7 +202,7 @@ export function CatalogView({ embedded }: {
     setCategory("");
     setEchelon("");
     setDirectorFilters(emptyDirectorFilters);
-  }, [section]);
+  }, [section, locale]);
   const glossaryFragment = (segments[2] ?? "").split("#")[1] ?? "";
   useEffect(() => {
     if (section !== "glossary" || !glossaryFragment) return;
@@ -208,7 +210,7 @@ export function CatalogView({ embedded }: {
       ?.querySelector(`#${CSS.escape(decodeURIComponent(glossaryFragment))}`)
       ?.scrollIntoView({ block: "center" });
   }, [section, glossaryFragment]);
-  const categoryLabel = section === "perks" ? "Все типы" : "Все категории";
+  const categoryLabel = section === "perks" ? t("Все типы", "All types") : t("Все категории", "All categories");
   const artKind = ART_KIND_BY_SECTION[section];
   const glossaryGroups = useMemo(() => {
     if (section !== "glossary") return [];
@@ -218,8 +220,8 @@ export function CatalogView({ embedded }: {
       if (bucket) bucket.push(entry);
       else groups.set(entry.eyebrow, [entry]);
     }
-    return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0], "ru"));
-  }, [section, results]);
+    return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0], locale));
+  }, [section, results, locale]);
   const globalQuery = director ? "" : deferredQuery.trim();
   const globalGroups = useMemo(() => {
     if (!globalQuery) return [];
@@ -229,12 +231,12 @@ export function CatalogView({ embedded }: {
     )
       .map((catalogSection) => ({
         section: catalogSection,
-        entries: catalogSectionEntries(catalogSection.id).filter((entry) =>
+        entries: localizedCatalogEntries(catalogSectionEntries(catalogSection.id), locale, english).filter((entry) =>
           matchesQuery(entry.search),
         ),
       }))
       .filter((group) => group.entries.length > 0);
-  }, [globalQuery, sections]);
+  }, [globalQuery, sections, locale, english]);
   const globalCount = globalGroups.reduce(
     (total, group) => total + group.entries.length,
     0,
@@ -257,8 +259,8 @@ export function CatalogView({ embedded }: {
         <div className="catalog-reading-bar">
           <a
             className="btn btn-icon"
-            aria-label="К списку"
-            title="К списку"
+            aria-label={t("К списку", "Back to list")}
+            title={t("К списку", "Back to list")}
             href={
               browsing.current.selectedId
                 ? `${catalogSectionHref(browsing.current.section)}${browsing.current.listId ? `/${encodeURIComponent(browsing.current.listId)}` : ""}`
@@ -268,15 +270,15 @@ export function CatalogView({ embedded }: {
             <Icon name="arrow-left" />
           </a>
           <span className="muted small">
-            {CATALOG_SECTIONS.find((item) => item.id === section)?.title}
+            {sectionTitle(section, CATALOG_SECTIONS.find((item) => item.id === section)?.title ?? "", locale)}
           </span>
         </div>
       ) : (
         <>
           {!director && <div className="catalog-global-search">
             <SearchInput
-              aria-label="Поиск по всему справочнику"
-              placeholder="Поиск по всему справочнику…"
+              aria-label={t("Поиск по всему справочнику", "Search the reference")}
+              placeholder={t("Поиск по всему справочнику…", "Search the reference…")}
               value={query}
               onValueChange={setQuery}
               shortcut={!embedded}
@@ -285,7 +287,7 @@ export function CatalogView({ embedded }: {
           {compact && (
             <Select
               aria-label={
-                director ? "Разделы для ведущего" : "Раздел справочника"
+                director ? t("Разделы для ведущего", "Director sections") : t("Раздел справочника", "Reference section")
               }
               value={section}
               onChange={(event) => {
@@ -297,7 +299,7 @@ export function CatalogView({ embedded }: {
             >
               {sections.map((item) => (
                 <option key={item.id} value={item.id}>
-                  {item.title} · {catalogSectionCount(item.id)}
+                  {sectionTitle(item.id, item.title, locale)} · {catalogSectionCount(item.id)}
                 </option>
               ))}
             </Select>
@@ -306,7 +308,7 @@ export function CatalogView({ embedded }: {
             <nav
               className="catalog-tabs section-tabs"
               aria-label={
-                director ? "Разделы для ведущего" : "Раздел справочника"
+                director ? t("Разделы для ведущего", "Director sections") : t("Раздел справочника", "Reference section")
               }
             >
               {sections.map((item) => (
@@ -316,7 +318,7 @@ export function CatalogView({ embedded }: {
                   aria-current={section === item.id ? "page" : undefined}
                   onClick={() => setQuery("")}
                 >
-                  {item.title} <span>{catalogSectionCount(item.id)}</span>
+                  {sectionTitle(item.id, item.title, locale)} <span>{catalogSectionCount(item.id)}</span>
                 </a>
               ))}
             </nav>
@@ -326,22 +328,22 @@ export function CatalogView({ embedded }: {
       {globalQuery && !detailOpen ? (
         <div className="catalog-global-results" onClickCapture={rememberList} aria-busy={query !== deferredQuery}>
           <div className="catalog-global-heading">
-            <h2>Результаты поиска</h2>
-            <p className="muted small" role="status">Найдено: {globalCount}</p>
+            <h2>{t("Результаты поиска", "Search results")}</h2>
+            <p className="muted small" role="status">{t("Найдено", "Found")}: {globalCount}</p>
           </div>
           {globalCount === 0 && (
             <EmptyState
               icon="search"
-              title="Ничего не найдено"
-              text="Попробуйте другой термин или более короткий запрос."
-              action={<Button onClick={() => setQuery("")}>Сбросить поиск</Button>}
+              title={t("Ничего не найдено", "Nothing found")}
+              text={t("Попробуйте другой термин или более короткий запрос.", "Try another term or a shorter search.")}
+              action={<Button onClick={() => setQuery("")}>{t("Сбросить поиск", "Clear search")}</Button>}
             />
           )}
           {globalCount > 0 && (
             <PaginatedResults
               key={globalQuery}
               items={globalResults}
-              label="Результаты поиска"
+              label={t("Результаты поиска", "Search results")}
               initialIndex={globalResults.findIndex(({ entry }) => entry.id === browsing.current.selectedId)}
             >
               {(pageItems) => globalGroups.map((group) => {
@@ -349,7 +351,7 @@ export function CatalogView({ embedded }: {
                 return pageEntries.length > 0 ? (
                   <section className="catalog-global-group" key={group.section.id}>
                     <h3>
-                      {group.section.title}
+                      {sectionTitle(group.section.id, group.section.title, locale)}
                       <span>{group.entries.length}</span>
                     </h3>
                     <div className="catalog-global-rows">
@@ -362,7 +364,7 @@ export function CatalogView({ embedded }: {
                             if (!compact) setQuery("");
                           }}
                         >
-                          <span className="catalog-global-name">{entry.name}</span>
+                          <span className="catalog-global-name">{locale === "en" ? entry.originalName || entry.name : entry.name}</span>
                           {entry.eyebrow && (
                             <span className="catalog-global-eyebrow">
                               {entry.eyebrow}
@@ -387,7 +389,7 @@ export function CatalogView({ embedded }: {
           {director && !detailOpen && (
             <section
               className="director-filter-panel"
-              aria-label="Фильтры каталога"
+              aria-label={t("Фильтры каталога", "Catalog filters")}
             >
               <DirectorFilters
                 compact={compact}
@@ -397,7 +399,7 @@ export function CatalogView({ embedded }: {
                 onChange={setDirectorFilters}
               />
               <p className="muted small" role="status">
-                Найдено: {results.length} из {entries.length}
+                {t("Найдено", "Found")}: {results.length} {t("из", "of")} {entries.length}
               </p>
             </section>
           )}
@@ -410,13 +412,13 @@ export function CatalogView({ embedded }: {
               <section
                 className="catalog-browser"
                 aria-busy={directorFilters !== deferredDirectorFilters}
-                aria-label="Каталог"
+                aria-label={t("Каталог", "Catalog")}
                 onClickCapture={rememberList}
               >
                 {groupSlug && (
                   <div className="catalog-global-heading">
-                    <h2>{entries[0]?.eyebrow ?? "Группа существ"}</h2>
-                    <a href={catalogSectionHref(section)}>Все существа <Icon name="arrow-right" size={16} /></a>
+                    <h2>{entries[0]?.eyebrow ?? t("Группа существ", "Creature group")}</h2>
+                    <a href={catalogSectionHref(section)}>{t("Все существа", "All creatures")} <Icon name="arrow-right" size={16} /></a>
                   </div>
                 )}
                 {(section === "glossary" ||
@@ -426,14 +428,14 @@ export function CatalogView({ embedded }: {
                     {section === "glossary" ? (
                       <nav
                         className="glossary-alphabet catalog-glossary-alphabet"
-                        aria-label="Алфавит"
+                        aria-label={t("Алфавит", "Alphabet")}
                       >
                         <button
                           type="button"
                           aria-pressed={!category}
                           onClick={() => setCategory("")}
                         >
-                          Все
+                          {t("Все", "All")}
                         </button>
                         {categories.map((letter) => (
                           <button
@@ -462,21 +464,21 @@ export function CatalogView({ embedded }: {
                       <div
                         className="catalog-rank-filter"
                         role="group"
-                        aria-label="Эшелон"
+                        aria-label={t("Эшелон", "Echelon")}
                       >
                         <button
                           type="button"
                           aria-pressed={!echelon}
                           onClick={() => setEchelon("")}
                         >
-                          Все
+                          {t("Все", "All")}
                         </button>
                         {[1, 2, 3, 4].map((n) => (
                           <button
                             key={n}
                             type="button"
                             data-rank={n}
-                            aria-label={`Эшелон ${n}`}
+                            aria-label={`${t("Эшелон", "Echelon")} ${n}`}
                             aria-pressed={echelon === String(n)}
                             onClick={() => setEchelon(String(n))}
                           >
@@ -490,8 +492,8 @@ export function CatalogView({ embedded }: {
                 {results.length === 0 && (
                   <EmptyState
                     icon="search"
-                    title="Ничего не найдено"
-                    text="Измените запрос или сбросьте фильтры."
+                    title={t("Ничего не найдено", "Nothing found")}
+                    text={t("Измените запрос или сбросьте фильтры.", "Change your search or clear filters.")}
                     action={
                       <Button
                         onClick={() => {
@@ -501,7 +503,7 @@ export function CatalogView({ embedded }: {
                           setDirectorFilters(emptyDirectorFilters);
                         }}
                       >
-                        Сбросить фильтры
+                        {t("Сбросить фильтры", "Clear filters")}
                       </Button>
                     }
                   />
@@ -512,24 +514,7 @@ export function CatalogView({ embedded }: {
                       <Fragment key={letter}>
                         <h3 className="catalog-glossary-letter">{letter}</h3>
                         {items.map((entry) => (
-                          <article
-                            className="catalog-glossary-entry"
-                            key={entry.id}
-                            id={`term-${entry.id}`}
-                          >
-                            <h4 className="catalog-glossary-term">
-                              <span>{entry.name}</span>
-                              {entry.glossary?.english && (
-                                <em>{entry.glossary.english}</em>
-                              )}
-                            </h4>
-                            {entry.glossary && (
-                              <RuleMarkdown
-                                text={entry.glossary.markdown}
-                                className="rule-text catalog-glossary-def"
-                              />
-                            )}
-                          </article>
+                          entry.glossary && <CatalogGlossaryEntry key={entry.id} entry={entry.glossary} selected={entry.id === id} />
                         ))}
                       </Fragment>
                     ))}
@@ -538,7 +523,7 @@ export function CatalogView({ embedded }: {
                   <PaginatedResults
                     key={resultsKey}
                     items={results}
-                    label="Каталог"
+                    label={t("Каталог", "Catalog")}
                     initialIndex={results.findIndex((entry) => entry.id === (id || browsing.current.selectedId))}
                   >
                     {(pageItems) => (
@@ -549,7 +534,7 @@ export function CatalogView({ embedded }: {
                         hrefFor={(entry) => catalogBrowserEntryHref(section, entry.id)}
                         metaFor={(entry) =>
                           app && entry.catalog && ownsCatalogEntry(app.character, entry.catalog)
-                            ? <Chip tone="accent">Уже у героя</Chip>
+                            ? <Chip tone="accent">{t("Уже у героя", "Already owned")}</Chip>
                             : null
                         }
                       />
@@ -565,13 +550,15 @@ export function CatalogView({ embedded }: {
                 tabIndex={-1}
               >
                 {selected ? (
+                  <Suspense fallback={<p role="status">{t("Загружаем правила…", "Loading rules…")}</p>}>
                   <CatalogDetail
                     entry={selected}
                     characterId={app?.character.id}
                   />
+                  </Suspense>
                 ) : id ? (
                   <p className="library-empty">
-                    Запись не найдена. Выберите другую в каталоге.
+                    {t("Запись не найдена. Выберите другую в каталоге.", "Entry not found. Choose another from the catalog.")}
                   </p>
                 ) : null}
               </div>
@@ -590,6 +577,7 @@ function CatalogDetail({
   entry: CatalogBrowserEntry;
   characterId?: string;
 }) {
+  const { t } = useLocale();
   if (entry.catalog)
     return (
       <CatalogEntryDetail
@@ -604,7 +592,7 @@ function CatalogDetail({
         id="catalog-detail"
         className="catalog-detail catalog-detail-class"
       >
-        <Suspense fallback={<p className="muted" role="status">Загрузка класса…</p>}>
+        <Suspense fallback={<p className="muted" role="status">{t("Загрузка класса…", "Loading class…")}</p>}>
           <ClassLandingView slug={entry.classSlug} embedded />
         </Suspense>
       </article>
@@ -629,7 +617,7 @@ function CatalogDetail({
           )}
           {entry.articleId && (
             <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
-              Открыть в Кодексе <Icon name="arrow-right" size={16} />
+              {t("Открыть в Кодексе", "Open in Codex")} <Icon name="arrow-right" size={16} />
             </a>
           )}
         </>
@@ -644,7 +632,7 @@ function CatalogDetail({
             entry.director?.recordType ?? "",
           ) && (
             <a className="catalog-source" href={`#/codex/${entry.articleId}`}>
-              Открыть в Кодексе <Icon name="arrow-right" size={16} />
+              {t("Открыть в Кодексе", "Open in Codex")} <Icon name="arrow-right" size={16} />
             </a>
           )}
         </>
@@ -653,104 +641,30 @@ function CatalogDetail({
   );
 }
 
-function CatalogEntryDetail({
-  entry,
-  characterId,
-}: {
-  entry: CatalogEntry;
-  characterId?: string;
-}) {
-  const keywords = entry.keywords
-    .split(/[;,]/)
-    .map((word) => word.trim())
-    .filter(Boolean);
-  const { flavor, body } = catalogTitleText(entry);
-  const markdown = keywords.length
-    ? body.replace(/^\*\*Ключевые слова:\*\*[^\n]*(?:\n|$)/gm, "")
-    : body;
-  const progression = catalogLevelSections(markdown);
-  const levels =
-    entry.category === "Сокровища с Уровнем" ? progression.levels : [];
-  const [level, setLevel] = useState(levels[0]?.level ?? 1);
-  const rank = catalogAccent(entry, levels.length ? level : undefined);
-  return (
-    <article
-      id="catalog-detail"
-      className="catalog-detail"
-      data-rank={rank}
-      data-catalog-kind={entry.kind}
-    >
-      <div className="catalog-detail-meta">
-        <span className="eyebrow">
-          {entry.category}
-          {!rank && entry.echelon ? ` · Эшелон ${entry.echelon}` : ""}
-        </span>
-        <CatalogRank rank={rank} />
-        <TreasureKind entry={entry} />
-      </div>
-      <h1>{entry.name}</h1>
-      {flavor && (
-        <div className="catalog-flavor">
-          <RuleText text={flavor} />
-        </div>
-      )}
-      {keywords.length > 0 && (
-        <div className="catalog-keywords" aria-label="Ключевые слова">
-          {keywords.map((keyword) => (
-            <Chip key={keyword}>{keyword}</Chip>
-          ))}
-        </div>
-      )}
-      {entry.prerequisite && (
-        <div className="catalog-prerequisite">
-          <span className="eyebrow">Условие получения</span>
-          <p>{entry.prerequisite}</p>
-        </div>
-      )}
-      {levels.length ? (
-        <>
-          <RuleText text={progression.introduction} />
-          <div
-            className="catalog-level-tabs"
-            role="group"
-            aria-label="Уровень предмета"
-          >
-            {levels.map((stage) => (
-              <button
-                key={stage.level}
-                type="button"
-                data-rank={levelEchelon(stage.level)}
-                aria-pressed={level === stage.level}
-                onClick={() => setLevel(stage.level)}
-              >
-                {stage.level}-й уровень
-              </button>
-            ))}
-          </div>
-          {levels
-            .filter((stage) => stage.level <= level)
-            .map((stage) => (
-              <section
-                className="catalog-level-section"
-                data-rank={levelEchelon(stage.level)}
-                key={stage.level}
-              >
-                <h2>{stage.level}-й уровень</h2>
-                <RuleText text={stage.text} />
-              </section>
-            ))}
-        </>
-      ) : (
-        <RuleText text={markdown} />
-      )}
-      <footer className="catalog-detail-footer">
-        <a className="catalog-source" href={sourceLink(entry)}>
-          Открыть в Кодексе <Icon name="arrow-right" size={16} />
-        </a>
-        <Suspense fallback={null}>
-          <CatalogAction key={`${characterId}-${entry.id}`} entry={entry} />
-        </Suspense>
-      </footer>
+export function CatalogEntryDetail({ entry, characterId }: { entry: CatalogEntry; characterId?: string }) {
+  const { t } = useLocale();
+  return <CatalogEntryCard id="catalog-detail" entry={entry} footer={
+    <footer className="catalog-detail-footer">
+      <a className="catalog-source" href={sourceLink(entry)}>
+        {t("Открыть в Кодексе", "Open in Codex")} <Icon name="arrow-right" size={16} />
+      </a>
+      <Suspense fallback={null}><CatalogAction key={`${characterId}-${entry.id}`} entry={entry} /></Suspense>
+    </footer>
+  } />;
+}
+
+export function CatalogGlossaryEntry({ entry, selected }: { entry: GlossaryEntry; selected: boolean }) {
+  const { locale } = useLocale();
+  const inherited = useArticleLocale();
+  const available = Boolean(entry.hasEnglishDefinition);
+  const { language, setLanguage } = useArticleLanguage(entry.id, available);
+  const displayed = selected ? language : locale;
+  return <ArticleLanguageScope language={displayed}>
+    <article className="catalog-glossary-entry" id={`term-${entry.id}`} lang={displayed}>
+      {selected && available && inherited === null && <div className="rule-reader-language"><ArticleLanguageSwitch language={language} setLanguage={setLanguage} /></div>}
+      <h4 className="catalog-glossary-term"><span>{displayed === "en" && entry.english ? entry.english : entry.name}</span>
+        {displayed === "ru" && entry.english && <em>{entry.english}</em>}</h4>
+      <GlossaryDefinition entry={entry} />
     </article>
-  );
+  </ArticleLanguageScope>;
 }

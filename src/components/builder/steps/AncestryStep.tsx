@@ -1,8 +1,10 @@
+import { useLocale } from "../../../i18n/locale";
 import { BUILDER_DATA as data } from "../../../lib/character-builder";
 import { BuilderSelection } from "../BuilderSelection";
 import { useBuilderStep } from "../BuilderStepContext";
 
 export function AncestryStep() {
+  const { t: tr } = useLocale();
   const { draft } = useBuilderStep();
   const selectedSource = data.ancestries.find((a) => a.name === draft.ancestry);
   const selected = draft.ancestry
@@ -16,7 +18,7 @@ export function AncestryStep() {
   return (
     <>
       <BuilderSelection
-        label="Происхождение"
+        label={tr("Происхождение", "Ancestry")}
         kind="ancestry"
         options={data.ancestries.map((a) => ({ name: a.name }))}
         selected={selected}

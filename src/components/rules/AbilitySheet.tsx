@@ -34,6 +34,8 @@ export interface AbilityOrigin {
 }
 
 export interface AbilityFactView {
+  id: "action" | "distance" | "target" | "roll" | "keywords";
+  characteristic?: CharacteristicKey;
   label: string;
   value: string;
   title?: string;
@@ -45,7 +47,7 @@ export interface AbilityTierView {
   tier: Tier;
   range: string;
   rangeTitle: string;
-  damage?: { value: string; type?: DamageType; label?: ReactNode; calculations?: CalculationBreakdown[] };
+  damage?: { value: string; englishValue?: string; type?: DamageType; label?: ReactNode; calculations?: CalculationBreakdown[] };
   effect?: string;
   effectContent?: ReactNode;
 }
@@ -59,9 +61,11 @@ export interface AbilitySheetView {
   facts: AbilityFactView[];
   keywords: string[];
   tiers: AbilityTierView[];
+  beforeRollContent?: ReactNode;
   effect: string;
   forcedMovement: string;
   roll?: { characteristic: CharacteristicKey; bonus: number } | null;
+  cardModifiers?: import("./printedAbilityView").AbilityCardModifiers;
   rollCalculations?: CalculationBreakdown[];
   /** Флейвор источника: показывается только в полной карточке Кодекса. */
   flavor?: string;
@@ -128,13 +132,13 @@ export function referenceAbilityView(ability: Ability): AbilitySheetView {
     trigger: ability.trigger,
     facts: [
       {
-        label: "Действие",
+        id: "action", label: "Действие",
         value: actionLabel(ability.actionType),
         title: "Тип действия",
       },
-      { label: "Дист.", value: ability.distance, title: "Дистанция" },
-      { label: "Цель", value: ability.target, title: "Цель" },
-      { label: "Бросок", value: abilityRollSummary(ability), title: "Бросок силы" },
+      { id: "distance", label: "Дист.", value: ability.distance, title: "Дистанция" },
+      { id: "target", label: "Цель", value: ability.target, title: "Цель" },
+      { id: "roll", label: "Бросок", value: abilityRollSummary(ability), title: "Бросок силы" },
     ],
     tiers: visibleAbilityTiers(ability).map((tier) => ({
       tier: tier.tier,
@@ -152,22 +156,25 @@ export function referenceAbilityView(ability: Ability): AbilitySheetView {
   };
 }
 
-export function AbilityTags({ view }: { view: AbilitySheetView }) {
+export function AbilityTags({ view, language = "ru" }: { view: AbilitySheetView; language?: "ru" | "en" }) {
   const [collapsed, setCollapsed] = useState(false);
   const [open, setOpen] = useState(false);
   const popoverId = useId();
   const tagsRef = useRef<HTMLDivElement>(null);
   useOutsideClick(tagsRef, () => setOpen(false), open);
   const measureRef = useRef<HTMLDivElement>(null);
+  const costLabel = language === "en"
+    ? `Cost: ${view.resourceCost} resource ${view.resourceCost === 1 ? "point" : "points"}`
+    : `Стоимость: ${view.resourceCost} ед. ресурса`;
   const tags = (
     <>
-      <Chip tone={kindTone(view.kind)}>{kindLabel(view.kind)}</Chip>
+      <Chip tone={kindTone(view.kind)}>{kindLabel(view.kind, language)}</Chip>
       {view.origin && (
         <Chip tone="accent" title={view.origin.value ? `${view.origin.label}: ${view.origin.value}` : view.origin.label}>
           {view.origin.label}
         </Chip>
       )}
-      {view.basic && <Chip>Базовая</Chip>}
+      {view.basic && <Chip>{language === "en" ? "Basic" : "Базовая"}</Chip>}
     </>
   );
 
@@ -200,12 +207,12 @@ export function AbilityTags({ view }: { view: AbilitySheetView }) {
       <div className="sheet-ability-tags-measure" ref={measureRef} aria-hidden="true">{tags}</div>
       {collapsed ? (
         <div className="sheet-ability-tags-more" onClick={(event) => event.stopPropagation()} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }} onKeyDown={(event) => { event.stopPropagation(); if (event.key === "Escape" && open) { event.preventDefault(); setOpen(false); } }}>
-          <Button size="sm" variant="ghost" icon="more" iconOnly aria-label={open ? "Скрыть метки способности" : "Показать метки способности"} title="Метки способности" aria-expanded={open} aria-controls={open ? popoverId : undefined} onClick={() => setOpen((current) => !current)}>Метки способности</Button>
+          <Button size="sm" variant="ghost" icon="more" iconOnly aria-label={open ? (language === "en" ? "Hide ability tags" : "Скрыть метки способности") : (language === "en" ? "Show ability tags" : "Показать метки способности")} title={language === "en" ? "Ability tags" : "Метки способности"} aria-expanded={open} aria-controls={open ? popoverId : undefined} onClick={() => setOpen((current) => !current)}>{language === "en" ? "Ability tags" : "Метки способности"}</Button>
           {open && <div id={popoverId} className="sheet-ability-tags-popover">{tags}</div>}
         </div>
       ) : tags}
       {view.resourceCost > 0 && (
-        <span className="sheet-ability-cost-stamp is-paid" role="img" aria-label={`Стоимость: ${view.resourceCost} ед. ресурса`} title={`Стоимость: ${view.resourceCost} ед. ресурса`}>
+        <span className="sheet-ability-cost-stamp is-paid" role="img" aria-label={costLabel} title={costLabel}>
           {view.resourceCost}
         </span>
       )}
@@ -214,34 +221,36 @@ export function AbilityTags({ view }: { view: AbilitySheetView }) {
 }
 
 /** Общая строка параметров карточки и окна способности. */
-export function AbilityFacts({ view, showCalculations = false }: { view: Pick<AbilitySheetView, "facts" | "roll" | "keywords" | "rollCalculations">; showCalculations?: boolean }) {
+export function AbilityFacts({ view, showCalculations = false, language = "ru" }: { view: Pick<AbilitySheetView, "facts" | "roll" | "keywords" | "rollCalculations">; showCalculations?: boolean; language?: "ru" | "en" }) {
   return (
     <>
     <div className="sheet-ability-meta">
-      {view.facts.map((fact) => (
-        <span className="sheet-ability-fact" key={fact.label} title={fact.title || fact.label}>
+      {view.facts.map((fact) => {
+        const id = fact.id;
+        return (
+        <span className="sheet-ability-fact" key={id} title={fact.title || fact.label}>
           <span className="sheet-ability-fact-mark" aria-hidden="true">
-            {fact.label === "Бросок" && view.roll ? (
-              <CharacteristicGlyph characteristic={view.roll.characteristic} />
-            ) : fact.label === "Ключевые слова" ? (
+            {id === "roll" && view.roll ? (
+              <CharacteristicGlyph characteristic={view.roll.characteristic} language={language} />
+            ) : id === "keywords" ? (
               <Icon name="tag" size={14} />
-            ) : fact.label === "Бросок" ? (
+            ) : id === "roll" ? (
               <Icon name="dice" size={14} />
             ) : (
-              <span className={`sheet-ability-fact-icon is-${fact.label === "Дист." ? "distance" : fact.label === "Цель" ? "target" : "action"}`} />
+              <span className={`sheet-ability-fact-icon is-${id}`} />
             )}
           </span>
           <span className="sheet-ability-fact-value">
             <span className="sr-only">{fact.title || fact.label}: </span>
-            {fact.content ?? <CharacteristicGlyphText text={fact.label === "Бросок" ? view.rollCalculations?.[0]?.total ?? fact.value ?? "—" : fact.value || "—"} />}
+            {fact.content ?? (fact.characteristic && !view.roll ? <CharacteristicGlyph characteristic={fact.characteristic} language={language} /> : <CharacteristicGlyphText text={id === "roll" ? view.rollCalculations?.[0]?.total ?? fact.value ?? "—" : fact.value || "—"} language={language} />)}
           </span>
         </span>
-      ))}
+      ); })}
       {view.keywords.length > 0 && (
-        <span className="sheet-ability-fact sheet-ability-keywords" title="Ключевые слова">
+        <span className="sheet-ability-fact sheet-ability-keywords" title={language === "en" ? "Keywords" : "Ключевые слова"}>
           <span className="sheet-ability-fact-mark" aria-hidden="true"><Icon name="tag" size={14} /></span>
           <span className="sheet-ability-fact-value">
-            <span className="sr-only">Ключевые слова: </span>
+            <span className="sr-only">{language === "en" ? "Keywords: " : "Ключевые слова: "}</span>
             {view.keywords.map((keyword, index) => (
               <span className="sheet-ability-keyword" key={`${keyword}-${index}`}>
                 {index > 0 && ", "}{keyword}
@@ -251,7 +260,7 @@ export function AbilityFacts({ view, showCalculations = false }: { view: Pick<Ab
         </span>
       )}
     </div>
-    {showCalculations && <CalculationInline calculations={view.rollCalculations ?? []} base="2d10" />}
+    {showCalculations && <CalculationInline calculations={view.rollCalculations ?? []} base="2d10" language={language} />}
     </>
   );
 }
@@ -265,31 +274,34 @@ export function AbilityBody({
   view,
   full = false,
   showCalculations = false,
+  language = "ru",
 }: {
   view: AbilitySheetView;
   full?: boolean;
   showCalculations?: boolean;
+  language?: "ru" | "en";
 }) {
   const tiers = view.tiers;
 
   return (
     <>
-      <AbilityFacts view={view} showCalculations={showCalculations} />
+      <AbilityFacts view={view} showCalculations={showCalculations} language={language} />
 
-      <AbilityTiers tiers={tiers} showCalculations={showCalculations} />
+      {view.beforeRollContent}
+      <AbilityTiers tiers={tiers} showCalculations={showCalculations} language={language} />
 
       {view.effect && (
         <p className={`sheet-ability-body${full ? " is-full-body" : ""}`}>
-          <CharacteristicGlyphText text={view.effect} />
+          <CharacteristicGlyphText text={view.effect} language={language} />
         </p>
       )}
 
       {view.forcedMovement && (
         <p
           className="sheet-ability-forced"
-          title="Прибавка от особенностей к принудительному движению"
+          title={language === "en" ? "Forced movement bonus from features" : "Прибавка от особенностей к принудительному движению"}
         >
-          <CharacteristicGlyphText text={view.forcedMovement} />
+          <CharacteristicGlyphText text={view.forcedMovement} language={language} />
         </p>
       )}
     </>
@@ -297,7 +309,7 @@ export function AbilityBody({
 }
 
 /** Shared tier rows; rich source effects are rendered without losing links. */
-export function AbilityTiers({ tiers, showCalculations = false }: { tiers: AbilityTierView[]; showCalculations?: boolean }) {
+export function AbilityTiers({ tiers, showCalculations = false, language = "ru" }: { tiers: AbilityTierView[]; showCalculations?: boolean; language?: "ru" | "en" }) {
   return tiers.length > 0 ? (
         <div className="sheet-ability-tiers">
           {tiers.map((tier) => (
@@ -311,12 +323,12 @@ export function AbilityTiers({ tiers, showCalculations = false }: { tiers: Abili
                 <span className="sr-only">{tier.range}</span>
               </span>
               {tier.damage && (
-                <DamageChip value={tier.damage.value} type={tier.damage.type} label={tier.damage.label} />
+                <DamageChip value={tier.damage.value} type={tier.damage.type} label={tier.damage.label} language={language} />
               )}
               {(tier.effectContent || tier.effect) && (
-                <div className="sheet-ability-effect">{tier.effectContent ?? <CharacteristicGlyphText text={tier.effect ?? ''} />}</div>
+                <div className="sheet-ability-effect">{tier.effectContent ?? <CharacteristicGlyphText text={tier.effect ?? ''} language={language} />}</div>
               )}
-              {showCalculations && <CalculationInline calculations={tier.damage?.calculations ?? []} />}
+              {showCalculations && <CalculationInline calculations={tier.damage?.calculations ?? []} language={language} />}
             </div>
           ))}
         </div>

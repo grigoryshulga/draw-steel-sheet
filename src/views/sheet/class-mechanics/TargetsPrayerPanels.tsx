@@ -1,3 +1,4 @@
+import { useLocale } from "../../../i18n/locale";
 import { useState } from "react";
 import {
   Button,
@@ -64,7 +65,28 @@ const prayerRules = `В начале каждого вашего хода в б�
 
 На 10-м уровне молитва даёт ещё 1 благочестие. В начале встречи благочестие равно вашим Победам; в конце встречи оставшееся благочестие теряется.`;
 
+const judgmentRulesEn = `**Judgment · Maneuver · Magic, Ranged · Ranged 10 · One enemy**
+
+The target remains judged until the end of the encounter, you use Judgment again or voluntarily end it, or another censor judges the target.
+
+When the judged creature uses a main action within line of effect, you can deal holy damage equal to twice your Presence as a free triggered action. When its Stamina falls to 0, you can judge a new target as a free triggered action.
+
+You can spend 1 wrath for one free triggered option: stop an adjacent judged target’s shift with a melee free strike; impose a bane on its power roll within 10; reduce by 1 the potency of its single-target ability within 10; or taunt it until the end of its next turn when you damage it with a melee ability. Only one paid option can be chosen per event.`;
+const markRulesEn = `**Mark · Maneuver · Ranged · Ranged 10 · One creature**
+
+The target remains marked until the encounter ends, you are dying, you use Mark again, you voluntarily end it, or another tactician marks it. When its Stamina falls to 0, you can mark another target in range as a free triggered action. The ability initially marks one creature; Warlord’s Scheme at level 5 and other abilities may allow more.
+
+While the target is in your line of effect, you and allies in your line of effect gain an edge on power rolls against it. When you or an ally deals rolled damage to it with an ability, spend 1 focus as a free triggered action for one benefit: extra damage equal to twice Reason; the damaging creature spends a Recovery; that creature shifts up to Reason squares; or, if your melee ability dealt the damage, the target is taunted by you until the end of its next turn. Only one benefit can be gained per trigger.`;
+const prayerRulesEn = `At the start of each of your turns in combat, gain 1d3 piety. Before that roll, you can pray without using an action. Prayer adds to the die result:
+
+- **1:** gain 1 more piety and take 1d6 + your level psychic damage that cannot be reduced.
+- **2:** gain 1 more piety.
+- **3:** gain 2 more piety and you can activate one chosen domain effect.
+
+At level 10 prayer grants 1 additional piety. At the start of an encounter piety equals your Victories; remaining piety is lost at the end.`;
+
 export function CensorPanel() {
+  const { t: tr, locale } = useLocale();
   const { character: c, act } = useMechanic();
   const s = normalizeCensorState(c.classMechanics?.censor);
   const [target, setTarget] = useState("");
@@ -74,12 +96,12 @@ export function CensorPanel() {
   const reactions = [
     [
       "main-action",
-      `Основное действие: ${2 * c.characteristics.presence} святого урона`,
+      tr(`Основное действие: ${2 * c.characteristics.presence} святого урона`, `Main action: ${2 * c.characteristics.presence} holy damage`),
     ],
-    ["shift", "Смещение: удар и скорость 0"],
-    ["bane", "Бросок силы: помеха"],
-    ["potency", "Потенциал −1"],
-    ["taunt", "Ваш урон: провокация"],
+    ["shift", tr("Смещение: удар и скорость 0", "Shift: strike and speed 0")],
+    ["bane", tr("Бросок силы: помеха", "Power roll: bane")],
+    ["potency", tr("Потенциал −1", "Potency −1")],
+    ["taunt", tr("Ваш урон: провокация", "Your damage: taunt")],
   ] as const;
   const upgrades = activeClassFeatures(c).filter(
     (f) =>
@@ -87,19 +109,19 @@ export function CensorPanel() {
       f.name !== "Суд",
   );
   const orderBenefit = /Экзорцист|Exorcist/i.test(c.subclass)
-    ? `Телепортация до ${2 * c.characteristics.presence} клеток ближе к цели; линия воздействия к месту назначения не нужна.`
+    ? tr(`Телепортация до ${2 * c.characteristics.presence} клеток ближе к цели; линия воздействия к месту назначения не нужна.`, `Teleport up to ${2 * c.characteristics.presence} squares closer to the target; no line of effect to the destination is required.`)
     : /Оракул|Oracle/i.test(c.subclass)
-      ? `${2 * c.characteristics.presence} святого урона цели.`
-      : `Вертикальное притягивание цели до ${2 * c.characteristics.presence} клеток.`;
+      ? tr(`${2 * c.characteristics.presence} святого урона цели.`, `${2 * c.characteristics.presence} holy damage to the target.`)
+      : tr(`Вертикальное притягивание цели до ${2 * c.characteristics.presence} клеток.`, `Vertically pull the target up to ${2 * c.characteristics.presence} squares.`);
   return (
     <Panel
-      title="Суд"
+      title={tr("Суд", "Judgment")}
       className="class-mechanics-panel"
       actions={
-        <MechanicDetails title="Суд">
-          <RuleText text={judgmentRules} />
-          <h3>Преимущество ордена</h3>
-          <p>При первом использовании Суда за ход: {orderBenefit}</p>
+        <MechanicDetails title={tr("Суд", "Judgment")}>
+          <RuleText text={locale === "en" ? judgmentRulesEn : judgmentRules} sourceLocale={locale} />
+          <h3>{tr("Преимущество ордена", "Order benefit")}</h3>
+          <p>{tr("При первом использовании Суда за ход", "First Judgment use each turn")}: {orderBenefit}</p>
           {upgrades.map((f) => (
             <section key={f.id}>
               <h3>{f.name}</h3>
@@ -111,19 +133,19 @@ export function CensorPanel() {
     >
       <div className="class-mechanics-stack">
         <div className="class-mechanics-row">
-          <span>Осуждён: {s.target || "—"}</span>
+          <span>{tr("Осуждён", "Judged")}: {s.target || "—"}</span>
           {s.target && (
             <Button onClick={() => act({ kind: "censor-target", target: "" })}>
-              Снять
+              {tr("Снять", "Clear")}
             </Button>
           )}
         </div>
         <div className="class-mechanics-row">
           <TextInput
-            aria-label="Цель Суда в пределах 10 клеток"
+            aria-label={tr("Цель Суда в пределах 10 клеток", "Judgment target within 10 squares")}
             value={target}
             onChange={(e) => setTarget(e.target.value)}
-            placeholder="Новая цель · 10 клеток"
+            placeholder={tr("Новая цель · 10 клеток", "New target · 10 squares")}
           />
           <Button
             disabled={!target.trim()}
@@ -131,12 +153,12 @@ export function CensorPanel() {
               if (act({ kind: "censor-target", target })) setTarget("");
             }}
           >
-            Осудить
+            {tr("Осудить", "Judge")}
           </Button>
         </div>
         <div className="class-mechanics-row">
           <Select
-            aria-label="Свободный триггер Суда"
+            aria-label={tr("Свободный триггер Суда", "Judgment free triggered action")}
             value={reaction}
             onChange={(e) => setReaction(e.target.value as typeof reaction)}
           >
@@ -153,13 +175,13 @@ export function CensorPanel() {
             }
             onClick={() => act({ kind: "censor-reaction", effect: reaction })}
           >
-            {reaction === "main-action" ? "Применить" : "За 1 гнев"}
+            {reaction === "main-action" ? tr("Применить", "Apply") : tr("За 1 гнев", "Spend 1 wrath")}
           </Button>
         </div>
         {s.lastEffect && (
           <MechanicDetails
-            title="Последний эффект Суда"
-            label="Последний эффект"
+            title={tr("Последний эффект Суда", "Last Judgment effect")}
+            label={tr("Последний эффект", "Last effect")}
           >
             <RuleText text={s.lastEffect} />
           </MechanicDetails>
@@ -169,6 +191,7 @@ export function CensorPanel() {
   );
 }
 export function TacticianPanel() {
+  const { t: tr, locale } = useLocale();
   const { character: c, act } = useMechanic();
   const s = normalizeTacticianState(c.classMechanics?.tactician);
   const [target, setTarget] = useState("");
@@ -182,18 +205,18 @@ export function TacticianPanel() {
   const doctrine = doctrines.find((f) => f.id === benefit);
   const cost = doctrine ? 2 : 1;
   const benefits = [
-    ["damage", `+${2 * c.characteristics.reason} урона`],
-    ["recovery", "Восстановление"],
-    ["shift", `Смещение ${c.characteristics.reason}`],
-    ["taunt", "Ваш урон: провокация"],
+    ["damage", tr(`+${2 * c.characteristics.reason} урона`, `+${2 * c.characteristics.reason} damage`)],
+    ["recovery", tr("Восстановление", "Recovery")],
+    ["shift", tr(`Смещение ${c.characteristics.reason}`, `Shift ${c.characteristics.reason}`)],
+    ["taunt", tr("Ваш урон: провокация", "Your damage: taunt")],
   ] as const;
   return (
     <Panel
-      title="Метка"
+      title={tr("Метка", "Mark")}
       className="class-mechanics-panel"
       actions={
-        <MechanicDetails title="Метка">
-          <RuleText text={markRules} />
+        <MechanicDetails title={tr("Метка", "Mark")}>
+          <RuleText text={locale === "en" ? markRulesEn : markRules} sourceLocale={locale} />
           {doctrines.map((f) => (
             <section key={f.id}>
               <h3>{f.name}</h3>
@@ -206,7 +229,7 @@ export function TacticianPanel() {
       <div className="class-mechanics-stack">
         <div className="class-mechanics-row">
           <span>
-            Цели: {s.targets.length}/{tacticianMarkLimit(c)}
+            {tr("Цели", "Targets")}: {s.targets.length}/{tacticianMarkLimit(c)}
           </span>
           {s.targets.map((t) => (
             <span className="class-mechanics-row" key={t}>
@@ -219,17 +242,17 @@ export function TacticianPanel() {
                   })
                 }
               >
-                Снять
+                {tr("Снять", "Clear")}
               </Button>
             </span>
           ))}
         </div>
         <div className="class-mechanics-row">
           <TextInput
-            aria-label="Цель Метки в пределах 10 клеток"
+            aria-label={tr("Цель Метки в пределах 10 клеток", "Mark target within 10 squares")}
             value={target}
             onChange={(e) => setTarget(e.target.value)}
-            placeholder="Новая цель · 10 клеток"
+            placeholder={tr("Новая цель · 10 клеток", "New target · 10 squares")}
           />
           <Button
             disabled={!target.trim()}
@@ -246,13 +269,13 @@ export function TacticianPanel() {
                 setTarget("");
             }}
           >
-            Отметить
+            {tr("Отметить", "Mark")}
           </Button>
         </div>
         <div className="class-mechanics-row">
           {s.targets.length > 1 && (
             <Select
-              aria-label="Цель триггера Метки"
+              aria-label={tr("Цель триггера Метки", "Mark trigger target")}
               value={chosen}
               onChange={(e) => setSelected(e.target.value)}
             >
@@ -262,7 +285,7 @@ export function TacticianPanel() {
             </Select>
           )}
           <Select
-            aria-label="Преимущество Метки"
+            aria-label={tr("Преимущество Метки", "Mark benefit")}
             value={benefit}
             onChange={(e) => setBenefit(e.target.value)}
           >
@@ -291,7 +314,7 @@ export function TacticianPanel() {
               })
             }
           >
-            За {cost} {cost === 1 ? "фокус" : "фокуса"}
+            {tr(`За ${cost} ${cost === 1 ? "фокус" : "фокуса"}`, `Spend ${cost} focus`)}
           </Button>
         </div>
         {benefit === "recovery" && (
@@ -301,13 +324,13 @@ export function TacticianPanel() {
               checked={self}
               onChange={(e) => setSelf(e.target.checked)}
             />{" "}
-            Восстановление тратит мой герой
+            {tr("Восстановление тратит мой герой", "My hero spends the recovery")}
           </label>
         )}
         {s.lastEffect && (
           <MechanicDetails
-            title="Последнее преимущество Метки"
-            label="Последний эффект"
+            title={tr("Последнее преимущество Метки", "Last Mark benefit")}
+            label={tr("Последний эффект", "Last effect")}
           >
             <RuleText text={s.lastEffect} />
           </MechanicDetails>
@@ -317,6 +340,7 @@ export function TacticianPanel() {
   );
 }
 export function ConduitPanel() {
+  const { t: tr, locale } = useLocale();
   const { character: c, act } = useMechanic();
   const s = normalizeConduitState(c.classMechanics?.conduit);
   const [die, setDie] = useState(1);
@@ -325,11 +349,11 @@ export function ConduitPanel() {
   const active = c.runtime?.combatActive && c.runtime?.turnActive;
   return (
     <Panel
-      title="Молитва"
+      title={tr("Молитва", "Prayer")}
       className="class-mechanics-panel"
       actions={
-        <MechanicDetails title="Молитва и благочестие">
-          <RuleText text={prayerRules} />
+        <MechanicDetails title={tr("Молитва и благочестие", "Prayer and Piety")}>
+          <RuleText text={locale === "en" ? prayerRulesEn : prayerRules} sourceLocale={locale} />
         </MechanicDetails>
       }
     >
@@ -337,27 +361,27 @@ export function ConduitPanel() {
         <div className="class-mechanics-row">
           {s.prayer === undefined && !done ? (
             <>
-              <span>Перед броском 1d3:</span>
+              <span>{tr("Перед броском 1d3:", "Before the 1d3 roll:")}</span>
               <Button
                 disabled={!active}
                 onClick={() => act({ kind: "conduit-prayer", pray: true })}
               >
-                Молиться
+                {tr("Молиться", "Pray")}
               </Button>
               <Button
                 disabled={!active}
                 onClick={() => act({ kind: "conduit-prayer", pray: false })}
               >
-                Без молитвы
+                {tr("Без молитвы", "Without prayer")}
               </Button>
             </>
           ) : (
             <span>
               {done
-                ? "Благочестие за ход получено."
+                ? tr("Благочестие за ход получено.", "Piety for this turn gained.")
                 : s.prayer
-                  ? "С молитвой"
-                  : "Без молитвы"}
+                  ? tr("С молитвой", "With prayer")
+                  : tr("Без молитвы", "Without prayer")}
             </span>
           )}
           {s.prayer !== undefined && !done && (
@@ -373,7 +397,7 @@ export function ConduitPanel() {
                 </Select>
               </Field>
               {s.prayer && die === 1 && (
-                <Field label="Урон 1d6">
+                <Field label={tr("Урон 1d6", "Damage 1d6")}>
                   <Select
                     value={damageDie}
                     onChange={(e) => setDamageDie(Number(e.target.value))}
@@ -388,14 +412,14 @@ export function ConduitPanel() {
                 disabled={!active}
                 onClick={() => act({ kind: "conduit-roll", die, damageDie })}
               >
-                Применить
+                {tr("Применить", "Apply")}
               </Button>
             </>
           )}
         </div>
         {s.prayer && die === 1 && !done && (
           <p className="class-mechanics-warning">
-            Неуменьшаемый психический урон: {damageDie + c.level}.
+            {tr(`Неуменьшаемый психический урон: ${damageDie + c.level}.`, `Unpreventable psychic damage: ${damageDie + c.level}.`)}
           </p>
         )}
         {conduitDomains(c).length > 0 && (
@@ -403,10 +427,10 @@ export function ConduitPanel() {
             {conduitDomains(c).map((d) => (
               <span className="class-mechanics-row" key={d.id}>
                 <MechanicDetails
-                  title={d.name}
-                  label={d.name.replace(/^Благочестие и эффект домена /, "")}
+                  title={locale === "en" ? d.originalName || d.name : d.name}
+                  label={locale === "en" ? (d.originalName || d.name).replace(/^Domain Piety and Effects: /, "") : d.name.replace(/^Благочестие и эффект домена /, "")}
                 >
-                  <RuleText text={d.description} />
+                  <RuleText text={locale === "en" ? d.originalDescription || d.description : d.description} sourceLocale={locale === "en" && d.originalDescription ? "en" : "ru"} />
                 </MechanicDetails>
                 {s.domainAvailable && (
                   <Button
@@ -414,7 +438,7 @@ export function ConduitPanel() {
                       act({ kind: "conduit-domain", domain: d.id })
                     }
                   >
-                    Применить
+                    {tr("Применить", "Apply")}
                   </Button>
                 )}
               </span>

@@ -19,7 +19,20 @@
       ],
       "originalId": "mcdm.heroes.v1/kit/martial-artist",
       "originalName": "Martial Artist",
-      "originalDescription": "If you want to be fast in a fight, then Martial Artist is the kit for you. Unencumbered by weapons or armor, this fighting style rewards quick, focused unarmed strikes against opponents, and allows you to be the ultimate skirmisher."
+      "originalDescription": "If you want to be fast in a fight, then Martial Artist is the kit for you. Unencumbered by weapons or armor, this fighting style rewards quick, focused unarmed strikes against opponents, and allows you to be the ultimate skirmisher.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishEdition": {
+        "kind": "source",
+        "title": "Martial Artist",
+        "blocks": [
+          {
+            "type": "entity",
+            "ref": "kit.martial-artist"
+          }
+        ]
+      }
     }
   ],
   "entities": [
@@ -34,7 +47,17 @@
       },
       "originalId": "mcdm.heroes.v1/kit/martial-artist",
       "originalName": "Martial Artist",
-      "originalDescription": "If you want to be fast in a fight, then Martial Artist is the kit for you. Unencumbered by weapons or armor, this fighting style rewards quick, focused unarmed strikes against opponents, and allows you to be the ultimate skirmisher.\n\n##### Equipment\n\nYou wear no armor and wield only your unarmed strikes.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +3\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Battle Grace\n\n*You feint to move your enemies into perfect position.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 8 + M or A damage; you can swap places with the target\n- **17+:** 11 + M or A damage; you can swap places with the target\n\n**Effect:** If you obtain a tier 2 or tier 3 outcome and can't swap places with the target because one or both of you is too big to fit into the swapped space, you both remain in your original spaces and the target takes 1 extra damage."
+      "originalDescription": "If you want to be fast in a fight, then Martial Artist is the kit for you. Unencumbered by weapons or armor, this fighting style rewards quick, focused unarmed strikes against opponents, and allows you to be the ultimate skirmisher.\n\n##### Equipment\n\nYou wear no armor and wield only your unarmed strikes.\n\n##### Kit Bonuses\n\n**Stamina Bonus:** +3 per echelon\n\n**Speed Bonus:** +3\n\n**Melee Damage Bonus:** +2/+2/+2\n\n**Disengage Bonus:** +1\n\n##### Signature Ability\n\n###### Battle Grace\n\n*You feint to move your enemies into perfect position.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 8 + M or A damage; you can swap places with the target\n- **17+:** 11 + M or A damage; you can swap places with the target\n\n**Effect:** If you obtain a tier 2 or tier 3 outcome and can't swap places with the target because one or both of you is too big to fit into the swapped space, you both remain in your original spaces and the target takes 1 extra damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "englishSignatures": [
+        {
+          "ref": "feature.ability.martial-artist.battle-grace",
+          "start": 466,
+          "end": 1138
+        }
+      ]
     },
     {
       "id": "feature.ability.martial-artist.battle-grace",
@@ -92,7 +115,54 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.martial-artist/battle-grace",
       "originalName": "Battle Grace",
-      "originalDescription": "*You feint to move your enemies into perfect position.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 8 + M or A damage; you can swap places with the target\n- **17+:** 11 + M or A damage; you can swap places with the target\n\n**Effect:** If you obtain a tier 2 or tier 3 outcome and can't swap places with the target because one or both of you is too big to fit into the swapped space, you both remain in your original spaces and the target takes 1 extra damage."
+      "originalDescription": "*You feint to move your enemies into perfect position.*\n\n| **Melee, Strike, Weapon** |     **Main action** |\n|---------------------------|--------------------:|\n| **📏 Melee 1**            | **🎯 One creature** |\n\n**Power Roll + Might or Agility:**\n\n- **≤11:** 5 + M or A damage\n- **12-16:** 8 + M or A damage; you can swap places with the target\n- **17+:** 11 + M or A damage; you can swap places with the target\n\n**Effect:** If you obtain a tier 2 or tier 3 outcome and can't swap places with the target because one or both of you is too big to fit into the swapped space, you both remain in your original spaces and the target takes 1 extra damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You feint to move your enemies into perfect position.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Melee",
+            "Strike",
+            "Weapon"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Might or Agility",
+          "tiers": [
+            {
+              "damage": {
+                "value": "5 + M or A"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "8 + M or A"
+              },
+              "effect": "you can swap places with the target"
+            },
+            {
+              "damage": {
+                "value": "11 + M or A"
+              },
+              "effect": "you can swap places with the target"
+            }
+          ]
+        },
+        "effect": "If you obtain a tier 2 or tier 3 outcome and can't swap places with the target because one or both of you is too big to fit into the swapped space, you both remain in your original spaces and the target takes 1 extra damage."
+      }
     }
   ]
 }

@@ -1,3 +1,4 @@
+import { useLocale } from "../../i18n/locale";
 import { Panel } from "../../components/ui";
 import { useApp } from "../../state/AppContext";
 import {
@@ -14,6 +15,7 @@ import {
  * чисел. Старый реестр выбора удалён; сохранённые значения читаются механиками.
  */
 export function ClassFeaturesPanel() {
+  const { t } = useLocale();
   const { character } = useApp();
   const hasMechanics =
     classFeatureGroupsForSheet(character).some((group) =>
@@ -24,7 +26,7 @@ export function ClassFeaturesPanel() {
 
   return (
     <Panel
-      title="Особенности класса"
+      title={t("Особенности класса", "Class features")}
       icon="spark"
       dense
       actions={<RoundEncounterControls />}

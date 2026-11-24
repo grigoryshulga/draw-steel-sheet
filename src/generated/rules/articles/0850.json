@@ -39,7 +39,44 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#10th-level-features",
       "originalName": "10th-Level Features",
-      "originalDescription": "As a 10th-level tactician, you gain the following features."
+      "originalDescription": "As a 10th-level tactician, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "10th-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 10th-level tactician, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-10.characteristic-increase"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-10.command"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-10.perk"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-10.skill"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-10.true-focus"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-10.warmaster"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -54,7 +91,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-10/characteristic-increase",
       "originalName": "Characteristic Increase",
-      "originalDescription": "Your Might and Reason scores each increase to 5."
+      "originalDescription": "Your Might and Reason scores each increase to 5.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-10.command",
@@ -67,7 +107,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-10/command",
       "originalName": "Command",
-      "originalDescription": "You have an epic resource called command. Each time you finish a respite, you gain command equal to the XP you gain. You can spend command on your abilities as if it were focus.\n\nAdditionally, whenever you or any ally uses an ability to deal rolled damage to a creature marked by you, you can spend 1 command as a free triggered action to increase the power roll outcome for that target by one tier. Whenever an enemy marked by you makes an ability roll, you can spend 1 command as a free triggered action to decrease the power roll outcome by one tier.\n\nCommand remains until you spend it."
+      "originalDescription": "You have an epic resource called command. Each time you finish a respite, you gain command equal to the XP you gain. You can spend command on your abilities as if it were focus.\n\nAdditionally, whenever you or any ally uses an ability to deal rolled damage to a creature marked by you, you can spend 1 command as a free triggered action to increase the power roll outcome for that target by one tier. Whenever an enemy marked by you makes an ability roll, you can spend 1 command as a free triggered action to decrease the power roll outcome by one tier.\n\nCommand remains until you spend it.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-10.perk",
@@ -80,7 +123,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-10/perk",
       "originalName": "Perk",
-      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice."
+      "originalDescription": "You gain one exploration, interpersonal, or intrigue perk of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-10.skill",
@@ -93,7 +139,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-10/skill",
       "originalName": "Skill",
-      "originalDescription": "You gain one skill of your choice."
+      "originalDescription": "You gain one skill of your choice.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-10.true-focus",
@@ -106,7 +155,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-10/true-focus",
       "originalName": "True Focus",
-      "originalDescription": "When you gain focus at the start of each of your turns during combat, you gain 4 focus instead of 3."
+      "originalDescription": "When you gain focus at the start of each of your turns during combat, you gain 4 focus instead of 3.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-10.warmaster",
@@ -119,7 +171,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-10/warmaster",
       "originalName": "Warmaster",
-      "originalDescription": "You have mastered the entirety of possible strategies and tactics. Whenever you or any ally makes an ability roll against a target marked by you, the character making the roll can roll three dice and choose which two to use.\n\nAdditionally, whenever an ally uses a heroic ability that targets one or more creatures marked by you, they spend 2 fewer of their Heroic Resource on that ability (minimum 1)."
+      "originalDescription": "You have mastered the entirety of possible strategies and tactics. Whenever you or any ally makes an ability roll against a target marked by you, the character making the roll can roll three dice and choose which two to use.\n\nAdditionally, whenever an ally uses a heroic ability that targets one or more creatures marked by you, they spend 2 fewer of their Heroic Resource on that ability (minimum 1).",
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ]
 }

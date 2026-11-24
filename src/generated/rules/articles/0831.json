@@ -395,7 +395,312 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#1st-level-features",
       "originalName": "1st-Level Features",
-      "originalDescription": "As a conduit, you gain the following features."
+      "originalDescription": "As a conduit, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "1st-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a conduit, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.deity-and-domains"
+          },
+          {
+            "type": "markdown",
+            "text": "## Piety\n\nYour deity grants you a Heroic Resource called piety, letting you heal and empower your allies, and unleash holy power upon your foes."
+          },
+          {
+            "type": "markdown",
+            "text": "### Piety in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain piety equal to your Victories. At the start of each of your turns during combat, you gain 1d3 piety.\n\nAdditionally, you can gain more piety by praying to the gods—but beware! Doing so can easily draw their ire, as the gods hate to be annoyed. Before you roll to gain piety at the start of your turn, you can pray (no action required). If you do, your roll gains the following additional effects:\n\n- If the roll is a 1, you gain 1 additional piety but anger the gods! You take psychic damage equal to 1d6 + your level, which can't be reduced in any way.\n- If the roll is a 2, you gain 1 additional piety.\n- If the roll is a 3, you gain 2 additional piety and can activate a domain effect of your choice (see below).\n\nYou lose any remaining piety at the end of the encounter."
+          },
+          {
+            "type": "markdown",
+            "text": "### Piety Outside of Combat\n\nThough you can't gain piety outside of combat, you can use your heroic abilities and effects that cost piety without spending it. Whenever you use an ability or effect outside of combat that costs piety, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited piety on its effect, such as Healing Grace, you can use it as if you had spent an amount of piety equal to your Victories."
+          },
+          {
+            "type": "markdown",
+            "text": "### Domain Piety and Effects\n\nYour choice of domains provides you with two additional ways to earn piety during combat, as triggered by specific events. You might even have a single event trigger both your piety effects. For example, the Sun domain grants piety when a nearby creature takes fire or holy damage, while the War domain grants piety when a nearby creature takes damage of 10 + your level or higher. If you have both those domains and a nearby creature takes an appropriate amount of fire damage, you gain piety from both your domains.\n\nAdditionally, whenever you activate a domain effect by praying for piety, you can choose one of your domains and have that domain's prayer effect take effect immediately."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Creation Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares uses an area ability.\n- **Prayer Effect:** You summon the forces of creation and create a wall of stone within 10 squares whose size is 5 + your Intuition score. The wall lasts until the end of the encounter."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Death Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares who isn't a minion is reduced to 0 Stamina, or the first time in an encounter that a solo creature within 10 squares becomes winded.\n- **Prayer Effect:** You inflict a deadly curse on up to two enemies within 10 squares of you. Each target takes corruption damage equal to twice your Intuition score."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Fate Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an ally within 10 squares obtains a tier 3 outcome on a power roll, or an enemy within 10 squares obtains a tier 1 outcome on a power roll.\n- **Prayer Effect:** You call on the forces of fate to create a reliable future. Choose a creature within 10 squares. That creature automatically obtains a tier 1 or tier 3 outcome (your choice) on their next power roll made before the end of the encounter."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Knowledge Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that the Director spends Malice (see *Draw Steel: Monsters*).\n- **Prayer Effect:** Choose up to five allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 1 surge."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Life Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares regains Stamina.\n- **Prayer Effect:** Choose yourself or one ally within 10 squares. That character can spend a Recovery, can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or can stand up if they are prone. Alternatively, you or one ally within 10 squares gains temporary Stamina equal to two times your Intuition score."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Love Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares uses the Aid Attack maneuver or an ability that targets an ally.\n- **Prayer Effect:** Each ally within 10 squares of you gains temporary Stamina equal to two times your Intuition score."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Nature Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes acid, cold, fire, lightning, poison, or sonic damage.\n- **Prayer Effect:** Vines whip up from the floor or ground within 10 squares, wrapping around a number of creatures equal to your Intuition score. You can slide each creature up to a number of squares equal to your Intuition score. The vines then fade away."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Protection Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares gains temporary Stamina, or uses a triggered action to reduce incoming damage or to impose a bane or double bane on an enemy's power roll.\n- **Prayer Effect:** One ally within 10 squares gains temporary Stamina equal to four times your Intuition score."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Storm Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares is force moved.\n- **Prayer Effect:** Each enemy in a 3 cube within 10 squares takes lightning damage equal to twice your Intuition score."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Sun Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares takes fire or holy damage.\n- **Prayer Effect:** One enemy within 10 squares takes fire damage equal to three times your Intuition score."
+          },
+          {
+            "type": "markdown",
+            "text": "#### Trickery Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes the Aid Attack or Hide maneuver.\n- **Prayer Effect:** You slide one creature within 10 squares of you up to a number of squares equal to 5 + your conduit level."
+          },
+          {
+            "type": "markdown",
+            "text": "#### War Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes damage greater than 10 + your level in a single turn.\n- **Prayer Effect:** Choose up to three allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 2 surges."
+          },
+          {
+            "type": "markdown",
+            "text": "## 1st-Level Domain Feature\n\nChoose one of your domains. You gain a domain feature for that domain, as shown on the 1st-Level Conduit Domain Features table. Additionally, you gain a skill from the chosen domain, selected from the skill group indicated on the table. (*Quick Build:* Revitalizing Ritual and the Heal skill from the Life domain.)"
+          },
+          {
+            "type": "markdown",
+            "text": "#### 1st-Level Conduit Domain Features Table\n\n| Domain     | Feature                       | Skill Group   |\n|------------|-------------------------------|---------------|\n| Creation   | Hands of the Maker            | Crafting      |\n| Death      | Grave Speech                  | Lore          |\n| Fate       | Oracular Visions              | Lore          |\n| Knowledge  | Blessing of Comprehension     | Lore          |\n| Life       | Revitalizing Ritual           | Exploration   |\n| Love       | Blessing of Compassion        | Interpersonal |\n| Nature     | Faithful Friend               | Exploration   |\n| Protection | Protective Circle             | Exploration   |\n| Storm      | Blessing of Fortunate Weather | Exploration   |\n| Sun        | Inner Light                   | Lore          |\n| Trickery   | Inspired Deception            | Intrigue      |\n| War        | Sanctified Weapon             | Exploration   |"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.blessing-of-compassion"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.blessing-of-comprehension"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.blessing-of-fortunate-weather"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.faithful-friend"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.faithful-friend"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.grave-speech"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.grave-speech"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.hands-of-the-maker"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.hands-of-the-maker"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.inner-light"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.inspired-deception"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.oracular-visions"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.protective-circle"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.revitalizing-ritual"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.sanctified-weapon"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.healing-grace"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.healing-grace"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.ray-of-wrath"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.ray-of-wrath"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.triggered-action"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.word-of-guidance"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.word-of-judgment"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.prayer"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.prayer-of-destruction"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.prayer-of-distance"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.prayer-of-soldiers-skill"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.prayer-of-speed"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.prayer-of-steel"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.conduit-ward"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.bastion-ward"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.quickness-ward"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.sanctuary-ward"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.conduit.level-1.spirit-ward"
+          },
+          {
+            "type": "markdown",
+            "text": "## Conduit Abilities\n\nYour training and faith let you specialize in magic that buffs your allies, debuffs your foes, and allows you to hold your own in combat alongside your friends."
+          },
+          {
+            "type": "markdown",
+            "text": "### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Blessed Light, Staggering Curse.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.blessed-light"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.drain"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.holy-lash"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.lightfall"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.sacrificial-offer"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.staggering-curse"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.warriors-prayer"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.wither"
+          },
+          {
+            "type": "markdown",
+            "text": "### Heroic Abilities\n\nYou make use of a number of heroic abilities, all of which channel piety to empower them."
+          },
+          {
+            "type": "markdown",
+            "text": "#### 3-Piety Ability\n\nChoose one heroic ability from the following options, each of which costs 3 piety to use. (*Quick Build:* Violence Will Not Aid Thee.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.call-the-thunder-down"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.font-of-wrath"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.judgments-hammer"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.violence-will-not-aid-thee"
+          },
+          {
+            "type": "markdown",
+            "text": "#### 5-Piety Ability\n\nChoose one heroic ability from the following options, each of which costs 5 piety to use. (*Quick Build:* Curse of Terror.)"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.corruptions-curse"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.curse-of-terror"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.faith-is-our-armor"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.conduit.level-1.sermon-of-grace"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -410,7 +715,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/deity-and-domains",
       "originalName": "Deity and Domains",
-      "originalDescription": "Choose a god or saint who your character reveres from Chapter 14: Gods and Religion, or ask your Director about the deities in your campaign world. With the Director's permission, you can also create your own deity and choose four domains to be part of their portfolio.\n\nAfter choosing your deity, pick two domains from their portfolio. The two domains you pick make up your subclass, and your choice of domains determines many of the features you'll gain as you gain new levels. (*Quick Build:* Adûn for deity, and Life and Protection as domains.)"
+      "originalDescription": "Choose a god or saint who your character reveres from Chapter 14: Gods and Religion, or ask your Director about the deities in your campaign world. With the Director's permission, you can also create your own deity and choose four domains to be part of their portfolio.\n\nAfter choosing your deity, pick two domains from their portfolio. The two domains you pick make up your subclass, and your choice of domains determines many of the features you'll gain as you gain new levels. (*Quick Build:* Adûn for deity, and Life and Protection as domains.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.piety",
@@ -423,7 +731,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/piety",
       "originalName": "Piety",
-      "originalDescription": "Your deity grants you a Heroic Resource called piety, letting you heal and empower your allies, and unleash holy power upon your foes.\n\n##### Piety in Combat\n\nAt the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain piety equal to your Victories. At the start of each of your turns during combat, you gain 1d3 piety.\n\nAdditionally, you can gain more piety by praying to the gods—but beware! Doing so can easily draw their ire, as the gods hate to be annoyed. Before you roll to gain piety at the start of your turn, you can pray (no action required). If you do, your roll gains the following additional effects:\n\n- If the roll is a 1, you gain 1 additional piety but anger the gods! You take psychic damage equal to 1d6 + your level, which can't be reduced in any way.\n- If the roll is a 2, you gain 1 additional piety.\n- If the roll is a 3, you gain 2 additional piety and can activate a domain effect of your choice (see below).\n\nYou lose any remaining piety at the end of the encounter.\n\n##### Piety Outside of Combat\n\nThough you can't gain piety outside of combat, you can use your heroic abilities and effects that cost piety without spending it. Whenever you use an ability or effect outside of combat that costs piety, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited piety on its effect, such as Healing Grace, you can use it as if you had spent an amount of piety equal to your Victories."
+      "originalDescription": "Your deity grants you a Heroic Resource called piety, letting you heal and empower your allies, and unleash holy power upon your foes.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.piety-in-combat",
@@ -436,7 +747,10 @@
       },
       "originalId": "",
       "originalName": "Piety in Combat",
-      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain piety equal to your Victories."
+      "originalDescription": "At the start of a combat encounter or some other stressful situation tracked in combat rounds (as determined by the Director), you gain piety equal to your Victories. At the start of each of your turns during combat, you gain 1d3 piety.\n\nAdditionally, you can gain more piety by praying to the gods—but beware! Doing so can easily draw their ire, as the gods hate to be annoyed. Before you roll to gain piety at the start of your turn, you can pray (no action required). If you do, your roll gains the following additional effects:\n\n- If the roll is a 1, you gain 1 additional piety but anger the gods! You take psychic damage equal to 1d6 + your level, which can't be reduced in any way.\n- If the roll is a 2, you gain 1 additional piety.\n- If the roll is a 3, you gain 2 additional piety and can activate a domain effect of your choice (see below).\n\nYou lose any remaining piety at the end of the encounter.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.piety-outside-of-combat",
@@ -449,7 +763,10 @@
       },
       "originalId": "",
       "originalName": "Piety Outside of Combat",
-      "originalDescription": "Though you can't gain piety outside of combat, you can use your heroic abilities and effects that cost piety without spending it."
+      "originalDescription": "Though you can't gain piety outside of combat, you can use your heroic abilities and effects that cost piety without spending it. Whenever you use an ability or effect outside of combat that costs piety, you can't use that same ability or effect outside of combat again until you earn 1 or more Victories or finish a respite.\n\nWhen you use an ability outside of combat that lets you spend unlimited piety on its effect, such as Healing Grace, you can use it as if you had spent an amount of piety equal to your Victories.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects",
@@ -462,7 +779,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/domain-piety-and-effects",
       "originalName": "Domain Piety and Effects",
-      "originalDescription": "Your choice of domains provides you with two additional ways to earn piety during combat, as triggered by specific events. You might even have a single event trigger both your piety effects. For example, the Sun domain grants piety when a nearby creature takes fire or holy damage, while the War domain grants piety when a nearby creature takes damage of 10 + your level or higher. If you have both those domains and a nearby creature takes an appropriate amount of fire damage, you gain piety from both your domains.\n\nAdditionally, whenever you activate a domain effect by praying for piety, you can choose one of your domains and have that domain's prayer effect take effect immediately.\n\n###### Creation Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares uses an area ability.\n- **Prayer Effect:** You summon the forces of creation and create a wall of stone within 10 squares whose size is 5 + your Intuition score. The wall lasts until the end of the encounter.\n\n###### Death Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares who isn't a minion is reduced to 0 Stamina, or the first time in an encounter that a solo creature within 10 squares becomes winded.\n- **Prayer Effect:** You inflict a deadly curse on up to two enemies within 10 squares of you. Each target takes corruption damage equal to twice your Intuition score.\n\n###### Fate Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an ally within 10 squares obtains a tier 3 outcome on a power roll, or an enemy within 10 squares obtains a tier 1 outcome on a power roll.\n- **Prayer Effect:** You call on the forces of fate to create a reliable future. Choose a creature within 10 squares. That creature automatically obtains a tier 1 or tier 3 outcome (your choice) on their next power roll made before the end of the encounter.\n\n###### Knowledge Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that the Director spends Malice (see *Draw Steel: Monsters*).\n- **Prayer Effect:** Choose up to five allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 1 surge.\n\n###### Life Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares regains Stamina.\n- **Prayer Effect:** Choose yourself or one ally within 10 squares. That character can spend a Recovery, can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or can stand up if they are prone. Alternatively, you or one ally within 10 squares gains temporary Stamina equal to two times your Intuition score.\n\n###### Love Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares uses the Aid Attack maneuver or an ability that targets an ally.\n- **Prayer Effect:** Each ally within 10 squares of you gains temporary Stamina equal to two times your Intuition score.\n\n###### Nature Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes acid, cold, fire, lightning, poison, or sonic damage.\n- **Prayer Effect:** Vines whip up from the floor or ground within 10 squares, wrapping around a number of creatures equal to your Intuition score. You can slide each creature up to a number of squares equal to your Intuition score. The vines then fade away.\n\n###### Protection Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares gains temporary Stamina, or uses a triggered action to reduce incoming damage or to impose a bane or double bane on an enemy's power roll.\n- **Prayer Effect:** One ally within 10 squares gains temporary Stamina equal to four times your Intuition score.\n\n###### Storm Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares is force moved.\n- **Prayer Effect:** Each enemy in a 3 cube within 10 squares takes lightning damage equal to twice your Intuition score.\n\n###### Sun Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares takes fire or holy damage.\n- **Prayer Effect:** One enemy within 10 squares takes fire damage equal to three times your Intuition score.\n\n###### Trickery Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes the Aid Attack or Hide maneuver.\n- **Prayer Effect:** You slide one creature within 10 squares of you up to a number of squares equal to 5 + your conduit level.\n\n###### War Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes damage greater than 10 + your level in a single turn.\n- **Prayer Effect:** Choose up to three allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 2 surges."
+      "originalDescription": "Your choice of domains provides you with two additional ways to earn piety during combat, as triggered by specific events. You might even have a single event trigger both your piety effects. For example, the Sun domain grants piety when a nearby creature takes fire or holy damage, while the War domain grants piety when a nearby creature takes damage of 10 + your level or higher. If you have both those domains and a nearby creature takes an appropriate amount of fire damage, you gain piety from both your domains.\n\nAdditionally, whenever you activate a domain effect by praying for piety, you can choose one of your domains and have that domain's prayer effect take effect immediately.\n\n###### Creation Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares uses an area ability.\n- **Prayer Effect:** You summon the forces of creation and create a wall of stone within 10 squares whose size is 5 + your Intuition score. The wall lasts until the end of the encounter.\n\n###### Death Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares who isn't a minion is reduced to 0 Stamina, or the first time in an encounter that a solo creature within 10 squares becomes winded.\n- **Prayer Effect:** You inflict a deadly curse on up to two enemies within 10 squares of you. Each target takes corruption damage equal to twice your Intuition score.\n\n###### Fate Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an ally within 10 squares obtains a tier 3 outcome on a power roll, or an enemy within 10 squares obtains a tier 1 outcome on a power roll.\n- **Prayer Effect:** You call on the forces of fate to create a reliable future. Choose a creature within 10 squares. That creature automatically obtains a tier 1 or tier 3 outcome (your choice) on their next power roll made before the end of the encounter.\n\n###### Knowledge Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that the Director spends Malice (see *Draw Steel: Monsters*).\n- **Prayer Effect:** Choose up to five allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 1 surge.\n\n###### Life Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares regains Stamina.\n- **Prayer Effect:** Choose yourself or one ally within 10 squares. That character can spend a Recovery, can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or can stand up if they are prone. Alternatively, you or one ally within 10 squares gains temporary Stamina equal to two times your Intuition score.\n\n###### Love Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares uses the Aid Attack maneuver or an ability that targets an ally.\n- **Prayer Effect:** Each ally within 10 squares of you gains temporary Stamina equal to two times your Intuition score.\n\n###### Nature Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes acid, cold, fire, lightning, poison, or sonic damage.\n- **Prayer Effect:** Vines whip up from the floor or ground within 10 squares, wrapping around a number of creatures equal to your Intuition score. You can slide each creature up to a number of squares equal to your Intuition score. The vines then fade away.\n\n###### Protection Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares gains temporary Stamina, or uses a triggered action to reduce incoming damage or to impose a bane or double bane on an enemy's power roll.\n- **Prayer Effect:** One ally within 10 squares gains temporary Stamina equal to four times your Intuition score.\n\n###### Storm Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares is force moved.\n- **Prayer Effect:** Each enemy in a 3 cube within 10 squares takes lightning damage equal to twice your Intuition score.\n\n###### Sun Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares takes fire or holy damage.\n- **Prayer Effect:** One enemy within 10 squares takes fire damage equal to three times your Intuition score.\n\n###### Trickery Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes the Aid Attack or Hide maneuver.\n- **Prayer Effect:** You slide one creature within 10 squares of you up to a number of squares equal to 5 + your conduit level.\n\n###### War Domain Piety and Effect\n\n- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes damage greater than 10 + your level in a single turn.\n- **Prayer Effect:** Choose up to three allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 2 surges.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.creation",
@@ -475,7 +795,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Creation",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that a creature within 10 squares uses an area ability. Prayer Effect: You summon the forces of creation and create a wall of stone within 10 squares whose size is 5 + your Intuition score. The wall lasts until the end of the encounter."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares uses an area ability.\n- **Prayer Effect:** You summon the forces of creation and create a wall of stone within 10 squares whose size is 5 + your Intuition score. The wall lasts until the end of the encounter.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.death",
@@ -488,7 +811,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Death",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that a creature within 10 squares who isn't a minion is reduced to 0 Stamina, or the first time in an encounter that a solo creature within 10 squares becomes winded. Prayer Effect: You inflict a deadly curse on up to two enemies within 10 squares of you. Each target takes corruption damage equal to twice your Intuition score."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares who isn't a minion is reduced to 0 Stamina, or the first time in an encounter that a solo creature within 10 squares becomes winded.\n- **Prayer Effect:** You inflict a deadly curse on up to two enemies within 10 squares of you. Each target takes corruption damage equal to twice your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.fate",
@@ -501,7 +827,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Fate",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that an ally within 10 squares obtains a tier 3 outcome on a power roll, or an enemy within 10 squares obtains a tier 1 outcome on a power roll. Prayer Effect: You call on the forces of fate to create a reliable future. Choose a creature within 10 squares. That creature automatically obtains a tier 1 or tier 3 outcome (your choice) on their next power roll made before the end of the encounter."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that an ally within 10 squares obtains a tier 3 outcome on a power roll, or an enemy within 10 squares obtains a tier 1 outcome on a power roll.\n- **Prayer Effect:** You call on the forces of fate to create a reliable future. Choose a creature within 10 squares. That creature automatically obtains a tier 1 or tier 3 outcome (your choice) on their next power roll made before the end of the encounter.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.knowledge",
@@ -514,7 +843,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Knowledge",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that the Director spends Malice (see Draw Steel: Monsters). Prayer Effect: Choose up to five allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 1 surge."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that the Director spends Malice (see *Draw Steel: Monsters*).\n- **Prayer Effect:** Choose up to five allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 1 surge.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.life",
@@ -527,7 +859,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Life",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that a creature within 10 squares regains Stamina. Prayer Effect: Choose yourself or one ally within 10 squares. That character can spend a Recovery, can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or can stand up if they are prone. Alternatively, you or one ally within 10 squares gains temporary Stamina equal to two times your Intuition score."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that a creature within 10 squares regains Stamina.\n- **Prayer Effect:** Choose yourself or one ally within 10 squares. That character can spend a Recovery, can end one effect on them that is ended by a saving throw or that ends at the end of their turn, or can stand up if they are prone. Alternatively, you or one ally within 10 squares gains temporary Stamina equal to two times your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.love",
@@ -540,7 +875,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Love",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or any ally within 10 squares uses the Aid Attack maneuver or an ability that targets an ally. Prayer Effect: Each ally within 10 squares of you gains temporary Stamina equal to two times your Intuition score."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares uses the Aid Attack maneuver or an ability that targets an ally.\n- **Prayer Effect:** Each ally within 10 squares of you gains temporary Stamina equal to two times your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.nature",
@@ -553,7 +891,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Nature",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes acid, cold, fire, lightning, poison, or sonic damage. Prayer Effect: Vines whip up from the floor or ground within 10 squares, wrapping around a number of creatures equal to your Intuition score. You can slide each creature up to a number of squares equal to your Intuition score. The vines then fade away."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes acid, cold, fire, lightning, poison, or sonic damage.\n- **Prayer Effect:** Vines whip up from the floor or ground within 10 squares, wrapping around a number of creatures equal to your Intuition score. You can slide each creature up to a number of squares equal to your Intuition score. The vines then fade away.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.protection",
@@ -566,7 +907,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Protection",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or any ally within 10 squares gains temporary Stamina, or uses a triggered action to reduce incoming damage or to impose a bane or double bane on an enemy's power roll. Prayer Effect: One ally within 10 squares gains temporary Stamina equal to four times your Intuition score."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that you or any ally within 10 squares gains temporary Stamina, or uses a triggered action to reduce incoming damage or to impose a bane or double bane on an enemy's power roll.\n- **Prayer Effect:** One ally within 10 squares gains temporary Stamina equal to four times your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.storm",
@@ -579,7 +923,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Storm",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that an enemy within 10 squares is force moved. Prayer Effect: Each enemy in a 3 cube within 10 squares takes lightning damage equal to twice your Intuition score."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares is force moved.\n- **Prayer Effect:** Each enemy in a 3 cube within 10 squares takes lightning damage equal to twice your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.sun",
@@ -592,7 +939,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Sun",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that an enemy within 10 squares takes fire or holy damage. Prayer Effect: One enemy within 10 squares takes fire damage equal to three times your Intuition score."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that an enemy within 10 squares takes fire or holy damage.\n- **Prayer Effect:** One enemy within 10 squares takes fire damage equal to three times your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.trickery",
@@ -605,7 +955,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: Trickery",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes the Aid Attack or Hide maneuver. Prayer Effect: You slide one creature within 10 squares of you up to a number of squares equal to 5 + your conduit level."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes the Aid Attack or Hide maneuver.\n- **Prayer Effect:** You slide one creature within 10 squares of you up to a number of squares equal to 5 + your conduit level.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.domain-piety-and-effects.war",
@@ -618,7 +971,10 @@
       },
       "originalId": "",
       "originalName": "Domain Piety and Effects: War",
-      "originalDescription": "Piety: You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes damage greater than 10 + your level in a single turn. Prayer Effect: Choose up to three allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 2 surges."
+      "originalDescription": "- **Piety:** You gain 2 piety the first time in an encounter that you or a creature within 10 squares takes damage greater than 10 + your level in a single turn.\n- **Prayer Effect:** Choose up to three allies within 10 squares of you, or choose yourself instead of one ally. Each target gains 2 surges.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.1st-level-domain-feature",
@@ -631,7 +987,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/1st-level-domain-feature",
       "originalName": "1st-Level Domain Feature",
-      "originalDescription": "Choose one of your domains. You gain a domain feature for that domain, as shown on the 1st-Level Conduit Domain Features table. Additionally, you gain a skill from the chosen domain, selected from the skill group indicated on the table. (*Quick Build:* Revitalizing Ritual and the Heal skill from the Life domain.)\n\n###### 1st-Level Conduit Domain Features Table\n\n| Domain     | Feature                       | Skill Group   |\n|------------|-------------------------------|---------------|\n| Creation   | Hands of the Maker            | Crafting      |\n| Death      | Grave Speech                  | Lore          |\n| Fate       | Oracular Visions              | Lore          |\n| Knowledge  | Blessing of Comprehension     | Lore          |\n| Life       | Revitalizing Ritual           | Exploration   |\n| Love       | Blessing of Compassion        | Interpersonal |\n| Nature     | Faithful Friend               | Exploration   |\n| Protection | Protective Circle             | Exploration   |\n| Storm      | Blessing of Fortunate Weather | Exploration   |\n| Sun        | Inner Light                   | Lore          |\n| Trickery   | Inspired Deception            | Intrigue      |\n| War        | Sanctified Weapon             | Exploration   |"
+      "originalDescription": "Choose one of your domains. You gain a domain feature for that domain, as shown on the 1st-Level Conduit Domain Features table. Additionally, you gain a skill from the chosen domain, selected from the skill group indicated on the table. (*Quick Build:* Revitalizing Ritual and the Heal skill from the Life domain.)\n\n###### 1st-Level Conduit Domain Features Table\n\n| Domain     | Feature                       | Skill Group   |\n|------------|-------------------------------|---------------|\n| Creation   | Hands of the Maker            | Crafting      |\n| Death      | Grave Speech                  | Lore          |\n| Fate       | Oracular Visions              | Lore          |\n| Knowledge  | Blessing of Comprehension     | Lore          |\n| Life       | Revitalizing Ritual           | Exploration   |\n| Love       | Blessing of Compassion        | Interpersonal |\n| Nature     | Faithful Friend               | Exploration   |\n| Protection | Protective Circle             | Exploration   |\n| Storm      | Blessing of Fortunate Weather | Exploration   |\n| Sun        | Inner Light                   | Lore          |\n| Trickery   | Inspired Deception            | Intrigue      |\n| War        | Sanctified Weapon             | Exploration   |",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.blessing-of-compassion",
@@ -644,7 +1003,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/blessing-of-compassion",
       "originalName": "Blessing of Compassion",
-      "originalDescription": "You exude a magic presence that can soothe those willing to socially engage with you. You gain an edge on any test made to assist another creature with a test.\n\nAdditionally, when you are present at the start of a negotiation, one NPC of your choice has their patience increased by 1 (to a maximum of 5), and the first test made to influence them gains an edge."
+      "originalDescription": "You exude a magic presence that can soothe those willing to socially engage with you. You gain an edge on any test made to assist another creature with a test.\n\nAdditionally, when you are present at the start of a negotiation, one NPC of your choice has their patience increased by 1 (to a maximum of 5), and the first test made to influence them gains an edge.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.blessing-of-comprehension",
@@ -657,7 +1019,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/blessing-of-comprehension",
       "originalName": "Blessing of Comprehension",
-      "originalDescription": "You can interpret diagrams and charts even if you don't understand the language associated with them. You are considered fluent in all languages for the purpose of understanding the project source for any research or crafting project (see Chapter 12: Downtime Projects)."
+      "originalDescription": "You can interpret diagrams and charts even if you don't understand the language associated with them. You are considered fluent in all languages for the purpose of understanding the project source for any research or crafting project (see Chapter 12: Downtime Projects).",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.blessing-of-fortunate-weather",
@@ -670,7 +1035,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/blessing-of-fortunate-weather",
       "originalName": "Blessing of Fortunate Weather",
-      "originalDescription": "Each time you finish a respite, you can decide the weather conditions within 100 squares. Until you finish another respite, the weather conditions you establish follow you through any mundane outdoor locations. Choose one of the following types of weather, each of which grants a benefit to you and your allies:\n\n**Clear:** You and your allies gain an edge on tests that use the Search or Navigate skills.\n\n**Foggy:** You and your allies gain an edge on tests that use the Hide skill. **Overcast:** You and your allies gain an edge on tests that use the Endurance skill.\n\n**Precipitation:** When the ground is muddy or snowy, you and your allies gain an edge on tests that use the Track skill.\n\nIf you are in the same area as a creature using this or a similar feature who has chosen a different weather effect, the features negate each other where their areas overlap."
+      "originalDescription": "Each time you finish a respite, you can decide the weather conditions within 100 squares. Until you finish another respite, the weather conditions you establish follow you through any mundane outdoor locations. Choose one of the following types of weather, each of which grants a benefit to you and your allies:\n\n**Clear:** You and your allies gain an edge on tests that use the Search or Navigate skills.\n\n**Foggy:** You and your allies gain an edge on tests that use the Hide skill. **Overcast:** You and your allies gain an edge on tests that use the Endurance skill.\n\n**Precipitation:** When the ground is muddy or snowy, you and your allies gain an edge on tests that use the Track skill.\n\nIf you are in the same area as a creature using this or a similar feature who has chosen a different weather effect, the features negate each other where their areas overlap.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.faithful-friend",
@@ -683,7 +1051,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/faithful-friend",
       "originalName": "Faithful Friend",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.faithful-friend",
@@ -736,7 +1107,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/faithful-friend",
       "originalName": "Faithful Friend",
-      "originalDescription": "*An animal spirit is drawn to you, sharing their senses with you and serving you faithfully.*\n\n| **Magic**   |  **Main action** |\n|-------------|-----------------:|\n| **📏 Self** |      **🎯 Self** |\n\n**Effect:** You conjure a spirit that takes the form of any animal you have seen. The incorporeal animal has speed 5 and can fly, but can't physically interact with the world. While you are within 10 squares of the spirit, you automatically sense everything that type of animal would sense, in addition to sensing your own surroundings. You can dismiss the spirit at any time (no action required). If the spirit takes any damage, they are dismissed and you take 1d10 psychic damage that can't be reduced in any way."
+      "originalDescription": "*An animal spirit is drawn to you, sharing their senses with you and serving you faithfully.*\n\n| **Magic**   |  **Main action** |\n|-------------|-----------------:|\n| **📏 Self** |      **🎯 Self** |\n\n**Effect:** You conjure a spirit that takes the form of any animal you have seen. The incorporeal animal has speed 5 and can fly, but can't physically interact with the world. While you are within 10 squares of the spirit, you automatically sense everything that type of animal would sense, in addition to sensing your own surroundings. You can dismiss the spirit at any time (no action required). If the spirit takes any damage, they are dismissed and you take 1d10 psychic damage that can't be reduced in any way.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "An animal spirit is drawn to you, sharing their senses with you and serving you faithfully.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "You conjure a spirit that takes the form of any animal you have seen. The incorporeal animal has speed 5 and can fly, but can't physically interact with the world. While you are within 10 squares of the spirit, you automatically sense everything that type of animal would sense, in addition to sensing your own surroundings. You can dismiss the spirit at any time (no action required). If the spirit takes any damage, they are dismissed and you take 1d10 psychic damage that can't be reduced in any way."
+      }
     },
     {
       "id": "feature.conduit.level-1.grave-speech",
@@ -749,7 +1138,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/grave-speech",
       "originalName": "Grave Speech",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.grave-speech",
@@ -802,7 +1194,29 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/grave-speech",
       "originalName": "Grave Speech",
-      "originalDescription": "*You commune with the lingering soul of the recently dead.*\n\n| **Magic**      |            **Maneuver**  |\n|----------------|-------------------------:|\n| **📏 Melee 1** | **🎯 One dead creature** |\n\n**Effect:** You can speak to the target if they are a creature who has died within the last 24 hours and who can speak a language you know, even if they are just a head. The target regards you as they would have in life, and you might need to make tests to influence them and convince them to speak with you. The trauma of dying can make a creature's memory of that event hazy, but the target otherwise knows all they knew in life. After 1 minute, the effect ends. You can't use this ability on the same creature twice."
+      "originalDescription": "*You commune with the lingering soul of the recently dead.*\n\n| **Magic**      |            **Maneuver**  |\n|----------------|-------------------------:|\n| **📏 Melee 1** | **🎯 One dead creature** |\n\n**Effect:** You can speak to the target if they are a creature who has died within the last 24 hours and who can speak a language you know, even if they are just a head. The target regards you as they would have in life, and you might need to make tests to influence them and convince them to speak with you. The trauma of dying can make a creature's memory of that event hazy, but the target otherwise knows all they knew in life. After 1 minute, the effect ends. You can't use this ability on the same creature twice.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You commune with the lingering soul of the recently dead.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One dead creature",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "You can speak to the target if they are a creature who has died within the last 24 hours and who can speak a language you know, even if they are just a head. The target regards you as they would have in life, and you might need to make tests to influence them and convince them to speak with you. The trauma of dying can make a creature's memory of that event hazy, but the target otherwise knows all they knew in life. After 1 minute, the effect ends. You can't use this ability on the same creature twice."
+      }
     },
     {
       "id": "feature.conduit.level-1.hands-of-the-maker",
@@ -815,7 +1229,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/hands-of-the-maker",
       "originalName": "Hands of the Maker",
-      "originalDescription": "You have the following ability."
+      "originalDescription": "You have the following ability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.hands-of-the-maker",
@@ -868,7 +1285,25 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/hands-of-the-maker",
       "originalName": "Hands of the Maker",
-      "originalDescription": "*You craft objects with the power of your mind.*\n\n| **Magic**                |  **Maneuver** |\n|--------------------------|--------------:|\n| **📏 Self**              |   **🎯 Self** |\n\n**Effect:** You create a mundane object of size 1S or smaller. You can maintain a number of objects created this way equal to your Intuition score. You can destroy an object created this way with a thought, no matter how far you are from it (no action required)."
+      "originalDescription": "*You craft objects with the power of your mind.*\n\n| **Magic**                |  **Maneuver** |\n|--------------------------|--------------:|\n| **📏 Self**              |   **🎯 Self** |\n\n**Effect:** You create a mundane object of size 1S or smaller. You can maintain a number of objects created this way equal to your Intuition score. You can destroy an object created this way with a thought, no matter how far you are from it (no action required).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You craft objects with the power of your mind.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": [
+            "Magic"
+          ]
+        },
+        "effect": "You create a mundane object of size 1S or smaller. You can maintain a number of objects created this way equal to your Intuition score. You can destroy an object created this way with a thought, no matter how far you are from it (no action required)."
+      }
     },
     {
       "id": "feature.conduit.level-1.inner-light",
@@ -881,7 +1316,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/inner-light",
       "originalName": "Inner Light",
-      "originalDescription": "Each time you finish a respite, you can choose yourself or one ally who is also finishing a respite to gain the benefit of a divine ritual. You place a ray of morning light into the chosen character's soul, granting them a +1 bonus to saving throws that lasts until you finish another respite."
+      "originalDescription": "Each time you finish a respite, you can choose yourself or one ally who is also finishing a respite to gain the benefit of a divine ritual. You place a ray of morning light into the chosen character's soul, granting them a +1 bonus to saving throws that lasts until you finish another respite.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.inspired-deception",
@@ -894,7 +1332,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/inspired-deception",
       "originalName": "Inspired Deception",
-      "originalDescription": "The gods favor your thievery with magic. Whenever you make a test that uses a skill you have from the intrigue skill group, you can use Intuition on the test instead of another characteristic."
+      "originalDescription": "The gods favor your thievery with magic. Whenever you make a test that uses a skill you have from the intrigue skill group, you can use Intuition on the test instead of another characteristic.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.oracular-visions",
@@ -907,7 +1348,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/oracular-visions",
       "originalName": "Oracular Visions",
-      "originalDescription": "Your deity rewards you with hazy visions of things to come. Each time you earn 1 or more Victories, you earn an equal number of fate points. Whenever you or a creature within 10 squares makes a test, you can spend 1 fate point to tap into a vision of the outcome, granting that creature an edge on the test. You lose any remaining fate points when you finish a respite."
+      "originalDescription": "Your deity rewards you with hazy visions of things to come. Each time you earn 1 or more Victories, you earn an equal number of fate points. Whenever you or a creature within 10 squares makes a test, you can spend 1 fate point to tap into a vision of the outcome, granting that creature an edge on the test. You lose any remaining fate points when you finish a respite.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.protective-circle",
@@ -920,7 +1364,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/protective-circle",
       "originalName": "Protective Circle",
-      "originalDescription": "You can spend 10 uninterrupted minutes to create a protective circle on the ground large enough to hold one size 1 creature. The circle lasts for 24 hours, until you create another, or until you dismiss it (no action required). Only creatures you designate at the time of drawing the circle can enter and exit the area. While in the protective circle, a creature can't be targeted by strikes."
+      "originalDescription": "You can spend 10 uninterrupted minutes to create a protective circle on the ground large enough to hold one size 1 creature. The circle lasts for 24 hours, until you create another, or until you dismiss it (no action required). Only creatures you designate at the time of drawing the circle can enter and exit the area. While in the protective circle, a creature can't be targeted by strikes.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.revitalizing-ritual",
@@ -933,7 +1380,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/revitalizing-ritual",
       "originalName": "Revitalizing Ritual",
-      "originalDescription": "Each time you finish a respite, you can choose yourself or one ally who is also finishing a respite to gain the benefit of a divine ritual. The chosen character gains a bonus to their recovery value equal to your level that lasts until you finish another respite."
+      "originalDescription": "Each time you finish a respite, you can choose yourself or one ally who is also finishing a respite to gain the benefit of a divine ritual. The chosen character gains a bonus to their recovery value equal to your level that lasts until you finish another respite.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.sanctified-weapon",
@@ -946,7 +1396,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/sanctified-weapon",
       "originalName": "Sanctified Weapon",
-      "originalDescription": "As a respite activity, you can bless a weapon. Any creature who wields the weapon gains a +1 bonus to rolled damage with abilities that use the weapon. This benefit lasts until you finish another respite."
+      "originalDescription": "As a respite activity, you can bless a weapon. Any creature who wields the weapon gains a +1 bonus to rolled damage with abilities that use the weapon. This benefit lasts until you finish another respite.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.healing-grace",
@@ -959,7 +1412,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/healing-grace",
       "originalName": "Healing Grace",
-      "originalDescription": "You have the following ability, which you can use once on your turn."
+      "originalDescription": "You have the following ability, which you can use once on your turn.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.healing-grace",
@@ -1013,7 +1469,34 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/healing-grace",
       "originalName": "Healing Grace",
-      "originalDescription": "*Your divine energy restores the righteous.*\n\n| **Magic, Ranged**          |            **Maneuver** |\n|----------------------------|------------------------:|\n| **📏 Ranged 10**           | **🎯 Self or one ally** |\n\n**Effect:** The target can spend a Recovery.\n\n**Spend 1+ Piety:** For each piety spent, choose one of the following enhancements:\n\n- You can target one additional ally within distance.\n- You can end one effect on a target that is ended by a saving throw or that ends at the end of their turn.\n- A prone target can stand up.\n- A target can spend 1 additional Recovery."
+      "originalDescription": "*Your divine energy restores the righteous.*\n\n| **Magic, Ranged**          |            **Maneuver** |\n|----------------------------|------------------------:|\n| **📏 Ranged 10**           | **🎯 Self or one ally** |\n\n**Effect:** The target can spend a Recovery.\n\n**Spend 1+ Piety:** For each piety spent, choose one of the following enhancements:\n\n- You can target one additional ally within distance.\n- You can end one effect on a target that is ended by a saving throw or that ends at the end of their turn.\n- A prone target can stand up.\n- A target can spend 1 additional Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 1+ Piety:** For each piety spent, choose one of the following enhancements:\n\n- You can target one additional ally within distance.\n- You can end one effect on a target that is ended by a saving throw or that ends at the end of their turn.\n- A prone target can stand up.\n- A target can spend 1 additional Recovery."
+          }
+        ],
+        "flavor": "Your divine energy restores the righteous.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Self or one ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "The target can spend a Recovery."
+      }
     },
     {
       "id": "feature.conduit.level-1.ray-of-wrath",
@@ -1026,7 +1509,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/ray-of-wrath",
       "originalName": "Ray of Wrath",
-      "originalDescription": "You have the following ability, which can be used as a ranged free strike."
+      "originalDescription": "You have the following ability, which can be used as a ranged free strike.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.ray-of-wrath",
@@ -1083,7 +1569,55 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/ray-of-wrath",
       "originalName": "Ray of Wrath",
-      "originalDescription": "*You unleash a blast of holy light upon your foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I damage\n- **12-16:** 4 + I damage\n- **17+:** 6 + I damage\n\n**Effect:** You can have this ability deal holy damage."
+      "originalDescription": "*You unleash a blast of holy light upon your foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I damage\n- **12-16:** 4 + I damage\n- **17+:** 6 + I damage\n\n**Effect:** You can have this ability deal holy damage.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You unleash a blast of holy light upon your foe.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2 + I"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "4 + I"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "6 + I"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can have this ability deal holy damage."
+      }
     },
     {
       "id": "feature.conduit.level-1.triggered-action",
@@ -1096,7 +1630,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/triggered-action",
       "originalName": "Triggered Action",
-      "originalDescription": "Choose one of the following triggered actions. (*Quick Build:* Word of Guidance.)"
+      "originalDescription": "Choose one of the following triggered actions. (*Quick Build:* Word of Guidance.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.word-of-guidance",
@@ -1150,7 +1687,35 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/word-of-guidance",
       "originalName": "Word of Guidance",
-      "originalDescription": "*You invigorate an attacking ally with divine energy.*\n\n| **Magic, Ranged**      |        **Triggered** |\n|------------------------|---------------------:|\n| **📏 Ranged 10**       |      **🎯 One ally** |\n\n**Trigger:** The target makes an ability roll for a damage-dealing ability.\n\n**Effect:** The power roll gains an edge.\n\n**Spend 1 Piety:** The power roll has a double edge."
+      "originalDescription": "*You invigorate an attacking ally with divine energy.*\n\n| **Magic, Ranged**      |        **Triggered** |\n|------------------------|---------------------:|\n| **📏 Ranged 10**       |      **🎯 One ally** |\n\n**Trigger:** The target makes an ability roll for a damage-dealing ability.\n\n**Effect:** The power roll gains an edge.\n\n**Spend 1 Piety:** The power roll has a double edge.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 1 Piety:** The power roll has a double edge."
+          }
+        ],
+        "flavor": "You invigorate an attacking ally with divine energy.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "trigger": "The target makes an ability roll for a damage-dealing ability.",
+        "effect": "The power roll gains an edge."
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.word-of-judgment",
@@ -1204,7 +1769,35 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/word-of-judgment",
       "originalName": "Word of Judgment",
-      "originalDescription": "*Your holy word saps an attacking enemy's strength.*\n\n| **Magic, Ranged**  |     **Triggered** |\n|--------------------|------------------:|\n| **📏 Ranged 10**   |   **🎯 One ally** |\n\n**Trigger:** The target would take damage from an ability that uses a power roll.\n\n**Effect:** The power roll takes a bane against the target.\n\n**Spend 1 Piety:** The power roll has a double bane against the target."
+      "originalDescription": "*Your holy word saps an attacking enemy's strength.*\n\n| **Magic, Ranged**  |     **Triggered** |\n|--------------------|------------------:|\n| **📏 Ranged 10**   |   **🎯 One ally** |\n\n**Trigger:** The target would take damage from an ability that uses a power roll.\n\n**Effect:** The power roll takes a bane against the target.\n\n**Spend 1 Piety:** The power roll has a double bane against the target.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [
+          {
+            "text": "**Spend 1 Piety:** The power roll has a double bane against the target."
+          }
+        ],
+        "flavor": "Your holy word saps an attacking enemy's strength.",
+        "facts": {
+          "action": "Triggered",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One ally",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "trigger": "The target would take damage from an ability that uses a power roll.",
+        "effect": "The power roll takes a bane against the target."
+      }
     },
     {
       "id": "feature.conduit.level-1.prayer",
@@ -1217,7 +1810,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer",
       "originalName": "Prayer",
-      "originalDescription": "Your god answers a prayer with enhancements to your body and mind. Choose one of the following prayers. You can change your prayer along with your ward (see Conduit Ward below) by praying to your god as a respite activity. (*Quick Build:* Prayer of Distance.)"
+      "originalDescription": "Your god answers a prayer with enhancements to your body and mind. Choose one of the following prayers. You can change your prayer along with your ward (see Conduit Ward below) by praying to your god as a respite activity. (*Quick Build:* Prayer of Distance.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.prayer-of-destruction",
@@ -1230,7 +1826,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-destruction",
       "originalName": "Prayer of Destruction",
-      "originalDescription": "Your god infuses wrath within your being. You gain a +1 bonus to rolled damage with magic abilities."
+      "originalDescription": "Your god infuses wrath within your being. You gain a +1 bonus to rolled damage with magic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.prayer-of-distance",
@@ -1243,7 +1842,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-distance",
       "originalName": "Prayer of Distance",
-      "originalDescription": "Your god blesses you with the ability to stretch your divine magic farther. You have a +2 bonus to the distance of your ranged magic abilities."
+      "originalDescription": "Your god blesses you with the ability to stretch your divine magic farther. You have a +2 bonus to the distance of your ranged magic abilities.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.prayer-of-soldiers-skill",
@@ -1256,7 +1858,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-soldiers-skill",
       "originalName": "Prayer of Soldier's Skill",
-      "originalDescription": "Your god gives your mind the training of a soldier. You can wear light armor and wield light weapons effectively, even though you don't have a kit. While you wear light armor, you gain a +3 bonus to Stamina, and that bonus increases by 3 at 4th, 7th, and 10th levels. While you wield a light weapon, you gain a +1 damage bonus with weapon abilities, including free strikes. You can use light armor treasures and light weapon treasures.\n\nIf you have a kit, you can't take this blessing."
+      "originalDescription": "Your god gives your mind the training of a soldier. You can wear light armor and wield light weapons effectively, even though you don't have a kit. While you wear light armor, you gain a +3 bonus to Stamina, and that bonus increases by 3 at 4th, 7th, and 10th levels. While you wield a light weapon, you gain a +1 damage bonus with weapon abilities, including free strikes. You can use light armor treasures and light weapon treasures.\n\nIf you have a kit, you can't take this blessing.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.prayer-of-speed",
@@ -1269,7 +1874,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-speed",
       "originalName": "Prayer of Speed",
-      "originalDescription": "Your god blesses your flesh and infuses it with divine quickness. You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action."
+      "originalDescription": "Your god blesses your flesh and infuses it with divine quickness. You gain a +1 bonus to speed and to the distance you can shift when you take the Disengage move action.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.prayer-of-steel",
@@ -1282,7 +1890,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/prayer-of-steel",
       "originalName": "Prayer of Steel",
-      "originalDescription": "Your god fills your body with the light of creation, making you harder to hurt and move. You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability."
+      "originalDescription": "Your god fills your body with the light of creation, making you harder to hurt and move. You gain a +6 bonus to Stamina, and this bonus increases by 6 at 4th, 7th, and 10th levels. Additionally, you gain a +1 bonus to stability.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.conduit-ward",
@@ -1295,7 +1906,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/conduit-ward",
       "originalName": "Conduit Ward",
-      "originalDescription": "Your god grants you a ward that protects you from the faithless. Choose one of the following wards. You can change your ward along with your prayer (see Prayer above) by praying to your god as a respite activity. (*Quick Build:* Bastion Ward.)"
+      "originalDescription": "Your god grants you a ward that protects you from the faithless. Choose one of the following wards. You can change your ward along with your prayer (see Prayer above) by praying to your god as a respite activity. (*Quick Build:* Bastion Ward.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.bastion-ward",
@@ -1308,7 +1922,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/bastion-ward",
       "originalName": "Bastion Ward",
-      "originalDescription": "Your god grants you a holy countenance that protects you at all times. You gain a +1 bonus to saving throws."
+      "originalDescription": "Your god grants you a holy countenance that protects you at all times. You gain a +1 bonus to saving throws.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.quickness-ward",
@@ -1321,7 +1938,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/quickness-ward",
       "originalName": "Quickness Ward",
-      "originalDescription": "The gods imbue a divine swiftness within you. Whenever an adjacent creature deals damage to you, you can shift up to a number of squares equal to your Intuition score after the damage is dealt."
+      "originalDescription": "The gods imbue a divine swiftness within you. Whenever an adjacent creature deals damage to you, you can shift up to a number of squares equal to your Intuition score after the damage is dealt.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.sanctuary-ward",
@@ -1334,7 +1954,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/sanctuary-ward",
       "originalName": "Sanctuary Ward",
-      "originalDescription": "In response to a foe's aggression, your god protects you. Whenever another creature damages you, that creature can't target you with a strike until you harm them or one of their allies, or until the end of their next turn."
+      "originalDescription": "In response to a foe's aggression, your god protects you. Whenever another creature damages you, that creature can't target you with a strike until you harm them or one of their allies, or until the end of their next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.spirit-ward",
@@ -1347,7 +1970,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/spirit-ward",
       "originalName": "Spirit Ward",
-      "originalDescription": "Invisible spirits surround you if you are harmed. Whenever an adjacent creature deals damage to you, they take corruption damage equal to your Intuition score."
+      "originalDescription": "Invisible spirits surround you if you are harmed. Whenever an adjacent creature deals damage to you, they take corruption damage equal to your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.conduit-abilities",
@@ -1360,7 +1986,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.conduit.level-1/conduit-abilities",
       "originalName": "Conduit Abilities",
-      "originalDescription": "Your training and faith let you specialize in magic that buffs your allies, debuffs your foes, and allows you to hold your own in combat alongside your friends.\n\n##### Signature Abilities\n\nChoose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Blessed Light, Staggering Curse.)\n\n##### Heroic Abilities\n\nYou make use of a number of heroic abilities, all of which channel piety to empower them.\n\n###### 3-Piety Ability\n\nChoose one heroic ability from the following options, each of which costs 3 piety to use. (*Quick Build:* Violence Will Not Aid Thee.)\n\n###### 5-Piety Ability\n\nChoose one heroic ability from the following options, each of which costs 5 piety to use. (*Quick Build:* Curse of Terror.)"
+      "originalDescription": "Your training and faith let you specialize in magic that buffs your allies, debuffs your foes, and allows you to hold your own in combat alongside your friends.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.signature-abilities",
@@ -1373,7 +2002,10 @@
       },
       "originalId": "",
       "originalName": "Signature Abilities",
-      "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (Quick Build: Blessed Light, Staggering Curse.)"
+      "originalDescription": "Choose two signature abilities from the following options. Signature abilities can be used at will. (*Quick Build:* Blessed Light, Staggering Curse.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.blessed-light",
@@ -1430,7 +2062,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/blessed-light",
       "originalName": "Blessed Light",
-      "originalDescription": "*Burning radiance falls upon your foe, transferring some of their energy to a nearby ally.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 5 + I holy damage\n- **17+:** 8 + I holy damage\n\n**Effect:** One ally within distance gains a number of surges equal to the tier outcome of your power roll."
+      "originalDescription": "*Burning radiance falls upon your foe, transferring some of their energy to a nearby ally.*\n\n| **Magic, Ranged, Strike** |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Ranged 10**          | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 5 + I holy damage\n- **17+:** 8 + I holy damage\n\n**Effect:** One ally within distance gains a number of surges equal to the tier outcome of your power roll.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Burning radiance falls upon your foe, transferring some of their energy to a nearby ally.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + I",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5 + I",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "8 + I",
+                "type": "holy"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "One ally within distance gains a number of surges equal to the tier outcome of your power roll."
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.drain",
@@ -1487,7 +2170,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/drain",
       "originalName": "Drain",
-      "originalDescription": "*You drain the energy from your target to revitalize yourself or an ally.*\n\n| **Magic, Melee, Strike** |     **Main action** |\n|--------------------------|--------------------:|\n| **📏 Melee 1**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 5 + I corruption damage\n- **17+:** 7 + I corruption damage\n\n**Effect:** You or one ally within distance can spend a Recovery."
+      "originalDescription": "*You drain the energy from your target to revitalize yourself or an ally.*\n\n| **Magic, Melee, Strike** |     **Main action** |\n|--------------------------|--------------------:|\n| **📏 Melee 1**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 5 + I corruption damage\n- **17+:** 7 + I corruption damage\n\n**Effect:** You or one ally within distance can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You drain the energy from your target to revitalize yourself or an ally.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2 + I",
+                "type": "corruption"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5 + I",
+                "type": "corruption"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "7 + I",
+                "type": "corruption"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You or one ally within distance can spend a Recovery."
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.holy-lash",
@@ -1544,7 +2278,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/holy-lash",
       "originalName": "Holy Lash",
-      "originalDescription": "*A tendril of divine energy shoots forth to draw in your foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; vertical pull 2\n- **12-16:** 5 + I holy damage; vertical pull 3\n- **17+:** 8 + I holy damage; vertical pull 4"
+      "originalDescription": "*A tendril of divine energy shoots forth to draw in your foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; vertical pull 2\n- **12-16:** 5 + I holy damage; vertical pull 3\n- **17+:** 8 + I holy damage; vertical pull 4",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A tendril of divine energy shoots forth to draw in your foe.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + I",
+                "type": "holy"
+              },
+              "effect": "vertical pull 2"
+            },
+            {
+              "damage": {
+                "value": "5 + I",
+                "type": "holy"
+              },
+              "effect": "vertical pull 3"
+            },
+            {
+              "damage": {
+                "value": "8 + I",
+                "type": "holy"
+              },
+              "effect": "vertical pull 4"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.lightfall",
@@ -1600,7 +2384,53 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/lightfall",
       "originalName": "Lightfall",
-      "originalDescription": "*A rain of holy light scours your enemies and repositions your allies.*\n\n| **Area, Magic**  |               **Main action** |\n|------------------|------------------------------:|\n| **📏 2 burst**   | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 holy damage\n- **12-16:** 3 holy damage\n- **17+:** 5 holy damage\n\n**Effect:** You can teleport yourself and each ally in the area to unoccupied spaces in the area."
+      "originalDescription": "*A rain of holy light scours your enemies and repositions your allies.*\n\n| **Area, Magic**  |               **Main action** |\n|------------------|------------------------------:|\n| **📏 2 burst**   | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 holy damage\n- **12-16:** 3 holy damage\n- **17+:** 5 holy damage\n\n**Effect:** You can teleport yourself and each ally in the area to unoccupied spaces in the area.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A rain of holy light scours your enemies and repositions your allies.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "2 burst"
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "3",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "5",
+                "type": "holy"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You can teleport yourself and each ally in the area to unoccupied spaces in the area."
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.sacrificial-offer",
@@ -1657,7 +2487,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/sacrificial-offer",
       "originalName": "Sacrificial Offer",
-      "originalDescription": "*Divine magic tears at your foe and defends a nearby friend.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 4 + I corruption damage\n- **17+:** 6 + I corruption damage\n\n**Effect:** Choose yourself or one ally within distance. That character can impose a bane on one power roll made against them before the end of their next turn."
+      "originalDescription": "*Divine magic tears at your foe and defends a nearby friend.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 + I corruption damage\n- **12-16:** 4 + I corruption damage\n- **17+:** 6 + I corruption damage\n\n**Effect:** Choose yourself or one ally within distance. That character can impose a bane on one power roll made against them before the end of their next turn.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Divine magic tears at your foe and defends a nearby friend.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2 + I",
+                "type": "corruption"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "4 + I",
+                "type": "corruption"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "6 + I",
+                "type": "corruption"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "Choose yourself or one ally within distance. That character can impose a bane on one power roll made against them before the end of their next turn."
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.staggering-curse",
@@ -1714,7 +2595,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/staggering-curse",
       "originalName": "Staggering Curse",
-      "originalDescription": "*A blast of judgment disorients your foe.*\n\n| **Magic, Melee, Strike**  |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; slide 1\n- **12-16:** 5 + I holy damage; slide 2\n- **17+:** 8 + I holy damage; slide 3"
+      "originalDescription": "*A blast of judgment disorients your foe.*\n\n| **Magic, Melee, Strike**  |               **Main action** |\n|---------------------------|------------------------------:|\n| **📏 Melee 1**            | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; slide 1\n- **12-16:** 5 + I holy damage; slide 2\n- **17+:** 8 + I holy damage; slide 3",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A blast of judgment disorients your foe.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Melee ",
+            {
+              "mode": "melee",
+              "value": 1
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Melee",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + I",
+                "type": "holy"
+              },
+              "effect": "slide 1"
+            },
+            {
+              "damage": {
+                "value": "5 + I",
+                "type": "holy"
+              },
+              "effect": "slide 2"
+            },
+            {
+              "damage": {
+                "value": "8 + I",
+                "type": "holy"
+              },
+              "effect": "slide 3"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.warriors-prayer",
@@ -1771,7 +2702,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/warriors-prayer",
       "originalName": "Warrior's Prayer",
-      "originalDescription": "*Your quickly uttered prayer lends aggressive divine energy to a friend engaged in melee.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 6 + I holy damage\n- **17+:** 9 + I holy damage\n\n**Effect:** You or one ally within distance gains temporary Stamina equal to your Intuition score."
+      "originalDescription": "*Your quickly uttered prayer lends aggressive divine energy to a friend engaged in melee.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage\n- **12-16:** 6 + I holy damage\n- **17+:** 9 + I holy damage\n\n**Effect:** You or one ally within distance gains temporary Stamina equal to your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your quickly uttered prayer lends aggressive divine energy to a friend engaged in melee.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + I",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "6 + I",
+                "type": "holy"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "9 + I",
+                "type": "holy"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "You or one ally within distance gains temporary Stamina equal to your Intuition score."
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.wither",
@@ -1828,7 +2810,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/wither",
       "originalName": "Wither",
-      "originalDescription": "*A bolt of holy energy saps the life from a foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; P < WEAK, the target takes a bane on their next power roll\n- **12-16:** 5 + I corruption damage; P < AVERAGE, the target takes a bane on their next power roll\n- **17+:** 8 + I corruption damage; P < STRONG, the target takes a bane on their next power roll"
+      "originalDescription": "*A bolt of holy energy saps the life from a foe.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; P < WEAK, the target takes a bane on their next power roll\n- **12-16:** 5 + I corruption damage; P < AVERAGE, the target takes a bane on their next power roll\n- **17+:** 8 + I corruption damage; P < STRONG, the target takes a bane on their next power roll",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A bolt of holy energy saps the life from a foe.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + I",
+                "type": "corruption"
+              },
+              "effect": "P < WEAK, the target takes a bane on their next power roll"
+            },
+            {
+              "damage": {
+                "value": "5 + I",
+                "type": "corruption"
+              },
+              "effect": "P < AVERAGE, the target takes a bane on their next power roll"
+            },
+            {
+              "damage": {
+                "value": "8 + I",
+                "type": "corruption"
+              },
+              "effect": "P < STRONG, the target takes a bane on their next power roll"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.conduit.level-1.heroic-abilities",
@@ -1841,7 +2873,10 @@
       },
       "originalId": "",
       "originalName": "Heroic Abilities",
-      "originalDescription": "You make use of a number of heroic abilities, all of which channel piety to empower them."
+      "originalDescription": "You make use of a number of heroic abilities, all of which channel piety to empower them.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.conduit.level-1.3-piety-ability",
@@ -1854,7 +2889,10 @@
       },
       "originalId": "",
       "originalName": "3-Piety Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 piety to use. (Quick Build: Violence Will Not Aid Thee.)"
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 3 piety to use. (*Quick Build:* Violence Will Not Aid Thee.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.call-the-thunder-down",
@@ -1911,7 +2949,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/call-the-thunder-down",
       "originalName": "Call the Thunder Down",
-      "originalDescription": "*You ask your saint for thunder and your prayer is answered.*\n\n| **Area, Magic, Ranged** |               **Main action** |\n|-------------------------|------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 sonic damage; push 1\n- **12-16:** 3 sonic damage; push 2\n- **17+:** 5 sonic damage; push 3\n\n**Effect:** You can push each willing ally in the area the same distance, ignoring stability."
+      "originalDescription": "*You ask your saint for thunder and your prayer is answered.*\n\n| **Area, Magic, Ranged** |               **Main action** |\n|-------------------------|------------------------------:|\n| **📏 3 cube within 10** | **🎯 Each enemy in the area** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 2 sonic damage; push 1\n- **12-16:** 3 sonic damage; push 2\n- **17+:** 5 sonic damage; push 3\n\n**Effect:** You can push each willing ally in the area the same distance, ignoring stability.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You ask your saint for thunder and your prayer is answered.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "3 cube within ",
+            {
+              "mode": "within",
+              "value": 10
+            }
+          ],
+          "target": "Each enemy in the area",
+          "keywords": [
+            "Area",
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "2",
+                "type": "sonic"
+              },
+              "effect": "push 1"
+            },
+            {
+              "damage": {
+                "value": "3",
+                "type": "sonic"
+              },
+              "effect": "push 2"
+            },
+            {
+              "damage": {
+                "value": "5",
+                "type": "sonic"
+              },
+              "effect": "push 3"
+            }
+          ]
+        },
+        "effect": "You can push each willing ally in the area the same distance, ignoring stability."
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.font-of-wrath",
@@ -1965,7 +3054,30 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/font-of-wrath",
       "originalName": "Font of Wrath",
-      "originalDescription": "*A brilliant column of holy light appears on the battlefield, striking out at nearby enemies.*\n\n| **Magic, Ranged**  | **Main action** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   |  **🎯 Special** |\n\n**Effect:** You summon a spirit of size 2 who can't be harmed, and who appears in an unoccupied space within distance. The spirit lasts until the end of your next turn. You and your allies can move through the spirit's space, but enemies can't. Any enemy who moves within 2 squares of the spirit for the first time in a combat round or starts their turn there takes holy damage equal to your Intuition score."
+      "originalDescription": "*A brilliant column of holy light appears on the battlefield, striking out at nearby enemies.*\n\n| **Magic, Ranged**  | **Main action** |\n|--------------------|----------------:|\n| **📏 Ranged 10**   |  **🎯 Special** |\n\n**Effect:** You summon a spirit of size 2 who can't be harmed, and who appears in an unoccupied space within distance. The spirit lasts until the end of your next turn. You and your allies can move through the spirit's space, but enemies can't. Any enemy who moves within 2 squares of the spirit for the first time in a combat round or starts their turn there takes holy damage equal to your Intuition score.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "A brilliant column of holy light appears on the battlefield, striking out at nearby enemies.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Special",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "effect": "You summon a spirit of size 2 who can't be harmed, and who appears in an unoccupied space within distance. The spirit lasts until the end of your next turn. You and your allies can move through the spirit's space, but enemies can't. Any enemy who moves within 2 squares of the spirit for the first time in a combat round or starts their turn there takes holy damage equal to your Intuition score."
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.judgments-hammer",
@@ -2022,7 +3134,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/judgments-hammer",
       "originalName": "Judgment's Hammer",
-      "originalDescription": "*Your divine fury is a hammer that crashes down upon the unrighteous.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; A < WEAK, prone\n- **12-16:** 6 + I holy damage; A < AVERAGE, prone\n- **17+:** 9 + I holy damage; A < STRONG, prone and can't stand (save ends)"
+      "originalDescription": "*Your divine fury is a hammer that crashes down upon the unrighteous.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I holy damage; A < WEAK, prone\n- **12-16:** 6 + I holy damage; A < AVERAGE, prone\n- **17+:** 9 + I holy damage; A < STRONG, prone and can't stand (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your divine fury is a hammer that crashes down upon the unrighteous.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + I",
+                "type": "holy"
+              },
+              "effect": "A < WEAK, prone"
+            },
+            {
+              "damage": {
+                "value": "6 + I",
+                "type": "holy"
+              },
+              "effect": "A < AVERAGE, prone"
+            },
+            {
+              "damage": {
+                "value": "9 + I",
+                "type": "holy"
+              },
+              "effect": "A < STRONG, prone and can't stand (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.violence-will-not-aid-thee",
@@ -2079,7 +3241,58 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/violence-will-not-aid-thee",
       "originalName": "Violence Will Not Aid Thee",
-      "originalDescription": "*After some holy lightning, your enemy will think twice about their next attack.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I lightning damage\n- **12-16:** 6 + I lightning damage\n- **17+:** 9 + I lightning damage\n\n**Effect:** The first time on a turn that the target deals damage to another creature, the target of this ability takes 1d10 lightning damage (save ends)."
+      "originalDescription": "*After some holy lightning, your enemy will think twice about their next attack.*\n\n| **Magic, Ranged, Strike**  |     **Main action** |\n|----------------------------|--------------------:|\n| **📏 Ranged 10**           | **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I lightning damage\n- **12-16:** 6 + I lightning damage\n- **17+:** 9 + I lightning damage\n\n**Effect:** The first time on a turn that the target deals damage to another creature, the target of this ability takes 1d10 lightning damage (save ends).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "After some holy lightning, your enemy will think twice about their next attack.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + I",
+                "type": "lightning"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "6 + I",
+                "type": "lightning"
+              },
+              "effect": ""
+            },
+            {
+              "damage": {
+                "value": "9 + I",
+                "type": "lightning"
+              },
+              "effect": ""
+            }
+          ]
+        },
+        "effect": "The first time on a turn that the target deals damage to another creature, the target of this ability takes 1d10 lightning damage (save ends)."
+      }
     },
     {
       "id": "feature.conduit.level-1.5-piety-ability",
@@ -2092,7 +3305,10 @@
       },
       "originalId": "",
       "originalName": "5-Piety Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 piety to use. (Quick Build: Curse of Terror.)"
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 5 piety to use. (*Quick Build:* Curse of Terror.)",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.corruptions-curse",
@@ -2149,7 +3365,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/corruptions-curse",
       "originalName": "Corruption's Curse",
-      "originalDescription": "*Cursed by you, your enemy takes more damage from your allies.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; M < WEAK, damage weakness 5 (save ends)\n- **12-16:** 6 + I corruption damage; M < AVERAGE, damage weakness 5 (save ends)\n- **17+:** 9 + I corruption damage; M < STRONG, damage weakness 5 (save ends)"
+      "originalDescription": "*Cursed by you, your enemy takes more damage from your allies.*\n\n| **Magic, Ranged, Strike**  |               **Main action** |\n|----------------------------|------------------------------:|\n| **📏 Ranged 10**           | **🎯 One creature or object** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 3 + I corruption damage; M < WEAK, damage weakness 5 (save ends)\n- **12-16:** 6 + I corruption damage; M < AVERAGE, damage weakness 5 (save ends)\n- **17+:** 9 + I corruption damage; M < STRONG, damage weakness 5 (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Cursed by you, your enemy takes more damage from your allies.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature or object",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "3 + I",
+                "type": "corruption"
+              },
+              "effect": "M < WEAK, damage weakness 5 (save ends)"
+            },
+            {
+              "damage": {
+                "value": "6 + I",
+                "type": "corruption"
+              },
+              "effect": "M < AVERAGE, damage weakness 5 (save ends)"
+            },
+            {
+              "damage": {
+                "value": "9 + I",
+                "type": "corruption"
+              },
+              "effect": "M < STRONG, damage weakness 5 (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.curse-of-terror",
@@ -2206,7 +3472,57 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/curse-of-terror",
       "originalName": "Curse of Terror",
-      "originalDescription": "*Fear of divine judgment overwhelms your foe.*\n\n| **Magic, Ranged, Strike**  |                      **Main action** |\n|----------------------------|-------------------------------------:|\n| **📏 Ranged 10**           |                  **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 6 + I holy damage; I < WEAK, frightened (save ends)\n- **12-16:** 9 + I holy damage; I < AVERAGE, frightened (save ends)\n- **17+:** 13 + I holy damage; I < STRONG, frightened (save ends)"
+      "originalDescription": "*Fear of divine judgment overwhelms your foe.*\n\n| **Magic, Ranged, Strike**  |                      **Main action** |\n|----------------------------|-------------------------------------:|\n| **📏 Ranged 10**           |                  **🎯 One creature** |\n\n**Power Roll + Intuition:**\n\n- **≤11:** 6 + I holy damage; I < WEAK, frightened (save ends)\n- **12-16:** 9 + I holy damage; I < AVERAGE, frightened (save ends)\n- **17+:** 13 + I holy damage; I < STRONG, frightened (save ends)",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Fear of divine judgment overwhelms your foe.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "One creature",
+          "keywords": [
+            "Magic",
+            "Ranged",
+            "Strike"
+          ]
+        },
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "damage": {
+                "value": "6 + I",
+                "type": "holy"
+              },
+              "effect": "I < WEAK, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "9 + I",
+                "type": "holy"
+              },
+              "effect": "I < AVERAGE, frightened (save ends)"
+            },
+            {
+              "damage": {
+                "value": "13 + I",
+                "type": "holy"
+              },
+              "effect": "I < STRONG, frightened (save ends)"
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.faith-is-our-armor",
@@ -2262,7 +3578,45 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/faith-is-our-armor",
       "originalName": "Faith Is Our Armor",
-      "originalDescription": "*The heroes' armor glows with golden light, granting divine protection.*\n\n| **Magic, Ranged**        |       **Maneuver** |\n|--------------------------|-------------------:|\n| **📏 Ranged 10**         | **🎯 Four allies** |\n\n**Effect:** You can target yourself instead of one ally with this ability.\n\n**Power Roll + Intuition:**\n\n- **≤11:** The target gains 5 temporary Stamina.\n- **12-16:** The target gains 10 temporary Stamina.\n- **17+:** The target gains 15 temporary Stamina."
+      "originalDescription": "*The heroes' armor glows with golden light, granting divine protection.*\n\n| **Magic, Ranged**        |       **Maneuver** |\n|--------------------------|-------------------:|\n| **📏 Ranged 10**         | **🎯 Four allies** |\n\n**Effect:** You can target yourself instead of one ally with this ability.\n\n**Power Roll + Intuition:**\n\n- **≤11:** The target gains 5 temporary Stamina.\n- **12-16:** The target gains 10 temporary Stamina.\n- **17+:** The target gains 15 temporary Stamina.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The heroes' armor glows with golden light, granting divine protection.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Ranged ",
+            {
+              "mode": "ranged",
+              "value": 10
+            }
+          ],
+          "target": "Four allies",
+          "keywords": [
+            "Magic",
+            "Ranged"
+          ]
+        },
+        "beforeRoll": "**Effect:** You can target yourself instead of one ally with this ability.",
+        "roll": {
+          "title": "Power Roll + Intuition",
+          "characteristic": "intuition",
+          "tiers": [
+            {
+              "effect": "The target gains 5 temporary Stamina."
+            },
+            {
+              "effect": "The target gains 10 temporary Stamina."
+            },
+            {
+              "effect": "The target gains 15 temporary Stamina."
+            }
+          ]
+        }
+      }
     },
     {
       "id": "feature.ability.conduit.level-1.sermon-of-grace",
@@ -2316,7 +3670,26 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.conduit.level-1/sermon-of-grace",
       "originalName": "Sermon of Grace",
-      "originalDescription": "*You inspire your allies with tales of your saint's great deeds.*\n\n| **Area, Magic** |              **Main action** |\n|-----------------|-----------------------------:|\n| **📏 4 burst**  | **🎯 Each ally in the area** |\n\n**Effect:** Each target can spend a Recovery. Additionally, each target can use a free triggered action to end one effect on them that is ended by a saving throw or that ends at the end of their turn, or to stand up if prone."
+      "originalDescription": "*You inspire your allies with tales of your saint's great deeds.*\n\n| **Area, Magic** |              **Main action** |\n|-----------------|-----------------------------:|\n| **📏 4 burst**  | **🎯 Each ally in the area** |\n\n**Effect:** Each target can spend a Recovery. Additionally, each target can use a free triggered action to end one effect on them that is ended by a saving throw or that ends at the end of their turn, or to stand up if prone.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "You inspire your allies with tales of your saint's great deeds.",
+        "facts": {
+          "action": "Main action",
+          "distance": [
+            "4 burst"
+          ],
+          "target": "Each ally in the area",
+          "keywords": [
+            "Area",
+            "Magic"
+          ]
+        },
+        "effect": "Each target can spend a Recovery. Additionally, each target can use a free triggered action to end one effect on them that is ended by a saving throw or that ends at the end of their turn, or to stand up if prone."
+      }
     }
   ]
 }

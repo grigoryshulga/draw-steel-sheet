@@ -1,3 +1,10 @@
+import { developmentIssue, developmentMessage } from "../../i18n/development-messages";
+import { BUILDER_DATA } from "../../lib/character-builder";
+import { classPreset } from "../../data/classes";
+import { kitByName } from "../../data/kits";
+import { SKILL_ORIGINALS } from "../../data/skills";
+import { perkById } from "../../data/perks";
+import { useLocale } from "../../i18n/locale";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "./DevelopmentPanel.css";
 import { AbilityCard, AbilityCardContent } from "../../components/AbilityCard";
@@ -82,6 +89,25 @@ function stepProgress(step: DevelopmentStep, selected: string[]): string {
 
 /** Вкладка «Развитие»: уровни, выборы внутри уровней и их реконфигурация. */
 export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
+  const { t, locale } = useLocale();
+  const msg = (text: string) => {
+    if (locale === "en") {
+      const abilityHint = /^(.+): способность (\d+)-го уровня$/.exec(text);
+      if (abilityHint) {
+        const subclass = BUILDER_DATA.classes.flatMap(item => item.subclasses).find(item => item.name === abilityHint[1]);
+        if (subclass?.originalName) return `${subclass.originalName}: level ${abilityHint[2]} ability`;
+      }
+    }
+    return developmentMessage(text, locale);
+  };
+  const fixedValue = (label: string, value: string) => {
+    if (locale !== "en") return value;
+    if (label === "Класс") return classPreset(value)?.originalName || value;
+    if (label === "Комплект") return kitByName(value)?.originalName || value;
+    if (label === "Навыки создания") return SKILL_ORIGINALS[value]?.originalName || value;
+    return value;
+  };
+  const perkTypes = { crafting: "Crafting", exploration: "Exploration", interpersonal: "Interpersonal", intrigue: "Intrigue", lore: "Lore", supernatural: "Supernatural" } as const;
   const { character, update } = useApp();
   const plan = useMemo(() => buildDevelopmentPlan(character), [character]);
   const [draft, setDraft] = useState<DevelopmentDraft>({});
@@ -139,7 +165,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
       // Снять лишнее можно повторным нажатием по карточке: отказ не мешает
       // отмене выбора, только не даёт сохранить перебор.
       setBlocked(
-        `В шаге «${step.title}» можно выбрать только ${step.count}. Снимите лишнее.`,
+        t(`В шаге «${step.title}» можно выбрать только ${step.count}. Снимите лишнее.`, `Choose at most ${step.count} in “${msg(step.title)}”. Remove extra choices.`),
       );
       return;
     }
@@ -149,14 +175,14 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
   const reset = useCallback(() => {
     setDraft({});
     setBlocked(undefined);
-    setNotice("Черновик сброшен — вкладка снова показывает сохранённое состояние героя.");
-  }, []);
+    setNotice(t("Черновик сброшен — вкладка снова показывает сохранённое состояние героя.", "Draft reset; the saved hero is shown again."));
+  }, [t]);
 
   const save = useCallback(() => {
     const result = applyDevelopment(character, plan, input);
     if (!result.ok) {
       setNotice(undefined);
-      setBlocked(result.issues[0]);
+      setBlocked(msg(result.issues[0]));
       return;
     }
     update(() => result.next);
@@ -165,10 +191,10 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
     setClosed(defaultClosedLevels(buildDevelopmentPlan(result.next)));
     setNotice(
       result.leveledUp
-        ? `Сохранено. Герой поднялся до ${result.next.level}-го уровня.`
-        : "Сохранено.",
+        ? t(`Сохранено. Герой поднялся до ${result.next.level}-го уровня.`, `Saved. The hero reached level ${result.next.level}.`)
+        : t("Сохранено.", "Saved."),
     );
-  }, [character, plan, input, update]);
+  }, [character, plan, input, update, t]);
 
   const togglePerkGroup = (id: string) => {
     setClosedPerkGroups((previous) => {
@@ -196,7 +222,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
         setDetail(undefined);
       }}
     >
-      {stepSelection(step, draft).includes(optionId) ? "Снять выбор" : "Выбрать"}
+      {stepSelection(step, draft).includes(optionId) ? t("Снять выбор", "Deselect") : t("Выбрать", "Select")}
     </Button>
   );
 
@@ -205,7 +231,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
   return (
     <div className="dev-panel">
       <header className="dev-head">
-        <h2 className="dev-title">Развитие</h2>
+        <h2 className="dev-title">{t("Развитие", "Advancement")}</h2>
         <div className="dev-head-actions">
           <Button
             size="sm"
@@ -213,10 +239,10 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
             onClick={reset}
             disabled={!dirty && !engaged}
           >
-            Сбросить
+            {t("Сбросить", "Reset")}
           </Button>
           <Button size="sm" variant="primary" onClick={save} disabled={!canSave}>
-            {engaged || (!dirty && plan.nextLevel) ? "Повысить уровень" : "Сохранить"}
+            {engaged || (!dirty && plan.nextLevel) ? t("Повысить уровень", "Level up") : t("Сохранить", "Save")}
           </Button>
         </div>
       </header>
@@ -229,16 +255,16 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
             <ul className="dev-issues">
               {visibleIssues.slice(0, 4).map((issue) => (
                 <li key={`${issue.level}-${issue.stepId ?? issue.message}`}>
-                  {issue.message}
+                  {developmentIssue(issue.message, issue.level, plan.levels.flatMap(level => level.steps).find(step => step.id === issue.stepId)?.title ?? "", locale)}
                 </li>
               ))}
               {visibleIssues.length > 4 && (
-                <li>…и ещё {visibleIssues.length - 4}</li>
+                <li>{t(`…и ещё ${visibleIssues.length - 4}`, `…and ${visibleIssues.length - 4} more`)}</li>
               )}
             </ul>
           )}
           {dirty && visibleIssues.length === 0 && (
-            <p className="dev-note">Черновик готов — сохраните, чтобы применить.</p>
+            <p className="dev-note">{t("Черновик готов — сохраните, чтобы применить.", "Draft ready — save to apply.")}</p>
           )}
         </div>
       )}
@@ -268,26 +294,26 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                 aria-expanded={!isClosed}
               >
                 <Icon name={isClosed ? "chevron-right" : "chevron-down"} size={18} />
-                <span className="dev-level-title">{level.title}</span>
-                <span className="dev-level-echelon mono">{level.echelonLabel}</span>
-                <span className="dev-level-status">{STATUS_LABEL[level.status]}</span>
+                <span className="dev-level-title">{locale === "en" ? `Level ${level.level}` : level.title}</span>
+                <span className="dev-level-echelon mono">{locale === "en" ? `Echelon ${level.echelonLabel.match(/\d+/)?.[0] ?? ""}` : level.echelonLabel}</span>
+                <span className="dev-level-status">{locale === "en" ? ({ sealed: "Creation", applied: "Gained", next: "Next" } as const)[level.status] : STATUS_LABEL[level.status]}</span>
                 {incomplete > 0 && (
                   <span className="dev-level-incomplete">
-                    {incomplete} не заполнено
+                    {locale === "en" ? `${incomplete} incomplete` : `${incomplete} не заполнено`}
                   </span>
                 )}
               </button>
 
               {!isClosed && (
                 <div className="dev-level-body">
-                  {level.note && <p className="dev-note">{level.note}</p>}
+                  {level.note && <p className="dev-note">{msg(level.note)}</p>}
 
                   {level.fixed.length > 0 && (
                     <div className="dev-fixed">
                       {level.fixed.map((row) => (
                         <div key={row.label} className="dev-fixed-row">
-                          <span className="dev-fixed-label">{row.label}</span>
-                          <span className="dev-fixed-values">{row.values.join(" · ")}</span>
+                          <span className="dev-fixed-label">{msg(row.label)}</span>
+                          <span className="dev-fixed-values">{row.values.map(value => fixedValue(row.label, value)).join(" · ")}</span>
                         </div>
                       ))}
                     </div>
@@ -296,8 +322,8 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                   {(level.granted.length > 0 || level.features.length > 0) && (
                     <section className="dev-rewards">
                       <h3 className="dev-rewards-title">
-                        {level.status === "next" ? "Получите автоматически" :
-                          level.status === "sealed" ? "Особенности при создании" : "Получено автоматически"}
+                        {level.status === "next" ? t("Получите автоматически", "Granted automatically") :
+                          level.status === "sealed" ? t("Особенности при создании", "Creation features") : t("Получено автоматически", "Granted automatically")}
                       </h3>
                       <div className="sheet-ability-grid dev-cards">
                         {level.granted.map((ability) => (
@@ -307,7 +333,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                             character={character}
                             onOpen={() => setDetail({
                               option: { id: ability.id, label: ability.name, ability },
-                              source: level.status === "next" ? "Получите автоматически" : "Получено автоматически",
+                              source: level.status === "next" ? t("Получите автоматически", "Granted automatically") : t("Получено автоматически", "Granted automatically"),
                             })}
                           />
                         ))}
@@ -333,8 +359,8 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                         className={`dev-step${complete ? " is-complete" : ""}`}
                       >
                         <div className="dev-step-head">
-                          <h3 className="dev-step-title">{step.title}</h3>
-                          {step.hint && <span className="dev-step-hint">{step.hint}</span>}
+                          <h3 className="dev-step-title">{msg(step.title)}</h3>
+                          {step.hint && <span className="dev-step-hint">{msg(step.hint)}</span>}
                           <span className="dev-step-count mono">
                             {stepProgress(step, selected)}
                           </span>
@@ -348,6 +374,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                                 <AbilityCard
                                   key={option.id}
                                   ability={option.ability}
+                                  canonical
                                   character={character}
                                   selected={isSelected}
                                   onSelect={() => toggle(step, option.id)}
@@ -392,7 +419,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                                         size={14}
                                       />
                                       <span className="dev-perk-group-name">
-                                        {meta?.label ?? "Другие"}
+                                        {locale === "en" && key !== "other" ? perkTypes[key] : meta?.label ?? t("Другие", "Other")}
                                       </span>
                                       <span className="dev-perk-group-count mono">
                                         {options.length}
@@ -412,6 +439,9 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                                             <PerkCard
                                               key={option.id}
                                               name={option.label}
+                                              ruleId={perkById(option.id)?.id}
+                                              originalName={perkById(option.id)?.originalName}
+                                              originalDescription={perkById(option.id)?.originalDescription}
                                               type={option.perkType}
                                               summary={option.summary}
                                               selected={isSelected}
@@ -444,10 +474,10 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
                                   key={option.id}
                                   active={isSelected}
                                   tone={meta ? meta.tone : "accent"}
-                                  title={option.summary ?? option.tag}
+                                  title={msg(option.summary ?? option.tag ?? "")}
                                   onClick={() => toggle(step, option.id)}
                                 >
-                                  {option.label}
+                                  {locale === "en" && step.kind === "skill" ? SKILL_ORIGINALS[option.label]?.originalName || option.label : locale === "en" && step.kind === "characteristic" ? ({ might: "Might", agility: "Agility", reason: "Reason", intuition: "Intuition", presence: "Presence" } as Record<string, string>)[option.id] ?? option.label : option.label}
                                 </Chip>
                               );
                             })}
@@ -467,9 +497,9 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
         <CardDetailModal
           open
           onClose={() => setDetail(undefined)}
-          title={detail.option.label}
-          source={detail.step?.hint ?? detail.source}
-          meta={<Chip tone={kindTone(detail.option.ability.kind)}>{kindLabel(detail.option.ability.kind)}</Chip>}
+          title={locale === "en" ? detail.option.ability.originalName || detail.option.label : detail.option.label}
+          source={msg(detail.step?.hint ?? detail.source ?? "")}
+          meta={<Chip tone={kindTone(detail.option.ability.kind)}>{locale === "en" ? ({ signature: "Signature", heroic: "Heroic", "free-strike": "Free strike", other: "Other" } as const)[detail.option.ability.kind] : kindLabel(detail.option.ability.kind)}</Chip>}
           autoHeight
           footer={detail.step && renderDetailAction(detail.step, detail.option.id)}
         >
@@ -482,7 +512,7 @@ export function DevelopmentPanel({ onDirtyChange }: DevelopmentPanelProps) {
           name={detail.option.label}
           perkId={detail.option.id}
           type={detail.option.perkType}
-          eyebrow={detail.step.hint}
+          eyebrow={msg(detail.step.hint ?? "")}
           summary={detail.option.summary}
           description={detail.option.detail}
           action={renderDetailAction(detail.step, detail.option.id)}

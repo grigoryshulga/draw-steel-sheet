@@ -55,7 +55,44 @@
       ],
       "originalId": "mcdm.heroes.v1/chapter/classes#3rd-level-features",
       "originalName": "3rd-Level Features",
-      "originalDescription": "As a 3rd-level tactician, you gain the following features."
+      "originalDescription": "As a 3rd-level tactician, you gain the following features.",
+      "englishEdition": {
+        "kind": "source",
+        "title": "3rd-Level Features",
+        "blocks": [
+          {
+            "type": "markdown",
+            "text": "As a 3rd-level tactician, you gain the following features."
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-3.out-of-position"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.tactician.level-3.7-focus-ability"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-3.frontal-assault"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-3.hit-em-hard"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-3.rout"
+          },
+          {
+            "type": "entity",
+            "ref": "feature.ability.tactician.level-3.stay-strong-and-focus"
+          }
+        ]
+      },
+      "originalCoverage": {
+        "status": "complete"
+      }
     }
   ],
   "entities": [
@@ -70,7 +107,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-3/out-of-position",
       "originalName": "Out of Position",
-      "originalDescription": "Even before battle begins, your enemies struggle to keep up with your tactics. At the start of an encounter, you can use a free triggered action to use your Mark ability against one enemy you have line of effect to, even if you are surprised. You can then slide the marked target up to 3 squares, ignoring stability. The target can't be moved in a way that would harm them (such as over a cliff), leave them dying, or result in them suffering a condition or other negative effect."
+      "originalDescription": "Even before battle begins, your enemies struggle to keep up with your tactics. At the start of an encounter, you can use a free triggered action to use your Mark ability against one enemy you have line of effect to, even if you are surprised. You can then slide the marked target up to 3 squares, ignoring stability. The target can't be moved in a way that would harm them (such as over a cliff), leave them dying, or result in them suffering a condition or other negative effect.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.tactician.level-3.7-focus-ability",
@@ -83,7 +123,10 @@
       },
       "originalId": "mcdm.heroes.v1/feature.tactician.level-3/7-focus-ability",
       "originalName": "7-Focus Ability",
-      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 focus to use."
+      "originalDescription": "Choose one heroic ability from the following options, each of which costs 7 focus to use.",
+      "originalCoverage": {
+        "status": "complete"
+      }
     },
     {
       "id": "feature.ability.tactician.level-3.frontal-assault",
@@ -134,7 +177,23 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/frontal-assault",
       "originalName": "Frontal Assault",
-      "originalDescription": "*The purpose of a charge is to break their morale and force a retreat.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, the first time on a turn that you or any ally deals damage to a target marked by you, the creature who dealt the damage can push the target up to 2 squares and then shift up to 2 squares. Additionally, any ally using the Charge main action to target a creature marked by you can use a melee strike signature ability or a melee strike heroic ability instead of a melee free strike."
+      "originalDescription": "*The purpose of a charge is to break their morale and force a retreat.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, the first time on a turn that you or any ally deals damage to a target marked by you, the creature who dealt the damage can push the target up to 2 squares and then shift up to 2 squares. Additionally, any ally using the Charge main action to target a creature marked by you can use a melee strike signature ability or a melee strike heroic ability instead of a melee free strike.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The purpose of a charge is to break their morale and force a retreat.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": []
+        },
+        "effect": "Until the end of the encounter or until you are dying, the first time on a turn that you or any ally deals damage to a target marked by you, the creature who dealt the damage can push the target up to 2 squares and then shift up to 2 squares. Additionally, any ally using the Charge main action to target a creature marked by you can use a melee strike signature ability or a melee strike heroic ability instead of a melee free strike."
+      }
     },
     {
       "id": "feature.ability.tactician.level-3.hit-em-hard",
@@ -185,7 +244,23 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/hit-em-hard",
       "originalName": "Hit 'Em Hard!",
-      "originalDescription": "*Your allies see the advantages in attacking the targets you select.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, that creature gains 2 surges, which they can use immediately."
+      "originalDescription": "*Your allies see the advantages in attacking the targets you select.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, that creature gains 2 surges, which they can use immediately.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "Your allies see the advantages in attacking the targets you select.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": []
+        },
+        "effect": "Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, that creature gains 2 surges, which they can use immediately."
+      }
     },
     {
       "id": "feature.ability.tactician.level-3.rout",
@@ -236,7 +311,23 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/rout",
       "originalName": "Rout",
-      "originalDescription": "*The tide begins to turn.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you who has R < AVERAGE, the target is frightened of the creature who dealt the damage (save ends)."
+      "originalDescription": "*The tide begins to turn.*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you who has R < AVERAGE, the target is frightened of the creature who dealt the damage (save ends).",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "The tide begins to turn.",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": []
+        },
+        "effect": "Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you who has R < AVERAGE, the target is frightened of the creature who dealt the damage (save ends)."
+      }
     },
     {
       "id": "feature.ability.tactician.level-3.stay-strong-and-focus",
@@ -287,7 +378,23 @@
       },
       "originalId": "mcdm.heroes.v1/feature.ability.tactician.level-3/stay-strong-and-focus",
       "originalName": "Stay Strong and Focus!",
-      "originalDescription": "*\"We can do this! Keep faith and hold fast!\"*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, the creature who dealt the damage can spend a Recovery."
+      "originalDescription": "*\"We can do this! Keep faith and hold fast!\"*\n\n| **-**       | **Maneuver** |\n|-------------|-------------:|\n| **📏 Self** |  **🎯 Self** |\n\n**Effect:** Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, the creature who dealt the damage can spend a Recovery.",
+      "originalCoverage": {
+        "status": "complete"
+      },
+      "printedAbility": {
+        "blocks": [],
+        "flavor": "\"We can do this! Keep faith and hold fast!\"",
+        "facts": {
+          "action": "Maneuver",
+          "distance": [
+            "Self"
+          ],
+          "target": "Self",
+          "keywords": []
+        },
+        "effect": "Until the end of the encounter or until you are dying, whenever you or any ally deals damage to a target marked by you, the creature who dealt the damage can spend a Recovery."
+      }
     }
   ]
 }

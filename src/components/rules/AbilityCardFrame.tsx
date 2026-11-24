@@ -5,7 +5,7 @@ import '../AbilityCard.css';
 /** Shared shell for calculated hero abilities and source-only monster cards. */
 export function AbilityCardFrame({
   title, titleText, tags, headerAction, actionType, kind, full = false, flat = false,
-  className = '', children, onOpen, ...props
+  className = '', children, onOpen, language = 'ru', ...props
 }: Omit<CardProps, 'title'> & {
   title: ReactNode;
   titleText?: string;
@@ -13,6 +13,7 @@ export function AbilityCardFrame({
   headerAction?: ReactNode;
   actionType: string;
   kind?: string;
+  language?: "ru" | "en";
   full?: boolean;
   flat?: boolean;
 }) {
@@ -21,7 +22,7 @@ export function AbilityCardFrame({
     data-action={actionType} data-kind={kind} onOpen={onOpen} keyboardTarget="title">
     <CardHeader className="sheet-ability-card-head card-band">
       <CardTitle as="h4" title={titleText} onOpen={onOpen}
-        openLabel={`Открыть способность: ${titleText || 'без названия'}`}>
+        openLabel={language === 'en' ? `Open ability: ${titleText || 'untitled'}` : `Открыть способность: ${titleText || 'без названия'}`}>
         {title}
       </CardTitle>
       {tags}
